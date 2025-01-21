@@ -2,196 +2,103 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
+import * as Shared from '../shared';
+import * as FirewallRulesAPI from '../firewall-rules/firewall-rules';
 import * as OperationsAPI from './operations';
-import { OperationRetrieveResponse, Operations } from './operations';
-import * as FirewallRulesAPI from './firewall-rules/firewall-rules';
-import {
-  FirewallRuleCreateParams,
-  FirewallRuleCreateResponse,
-  FirewallRuleDeleteResponse,
-  FirewallRuleListResponse,
-  FirewallRuleUpdateParams,
-  FirewallRuleUpdateResponse,
-  FirewallRules,
-  Firewallrule,
-} from './firewall-rules/firewall-rules';
+import { Operations } from './operations';
 
-export class Vpcs extends APIResource {
+export class VPCs extends APIResource {
   operations: OperationsAPI.Operations = new OperationsAPI.Operations(this._client);
-  firewallRules: FirewallRulesAPI.FirewallRules = new FirewallRulesAPI.FirewallRules(this._client);
 
   /**
    * Create a VPC
    */
-  create(body: VpcCreateParams, options?: Core.RequestOptions): Core.APIPromise<VpcCreateResponse> {
+  create(body: VPCCreateParams, options?: Core.RequestOptions): Core.APIPromise<Shared.Operation> {
     return this._client.post('/vpcs', { body, ...options });
-  }
-
-  /**
-   * Get details about a VPC
-   */
-  retrieve(vpcId: string, options?: Core.RequestOptions): Core.APIPromise<Vpc> {
-    return this._client.get(`/vpcs/${vpcId}`, options);
   }
 
   /**
    * List all VPCs
    */
-  list(query: VpcListParams, options?: Core.RequestOptions): Core.APIPromise<VpcListResponse> {
+  list(query: VPCListParams, options?: Core.RequestOptions): Core.APIPromise<VPCListResponse> {
     return this._client.get('/vpcs', { query, ...options });
   }
 
   /**
    * Delete a VPC
    */
-  delete(vpcId: string, options?: Core.RequestOptions): Core.APIPromise<VpcDeleteResponse> {
+  delete(vpcId: string, options?: Core.RequestOptions): Core.APIPromise<Shared.Operation> {
     return this._client.delete(`/vpcs/${vpcId}`, options);
   }
+
+  /**
+   * Get details about a VPC
+   */
+  get(vpcId: string, options?: Core.RequestOptions): Core.APIPromise<VPC> {
+    return this._client.get(`/vpcs/${vpcId}`, options);
+  }
+}
+
+/**
+ * Subnet details.
+ */
+export interface Subnet {
+  id: string;
+
+  cidr: string;
+
+  created_at: string;
+
+  name: string;
+
+  updated_at: string;
 }
 
 /**
  * VPC details.
  */
-export interface Vpc {
+export interface VPC {
   id: string;
 
   created_at: string;
 
-  firewall_rules: Array<FirewallRulesAPI.Firewallrule>;
+  firewall_rules: Array<FirewallRulesAPI.FirewallRule>;
 
   name: string;
 
-  region:
-    | 'amsterdam'
-    | 'chicago'
-    | 'frankfurt'
-    | 'hongkong'
-    | 'london'
-    | 'mumbai'
-    | 'saopaulo'
-    | 'seattle'
-    | 'siliconvalley'
-    | 'singapore'
-    | 'stockholm'
-    | 'sydney'
-    | 'tokyo'
-    | 'washingtondc'
-    | 'staging';
+  region: Shared.RegionName;
 
-  status: 'PENDING' | 'CREATING' | 'UPDATING' | 'READY' | 'DELETING' | 'DELETED' | 'FAILED';
+  status: Shared.ResourceStatus;
 
   /**
    * Subnet details.
    */
-  subnet: Vpc.Subnet;
+  subnet: Subnet;
 
   updated_at: string;
 }
 
-export namespace Vpc {
-  /**
-   * Subnet details.
-   */
-  export interface Subnet {
-    id: string;
-
-    cidr: string;
-
-    created_at: string;
-
-    name: string;
-
-    updated_at: string;
-  }
+export interface VPCListResponse {
+  items: Array<VPC>;
 }
 
-/**
- * Operation details.
- */
-export interface VpcCreateResponse {
-  id: string;
-
-  kind: 'VM' | 'VPC' | 'FIREWALL_RULE';
-
-  resource_id: string;
-
-  status: 'PENDING' | 'RUNNING' | 'DONE' | 'FAILED';
-
-  type: 'CREATE' | 'UPDATE' | 'DELETE';
-}
-
-export interface VpcListResponse {
-  items: Array<Vpc>;
-}
-
-/**
- * Operation details.
- */
-export interface VpcDeleteResponse {
-  id: string;
-
-  kind: 'VM' | 'VPC' | 'FIREWALL_RULE';
-
-  resource_id: string;
-
-  status: 'PENDING' | 'RUNNING' | 'DONE' | 'FAILED';
-
-  type: 'CREATE' | 'UPDATE' | 'DELETE';
-}
-
-export interface VpcCreateParams {
+export interface VPCCreateParams {
   name: string;
 
-  region:
-    | 'amsterdam'
-    | 'chicago'
-    | 'frankfurt'
-    | 'hongkong'
-    | 'london'
-    | 'mumbai'
-    | 'saopaulo'
-    | 'seattle'
-    | 'siliconvalley'
-    | 'singapore'
-    | 'stockholm'
-    | 'sydney'
-    | 'tokyo'
-    | 'washingtondc'
-    | 'staging';
+  region: Shared.RegionName;
 
   subnet_name: string;
 }
 
-export interface VpcListParams {
+export interface VPCListParams {
   /**
    * Region
    */
   region: string;
 }
 
-Vpcs.Operations = Operations;
-Vpcs.FirewallRules = FirewallRules;
+VPCs.Operations = Operations;
 
-export declare namespace Vpcs {
-  export {
-    type Vpc as Vpc,
-    type VpcCreateResponse as VpcCreateResponse,
-    type VpcListResponse as VpcListResponse,
-    type VpcDeleteResponse as VpcDeleteResponse,
-    type VpcCreateParams as VpcCreateParams,
-    type VpcListParams as VpcListParams,
-  };
-
-  export { Operations as Operations, type OperationRetrieveResponse as OperationRetrieveResponse };
-
-  export {
-    FirewallRules as FirewallRules,
-    type Firewallrule as Firewallrule,
-    type FirewallRuleCreateResponse as FirewallRuleCreateResponse,
-    type FirewallRuleUpdateResponse as FirewallRuleUpdateResponse,
-    type FirewallRuleListResponse as FirewallRuleListResponse,
-    type FirewallRuleDeleteResponse as FirewallRuleDeleteResponse,
-    type FirewallRuleCreateParams as FirewallRuleCreateParams,
-    type FirewallRuleUpdateParams as FirewallRuleUpdateParams,
-  };
+export declare namespace VPCs {
+  export { Operations as Operations };
 }

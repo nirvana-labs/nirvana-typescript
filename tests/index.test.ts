@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Nirvana from 'nirvana';
+import NirvanaLabs from 'nirvana';
 import { APIUserAbortError } from 'nirvana';
 import { Headers } from 'nirvana/core';
 import defaultFetch, { Response, type RequestInit, type RequestInfo } from 'node-fetch';
@@ -20,10 +20,10 @@ describe('instantiate client', () => {
   });
 
   describe('defaultHeaders', () => {
-    const client = new Nirvana({
+    const client = new NirvanaLabs({
       baseURL: 'http://localhost:5000/',
       defaultHeaders: { 'X-My-Default-Header': '2' },
-      bearerToken: 'My Bearer Token',
+      authToken: 'My Auth Token',
     });
 
     test('they are used in the request', () => {
@@ -52,37 +52,37 @@ describe('instantiate client', () => {
 
   describe('defaultQuery', () => {
     test('with null query params given', () => {
-      const client = new Nirvana({
+      const client = new NirvanaLabs({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { apiVersion: 'foo' },
-        bearerToken: 'My Bearer Token',
+        authToken: 'My Auth Token',
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/foo?apiVersion=foo');
     });
 
     test('multiple default query params', () => {
-      const client = new Nirvana({
+      const client = new NirvanaLabs({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { apiVersion: 'foo', hello: 'world' },
-        bearerToken: 'My Bearer Token',
+        authToken: 'My Auth Token',
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/foo?apiVersion=foo&hello=world');
     });
 
     test('overriding with `undefined`', () => {
-      const client = new Nirvana({
+      const client = new NirvanaLabs({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { hello: 'world' },
-        bearerToken: 'My Bearer Token',
+        authToken: 'My Auth Token',
       });
       expect(client.buildURL('/foo', { hello: undefined })).toEqual('http://localhost:5000/foo');
     });
   });
 
   test('custom fetch', async () => {
-    const client = new Nirvana({
+    const client = new NirvanaLabs({
       baseURL: 'http://localhost:5000/',
-      bearerToken: 'My Bearer Token',
+      authToken: 'My Auth Token',
       fetch: (url) => {
         return Promise.resolve(
           new Response(JSON.stringify({ url, custom: true }), {
@@ -97,9 +97,9 @@ describe('instantiate client', () => {
   });
 
   test('custom signal', async () => {
-    const client = new Nirvana({
+    const client = new NirvanaLabs({
       baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
-      bearerToken: 'My Bearer Token',
+      authToken: 'My Auth Token',
       fetch: (...args) => {
         return new Promise((resolve, reject) =>
           setTimeout(
@@ -129,9 +129,9 @@ describe('instantiate client', () => {
       return new Response(JSON.stringify({}), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Nirvana({
+    const client = new NirvanaLabs({
       baseURL: 'http://localhost:5000/',
-      bearerToken: 'My Bearer Token',
+      authToken: 'My Auth Token',
       fetch: testFetch,
     });
 
@@ -141,75 +141,75 @@ describe('instantiate client', () => {
 
   describe('baseUrl', () => {
     test('trailing slash', () => {
-      const client = new Nirvana({
+      const client = new NirvanaLabs({
         baseURL: 'http://localhost:5000/custom/path/',
-        bearerToken: 'My Bearer Token',
+        authToken: 'My Auth Token',
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/custom/path/foo');
     });
 
     test('no trailing slash', () => {
-      const client = new Nirvana({
+      const client = new NirvanaLabs({
         baseURL: 'http://localhost:5000/custom/path',
-        bearerToken: 'My Bearer Token',
+        authToken: 'My Auth Token',
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/custom/path/foo');
     });
 
     afterEach(() => {
-      process.env['NIRVANA_BASE_URL'] = undefined;
+      process.env['NIRVANA_LABS_BASE_URL'] = undefined;
     });
 
     test('explicit option', () => {
-      const client = new Nirvana({ baseURL: 'https://example.com', bearerToken: 'My Bearer Token' });
+      const client = new NirvanaLabs({ baseURL: 'https://example.com', authToken: 'My Auth Token' });
       expect(client.baseURL).toEqual('https://example.com');
     });
 
     test('env variable', () => {
-      process.env['NIRVANA_BASE_URL'] = 'https://example.com/from_env';
-      const client = new Nirvana({ bearerToken: 'My Bearer Token' });
+      process.env['NIRVANA_LABS_BASE_URL'] = 'https://example.com/from_env';
+      const client = new NirvanaLabs({ authToken: 'My Auth Token' });
       expect(client.baseURL).toEqual('https://example.com/from_env');
     });
 
     test('empty env variable', () => {
-      process.env['NIRVANA_BASE_URL'] = ''; // empty
-      const client = new Nirvana({ bearerToken: 'My Bearer Token' });
-      expect(client.baseURL).toEqual('api.nirvanalabs.io');
+      process.env['NIRVANA_LABS_BASE_URL'] = ''; // empty
+      const client = new NirvanaLabs({ authToken: 'My Auth Token' });
+      expect(client.baseURL).toEqual('https://api.nirvanalabs.io/');
     });
 
     test('blank env variable', () => {
-      process.env['NIRVANA_BASE_URL'] = '  '; // blank
-      const client = new Nirvana({ bearerToken: 'My Bearer Token' });
-      expect(client.baseURL).toEqual('api.nirvanalabs.io');
+      process.env['NIRVANA_LABS_BASE_URL'] = '  '; // blank
+      const client = new NirvanaLabs({ authToken: 'My Auth Token' });
+      expect(client.baseURL).toEqual('https://api.nirvanalabs.io/');
     });
   });
 
   test('maxRetries option is correctly set', () => {
-    const client = new Nirvana({ maxRetries: 4, bearerToken: 'My Bearer Token' });
+    const client = new NirvanaLabs({ maxRetries: 4, authToken: 'My Auth Token' });
     expect(client.maxRetries).toEqual(4);
 
     // default
-    const client2 = new Nirvana({ bearerToken: 'My Bearer Token' });
+    const client2 = new NirvanaLabs({ authToken: 'My Auth Token' });
     expect(client2.maxRetries).toEqual(2);
   });
 
   test('with environment variable arguments', () => {
     // set options via env var
-    process.env['BEARER_TOKEN'] = 'My Bearer Token';
-    const client = new Nirvana();
-    expect(client.bearerToken).toBe('My Bearer Token');
+    process.env['NIRVANA_LABS_AUTH_TOKEN'] = 'My Auth Token';
+    const client = new NirvanaLabs();
+    expect(client.authToken).toBe('My Auth Token');
   });
 
   test('with overridden environment variable arguments', () => {
     // set options via env var
-    process.env['BEARER_TOKEN'] = 'another My Bearer Token';
-    const client = new Nirvana({ bearerToken: 'My Bearer Token' });
-    expect(client.bearerToken).toBe('My Bearer Token');
+    process.env['NIRVANA_LABS_AUTH_TOKEN'] = 'another My Auth Token';
+    const client = new NirvanaLabs({ authToken: 'My Auth Token' });
+    expect(client.authToken).toBe('My Auth Token');
   });
 });
 
 describe('request building', () => {
-  const client = new Nirvana({ bearerToken: 'My Bearer Token' });
+  const client = new NirvanaLabs({ authToken: 'My Auth Token' });
 
   describe('Content-Length', () => {
     test('handles multi-byte characters', () => {
@@ -251,7 +251,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Nirvana({ bearerToken: 'My Bearer Token', timeout: 10, fetch: testFetch });
+    const client = new NirvanaLabs({ authToken: 'My Auth Token', timeout: 10, fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
@@ -281,7 +281,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Nirvana({ bearerToken: 'My Bearer Token', fetch: testFetch, maxRetries: 4 });
+    const client = new NirvanaLabs({ authToken: 'My Auth Token', fetch: testFetch, maxRetries: 4 });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
 
@@ -305,7 +305,7 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new Nirvana({ bearerToken: 'My Bearer Token', fetch: testFetch, maxRetries: 4 });
+    const client = new NirvanaLabs({ authToken: 'My Auth Token', fetch: testFetch, maxRetries: 4 });
 
     expect(
       await client.request({
@@ -334,8 +334,8 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new Nirvana({
-      bearerToken: 'My Bearer Token',
+    const client = new NirvanaLabs({
+      authToken: 'My Auth Token',
       fetch: testFetch,
       maxRetries: 4,
       defaultHeaders: { 'X-Stainless-Retry-Count': null },
@@ -367,7 +367,7 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new Nirvana({ bearerToken: 'My Bearer Token', fetch: testFetch, maxRetries: 4 });
+    const client = new NirvanaLabs({ authToken: 'My Auth Token', fetch: testFetch, maxRetries: 4 });
 
     expect(
       await client.request({
@@ -394,7 +394,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Nirvana({ bearerToken: 'My Bearer Token', fetch: testFetch });
+    const client = new NirvanaLabs({ authToken: 'My Auth Token', fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
@@ -421,7 +421,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Nirvana({ bearerToken: 'My Bearer Token', fetch: testFetch });
+    const client = new NirvanaLabs({ authToken: 'My Auth Token', fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);

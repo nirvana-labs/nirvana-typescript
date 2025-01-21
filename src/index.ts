@@ -5,37 +5,21 @@ import * as Core from './core';
 import * as Errors from './error';
 import * as Uploads from './uploads';
 import * as API from './resources/index';
-import {
-  Vm,
-  VmCreateParams,
-  VmCreateResponse,
-  VmDeleteResponse,
-  VmListParams,
-  VmListResponse,
-  VmUpdateParams,
-  VmUpdateResponse,
-  Vms,
-} from './resources/vms/vms';
-import {
-  Vpc,
-  VpcCreateParams,
-  VpcCreateResponse,
-  VpcDeleteResponse,
-  VpcListParams,
-  VpcListResponse,
-  Vpcs,
-} from './resources/vpcs/vpcs';
+import { Volumes } from './resources/volumes';
+import { FirewallRules } from './resources/firewall-rules/firewall-rules';
+import { VMs } from './resources/vms/vms';
+import { VPCs } from './resources/vpcs/vpcs';
 
 export interface ClientOptions {
   /**
-   * The bearer token used for authentication
+   * Defaults to process.env['NIRVANA_LABS_AUTH_TOKEN'].
    */
-  bearerToken?: string | undefined;
+  authToken?: string | undefined;
 
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
    *
-   * Defaults to process.env['NIRVANA_BASE_URL'].
+   * Defaults to process.env['NIRVANA_LABS_BASE_URL'].
    */
   baseURL?: string | null | undefined;
 
@@ -90,18 +74,18 @@ export interface ClientOptions {
 }
 
 /**
- * API Client for interfacing with the Nirvana API.
+ * API Client for interfacing with the Nirvana Labs API.
  */
-export class Nirvana extends Core.APIClient {
-  bearerToken: string;
+export class NirvanaLabs extends Core.APIClient {
+  authToken: string;
 
   private _options: ClientOptions;
 
   /**
-   * API Client for interfacing with the Nirvana API.
+   * API Client for interfacing with the Nirvana Labs API.
    *
-   * @param {string | undefined} [opts.bearerToken=process.env['BEARER_TOKEN'] ?? undefined]
-   * @param {string} [opts.baseURL=process.env['NIRVANA_BASE_URL'] ?? api.nirvanalabs.io] - Override the default base URL for the API.
+   * @param {string | undefined} [opts.authToken=process.env['NIRVANA_LABS_AUTH_TOKEN'] ?? undefined]
+   * @param {string} [opts.baseURL=process.env['NIRVANA_LABS_BASE_URL'] ?? https://api.nirvanalabs.io/] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
    * @param {Core.Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -110,20 +94,20 @@ export class Nirvana extends Core.APIClient {
    * @param {Core.DefaultQuery} opts.defaultQuery - Default query parameters to include with every request to the API.
    */
   constructor({
-    baseURL = Core.readEnv('NIRVANA_BASE_URL'),
-    bearerToken = Core.readEnv('BEARER_TOKEN'),
+    baseURL = Core.readEnv('NIRVANA_LABS_BASE_URL'),
+    authToken = Core.readEnv('NIRVANA_LABS_AUTH_TOKEN'),
     ...opts
   }: ClientOptions = {}) {
-    if (bearerToken === undefined) {
-      throw new Errors.NirvanaError(
-        "The BEARER_TOKEN environment variable is missing or empty; either provide it, or instantiate the Nirvana client with an bearerToken option, like new Nirvana({ bearerToken: 'My Bearer Token' }).",
+    if (authToken === undefined) {
+      throw new Errors.NirvanaLabsError(
+        "The NIRVANA_LABS_AUTH_TOKEN environment variable is missing or empty; either provide it, or instantiate the NirvanaLabs client with an authToken option, like new NirvanaLabs({ authToken: 'My Auth Token' }).",
       );
     }
 
     const options: ClientOptions = {
-      bearerToken,
+      authToken,
       ...opts,
-      baseURL: baseURL || `api.nirvanalabs.io`,
+      baseURL: baseURL || `https://api.nirvanalabs.io/`,
     };
 
     super({
@@ -136,11 +120,13 @@ export class Nirvana extends Core.APIClient {
 
     this._options = options;
 
-    this.bearerToken = bearerToken;
+    this.authToken = authToken;
   }
 
-  vms: API.Vms = new API.Vms(this);
-  vpcs: API.Vpcs = new API.Vpcs(this);
+  vms: API.VMs = new API.VMs(this);
+  vpcs: API.VPCs = new API.VPCs(this);
+  firewallRules: API.FirewallRules = new API.FirewallRules(this);
+  volumes: API.Volumes = new API.Volumes(this);
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
@@ -154,13 +140,13 @@ export class Nirvana extends Core.APIClient {
   }
 
   protected override authHeaders(opts: Core.FinalRequestOptions): Core.Headers {
-    return { Authorization: `Bearer ${this.bearerToken}` };
+    return { Authorization: `Bearer ${this.authToken}` };
   }
 
-  static Nirvana = this;
+  static NirvanaLabs = this;
   static DEFAULT_TIMEOUT = 60000; // 1 minute
 
-  static NirvanaError = Errors.NirvanaError;
+  static NirvanaLabsError = Errors.NirvanaLabsError;
   static APIError = Errors.APIError;
   static APIConnectionError = Errors.APIConnectionError;
   static APIConnectionTimeoutError = Errors.APIConnectionTimeoutError;
@@ -178,37 +164,32 @@ export class Nirvana extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-Nirvana.Vms = Vms;
-Nirvana.Vpcs = Vpcs;
-export declare namespace Nirvana {
+NirvanaLabs.VMs = VMs;
+NirvanaLabs.VPCs = VPCs;
+NirvanaLabs.FirewallRules = FirewallRules;
+NirvanaLabs.Volumes = Volumes;
+export declare namespace NirvanaLabs {
   export type RequestOptions = Core.RequestOptions;
 
-  export {
-    Vms as Vms,
-    type Vm as Vm,
-    type VmCreateResponse as VmCreateResponse,
-    type VmUpdateResponse as VmUpdateResponse,
-    type VmListResponse as VmListResponse,
-    type VmDeleteResponse as VmDeleteResponse,
-    type VmCreateParams as VmCreateParams,
-    type VmUpdateParams as VmUpdateParams,
-    type VmListParams as VmListParams,
-  };
+  export { VMs as VMs };
 
-  export {
-    Vpcs as Vpcs,
-    type Vpc as Vpc,
-    type VpcCreateResponse as VpcCreateResponse,
-    type VpcListResponse as VpcListResponse,
-    type VpcDeleteResponse as VpcDeleteResponse,
-    type VpcCreateParams as VpcCreateParams,
-    type VpcListParams as VpcListParams,
-  };
+  export { VPCs as VPCs };
+
+  export { FirewallRules as FirewallRules };
+
+  export { Volumes as Volumes };
+
+  export type Operation = API.Operation;
+  export type OperationKind = API.OperationKind;
+  export type OperationStatus = API.OperationStatus;
+  export type OperationType = API.OperationType;
+  export type RegionName = API.RegionName;
+  export type ResourceStatus = API.ResourceStatus;
 }
 
 export { toFile, fileFromPath } from './uploads';
 export {
-  NirvanaError,
+  NirvanaLabsError,
   APIError,
   APIConnectionError,
   APIConnectionTimeoutError,
@@ -223,4 +204,4 @@ export {
   UnprocessableEntityError,
 } from './error';
 
-export default Nirvana;
+export default NirvanaLabs;

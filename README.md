@@ -1,12 +1,10 @@
-# Nirvana Node API Library
+# Nirvana Labs Node API Library
 
 [![NPM version](https://img.shields.io/npm/v/nirvana.svg)](https://npmjs.org/package/nirvana) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/nirvana)
 
-This library provides convenient access to the Nirvana REST API from server-side TypeScript or JavaScript.
+This library provides convenient access to the Nirvana Labs REST API from server-side TypeScript or JavaScript.
 
-The REST API documentation can be found on [nirvanalabs.io](https://nirvanalabs.io/support). The full API of this library can be found in [api.md](api.md).
-
-It is generated with [Stainless](https://www.stainlessapi.com/).
+The REST API documentation can be found on [docs.nirvanalabs.io](https://docs.nirvanalabs.io/). The full API of this library can be found in [api.md](api.md).
 
 ## Installation
 
@@ -23,12 +21,14 @@ The full API of this library can be found in [api.md](api.md).
 
 <!-- prettier-ignore -->
 ```js
-import Nirvana from 'nirvana';
+import NirvanaLabs from 'nirvana';
 
-const client = new Nirvana();
+const client = new NirvanaLabs({
+  authToken: process.env['NIRVANA_LABS_AUTH_TOKEN'], // This is the default and can be omitted
+});
 
 async function main() {
-  const vm = await client.vms.create({
+  const operation = await client.vms.create({
     cpu: { cores: 2 },
     name: 'my-vm',
     need_public_ip: true,
@@ -41,7 +41,7 @@ async function main() {
     storage: [{ size: 100, type: 'nvme', unit: 'GB' }],
   });
 
-  console.log(vm.id);
+  console.log(operation.id);
 }
 
 main();
@@ -53,12 +53,14 @@ This library includes TypeScript definitions for all request params and response
 
 <!-- prettier-ignore -->
 ```ts
-import Nirvana from 'nirvana';
+import NirvanaLabs from 'nirvana';
 
-const client = new Nirvana();
+const client = new NirvanaLabs({
+  authToken: process.env['NIRVANA_LABS_AUTH_TOKEN'], // This is the default and can be omitted
+});
 
 async function main() {
-  const params: Nirvana.VmCreateParams = {
+  const params: NirvanaLabs.VMCreateParams = {
     cpu: { cores: 2 },
     name: 'my-vm',
     need_public_ip: true,
@@ -70,7 +72,7 @@ async function main() {
     ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
     storage: [{ size: 100, type: 'nvme', unit: 'GB' }],
   };
-  const vm: Nirvana.VmCreateResponse = await client.vms.create(params);
+  const operation: NirvanaLabs.Operation = await client.vms.create(params);
 }
 
 main();
@@ -87,7 +89,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const vm = await client.vms
+  const operation = await client.vms
     .create({
       cpu: { cores: 2 },
       name: 'my-vm',
@@ -101,7 +103,7 @@ async function main() {
       storage: [{ size: 100, type: 'nvme', unit: 'GB' }],
     })
     .catch(async (err) => {
-      if (err instanceof Nirvana.APIError) {
+      if (err instanceof NirvanaLabs.APIError) {
         console.log(err.status); // 400
         console.log(err.name); // BadRequestError
         console.log(err.headers); // {server: 'nginx', ...}
@@ -138,7 +140,7 @@ You can use the `maxRetries` option to configure or disable this:
 <!-- prettier-ignore -->
 ```js
 // Configure the default for all requests:
-const client = new Nirvana({
+const client = new NirvanaLabs({
   maxRetries: 0, // default is 2
 });
 
@@ -155,7 +157,7 @@ Requests time out after 1 minute by default. You can configure this with a `time
 <!-- prettier-ignore -->
 ```ts
 // Configure the default for all requests:
-const client = new Nirvana({
+const client = new NirvanaLabs({
   timeout: 20 * 1000, // 20 seconds (default is 1 minute)
 });
 
@@ -179,7 +181,7 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 
 <!-- prettier-ignore -->
 ```ts
-const client = new Nirvana();
+const client = new NirvanaLabs();
 
 const response = await client.vms
   .create({
@@ -198,7 +200,7 @@ const response = await client.vms
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: vm, response: raw } = await client.vms
+const { data: operation, response: raw } = await client.vms
   .create({
     cpu: { cores: 2 },
     name: 'my-vm',
@@ -213,7 +215,7 @@ const { data: vm, response: raw } = await client.vms
   })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(vm.id);
+console.log(operation.id);
 ```
 
 ### Making custom/undocumented requests
@@ -266,13 +268,13 @@ By default, this library uses `node-fetch` in Node, and expects a global `fetch`
 
 If you would prefer to use a global, web-standards-compliant `fetch` function even in a Node environment,
 (for example, if you are running Node with `--experimental-fetch` or using NextJS which polyfills with `undici`),
-add the following import before your first import `from "Nirvana"`:
+add the following import before your first import `from "NirvanaLabs"`:
 
 ```ts
 // Tell TypeScript and the package to use the global web fetch instead of node-fetch.
 // Note, despite the name, this does not add any polyfills, but expects them to be provided if needed.
 import 'nirvana/shims/web';
-import Nirvana from 'nirvana';
+import NirvanaLabs from 'nirvana';
 ```
 
 To do the inverse, add `import "nirvana/shims/node"` (which does import polyfills).
@@ -285,9 +287,9 @@ which can be used to inspect or alter the `Request` or `Response` before/after e
 
 ```ts
 import { fetch } from 'undici'; // as one example
-import Nirvana from 'nirvana';
+import NirvanaLabs from 'nirvana';
 
-const client = new Nirvana({
+const client = new NirvanaLabs({
   fetch: async (url: RequestInfo, init?: RequestInit): Promise<Response> => {
     console.log('About to make a request', url, init);
     const response = await fetch(url, init);
@@ -312,7 +314,7 @@ import http from 'http';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 
 // Configure the default for all requests:
-const client = new Nirvana({
+const client = new NirvanaLabs({
   httpAgent: new HttpsProxyAgent(process.env.PROXY_URL),
 });
 
