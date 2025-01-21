@@ -1,16 +1,16 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Nirvana from 'nirvana';
+import NirvanaLabs from 'nirvana';
 import { Response } from 'node-fetch';
 
-const client = new Nirvana({
-  bearerToken: 'My Bearer Token',
+const client = new NirvanaLabs({
+  authToken: 'My Auth Token',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource operations', () => {
-  test('retrieve', async () => {
-    const responsePromise = client.vpcs.firewallRules.operations.retrieve('vpc_id', 'operation_id');
+  test('operations', async () => {
+    const responsePromise = client.firewallRules.operations.operations('vpc_id', 'operation_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -20,12 +20,12 @@ describe('resource operations', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('retrieve: request options instead of params are passed correctly', async () => {
+  test('operations: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.vpcs.firewallRules.operations.retrieve('vpc_id', 'operation_id', {
+      client.firewallRules.operations.operations('vpc_id', 'operation_id', {
         path: '/_stainless_unknown_path',
       }),
-    ).rejects.toThrow(Nirvana.NotFoundError);
+    ).rejects.toThrow(NirvanaLabs.NotFoundError);
   });
 });

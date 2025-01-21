@@ -1,22 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export {
-  Vms,
-  type Vm,
-  type VmCreateResponse,
-  type VmUpdateResponse,
-  type VmListResponse,
-  type VmDeleteResponse,
-  type VmCreateParams,
-  type VmUpdateParams,
-  type VmListParams,
-} from './vms/vms';
-export {
-  Vpcs,
-  type Vpc,
-  type VpcCreateResponse,
-  type VpcListResponse,
-  type VpcDeleteResponse,
-  type VpcCreateParams,
-  type VpcListParams,
-} from './vpcs/vpcs';
+export * from './shared';
+export { FirewallRules } from './firewall-rules/firewall-rules';
+export { VMs } from './vms/vms';
+export { VPCs } from './vpcs/vpcs';
+export { Volumes } from './volumes';

@@ -1,11 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import type { Nirvana } from './index';
+import type { NirvanaLabs } from './index';
 
 export class APIResource {
-  protected _client: Nirvana;
+  protected _client: NirvanaLabs;
 
-  constructor(client: Nirvana) {
+  constructor(client: NirvanaLabs) {
     this._client = client;
   }
 }

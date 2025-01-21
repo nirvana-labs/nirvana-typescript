@@ -2,25 +2,19 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
+import * as Shared from '../shared';
 import * as OperationsAPI from './operations';
-import { OperationRetrieveResponse, Operations } from './operations';
-import * as VpcsAPI from '../vpcs/vpcs';
+import { Operations } from './operations';
+import * as VPCsAPI from '../vpcs/vpcs';
 
-export class Vms extends APIResource {
+export class VMs extends APIResource {
   operations: OperationsAPI.Operations = new OperationsAPI.Operations(this._client);
 
   /**
    * Create a VM
    */
-  create(body: VmCreateParams, options?: Core.RequestOptions): Core.APIPromise<VmCreateResponse> {
+  create(body: VMCreateParams, options?: Core.RequestOptions): Core.APIPromise<Shared.Operation> {
     return this._client.post('/vms', { body, ...options });
-  }
-
-  /**
-   * Get details about a VM
-   */
-  retrieve(vmId: string, options?: Core.RequestOptions): Core.APIPromise<Vm> {
-    return this._client.get(`/vms/${vmId}`, options);
   }
 
   /**
@@ -28,181 +22,148 @@ export class Vms extends APIResource {
    */
   update(
     vmId: string,
-    body: VmUpdateParams,
+    body: VMUpdateParams,
     options?: Core.RequestOptions,
-  ): Core.APIPromise<VmUpdateResponse> {
+  ): Core.APIPromise<Shared.Operation> {
     return this._client.patch(`/vms/${vmId}`, { body, ...options });
   }
 
   /**
    * List all VMs
    */
-  list(query: VmListParams, options?: Core.RequestOptions): Core.APIPromise<VmListResponse> {
+  list(query: VMListParams, options?: Core.RequestOptions): Core.APIPromise<VMListResponse> {
     return this._client.get('/vms', { query, ...options });
   }
 
   /**
    * Delete a VM
    */
-  delete(vmId: string, options?: Core.RequestOptions): Core.APIPromise<VmDeleteResponse> {
+  delete(vmId: string, options?: Core.RequestOptions): Core.APIPromise<Shared.Operation> {
     return this._client.delete(`/vms/${vmId}`, options);
+  }
+
+  /**
+   * Get details about a VM
+   */
+  get(vmId: string, options?: Core.RequestOptions): Core.APIPromise<VM> {
+    return this._client.get(`/vms/${vmId}`, options);
   }
 }
 
 /**
+ * CPU details.
+ */
+export interface CPU {
+  cores: number;
+}
+
+/**
+ * RAM details.
+ */
+export interface Ram {
+  /**
+   * RAM size
+   */
+  size: number;
+
+  /**
+   * Unit (GB, MB, etc.)
+   */
+  unit: RamUnit;
+}
+
+/**
+ * Unit (GB, MB, etc.)
+ */
+export type RamUnit = 'GB';
+
+/**
+ * SSH key details.
+ */
+export interface SSHKey {
+  public_key: string;
+}
+
+/**
+ * Storage details.
+ */
+export interface Storage {
+  /**
+   * Storage size
+   */
+  size: number;
+
+  /**
+   * Storage type.
+   */
+  type: StorageType;
+
+  /**
+   * Storage unit.
+   */
+  unit: StorageUnit;
+
+  /**
+   * Disk name, used later
+   */
+  disk_name?: string;
+}
+
+/**
+ * Storage type.
+ */
+export type StorageType = 'nvme';
+
+/**
+ * Storage unit.
+ */
+export type StorageUnit = 'GB';
+
+/**
  * VM details.
  */
-export interface Vm {
+export interface VM {
   id: string;
 
   /**
    * CPU details.
    */
-  cpu_config: Vm.CPUConfig;
+  cpu_config: CPU;
 
   created_at: string;
 
   /**
    * RAM details.
    */
-  mem_config: Vm.MemConfig;
+  mem_config: Ram;
 
   name: string;
 
   public_ip: string;
 
-  region:
-    | 'amsterdam'
-    | 'chicago'
-    | 'frankfurt'
-    | 'hongkong'
-    | 'london'
-    | 'mumbai'
-    | 'saopaulo'
-    | 'seattle'
-    | 'siliconvalley'
-    | 'singapore'
-    | 'stockholm'
-    | 'sydney'
-    | 'tokyo'
-    | 'washingtondc'
-    | 'staging';
+  region: Shared.RegionName;
 
-  status: 'PENDING' | 'CREATING' | 'UPDATING' | 'READY' | 'DELETING' | 'DELETED' | 'FAILED';
+  status: Shared.ResourceStatus;
 
-  storage_config: Array<Vm.StorageConfig>;
+  storage_config: Array<Storage>;
 
   updated_at: string;
 
   /**
    * VPC details.
    */
-  vpc: VpcsAPI.Vpc;
+  vpc: VPCsAPI.VPC;
 }
 
-export namespace Vm {
+export interface VMListResponse {
+  items: Array<VM>;
+}
+
+export interface VMCreateParams {
   /**
    * CPU details.
    */
-  export interface CPUConfig {
-    cores: number;
-  }
-
-  /**
-   * RAM details.
-   */
-  export interface MemConfig {
-    /**
-     * RAM size
-     */
-    size: number;
-
-    /**
-     * Unit (GB, MB, etc.)
-     */
-    unit: 'GB';
-  }
-
-  /**
-   * Storage details.
-   */
-  export interface StorageConfig {
-    /**
-     * Storage size
-     */
-    size: number;
-
-    /**
-     * Storage type.
-     */
-    type: 'nvme';
-
-    /**
-     * Storage unit.
-     */
-    unit: 'GB';
-
-    /**
-     * Disk name, used later
-     */
-    disk_name?: string;
-  }
-}
-
-/**
- * Operation details.
- */
-export interface VmCreateResponse {
-  id: string;
-
-  kind: 'VM' | 'VPC' | 'FIREWALL_RULE';
-
-  resource_id: string;
-
-  status: 'PENDING' | 'RUNNING' | 'DONE' | 'FAILED';
-
-  type: 'CREATE' | 'UPDATE' | 'DELETE';
-}
-
-/**
- * Operation details.
- */
-export interface VmUpdateResponse {
-  id: string;
-
-  kind: 'VM' | 'VPC' | 'FIREWALL_RULE';
-
-  resource_id: string;
-
-  status: 'PENDING' | 'RUNNING' | 'DONE' | 'FAILED';
-
-  type: 'CREATE' | 'UPDATE' | 'DELETE';
-}
-
-export interface VmListResponse {
-  items: Array<Vm>;
-}
-
-/**
- * Operation details.
- */
-export interface VmDeleteResponse {
-  id: string;
-
-  kind: 'VM' | 'VPC' | 'FIREWALL_RULE';
-
-  resource_id: string;
-
-  status: 'PENDING' | 'RUNNING' | 'DONE' | 'FAILED';
-
-  type: 'CREATE' | 'UPDATE' | 'DELETE';
-}
-
-export interface VmCreateParams {
-  /**
-   * CPU details.
-   */
-  cpu: VmCreateParams.CPU;
+  cpu: CPU;
 
   name: string;
 
@@ -215,176 +176,45 @@ export interface VmCreateParams {
   /**
    * RAM details.
    */
-  ram: VmCreateParams.Ram;
+  ram: Ram;
 
-  region:
-    | 'amsterdam'
-    | 'chicago'
-    | 'frankfurt'
-    | 'hongkong'
-    | 'london'
-    | 'mumbai'
-    | 'saopaulo'
-    | 'seattle'
-    | 'siliconvalley'
-    | 'singapore'
-    | 'stockholm'
-    | 'sydney'
-    | 'tokyo'
-    | 'washingtondc'
-    | 'staging';
+  region: Shared.RegionName;
 
   source_address: string;
 
   /**
    * SSH key details.
    */
-  ssh_key: VmCreateParams.SSHKey;
+  ssh_key: SSHKey;
 
-  storage: Array<VmCreateParams.Storage>;
+  storage: Array<Storage>;
 
   subnet_id?: string;
 }
 
-export namespace VmCreateParams {
+export interface VMUpdateParams {
   /**
    * CPU details.
    */
-  export interface CPU {
-    cores: number;
-  }
+  cpu?: CPU;
 
   /**
    * RAM details.
    */
-  export interface Ram {
-    /**
-     * RAM size
-     */
-    size: number;
+  ram?: Ram;
 
-    /**
-     * Unit (GB, MB, etc.)
-     */
-    unit: 'GB';
-  }
-
-  /**
-   * SSH key details.
-   */
-  export interface SSHKey {
-    public_key: string;
-  }
-
-  /**
-   * Storage details.
-   */
-  export interface Storage {
-    /**
-     * Storage size
-     */
-    size: number;
-
-    /**
-     * Storage type.
-     */
-    type: 'nvme';
-
-    /**
-     * Storage unit.
-     */
-    unit: 'GB';
-
-    /**
-     * Disk name, used later
-     */
-    disk_name?: string;
-  }
+  storage?: Array<Storage>;
 }
 
-export interface VmUpdateParams {
-  /**
-   * CPU details.
-   */
-  cpu?: VmUpdateParams.CPU;
-
-  /**
-   * RAM details.
-   */
-  ram?: VmUpdateParams.Ram;
-
-  storage?: Array<VmUpdateParams.Storage>;
-}
-
-export namespace VmUpdateParams {
-  /**
-   * CPU details.
-   */
-  export interface CPU {
-    cores: number;
-  }
-
-  /**
-   * RAM details.
-   */
-  export interface Ram {
-    /**
-     * RAM size
-     */
-    size: number;
-
-    /**
-     * Unit (GB, MB, etc.)
-     */
-    unit: 'GB';
-  }
-
-  /**
-   * Storage details.
-   */
-  export interface Storage {
-    /**
-     * Storage size
-     */
-    size: number;
-
-    /**
-     * Storage type.
-     */
-    type: 'nvme';
-
-    /**
-     * Storage unit.
-     */
-    unit: 'GB';
-
-    /**
-     * Disk name, used later
-     */
-    disk_name?: string;
-  }
-}
-
-export interface VmListParams {
+export interface VMListParams {
   /**
    * Region
    */
   region: string;
 }
 
-Vms.Operations = Operations;
+VMs.Operations = Operations;
 
-export declare namespace Vms {
-  export {
-    type Vm as Vm,
-    type VmCreateResponse as VmCreateResponse,
-    type VmUpdateResponse as VmUpdateResponse,
-    type VmListResponse as VmListResponse,
-    type VmDeleteResponse as VmDeleteResponse,
-    type VmCreateParams as VmCreateParams,
-    type VmUpdateParams as VmUpdateParams,
-    type VmListParams as VmListParams,
-  };
-
-  export { Operations as Operations, type OperationRetrieveResponse as OperationRetrieveResponse };
+export declare namespace VMs {
+  export { Operations as Operations };
 }

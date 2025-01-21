@@ -2,31 +2,13 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
+import * as Shared from '../shared';
 
 export class Operations extends APIResource {
   /**
    * Get details about a specific VM operation
    */
-  retrieve(operationId: string, options?: Core.RequestOptions): Core.APIPromise<OperationRetrieveResponse> {
+  get(operationId: string, options?: Core.RequestOptions): Core.APIPromise<Shared.Operation> {
     return this._client.get(`/vms/operations/${operationId}`, options);
   }
-}
-
-/**
- * Operation details.
- */
-export interface OperationRetrieveResponse {
-  id: string;
-
-  kind: 'VM' | 'VPC' | 'FIREWALL_RULE';
-
-  resource_id: string;
-
-  status: 'PENDING' | 'RUNNING' | 'DONE' | 'FAILED';
-
-  type: 'CREATE' | 'UPDATE' | 'DELETE';
-}
-
-export declare namespace Operations {
-  export { type OperationRetrieveResponse as OperationRetrieveResponse };
 }

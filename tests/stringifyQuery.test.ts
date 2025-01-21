@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { Nirvana } from 'nirvana';
+import { NirvanaLabs } from 'nirvana';
 
-const { stringifyQuery } = Nirvana.prototype as any;
+const { stringifyQuery } = NirvanaLabs.prototype as any;
 
 describe(stringifyQuery, () => {
   for (const [input, expected] of [
