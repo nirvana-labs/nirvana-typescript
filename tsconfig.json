@@ -9,9 +9,9 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "nirvana/_shims/auto/*": ["src/_shims/auto/*-node"],
-      "nirvana/*": ["src/*"],
-      "nirvana": ["src/index.ts"]
+      "nirvana-labs/_shims/auto/*": ["src/_shims/auto/*-node"],
+      "nirvana-labs/*": ["src/*"],
+      "nirvana-labs": ["src/index.ts"]
     },
     "noEmit": true,
 

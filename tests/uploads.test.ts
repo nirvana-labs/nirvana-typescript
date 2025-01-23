@@ -1,6 +1,6 @@
 import fs from 'fs';
-import { toFile, type ResponseLike } from 'nirvana/uploads';
-import { File } from 'nirvana/_shims/index';
+import { toFile, type ResponseLike } from 'nirvana-labs/uploads';
+import { File } from 'nirvana-labs/_shims/index';
 
 class MyClass {
   name: string = 'foo';

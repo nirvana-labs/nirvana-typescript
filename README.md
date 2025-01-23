@@ -1,6 +1,6 @@
 # Nirvana Labs Node API Library
 
-[![NPM version](https://img.shields.io/npm/v/nirvana.svg)](https://npmjs.org/package/nirvana) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/nirvana)
+[![NPM version](https://img.shields.io/npm/v/nirvana-labs.svg)](https://npmjs.org/package/nirvana-labs) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/nirvana-labs)
 
 This library provides convenient access to the Nirvana Labs REST API from server-side TypeScript or JavaScript.
 
@@ -9,11 +9,8 @@ The REST API documentation can be found on [docs.nirvanalabs.io](https://docs.ni
 ## Installation
 
 ```sh
-npm install git+ssh://git@github.com:nirvana-labs/nirvana-node.git
+npm install nirvana-labs
 ```
-
-> [!NOTE]
-> Once this package is [published to npm](https://app.stainlessapi.com/docs/guides/publish), this will become: `npm install nirvana`
 
 ## Usage
 
@@ -21,7 +18,7 @@ The full API of this library can be found in [api.md](api.md).
 
 <!-- prettier-ignore -->
 ```js
-import NirvanaLabs from 'nirvana';
+import NirvanaLabs from 'nirvana-labs';
 
 const client = new NirvanaLabs({
   authToken: process.env['NIRVANA_LABS_AUTH_TOKEN'], // This is the default and can be omitted
@@ -53,7 +50,7 @@ This library includes TypeScript definitions for all request params and response
 
 <!-- prettier-ignore -->
 ```ts
-import NirvanaLabs from 'nirvana';
+import NirvanaLabs from 'nirvana-labs';
 
 const client = new NirvanaLabs({
   authToken: process.env['NIRVANA_LABS_AUTH_TOKEN'], // This is the default and can be omitted
@@ -273,11 +270,11 @@ add the following import before your first import `from "NirvanaLabs"`:
 ```ts
 // Tell TypeScript and the package to use the global web fetch instead of node-fetch.
 // Note, despite the name, this does not add any polyfills, but expects them to be provided if needed.
-import 'nirvana/shims/web';
-import NirvanaLabs from 'nirvana';
+import 'nirvana-labs/shims/web';
+import NirvanaLabs from 'nirvana-labs';
 ```
 
-To do the inverse, add `import "nirvana/shims/node"` (which does import polyfills).
+To do the inverse, add `import "nirvana-labs/shims/node"` (which does import polyfills).
 This can also be useful if you are getting the wrong TypeScript types for `Response` ([more details](https://github.com/nirvana-labs/nirvana-node/tree/main/src/_shims#readme)).
 
 ### Logging and middleware
@@ -287,7 +284,7 @@ which can be used to inspect or alter the `Request` or `Response` before/after e
 
 ```ts
 import { fetch } from 'undici'; // as one example
-import NirvanaLabs from 'nirvana';
+import NirvanaLabs from 'nirvana-labs';
 
 const client = new NirvanaLabs({
   fetch: async (url: RequestInfo, init?: RequestInit): Promise<Response> => {
