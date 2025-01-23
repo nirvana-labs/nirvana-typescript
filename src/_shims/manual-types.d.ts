@@ -4,8 +4,8 @@
 /**
  * Types will get added to this namespace when you import one of the following:
  *
- *   import 'nirvana-labs/shims/node'
- *   import 'nirvana-labs/shims/web'
+ *   import '@nirvana-labs/nirvana/shims/node'
+ *   import '@nirvana-labs/nirvana/shims/web'
  *
  * Importing more than one will cause type and runtime errors.
  */

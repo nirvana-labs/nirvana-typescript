@@ -1,5 +1,5 @@
-import { createResponseHeaders } from 'nirvana-labs/core';
-import { Headers } from 'nirvana-labs/_shims/index';
+import { createResponseHeaders } from '@nirvana-labs/nirvana/core';
+import { Headers } from '@nirvana-labs/nirvana/_shims/index';
 
 describe('response parsing', () => {
   // TODO: test unicode characters
