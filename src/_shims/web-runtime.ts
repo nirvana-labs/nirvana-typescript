@@ -9,9 +9,9 @@ export function getRuntime({ manuallyImported }: { manuallyImported?: boolean } 
   const recommendation =
     manuallyImported ?
       `You may need to use polyfills`
-    : `Add one of these imports before your first \`import … from 'nirvana'\`:
-- \`import 'nirvana/shims/node'\` (if you're running on Node)
-- \`import 'nirvana/shims/web'\` (otherwise)
+    : `Add one of these imports before your first \`import … from 'nirvana-labs'\`:
+- \`import 'nirvana-labs/shims/node'\` (if you're running on Node)
+- \`import 'nirvana-labs/shims/web'\` (otherwise)
 `;
 
   let _fetch, _Request, _Response, _Headers;

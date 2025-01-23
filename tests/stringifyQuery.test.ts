@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { NirvanaLabs } from 'nirvana';
+import { NirvanaLabs } from 'nirvana-labs';
 
 const { stringifyQuery } = NirvanaLabs.prototype as any;
 

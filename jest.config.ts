@@ -7,9 +7,9 @@ const config: JestConfigWithTsJest = {
     '^.+\\.(t|j)sx?$': ['@swc/jest', { sourceMaps: 'inline' }],
   },
   moduleNameMapper: {
-    '^nirvana$': '<rootDir>/src/index.ts',
-    '^nirvana/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
-    '^nirvana/(.*)$': '<rootDir>/src/$1',
+    '^nirvana-labs$': '<rootDir>/src/index.ts',
+    '^nirvana-labs/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
+    '^nirvana-labs/(.*)$': '<rootDir>/src/$1',
   },
   modulePathIgnorePatterns: [
     '<rootDir>/ecosystem-tests/',
