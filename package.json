@@ -1,5 +1,5 @@
 {
-  "name": "nirvana",
+  "name": "nirvana-labs",
   "version": "0.0.1-alpha.0",
   "description": "The official TypeScript library for the Nirvana Labs API",
   "author": "Nirvana Labs <engineering@nirvanalabs.io>",
@@ -59,8 +59,8 @@
     "./shims/web.mjs"
   ],
   "imports": {
-    "nirvana": ".",
-    "nirvana/*": "./src/*"
+    "nirvana-labs": ".",
+    "nirvana-labs/*": "./src/*"
   },
   "exports": {
     "./_shims/auto/*": {
