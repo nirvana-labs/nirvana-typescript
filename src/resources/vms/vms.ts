@@ -2,18 +2,19 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
+import * as OperationsAPI from '../operations';
 import * as Shared from '../shared';
-import * as OperationsAPI from './operations';
-import { Operations } from './operations';
-import * as VPCsAPI from '../vpcs/vpcs';
+import * as VolumesAPI from '../volumes';
+import * as OSImagesAPI from './os-images';
+import { OSImageListResponse, OSImages } from './os-images';
 
 export class VMs extends APIResource {
-  operations: OperationsAPI.Operations = new OperationsAPI.Operations(this._client);
+  osImages: OSImagesAPI.OSImages = new OSImagesAPI.OSImages(this._client);
 
   /**
    * Create a VM
    */
-  create(body: VMCreateParams, options?: Core.RequestOptions): Core.APIPromise<Shared.Operation> {
+  create(body: VMCreateParams, options?: Core.RequestOptions): Core.APIPromise<OperationsAPI.Operation> {
     return this._client.post('/vms', { body, ...options });
   }
 
@@ -24,21 +25,21 @@ export class VMs extends APIResource {
     vmId: string,
     body: VMUpdateParams,
     options?: Core.RequestOptions,
-  ): Core.APIPromise<Shared.Operation> {
+  ): Core.APIPromise<OperationsAPI.Operation> {
     return this._client.patch(`/vms/${vmId}`, { body, ...options });
   }
 
   /**
    * List all VMs
    */
-  list(query: VMListParams, options?: Core.RequestOptions): Core.APIPromise<VMListResponse> {
-    return this._client.get('/vms', { query, ...options });
+  list(options?: Core.RequestOptions): Core.APIPromise<VMList> {
+    return this._client.get('/vms', options);
   }
 
   /**
    * Delete a VM
    */
-  delete(vmId: string, options?: Core.RequestOptions): Core.APIPromise<Shared.Operation> {
+  delete(vmId: string, options?: Core.RequestOptions): Core.APIPromise<OperationsAPI.Operation> {
     return this._client.delete(`/vms/${vmId}`, options);
   }
 
@@ -57,6 +58,14 @@ export interface CPU {
   cores: number;
 }
 
+export interface OSImage {
+  created_at: string;
+
+  display_name: string;
+
+  name: string;
+}
+
 /**
  * RAM details.
  */
@@ -65,17 +74,7 @@ export interface Ram {
    * RAM size
    */
   size: number;
-
-  /**
-   * Unit (GB, MB, etc.)
-   */
-  unit: RamUnit;
 }
-
-/**
- * Unit (GB, MB, etc.)
- */
-export type RamUnit = 'GB';
 
 /**
  * SSH key details.
@@ -85,45 +84,15 @@ export interface SSHKey {
 }
 
 /**
- * Storage details.
- */
-export interface Storage {
-  /**
-   * Storage size
-   */
-  size: number;
-
-  /**
-   * Storage type.
-   */
-  type: StorageType;
-
-  /**
-   * Storage unit.
-   */
-  unit: StorageUnit;
-
-  /**
-   * Disk name, used later
-   */
-  disk_name?: string;
-}
-
-/**
- * Storage type.
- */
-export type StorageType = 'nvme';
-
-/**
- * Storage unit.
- */
-export type StorageUnit = 'GB';
-
-/**
  * VM details.
  */
 export interface VM {
   id: string;
+
+  /**
+   * Volume details.
+   */
+  boot_volume: VolumesAPI.Volume;
 
   /**
    * CPU details.
@@ -131,6 +100,8 @@ export interface VM {
   cpu_config: CPU;
 
   created_at: string;
+
+  data_volumes: Array<VolumesAPI.Volume>;
 
   /**
    * RAM details.
@@ -145,21 +116,21 @@ export interface VM {
 
   status: Shared.ResourceStatus;
 
-  storage_config: Array<Storage>;
-
   updated_at: string;
 
-  /**
-   * VPC details.
-   */
-  vpc: VPCsAPI.VPC;
+  vpc_id: string;
 }
 
-export interface VMListResponse {
+export interface VMList {
   items: Array<VM>;
 }
 
 export interface VMCreateParams {
+  /**
+   * Boot volume create request.
+   */
+  boot_volume: VMCreateParams.BootVolume;
+
   /**
    * CPU details.
    */
@@ -187,34 +158,74 @@ export interface VMCreateParams {
    */
   ssh_key: SSHKey;
 
-  storage: Array<Storage>;
+  data_volumes?: Array<VMCreateParams.DataVolume>;
 
   subnet_id?: string;
 }
 
+export namespace VMCreateParams {
+  /**
+   * Boot volume create request.
+   */
+  export interface BootVolume {
+    size: number;
+  }
+
+  /**
+   * VM data volume create request.
+   */
+  export interface DataVolume {
+    size: number;
+
+    /**
+     * Storage type.
+     */
+    type?: VolumesAPI.StorageType;
+  }
+}
+
 export interface VMUpdateParams {
+  /**
+   * Boot volume create request.
+   */
+  boot_volume?: VMUpdateParams.BootVolume;
+
   /**
    * CPU details.
    */
   cpu?: CPU;
 
+  data_volumes?: Array<VMUpdateParams.DataVolume>;
+
   /**
    * RAM details.
    */
   ram?: Ram;
-
-  storage?: Array<Storage>;
 }
 
-export interface VMListParams {
+export namespace VMUpdateParams {
   /**
-   * Region
+   * Boot volume create request.
    */
-  region: string;
+  export interface BootVolume {
+    size: number;
+  }
+
+  /**
+   * VM data volume create request.
+   */
+  export interface DataVolume {
+    size: number;
+
+    /**
+     * Storage type.
+     */
+    type?: VolumesAPI.StorageType;
+  }
 }
 
-VMs.Operations = Operations;
+VMs.OSImages = OSImages;
 
 export declare namespace VMs {
-  export { Operations as Operations };
+  export { OSImages as OSImages, type OSImageListResponse as OSImageListResponse };
 }

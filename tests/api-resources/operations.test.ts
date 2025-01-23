@@ -8,9 +8,9 @@ const client = new NirvanaLabs({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource volumes', () => {
-  test('create: only required params', async () => {
-    const responsePromise = client.volumes.create('vm_id', { size: 100 });
+describe('resource operations', () => {
+  test('list', async () => {
+    const responsePromise = client.operations.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -20,25 +20,28 @@ describe('resource volumes', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('create: required and optional params', async () => {
-    const response = await client.volumes.create('vm_id', { size: 100 });
-  });
-
-  test('delete', async () => {
-    const responsePromise = client.volumes.delete('vm_id', 'volume_id');
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  test('delete: request options instead of params are passed correctly', async () => {
+  test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.volumes.delete('vm_id', 'volume_id', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(NirvanaLabs.NotFoundError);
+    await expect(client.operations.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+      NirvanaLabs.NotFoundError,
+    );
+  });
+
+  test('get', async () => {
+    const responsePromise = client.operations.get('operation_id');
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  test('get: request options instead of params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(client.operations.get('operation_id', { path: '/_stainless_unknown_path' })).rejects.toThrow(
+      NirvanaLabs.NotFoundError,
+    );
   });
 });

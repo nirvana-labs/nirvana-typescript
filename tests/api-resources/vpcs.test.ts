@@ -32,8 +32,8 @@ describe('resource vpcs', () => {
     });
   });
 
-  test('list: only required params', async () => {
-    const responsePromise = client.vpcs.list({ region: 'region' });
+  test('list', async () => {
+    const responsePromise = client.vpcs.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -43,8 +43,11 @@ describe('resource vpcs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('list: required and optional params', async () => {
-    const response = await client.vpcs.list({ region: 'region' });
+  test('list: request options instead of params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(client.vpcs.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+      NirvanaLabs.NotFoundError,
+    );
   });
 
   test('delete', async () => {

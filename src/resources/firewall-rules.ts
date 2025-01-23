@@ -1,14 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
-import * as Shared from '../shared';
+import { APIResource } from '../resource';
+import * as Core from '../core';
 import * as OperationsAPI from './operations';
-import { Operations } from './operations';
+import * as Shared from './shared';
 
 export class FirewallRules extends APIResource {
-  operations: OperationsAPI.Operations = new OperationsAPI.Operations(this._client);
-
   /**
    * Create a firewall rule
    */
@@ -16,7 +13,7 @@ export class FirewallRules extends APIResource {
     vpcId: string,
     body: FirewallRuleCreateParams,
     options?: Core.RequestOptions,
-  ): Core.APIPromise<Shared.Operation> {
+  ): Core.APIPromise<OperationsAPI.Operation> {
     return this._client.post(`/vpcs/${vpcId}/firewall_rules`, { body, ...options });
   }
 
@@ -28,14 +25,14 @@ export class FirewallRules extends APIResource {
     firewallRuleId: string,
     body: FirewallRuleUpdateParams,
     options?: Core.RequestOptions,
-  ): Core.APIPromise<Shared.Operation> {
+  ): Core.APIPromise<OperationsAPI.Operation> {
     return this._client.patch(`/vpcs/${vpcId}/firewall_rules/${firewallRuleId}`, { body, ...options });
   }
 
   /**
    * List all firewall rules
    */
-  list(vpcId: string, options?: Core.RequestOptions): Core.APIPromise<FirewallRuleListResponse> {
+  list(vpcId: string, options?: Core.RequestOptions): Core.APIPromise<FirewallRuleList> {
     return this._client.get(`/vpcs/${vpcId}/firewall_rules`, options);
   }
 
@@ -46,7 +43,7 @@ export class FirewallRules extends APIResource {
     vpcId: string,
     firewallRuleId: string,
     options?: Core.RequestOptions,
-  ): Core.APIPromise<Shared.Operation> {
+  ): Core.APIPromise<OperationsAPI.Operation> {
     return this._client.delete(`/vpcs/${vpcId}/firewall_rules/${firewallRuleId}`, options);
   }
 
@@ -69,7 +66,7 @@ export interface FirewallRule {
   /**
    * Firewall rule endpoint.
    */
-  dest: FirewallRuleEndpoint;
+  destination: FirewallRuleEndpoint;
 
   name: string;
 
@@ -91,12 +88,12 @@ export interface FirewallRule {
  * Firewall rule endpoint.
  */
 export interface FirewallRuleEndpoint {
-  address: string;
+  address?: string;
 
-  ports: Array<string>;
+  ports?: Array<string>;
 }
 
-export interface FirewallRuleListResponse {
+export interface FirewallRuleList {
   items: Array<FirewallRule>;
 }
 
@@ -136,10 +133,4 @@ export interface FirewallRuleUpdateParams {
    * Firewall rule endpoint.
    */
   source: FirewallRuleEndpoint;
-}
-
-FirewallRules.Operations = Operations;
-
-export declare namespace FirewallRules {
-  export { Operations as Operations };
 }

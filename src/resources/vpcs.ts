@@ -1,33 +1,30 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
-import * as Shared from '../shared';
-import * as FirewallRulesAPI from '../firewall-rules/firewall-rules';
+import { APIResource } from '../resource';
+import * as Core from '../core';
+import * as FirewallRulesAPI from './firewall-rules';
 import * as OperationsAPI from './operations';
-import { Operations } from './operations';
+import * as Shared from './shared';
 
 export class VPCs extends APIResource {
-  operations: OperationsAPI.Operations = new OperationsAPI.Operations(this._client);
-
   /**
    * Create a VPC
    */
-  create(body: VPCCreateParams, options?: Core.RequestOptions): Core.APIPromise<Shared.Operation> {
+  create(body: VPCCreateParams, options?: Core.RequestOptions): Core.APIPromise<OperationsAPI.Operation> {
     return this._client.post('/vpcs', { body, ...options });
   }
 
   /**
    * List all VPCs
    */
-  list(query: VPCListParams, options?: Core.RequestOptions): Core.APIPromise<VPCListResponse> {
-    return this._client.get('/vpcs', { query, ...options });
+  list(options?: Core.RequestOptions): Core.APIPromise<VPCList> {
+    return this._client.get('/vpcs', options);
   }
 
   /**
    * Delete a VPC
    */
-  delete(vpcId: string, options?: Core.RequestOptions): Core.APIPromise<Shared.Operation> {
+  delete(vpcId: string, options?: Core.RequestOptions): Core.APIPromise<OperationsAPI.Operation> {
     return this._client.delete(`/vpcs/${vpcId}`, options);
   }
 
@@ -78,7 +75,7 @@ export interface VPC {
   updated_at: string;
 }
 
-export interface VPCListResponse {
+export interface VPCList {
   items: Array<VPC>;
 }
 
@@ -88,17 +85,4 @@ export interface VPCCreateParams {
   region: Shared.RegionName;
 
   subnet_name: string;
-}
-
-export interface VPCListParams {
-  /**
-   * Region
-   */
-  region: string;
-}
-
-VPCs.Operations = Operations;
-
-export declare namespace VPCs {
-  export { Operations as Operations };
 }
