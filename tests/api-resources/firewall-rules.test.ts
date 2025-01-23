@@ -11,10 +11,10 @@ const client = new NirvanaLabs({
 describe('resource firewallRules', () => {
   test('create: only required params', async () => {
     const responsePromise = client.firewallRules.create('vpc_id', {
-      destination: { address: '0.0.0.0/0', ports: ['22', '80', '443'] },
+      destination: {},
       name: 'my-firewall-rule',
       protocol: 'tcp',
-      source: { address: '0.0.0.0/0', ports: ['22', '80', '443'] },
+      source: {},
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -36,10 +36,10 @@ describe('resource firewallRules', () => {
 
   test('update: only required params', async () => {
     const responsePromise = client.firewallRules.update('vpc_id', 'firewall_rule_id', {
-      destination: { address: '0.0.0.0/0', ports: ['22', '80', '443'] },
+      destination: {},
       name: 'my-firewall-rule',
       protocol: 'tcp',
-      source: { address: '0.0.0.0/0', ports: ['22', '80', '443'] },
+      source: {},
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);

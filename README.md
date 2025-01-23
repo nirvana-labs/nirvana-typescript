@@ -29,16 +29,16 @@ const client = new NirvanaLabs({
 
 async function main() {
   const operation = await client.vms.create({
+    boot_volume: { size: 100 },
     cpu: { cores: 2 },
     name: 'my-vm',
     need_public_ip: true,
     os_image_id: 1,
     ports: ['22', '80', '443'],
-    ram: { size: 2, unit: 'GB' },
+    ram: { size: 2 },
     region: 'amsterdam',
     source_address: '0.0.0.0/0',
     ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
-    storage: [{ size: 100, type: 'nvme', unit: 'GB' }],
   });
 
   console.log(operation.id);
@@ -61,16 +61,16 @@ const client = new NirvanaLabs({
 
 async function main() {
   const params: NirvanaLabs.VMCreateParams = {
+    boot_volume: { size: 100 },
     cpu: { cores: 2 },
     name: 'my-vm',
     need_public_ip: true,
     os_image_id: 1,
     ports: ['22', '80', '443'],
-    ram: { size: 2, unit: 'GB' },
+    ram: { size: 2 },
     region: 'amsterdam',
     source_address: '0.0.0.0/0',
     ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
-    storage: [{ size: 100, type: 'nvme', unit: 'GB' }],
   };
   const operation: NirvanaLabs.Operation = await client.vms.create(params);
 }
@@ -91,16 +91,16 @@ a subclass of `APIError` will be thrown:
 async function main() {
   const operation = await client.vms
     .create({
+      boot_volume: { size: 100 },
       cpu: { cores: 2 },
       name: 'my-vm',
       need_public_ip: true,
       os_image_id: 1,
       ports: ['22', '80', '443'],
-      ram: { size: 2, unit: 'GB' },
+      ram: { size: 2 },
       region: 'amsterdam',
       source_address: '0.0.0.0/0',
       ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
-      storage: [{ size: 100, type: 'nvme', unit: 'GB' }],
     })
     .catch(async (err) => {
       if (err instanceof NirvanaLabs.APIError) {
@@ -145,7 +145,7 @@ const client = new NirvanaLabs({
 });
 
 // Or, configure per-request:
-await client.vms.create({ cpu: { cores: 2 }, name: 'my-vm', need_public_ip: true, os_image_id: 1, ports: ['22', '80', '443'], ram: { size: 2, unit: 'GB' }, region: 'amsterdam', source_address: '0.0.0.0/0', ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' }, storage: [{ size: 100, type: 'nvme', unit: 'GB' }] }, {
+await client.vms.create({ boot_volume: { size: 100 }, cpu: { cores: 2 }, name: 'my-vm', need_public_ip: true, os_image_id: 1, ports: ['22', '80', '443'], ram: { size: 2 }, region: 'amsterdam', source_address: '0.0.0.0/0', ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' } }, {
   maxRetries: 5,
 });
 ```
@@ -162,7 +162,7 @@ const client = new NirvanaLabs({
 });
 
 // Override per-request:
-await client.vms.create({ cpu: { cores: 2 }, name: 'my-vm', need_public_ip: true, os_image_id: 1, ports: ['22', '80', '443'], ram: { size: 2, unit: 'GB' }, region: 'amsterdam', source_address: '0.0.0.0/0', ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' }, storage: [{ size: 100, type: 'nvme', unit: 'GB' }] }, {
+await client.vms.create({ boot_volume: { size: 100 }, cpu: { cores: 2 }, name: 'my-vm', need_public_ip: true, os_image_id: 1, ports: ['22', '80', '443'], ram: { size: 2 }, region: 'amsterdam', source_address: '0.0.0.0/0', ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' } }, {
   timeout: 5 * 1000,
 });
 ```
@@ -185,16 +185,16 @@ const client = new NirvanaLabs();
 
 const response = await client.vms
   .create({
+    boot_volume: { size: 100 },
     cpu: { cores: 2 },
     name: 'my-vm',
     need_public_ip: true,
     os_image_id: 1,
     ports: ['22', '80', '443'],
-    ram: { size: 2, unit: 'GB' },
+    ram: { size: 2 },
     region: 'amsterdam',
     source_address: '0.0.0.0/0',
     ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
-    storage: [{ size: 100, type: 'nvme', unit: 'GB' }],
   })
   .asResponse();
 console.log(response.headers.get('X-My-Header'));
@@ -202,16 +202,16 @@ console.log(response.statusText); // access the underlying Response object
 
 const { data: operation, response: raw } = await client.vms
   .create({
+    boot_volume: { size: 100 },
     cpu: { cores: 2 },
     name: 'my-vm',
     need_public_ip: true,
     os_image_id: 1,
     ports: ['22', '80', '443'],
-    ram: { size: 2, unit: 'GB' },
+    ram: { size: 2 },
     region: 'amsterdam',
     source_address: '0.0.0.0/0',
     ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
-    storage: [{ size: 100, type: 'nvme', unit: 'GB' }],
   })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
@@ -321,16 +321,16 @@ const client = new NirvanaLabs({
 // Override per-request:
 await client.vms.create(
   {
+    boot_volume: { size: 100 },
     cpu: { cores: 2 },
     name: 'my-vm',
     need_public_ip: true,
     os_image_id: 1,
     ports: ['22', '80', '443'],
-    ram: { size: 2, unit: 'GB' },
+    ram: { size: 2 },
     region: 'amsterdam',
     source_address: '0.0.0.0/0',
     ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
-    storage: [{ size: 100, type: 'nvme', unit: 'GB' }],
   },
   {
     httpAgent: new http.Agent({ keepAlive: false }),

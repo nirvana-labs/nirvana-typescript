@@ -11,16 +11,16 @@ const client = new NirvanaLabs({
 describe('resource vms', () => {
   test('create: only required params', async () => {
     const responsePromise = client.vms.create({
+      boot_volume: { size: 100 },
       cpu: { cores: 2 },
       name: 'my-vm',
       need_public_ip: true,
       os_image_id: 1,
       ports: ['22', '80', '443'],
-      ram: { size: 2, unit: 'GB' },
+      ram: { size: 2 },
       region: 'amsterdam',
       source_address: '0.0.0.0/0',
       ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
-      storage: [{ size: 100, type: 'nvme', unit: 'GB' }],
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -33,16 +33,17 @@ describe('resource vms', () => {
 
   test('create: required and optional params', async () => {
     const response = await client.vms.create({
+      boot_volume: { size: 100 },
       cpu: { cores: 2 },
       name: 'my-vm',
       need_public_ip: true,
       os_image_id: 1,
       ports: ['22', '80', '443'],
-      ram: { size: 2, unit: 'GB' },
+      ram: { size: 2 },
       region: 'amsterdam',
       source_address: '0.0.0.0/0',
       ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
-      storage: [{ size: 100, type: 'nvme', unit: 'GB', disk_name: 'disk_name' }],
+      data_volumes: [{ size: 100, type: 'nvme' }],
       subnet_id: '123e4567-e89b-12d3-a456-426614174000',
     });
   });
@@ -58,8 +59,8 @@ describe('resource vms', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('list: only required params', async () => {
-    const responsePromise = client.vms.list({ region: 'region' });
+  test('list', async () => {
+    const responsePromise = client.vms.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -69,8 +70,11 @@ describe('resource vms', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('list: required and optional params', async () => {
-    const response = await client.vms.list({ region: 'region' });
+  test('list: request options instead of params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(client.vms.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+      NirvanaLabs.NotFoundError,
+    );
   });
 
   test('delete', async () => {
