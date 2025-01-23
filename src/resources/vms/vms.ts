@@ -140,7 +140,7 @@ export interface VMCreateParams {
 
   need_public_ip: boolean;
 
-  os_image_id: number;
+  os_image_name: string;
 
   ports: Array<string>;
 
