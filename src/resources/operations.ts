@@ -27,13 +27,13 @@ export interface Operation {
 
   created_at: string;
 
-  kind: 'VM' | 'VOLUME' | 'VPC' | 'FIREWALL_RULE';
+  kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule';
 
   resource_id: string;
 
-  status: 'PENDING' | 'RUNNING' | 'DONE' | 'FAILED' | 'UNKNOWN';
+  status: 'pending' | 'running' | 'done' | 'failed' | 'unknown';
 
-  type: 'CREATE' | 'UPDATE' | 'DELETE';
+  type: 'create' | 'update' | 'delete';
 
   updated_at: string;
 }
