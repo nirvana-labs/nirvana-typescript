@@ -25,6 +25,8 @@ export class Operations extends APIResource {
 export interface Operation {
   id: string;
 
+  created_at: string;
+
   kind: 'VM' | 'VOLUME' | 'VPC' | 'FIREWALL_RULE';
 
   resource_id: string;
@@ -32,6 +34,8 @@ export interface Operation {
   status: 'PENDING' | 'RUNNING' | 'DONE' | 'FAILED' | 'UNKNOWN';
 
   type: 'CREATE' | 'UPDATE' | 'DELETE';
+
+  updated_at: string;
 }
 
 export type OperationListResponse = Array<Operation>;
