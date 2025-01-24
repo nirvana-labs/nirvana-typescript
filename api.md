@@ -71,11 +71,14 @@ Types:
 
 - <code><a href="./src/resources/volumes.ts">StorageType</a></code>
 - <code><a href="./src/resources/volumes.ts">Volume</a></code>
+- <code><a href="./src/resources/volumes.ts">VolumeKind</a></code>
+- <code><a href="./src/resources/volumes.ts">VolumeListResponse</a></code>
 
 Methods:
 
 - <code title="post /volumes">client.volumes.<a href="./src/resources/volumes.ts">create</a>({ ...params }) -> Operation</code>
 - <code title="patch /volumes/{volume_id}">client.volumes.<a href="./src/resources/volumes.ts">update</a>(volumeId, { ...params }) -> Operation</code>
+- <code title="get /volumes">client.volumes.<a href="./src/resources/volumes.ts">list</a>() -> VolumeListResponse</code>
 - <code title="delete /volumes/{volume_id}">client.volumes.<a href="./src/resources/volumes.ts">delete</a>(volumeId, { ...params }) -> Operation</code>
 - <code title="get /volumes/{volume_id}">client.volumes.<a href="./src/resources/volumes.ts">get</a>(volumeId) -> Volume</code>
 

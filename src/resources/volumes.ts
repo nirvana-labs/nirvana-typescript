@@ -24,6 +24,13 @@ export class Volumes extends APIResource {
   }
 
   /**
+   * List all volumes
+   */
+  list(options?: Core.RequestOptions): Core.APIPromise<VolumeListResponse> {
+    return this._client.get('/volumes', options);
+  }
+
+  /**
    * Delete a Volume. Boot or data volumes can be deleted.
    */
   delete(
@@ -55,6 +62,11 @@ export interface Volume {
 
   created_at: string;
 
+  /**
+   * Volume kind.
+   */
+  kind: VolumeKind;
+
   size: number;
 
   /**
@@ -63,6 +75,15 @@ export interface Volume {
   type: StorageType;
 
   updated_at: string;
+}
+
+/**
+ * Volume kind.
+ */
+export type VolumeKind = 'boot' | 'data';
+
+export interface VolumeListResponse {
+  items: Array<Volume>;
 }
 
 export interface VolumeCreateParams {

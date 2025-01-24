@@ -39,6 +39,24 @@ describe('resource volumes', () => {
     const response = await client.volumes.update('volume_id', { size: 100, vm_id: 'vm_id' });
   });
 
+  test('list', async () => {
+    const responsePromise = client.volumes.list();
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  test('list: request options instead of params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(client.volumes.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+      NirvanaLabs.NotFoundError,
+    );
+  });
+
   test('delete: only required params', async () => {
     const responsePromise = client.volumes.delete('volume_id', { vm_id: 'vm_id' });
     const rawResponse = await responsePromise.asResponse();
