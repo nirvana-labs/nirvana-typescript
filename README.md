@@ -9,8 +9,11 @@ The REST API documentation can be found on [docs.nirvanalabs.io](https://docs.ni
 ## Installation
 
 ```sh
-npm install @nirvana-labs/nirvana
+npm install git+ssh://git@github.com:nirvana-labs/nirvana-node.git
 ```
+
+> [!NOTE]
+> Once this package is [published to npm](https://app.stainlessapi.com/docs/guides/publish), this will become: `npm install @nirvana-labs/nirvana`
 
 ## Usage
 
