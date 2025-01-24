@@ -77,6 +77,7 @@ Methods:
 - <code title="post /volumes">client.volumes.<a href="./src/resources/volumes.ts">create</a>({ ...params }) -> Operation</code>
 - <code title="patch /volumes/{volume_id}">client.volumes.<a href="./src/resources/volumes.ts">update</a>(volumeId, { ...params }) -> Operation</code>
 - <code title="delete /volumes/{volume_id}">client.volumes.<a href="./src/resources/volumes.ts">delete</a>(volumeId, { ...params }) -> Operation</code>
+- <code title="get /volumes/{volume_id}">client.volumes.<a href="./src/resources/volumes.ts">get</a>(volumeId) -> Volume</code>
 
 # Operations
 

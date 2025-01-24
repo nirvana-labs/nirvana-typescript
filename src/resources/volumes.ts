@@ -33,6 +33,13 @@ export class Volumes extends APIResource {
   ): Core.APIPromise<OperationsAPI.Operation> {
     return this._client.delete(`/volumes/${volumeId}`, { body, ...options });
   }
+
+  /**
+   * Get a Volume.
+   */
+  get(volumeId: string, options?: Core.RequestOptions): Core.APIPromise<Volume> {
+    return this._client.get(`/volumes/${volumeId}`, options);
+  }
 }
 
 /**
@@ -46,12 +53,16 @@ export type StorageType = 'nvme';
 export interface Volume {
   id: string;
 
+  created_at: string;
+
   size: number;
 
   /**
    * Storage type.
    */
   type: StorageType;
+
+  updated_at: string;
 }
 
 export interface VolumeCreateParams {
