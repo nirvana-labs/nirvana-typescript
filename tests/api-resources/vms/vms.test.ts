@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import NirvanaLabs from 'nirvana';
+import NirvanaLabs from '@nirvana-labs/nirvana';
 import { Response } from 'node-fetch';
 
 const client = new NirvanaLabs({
@@ -15,7 +15,7 @@ describe('resource vms', () => {
       cpu: { cores: 2 },
       name: 'my-vm',
       need_public_ip: true,
-      os_image_id: 1,
+      os_image_name: 'noble-2024-12-06',
       ports: ['22', '80', '443'],
       ram: { size: 2 },
       region: 'amsterdam',
@@ -37,7 +37,7 @@ describe('resource vms', () => {
       cpu: { cores: 2 },
       name: 'my-vm',
       need_public_ip: true,
-      os_image_id: 1,
+      os_image_name: 'noble-2024-12-06',
       ports: ['22', '80', '443'],
       ram: { size: 2 },
       region: 'amsterdam',

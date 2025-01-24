@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import NirvanaLabs from 'nirvana';
-import { APIUserAbortError } from 'nirvana';
-import { Headers } from 'nirvana/core';
+import NirvanaLabs from '@nirvana-labs/nirvana';
+import { APIUserAbortError } from '@nirvana-labs/nirvana';
+import { Headers } from '@nirvana-labs/nirvana/core';
 import defaultFetch, { Response, type RequestInit, type RequestInfo } from 'node-fetch';
 
 describe('instantiate client', () => {

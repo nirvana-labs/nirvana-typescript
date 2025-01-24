@@ -1,6 +1,6 @@
-import { multipartFormRequestOptions, createForm } from 'nirvana/core';
-import { Blob } from 'nirvana/_shims/index';
-import { toFile } from 'nirvana';
+import { multipartFormRequestOptions, createForm } from '@nirvana-labs/nirvana/core';
+import { Blob } from '@nirvana-labs/nirvana/_shims/index';
+import { toFile } from '@nirvana-labs/nirvana';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {

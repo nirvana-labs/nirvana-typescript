@@ -42,12 +42,12 @@ export let isFsReadStream: Shims['isFsReadStream'] | undefined = undefined;
 export function setShims(shims: Shims, options: { auto: boolean } = { auto: false }) {
   if (auto) {
     throw new Error(
-      `you must \`import 'nirvana/shims/${shims.kind}'\` before importing anything else from nirvana`,
+      `you must \`import '@nirvana-labs/nirvana/shims/${shims.kind}'\` before importing anything else from @nirvana-labs/nirvana`,
     );
   }
   if (kind) {
     throw new Error(
-      `can't \`import 'nirvana/shims/${shims.kind}'\` after \`import 'nirvana/shims/${kind}'\``,
+      `can't \`import '@nirvana-labs/nirvana/shims/${shims.kind}'\` after \`import '@nirvana-labs/nirvana/shims/${kind}'\``,
     );
   }
   auto = options.auto;
