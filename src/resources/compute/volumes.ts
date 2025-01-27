@@ -106,3 +106,15 @@ export interface VolumeUpdateParams {
 export interface VolumeDeleteParams {
   vm_id: string;
 }
+
+export declare namespace Volumes {
+  export {
+    type StorageType as StorageType,
+    type Volume as Volume,
+    type VolumeKind as VolumeKind,
+    type VolumeListResponse as VolumeListResponse,
+    type VolumeCreateParams as VolumeCreateParams,
+    type VolumeUpdateParams as VolumeUpdateParams,
+    type VolumeDeleteParams as VolumeDeleteParams,
+  };
+}

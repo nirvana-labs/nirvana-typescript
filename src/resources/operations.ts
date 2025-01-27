@@ -39,3 +39,7 @@ export interface Operation {
 }
 
 export type OperationListResponse = Array<Operation>;
+
+export declare namespace Operations {
+  export { type Operation as Operation, type OperationListResponse as OperationListResponse };
+}

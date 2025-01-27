@@ -86,3 +86,12 @@ export interface VPCCreateParams {
 
   subnet_name: string;
 }
+
+export declare namespace VPCs {
+  export {
+    type Subnet as Subnet,
+    type VPC as VPC,
+    type VPCList as VPCList,
+    type VPCCreateParams as VPCCreateParams,
+  };
+}
