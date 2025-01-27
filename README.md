@@ -28,7 +28,20 @@ const client = new NirvanaLabs({
 });
 
 async function main() {
-  const operations = await client.operations.list();
+  const operation = await client.compute.vms.create({
+    boot_volume: { size: 100 },
+    cpu: { cores: 2 },
+    name: 'my-vm',
+    need_public_ip: true,
+    os_image_name: 'noble-2024-12-06',
+    ports: ['22', '80', '443'],
+    ram: { size: 2 },
+    region: 'amsterdam',
+    source_address: '0.0.0.0/0',
+    ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
+  });
+
+  console.log(operation.id);
 }
 
 main();
@@ -47,7 +60,19 @@ const client = new NirvanaLabs({
 });
 
 async function main() {
-  const operations: NirvanaLabs.OperationListResponse = await client.operations.list();
+  const params: NirvanaLabs.Compute.VMCreateParams = {
+    boot_volume: { size: 100 },
+    cpu: { cores: 2 },
+    name: 'my-vm',
+    need_public_ip: true,
+    os_image_name: 'noble-2024-12-06',
+    ports: ['22', '80', '443'],
+    ram: { size: 2 },
+    region: 'amsterdam',
+    source_address: '0.0.0.0/0',
+    ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
+  };
+  const operation: NirvanaLabs.Operation = await client.compute.vms.create(params);
 }
 
 main();
@@ -64,15 +89,28 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const operations = await client.operations.list().catch(async (err) => {
-    if (err instanceof NirvanaLabs.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
+  const operation = await client.compute.vms
+    .create({
+      boot_volume: { size: 100 },
+      cpu: { cores: 2 },
+      name: 'my-vm',
+      need_public_ip: true,
+      os_image_name: 'noble-2024-12-06',
+      ports: ['22', '80', '443'],
+      ram: { size: 2 },
+      region: 'amsterdam',
+      source_address: '0.0.0.0/0',
+      ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
+    })
+    .catch(async (err) => {
+      if (err instanceof NirvanaLabs.APIError) {
+        console.log(err.status); // 400
+        console.log(err.name); // BadRequestError
+        console.log(err.headers); // {server: 'nginx', ...}
+      } else {
+        throw err;
+      }
+    });
 }
 
 main();
@@ -107,7 +145,7 @@ const client = new NirvanaLabs({
 });
 
 // Or, configure per-request:
-await client.operations.list({
+await client.compute.vms.create({ boot_volume: { size: 100 }, cpu: { cores: 2 }, name: 'my-vm', need_public_ip: true, os_image_name: 'noble-2024-12-06', ports: ['22', '80', '443'], ram: { size: 2 }, region: 'amsterdam', source_address: '0.0.0.0/0', ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' } }, {
   maxRetries: 5,
 });
 ```
@@ -124,7 +162,7 @@ const client = new NirvanaLabs({
 });
 
 // Override per-request:
-await client.operations.list({
+await client.compute.vms.create({ boot_volume: { size: 100 }, cpu: { cores: 2 }, name: 'my-vm', need_public_ip: true, os_image_name: 'noble-2024-12-06', ports: ['22', '80', '443'], ram: { size: 2 }, region: 'amsterdam', source_address: '0.0.0.0/0', ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' } }, {
   timeout: 5 * 1000,
 });
 ```
@@ -145,13 +183,39 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const client = new NirvanaLabs();
 
-const response = await client.operations.list().asResponse();
+const response = await client.compute.vms
+  .create({
+    boot_volume: { size: 100 },
+    cpu: { cores: 2 },
+    name: 'my-vm',
+    need_public_ip: true,
+    os_image_name: 'noble-2024-12-06',
+    ports: ['22', '80', '443'],
+    ram: { size: 2 },
+    region: 'amsterdam',
+    source_address: '0.0.0.0/0',
+    ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
+  })
+  .asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: operations, response: raw } = await client.operations.list().withResponse();
+const { data: operation, response: raw } = await client.compute.vms
+  .create({
+    boot_volume: { size: 100 },
+    cpu: { cores: 2 },
+    name: 'my-vm',
+    need_public_ip: true,
+    os_image_name: 'noble-2024-12-06',
+    ports: ['22', '80', '443'],
+    ram: { size: 2 },
+    region: 'amsterdam',
+    source_address: '0.0.0.0/0',
+    ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
+  })
+  .withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(operations);
+console.log(operation.id);
 ```
 
 ### Making custom/undocumented requests
@@ -255,9 +319,23 @@ const client = new NirvanaLabs({
 });
 
 // Override per-request:
-await client.operations.list({
-  httpAgent: new http.Agent({ keepAlive: false }),
-});
+await client.compute.vms.create(
+  {
+    boot_volume: { size: 100 },
+    cpu: { cores: 2 },
+    name: 'my-vm',
+    need_public_ip: true,
+    os_image_name: 'noble-2024-12-06',
+    ports: ['22', '80', '443'],
+    ram: { size: 2 },
+    region: 'amsterdam',
+    source_address: '0.0.0.0/0',
+    ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
+  },
+  {
+    httpAgent: new http.Agent({ keepAlive: false }),
+  },
+);
 ```
 
 ## Semantic versioning
