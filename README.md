@@ -32,9 +32,9 @@ async function main() {
     boot_volume: { size: 100 },
     cpu: { cores: 2 },
     name: 'my-vm',
-    need_public_ip: true,
     os_image_name: 'noble-2024-12-06',
     ports: ['22', '80', '443'],
+    public_ip_enabled: true,
     ram: { size: 2 },
     region: 'amsterdam',
     source_address: '0.0.0.0/0',
@@ -64,9 +64,9 @@ async function main() {
     boot_volume: { size: 100 },
     cpu: { cores: 2 },
     name: 'my-vm',
-    need_public_ip: true,
     os_image_name: 'noble-2024-12-06',
     ports: ['22', '80', '443'],
+    public_ip_enabled: true,
     ram: { size: 2 },
     region: 'amsterdam',
     source_address: '0.0.0.0/0',
@@ -94,9 +94,9 @@ async function main() {
       boot_volume: { size: 100 },
       cpu: { cores: 2 },
       name: 'my-vm',
-      need_public_ip: true,
       os_image_name: 'noble-2024-12-06',
       ports: ['22', '80', '443'],
+      public_ip_enabled: true,
       ram: { size: 2 },
       region: 'amsterdam',
       source_address: '0.0.0.0/0',
@@ -145,7 +145,7 @@ const client = new NirvanaLabs({
 });
 
 // Or, configure per-request:
-await client.compute.vms.create({ boot_volume: { size: 100 }, cpu: { cores: 2 }, name: 'my-vm', need_public_ip: true, os_image_name: 'noble-2024-12-06', ports: ['22', '80', '443'], ram: { size: 2 }, region: 'amsterdam', source_address: '0.0.0.0/0', ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' } }, {
+await client.compute.vms.create({ boot_volume: { size: 100 }, cpu: { cores: 2 }, name: 'my-vm', os_image_name: 'noble-2024-12-06', ports: ['22', '80', '443'], public_ip_enabled: true, ram: { size: 2 }, region: 'amsterdam', source_address: '0.0.0.0/0', ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' } }, {
   maxRetries: 5,
 });
 ```
@@ -162,7 +162,7 @@ const client = new NirvanaLabs({
 });
 
 // Override per-request:
-await client.compute.vms.create({ boot_volume: { size: 100 }, cpu: { cores: 2 }, name: 'my-vm', need_public_ip: true, os_image_name: 'noble-2024-12-06', ports: ['22', '80', '443'], ram: { size: 2 }, region: 'amsterdam', source_address: '0.0.0.0/0', ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' } }, {
+await client.compute.vms.create({ boot_volume: { size: 100 }, cpu: { cores: 2 }, name: 'my-vm', os_image_name: 'noble-2024-12-06', ports: ['22', '80', '443'], public_ip_enabled: true, ram: { size: 2 }, region: 'amsterdam', source_address: '0.0.0.0/0', ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' } }, {
   timeout: 5 * 1000,
 });
 ```
@@ -188,9 +188,9 @@ const response = await client.compute.vms
     boot_volume: { size: 100 },
     cpu: { cores: 2 },
     name: 'my-vm',
-    need_public_ip: true,
     os_image_name: 'noble-2024-12-06',
     ports: ['22', '80', '443'],
+    public_ip_enabled: true,
     ram: { size: 2 },
     region: 'amsterdam',
     source_address: '0.0.0.0/0',
@@ -205,9 +205,9 @@ const { data: operation, response: raw } = await client.compute.vms
     boot_volume: { size: 100 },
     cpu: { cores: 2 },
     name: 'my-vm',
-    need_public_ip: true,
     os_image_name: 'noble-2024-12-06',
     ports: ['22', '80', '443'],
+    public_ip_enabled: true,
     ram: { size: 2 },
     region: 'amsterdam',
     source_address: '0.0.0.0/0',
@@ -324,9 +324,9 @@ await client.compute.vms.create(
     boot_volume: { size: 100 },
     cpu: { cores: 2 },
     name: 'my-vm',
-    need_public_ip: true,
     os_image_name: 'noble-2024-12-06',
     ports: ['22', '80', '443'],
+    public_ip_enabled: true,
     ram: { size: 2 },
     region: 'amsterdam',
     source_address: '0.0.0.0/0',

@@ -138,11 +138,11 @@ export interface VMCreateParams {
 
   name: string;
 
-  need_public_ip: boolean;
-
   os_image_name: string;
 
   ports: Array<string>;
+
+  public_ip_enabled: boolean;
 
   /**
    * RAM details.
