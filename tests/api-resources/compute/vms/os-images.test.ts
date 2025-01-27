@@ -10,7 +10,7 @@ const client = new NirvanaLabs({
 
 describe('resource osImages', () => {
   test('list', async () => {
-    const responsePromise = client.vms.osImages.list();
+    const responsePromise = client.compute.vms.osImages.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,7 +22,7 @@ describe('resource osImages', () => {
 
   test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.vms.osImages.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+    await expect(client.compute.vms.osImages.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
       NirvanaLabs.NotFoundError,
     );
   });

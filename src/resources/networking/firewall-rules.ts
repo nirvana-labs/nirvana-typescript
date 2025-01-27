@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../resource';
-import * as Core from '../core';
-import * as OperationsAPI from './operations';
-import * as Shared from './shared';
+import { APIResource } from '../../resource';
+import * as Core from '../../core';
+import * as OperationsAPI from '../operations';
+import * as Shared from '../shared';
 
 export class FirewallRules extends APIResource {
   /**
@@ -14,7 +14,7 @@ export class FirewallRules extends APIResource {
     body: FirewallRuleCreateParams,
     options?: Core.RequestOptions,
   ): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.post(`/vpcs/${vpcId}/firewall_rules`, { body, ...options });
+    return this._client.post(`/networking/vpcs/${vpcId}/firewall_rules`, { body, ...options });
   }
 
   /**
@@ -26,14 +26,17 @@ export class FirewallRules extends APIResource {
     body: FirewallRuleUpdateParams,
     options?: Core.RequestOptions,
   ): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.patch(`/vpcs/${vpcId}/firewall_rules/${firewallRuleId}`, { body, ...options });
+    return this._client.patch(`/networking/vpcs/${vpcId}/firewall_rules/${firewallRuleId}`, {
+      body,
+      ...options,
+    });
   }
 
   /**
    * List all firewall rules
    */
   list(vpcId: string, options?: Core.RequestOptions): Core.APIPromise<FirewallRuleList> {
-    return this._client.get(`/vpcs/${vpcId}/firewall_rules`, options);
+    return this._client.get(`/networking/vpcs/${vpcId}/firewall_rules`, options);
   }
 
   /**
@@ -44,14 +47,14 @@ export class FirewallRules extends APIResource {
     firewallRuleId: string,
     options?: Core.RequestOptions,
   ): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.delete(`/vpcs/${vpcId}/firewall_rules/${firewallRuleId}`, options);
+    return this._client.delete(`/networking/vpcs/${vpcId}/firewall_rules/${firewallRuleId}`, options);
   }
 
   /**
    * Get details about a firewall rule
    */
   get(vpcId: string, firewallRuleId: string, options?: Core.RequestOptions): Core.APIPromise<FirewallRule> {
-    return this._client.get(`/vpcs/${vpcId}/firewall_rules/${firewallRuleId}`, options);
+    return this._client.get(`/networking/vpcs/${vpcId}/firewall_rules/${firewallRuleId}`, options);
   }
 }
 

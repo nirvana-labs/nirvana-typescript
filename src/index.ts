@@ -5,11 +5,9 @@ import * as Core from './core';
 import * as Errors from './error';
 import * as Uploads from './uploads';
 import * as API from './resources/index';
-import { FirewallRules } from './resources/firewall-rules';
 import { Operations } from './resources/operations';
-import { Volumes } from './resources/volumes';
-import { VPCs } from './resources/vpcs';
-import { VMs } from './resources/vms/vms';
+import { Compute } from './resources/compute/compute';
+import { Networking } from './resources/networking/networking';
 
 export interface ClientOptions {
   /**
@@ -124,11 +122,9 @@ export class NirvanaLabs extends Core.APIClient {
     this.authToken = authToken;
   }
 
-  vms: API.VMs = new API.VMs(this);
-  vpcs: API.VPCs = new API.VPCs(this);
-  firewallRules: API.FirewallRules = new API.FirewallRules(this);
-  volumes: API.Volumes = new API.Volumes(this);
   operations: API.Operations = new API.Operations(this);
+  compute: API.Compute = new API.Compute(this);
+  networking: API.Networking = new API.Networking(this);
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
@@ -166,23 +162,17 @@ export class NirvanaLabs extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-NirvanaLabs.VMs = VMs;
-NirvanaLabs.VPCs = VPCs;
-NirvanaLabs.FirewallRules = FirewallRules;
-NirvanaLabs.Volumes = Volumes;
 NirvanaLabs.Operations = Operations;
+NirvanaLabs.Compute = Compute;
+NirvanaLabs.Networking = Networking;
 export declare namespace NirvanaLabs {
   export type RequestOptions = Core.RequestOptions;
 
-  export { VMs as VMs };
-
-  export { VPCs as VPCs };
-
-  export { FirewallRules as FirewallRules };
-
-  export { Volumes as Volumes };
-
   export { Operations as Operations };
+
+  export { Compute as Compute };
+
+  export { Networking as Networking };
 
   export type RegionName = API.RegionName;
   export type ResourceStatus = API.ResourceStatus;
