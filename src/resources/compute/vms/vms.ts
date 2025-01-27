@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
-import * as OperationsAPI from '../operations';
-import * as Shared from '../shared';
+import { APIResource } from '../../../resource';
+import * as Core from '../../../core';
+import * as OperationsAPI from '../../operations';
+import * as Shared from '../../shared';
 import * as VolumesAPI from '../volumes';
 import * as OSImagesAPI from './os-images';
 import { OSImageListResponse, OSImages } from './os-images';
@@ -15,7 +15,7 @@ export class VMs extends APIResource {
    * Create a VM
    */
   create(body: VMCreateParams, options?: Core.RequestOptions): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.post('/vms', { body, ...options });
+    return this._client.post('/compute/vms', { body, ...options });
   }
 
   /**
@@ -26,28 +26,28 @@ export class VMs extends APIResource {
     body: VMUpdateParams,
     options?: Core.RequestOptions,
   ): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.patch(`/vms/${vmId}`, { body, ...options });
+    return this._client.patch(`/compute/vms/${vmId}`, { body, ...options });
   }
 
   /**
    * List all VMs
    */
   list(options?: Core.RequestOptions): Core.APIPromise<VMList> {
-    return this._client.get('/vms', options);
+    return this._client.get('/compute/vms', options);
   }
 
   /**
    * Delete a VM
    */
   delete(vmId: string, options?: Core.RequestOptions): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.delete(`/vms/${vmId}`, options);
+    return this._client.delete(`/compute/vms/${vmId}`, options);
   }
 
   /**
    * Get details about a VM
    */
   get(vmId: string, options?: Core.RequestOptions): Core.APIPromise<VM> {
-    return this._client.get(`/vms/${vmId}`, options);
+    return this._client.get(`/compute/vms/${vmId}`, options);
   }
 }
 

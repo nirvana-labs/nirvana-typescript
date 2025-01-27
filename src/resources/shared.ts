@@ -17,10 +17,10 @@ export type RegionName =
   | 'washingtondc';
 
 export type ResourceStatus =
-  | 'PENDING'
-  | 'CREATING'
-  | 'UPDATING'
-  | 'READY'
-  | 'DELETING'
-  | 'DELETED'
-  | 'FAILED';
+  | 'pending'
+  | 'creating'
+  | 'updating'
+  | 'ready'
+  | 'deleting'
+  | 'deleted'
+  | 'failed';

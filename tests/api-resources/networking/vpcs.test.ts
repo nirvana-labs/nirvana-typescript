@@ -8,9 +8,13 @@ const client = new NirvanaLabs({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource volumes', () => {
+describe('resource vpcs', () => {
   test('create: only required params', async () => {
-    const responsePromise = client.volumes.create({ size: 100, vm_id: 'vm_id' });
+    const responsePromise = client.networking.vpcs.create({
+      name: 'my-vpc',
+      region: 'amsterdam',
+      subnet_name: 'my-subnet',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,26 +25,15 @@ describe('resource volumes', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await client.volumes.create({ size: 100, vm_id: 'vm_id', type: 'nvme' });
-  });
-
-  test('update: only required params', async () => {
-    const responsePromise = client.volumes.update('volume_id', { size: 100, vm_id: 'vm_id' });
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  test('update: required and optional params', async () => {
-    const response = await client.volumes.update('volume_id', { size: 100, vm_id: 'vm_id' });
+    const response = await client.networking.vpcs.create({
+      name: 'my-vpc',
+      region: 'amsterdam',
+      subnet_name: 'my-subnet',
+    });
   });
 
   test('list', async () => {
-    const responsePromise = client.volumes.list();
+    const responsePromise = client.networking.vpcs.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -52,13 +45,13 @@ describe('resource volumes', () => {
 
   test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.volumes.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+    await expect(client.networking.vpcs.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
       NirvanaLabs.NotFoundError,
     );
   });
 
-  test('delete: only required params', async () => {
-    const responsePromise = client.volumes.delete('volume_id', { vm_id: 'vm_id' });
+  test('delete', async () => {
+    const responsePromise = client.networking.vpcs.delete('vpc_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -68,12 +61,15 @@ describe('resource volumes', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('delete: required and optional params', async () => {
-    const response = await client.volumes.delete('volume_id', { vm_id: 'vm_id' });
+  test('delete: request options instead of params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.networking.vpcs.delete('vpc_id', { path: '/_stainless_unknown_path' }),
+    ).rejects.toThrow(NirvanaLabs.NotFoundError);
   });
 
   test('get', async () => {
-    const responsePromise = client.volumes.get('volume_id');
+    const responsePromise = client.networking.vpcs.get('vpc_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -85,7 +81,7 @@ describe('resource volumes', () => {
 
   test('get: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.volumes.get('volume_id', { path: '/_stainless_unknown_path' })).rejects.toThrow(
+    await expect(client.networking.vpcs.get('vpc_id', { path: '/_stainless_unknown_path' })).rejects.toThrow(
       NirvanaLabs.NotFoundError,
     );
   });
