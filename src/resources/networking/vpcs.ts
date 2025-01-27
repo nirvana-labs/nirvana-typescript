@@ -1,38 +1,38 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../resource';
-import * as Core from '../core';
+import { APIResource } from '../../resource';
+import * as Core from '../../core';
+import * as OperationsAPI from '../operations';
+import * as Shared from '../shared';
 import * as FirewallRulesAPI from './firewall-rules';
-import * as OperationsAPI from './operations';
-import * as Shared from './shared';
 
 export class VPCs extends APIResource {
   /**
    * Create a VPC
    */
   create(body: VPCCreateParams, options?: Core.RequestOptions): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.post('/vpcs', { body, ...options });
+    return this._client.post('/networking/vpcs', { body, ...options });
   }
 
   /**
    * List all VPCs
    */
   list(options?: Core.RequestOptions): Core.APIPromise<VPCList> {
-    return this._client.get('/vpcs', options);
+    return this._client.get('/networking/vpcs', options);
   }
 
   /**
    * Delete a VPC
    */
   delete(vpcId: string, options?: Core.RequestOptions): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.delete(`/vpcs/${vpcId}`, options);
+    return this._client.delete(`/networking/vpcs/${vpcId}`, options);
   }
 
   /**
    * Get details about a VPC
    */
   get(vpcId: string, options?: Core.RequestOptions): Core.APIPromise<VPC> {
-    return this._client.get(`/vpcs/${vpcId}`, options);
+    return this._client.get(`/networking/vpcs/${vpcId}`, options);
   }
 }
 
