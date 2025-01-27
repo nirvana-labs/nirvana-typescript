@@ -227,5 +227,16 @@ export namespace VMUpdateParams {
 VMs.OSImages = OSImages;
 
 export declare namespace VMs {
+  export {
+    type CPU as CPU,
+    type OSImage as OSImage,
+    type Ram as Ram,
+    type SSHKey as SSHKey,
+    type VM as VM,
+    type VMList as VMList,
+    type VMCreateParams as VMCreateParams,
+    type VMUpdateParams as VMUpdateParams,
+  };
+
   export { OSImages as OSImages, type OSImageListResponse as OSImageListResponse };
 }
