@@ -1,5 +1,24 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 export { Compute } from './compute';
-export { VMs } from './vms/index';
-export { Volumes } from './volumes';
+export {
+  VMs,
+  type CPU,
+  type OSImage,
+  type Ram,
+  type SSHKey,
+  type VM,
+  type VMList,
+  type VMCreateParams,
+  type VMUpdateParams,
+} from './vms/index';
+export {
+  Volumes,
+  type StorageType,
+  type Volume,
+  type VolumeKind,
+  type VolumeListResponse,
+  type VolumeCreateParams,
+  type VolumeUpdateParams,
+  type VolumeDeleteParams,
+} from './volumes';

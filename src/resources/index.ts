@@ -3,4 +3,4 @@
 export * from './shared';
 export { Compute } from './compute/compute';
 export { Networking } from './networking/networking';
-export { Operations } from './operations';
+export { Operations, type Operation, type OperationListResponse } from './operations';
