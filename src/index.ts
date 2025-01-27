@@ -5,7 +5,7 @@ import * as Core from './core';
 import * as Errors from './error';
 import * as Uploads from './uploads';
 import * as API from './resources/index';
-import { Operation, OperationListResponse, Operations } from './resources/operations';
+import { Operations } from './resources/operations';
 import { Compute } from './resources/compute/compute';
 import { Networking } from './resources/networking/networking';
 
@@ -168,11 +168,7 @@ NirvanaLabs.Networking = Networking;
 export declare namespace NirvanaLabs {
   export type RequestOptions = Core.RequestOptions;
 
-  export {
-    Operations as Operations,
-    type Operation as Operation,
-    type OperationListResponse as OperationListResponse,
-  };
+  export { Operations as Operations };
 
   export { Compute as Compute };
 
