@@ -10,7 +10,7 @@ const client = new NirvanaLabs({
 
 describe('resource vms', () => {
   test('create: only required params', async () => {
-    const responsePromise = client.vms.create({
+    const responsePromise = client.compute.vms.create({
       boot_volume: { size: 100 },
       cpu: { cores: 2 },
       name: 'my-vm',
@@ -32,7 +32,7 @@ describe('resource vms', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await client.vms.create({
+    const response = await client.compute.vms.create({
       boot_volume: { size: 100 },
       cpu: { cores: 2 },
       name: 'my-vm',
@@ -49,7 +49,7 @@ describe('resource vms', () => {
   });
 
   test('update', async () => {
-    const responsePromise = client.vms.update('vm_id', {});
+    const responsePromise = client.compute.vms.update('vm_id', {});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -60,7 +60,7 @@ describe('resource vms', () => {
   });
 
   test('list', async () => {
-    const responsePromise = client.vms.list();
+    const responsePromise = client.compute.vms.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -72,13 +72,13 @@ describe('resource vms', () => {
 
   test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.vms.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+    await expect(client.compute.vms.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
       NirvanaLabs.NotFoundError,
     );
   });
 
   test('delete', async () => {
-    const responsePromise = client.vms.delete('vm_id');
+    const responsePromise = client.compute.vms.delete('vm_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -90,13 +90,13 @@ describe('resource vms', () => {
 
   test('delete: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.vms.delete('vm_id', { path: '/_stainless_unknown_path' })).rejects.toThrow(
+    await expect(client.compute.vms.delete('vm_id', { path: '/_stainless_unknown_path' })).rejects.toThrow(
       NirvanaLabs.NotFoundError,
     );
   });
 
   test('get', async () => {
-    const responsePromise = client.vms.get('vm_id');
+    const responsePromise = client.compute.vms.get('vm_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -108,7 +108,7 @@ describe('resource vms', () => {
 
   test('get: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.vms.get('vm_id', { path: '/_stainless_unknown_path' })).rejects.toThrow(
+    await expect(client.compute.vms.get('vm_id', { path: '/_stainless_unknown_path' })).rejects.toThrow(
       NirvanaLabs.NotFoundError,
     );
   });

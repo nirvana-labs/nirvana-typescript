@@ -1,15 +1,15 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../resource';
-import * as Core from '../core';
-import * as OperationsAPI from './operations';
+import { APIResource } from '../../resource';
+import * as Core from '../../core';
+import * as OperationsAPI from '../operations';
 
 export class Volumes extends APIResource {
   /**
    * Create a Volume. Only data volumes can be created.
    */
   create(body: VolumeCreateParams, options?: Core.RequestOptions): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.post('/volumes', { body, ...options });
+    return this._client.post('/compute/volumes', { body, ...options });
   }
 
   /**
@@ -20,7 +20,14 @@ export class Volumes extends APIResource {
     body: VolumeUpdateParams,
     options?: Core.RequestOptions,
   ): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.patch(`/volumes/${volumeId}`, { body, ...options });
+    return this._client.patch(`/compute/volumes/${volumeId}`, { body, ...options });
+  }
+
+  /**
+   * List all volumes
+   */
+  list(options?: Core.RequestOptions): Core.APIPromise<VolumeListResponse> {
+    return this._client.get('/compute/volumes', options);
   }
 
   /**
@@ -31,14 +38,14 @@ export class Volumes extends APIResource {
     body: VolumeDeleteParams,
     options?: Core.RequestOptions,
   ): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.delete(`/volumes/${volumeId}`, { body, ...options });
+    return this._client.delete(`/compute/volumes/${volumeId}`, { body, ...options });
   }
 
   /**
    * Get a Volume.
    */
   get(volumeId: string, options?: Core.RequestOptions): Core.APIPromise<Volume> {
-    return this._client.get(`/volumes/${volumeId}`, options);
+    return this._client.get(`/compute/volumes/${volumeId}`, options);
   }
 }
 
@@ -55,6 +62,11 @@ export interface Volume {
 
   created_at: string;
 
+  /**
+   * Volume kind.
+   */
+  kind: VolumeKind;
+
   size: number;
 
   /**
@@ -63,6 +75,15 @@ export interface Volume {
   type: StorageType;
 
   updated_at: string;
+}
+
+/**
+ * Volume kind.
+ */
+export type VolumeKind = 'boot' | 'data';
+
+export interface VolumeListResponse {
+  items: Array<Volume>;
 }
 
 export interface VolumeCreateParams {

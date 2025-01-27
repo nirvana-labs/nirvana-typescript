@@ -10,7 +10,7 @@ const client = new NirvanaLabs({
 
 describe('resource volumes', () => {
   test('create: only required params', async () => {
-    const responsePromise = client.volumes.create({ size: 100, vm_id: 'vm_id' });
+    const responsePromise = client.compute.volumes.create({ size: 100, vm_id: 'vm_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,11 +21,11 @@ describe('resource volumes', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await client.volumes.create({ size: 100, vm_id: 'vm_id', type: 'nvme' });
+    const response = await client.compute.volumes.create({ size: 100, vm_id: 'vm_id', type: 'nvme' });
   });
 
   test('update: only required params', async () => {
-    const responsePromise = client.volumes.update('volume_id', { size: 100, vm_id: 'vm_id' });
+    const responsePromise = client.compute.volumes.update('volume_id', { size: 100, vm_id: 'vm_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -36,11 +36,29 @@ describe('resource volumes', () => {
   });
 
   test('update: required and optional params', async () => {
-    const response = await client.volumes.update('volume_id', { size: 100, vm_id: 'vm_id' });
+    const response = await client.compute.volumes.update('volume_id', { size: 100, vm_id: 'vm_id' });
+  });
+
+  test('list', async () => {
+    const responsePromise = client.compute.volumes.list();
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  test('list: request options instead of params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(client.compute.volumes.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+      NirvanaLabs.NotFoundError,
+    );
   });
 
   test('delete: only required params', async () => {
-    const responsePromise = client.volumes.delete('volume_id', { vm_id: 'vm_id' });
+    const responsePromise = client.compute.volumes.delete('volume_id', { vm_id: 'vm_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -51,11 +69,11 @@ describe('resource volumes', () => {
   });
 
   test('delete: required and optional params', async () => {
-    const response = await client.volumes.delete('volume_id', { vm_id: 'vm_id' });
+    const response = await client.compute.volumes.delete('volume_id', { vm_id: 'vm_id' });
   });
 
   test('get', async () => {
-    const responsePromise = client.volumes.get('volume_id');
+    const responsePromise = client.compute.volumes.get('volume_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -67,8 +85,8 @@ describe('resource volumes', () => {
 
   test('get: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.volumes.get('volume_id', { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      NirvanaLabs.NotFoundError,
-    );
+    await expect(
+      client.compute.volumes.get('volume_id', { path: '/_stainless_unknown_path' }),
+    ).rejects.toThrow(NirvanaLabs.NotFoundError);
   });
 });

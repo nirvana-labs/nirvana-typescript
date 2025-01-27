@@ -28,7 +28,7 @@ const client = new NirvanaLabs({
 });
 
 async function main() {
-  const operation = await client.vms.create({
+  const operation = await client.compute.vms.create({
     boot_volume: { size: 100 },
     cpu: { cores: 2 },
     name: 'my-vm',
@@ -60,7 +60,7 @@ const client = new NirvanaLabs({
 });
 
 async function main() {
-  const params: NirvanaLabs.VMCreateParams = {
+  const params: NirvanaLabs.Compute.VMCreateParams = {
     boot_volume: { size: 100 },
     cpu: { cores: 2 },
     name: 'my-vm',
@@ -72,7 +72,7 @@ async function main() {
     source_address: '0.0.0.0/0',
     ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
   };
-  const operation: NirvanaLabs.Operation = await client.vms.create(params);
+  const operation: NirvanaLabs.Operation = await client.compute.vms.create(params);
 }
 
 main();
@@ -89,7 +89,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const operation = await client.vms
+  const operation = await client.compute.vms
     .create({
       boot_volume: { size: 100 },
       cpu: { cores: 2 },
@@ -145,7 +145,7 @@ const client = new NirvanaLabs({
 });
 
 // Or, configure per-request:
-await client.vms.create({ boot_volume: { size: 100 }, cpu: { cores: 2 }, name: 'my-vm', need_public_ip: true, os_image_name: 'noble-2024-12-06', ports: ['22', '80', '443'], ram: { size: 2 }, region: 'amsterdam', source_address: '0.0.0.0/0', ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' } }, {
+await client.compute.vms.create({ boot_volume: { size: 100 }, cpu: { cores: 2 }, name: 'my-vm', need_public_ip: true, os_image_name: 'noble-2024-12-06', ports: ['22', '80', '443'], ram: { size: 2 }, region: 'amsterdam', source_address: '0.0.0.0/0', ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' } }, {
   maxRetries: 5,
 });
 ```
@@ -162,7 +162,7 @@ const client = new NirvanaLabs({
 });
 
 // Override per-request:
-await client.vms.create({ boot_volume: { size: 100 }, cpu: { cores: 2 }, name: 'my-vm', need_public_ip: true, os_image_name: 'noble-2024-12-06', ports: ['22', '80', '443'], ram: { size: 2 }, region: 'amsterdam', source_address: '0.0.0.0/0', ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' } }, {
+await client.compute.vms.create({ boot_volume: { size: 100 }, cpu: { cores: 2 }, name: 'my-vm', need_public_ip: true, os_image_name: 'noble-2024-12-06', ports: ['22', '80', '443'], ram: { size: 2 }, region: 'amsterdam', source_address: '0.0.0.0/0', ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' } }, {
   timeout: 5 * 1000,
 });
 ```
@@ -183,7 +183,7 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const client = new NirvanaLabs();
 
-const response = await client.vms
+const response = await client.compute.vms
   .create({
     boot_volume: { size: 100 },
     cpu: { cores: 2 },
@@ -200,7 +200,7 @@ const response = await client.vms
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: operation, response: raw } = await client.vms
+const { data: operation, response: raw } = await client.compute.vms
   .create({
     boot_volume: { size: 100 },
     cpu: { cores: 2 },
@@ -319,7 +319,7 @@ const client = new NirvanaLabs({
 });
 
 // Override per-request:
-await client.vms.create(
+await client.compute.vms.create(
   {
     boot_volume: { size: 100 },
     cpu: { cores: 2 },
