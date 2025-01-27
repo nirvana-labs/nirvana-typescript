@@ -137,3 +137,13 @@ export interface FirewallRuleUpdateParams {
    */
   source: FirewallRuleEndpoint;
 }
+
+export declare namespace FirewallRules {
+  export {
+    type FirewallRule as FirewallRule,
+    type FirewallRuleEndpoint as FirewallRuleEndpoint,
+    type FirewallRuleList as FirewallRuleList,
+    type FirewallRuleCreateParams as FirewallRuleCreateParams,
+    type FirewallRuleUpdateParams as FirewallRuleUpdateParams,
+  };
+}
