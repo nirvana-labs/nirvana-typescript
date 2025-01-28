@@ -18,7 +18,7 @@ describe('resource vms', () => {
       ports: ['22', '80', '443'],
       public_ip_enabled: true,
       ram: { size: 2 },
-      region: 'amsterdam',
+      region: 'us-sea-1',
       source_address: '0.0.0.0/0',
       ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
     });
@@ -40,7 +40,7 @@ describe('resource vms', () => {
       ports: ['22', '80', '443'],
       public_ip_enabled: true,
       ram: { size: 2 },
-      region: 'amsterdam',
+      region: 'us-sea-1',
       source_address: '0.0.0.0/0',
       ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
       data_volumes: [{ size: 100, type: 'nvme' }],
