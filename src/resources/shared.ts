@@ -4,7 +4,7 @@ export type RegionName =
   | 'us-sea-1'
   | 'us-sva-1'
   | 'us-chi-1'
-  | 'us-dco-1'
+  | 'us-wdc-1'
   | 'eu-lon-1'
   | 'eu-ams-1'
   | 'eu-frk-1'
