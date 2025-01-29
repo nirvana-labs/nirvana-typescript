@@ -89,10 +89,7 @@ export interface SSHKey {
 export interface VM {
   id: string;
 
-  /**
-   * Volume details.
-   */
-  boot_volume: VolumesAPI.Volume;
+  boot_volume_id: string;
 
   /**
    * CPU details.
@@ -101,7 +98,7 @@ export interface VM {
 
   created_at: string;
 
-  data_volumes: Array<VolumesAPI.Volume>;
+  data_volume_ids: Array<string>;
 
   /**
    * RAM details.

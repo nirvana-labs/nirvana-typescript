@@ -4,7 +4,6 @@ import { APIResource } from '../../resource';
 import * as Core from '../../core';
 import * as OperationsAPI from '../operations';
 import * as Shared from '../shared';
-import * as FirewallRulesAPI from './firewall-rules';
 
 export class VPCs extends APIResource {
   /**
@@ -59,7 +58,7 @@ export interface VPC {
 
   created_at: string;
 
-  firewall_rules: Array<FirewallRulesAPI.FirewallRule>;
+  firewall_rule_ids: Array<string>;
 
   name: string;
 
