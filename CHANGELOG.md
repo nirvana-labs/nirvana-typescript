@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.10 (2025-01-29)
+
+Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/nirvana-labs/nirvana-node/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
+
+### Chores
+
+* update SDK settings ([#39](https://github.com/nirvana-labs/nirvana-node/issues/39)) ([9f9145a](https://github.com/nirvana-labs/nirvana-node/commit/9f9145ada7a0b888e71314bc6abe2eef69774fb8))
+
 ## 0.1.0-alpha.9 (2025-01-29)
 
 Full Changelog: [v0.1.0-alpha.8...v0.1.0-alpha.9](https://github.com/nirvana-labs/nirvana-node/compare/v0.1.0-alpha.8...v0.1.0-alpha.9)
