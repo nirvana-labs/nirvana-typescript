@@ -20,5 +20,4 @@ export {
   type VolumeListResponse,
   type VolumeCreateParams,
   type VolumeUpdateParams,
-  type VolumeDeleteParams,
 } from './volumes';
