@@ -6,7 +6,6 @@ import {
   StorageType,
   Volume,
   VolumeCreateParams,
-  VolumeDeleteParams,
   VolumeKind,
   VolumeListResponse,
   VolumeUpdateParams,
@@ -44,6 +43,5 @@ export declare namespace Compute {
     type VolumeListResponse as VolumeListResponse,
     type VolumeCreateParams as VolumeCreateParams,
     type VolumeUpdateParams as VolumeUpdateParams,
-    type VolumeDeleteParams as VolumeDeleteParams,
   };
 }

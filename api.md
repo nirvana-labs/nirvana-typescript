@@ -62,7 +62,7 @@ Methods:
 - <code title="post /compute/volumes">client.compute.volumes.<a href="./src/resources/compute/volumes.ts">create</a>({ ...params }) -> Operation</code>
 - <code title="patch /compute/volumes/{volume_id}">client.compute.volumes.<a href="./src/resources/compute/volumes.ts">update</a>(volumeId, { ...params }) -> Operation</code>
 - <code title="get /compute/volumes">client.compute.volumes.<a href="./src/resources/compute/volumes.ts">list</a>() -> VolumeListResponse</code>
-- <code title="delete /compute/volumes/{volume_id}">client.compute.volumes.<a href="./src/resources/compute/volumes.ts">delete</a>(volumeId, { ...params }) -> Operation</code>
+- <code title="delete /compute/volumes/{volume_id}">client.compute.volumes.<a href="./src/resources/compute/volumes.ts">delete</a>(volumeId) -> Operation</code>
 - <code title="get /compute/volumes/{volume_id}">client.compute.volumes.<a href="./src/resources/compute/volumes.ts">get</a>(volumeId) -> Volume</code>
 
 # Networking
