@@ -40,8 +40,6 @@ describe('resource vms', () => {
       region: 'us-sea-1',
       ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
       data_volumes: [{ size: 100, type: 'nvme' }],
-      ports: ['22', '80', '443'],
-      source_address: '0.0.0.0/0',
       subnet_id: '123e4567-e89b-12d3-a456-426614174000',
     });
   });

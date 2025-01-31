@@ -107,6 +107,8 @@ export interface VM {
 
   name: string;
 
+  private_ip: string;
+
   public_ip: string;
 
   region: Shared.RegionName;
@@ -153,10 +155,6 @@ export interface VMCreateParams {
 
   data_volumes?: Array<VMCreateParams.DataVolume>;
 
-  ports?: Array<string>;
-
-  source_address?: string;
-
   subnet_id?: string;
 }
 
@@ -183,42 +181,14 @@ export namespace VMCreateParams {
 
 export interface VMUpdateParams {
   /**
-   * Boot volume create request.
-   */
-  boot_volume?: VMUpdateParams.BootVolume;
-
-  /**
    * CPU details.
    */
   cpu?: CPU;
-
-  data_volumes?: Array<VMUpdateParams.DataVolume>;
 
   /**
    * RAM details.
    */
   ram?: Ram;
-}
-
-export namespace VMUpdateParams {
-  /**
-   * Boot volume create request.
-   */
-  export interface BootVolume {
-    size: number;
-  }
-
-  /**
-   * VM data volume create request.
-   */
-  export interface DataVolume {
-    size: number;
-
-    /**
-     * Storage type.
-     */
-    type?: VolumesAPI.StorageType;
-  }
 }
 
 VMs.OSImages = OSImages;
