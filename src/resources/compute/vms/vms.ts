@@ -137,8 +137,6 @@ export interface VMCreateParams {
 
   os_image_name: string;
 
-  ports: Array<string>;
-
   public_ip_enabled: boolean;
 
   /**
@@ -148,14 +146,16 @@ export interface VMCreateParams {
 
   region: Shared.RegionName;
 
-  source_address: string;
-
   /**
    * SSH key details.
    */
   ssh_key: SSHKey;
 
   data_volumes?: Array<VMCreateParams.DataVolume>;
+
+  ports?: Array<string>;
+
+  source_address?: string;
 
   subnet_id?: string;
 }
