@@ -33,12 +33,8 @@ export class Volumes extends APIResource {
   /**
    * Delete a Volume. Boot or data volumes can be deleted.
    */
-  delete(
-    volumeId: string,
-    body: VolumeDeleteParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.delete(`/compute/volumes/${volumeId}`, { body, ...options });
+  delete(volumeId: string, options?: Core.RequestOptions): Core.APIPromise<OperationsAPI.Operation> {
+    return this._client.delete(`/compute/volumes/${volumeId}`, options);
   }
 
   /**
@@ -99,12 +95,6 @@ export interface VolumeCreateParams {
 
 export interface VolumeUpdateParams {
   size: number;
-
-  vm_id: string;
-}
-
-export interface VolumeDeleteParams {
-  vm_id: string;
 }
 
 export declare namespace Volumes {
@@ -115,6 +105,5 @@ export declare namespace Volumes {
     type VolumeListResponse as VolumeListResponse,
     type VolumeCreateParams as VolumeCreateParams,
     type VolumeUpdateParams as VolumeUpdateParams,
-    type VolumeDeleteParams as VolumeDeleteParams,
   };
 }
