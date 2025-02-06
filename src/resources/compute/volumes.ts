@@ -88,11 +88,6 @@ export interface VolumeCreateParams {
   size: number;
 
   vm_id: string;
-
-  /**
-   * Storage type.
-   */
-  type?: StorageType;
 }
 
 export interface VolumeUpdateParams {
