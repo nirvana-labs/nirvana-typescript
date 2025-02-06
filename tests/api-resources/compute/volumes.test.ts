@@ -21,7 +21,7 @@ describe('resource volumes', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await client.compute.volumes.create({ size: 100, vm_id: 'vm_id', type: 'nvme' });
+    const response = await client.compute.volumes.create({ size: 100, vm_id: 'vm_id' });
   });
 
   test('update: only required params', async () => {
