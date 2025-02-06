@@ -71,6 +71,8 @@ export interface Volume {
   type: StorageType;
 
   updated_at: string;
+
+  vm_id?: string;
 }
 
 /**
