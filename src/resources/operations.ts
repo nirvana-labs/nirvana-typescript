@@ -38,4 +38,6 @@ export interface Operation {
   updated_at: string;
 }
 
-export type OperationListResponse = Array<Operation>;
+export interface OperationListResponse {
+  items: Array<Operation>;
+}
