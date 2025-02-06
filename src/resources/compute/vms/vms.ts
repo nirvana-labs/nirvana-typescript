@@ -4,7 +4,6 @@ import { APIResource } from '../../../resource';
 import * as Core from '../../../core';
 import * as OperationsAPI from '../../operations';
 import * as Shared from '../../shared';
-import * as VolumesAPI from '../volumes';
 import * as OSImagesAPI from './os-images';
 import { OSImageListResponse, OSImages } from './os-images';
 
@@ -171,11 +170,6 @@ export namespace VMCreateParams {
    */
   export interface DataVolume {
     size: number;
-
-    /**
-     * Storage type.
-     */
-    type?: VolumesAPI.StorageType;
   }
 }
 
