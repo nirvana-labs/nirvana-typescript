@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.12 (2025-02-05)
+
+Full Changelog: [v0.1.0-alpha.11...v0.1.0-alpha.12](https://github.com/nirvana-labs/nirvana-node/compare/v0.1.0-alpha.11...v0.1.0-alpha.12)
+
+### Features
+
+* **client:** send `X-Stainless-Timeout` header ([#47](https://github.com/nirvana-labs/nirvana-node/issues/47)) ([bd7b656](https://github.com/nirvana-labs/nirvana-node/commit/bd7b6567400075be5d4addfa6bd5d7048bca2e0b))
+
 ## 0.1.0-alpha.11 (2025-01-31)
 
 Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/nirvana-labs/nirvana-node/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
