@@ -12,11 +12,11 @@ describe('resource vms', () => {
   test('create: only required params', async () => {
     const responsePromise = client.compute.vms.create({
       boot_volume: { size: 100 },
-      cpu: { cores: 2 },
+      cpu_config: { vcpu: 2 },
+      memory_config: { size: 2 },
       name: 'my-vm',
       os_image_name: 'noble-2024-12-06',
       public_ip_enabled: true,
-      ram: { size: 2 },
       region: 'us-sea-1',
       ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
     });
@@ -32,11 +32,11 @@ describe('resource vms', () => {
   test('create: required and optional params', async () => {
     const response = await client.compute.vms.create({
       boot_volume: { size: 100 },
-      cpu: { cores: 2 },
+      cpu_config: { vcpu: 2 },
+      memory_config: { size: 2 },
       name: 'my-vm',
       os_image_name: 'noble-2024-12-06',
       public_ip_enabled: true,
-      ram: { size: 2 },
       region: 'us-sea-1',
       ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
       data_volumes: [{ size: 100 }],
