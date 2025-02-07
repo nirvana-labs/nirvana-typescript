@@ -23,9 +23,7 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/compute/vms/vms.ts">CPU</a></code>
 - <code><a href="./src/resources/compute/vms/vms.ts">OSImage</a></code>
-- <code><a href="./src/resources/compute/vms/vms.ts">Ram</a></code>
 - <code><a href="./src/resources/compute/vms/vms.ts">SSHKey</a></code>
 - <code><a href="./src/resources/compute/vms/vms.ts">VM</a></code>
 - <code><a href="./src/resources/compute/vms/vms.ts">VMList</a></code>
