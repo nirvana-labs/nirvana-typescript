@@ -31,12 +31,14 @@ export interface Operation {
 
   resource_id: string;
 
-  status: 'pending' | 'running' | 'done' | 'failed' | 'unknown';
+  status: OperationStatus;
 
   type: 'create' | 'update' | 'delete';
 
   updated_at: string;
 }
+
+export type OperationStatus = 'pending' | 'running' | 'done' | 'failed' | 'unknown';
 
 export interface OperationListResponse {
   items: Array<Operation>;
