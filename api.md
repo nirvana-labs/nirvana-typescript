@@ -10,12 +10,14 @@ Types:
 Types:
 
 - <code><a href="./src/resources/operations.ts">Operation</a></code>
+- <code><a href="./src/resources/operations.ts">OperationKind</a></code>
+- <code><a href="./src/resources/operations.ts">OperationList</a></code>
 - <code><a href="./src/resources/operations.ts">OperationStatus</a></code>
-- <code><a href="./src/resources/operations.ts">OperationListResponse</a></code>
+- <code><a href="./src/resources/operations.ts">OperationType</a></code>
 
 Methods:
 
-- <code title="get /operations">client.operations.<a href="./src/resources/operations.ts">list</a>() -> OperationListResponse</code>
+- <code title="get /operations">client.operations.<a href="./src/resources/operations.ts">list</a>() -> OperationList</code>
 - <code title="get /operations/{operation_id}">client.operations.<a href="./src/resources/operations.ts">get</a>(operationId) -> Operation</code>
 
 # Compute
@@ -56,13 +58,13 @@ Types:
 - <code><a href="./src/resources/compute/volumes.ts">StorageType</a></code>
 - <code><a href="./src/resources/compute/volumes.ts">Volume</a></code>
 - <code><a href="./src/resources/compute/volumes.ts">VolumeKind</a></code>
-- <code><a href="./src/resources/compute/volumes.ts">VolumeListResponse</a></code>
+- <code><a href="./src/resources/compute/volumes.ts">VolumeList</a></code>
 
 Methods:
 
 - <code title="post /compute/volumes">client.compute.volumes.<a href="./src/resources/compute/volumes.ts">create</a>({ ...params }) -> Operation</code>
 - <code title="patch /compute/volumes/{volume_id}">client.compute.volumes.<a href="./src/resources/compute/volumes.ts">update</a>(volumeId, { ...params }) -> Operation</code>
-- <code title="get /compute/volumes">client.compute.volumes.<a href="./src/resources/compute/volumes.ts">list</a>() -> VolumeListResponse</code>
+- <code title="get /compute/volumes">client.compute.volumes.<a href="./src/resources/compute/volumes.ts">list</a>() -> VolumeList</code>
 - <code title="delete /compute/volumes/{volume_id}">client.compute.volumes.<a href="./src/resources/compute/volumes.ts">delete</a>(volumeId) -> Operation</code>
 - <code title="get /compute/volumes/{volume_id}">client.compute.volumes.<a href="./src/resources/compute/volumes.ts">get</a>(volumeId) -> Volume</code>
 

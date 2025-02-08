@@ -26,7 +26,7 @@ export class Volumes extends APIResource {
   /**
    * List all volumes
    */
-  list(options?: Core.RequestOptions): Core.APIPromise<VolumeListResponse> {
+  list(options?: Core.RequestOptions): Core.APIPromise<VolumeList> {
     return this._client.get('/compute/volumes', options);
   }
 
@@ -80,7 +80,7 @@ export interface Volume {
  */
 export type VolumeKind = 'boot' | 'data';
 
-export interface VolumeListResponse {
+export interface VolumeList {
   items: Array<Volume>;
 }
 
@@ -99,7 +99,7 @@ export declare namespace Volumes {
     type StorageType as StorageType,
     type Volume as Volume,
     type VolumeKind as VolumeKind,
-    type VolumeListResponse as VolumeListResponse,
+    type VolumeList as VolumeList,
     type VolumeCreateParams as VolumeCreateParams,
     type VolumeUpdateParams as VolumeUpdateParams,
   };
