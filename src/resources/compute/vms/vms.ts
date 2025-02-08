@@ -50,6 +50,26 @@ export class VMs extends APIResource {
   }
 }
 
+/**
+ * CPU config details.
+ */
+export interface CPUConfig {
+  /**
+   * virtual CPUs
+   */
+  vcpu: number;
+}
+
+/**
+ * Memory config details.
+ */
+export interface MemoryConfig {
+  /**
+   * memory size
+   */
+  size: number;
+}
+
 export interface OSImage {
   created_at: string;
 
@@ -76,7 +96,7 @@ export interface VM {
   /**
    * CPU config details.
    */
-  cpu_config: VM.CPUConfig;
+  cpu_config: CPUConfig;
 
   created_at: string;
 
@@ -85,7 +105,7 @@ export interface VM {
   /**
    * Memory config details.
    */
-  memory_config: VM.MemoryConfig;
+  memory_config: MemoryConfig;
 
   name: string;
 
@@ -102,28 +122,6 @@ export interface VM {
   vpc_id: string;
 }
 
-export namespace VM {
-  /**
-   * CPU config details.
-   */
-  export interface CPUConfig {
-    /**
-     * virtual CPUs
-     */
-    vcpu: number;
-  }
-
-  /**
-   * Memory config details.
-   */
-  export interface MemoryConfig {
-    /**
-     * memory size
-     */
-    size: number;
-  }
-}
-
 export interface VMList {
   items: Array<VM>;
 }
@@ -137,12 +135,12 @@ export interface VMCreateParams {
   /**
    * CPU config details.
    */
-  cpu_config: VMCreateParams.CPUConfig;
+  cpu_config: CPUConfig;
 
   /**
    * Memory config details.
    */
-  memory_config: VMCreateParams.MemoryConfig;
+  memory_config: MemoryConfig;
 
   name: string;
 
@@ -171,26 +169,6 @@ export namespace VMCreateParams {
   }
 
   /**
-   * CPU config details.
-   */
-  export interface CPUConfig {
-    /**
-     * virtual CPUs
-     */
-    vcpu: number;
-  }
-
-  /**
-   * Memory config details.
-   */
-  export interface MemoryConfig {
-    /**
-     * memory size
-     */
-    size: number;
-  }
-
-  /**
    * VM data volume create request.
    */
   export interface DataVolume {
@@ -202,40 +180,20 @@ export interface VMUpdateParams {
   /**
    * CPU config details.
    */
-  cpu_config?: VMUpdateParams.CPUConfig;
+  cpu_config?: CPUConfig;
 
   /**
    * Memory config details.
    */
-  memory_config?: VMUpdateParams.MemoryConfig;
-}
-
-export namespace VMUpdateParams {
-  /**
-   * CPU config details.
-   */
-  export interface CPUConfig {
-    /**
-     * virtual CPUs
-     */
-    vcpu: number;
-  }
-
-  /**
-   * Memory config details.
-   */
-  export interface MemoryConfig {
-    /**
-     * memory size
-     */
-    size: number;
-  }
+  memory_config?: MemoryConfig;
 }
 
 VMs.OSImages = OSImages;
 
 export declare namespace VMs {
   export {
+    type CPUConfig as CPUConfig,
+    type MemoryConfig as MemoryConfig,
     type OSImage as OSImage,
     type SSHKey as SSHKey,
     type VM as VM,

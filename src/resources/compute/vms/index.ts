@@ -3,6 +3,8 @@
 export { OSImages, type OSImageListResponse } from './os-images';
 export {
   VMs,
+  type CPUConfig,
+  type MemoryConfig,
   type OSImage,
   type SSHKey,
   type VM,

@@ -3,6 +3,8 @@
 export { Compute } from './compute';
 export {
   VMs,
+  type CPUConfig,
+  type MemoryConfig,
   type OSImage,
   type SSHKey,
   type VM,

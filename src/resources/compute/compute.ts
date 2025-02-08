@@ -12,7 +12,17 @@ import {
   Volumes,
 } from './volumes';
 import * as VMsAPI from './vms/vms';
-import { OSImage, SSHKey, VM, VMCreateParams, VMList, VMUpdateParams, VMs } from './vms/vms';
+import {
+  CPUConfig,
+  MemoryConfig,
+  OSImage,
+  SSHKey,
+  VM,
+  VMCreateParams,
+  VMList,
+  VMUpdateParams,
+  VMs,
+} from './vms/vms';
 
 export class Compute extends APIResource {
   vms: VMsAPI.VMs = new VMsAPI.VMs(this._client);
@@ -25,6 +35,8 @@ Compute.Volumes = Volumes;
 export declare namespace Compute {
   export {
     VMs as VMs,
+    type CPUConfig as CPUConfig,
+    type MemoryConfig as MemoryConfig,
     type OSImage as OSImage,
     type SSHKey as SSHKey,
     type VM as VM,
