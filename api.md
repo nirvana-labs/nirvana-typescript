@@ -10,6 +10,7 @@ Types:
 Types:
 
 - <code><a href="./src/resources/operations.ts">Operation</a></code>
+- <code><a href="./src/resources/operations.ts">OperationStatus</a></code>
 - <code><a href="./src/resources/operations.ts">OperationListResponse</a></code>
 
 Methods:
@@ -23,6 +24,8 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/compute/vms/vms.ts">CPUConfig</a></code>
+- <code><a href="./src/resources/compute/vms/vms.ts">MemoryConfig</a></code>
 - <code><a href="./src/resources/compute/vms/vms.ts">OSImage</a></code>
 - <code><a href="./src/resources/compute/vms/vms.ts">SSHKey</a></code>
 - <code><a href="./src/resources/compute/vms/vms.ts">VM</a></code>
