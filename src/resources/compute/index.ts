@@ -17,7 +17,7 @@ export {
   type StorageType,
   type Volume,
   type VolumeKind,
-  type VolumeListResponse,
+  type VolumeList,
   type VolumeCreateParams,
   type VolumeUpdateParams,
 } from './volumes';

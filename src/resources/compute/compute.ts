@@ -7,7 +7,7 @@ import {
   Volume,
   VolumeCreateParams,
   VolumeKind,
-  VolumeListResponse,
+  VolumeList,
   VolumeUpdateParams,
   Volumes,
 } from './volumes';
@@ -50,7 +50,7 @@ export declare namespace Compute {
     type StorageType as StorageType,
     type Volume as Volume,
     type VolumeKind as VolumeKind,
-    type VolumeListResponse as VolumeListResponse,
+    type VolumeList as VolumeList,
     type VolumeCreateParams as VolumeCreateParams,
     type VolumeUpdateParams as VolumeUpdateParams,
   };
