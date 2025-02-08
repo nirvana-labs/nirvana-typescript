@@ -3,6 +3,8 @@
 export { Compute } from './compute';
 export {
   VMs,
+  type CPUConfig,
+  type MemoryConfig,
   type OSImage,
   type SSHKey,
   type VM,
@@ -15,7 +17,7 @@ export {
   type StorageType,
   type Volume,
   type VolumeKind,
-  type VolumeListResponse,
+  type VolumeList,
   type VolumeCreateParams,
   type VolumeUpdateParams,
 } from './volumes';

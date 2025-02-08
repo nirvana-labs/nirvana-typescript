@@ -7,7 +7,7 @@ export class Operations extends APIResource {
   /**
    * List all operations
    */
-  list(options?: Core.RequestOptions): Core.APIPromise<OperationListResponse> {
+  list(options?: Core.RequestOptions): Core.APIPromise<OperationList> {
     return this._client.get('/operations', options);
   }
 
@@ -27,17 +27,23 @@ export interface Operation {
 
   created_at: string;
 
-  kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule';
+  kind: OperationKind;
 
   resource_id: string;
 
-  status: 'pending' | 'running' | 'done' | 'failed' | 'unknown';
+  status: OperationStatus;
 
-  type: 'create' | 'update' | 'delete';
+  type: OperationType;
 
   updated_at: string;
 }
 
-export interface OperationListResponse {
+export type OperationKind = 'vm' | 'volume' | 'vpc' | 'firewall_rule';
+
+export interface OperationList {
   items: Array<Operation>;
 }
+
+export type OperationStatus = 'pending' | 'running' | 'done' | 'failed' | 'unknown';
+
+export type OperationType = 'create' | 'update' | 'delete';

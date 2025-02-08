@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.16 (2025-02-08)
+
+Full Changelog: [v0.1.0-alpha.15...v0.1.0-alpha.16](https://github.com/nirvana-labs/nirvana-node/compare/v0.1.0-alpha.15...v0.1.0-alpha.16)
+
+### Features
+
+* **api:** manual updates ([#59](https://github.com/nirvana-labs/nirvana-node/issues/59)) ([5c09a20](https://github.com/nirvana-labs/nirvana-node/commit/5c09a207ad2223b234c728675aea49130f06e98f))
+* **api:** manual updates ([#61](https://github.com/nirvana-labs/nirvana-node/issues/61)) ([60a87b4](https://github.com/nirvana-labs/nirvana-node/commit/60a87b4fab3fbf20266e4e50e366ae5f621aa22c))
+
 ## 0.1.0-alpha.15 (2025-02-07)
 
 Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.15](https://github.com/nirvana-labs/nirvana-node/compare/v0.1.0-alpha.14...v0.1.0-alpha.15)
