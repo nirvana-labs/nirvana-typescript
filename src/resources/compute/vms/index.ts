@@ -12,3 +12,4 @@ export {
   type VMCreateParams,
   type VMUpdateParams,
 } from './vms';
+export { Volumes } from './volumes';
