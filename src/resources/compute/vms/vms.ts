@@ -114,8 +114,6 @@ export interface VM {
 
   private_ip: string;
 
-  public_ip: string;
-
   region: Shared.RegionName;
 
   status: Shared.ResourceStatus;
@@ -123,6 +121,8 @@ export interface VM {
   updated_at: string;
 
   vpc_id: string;
+
+  public_ip?: string;
 }
 
 export interface VMList {
