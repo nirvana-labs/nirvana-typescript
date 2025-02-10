@@ -6,8 +6,11 @@ import * as OperationsAPI from '../../operations';
 import * as Shared from '../../shared';
 import * as OSImagesAPI from './os-images';
 import { OSImageListResponse, OSImages } from './os-images';
+import * as VolumesAPI from './volumes';
+import { Volumes } from './volumes';
 
 export class VMs extends APIResource {
+  volumes: VolumesAPI.Volumes = new VolumesAPI.Volumes(this._client);
   osImages: OSImagesAPI.OSImages = new OSImagesAPI.OSImages(this._client);
 
   /**
@@ -188,6 +191,7 @@ export interface VMUpdateParams {
   memory_config?: MemoryConfig;
 }
 
+VMs.Volumes = Volumes;
 VMs.OSImages = OSImages;
 
 export declare namespace VMs {
@@ -201,6 +205,8 @@ export declare namespace VMs {
     type VMCreateParams as VMCreateParams,
     type VMUpdateParams as VMUpdateParams,
   };
+
+  export { Volumes as Volumes };
 
   export { OSImages as OSImages, type OSImageListResponse as OSImageListResponse };
 }
