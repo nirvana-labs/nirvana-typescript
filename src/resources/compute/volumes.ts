@@ -63,6 +63,8 @@ export interface Volume {
    */
   kind: VolumeKind;
 
+  name: string;
+
   size: number;
 
   /**

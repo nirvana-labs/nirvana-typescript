@@ -41,6 +41,12 @@ Methods:
 - <code title="delete /compute/vms/{vm_id}">client.compute.vms.<a href="./src/resources/compute/vms/vms.ts">delete</a>(vmId) -> Operation</code>
 - <code title="get /compute/vms/{vm_id}">client.compute.vms.<a href="./src/resources/compute/vms/vms.ts">get</a>(vmId) -> VM</code>
 
+### Volumes
+
+Methods:
+
+- <code title="get /compute/vms/{vm_id}/volumes">client.compute.vms.volumes.<a href="./src/resources/compute/vms/volumes.ts">list</a>(vmId) -> VolumeList</code>
+
 ### OSImages
 
 Types:
