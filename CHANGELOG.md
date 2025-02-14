@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.20 (2025-02-14)
+
+Full Changelog: [v0.1.0-alpha.19...v0.1.0-alpha.20](https://github.com/nirvana-labs/nirvana-node/compare/v0.1.0-alpha.19...v0.1.0-alpha.20)
+
+### Bug Fixes
+
+* **client:** fix export map for index exports ([#73](https://github.com/nirvana-labs/nirvana-node/issues/73)) ([1d39dd8](https://github.com/nirvana-labs/nirvana-node/commit/1d39dd8e8f6ba461676be8157a41423b1a6a46c8))
+
 ## 0.1.0-alpha.19 (2025-02-11)
 
 Full Changelog: [v0.1.0-alpha.18...v0.1.0-alpha.19](https://github.com/nirvana-labs/nirvana-node/compare/v0.1.0-alpha.18...v0.1.0-alpha.19)
