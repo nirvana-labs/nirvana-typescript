@@ -73,7 +73,10 @@ export interface FirewallRule {
 
   name: string;
 
-  protocol: string;
+  /**
+   * Supported Firewall Rule protocols.
+   */
+  protocol: 'tcp' | 'udp';
 
   /**
    * Firewall rule endpoint.
@@ -109,7 +112,7 @@ export interface FirewallRuleCreateParams {
   name: string;
 
   /**
-   * Supported protocols.
+   * Supported Firewall Rule protocols.
    */
   protocol: string;
 
@@ -128,7 +131,7 @@ export interface FirewallRuleUpdateParams {
   name: string;
 
   /**
-   * Supported protocols.
+   * Supported Firewall Rule protocols.
    */
   protocol: 'tcp' | 'udp';
 
