@@ -5,7 +5,6 @@ import * as FirewallRulesAPI from './firewall-rules';
 import {
   FirewallRule,
   FirewallRuleCreateParams,
-  FirewallRuleEndpoint,
   FirewallRuleList,
   FirewallRuleUpdateParams,
   FirewallRules,
@@ -33,7 +32,6 @@ export declare namespace Networking {
   export {
     FirewallRules as FirewallRules,
     type FirewallRule as FirewallRule,
-    type FirewallRuleEndpoint as FirewallRuleEndpoint,
     type FirewallRuleList as FirewallRuleList,
     type FirewallRuleCreateParams as FirewallRuleCreateParams,
     type FirewallRuleUpdateParams as FirewallRuleUpdateParams,
