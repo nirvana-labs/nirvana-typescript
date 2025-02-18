@@ -3,7 +3,6 @@
 export {
   FirewallRules,
   type FirewallRule,
-  type FirewallRuleEndpoint,
   type FirewallRuleList,
   type FirewallRuleCreateParams,
   type FirewallRuleUpdateParams,

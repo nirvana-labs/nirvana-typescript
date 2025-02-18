@@ -11,10 +11,10 @@ const client = new NirvanaLabs({
 describe('resource firewallRules', () => {
   test('create: only required params', async () => {
     const responsePromise = client.networking.firewallRules.create('vpc_id', {
-      destination: {},
+      destination_address: '0.0.0.0/0',
       name: 'my-firewall-rule',
       protocol: 'tcp',
-      source: {},
+      source_address: '0.0.0.0/0',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -27,20 +27,17 @@ describe('resource firewallRules', () => {
 
   test('create: required and optional params', async () => {
     const response = await client.networking.firewallRules.create('vpc_id', {
-      destination: { address: '0.0.0.0/0', ports: ['22', '80', '443'] },
+      destination_address: '0.0.0.0/0',
       name: 'my-firewall-rule',
       protocol: 'tcp',
-      source: { address: '0.0.0.0/0', ports: ['22', '80', '443'] },
+      source_address: '0.0.0.0/0',
+      destination_ports: ['22', '80', '443'],
+      source_ports: ['22', '80', '443'],
     });
   });
 
-  test('update: only required params', async () => {
-    const responsePromise = client.networking.firewallRules.update('vpc_id', 'firewall_rule_id', {
-      destination: {},
-      name: 'my-firewall-rule',
-      protocol: 'tcp',
-      source: {},
-    });
+  test('update', async () => {
+    const responsePromise = client.networking.firewallRules.update('vpc_id', 'firewall_rule_id', {});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -48,15 +45,6 @@ describe('resource firewallRules', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  test('update: required and optional params', async () => {
-    const response = await client.networking.firewallRules.update('vpc_id', 'firewall_rule_id', {
-      destination: { address: '0.0.0.0/0', ports: ['22', '80', '443'] },
-      name: 'my-firewall-rule',
-      protocol: 'tcp',
-      source: { address: '0.0.0.0/0', ports: ['22', '80', '443'] },
-    });
   });
 
   test('list', async () => {
