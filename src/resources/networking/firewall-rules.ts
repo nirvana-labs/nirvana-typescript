@@ -66,11 +66,6 @@ export interface FirewallRule {
 
   created_at: string;
 
-  /**
-   * Firewall rule endpoint.
-   */
-  destination: FirewallRuleEndpoint;
-
   name: string;
 
   /**
@@ -78,25 +73,19 @@ export interface FirewallRule {
    */
   protocol: 'tcp' | 'udp';
 
-  /**
-   * Firewall rule endpoint.
-   */
-  source: FirewallRuleEndpoint;
-
   status: Shared.ResourceStatus;
 
   updated_at: string;
 
   vpc_id: string;
-}
 
-/**
- * Firewall rule endpoint.
- */
-export interface FirewallRuleEndpoint {
-  address?: string;
+  destination_address?: string;
 
-  ports?: Array<string>;
+  destination_ports?: Array<string>;
+
+  source_address?: string;
+
+  source_ports?: Array<string>;
 }
 
 export interface FirewallRuleList {
@@ -104,10 +93,7 @@ export interface FirewallRuleList {
 }
 
 export interface FirewallRuleCreateParams {
-  /**
-   * Firewall rule endpoint.
-   */
-  destination: FirewallRuleEndpoint;
+  destination_address: string;
 
   name: string;
 
@@ -116,35 +102,39 @@ export interface FirewallRuleCreateParams {
    */
   protocol: string;
 
+  source_address: string;
+
   /**
-   * Firewall rule endpoint.
+   * required for TCP, should not be provided for UDP
    */
-  source: FirewallRuleEndpoint;
+  destination_ports?: Array<string>;
+
+  /**
+   * required for UDP, should not be provided for TCP
+   */
+  source_ports?: Array<string>;
 }
 
 export interface FirewallRuleUpdateParams {
-  /**
-   * Firewall rule endpoint.
-   */
-  destination: FirewallRuleEndpoint;
+  destination_address?: string;
 
-  name: string;
+  destination_ports?: Array<string>;
+
+  name?: string;
 
   /**
    * Supported Firewall Rule protocols.
    */
-  protocol: 'tcp' | 'udp';
+  protocol?: 'tcp' | 'udp';
 
-  /**
-   * Firewall rule endpoint.
-   */
-  source: FirewallRuleEndpoint;
+  source_address?: string;
+
+  source_ports?: Array<string>;
 }
 
 export declare namespace FirewallRules {
   export {
     type FirewallRule as FirewallRule,
-    type FirewallRuleEndpoint as FirewallRuleEndpoint,
     type FirewallRuleList as FirewallRuleList,
     type FirewallRuleCreateParams as FirewallRuleCreateParams,
     type FirewallRuleUpdateParams as FirewallRuleUpdateParams,

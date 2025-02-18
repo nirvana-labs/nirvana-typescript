@@ -96,7 +96,6 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/networking/firewall-rules.ts">FirewallRule</a></code>
-- <code><a href="./src/resources/networking/firewall-rules.ts">FirewallRuleEndpoint</a></code>
 - <code><a href="./src/resources/networking/firewall-rules.ts">FirewallRuleList</a></code>
 
 Methods:
