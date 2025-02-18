@@ -66,6 +66,10 @@ export interface FirewallRule {
 
   created_at: string;
 
+  destination_address: string;
+
+  destination_ports: Array<string>;
+
   name: string;
 
   /**
@@ -73,19 +77,15 @@ export interface FirewallRule {
    */
   protocol: 'tcp' | 'udp';
 
+  source_address: string;
+
+  source_ports: Array<string>;
+
   status: Shared.ResourceStatus;
 
   updated_at: string;
 
   vpc_id: string;
-
-  destination_address?: string;
-
-  destination_ports?: Array<string>;
-
-  source_address?: string;
-
-  source_ports?: Array<string>;
 }
 
 export interface FirewallRuleList {
