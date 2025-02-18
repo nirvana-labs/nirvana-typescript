@@ -58,8 +58,6 @@ export interface VPC {
 
   created_at: string;
 
-  firewall_rule_ids: Array<string>;
-
   name: string;
 
   region: Shared.RegionName;
@@ -72,6 +70,8 @@ export interface VPC {
   subnet: Subnet;
 
   updated_at: string;
+
+  firewall_rule_ids?: Array<string>;
 }
 
 export interface VPCList {
