@@ -112,9 +112,9 @@ export interface VM {
 
   name: string;
 
-  private_ip: string | null;
+  private_ip: string;
 
-  public_ip: string | null;
+  public_ip: string;
 
   region: Shared.RegionName;
 

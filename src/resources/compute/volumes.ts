@@ -74,7 +74,7 @@ export interface Volume {
 
   updated_at: string;
 
-  vm_id: string | null;
+  vm_id: string;
 }
 
 /**
