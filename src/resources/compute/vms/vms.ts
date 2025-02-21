@@ -54,7 +54,7 @@ export class VMs extends APIResource {
 }
 
 /**
- * CPU config details.
+ * CPU configuration details.
  */
 export interface CPUConfig {
   /**
@@ -64,7 +64,7 @@ export interface CPUConfig {
 }
 
 /**
- * Memory config details.
+ * Memory configuration details.
  */
 export interface MemoryConfig {
   /**
@@ -97,7 +97,7 @@ export interface VM {
   boot_volume_id: string;
 
   /**
-   * CPU config details.
+   * CPU configuration details.
    */
   cpu_config: CPUConfig;
 
@@ -106,15 +106,15 @@ export interface VM {
   data_volume_ids: Array<string>;
 
   /**
-   * Memory config details.
+   * Memory configuration details.
    */
   memory_config: MemoryConfig;
 
   name: string;
 
-  private_ip: string;
+  private_ip: string | null;
 
-  public_ip: string;
+  public_ip: string | null;
 
   region: Shared.RegionName;
 
@@ -136,12 +136,12 @@ export interface VMCreateParams {
   boot_volume: VMCreateParams.BootVolume;
 
   /**
-   * CPU config details.
+   * CPU configuration details.
    */
   cpu_config: CPUConfig;
 
   /**
-   * Memory config details.
+   * Memory configuration details.
    */
   memory_config: MemoryConfig;
 
@@ -181,12 +181,12 @@ export namespace VMCreateParams {
 
 export interface VMUpdateParams {
   /**
-   * CPU config details.
+   * CPU configuration details.
    */
   cpu_config?: CPUConfig;
 
   /**
-   * Memory config details.
+   * Memory configuration details.
    */
   memory_config?: MemoryConfig;
 }
