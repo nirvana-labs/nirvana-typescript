@@ -19,6 +19,7 @@ describe('resource vms', () => {
       public_ip_enabled: true,
       region: 'us-sea-1',
       ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
+      subnet_id: '123e4567-e89b-12d3-a456-426614174000',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -39,8 +40,8 @@ describe('resource vms', () => {
       public_ip_enabled: true,
       region: 'us-sea-1',
       ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
-      data_volumes: [{ size: 100 }],
       subnet_id: '123e4567-e89b-12d3-a456-426614174000',
+      data_volumes: [{ size: 100 }],
     });
   });
 
