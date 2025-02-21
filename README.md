@@ -34,6 +34,7 @@ async function main() {
     public_ip_enabled: true,
     region: 'us-sea-1',
     ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
+    subnet_id: '123e4567-e89b-12d3-a456-426614174000',
   });
 
   console.log(operation.id);
@@ -64,6 +65,7 @@ async function main() {
     public_ip_enabled: true,
     region: 'us-sea-1',
     ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
+    subnet_id: '123e4567-e89b-12d3-a456-426614174000',
   };
   const operation: NirvanaLabs.Operation = await client.compute.vms.create(params);
 }
@@ -92,6 +94,7 @@ async function main() {
       public_ip_enabled: true,
       region: 'us-sea-1',
       ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
+      subnet_id: '123e4567-e89b-12d3-a456-426614174000',
     })
     .catch(async (err) => {
       if (err instanceof NirvanaLabs.APIError) {
@@ -136,7 +139,7 @@ const client = new NirvanaLabs({
 });
 
 // Or, configure per-request:
-await client.compute.vms.create({ boot_volume: { size: 100 }, cpu_config: { vcpu: 2 }, memory_config: { size: 2 }, name: 'my-vm', os_image_name: 'noble-2024-12-06', public_ip_enabled: true, region: 'us-sea-1', ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' } }, {
+await client.compute.vms.create({ boot_volume: { size: 100 }, cpu_config: { vcpu: 2 }, memory_config: { size: 2 }, name: 'my-vm', os_image_name: 'noble-2024-12-06', public_ip_enabled: true, region: 'us-sea-1', ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' }, subnet_id: '123e4567-e89b-12d3-a456-426614174000' }, {
   maxRetries: 5,
 });
 ```
@@ -153,7 +156,7 @@ const client = new NirvanaLabs({
 });
 
 // Override per-request:
-await client.compute.vms.create({ boot_volume: { size: 100 }, cpu_config: { vcpu: 2 }, memory_config: { size: 2 }, name: 'my-vm', os_image_name: 'noble-2024-12-06', public_ip_enabled: true, region: 'us-sea-1', ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' } }, {
+await client.compute.vms.create({ boot_volume: { size: 100 }, cpu_config: { vcpu: 2 }, memory_config: { size: 2 }, name: 'my-vm', os_image_name: 'noble-2024-12-06', public_ip_enabled: true, region: 'us-sea-1', ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' }, subnet_id: '123e4567-e89b-12d3-a456-426614174000' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -184,6 +187,7 @@ const response = await client.compute.vms
     public_ip_enabled: true,
     region: 'us-sea-1',
     ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
+    subnet_id: '123e4567-e89b-12d3-a456-426614174000',
   })
   .asResponse();
 console.log(response.headers.get('X-My-Header'));
@@ -199,6 +203,7 @@ const { data: operation, response: raw } = await client.compute.vms
     public_ip_enabled: true,
     region: 'us-sea-1',
     ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
+    subnet_id: '123e4567-e89b-12d3-a456-426614174000',
   })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
@@ -316,6 +321,7 @@ await client.compute.vms.create(
     public_ip_enabled: true,
     region: 'us-sea-1',
     ssh_key: { public_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1234567890' },
+    subnet_id: '123e4567-e89b-12d3-a456-426614174000',
   },
   {
     httpAgent: new http.Agent({ keepAlive: false }),

@@ -158,9 +158,9 @@ export interface VMCreateParams {
    */
   ssh_key: SSHKey;
 
-  data_volumes?: Array<VMCreateParams.DataVolume>;
+  subnet_id: string;
 
-  subnet_id?: string;
+  data_volumes?: Array<VMCreateParams.DataVolume>;
 }
 
 export namespace VMCreateParams {
