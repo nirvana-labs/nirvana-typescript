@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.25 (2025-02-22)
+
+Full Changelog: [v0.1.0-alpha.24...v0.1.0-alpha.25](https://github.com/nirvana-labs/nirvana-node/compare/v0.1.0-alpha.24...v0.1.0-alpha.25)
+
+### Chores
+
+* **internal:** fix devcontainers setup ([#92](https://github.com/nirvana-labs/nirvana-node/issues/92)) ([9a1e2ab](https://github.com/nirvana-labs/nirvana-node/commit/9a1e2ab6e7f03da09d80f2086e8ccc3748a6ebdd))
+
 ## 0.1.0-alpha.24 (2025-02-21)
 
 Full Changelog: [v0.1.0-alpha.23...v0.1.0-alpha.24](https://github.com/nirvana-labs/nirvana-node/compare/v0.1.0-alpha.23...v0.1.0-alpha.24)
