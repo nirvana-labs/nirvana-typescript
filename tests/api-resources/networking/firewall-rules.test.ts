@@ -12,6 +12,7 @@ describe('resource firewallRules', () => {
   test('create: only required params', async () => {
     const responsePromise = client.networking.firewallRules.create('vpc_id', {
       destination_address: '0.0.0.0/0',
+      destination_ports: ['22', '80', '443'],
       name: 'my-firewall-rule',
       protocol: 'tcp',
       source_address: '0.0.0.0/0',
@@ -28,11 +29,10 @@ describe('resource firewallRules', () => {
   test('create: required and optional params', async () => {
     const response = await client.networking.firewallRules.create('vpc_id', {
       destination_address: '0.0.0.0/0',
+      destination_ports: ['22', '80', '443'],
       name: 'my-firewall-rule',
       protocol: 'tcp',
       source_address: '0.0.0.0/0',
-      destination_ports: ['22', '80', '443'],
-      source_ports: ['22', '80', '443'],
     });
   });
 
