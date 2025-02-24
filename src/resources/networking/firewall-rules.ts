@@ -79,8 +79,6 @@ export interface FirewallRule {
 
   source_address: string;
 
-  source_ports: Array<string>;
-
   status: Shared.ResourceStatus;
 
   updated_at: string;
@@ -95,6 +93,8 @@ export interface FirewallRuleList {
 export interface FirewallRuleCreateParams {
   destination_address: string;
 
+  destination_ports: Array<string>;
+
   name: string;
 
   /**
@@ -103,16 +103,6 @@ export interface FirewallRuleCreateParams {
   protocol: string;
 
   source_address: string;
-
-  /**
-   * required for TCP, should not be provided for UDP
-   */
-  destination_ports?: Array<string>;
-
-  /**
-   * required for UDP, should not be provided for TCP
-   */
-  source_ports?: Array<string>;
 }
 
 export interface FirewallRuleUpdateParams {
@@ -128,8 +118,6 @@ export interface FirewallRuleUpdateParams {
   protocol?: 'tcp' | 'udp';
 
   source_address?: string;
-
-  source_ports?: Array<string>;
 }
 
 export declare namespace FirewallRules {
