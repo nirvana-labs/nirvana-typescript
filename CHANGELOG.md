@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.27 (2025-03-01)
+
+Full Changelog: [v0.1.0-alpha.26...v0.1.0-alpha.27](https://github.com/nirvana-labs/nirvana-node/compare/v0.1.0-alpha.26...v0.1.0-alpha.27)
+
+### Documentation
+
+* update URLs from stainlessapi.com to stainless.com ([#98](https://github.com/nirvana-labs/nirvana-node/issues/98)) ([933153d](https://github.com/nirvana-labs/nirvana-node/commit/933153d3eec4e8b134ead7a317eb4db6ef199cb5))
+
 ## 0.1.0-alpha.26 (2025-02-24)
 
 Full Changelog: [v0.1.0-alpha.25...v0.1.0-alpha.26](https://github.com/nirvana-labs/nirvana-node/compare/v0.1.0-alpha.25...v0.1.0-alpha.26)
