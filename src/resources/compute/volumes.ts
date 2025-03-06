@@ -3,6 +3,7 @@
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
 import * as OperationsAPI from '../operations';
+import * as Shared from '../shared';
 
 export class Volumes extends APIResource {
   /**
@@ -66,6 +67,8 @@ export interface Volume {
   name: string;
 
   size: number;
+
+  status: Shared.ResourceStatus;
 
   /**
    * Storage type.
