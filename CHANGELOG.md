@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.29 (2025-03-09)
+
+Full Changelog: [v0.1.0-alpha.28...v0.1.0-alpha.29](https://github.com/nirvana-labs/nirvana-node/compare/v0.1.0-alpha.28...v0.1.0-alpha.29)
+
+### Chores
+
+* remove custom code ([48fe004](https://github.com/nirvana-labs/nirvana-node/commit/48fe0041eb2eae2f7a7e704b45aa0448f92844b8))
+
 ## 0.1.0-alpha.28 (2025-03-06)
 
 Full Changelog: [v0.1.0-alpha.27...v0.1.0-alpha.28](https://github.com/nirvana-labs/nirvana-node/compare/v0.1.0-alpha.27...v0.1.0-alpha.28)
