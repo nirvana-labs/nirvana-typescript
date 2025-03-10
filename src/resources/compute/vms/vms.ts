@@ -120,6 +120,8 @@ export interface VM {
 
   status: Shared.ResourceStatus;
 
+  subnet_id: string;
+
   updated_at: string;
 
   vpc_id: string;
