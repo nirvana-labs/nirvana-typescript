@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.33 (2025-03-11)
+
+Full Changelog: [v0.1.0-alpha.32...v0.1.0-alpha.33](https://github.com/nirvana-labs/nirvana-node/compare/v0.1.0-alpha.32...v0.1.0-alpha.33)
+
+### Features
+
+* add SKIP_BREW env var to ./scripts/bootstrap ([#116](https://github.com/nirvana-labs/nirvana-node/issues/116)) ([77d5570](https://github.com/nirvana-labs/nirvana-node/commit/77d55709343731ad86e5bfde31051ba05de0561e))
+* **client:** accept RFC6838 JSON content types ([#118](https://github.com/nirvana-labs/nirvana-node/issues/118)) ([26c6b5e](https://github.com/nirvana-labs/nirvana-node/commit/26c6b5e175d1c58f55928363c318e05cd48ef1dc))
+
 ## 0.1.0-alpha.32 (2025-03-10)
 
 Full Changelog: [v0.1.0-alpha.31...v0.1.0-alpha.32](https://github.com/nirvana-labs/nirvana-node/compare/v0.1.0-alpha.31...v0.1.0-alpha.32)
