@@ -10,7 +10,7 @@ import {
   FirewallRules,
 } from './firewall-rules';
 import * as VPCsAPI from './vpcs';
-import { Subnet, VPC, VPCCreateParams, VPCList, VPCs } from './vpcs';
+import { Subnet, VPC, VPCCreateParams, VPCList, VPCUpdateParams, VPCs } from './vpcs';
 
 export class Networking extends APIResource {
   vpcs: VPCsAPI.VPCs = new VPCsAPI.VPCs(this._client);
@@ -27,6 +27,7 @@ export declare namespace Networking {
     type VPC as VPC,
     type VPCList as VPCList,
     type VPCCreateParams as VPCCreateParams,
+    type VPCUpdateParams as VPCUpdateParams,
   };
 
   export {
