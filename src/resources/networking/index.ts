@@ -8,4 +8,11 @@ export {
   type FirewallRuleUpdateParams,
 } from './firewall-rules';
 export { Networking } from './networking';
-export { VPCs, type Subnet, type VPC, type VPCList, type VPCCreateParams } from './vpcs';
+export {
+  VPCs,
+  type Subnet,
+  type VPC,
+  type VPCList,
+  type VPCCreateParams,
+  type VPCUpdateParams,
+} from './vpcs';
