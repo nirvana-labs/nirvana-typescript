@@ -14,6 +14,13 @@ export class VPCs extends APIResource {
   }
 
   /**
+   * Update a VPC
+   */
+  update(vpcId: string, body: VPCUpdateParams, options?: Core.RequestOptions): Core.APIPromise<VPC> {
+    return this._client.patch(`/networking/vpcs/${vpcId}`, { body, ...options });
+  }
+
+  /**
    * List all VPCs
    */
   list(options?: Core.RequestOptions): Core.APIPromise<VPCList> {
@@ -86,11 +93,18 @@ export interface VPCCreateParams {
   subnet_name: string;
 }
 
+export interface VPCUpdateParams {
+  name?: string;
+
+  subnet_name?: string;
+}
+
 export declare namespace VPCs {
   export {
     type Subnet as Subnet,
     type VPC as VPC,
     type VPCList as VPCList,
     type VPCCreateParams as VPCCreateParams,
+    type VPCUpdateParams as VPCUpdateParams,
   };
 }
