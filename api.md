@@ -87,6 +87,7 @@ Types:
 Methods:
 
 - <code title="post /networking/vpcs">client.networking.vpcs.<a href="./src/resources/networking/vpcs.ts">create</a>({ ...params }) -> Operation</code>
+- <code title="patch /networking/vpcs/{vpc_id}">client.networking.vpcs.<a href="./src/resources/networking/vpcs.ts">update</a>(vpcId, { ...params }) -> VPC</code>
 - <code title="get /networking/vpcs">client.networking.vpcs.<a href="./src/resources/networking/vpcs.ts">list</a>() -> VPCList</code>
 - <code title="delete /networking/vpcs/{vpc_id}">client.networking.vpcs.<a href="./src/resources/networking/vpcs.ts">delete</a>(vpcId) -> Operation</code>
 - <code title="get /networking/vpcs/{vpc_id}">client.networking.vpcs.<a href="./src/resources/networking/vpcs.ts">get</a>(vpcId) -> VPC</code>
