@@ -10,7 +10,11 @@ const client = new NirvanaLabs({
 
 describe('resource volumes', () => {
   test('create: only required params', async () => {
-    const responsePromise = client.compute.volumes.create({ size: 100, vm_id: 'vm_id' });
+    const responsePromise = client.compute.volumes.create({
+      name: 'my-data-volume',
+      size: 100,
+      vm_id: 'vm_id',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,7 +25,11 @@ describe('resource volumes', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await client.compute.volumes.create({ size: 100, vm_id: 'vm_id' });
+    const response = await client.compute.volumes.create({
+      name: 'my-data-volume',
+      size: 100,
+      vm_id: 'vm_id',
+    });
   });
 
   test('update: only required params', async () => {
