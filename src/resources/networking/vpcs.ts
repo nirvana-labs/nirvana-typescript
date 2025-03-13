@@ -16,7 +16,11 @@ export class VPCs extends APIResource {
   /**
    * Update a VPC
    */
-  update(vpcId: string, body: VPCUpdateParams, options?: Core.RequestOptions): Core.APIPromise<VPC> {
+  update(
+    vpcId: string,
+    body: VPCUpdateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<OperationsAPI.Operation> {
     return this._client.patch(`/networking/vpcs/${vpcId}`, { body, ...options });
   }
 
