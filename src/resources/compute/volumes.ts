@@ -78,6 +78,8 @@ export interface Volume {
   updated_at: string;
 
   vm_id: string | null;
+
+  vm_name: string | null;
 }
 
 /**
@@ -90,6 +92,8 @@ export interface VolumeList {
 }
 
 export interface VolumeCreateParams {
+  name: string;
+
   size: number;
 
   vm_id: string;

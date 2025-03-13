@@ -177,6 +177,8 @@ export namespace VMCreateParams {
    * VM data volume create request.
    */
   export interface DataVolume {
+    name: string;
+
     size: number;
   }
 }
