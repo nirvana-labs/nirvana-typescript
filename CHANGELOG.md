@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.1.0-alpha.39 (2025-03-14)
+
+Full Changelog: [v0.1.0-alpha.38...v0.1.0-alpha.39](https://github.com/nirvana-labs/nirvana-node/compare/v0.1.0-alpha.38...v0.1.0-alpha.39)
+
+### Features
+
+* **api:** api update ([#128](https://github.com/nirvana-labs/nirvana-node/issues/128)) ([1445dcc](https://github.com/nirvana-labs/nirvana-node/commit/1445dccc9cfa7f211a93032179c81e2bf4f3d52c))
+* **api:** api update ([#138](https://github.com/nirvana-labs/nirvana-node/issues/138)) ([b9c7592](https://github.com/nirvana-labs/nirvana-node/commit/b9c7592b714b1b71e28985cad1e85c250c2307fb))
+* **api:** manual updates ([#126](https://github.com/nirvana-labs/nirvana-node/issues/126)) ([26b31a6](https://github.com/nirvana-labs/nirvana-node/commit/26b31a630ee0fe026d308fdb3b45b4d0143ea392))
+
+
+### Bug Fixes
+
+* **exports:** ensure resource imports don't require /index ([#137](https://github.com/nirvana-labs/nirvana-node/issues/137)) ([711fbb6](https://github.com/nirvana-labs/nirvana-node/commit/711fbb68a16a55a2eb9731adcac27cc530799ead))
+
+
+### Chores
+
+* **internal:** remove extra empty newlines ([#136](https://github.com/nirvana-labs/nirvana-node/issues/136)) ([6771334](https://github.com/nirvana-labs/nirvana-node/commit/6771334e761c53a3b770089ca7af9a3f05ab9ebe))
+
 ## 0.1.0-alpha.38 (2025-03-13)
 
 Full Changelog: [v0.1.0-alpha.37...v0.1.0-alpha.38](https://github.com/nirvana-labs/nirvana-node/compare/v0.1.0-alpha.37...v0.1.0-alpha.38)
