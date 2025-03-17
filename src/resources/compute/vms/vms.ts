@@ -193,6 +193,8 @@ export interface VMUpdateParams {
    * Memory configuration details.
    */
   memory_config?: MemoryConfig;
+
+  name?: string;
 }
 
 VMs.Volumes = Volumes;
