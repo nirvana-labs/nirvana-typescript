@@ -100,7 +100,9 @@ export interface VolumeCreateParams {
 }
 
 export interface VolumeUpdateParams {
-  size: number;
+  name?: string;
+
+  size?: number;
 }
 
 export declare namespace Volumes {
