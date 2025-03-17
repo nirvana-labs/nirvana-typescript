@@ -32,8 +32,8 @@ describe('resource volumes', () => {
     });
   });
 
-  test('update: only required params', async () => {
-    const responsePromise = client.compute.volumes.update('volume_id', { size: 100 });
+  test('update', async () => {
+    const responsePromise = client.compute.volumes.update('volume_id', {});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -41,10 +41,6 @@ describe('resource volumes', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  test('update: required and optional params', async () => {
-    const response = await client.compute.volumes.update('volume_id', { size: 100 });
   });
 
   test('list', async () => {
