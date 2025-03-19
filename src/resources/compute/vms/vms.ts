@@ -195,6 +195,8 @@ export interface VMUpdateParams {
   memory_config?: MemoryConfig;
 
   name?: string;
+
+  public_ip_enabled?: boolean;
 }
 
 VMs.Volumes = Volumes;
