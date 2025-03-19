@@ -13,11 +13,4 @@ export type RegionName =
   | 'ap-seo-1'
   | 'ap-tyo-1';
 
-export type ResourceStatus =
-  | 'pending'
-  | 'creating'
-  | 'updating'
-  | 'ready'
-  | 'deleting'
-  | 'deleted'
-  | 'failed';
+export type ResourceStatus = 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error';
