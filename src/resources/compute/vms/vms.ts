@@ -125,6 +125,8 @@ export interface VM {
   updated_at: string;
 
   vpc_id: string;
+
+  vpc_name: string;
 }
 
 export interface VMList {

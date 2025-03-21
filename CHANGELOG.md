@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0-alpha.45 (2025-03-21)
+
+Full Changelog: [v0.1.0-alpha.44...v0.1.0-alpha.45](https://github.com/nirvana-labs/nirvana-node/compare/v0.1.0-alpha.44...v0.1.0-alpha.45)
+
+### Features
+
+* **api:** api update ([#158](https://github.com/nirvana-labs/nirvana-node/issues/158)) ([221e0ac](https://github.com/nirvana-labs/nirvana-node/commit/221e0ac7f5365f81795baa3670a54746cc6e1ed0))
+
+
+### Chores
+
+* **exports:** cleaner resource index imports ([#155](https://github.com/nirvana-labs/nirvana-node/issues/155)) ([55f4ac9](https://github.com/nirvana-labs/nirvana-node/commit/55f4ac99dd06a0d45cbe25991b48897787784723))
+* **exports:** stop using path fallbacks ([#157](https://github.com/nirvana-labs/nirvana-node/issues/157)) ([00ff596](https://github.com/nirvana-labs/nirvana-node/commit/00ff59641797ec7d01495b8fabc5ff13b272c4b7))
+
 ## 0.1.0-alpha.44 (2025-03-19)
 
 Full Changelog: [v0.1.0-alpha.43...v0.1.0-alpha.44](https://github.com/nirvana-labs/nirvana-node/compare/v0.1.0-alpha.43...v0.1.0-alpha.44)
