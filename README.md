@@ -21,7 +21,7 @@ The full API of this library can be found in [api.md](api.md).
 import NirvanaLabs from '@nirvana-labs/nirvana';
 
 const client = new NirvanaLabs({
-  authToken: process.env['NIRVANA_LABS_AUTH_TOKEN'], // This is the default and can be omitted
+  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted
 });
 
 async function main() {
@@ -55,7 +55,7 @@ This library includes TypeScript definitions for all request params and response
 import NirvanaLabs from '@nirvana-labs/nirvana';
 
 const client = new NirvanaLabs({
-  authToken: process.env['NIRVANA_LABS_AUTH_TOKEN'], // This is the default and can be omitted
+  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted
 });
 
 async function main() {

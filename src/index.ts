@@ -11,9 +11,9 @@ import { Networking } from './resources/networking/networking';
 
 export interface ClientOptions {
   /**
-   * Defaults to process.env['NIRVANA_LABS_AUTH_TOKEN'].
+   * Defaults to process.env['NIRVANA_LABS_API_KEY'].
    */
-  authToken?: string | undefined;
+  apiKey?: string | undefined;
 
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
@@ -76,14 +76,14 @@ export interface ClientOptions {
  * API Client for interfacing with the Nirvana Labs API.
  */
 export class NirvanaLabs extends Core.APIClient {
-  authToken: string;
+  apiKey: string;
 
   private _options: ClientOptions;
 
   /**
    * API Client for interfacing with the Nirvana Labs API.
    *
-   * @param {string | undefined} [opts.authToken=process.env['NIRVANA_LABS_AUTH_TOKEN'] ?? undefined]
+   * @param {string | undefined} [opts.apiKey=process.env['NIRVANA_LABS_API_KEY'] ?? undefined]
    * @param {string} [opts.baseURL=process.env['NIRVANA_LABS_BASE_URL'] ?? https://api.nirvanalabs.io/] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
@@ -94,17 +94,17 @@ export class NirvanaLabs extends Core.APIClient {
    */
   constructor({
     baseURL = Core.readEnv('NIRVANA_LABS_BASE_URL'),
-    authToken = Core.readEnv('NIRVANA_LABS_AUTH_TOKEN'),
+    apiKey = Core.readEnv('NIRVANA_LABS_API_KEY'),
     ...opts
   }: ClientOptions = {}) {
-    if (authToken === undefined) {
+    if (apiKey === undefined) {
       throw new Errors.NirvanaLabsError(
-        "The NIRVANA_LABS_AUTH_TOKEN environment variable is missing or empty; either provide it, or instantiate the NirvanaLabs client with an authToken option, like new NirvanaLabs({ authToken: 'My Auth Token' }).",
+        "The NIRVANA_LABS_API_KEY environment variable is missing or empty; either provide it, or instantiate the NirvanaLabs client with an apiKey option, like new NirvanaLabs({ apiKey: 'My API Key' }).",
       );
     }
 
     const options: ClientOptions = {
-      authToken,
+      apiKey,
       ...opts,
       baseURL: baseURL || `https://api.nirvanalabs.io/`,
     };
@@ -119,7 +119,7 @@ export class NirvanaLabs extends Core.APIClient {
 
     this._options = options;
 
-    this.authToken = authToken;
+    this.apiKey = apiKey;
   }
 
   operations: API.Operations = new API.Operations(this);
@@ -138,7 +138,7 @@ export class NirvanaLabs extends Core.APIClient {
   }
 
   protected override authHeaders(opts: Core.FinalRequestOptions): Core.Headers {
-    return { Authorization: `Bearer ${this.authToken}` };
+    return { Authorization: `Bearer ${this.apiKey}` };
   }
 
   static NirvanaLabs = this;
