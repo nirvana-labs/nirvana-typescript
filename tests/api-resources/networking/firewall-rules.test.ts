@@ -4,7 +4,7 @@ import NirvanaLabs from '@nirvana-labs/nirvana';
 import { Response } from 'node-fetch';
 
 const client = new NirvanaLabs({
-  authToken: 'My Auth Token',
+  apiKey: 'My API Key',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
