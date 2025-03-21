@@ -23,7 +23,7 @@ describe('instantiate client', () => {
     const client = new NirvanaLabs({
       baseURL: 'http://localhost:5000/',
       defaultHeaders: { 'X-My-Default-Header': '2' },
-      authToken: 'My Auth Token',
+      apiKey: 'My API Key',
     });
 
     test('they are used in the request', () => {
@@ -55,7 +55,7 @@ describe('instantiate client', () => {
       const client = new NirvanaLabs({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { apiVersion: 'foo' },
-        authToken: 'My Auth Token',
+        apiKey: 'My API Key',
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/foo?apiVersion=foo');
     });
@@ -64,7 +64,7 @@ describe('instantiate client', () => {
       const client = new NirvanaLabs({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { apiVersion: 'foo', hello: 'world' },
-        authToken: 'My Auth Token',
+        apiKey: 'My API Key',
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/foo?apiVersion=foo&hello=world');
     });
@@ -73,7 +73,7 @@ describe('instantiate client', () => {
       const client = new NirvanaLabs({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { hello: 'world' },
-        authToken: 'My Auth Token',
+        apiKey: 'My API Key',
       });
       expect(client.buildURL('/foo', { hello: undefined })).toEqual('http://localhost:5000/foo');
     });
@@ -82,7 +82,7 @@ describe('instantiate client', () => {
   test('custom fetch', async () => {
     const client = new NirvanaLabs({
       baseURL: 'http://localhost:5000/',
-      authToken: 'My Auth Token',
+      apiKey: 'My API Key',
       fetch: (url) => {
         return Promise.resolve(
           new Response(JSON.stringify({ url, custom: true }), {
@@ -100,7 +100,7 @@ describe('instantiate client', () => {
     // make sure the global fetch type is assignable to our Fetch type
     const client = new NirvanaLabs({
       baseURL: 'http://localhost:5000/',
-      authToken: 'My Auth Token',
+      apiKey: 'My API Key',
       fetch: defaultFetch,
     });
   });
@@ -108,7 +108,7 @@ describe('instantiate client', () => {
   test('custom signal', async () => {
     const client = new NirvanaLabs({
       baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
-      authToken: 'My Auth Token',
+      apiKey: 'My API Key',
       fetch: (...args) => {
         return new Promise((resolve, reject) =>
           setTimeout(
@@ -140,7 +140,7 @@ describe('instantiate client', () => {
 
     const client = new NirvanaLabs({
       baseURL: 'http://localhost:5000/',
-      authToken: 'My Auth Token',
+      apiKey: 'My API Key',
       fetch: testFetch,
     });
 
@@ -150,18 +150,12 @@ describe('instantiate client', () => {
 
   describe('baseUrl', () => {
     test('trailing slash', () => {
-      const client = new NirvanaLabs({
-        baseURL: 'http://localhost:5000/custom/path/',
-        authToken: 'My Auth Token',
-      });
+      const client = new NirvanaLabs({ baseURL: 'http://localhost:5000/custom/path/', apiKey: 'My API Key' });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/custom/path/foo');
     });
 
     test('no trailing slash', () => {
-      const client = new NirvanaLabs({
-        baseURL: 'http://localhost:5000/custom/path',
-        authToken: 'My Auth Token',
-      });
+      const client = new NirvanaLabs({ baseURL: 'http://localhost:5000/custom/path', apiKey: 'My API Key' });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/custom/path/foo');
     });
 
@@ -170,55 +164,55 @@ describe('instantiate client', () => {
     });
 
     test('explicit option', () => {
-      const client = new NirvanaLabs({ baseURL: 'https://example.com', authToken: 'My Auth Token' });
+      const client = new NirvanaLabs({ baseURL: 'https://example.com', apiKey: 'My API Key' });
       expect(client.baseURL).toEqual('https://example.com');
     });
 
     test('env variable', () => {
       process.env['NIRVANA_LABS_BASE_URL'] = 'https://example.com/from_env';
-      const client = new NirvanaLabs({ authToken: 'My Auth Token' });
+      const client = new NirvanaLabs({ apiKey: 'My API Key' });
       expect(client.baseURL).toEqual('https://example.com/from_env');
     });
 
     test('empty env variable', () => {
       process.env['NIRVANA_LABS_BASE_URL'] = ''; // empty
-      const client = new NirvanaLabs({ authToken: 'My Auth Token' });
+      const client = new NirvanaLabs({ apiKey: 'My API Key' });
       expect(client.baseURL).toEqual('https://api.nirvanalabs.io/');
     });
 
     test('blank env variable', () => {
       process.env['NIRVANA_LABS_BASE_URL'] = '  '; // blank
-      const client = new NirvanaLabs({ authToken: 'My Auth Token' });
+      const client = new NirvanaLabs({ apiKey: 'My API Key' });
       expect(client.baseURL).toEqual('https://api.nirvanalabs.io/');
     });
   });
 
   test('maxRetries option is correctly set', () => {
-    const client = new NirvanaLabs({ maxRetries: 4, authToken: 'My Auth Token' });
+    const client = new NirvanaLabs({ maxRetries: 4, apiKey: 'My API Key' });
     expect(client.maxRetries).toEqual(4);
 
     // default
-    const client2 = new NirvanaLabs({ authToken: 'My Auth Token' });
+    const client2 = new NirvanaLabs({ apiKey: 'My API Key' });
     expect(client2.maxRetries).toEqual(2);
   });
 
   test('with environment variable arguments', () => {
     // set options via env var
-    process.env['NIRVANA_LABS_AUTH_TOKEN'] = 'My Auth Token';
+    process.env['NIRVANA_LABS_API_KEY'] = 'My API Key';
     const client = new NirvanaLabs();
-    expect(client.authToken).toBe('My Auth Token');
+    expect(client.apiKey).toBe('My API Key');
   });
 
   test('with overridden environment variable arguments', () => {
     // set options via env var
-    process.env['NIRVANA_LABS_AUTH_TOKEN'] = 'another My Auth Token';
-    const client = new NirvanaLabs({ authToken: 'My Auth Token' });
-    expect(client.authToken).toBe('My Auth Token');
+    process.env['NIRVANA_LABS_API_KEY'] = 'another My API Key';
+    const client = new NirvanaLabs({ apiKey: 'My API Key' });
+    expect(client.apiKey).toBe('My API Key');
   });
 });
 
 describe('request building', () => {
-  const client = new NirvanaLabs({ authToken: 'My Auth Token' });
+  const client = new NirvanaLabs({ apiKey: 'My API Key' });
 
   describe('Content-Length', () => {
     test('handles multi-byte characters', () => {
@@ -260,7 +254,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new NirvanaLabs({ authToken: 'My Auth Token', timeout: 10, fetch: testFetch });
+    const client = new NirvanaLabs({ apiKey: 'My API Key', timeout: 10, fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
@@ -290,7 +284,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new NirvanaLabs({ authToken: 'My Auth Token', fetch: testFetch, maxRetries: 4 });
+    const client = new NirvanaLabs({ apiKey: 'My API Key', fetch: testFetch, maxRetries: 4 });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
 
@@ -314,7 +308,7 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new NirvanaLabs({ authToken: 'My Auth Token', fetch: testFetch, maxRetries: 4 });
+    const client = new NirvanaLabs({ apiKey: 'My API Key', fetch: testFetch, maxRetries: 4 });
 
     expect(
       await client.request({
@@ -344,7 +338,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
     const client = new NirvanaLabs({
-      authToken: 'My Auth Token',
+      apiKey: 'My API Key',
       fetch: testFetch,
       maxRetries: 4,
       defaultHeaders: { 'X-Stainless-Retry-Count': null },
@@ -376,7 +370,7 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new NirvanaLabs({ authToken: 'My Auth Token', fetch: testFetch, maxRetries: 4 });
+    const client = new NirvanaLabs({ apiKey: 'My API Key', fetch: testFetch, maxRetries: 4 });
 
     expect(
       await client.request({
@@ -403,7 +397,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new NirvanaLabs({ authToken: 'My Auth Token', fetch: testFetch });
+    const client = new NirvanaLabs({ apiKey: 'My API Key', fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
@@ -430,7 +424,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new NirvanaLabs({ authToken: 'My Auth Token', fetch: testFetch });
+    const client = new NirvanaLabs({ apiKey: 'My API Key', fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
