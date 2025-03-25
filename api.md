@@ -5,6 +5,16 @@ Types:
 - <code><a href="./src/resources/shared.ts">RegionName</a></code>
 - <code><a href="./src/resources/shared.ts">ResourceStatus</a></code>
 
+# User
+
+Types:
+
+- <code><a href="./src/resources/user.ts">User</a></code>
+
+Methods:
+
+- <code title="get /user">client.user.<a href="./src/resources/user.ts">get</a>() -> User</code>
+
 # Operations
 
 Types:
