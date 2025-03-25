@@ -6,6 +6,7 @@ import * as Errors from './error';
 import * as Uploads from './uploads';
 import * as API from './resources/index';
 import { Operations } from './resources/operations';
+import { UserResource } from './resources/user';
 import { Compute } from './resources/compute/compute';
 import { Networking } from './resources/networking/networking';
 
@@ -122,6 +123,7 @@ export class NirvanaLabs extends Core.APIClient {
     this.apiKey = apiKey;
   }
 
+  user: API.UserResource = new API.UserResource(this);
   operations: API.Operations = new API.Operations(this);
   compute: API.Compute = new API.Compute(this);
   networking: API.Networking = new API.Networking(this);
@@ -162,11 +164,14 @@ export class NirvanaLabs extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
+NirvanaLabs.UserResource = UserResource;
 NirvanaLabs.Operations = Operations;
 NirvanaLabs.Compute = Compute;
 NirvanaLabs.Networking = Networking;
 export declare namespace NirvanaLabs {
   export type RequestOptions = Core.RequestOptions;
+
+  export { UserResource as UserResource };
 
   export { Operations as Operations };
 
