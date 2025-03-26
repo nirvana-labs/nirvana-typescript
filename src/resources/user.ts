@@ -25,3 +25,7 @@ export namespace User {
     cloud?: boolean;
   }
 }
+
+export declare namespace UserResource {
+  export { type User as User };
+}
