@@ -47,3 +47,13 @@ export interface OperationList {
 export type OperationStatus = 'pending' | 'running' | 'done' | 'failed' | 'unknown';
 
 export type OperationType = 'create' | 'update' | 'delete';
+
+export declare namespace Operations {
+  export {
+    type Operation as Operation,
+    type OperationKind as OperationKind,
+    type OperationList as OperationList,
+    type OperationStatus as OperationStatus,
+    type OperationType as OperationType,
+  };
+}
