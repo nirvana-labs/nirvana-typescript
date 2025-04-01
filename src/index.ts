@@ -5,6 +5,7 @@ import * as Core from './core';
 import * as Errors from './error';
 import * as Uploads from './uploads';
 import * as API from './resources/index';
+import { APIKeys } from './resources/api-keys';
 import { Operations } from './resources/operations';
 import { UserResource } from './resources/user';
 import { Compute } from './resources/compute/compute';
@@ -124,6 +125,7 @@ export class NirvanaLabs extends Core.APIClient {
   }
 
   user: API.UserResource = new API.UserResource(this);
+  apiKeys: API.APIKeys = new API.APIKeys(this);
   operations: API.Operations = new API.Operations(this);
   compute: API.Compute = new API.Compute(this);
   networking: API.Networking = new API.Networking(this);
@@ -165,6 +167,7 @@ export class NirvanaLabs extends Core.APIClient {
 }
 
 NirvanaLabs.UserResource = UserResource;
+NirvanaLabs.APIKeys = APIKeys;
 NirvanaLabs.Operations = Operations;
 NirvanaLabs.Compute = Compute;
 NirvanaLabs.Networking = Networking;
@@ -172,6 +175,8 @@ export declare namespace NirvanaLabs {
   export type RequestOptions = Core.RequestOptions;
 
   export { UserResource as UserResource };
+
+  export { APIKeys as APIKeys };
 
   export { Operations as Operations };
 
