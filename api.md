@@ -15,6 +15,20 @@ Methods:
 
 - <code title="get /user">client.user.<a href="./src/resources/user.ts">get</a>() -> User</code>
 
+# APIKeys
+
+Types:
+
+- <code><a href="./src/resources/api-keys.ts">APIKey</a></code>
+- <code><a href="./src/resources/api-keys.ts">APIKeyList</a></code>
+- <code><a href="./src/resources/api-keys.ts">APIKeyDeleteResponse</a></code>
+
+Methods:
+
+- <code title="post /api_keys">client.apiKeys.<a href="./src/resources/api-keys.ts">create</a>() -> APIKey</code>
+- <code title="get /api_keys">client.apiKeys.<a href="./src/resources/api-keys.ts">list</a>() -> APIKeyList</code>
+- <code title="delete /api_keys/{api_key_id}">client.apiKeys.<a href="./src/resources/api-keys.ts">delete</a>(apiKeyId) -> unknown</code>
+
 # Operations
 
 Types:
