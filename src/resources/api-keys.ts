@@ -61,6 +61,11 @@ export interface APIKey {
   name: string;
 
   /**
+   * Status of the API key.
+   */
+  status: 'active' | 'inactive' | 'expired';
+
+  /**
    * User ID that owns the API key.
    */
   user_id: string;
