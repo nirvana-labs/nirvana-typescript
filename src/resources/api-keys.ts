@@ -21,8 +21,18 @@ export class APIKeys extends APIResource {
   /**
    * Delete an API key
    */
-  delete(apiKeyId: string, options?: Core.RequestOptions): Core.APIPromise<unknown> {
-    return this._client.delete(`/api_keys/${apiKeyId}`, options);
+  delete(apiKeyId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
+    return this._client.delete(`/api_keys/${apiKeyId}`, {
+      ...options,
+      headers: { Accept: '*/*', ...options?.headers },
+    });
+  }
+
+  /**
+   * Get details about an API key
+   */
+  get(apiKeyId: string, options?: Core.RequestOptions): Core.APIPromise<APIKey> {
+    return this._client.get(`/api_keys/${apiKeyId}`, options);
   }
 }
 
@@ -70,12 +80,6 @@ export interface APIKeyList {
   items: Array<APIKey>;
 }
 
-export type APIKeyDeleteResponse = unknown;
-
 export declare namespace APIKeys {
-  export {
-    type APIKey as APIKey,
-    type APIKeyList as APIKeyList,
-    type APIKeyDeleteResponse as APIKeyDeleteResponse,
-  };
+  export { type APIKey as APIKey, type APIKeyList as APIKeyList };
 }
