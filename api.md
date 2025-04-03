@@ -24,7 +24,7 @@ Types:
 
 Methods:
 
-- <code title="post /api_keys">client.apiKeys.<a href="./src/resources/api-keys.ts">create</a>() -> APIKey</code>
+- <code title="post /api_keys">client.apiKeys.<a href="./src/resources/api-keys.ts">create</a>({ ...params }) -> APIKey</code>
 - <code title="get /api_keys">client.apiKeys.<a href="./src/resources/api-keys.ts">list</a>() -> APIKeyList</code>
 - <code title="delete /api_keys/{api_key_id}">client.apiKeys.<a href="./src/resources/api-keys.ts">delete</a>(apiKeyId) -> void</code>
 - <code title="get /api_keys/{api_key_id}">client.apiKeys.<a href="./src/resources/api-keys.ts">get</a>(apiKeyId) -> APIKey</code>
