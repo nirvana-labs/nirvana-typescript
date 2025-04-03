@@ -7,8 +7,8 @@ export class APIKeys extends APIResource {
   /**
    * Create a new API key
    */
-  create(options?: Core.RequestOptions): Core.APIPromise<APIKey> {
-    return this._client.post('/api_keys', options);
+  create(body: APIKeyCreateParams, options?: Core.RequestOptions): Core.APIPromise<APIKey> {
+    return this._client.post('/api_keys', { body, ...options });
   }
 
   /**
@@ -85,6 +85,27 @@ export interface APIKeyList {
   items: Array<APIKey>;
 }
 
+export interface APIKeyCreateParams {
+  /**
+   * Time after which the API key is not valid.
+   */
+  expires_at: string;
+
+  /**
+   * API key name.
+   */
+  name: string;
+
+  /**
+   * Time before which the API key is not valid.
+   */
+  not_before?: string;
+}
+
 export declare namespace APIKeys {
-  export { type APIKey as APIKey, type APIKeyList as APIKeyList };
+  export {
+    type APIKey as APIKey,
+    type APIKeyList as APIKeyList,
+    type APIKeyCreateParams as APIKeyCreateParams,
+  };
 }
