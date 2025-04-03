@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.1 (2025-04-03)
+
+Full Changelog: [v0.4.0...v0.4.1](https://github.com/nirvana-labs/nirvana-node/compare/v0.4.0...v0.4.1)
+
+### Bug Fixes
+
+* **client:** send `X-Stainless-Timeout` in seconds ([#186](https://github.com/nirvana-labs/nirvana-node/issues/186)) ([c89aefa](https://github.com/nirvana-labs/nirvana-node/commit/c89aefa1ef6c16ab49fdbb19dce495fb4ddd0f04))
+
 ## 0.4.0 (2025-04-03)
 
 Full Changelog: [v0.3.0...v0.4.0](https://github.com/nirvana-labs/nirvana-node/compare/v0.3.0...v0.4.0)
