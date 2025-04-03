@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.2 (2025-04-03)
+
+Full Changelog: [v0.4.1...v0.4.2](https://github.com/nirvana-labs/nirvana-node/compare/v0.4.1...v0.4.2)
+
+### Chores
+
+* **internal:** add aliases for Record and Array ([#189](https://github.com/nirvana-labs/nirvana-node/issues/189)) ([9fae6c6](https://github.com/nirvana-labs/nirvana-node/commit/9fae6c6c445bdedd88c8ac20f7dd512a1a71eaa5))
+
 ## 0.4.1 (2025-04-03)
 
 Full Changelog: [v0.4.0...v0.4.1](https://github.com/nirvana-labs/nirvana-node/compare/v0.4.0...v0.4.1)
