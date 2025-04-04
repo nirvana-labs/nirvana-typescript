@@ -12,6 +12,13 @@ export class APIKeys extends APIResource {
   }
 
   /**
+   * Update an API key's name
+   */
+  update(apiKeyId: string, body: APIKeyUpdateParams, options?: Core.RequestOptions): Core.APIPromise<APIKey> {
+    return this._client.patch(`/api_keys/${apiKeyId}`, { body, ...options });
+  }
+
+  /**
    * List all API keys you created
    */
   list(options?: Core.RequestOptions): Core.APIPromise<APIKeyList> {
@@ -102,10 +109,18 @@ export interface APIKeyCreateParams {
   not_before?: string;
 }
 
+export interface APIKeyUpdateParams {
+  /**
+   * API key name.
+   */
+  name?: string;
+}
+
 export declare namespace APIKeys {
   export {
     type APIKey as APIKey,
     type APIKeyList as APIKeyList,
     type APIKeyCreateParams as APIKeyCreateParams,
+    type APIKeyUpdateParams as APIKeyUpdateParams,
   };
 }
