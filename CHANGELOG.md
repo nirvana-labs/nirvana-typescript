@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.6.0 (2025-04-07)
+
+Full Changelog: [v0.5.0...v0.6.0](https://github.com/nirvana-labs/nirvana-node/compare/v0.5.0...v0.6.0)
+
+### Features
+
+* **api:** api update ([#198](https://github.com/nirvana-labs/nirvana-node/issues/198)) ([7971c67](https://github.com/nirvana-labs/nirvana-node/commit/7971c67e681e22daf4f1cf92f2d4a70046dffec0))
+
+
+### Bug Fixes
+
+* **api:** improve type resolution when importing as a package ([#195](https://github.com/nirvana-labs/nirvana-node/issues/195)) ([80e47ab](https://github.com/nirvana-labs/nirvana-node/commit/80e47ab58ba7a88affe28884b29acdf9c9295d09))
+* **mcp:** remove unused tools.ts ([#197](https://github.com/nirvana-labs/nirvana-node/issues/197)) ([770d2bd](https://github.com/nirvana-labs/nirvana-node/commit/770d2bd5fc49bb24f52f729d101ada49add290da))
+
 ## 0.5.0 (2025-04-04)
 
 Full Changelog: [v0.4.2...v0.5.0](https://github.com/nirvana-labs/nirvana-node/compare/v0.4.2...v0.5.0)
