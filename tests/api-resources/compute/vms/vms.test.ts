@@ -15,7 +15,7 @@ describe('resource vms', () => {
       cpu_config: { vcpu: 2 },
       memory_config: { size: 2 },
       name: 'my-vm',
-      os_image_name: 'ubuntu-noble-2025-03-04',
+      os_image_name: 'ubuntu-noble-2025-04-03',
       public_ip_enabled: true,
       region: 'us-sea-1',
       ssh_key: {
@@ -39,7 +39,7 @@ describe('resource vms', () => {
       cpu_config: { vcpu: 2 },
       memory_config: { size: 2 },
       name: 'my-vm',
-      os_image_name: 'ubuntu-noble-2025-03-04',
+      os_image_name: 'ubuntu-noble-2025-04-03',
       public_ip_enabled: true,
       region: 'us-sea-1',
       ssh_key: {
