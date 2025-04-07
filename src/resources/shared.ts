@@ -8,7 +8,6 @@ export type RegionName =
   | 'eu-lon-1'
   | 'eu-ams-1'
   | 'eu-frk-1'
-  | 'ap-mum-1'
   | 'ap-sin-1'
   | 'ap-seo-1'
   | 'ap-tyo-1';
