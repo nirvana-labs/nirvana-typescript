@@ -9,6 +9,6 @@ export class Volumes extends APIResource {
    * List VM's Volumes
    */
   list(vmId: string, options?: Core.RequestOptions): Core.APIPromise<VolumesAPI.VolumeList> {
-    return this._client.get(`/compute/vms/${vmId}/volumes`, options);
+    return this._client.get(`/v1/compute/vms/${vmId}/volumes`, options);
   }
 }

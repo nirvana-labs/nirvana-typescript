@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.8.0 (2025-04-09)
+
+Full Changelog: [v0.7.1...v0.8.0](https://github.com/nirvana-labs/nirvana-node/compare/v0.7.1...v0.8.0)
+
+### Features
+
+* **api:** api update ([9ffe162](https://github.com/nirvana-labs/nirvana-node/commit/9ffe16256bb2bcfebe63fe257d339867840e558e))
+
 ## 0.7.1 (2025-04-09)
 
 Full Changelog: [v0.7.0...v0.7.1](https://github.com/nirvana-labs/nirvana-node/compare/v0.7.0...v0.7.1)
