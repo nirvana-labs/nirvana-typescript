@@ -17,7 +17,7 @@ export class VMs extends APIResource {
    * Create a VM
    */
   create(body: VMCreateParams, options?: Core.RequestOptions): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.post('/compute/vms', { body, ...options });
+    return this._client.post('/v1/compute/vms', { body, ...options });
   }
 
   /**
@@ -28,28 +28,28 @@ export class VMs extends APIResource {
     body: VMUpdateParams,
     options?: Core.RequestOptions,
   ): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.patch(`/compute/vms/${vmId}`, { body, ...options });
+    return this._client.patch(`/v1/compute/vms/${vmId}`, { body, ...options });
   }
 
   /**
    * List all VMs
    */
   list(options?: Core.RequestOptions): Core.APIPromise<VMList> {
-    return this._client.get('/compute/vms', options);
+    return this._client.get('/v1/compute/vms', options);
   }
 
   /**
    * Delete a VM
    */
   delete(vmId: string, options?: Core.RequestOptions): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.delete(`/compute/vms/${vmId}`, options);
+    return this._client.delete(`/v1/compute/vms/${vmId}`, options);
   }
 
   /**
    * Get details about a VM
    */
   get(vmId: string, options?: Core.RequestOptions): Core.APIPromise<VM> {
-    return this._client.get(`/compute/vms/${vmId}`, options);
+    return this._client.get(`/v1/compute/vms/${vmId}`, options);
   }
 }
 

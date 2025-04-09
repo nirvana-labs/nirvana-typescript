@@ -9,7 +9,7 @@ export class OSImages extends APIResource {
    * List all OS Images
    */
   list(options?: Core.RequestOptions): Core.APIPromise<OSImageListResponse> {
-    return this._client.get('/compute/vms/os_images', options);
+    return this._client.get('/v1/compute/vms/os_images', options);
   }
 }
 

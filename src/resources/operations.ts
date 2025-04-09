@@ -8,14 +8,14 @@ export class Operations extends APIResource {
    * List all operations
    */
   list(options?: Core.RequestOptions): Core.APIPromise<OperationList> {
-    return this._client.get('/operations', options);
+    return this._client.get('/v1/operations', options);
   }
 
   /**
    * Get details about a specific operation
    */
   get(operationId: string, options?: Core.RequestOptions): Core.APIPromise<Operation> {
-    return this._client.get(`/operations/${operationId}`, options);
+    return this._client.get(`/v1/operations/${operationId}`, options);
   }
 }
 
