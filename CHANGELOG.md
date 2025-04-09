@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.1 (2025-04-09)
+
+Full Changelog: [v0.7.0...v0.7.1](https://github.com/nirvana-labs/nirvana-node/compare/v0.7.0...v0.7.1)
+
+### Chores
+
+* **tests:** improve enum examples ([#203](https://github.com/nirvana-labs/nirvana-node/issues/203)) ([f4b428d](https://github.com/nirvana-labs/nirvana-node/commit/f4b428d95dc84871ecf44b9504f2ecff2dc9f812))
+
 ## 0.7.0 (2025-04-07)
 
 Full Changelog: [v0.6.0...v0.7.0](https://github.com/nirvana-labs/nirvana-node/compare/v0.6.0...v0.7.0)
