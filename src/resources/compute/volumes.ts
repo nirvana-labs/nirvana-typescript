@@ -10,7 +10,7 @@ export class Volumes extends APIResource {
    * Create a Volume. Only data volumes can be created.
    */
   create(body: VolumeCreateParams, options?: Core.RequestOptions): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.post('/compute/volumes', { body, ...options });
+    return this._client.post('/v1/compute/volumes', { body, ...options });
   }
 
   /**
@@ -21,28 +21,28 @@ export class Volumes extends APIResource {
     body: VolumeUpdateParams,
     options?: Core.RequestOptions,
   ): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.patch(`/compute/volumes/${volumeId}`, { body, ...options });
+    return this._client.patch(`/v1/compute/volumes/${volumeId}`, { body, ...options });
   }
 
   /**
    * List all volumes
    */
   list(options?: Core.RequestOptions): Core.APIPromise<VolumeList> {
-    return this._client.get('/compute/volumes', options);
+    return this._client.get('/v1/compute/volumes', options);
   }
 
   /**
    * Delete a Volume. Boot or data volumes can be deleted.
    */
   delete(volumeId: string, options?: Core.RequestOptions): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.delete(`/compute/volumes/${volumeId}`, options);
+    return this._client.delete(`/v1/compute/volumes/${volumeId}`, options);
   }
 
   /**
    * Get a Volume.
    */
   get(volumeId: string, options?: Core.RequestOptions): Core.APIPromise<Volume> {
-    return this._client.get(`/compute/volumes/${volumeId}`, options);
+    return this._client.get(`/v1/compute/volumes/${volumeId}`, options);
   }
 }
 

@@ -8,7 +8,7 @@ export class UserResource extends APIResource {
    * Get details about an authenticated user
    */
   get(options?: Core.RequestOptions): Core.APIPromise<User> {
-    return this._client.get('/user', options);
+    return this._client.get('/v1/user', options);
   }
 }
 

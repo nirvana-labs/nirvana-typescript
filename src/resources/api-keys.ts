@@ -8,28 +8,28 @@ export class APIKeys extends APIResource {
    * Create a new API key
    */
   create(body: APIKeyCreateParams, options?: Core.RequestOptions): Core.APIPromise<APIKey> {
-    return this._client.post('/api_keys', { body, ...options });
+    return this._client.post('/v1/api_keys', { body, ...options });
   }
 
   /**
    * Update an API key's name
    */
   update(apiKeyId: string, body: APIKeyUpdateParams, options?: Core.RequestOptions): Core.APIPromise<APIKey> {
-    return this._client.patch(`/api_keys/${apiKeyId}`, { body, ...options });
+    return this._client.patch(`/v1/api_keys/${apiKeyId}`, { body, ...options });
   }
 
   /**
    * List all API keys you created
    */
   list(options?: Core.RequestOptions): Core.APIPromise<APIKeyList> {
-    return this._client.get('/api_keys', options);
+    return this._client.get('/v1/api_keys', options);
   }
 
   /**
    * Delete an API key
    */
   delete(apiKeyId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.delete(`/api_keys/${apiKeyId}`, {
+    return this._client.delete(`/v1/api_keys/${apiKeyId}`, {
       ...options,
       headers: { Accept: '*/*', ...options?.headers },
     });
@@ -39,7 +39,7 @@ export class APIKeys extends APIResource {
    * Get details about an API key
    */
   get(apiKeyId: string, options?: Core.RequestOptions): Core.APIPromise<APIKey> {
-    return this._client.get(`/api_keys/${apiKeyId}`, options);
+    return this._client.get(`/v1/api_keys/${apiKeyId}`, options);
   }
 }
 
