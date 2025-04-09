@@ -12,7 +12,7 @@ describe('resource vpcs', () => {
   test('create: only required params', async () => {
     const responsePromise = client.networking.vpcs.create({
       name: 'my-vpc',
-      region: 'us-sea-1',
+      region: 'us-wdc-1',
       subnet_name: 'my-subnet',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -27,7 +27,7 @@ describe('resource vpcs', () => {
   test('create: required and optional params', async () => {
     const response = await client.networking.vpcs.create({
       name: 'my-vpc',
-      region: 'us-sea-1',
+      region: 'us-wdc-1',
       subnet_name: 'my-subnet',
     });
   });
