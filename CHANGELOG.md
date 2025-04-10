@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.10.1 (2025-04-10)
+
+Full Changelog: [v0.10.0...v0.10.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v0.10.0...v0.10.1)
+
+### Features
+
+* **api:** manual updates ([ce27884](https://github.com/nirvana-labs/nirvana-typescript/commit/ce278848913f95cc5f325bbf679aabd5d6b37a75))
+
 ## 0.10.0 (2025-04-10)
 
 Full Changelog: [v0.9.0...v0.10.0](https://github.com/nirvana-labs/nirvana-node/compare/v0.9.0...v0.10.0)
