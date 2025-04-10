@@ -9,11 +9,8 @@ The REST API documentation can be found on [docs.nirvanalabs.io](https://docs.ni
 ## Installation
 
 ```sh
-npm install git+ssh://git@github.com:stainless-sdks/nirvana-typescript.git
+npm install @nirvana-labs/nirvana
 ```
-
-> [!NOTE]
-> Once this package is [published to npm](https://app.stainless.com/docs/guides/publish), this will become: `npm install @nirvana-labs/nirvana`
 
 ## Usage
 
@@ -418,7 +415,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/nirvana-typescript/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/nirvana-labs/nirvana-typescript/issues) with questions, bugs, or suggestions.
 
 ## Requirements
 
