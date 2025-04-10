@@ -1,32 +1,34 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
 import * as OperationsAPI from '../operations';
 import * as Shared from '../shared';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class FirewallRules extends APIResource {
   /**
    * Create a firewall rule
    */
   create(
-    vpcId: string,
+    vpcID: string,
     body: FirewallRuleCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.post(`/v1/networking/vpcs/${vpcId}/firewall_rules`, { body, ...options });
+    options?: RequestOptions,
+  ): APIPromise<OperationsAPI.Operation> {
+    return this._client.post(path`/v1/networking/vpcs/${vpcID}/firewall_rules`, { body, ...options });
   }
 
   /**
    * Update a firewall rule
    */
   update(
-    vpcId: string,
-    firewallRuleId: string,
-    body: FirewallRuleUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.patch(`/v1/networking/vpcs/${vpcId}/firewall_rules/${firewallRuleId}`, {
+    firewallRuleID: string,
+    params: FirewallRuleUpdateParams,
+    options?: RequestOptions,
+  ): APIPromise<OperationsAPI.Operation> {
+    const { vpc_id, ...body } = params;
+    return this._client.patch(path`/v1/networking/vpcs/${vpc_id}/firewall_rules/${firewallRuleID}`, {
       body,
       ...options,
     });
@@ -35,26 +37,32 @@ export class FirewallRules extends APIResource {
   /**
    * List all firewall rules
    */
-  list(vpcId: string, options?: Core.RequestOptions): Core.APIPromise<FirewallRuleList> {
-    return this._client.get(`/v1/networking/vpcs/${vpcId}/firewall_rules`, options);
+  list(vpcID: string, options?: RequestOptions): APIPromise<FirewallRuleList> {
+    return this._client.get(path`/v1/networking/vpcs/${vpcID}/firewall_rules`, options);
   }
 
   /**
    * Delete a firewall rule
    */
   delete(
-    vpcId: string,
-    firewallRuleId: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.delete(`/v1/networking/vpcs/${vpcId}/firewall_rules/${firewallRuleId}`, options);
+    firewallRuleID: string,
+    params: FirewallRuleDeleteParams,
+    options?: RequestOptions,
+  ): APIPromise<OperationsAPI.Operation> {
+    const { vpc_id } = params;
+    return this._client.delete(path`/v1/networking/vpcs/${vpc_id}/firewall_rules/${firewallRuleID}`, options);
   }
 
   /**
    * Get details about a firewall rule
    */
-  get(vpcId: string, firewallRuleId: string, options?: Core.RequestOptions): Core.APIPromise<FirewallRule> {
-    return this._client.get(`/v1/networking/vpcs/${vpcId}/firewall_rules/${firewallRuleId}`, options);
+  get(
+    firewallRuleID: string,
+    params: FirewallRuleGetParams,
+    options?: RequestOptions,
+  ): APIPromise<FirewallRule> {
+    const { vpc_id } = params;
+    return this._client.get(path`/v1/networking/vpcs/${vpc_id}/firewall_rules/${firewallRuleID}`, options);
   }
 }
 
@@ -106,18 +114,49 @@ export interface FirewallRuleCreateParams {
 }
 
 export interface FirewallRuleUpdateParams {
+  /**
+   * Path param: VPC ID
+   */
+  vpc_id: string;
+
+  /**
+   * Body param:
+   */
   destination_address?: string;
 
+  /**
+   * Body param:
+   */
   destination_ports?: Array<string>;
 
+  /**
+   * Body param:
+   */
   name?: string;
 
   /**
-   * Supported Firewall Rule protocols.
+   * Body param: Supported Firewall Rule protocols.
    */
   protocol?: 'tcp' | 'udp';
 
+  /**
+   * Body param:
+   */
   source_address?: string;
+}
+
+export interface FirewallRuleDeleteParams {
+  /**
+   * VPC ID
+   */
+  vpc_id: string;
+}
+
+export interface FirewallRuleGetParams {
+  /**
+   * VPC ID
+   */
+  vpc_id: string;
 }
 
 export declare namespace FirewallRules {
@@ -126,5 +165,7 @@ export declare namespace FirewallRules {
     type FirewallRuleList as FirewallRuleList,
     type FirewallRuleCreateParams as FirewallRuleCreateParams,
     type FirewallRuleUpdateParams as FirewallRuleUpdateParams,
+    type FirewallRuleDeleteParams as FirewallRuleDeleteParams,
+    type FirewallRuleGetParams as FirewallRuleGetParams,
   };
 }

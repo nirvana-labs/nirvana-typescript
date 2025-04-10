@@ -1,15 +1,17 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
 import * as OperationsAPI from '../operations';
 import * as Shared from '../shared';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class Volumes extends APIResource {
   /**
    * Create a Volume. Only data volumes can be created.
    */
-  create(body: VolumeCreateParams, options?: Core.RequestOptions): Core.APIPromise<OperationsAPI.Operation> {
+  create(body: VolumeCreateParams, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
     return this._client.post('/v1/compute/volumes', { body, ...options });
   }
 
@@ -17,32 +19,32 @@ export class Volumes extends APIResource {
    * Update a Volume. Boot or data volumes can be updated.
    */
   update(
-    volumeId: string,
+    volumeID: string,
     body: VolumeUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.patch(`/v1/compute/volumes/${volumeId}`, { body, ...options });
+    options?: RequestOptions,
+  ): APIPromise<OperationsAPI.Operation> {
+    return this._client.patch(path`/v1/compute/volumes/${volumeID}`, { body, ...options });
   }
 
   /**
    * List all volumes
    */
-  list(options?: Core.RequestOptions): Core.APIPromise<VolumeList> {
+  list(options?: RequestOptions): APIPromise<VolumeList> {
     return this._client.get('/v1/compute/volumes', options);
   }
 
   /**
    * Delete a Volume. Boot or data volumes can be deleted.
    */
-  delete(volumeId: string, options?: Core.RequestOptions): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.delete(`/v1/compute/volumes/${volumeId}`, options);
+  delete(volumeID: string, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
+    return this._client.delete(path`/v1/compute/volumes/${volumeID}`, options);
   }
 
   /**
    * Get a Volume.
    */
-  get(volumeId: string, options?: Core.RequestOptions): Core.APIPromise<Volume> {
-    return this._client.get(`/v1/compute/volumes/${volumeId}`, options);
+  get(volumeID: string, options?: RequestOptions): APIPromise<Volume> {
+    return this._client.get(path`/v1/compute/volumes/${volumeID}`, options);
   }
 }
 

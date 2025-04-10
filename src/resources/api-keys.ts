@@ -1,45 +1,48 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../resource';
-import * as Core from '../core';
+import { APIResource } from '../core/resource';
+import { APIPromise } from '../core/api-promise';
+import { buildHeaders } from '../internal/headers';
+import { RequestOptions } from '../internal/request-options';
+import { path } from '../internal/utils/path';
 
 export class APIKeys extends APIResource {
   /**
    * Create a new API key
    */
-  create(body: APIKeyCreateParams, options?: Core.RequestOptions): Core.APIPromise<APIKey> {
+  create(body: APIKeyCreateParams, options?: RequestOptions): APIPromise<APIKey> {
     return this._client.post('/v1/api_keys', { body, ...options });
   }
 
   /**
    * Update an API key's name
    */
-  update(apiKeyId: string, body: APIKeyUpdateParams, options?: Core.RequestOptions): Core.APIPromise<APIKey> {
-    return this._client.patch(`/v1/api_keys/${apiKeyId}`, { body, ...options });
+  update(apiKeyID: string, body: APIKeyUpdateParams, options?: RequestOptions): APIPromise<APIKey> {
+    return this._client.patch(path`/v1/api_keys/${apiKeyID}`, { body, ...options });
   }
 
   /**
    * List all API keys you created
    */
-  list(options?: Core.RequestOptions): Core.APIPromise<APIKeyList> {
+  list(options?: RequestOptions): APIPromise<APIKeyList> {
     return this._client.get('/v1/api_keys', options);
   }
 
   /**
    * Delete an API key
    */
-  delete(apiKeyId: string, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.delete(`/v1/api_keys/${apiKeyId}`, {
+  delete(apiKeyID: string, options?: RequestOptions): APIPromise<void> {
+    return this._client.delete(path`/v1/api_keys/${apiKeyID}`, {
       ...options,
-      headers: { Accept: '*/*', ...options?.headers },
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
     });
   }
 
   /**
    * Get details about an API key
    */
-  get(apiKeyId: string, options?: Core.RequestOptions): Core.APIPromise<APIKey> {
-    return this._client.get(`/v1/api_keys/${apiKeyId}`, options);
+  get(apiKeyID: string, options?: RequestOptions): APIPromise<APIKey> {
+    return this._client.get(path`/v1/api_keys/${apiKeyID}`, options);
   }
 }
 

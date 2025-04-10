@@ -47,14 +47,14 @@ jobs:
         run: ./scripts/build
 
       - name: Get GitHub OIDC Token
-        if: github.repository == 'stainless-sdks/nirvana-node'
+        if: github.repository == 'stainless-sdks/nirvana-typescript'
         id: github-oidc
         uses: actions/github-script@v6
         with:
           script: core.setOutput('github_token', await core.getIDToken());
 
       - name: Upload tarball
-        if: github.repository == 'stainless-sdks/nirvana-node'
+        if: github.repository == 'stainless-sdks/nirvana-typescript'
         env:
           URL: https://pkg.stainless.com/s
           AUTH: ${{ steps.github-oidc.outputs.github_token }}

@@ -8,7 +8,6 @@ const config: JestConfigWithTsJest = {
   },
   moduleNameMapper: {
     '^@nirvana-labs/nirvana$': '<rootDir>/src/index.ts',
-    '^@nirvana-labs/nirvana/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
     '^@nirvana-labs/nirvana/(.*)$': '<rootDir>/src/$1',
   },
   modulePathIgnorePatterns: [

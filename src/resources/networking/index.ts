@@ -6,6 +6,8 @@ export {
   type FirewallRuleList,
   type FirewallRuleCreateParams,
   type FirewallRuleUpdateParams,
+  type FirewallRuleDeleteParams,
+  type FirewallRuleGetParams,
 } from './firewall-rules';
 export { Networking } from './networking';
 export {
