@@ -85,7 +85,7 @@ export interface APIKey {
   /**
    * Time before which the API key is not valid.
    */
-  not_before?: string;
+  starts_at?: string;
 }
 
 export interface APIKeyList {
@@ -106,7 +106,7 @@ export interface APIKeyCreateParams {
   /**
    * Time before which the API key is not valid.
    */
-  not_before?: string;
+  starts_at?: string;
 }
 
 export interface APIKeyUpdateParams {
