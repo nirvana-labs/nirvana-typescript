@@ -73,6 +73,11 @@ export interface APIKey {
   status: 'active' | 'inactive' | 'expired';
 
   /**
+   * Time on which the API key was updated.
+   */
+  updated_at: string;
+
+  /**
    * User ID that owns the API key.
    */
   user_id: string;
@@ -85,7 +90,7 @@ export interface APIKey {
   /**
    * Time before which the API key is not valid.
    */
-  not_before?: string;
+  starts_at?: string;
 }
 
 export interface APIKeyList {
@@ -106,7 +111,7 @@ export interface APIKeyCreateParams {
   /**
    * Time before which the API key is not valid.
    */
-  not_before?: string;
+  starts_at?: string;
 }
 
 export interface APIKeyUpdateParams {
