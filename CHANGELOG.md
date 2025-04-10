@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.10.0 (2025-04-10)
+
+Full Changelog: [v0.9.0...v0.10.0](https://github.com/nirvana-labs/nirvana-node/compare/v0.9.0...v0.10.0)
+
+### Features
+
+* **api:** manual updates ([37ee232](https://github.com/nirvana-labs/nirvana-node/commit/37ee232299a68a3dd35db28c8f016a0b8bb1a5bb))
+
+
+### Bug Fixes
+
+* **internal:** fix file uploads in node 18 jest ([2fc416c](https://github.com/nirvana-labs/nirvana-node/commit/2fc416c802dca97475fd49c296da3f0ecf1931f6))
+
+
+### Chores
+
+* sync repo ([f37723d](https://github.com/nirvana-labs/nirvana-node/commit/f37723de0281cc36270ded10a080f279e5cd8e5e))
+
 ## 0.9.0 (2025-04-10)
 
 Full Changelog: [v0.8.0...v0.9.0](https://github.com/nirvana-labs/nirvana-node/compare/v0.8.0...v0.9.0)
