@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import NirvanaLabs from '@nirvana-labs/nirvana';
-import { Response } from 'node-fetch';
 
 const client = new NirvanaLabs({
   apiKey: 'My API Key',
@@ -73,13 +72,6 @@ describe('resource vms', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('list: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.compute.vms.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
-      NirvanaLabs.NotFoundError,
-    );
-  });
-
   test('delete', async () => {
     const responsePromise = client.compute.vms.delete('vm_id');
     const rawResponse = await responsePromise.asResponse();
@@ -91,13 +83,6 @@ describe('resource vms', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('delete: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.compute.vms.delete('vm_id', { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      NirvanaLabs.NotFoundError,
-    );
-  });
-
   test('get', async () => {
     const responsePromise = client.compute.vms.get('vm_id');
     const rawResponse = await responsePromise.asResponse();
@@ -107,12 +92,5 @@ describe('resource vms', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  test('get: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.compute.vms.get('vm_id', { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      NirvanaLabs.NotFoundError,
-    );
   });
 });
