@@ -1,13 +1,15 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../resource';
-import * as Core from '../../../core';
+import { APIResource } from '../../../core/resource';
 import * as OperationsAPI from '../../operations';
 import * as Shared from '../../shared';
 import * as OSImagesAPI from './os-images';
 import { OSImageListResponse, OSImages } from './os-images';
 import * as VolumesAPI from './volumes';
 import { Volumes } from './volumes';
+import { APIPromise } from '../../../core/api-promise';
+import { RequestOptions } from '../../../internal/request-options';
+import { path } from '../../../internal/utils/path';
 
 export class VMs extends APIResource {
   volumes: VolumesAPI.Volumes = new VolumesAPI.Volumes(this._client);
@@ -16,40 +18,36 @@ export class VMs extends APIResource {
   /**
    * Create a VM
    */
-  create(body: VMCreateParams, options?: Core.RequestOptions): Core.APIPromise<OperationsAPI.Operation> {
+  create(body: VMCreateParams, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
     return this._client.post('/v1/compute/vms', { body, ...options });
   }
 
   /**
    * Update a VM
    */
-  update(
-    vmId: string,
-    body: VMUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.patch(`/v1/compute/vms/${vmId}`, { body, ...options });
+  update(vmID: string, body: VMUpdateParams, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
+    return this._client.patch(path`/v1/compute/vms/${vmID}`, { body, ...options });
   }
 
   /**
    * List all VMs
    */
-  list(options?: Core.RequestOptions): Core.APIPromise<VMList> {
+  list(options?: RequestOptions): APIPromise<VMList> {
     return this._client.get('/v1/compute/vms', options);
   }
 
   /**
    * Delete a VM
    */
-  delete(vmId: string, options?: Core.RequestOptions): Core.APIPromise<OperationsAPI.Operation> {
-    return this._client.delete(`/v1/compute/vms/${vmId}`, options);
+  delete(vmID: string, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
+    return this._client.delete(path`/v1/compute/vms/${vmID}`, options);
   }
 
   /**
    * Get details about a VM
    */
-  get(vmId: string, options?: Core.RequestOptions): Core.APIPromise<VM> {
-    return this._client.get(`/v1/compute/vms/${vmId}`, options);
+  get(vmID: string, options?: RequestOptions): APIPromise<VM> {
+    return this._client.get(path`/v1/compute/vms/${vmID}`, options);
   }
 }
 

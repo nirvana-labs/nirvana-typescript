@@ -1,20 +1,5 @@
 # Changelog
 
-## 0.9.1 (2025-04-10)
-
-Full Changelog: [v0.9.0...v0.9.1](https://github.com/nirvana-labs/nirvana-node/compare/v0.9.0...v0.9.1)
-
-### Features
-
-* **api:** manual updates ([ab9a714](https://github.com/nirvana-labs/nirvana-node/commit/ab9a71400d42fe8611b2181f98c499843f54074e))
-
-
-### Chores
-
-* configure new SDK language ([29039b3](https://github.com/nirvana-labs/nirvana-node/commit/29039b31e607fc8c13c037173f2d3ce1e1ab12cb))
-* **internal:** reduce CI branch coverage ([e1149e1](https://github.com/nirvana-labs/nirvana-node/commit/e1149e116790ad16e3f65a9bb6d9f2c31d76d191))
-* **internal:** upload builds and expand CI branch coverage ([7eeca03](https://github.com/nirvana-labs/nirvana-node/commit/7eeca03cd5dd222deaa92878140e38bec43e8785))
-
 ## 0.9.0 (2025-04-10)
 
 Full Changelog: [v0.8.0...v0.9.0](https://github.com/nirvana-labs/nirvana-node/compare/v0.8.0...v0.9.0)

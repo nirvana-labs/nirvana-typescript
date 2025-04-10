@@ -1,10 +1,12 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
+import { APIResource } from '../../core/resource';
 import * as FirewallRulesAPI from './firewall-rules';
 import {
   FirewallRule,
   FirewallRuleCreateParams,
+  FirewallRuleDeleteParams,
+  FirewallRuleGetParams,
   FirewallRuleList,
   FirewallRuleUpdateParams,
   FirewallRules,
@@ -36,5 +38,7 @@ export declare namespace Networking {
     type FirewallRuleList as FirewallRuleList,
     type FirewallRuleCreateParams as FirewallRuleCreateParams,
     type FirewallRuleUpdateParams as FirewallRuleUpdateParams,
+    type FirewallRuleDeleteParams as FirewallRuleDeleteParams,
+    type FirewallRuleGetParams as FirewallRuleGetParams,
   };
 }
