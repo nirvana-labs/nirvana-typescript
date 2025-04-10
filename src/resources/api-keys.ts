@@ -73,6 +73,11 @@ export interface APIKey {
   status: 'active' | 'inactive' | 'expired';
 
   /**
+   * Time on which the API key was updated.
+   */
+  updated_at: string;
+
+  /**
    * User ID that owns the API key.
    */
   user_id: string;
