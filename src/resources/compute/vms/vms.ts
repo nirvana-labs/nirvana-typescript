@@ -72,21 +72,21 @@ export interface MemoryConfig {
 }
 
 /**
- * OS image details.
+ * OS Image details.
  */
 export interface OSImage {
   /**
-   * When the OS image was created.
+   * When the OS Image was created.
    */
   created_at: string;
 
   /**
-   * Display name of the OS image.
+   * Display name of the OS Image.
    */
   display_name: string;
 
   /**
-   * Name of the OS image.
+   * Name of the OS Image.
    */
   name: string;
 }
@@ -207,7 +207,7 @@ export interface VMCreateParams {
   name: string;
 
   /**
-   * Name of the OS image to use for the VM.
+   * Name of the OS Image to use for the VM.
    */
   os_image_name: string;
 
