@@ -70,27 +70,54 @@ export class FirewallRules extends APIResource {
  * Firewall rule details.
  */
 export interface FirewallRule {
+  /**
+   * Unique identifier for the firewall rule.
+   */
   id: string;
 
+  /**
+   * When the firewall rule was created.
+   */
   created_at: string;
 
+  /**
+   * Destination address of the firewall rule.
+   */
   destination_address: string;
 
+  /**
+   * Destination ports of the firewall rule.
+   */
   destination_ports: Array<string>;
 
+  /**
+   * Name of the firewall rule.
+   */
   name: string;
 
   /**
-   * Supported Firewall Rule protocols.
+   * Protocol of the firewall rule.
    */
   protocol: 'tcp' | 'udp';
 
+  /**
+   * Source address of the firewall rule.
+   */
   source_address: string;
 
+  /**
+   * Status of the resource.
+   */
   status: Shared.ResourceStatus;
 
+  /**
+   * When the firewall rule was updated.
+   */
   updated_at: string;
 
+  /**
+   * ID of the VPC the firewall rule belongs to.
+   */
   vpc_id: string;
 }
 
@@ -99,17 +126,29 @@ export interface FirewallRuleList {
 }
 
 export interface FirewallRuleCreateParams {
+  /**
+   * Destination address of the firewall rule.
+   */
   destination_address: string;
 
+  /**
+   * Destination ports of the firewall rule.
+   */
   destination_ports: Array<string>;
 
+  /**
+   * Name of the firewall rule.
+   */
   name: string;
 
   /**
-   * Supported Firewall Rule protocols.
+   * Protocol of the firewall rule.
    */
   protocol: string;
 
+  /**
+   * Source address of the firewall rule.
+   */
   source_address: string;
 }
 
@@ -120,27 +159,27 @@ export interface FirewallRuleUpdateParams {
   vpc_id: string;
 
   /**
-   * Body param:
+   * Body param: Destination address of the firewall rule.
    */
   destination_address?: string;
 
   /**
-   * Body param:
+   * Body param: Destination ports of the firewall rule.
    */
   destination_ports?: Array<string>;
 
   /**
-   * Body param:
+   * Body param: Name of the firewall rule.
    */
   name?: string;
 
   /**
-   * Body param: Supported Firewall Rule protocols.
+   * Body param: Protocol of the firewall rule.
    */
   protocol?: 'tcp' | 'udp';
 
   /**
-   * Body param:
+   * Body param: Source address of the firewall rule.
    */
   source_address?: string;
 }

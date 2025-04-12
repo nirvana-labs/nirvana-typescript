@@ -49,17 +49,32 @@ export class VPCs extends APIResource {
 }
 
 /**
- * Subnet details.
+ * Subnet of the VPC.
  */
 export interface Subnet {
+  /**
+   * Unique identifier for the subnet.
+   */
   id: string;
 
+  /**
+   * CIDR block for the subnet.
+   */
   cidr: string;
 
+  /**
+   * When the subnet was created.
+   */
   created_at: string;
 
+  /**
+   * Name of the subnet.
+   */
   name: string;
 
+  /**
+   * When the subnet was updated.
+   */
   updated_at: string;
 }
 
@@ -67,23 +82,44 @@ export interface Subnet {
  * VPC details.
  */
 export interface VPC {
+  /**
+   * Unique identifier for the VPC.
+   */
   id: string;
 
+  /**
+   * When the VPC was created.
+   */
   created_at: string;
 
+  /**
+   * IDs of the firewall rules associated with the VPC.
+   */
   firewall_rule_ids: Array<string>;
 
+  /**
+   * Name of the VPC.
+   */
   name: string;
 
+  /**
+   * Region the resource is in.
+   */
   region: Shared.RegionName;
 
+  /**
+   * Status of the resource.
+   */
   status: Shared.ResourceStatus;
 
   /**
-   * Subnet details.
+   * Subnet of the VPC.
    */
   subnet: Subnet;
 
+  /**
+   * When the VPC was updated.
+   */
   updated_at: string;
 }
 
@@ -92,16 +128,31 @@ export interface VPCList {
 }
 
 export interface VPCCreateParams {
+  /**
+   * Name of the VPC.
+   */
   name: string;
 
+  /**
+   * Region the resource is in.
+   */
   region: Shared.RegionName;
 
+  /**
+   * Name of the subnet to create.
+   */
   subnet_name: string;
 }
 
 export interface VPCUpdateParams {
+  /**
+   * Name of the VPC.
+   */
   name?: string;
 
+  /**
+   * Name of the subnet to create.
+   */
   subnet_name?: string;
 }
 
