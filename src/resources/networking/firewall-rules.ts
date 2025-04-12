@@ -76,7 +76,7 @@ export interface FirewallRule {
   id: string;
 
   /**
-   * Time the firewall rule was created.
+   * When the firewall rule was created.
    */
   created_at: string;
 
@@ -111,7 +111,7 @@ export interface FirewallRule {
   status: Shared.ResourceStatus;
 
   /**
-   * Time the firewall rule was updated.
+   * When the firewall rule was updated.
    */
   updated_at: string;
 

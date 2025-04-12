@@ -31,7 +31,7 @@ export interface Operation {
   id: string;
 
   /**
-   * Time the operation was created.
+   * When the operation was created.
    */
   created_at: string;
 
@@ -56,7 +56,7 @@ export interface Operation {
   type: OperationType;
 
   /**
-   * Time the operation was updated.
+   * When the operation was updated.
    */
   updated_at: string;
 }
