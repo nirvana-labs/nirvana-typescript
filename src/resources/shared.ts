@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 /**
- * Region of the VPC.
+ * Region the resource is in.
  */
 export type RegionName =
   | 'us-sea-1'
@@ -16,6 +16,6 @@ export type RegionName =
   | 'ap-tyo-1';
 
 /**
- * Status of the VPC.
+ * Status of the resource.
  */
 export type ResourceStatus = 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error';

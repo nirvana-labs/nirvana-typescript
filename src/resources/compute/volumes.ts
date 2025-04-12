@@ -83,7 +83,7 @@ export interface Volume {
   size: number;
 
   /**
-   * Status of the VPC.
+   * Status of the resource.
    */
   status: Shared.ResourceStatus;
 

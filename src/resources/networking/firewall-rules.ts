@@ -106,7 +106,7 @@ export interface FirewallRule {
   source_address: string;
 
   /**
-   * Status of the VPC.
+   * Status of the resource.
    */
   status: Shared.ResourceStatus;
 
