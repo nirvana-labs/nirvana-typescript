@@ -56,12 +56,12 @@ export interface APIKey {
   id: string;
 
   /**
-   * Time on which the API key was created.
+   * When the API key was created.
    */
   created_at: string;
 
   /**
-   * Time after which the API key is not valid.
+   * When the API key expires and is no longer valid.
    */
   expires_at: string;
 
@@ -76,7 +76,7 @@ export interface APIKey {
   status: 'active' | 'inactive' | 'expired';
 
   /**
-   * Time on which the API key was updated.
+   * When the API key was updated.
    */
   updated_at: string;
 
@@ -91,7 +91,7 @@ export interface APIKey {
   key?: string;
 
   /**
-   * Time before which the API key is not valid.
+   * When the API key starts to be valid.
    */
   starts_at?: string;
 }
@@ -102,7 +102,7 @@ export interface APIKeyList {
 
 export interface APIKeyCreateParams {
   /**
-   * Time after which the API key is not valid.
+   * When the API key expires and is no longer valid.
    */
   expires_at: string;
 
@@ -112,7 +112,7 @@ export interface APIKeyCreateParams {
   name: string;
 
   /**
-   * Time before which the API key is not valid.
+   * When the API key starts to be valid.
    */
   starts_at?: string;
 }

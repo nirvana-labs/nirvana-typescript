@@ -76,7 +76,7 @@ export interface MemoryConfig {
  */
 export interface OSImage {
   /**
-   * Time the OS image was created.
+   * When the OS image was created.
    */
   created_at: string;
 
@@ -92,7 +92,7 @@ export interface OSImage {
 }
 
 /**
- * Public SSH key to and and use to access the VM.
+ * Public SSH key configuration for the VM.
  */
 export interface SSHKey {
   /**
@@ -121,7 +121,7 @@ export interface VM {
   cpu_config: CPUConfig;
 
   /**
-   * Time the VM was created.
+   * When the VM was created.
    */
   created_at: string;
 
@@ -166,7 +166,7 @@ export interface VM {
   subnet_id: string;
 
   /**
-   * Time the VM was updated.
+   * When the VM was updated.
    */
   updated_at: string;
 
@@ -222,7 +222,7 @@ export interface VMCreateParams {
   region: Shared.RegionName;
 
   /**
-   * Public SSH key to and and use to access the VM.
+   * Public SSH key configuration for the VM.
    */
   ssh_key: SSHKey;
 

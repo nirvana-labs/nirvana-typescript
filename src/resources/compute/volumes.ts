@@ -49,7 +49,7 @@ export class Volumes extends APIResource {
 }
 
 /**
- * Type of the volume.
+ * Storage type the volume is using.
  */
 export type StorageType = 'nvme';
 
@@ -63,12 +63,12 @@ export interface Volume {
   id: string;
 
   /**
-   * Time the volume was created.
+   * When the volume was created.
    */
   created_at: string;
 
   /**
-   * Kind of the volume.
+   * Volume kind.
    */
   kind: VolumeKind;
 
@@ -88,12 +88,12 @@ export interface Volume {
   status: Shared.ResourceStatus;
 
   /**
-   * Type of the volume.
+   * Storage type the volume is using.
    */
   type: StorageType;
 
   /**
-   * Time the volume was updated.
+   * When the volume was updated.
    */
   updated_at: string;
 
@@ -109,7 +109,7 @@ export interface Volume {
 }
 
 /**
- * Kind of the volume.
+ * Volume kind.
  */
 export type VolumeKind = 'boot' | 'data';
 

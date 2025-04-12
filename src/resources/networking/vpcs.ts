@@ -63,7 +63,7 @@ export interface Subnet {
   cidr: string;
 
   /**
-   * Time the subnet was created.
+   * When the subnet was created.
    */
   created_at: string;
 
@@ -73,7 +73,7 @@ export interface Subnet {
   name: string;
 
   /**
-   * Time the subnet was updated.
+   * When the subnet was updated.
    */
   updated_at: string;
 }
@@ -88,7 +88,7 @@ export interface VPC {
   id: string;
 
   /**
-   * Time the VPC was created.
+   * When the VPC was created.
    */
   created_at: string;
 
@@ -118,7 +118,7 @@ export interface VPC {
   subnet: Subnet;
 
   /**
-   * Time the VPC was updated.
+   * When the VPC was updated.
    */
   updated_at: string;
 }
