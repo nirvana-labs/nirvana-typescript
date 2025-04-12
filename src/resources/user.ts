@@ -14,14 +14,26 @@ export class UserResource extends APIResource {
 }
 
 export interface User {
+  /**
+   * Unique identifier for the user.
+   */
   id: string;
 
+  /**
+   * Email address of the user.
+   */
   email: string;
 
+  /**
+   * Services that the user has access to.
+   */
   services: User.Services;
 }
 
 export namespace User {
+  /**
+   * Services that the user has access to.
+   */
   export interface Services {
     cloud?: boolean;
   }

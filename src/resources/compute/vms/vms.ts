@@ -52,37 +52,52 @@ export class VMs extends APIResource {
 }
 
 /**
- * CPU configuration details.
+ * CPU configuration for the VM.
  */
 export interface CPUConfig {
   /**
-   * virtual CPUs
+   * Number of virtual CPUs.
    */
   vcpu: number;
 }
 
 /**
- * Memory configuration details.
+ * Memory configuration for the VM.
  */
 export interface MemoryConfig {
   /**
-   * memory size
+   * Size of the memory in GB.
    */
   size: number;
 }
 
+/**
+ * OS image details.
+ */
 export interface OSImage {
+  /**
+   * Time the OS image was created.
+   */
   created_at: string;
 
+  /**
+   * Display name of the OS image.
+   */
   display_name: string;
 
+  /**
+   * Name of the OS image.
+   */
   name: string;
 }
 
 /**
- * SSH key details.
+ * Public SSH key to and and use to access the VM.
  */
 export interface SSHKey {
+  /**
+   * Public key to and and use to access the VM.
+   */
   public_key: string;
 }
 
@@ -95,7 +110,7 @@ export interface VM {
   boot_volume_id: string;
 
   /**
-   * CPU configuration details.
+   * CPU configuration for the VM.
    */
   cpu_config: CPUConfig;
 
@@ -104,7 +119,7 @@ export interface VM {
   data_volume_ids: Array<string>;
 
   /**
-   * Memory configuration details.
+   * Memory configuration for the VM.
    */
   memory_config: MemoryConfig;
 
@@ -114,8 +129,14 @@ export interface VM {
 
   public_ip: string | null;
 
+  /**
+   * Region of the VPC.
+   */
   region: Shared.RegionName;
 
+  /**
+   * Status of the VPC.
+   */
   status: Shared.ResourceStatus;
 
   subnet_id: string;
@@ -133,43 +154,64 @@ export interface VMList {
 
 export interface VMCreateParams {
   /**
-   * Boot volume create request.
+   * Boot volume for the VM.
    */
   boot_volume: VMCreateParams.BootVolume;
 
   /**
-   * CPU configuration details.
+   * CPU configuration for the VM.
    */
   cpu_config: CPUConfig;
 
   /**
-   * Memory configuration details.
+   * Memory configuration for the VM.
    */
   memory_config: MemoryConfig;
 
+  /**
+   * Name of the VM.
+   */
   name: string;
 
+  /**
+   * Name of the OS image to use for the VM.
+   */
   os_image_name: string;
 
+  /**
+   * Whether to enable public IP for the VM.
+   */
   public_ip_enabled: boolean;
 
+  /**
+   * Region of the VPC.
+   */
   region: Shared.RegionName;
 
   /**
-   * SSH key details.
+   * Public SSH key to and and use to access the VM.
    */
   ssh_key: SSHKey;
 
+  /**
+   * ID of the subnet to use for the VM.
+   */
   subnet_id: string;
 
+  /**
+   * Data volumes for the VM.
+   */
   data_volumes?: Array<VMCreateParams.DataVolume>;
 }
 
 export namespace VMCreateParams {
   /**
-   * Boot volume create request.
+   * Boot volume for the VM.
    */
   export interface BootVolume {
+    /**
+     * Size of the volume in GB.
+     */
     size: number;
   }
 
@@ -177,25 +219,37 @@ export namespace VMCreateParams {
    * VM data volume create request.
    */
   export interface DataVolume {
+    /**
+     * Name of the volume.
+     */
     name: string;
 
+    /**
+     * Size of the volume in GB.
+     */
     size: number;
   }
 }
 
 export interface VMUpdateParams {
   /**
-   * CPU configuration details.
+   * CPU configuration for the VM.
    */
   cpu_config?: CPUConfig;
 
   /**
-   * Memory configuration details.
+   * Memory configuration for the VM.
    */
   memory_config?: MemoryConfig;
 
+  /**
+   * Name of the VM.
+   */
   name?: string;
 
+  /**
+   * Whether to enable public IP for the VM.
+   */
   public_ip_enabled?: boolean;
 }
 
