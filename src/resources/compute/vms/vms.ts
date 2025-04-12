@@ -105,8 +105,14 @@ export interface SSHKey {
  * VM details.
  */
 export interface VM {
+  /**
+   * Unique identifier for the VM.
+   */
   id: string;
 
+  /**
+   * ID of the boot volume for the VM.
+   */
   boot_volume_id: string;
 
   /**
@@ -114,8 +120,14 @@ export interface VM {
    */
   cpu_config: CPUConfig;
 
+  /**
+   * Time the VM was created.
+   */
   created_at: string;
 
+  /**
+   * IDs of the data volumes for the VM.
+   */
   data_volume_ids: Array<string>;
 
   /**
@@ -123,28 +135,49 @@ export interface VM {
    */
   memory_config: MemoryConfig;
 
+  /**
+   * Name of the VM.
+   */
   name: string;
 
+  /**
+   * Private IP of the VM.
+   */
   private_ip: string | null;
 
+  /**
+   * Public IP of the VM.
+   */
   public_ip: string | null;
 
   /**
-   * Region of the VPC.
+   * Region the resource is in.
    */
   region: Shared.RegionName;
 
   /**
-   * Status of the VPC.
+   * Status of the resource.
    */
   status: Shared.ResourceStatus;
 
+  /**
+   * ID of the subnet for the VM.
+   */
   subnet_id: string;
 
+  /**
+   * Time the VM was updated.
+   */
   updated_at: string;
 
+  /**
+   * ID of the VPC for the VM.
+   */
   vpc_id: string;
 
+  /**
+   * Name of the VPC for the VM.
+   */
   vpc_name: string;
 }
 
@@ -184,7 +217,7 @@ export interface VMCreateParams {
   public_ip_enabled: boolean;
 
   /**
-   * Region of the VPC.
+   * Region the resource is in.
    */
   region: Shared.RegionName;
 

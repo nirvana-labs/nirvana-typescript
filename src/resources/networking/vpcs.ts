@@ -103,12 +103,12 @@ export interface VPC {
   name: string;
 
   /**
-   * Region of the VPC.
+   * Region the resource is in.
    */
   region: Shared.RegionName;
 
   /**
-   * Status of the VPC.
+   * Status of the resource.
    */
   status: Shared.ResourceStatus;
 
@@ -134,7 +134,7 @@ export interface VPCCreateParams {
   name: string;
 
   /**
-   * Region of the VPC.
+   * Region the resource is in.
    */
   region: Shared.RegionName;
 
