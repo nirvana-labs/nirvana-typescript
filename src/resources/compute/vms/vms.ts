@@ -111,7 +111,7 @@ export interface VM {
   id: string;
 
   /**
-   * ID of the boot volume for the VM.
+   * ID of the boot volume attached to the VM.
    */
   boot_volume_id: string;
 
@@ -126,7 +126,7 @@ export interface VM {
   created_at: string;
 
   /**
-   * IDs of the data volumes for the VM.
+   * IDs of the data volumes attached to the VM.
    */
   data_volume_ids: Array<string>;
 
@@ -161,7 +161,7 @@ export interface VM {
   status: Shared.ResourceStatus;
 
   /**
-   * ID of the subnet for the VM.
+   * ID of the subnet the VM is in.
    */
   subnet_id: string;
 
@@ -171,12 +171,12 @@ export interface VM {
   updated_at: string;
 
   /**
-   * ID of the VPC for the VM.
+   * ID of the VPC the VM is in.
    */
   vpc_id: string;
 
   /**
-   * Name of the VPC for the VM.
+   * Name of the VPC the VM is in.
    */
   vpc_name: string;
 }
