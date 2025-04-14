@@ -6,7 +6,7 @@ import { RequestOptions } from '../internal/request-options';
 
 export class UserResource extends APIResource {
   /**
-   * Get details about an authenticated user.
+   * Get details about an authenticated user
    */
   get(options?: RequestOptions): APIPromise<User> {
     return this._client.get('/v1/user', options);
