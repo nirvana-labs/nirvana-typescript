@@ -86,7 +86,7 @@ export interface APIKey {
   user_id: string;
 
   /**
-   * API key.
+   * API key. Only returned on creation.
    */
   key?: string;
 
