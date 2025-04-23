@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.2 (2025-04-23)
+
+Full Changelog: [v1.0.1...v1.0.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.0.1...v1.0.2)
+
+### Chores
+
+* **ci:** add timeout thresholds for CI jobs ([0c51ad3](https://github.com/nirvana-labs/nirvana-typescript/commit/0c51ad329ade8be7efcbb3c37badf57dde725e4f))
+* **perf:** faster base64 decoding ([f572e82](https://github.com/nirvana-labs/nirvana-typescript/commit/f572e822bd96d74756be03f0cec78f7091d179bf))
+
 ## 1.0.1 (2025-04-15)
 
 Full Changelog: [v1.0.1...v1.0.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.0.1...v1.0.1)
