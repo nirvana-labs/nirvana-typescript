@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.3 (2025-04-24)
+
+Full Changelog: [v1.0.2...v1.0.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.0.2...v1.0.3)
+
+### Chores
+
+* **ci:** only use depot for staging repos ([34d241d](https://github.com/nirvana-labs/nirvana-typescript/commit/34d241d4c8ea3741690432300c17cfdd654a0199))
+* **internal:** codegen related update ([1c23631](https://github.com/nirvana-labs/nirvana-typescript/commit/1c23631e463a1d0ed1eb245b05258c45d3a8816c))
+
 ## 1.0.2 (2025-04-23)
 
 Full Changelog: [v1.0.1...v1.0.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.0.1...v1.0.2)
