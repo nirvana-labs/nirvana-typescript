@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.0.4 (2025-05-01)
+
+Full Changelog: [v1.0.3...v1.0.4](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.0.3...v1.0.4)
+
+### Chores
+
+* **internal:** refactor utils ([139e131](https://github.com/nirvana-labs/nirvana-typescript/commit/139e131c787b4c7455169c7da9c80d81221caab4))
+
+
+### Documentation
+
+* **readme:** fix typo ([05b890e](https://github.com/nirvana-labs/nirvana-typescript/commit/05b890e2e5a17301e725ba2865ac71edf400a143))
+
 ## 1.0.3 (2025-04-24)
 
 Full Changelog: [v1.0.2...v1.0.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.0.2...v1.0.3)
