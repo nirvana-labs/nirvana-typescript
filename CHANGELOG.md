@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.5 (2025-05-03)
+
+Full Changelog: [v1.0.4...v1.0.5](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.0.4...v1.0.5)
+
+### Chores
+
+* **internal:** codegen related update ([bb5e68e](https://github.com/nirvana-labs/nirvana-typescript/commit/bb5e68ec73f0cf2dd50af4c65f06028edd2e0a41))
+* **internal:** share typescript helpers ([f273f15](https://github.com/nirvana-labs/nirvana-typescript/commit/f273f1559e0185ae913dc8685d4385a429333690))
+
 ## 1.0.4 (2025-05-01)
 
 Full Changelog: [v1.0.3...v1.0.4](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.0.3...v1.0.4)
