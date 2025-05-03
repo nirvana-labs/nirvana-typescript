@@ -6,7 +6,7 @@
     "rootDir": "./dist/src",
     "paths": {
       "@nirvana-labs/nirvana/*": ["dist/src/*"],
-      "@nirvana-labs/nirvana": ["dist/src/index.ts"],
+      "@nirvana-labs/nirvana": ["dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,
