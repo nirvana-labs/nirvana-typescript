@@ -1,0 +1,110 @@
+{
+  "pkg": "@nirvana-labs/nirvana",
+  "githubRepo": "https://github.com/nirvana-labs/nirvana-typescript",
+  "clientClass": "NirvanaLabs",
+  "methods": [
+    {
+      "base": "networking.firewallRules",
+      "name": "update",
+      "params": [
+        {
+          "type": "param",
+          "key": "firewall_rule_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ],
+      "oldParams": [
+        {
+          "type": "param",
+          "key": "vpc_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "firewall_rule_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ]
+    },
+    {
+      "base": "networking.firewallRules",
+      "name": "delete",
+      "params": [
+        {
+          "type": "param",
+          "key": "firewall_rule_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ],
+      "oldParams": [
+        {
+          "type": "param",
+          "key": "vpc_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "firewall_rule_id",
+          "location": "path"
+        },
+        {
+          "type": "options"
+        }
+      ]
+    },
+    {
+      "base": "networking.firewallRules",
+      "name": "get",
+      "params": [
+        {
+          "type": "param",
+          "key": "firewall_rule_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ],
+      "oldParams": [
+        {
+          "type": "param",
+          "key": "vpc_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "firewall_rule_id",
+          "location": "path"
+        },
+        {
+          "type": "options"
+        }
+      ]
+    }
+  ]
+}
