@@ -10,6 +10,18 @@ import { path } from '../../internal/utils/path';
 export class FirewallRules extends APIResource {
   /**
    * Create a firewall rule
+   *
+   * @example
+   * ```ts
+   * const operation =
+   *   await client.networking.firewallRules.create('vpc_id', {
+   *     destination_address: '0.0.0.0/0',
+   *     destination_ports: ['22', '80', '443'],
+   *     name: 'my-firewall-rule',
+   *     protocol: 'tcp',
+   *     source_address: '0.0.0.0/0',
+   *   });
+   * ```
    */
   create(
     vpcID: string,
@@ -21,6 +33,15 @@ export class FirewallRules extends APIResource {
 
   /**
    * Update a firewall rule
+   *
+   * @example
+   * ```ts
+   * const operation =
+   *   await client.networking.firewallRules.update(
+   *     'firewall_rule_id',
+   *     { vpc_id: 'vpc_id' },
+   *   );
+   * ```
    */
   update(
     firewallRuleID: string,
@@ -36,6 +57,12 @@ export class FirewallRules extends APIResource {
 
   /**
    * List all firewall rules
+   *
+   * @example
+   * ```ts
+   * const firewallRuleList =
+   *   await client.networking.firewallRules.list('vpc_id');
+   * ```
    */
   list(vpcID: string, options?: RequestOptions): APIPromise<FirewallRuleList> {
     return this._client.get(path`/v1/networking/vpcs/${vpcID}/firewall_rules`, options);
@@ -43,6 +70,15 @@ export class FirewallRules extends APIResource {
 
   /**
    * Delete a firewall rule
+   *
+   * @example
+   * ```ts
+   * const operation =
+   *   await client.networking.firewallRules.delete(
+   *     'firewall_rule_id',
+   *     { vpc_id: 'vpc_id' },
+   *   );
+   * ```
    */
   delete(
     firewallRuleID: string,
@@ -55,6 +91,15 @@ export class FirewallRules extends APIResource {
 
   /**
    * Get details about a firewall rule
+   *
+   * @example
+   * ```ts
+   * const firewallRule =
+   *   await client.networking.firewallRules.get(
+   *     'firewall_rule_id',
+   *     { vpc_id: 'vpc_id' },
+   *   );
+   * ```
    */
   get(
     firewallRuleID: string,
