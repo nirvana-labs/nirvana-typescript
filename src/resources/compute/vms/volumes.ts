@@ -9,6 +9,13 @@ import { path } from '../../../internal/utils/path';
 export class Volumes extends APIResource {
   /**
    * List VM's Volumes
+   *
+   * @example
+   * ```ts
+   * const volumeList = await client.compute.vms.volumes.list(
+   *   'vm_id',
+   * );
+   * ```
    */
   list(vmID: string, options?: RequestOptions): APIPromise<VolumesAPI.VolumeList> {
     return this._client.get(path`/v1/compute/vms/${vmID}/volumes`, options);

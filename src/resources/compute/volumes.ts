@@ -10,6 +10,15 @@ import { path } from '../../internal/utils/path';
 export class Volumes extends APIResource {
   /**
    * Create a Volume. Only data volumes can be created.
+   *
+   * @example
+   * ```ts
+   * const operation = await client.compute.volumes.create({
+   *   name: 'my-data-volume',
+   *   size: 100,
+   *   vm_id: 'vm_id',
+   * });
+   * ```
    */
   create(body: VolumeCreateParams, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
     return this._client.post('/v1/compute/volumes', { body, ...options });
@@ -17,6 +26,13 @@ export class Volumes extends APIResource {
 
   /**
    * Update a Volume. Boot or data volumes can be updated.
+   *
+   * @example
+   * ```ts
+   * const operation = await client.compute.volumes.update(
+   *   'volume_id',
+   * );
+   * ```
    */
   update(
     volumeID: string,
@@ -28,6 +44,11 @@ export class Volumes extends APIResource {
 
   /**
    * List all volumes
+   *
+   * @example
+   * ```ts
+   * const volumeList = await client.compute.volumes.list();
+   * ```
    */
   list(options?: RequestOptions): APIPromise<VolumeList> {
     return this._client.get('/v1/compute/volumes', options);
@@ -35,6 +56,13 @@ export class Volumes extends APIResource {
 
   /**
    * Delete a Volume. Boot or data volumes can be deleted.
+   *
+   * @example
+   * ```ts
+   * const operation = await client.compute.volumes.delete(
+   *   'volume_id',
+   * );
+   * ```
    */
   delete(volumeID: string, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
     return this._client.delete(path`/v1/compute/volumes/${volumeID}`, options);
@@ -42,6 +70,13 @@ export class Volumes extends APIResource {
 
   /**
    * Get a Volume.
+   *
+   * @example
+   * ```ts
+   * const volume = await client.compute.volumes.get(
+   *   'volume_id',
+   * );
+   * ```
    */
   get(volumeID: string, options?: RequestOptions): APIPromise<Volume> {
     return this._client.get(path`/v1/compute/volumes/${volumeID}`, options);

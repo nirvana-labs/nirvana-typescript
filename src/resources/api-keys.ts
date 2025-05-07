@@ -9,6 +9,14 @@ import { path } from '../internal/utils/path';
 export class APIKeys extends APIResource {
   /**
    * Create a new API key
+   *
+   * @example
+   * ```ts
+   * const apiKey = await client.apiKeys.create({
+   *   expires_at: '2025-12-31T23:59:59Z',
+   *   name: 'my-api-key',
+   * });
+   * ```
    */
   create(body: APIKeyCreateParams, options?: RequestOptions): APIPromise<APIKey> {
     return this._client.post('/v1/api_keys', { body, ...options });
@@ -16,6 +24,11 @@ export class APIKeys extends APIResource {
 
   /**
    * Update an API key's name
+   *
+   * @example
+   * ```ts
+   * const apiKey = await client.apiKeys.update('api_key_id');
+   * ```
    */
   update(apiKeyID: string, body: APIKeyUpdateParams, options?: RequestOptions): APIPromise<APIKey> {
     return this._client.patch(path`/v1/api_keys/${apiKeyID}`, { body, ...options });
@@ -23,6 +36,11 @@ export class APIKeys extends APIResource {
 
   /**
    * List all API keys you created
+   *
+   * @example
+   * ```ts
+   * const apiKeyList = await client.apiKeys.list();
+   * ```
    */
   list(options?: RequestOptions): APIPromise<APIKeyList> {
     return this._client.get('/v1/api_keys', options);
@@ -30,6 +48,11 @@ export class APIKeys extends APIResource {
 
   /**
    * Delete an API key
+   *
+   * @example
+   * ```ts
+   * await client.apiKeys.delete('api_key_id');
+   * ```
    */
   delete(apiKeyID: string, options?: RequestOptions): APIPromise<void> {
     return this._client.delete(path`/v1/api_keys/${apiKeyID}`, {
@@ -40,6 +63,11 @@ export class APIKeys extends APIResource {
 
   /**
    * Get details about an API key
+   *
+   * @example
+   * ```ts
+   * const apiKey = await client.apiKeys.get('api_key_id');
+   * ```
    */
   get(apiKeyID: string, options?: RequestOptions): APIPromise<APIKey> {
     return this._client.get(path`/v1/api_keys/${apiKeyID}`, options);
