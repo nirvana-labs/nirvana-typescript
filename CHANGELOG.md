@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.1.0 (2025-05-09)
+
+Full Changelog: [v1.0.5...v1.1.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.0.5...v1.1.0)
+
+### Features
+
+* **client:** add withOptions helper ([2af2dfe](https://github.com/nirvana-labs/nirvana-typescript/commit/2af2dfe4e3f1cce8cce5c29f74e6b817767f59c5))
+
+
+### Chores
+
+* **client:** drop support for EOL node versions ([c6c777a](https://github.com/nirvana-labs/nirvana-typescript/commit/c6c777a210715d1c46037fd94e5d65aab27b71c2))
+
+
+### Documentation
+
+* add examples to tsdocs ([ad7d285](https://github.com/nirvana-labs/nirvana-typescript/commit/ad7d2858aac26dec991463223a42ab9c83afb020))
+
 ## 1.0.5 (2025-05-03)
 
 Full Changelog: [v1.0.4...v1.0.5](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.0.4...v1.0.5)

@@ -8,6 +8,11 @@ import { RequestOptions } from '../../../internal/request-options';
 export class OSImages extends APIResource {
   /**
    * List all OS Images
+   *
+   * @example
+   * ```ts
+   * const osImages = await client.compute.vms.osImages.list();
+   * ```
    */
   list(options?: RequestOptions): APIPromise<OSImageListResponse> {
     return this._client.get('/v1/compute/vms/os_images', options);

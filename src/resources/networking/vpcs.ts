@@ -10,6 +10,15 @@ import { path } from '../../internal/utils/path';
 export class VPCs extends APIResource {
   /**
    * Create a VPC
+   *
+   * @example
+   * ```ts
+   * const operation = await client.networking.vpcs.create({
+   *   name: 'my-vpc',
+   *   region: 'us-wdc-1',
+   *   subnet_name: 'my-subnet',
+   * });
+   * ```
    */
   create(body: VPCCreateParams, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
     return this._client.post('/v1/networking/vpcs', { body, ...options });
@@ -17,6 +26,13 @@ export class VPCs extends APIResource {
 
   /**
    * Update a VPC
+   *
+   * @example
+   * ```ts
+   * const operation = await client.networking.vpcs.update(
+   *   'vpc_id',
+   * );
+   * ```
    */
   update(
     vpcID: string,
@@ -28,6 +44,11 @@ export class VPCs extends APIResource {
 
   /**
    * List all VPCs
+   *
+   * @example
+   * ```ts
+   * const vpcList = await client.networking.vpcs.list();
+   * ```
    */
   list(options?: RequestOptions): APIPromise<VPCList> {
     return this._client.get('/v1/networking/vpcs', options);
@@ -35,6 +56,13 @@ export class VPCs extends APIResource {
 
   /**
    * Delete a VPC
+   *
+   * @example
+   * ```ts
+   * const operation = await client.networking.vpcs.delete(
+   *   'vpc_id',
+   * );
+   * ```
    */
   delete(vpcID: string, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
     return this._client.delete(path`/v1/networking/vpcs/${vpcID}`, options);
@@ -42,6 +70,11 @@ export class VPCs extends APIResource {
 
   /**
    * Get details about a VPC
+   *
+   * @example
+   * ```ts
+   * const vpc = await client.networking.vpcs.get('vpc_id');
+   * ```
    */
   get(vpcID: string, options?: RequestOptions): APIPromise<VPC> {
     return this._client.get(path`/v1/networking/vpcs/${vpcID}`, options);
