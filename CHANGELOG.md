@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.1 (2025-05-10)
+
+Full Changelog: [v1.1.0...v1.1.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.1.0...v1.1.1)
+
+### Bug Fixes
+
+* **client:** always overwrite when merging headers ([ce8c906](https://github.com/nirvana-labs/nirvana-typescript/commit/ce8c906f60be67443b09e3f4dab89f3c86e3f57c))
+
 ## 1.1.0 (2025-05-09)
 
 Full Changelog: [v1.0.5...v1.1.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.0.5...v1.1.0)
