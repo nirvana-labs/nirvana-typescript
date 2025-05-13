@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.2 (2025-05-13)
+
+Full Changelog: [v1.1.1...v1.1.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.1.1...v1.1.2)
+
+### Chores
+
+* **package:** remove engines ([22ae4b0](https://github.com/nirvana-labs/nirvana-typescript/commit/22ae4b044cab6ebb5e0fa33e02bb5047b78c35bb))
+
 ## 1.1.1 (2025-05-10)
 
 Full Changelog: [v1.1.0...v1.1.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.1.0...v1.1.1)
