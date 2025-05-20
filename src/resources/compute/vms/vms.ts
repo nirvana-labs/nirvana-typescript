@@ -3,6 +3,8 @@
 import { APIResource } from '../../../core/resource';
 import * as OperationsAPI from '../../operations';
 import * as Shared from '../../shared';
+import * as AvailabilityAPI from './availability';
+import { Availability, AvailabilityCreateParams, AvailabilityUpdateParams } from './availability';
 import * as OSImagesAPI from './os-images';
 import { OSImageListResponse, OSImages } from './os-images';
 import * as VolumesAPI from './volumes';
@@ -12,6 +14,7 @@ import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
 export class VMs extends APIResource {
+  availability: AvailabilityAPI.Availability = new AvailabilityAPI.Availability(this._client);
   volumes: VolumesAPI.Volumes = new VolumesAPI.Volumes(this._client);
   osImages: OSImagesAPI.OSImages = new OSImagesAPI.OSImages(this._client);
 
@@ -219,15 +222,24 @@ export interface VM {
   vpc_name: string;
 }
 
-export interface VMList {
-  items: Array<VM>;
+/**
+ * Boot volume for the VM.
+ */
+export interface VMBootVolumeCreateRequest {
+  /**
+   * Size of the volume in GB.
+   */
+  size: number;
 }
 
-export interface VMCreateParams {
+/**
+ * VM create request.
+ */
+export interface VMCreateRequest {
   /**
    * Boot volume for the VM.
    */
-  boot_volume: VMCreateParams.BootVolume;
+  boot_volume: VMBootVolumeCreateRequest;
 
   /**
    * CPU configuration for the VM.
@@ -272,34 +284,103 @@ export interface VMCreateParams {
   /**
    * Data volumes for the VM.
    */
-  data_volumes?: Array<VMCreateParams.DataVolume>;
+  data_volumes?: Array<VMDataVolumeCreateRequest>;
 }
 
-export namespace VMCreateParams {
+/**
+ * VM data volume create request.
+ */
+export interface VMDataVolumeCreateRequest {
+  /**
+   * Name of the volume.
+   */
+  name: string;
+
+  /**
+   * Size of the volume in GB.
+   */
+  size: number;
+}
+
+export interface VMList {
+  items: Array<VM>;
+}
+
+/**
+ * VM update request.
+ */
+export interface VMUpdateRequest {
+  /**
+   * CPU configuration for the VM.
+   */
+  cpu_config?: CPUConfig;
+
+  /**
+   * Memory configuration for the VM.
+   */
+  memory_config?: MemoryConfig;
+
+  /**
+   * Name of the VM.
+   */
+  name?: string;
+
+  /**
+   * Whether to enable public IP for the VM.
+   */
+  public_ip_enabled?: boolean;
+}
+
+export interface VMCreateParams {
   /**
    * Boot volume for the VM.
    */
-  export interface BootVolume {
-    /**
-     * Size of the volume in GB.
-     */
-    size: number;
-  }
+  boot_volume: VMBootVolumeCreateRequest;
 
   /**
-   * VM data volume create request.
+   * CPU configuration for the VM.
    */
-  export interface DataVolume {
-    /**
-     * Name of the volume.
-     */
-    name: string;
+  cpu_config: CPUConfig;
 
-    /**
-     * Size of the volume in GB.
-     */
-    size: number;
-  }
+  /**
+   * Memory configuration for the VM.
+   */
+  memory_config: MemoryConfig;
+
+  /**
+   * Name of the VM.
+   */
+  name: string;
+
+  /**
+   * Name of the OS Image to use for the VM.
+   */
+  os_image_name: string;
+
+  /**
+   * Whether to enable public IP for the VM.
+   */
+  public_ip_enabled: boolean;
+
+  /**
+   * Region the resource is in.
+   */
+  region: Shared.RegionName;
+
+  /**
+   * Public SSH key configuration for the VM.
+   */
+  ssh_key: SSHKey;
+
+  /**
+   * ID of the subnet to use for the VM.
+   */
+  subnet_id: string;
+
+  /**
+   * Data volumes for the VM.
+   */
+  data_volumes?: Array<VMDataVolumeCreateRequest>;
 }
 
 export interface VMUpdateParams {
@@ -324,6 +405,7 @@ export interface VMUpdateParams {
   public_ip_enabled?: boolean;
 }
 
+VMs.Availability = Availability;
 VMs.Volumes = Volumes;
 VMs.OSImages = OSImages;
 
@@ -334,9 +416,19 @@ export declare namespace VMs {
     type OSImage as OSImage,
     type SSHKey as SSHKey,
     type VM as VM,
+    type VMBootVolumeCreateRequest as VMBootVolumeCreateRequest,
+    type VMCreateRequest as VMCreateRequest,
+    type VMDataVolumeCreateRequest as VMDataVolumeCreateRequest,
     type VMList as VMList,
+    type VMUpdateRequest as VMUpdateRequest,
     type VMCreateParams as VMCreateParams,
     type VMUpdateParams as VMUpdateParams,
+  };
+
+  export {
+    Availability as Availability,
+    type AvailabilityCreateParams as AvailabilityCreateParams,
+    type AvailabilityUpdateParams as AvailabilityUpdateParams,
   };
 
   export { Volumes as Volumes };

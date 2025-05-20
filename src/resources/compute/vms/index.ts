@@ -1,5 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+export { Availability, type AvailabilityCreateParams, type AvailabilityUpdateParams } from './availability';
 export { OSImages, type OSImageListResponse } from './os-images';
 export {
   VMs,
@@ -8,7 +9,11 @@ export {
   type OSImage,
   type SSHKey,
   type VM,
+  type VMBootVolumeCreateRequest,
+  type VMCreateRequest,
+  type VMDataVolumeCreateRequest,
   type VMList,
+  type VMUpdateRequest,
   type VMCreateParams,
   type VMUpdateParams,
 } from './vms';
