@@ -148,47 +148,12 @@ export interface Volume {
 }
 
 /**
- * Volume data volume create request.
- */
-export interface VolumeCreateRequest {
-  /**
-   * Name of the volume.
-   */
-  name: string;
-
-  /**
-   * Size of the volume in GB.
-   */
-  size: number;
-
-  /**
-   * ID of the VM the volume is attached to.
-   */
-  vm_id: string;
-}
-
-/**
  * Volume kind.
  */
 export type VolumeKind = 'boot' | 'data';
 
 export interface VolumeList {
   items: Array<Volume>;
-}
-
-/**
- * Volume update request.
- */
-export interface VolumeUpdateRequest {
-  /**
-   * Name of the volume.
-   */
-  name?: string;
-
-  /**
-   * Size of the volume in GB.
-   */
-  size?: number;
 }
 
 export interface VolumeCreateParams {
@@ -226,10 +191,8 @@ export declare namespace Volumes {
   export {
     type StorageType as StorageType,
     type Volume as Volume,
-    type VolumeCreateRequest as VolumeCreateRequest,
     type VolumeKind as VolumeKind,
     type VolumeList as VolumeList,
-    type VolumeUpdateRequest as VolumeUpdateRequest,
     type VolumeCreateParams as VolumeCreateParams,
     type VolumeUpdateParams as VolumeUpdateParams,
   };

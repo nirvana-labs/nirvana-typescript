@@ -56,9 +56,7 @@ Types:
 - <code><a href="./src/resources/compute/vms/vms.ts">OSImage</a></code>
 - <code><a href="./src/resources/compute/vms/vms.ts">SSHKey</a></code>
 - <code><a href="./src/resources/compute/vms/vms.ts">VM</a></code>
-- <code><a href="./src/resources/compute/vms/vms.ts">VMBootVolumeCreateRequest</a></code>
 - <code><a href="./src/resources/compute/vms/vms.ts">VMCreateRequest</a></code>
-- <code><a href="./src/resources/compute/vms/vms.ts">VMDataVolumeCreateRequest</a></code>
 - <code><a href="./src/resources/compute/vms/vms.ts">VMList</a></code>
 - <code><a href="./src/resources/compute/vms/vms.ts">VMUpdateRequest</a></code>
 
@@ -99,10 +97,8 @@ Types:
 
 - <code><a href="./src/resources/compute/volumes/volumes.ts">StorageType</a></code>
 - <code><a href="./src/resources/compute/volumes/volumes.ts">Volume</a></code>
-- <code><a href="./src/resources/compute/volumes/volumes.ts">VolumeCreateRequest</a></code>
 - <code><a href="./src/resources/compute/volumes/volumes.ts">VolumeKind</a></code>
 - <code><a href="./src/resources/compute/volumes/volumes.ts">VolumeList</a></code>
-- <code><a href="./src/resources/compute/volumes/volumes.ts">VolumeUpdateRequest</a></code>
 
 Methods:
 

@@ -223,23 +223,13 @@ export interface VM {
 }
 
 /**
- * Boot volume for the VM.
- */
-export interface VMBootVolumeCreateRequest {
-  /**
-   * Size of the volume in GB.
-   */
-  size: number;
-}
-
-/**
  * VM create request.
  */
 export interface VMCreateRequest {
   /**
    * Boot volume for the VM.
    */
-  boot_volume: VMBootVolumeCreateRequest;
+  boot_volume: VMCreateRequest.BootVolume;
 
   /**
    * CPU configuration for the VM.
@@ -284,22 +274,34 @@ export interface VMCreateRequest {
   /**
    * Data volumes for the VM.
    */
-  data_volumes?: Array<VMDataVolumeCreateRequest>;
+  data_volumes?: Array<VMCreateRequest.DataVolume>;
 }
 
-/**
- * VM data volume create request.
- */
-export interface VMDataVolumeCreateRequest {
+export namespace VMCreateRequest {
   /**
-   * Name of the volume.
+   * Boot volume for the VM.
    */
-  name: string;
+  export interface BootVolume {
+    /**
+     * Size of the volume in GB.
+     */
+    size: number;
+  }
 
   /**
-   * Size of the volume in GB.
+   * VM data volume create request.
    */
-  size: number;
+  export interface DataVolume {
+    /**
+     * Name of the volume.
+     */
+    name: string;
+
+    /**
+     * Size of the volume in GB.
+     */
+    size: number;
+  }
 }
 
 export interface VMList {
@@ -335,7 +337,7 @@ export interface VMCreateParams {
   /**
    * Boot volume for the VM.
    */
-  boot_volume: VMBootVolumeCreateRequest;
+  boot_volume: VMCreateParams.BootVolume;
 
   /**
    * CPU configuration for the VM.
@@ -380,7 +382,34 @@ export interface VMCreateParams {
   /**
    * Data volumes for the VM.
    */
-  data_volumes?: Array<VMDataVolumeCreateRequest>;
+  data_volumes?: Array<VMCreateParams.DataVolume>;
+}
+
+export namespace VMCreateParams {
+  /**
+   * Boot volume for the VM.
+   */
+  export interface BootVolume {
+    /**
+     * Size of the volume in GB.
+     */
+    size: number;
+  }
+
+  /**
+   * VM data volume create request.
+   */
+  export interface DataVolume {
+    /**
+     * Name of the volume.
+     */
+    name: string;
+
+    /**
+     * Size of the volume in GB.
+     */
+    size: number;
+  }
 }
 
 export interface VMUpdateParams {
@@ -416,9 +445,7 @@ export declare namespace VMs {
     type OSImage as OSImage,
     type SSHKey as SSHKey,
     type VM as VM,
-    type VMBootVolumeCreateRequest as VMBootVolumeCreateRequest,
     type VMCreateRequest as VMCreateRequest,
-    type VMDataVolumeCreateRequest as VMDataVolumeCreateRequest,
     type VMList as VMList,
     type VMUpdateRequest as VMUpdateRequest,
     type VMCreateParams as VMCreateParams,

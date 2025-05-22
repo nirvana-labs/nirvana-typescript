@@ -59,7 +59,7 @@ export interface AvailabilityCreateParams {
   /**
    * Boot volume for the VM.
    */
-  boot_volume: VMsAPI.VMBootVolumeCreateRequest;
+  boot_volume: AvailabilityCreateParams.BootVolume;
 
   /**
    * CPU configuration for the VM.
@@ -104,7 +104,34 @@ export interface AvailabilityCreateParams {
   /**
    * Data volumes for the VM.
    */
-  data_volumes?: Array<VMsAPI.VMDataVolumeCreateRequest>;
+  data_volumes?: Array<AvailabilityCreateParams.DataVolume>;
+}
+
+export namespace AvailabilityCreateParams {
+  /**
+   * Boot volume for the VM.
+   */
+  export interface BootVolume {
+    /**
+     * Size of the volume in GB.
+     */
+    size: number;
+  }
+
+  /**
+   * VM data volume create request.
+   */
+  export interface DataVolume {
+    /**
+     * Name of the volume.
+     */
+    name: string;
+
+    /**
+     * Size of the volume in GB.
+     */
+    size: number;
+  }
 }
 
 export interface AvailabilityUpdateParams {
