@@ -9,10 +9,8 @@ import {
   SSHKey,
   VM,
   VMCreateParams,
-  VMCreateRequest,
   VMList,
   VMUpdateParams,
-  VMUpdateRequest,
   VMs,
 } from './vms/vms';
 import * as VolumesAPI from './volumes/volumes';
@@ -42,9 +40,7 @@ export declare namespace Compute {
     type OSImage as OSImage,
     type SSHKey as SSHKey,
     type VM as VM,
-    type VMCreateRequest as VMCreateRequest,
     type VMList as VMList,
-    type VMUpdateRequest as VMUpdateRequest,
     type VMCreateParams as VMCreateParams,
     type VMUpdateParams as VMUpdateParams,
   };

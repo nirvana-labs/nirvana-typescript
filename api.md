@@ -56,9 +56,7 @@ Types:
 - <code><a href="./src/resources/compute/vms/vms.ts">OSImage</a></code>
 - <code><a href="./src/resources/compute/vms/vms.ts">SSHKey</a></code>
 - <code><a href="./src/resources/compute/vms/vms.ts">VM</a></code>
-- <code><a href="./src/resources/compute/vms/vms.ts">VMCreateRequest</a></code>
 - <code><a href="./src/resources/compute/vms/vms.ts">VMList</a></code>
-- <code><a href="./src/resources/compute/vms/vms.ts">VMUpdateRequest</a></code>
 
 Methods:
 

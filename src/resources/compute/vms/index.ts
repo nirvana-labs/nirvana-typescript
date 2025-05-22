@@ -9,9 +9,7 @@ export {
   type OSImage,
   type SSHKey,
   type VM,
-  type VMCreateRequest,
   type VMList,
-  type VMUpdateRequest,
   type VMCreateParams,
   type VMUpdateParams,
 } from './vms';
