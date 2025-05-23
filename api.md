@@ -68,10 +68,15 @@ Methods:
 
 ### Availability
 
+Types:
+
+- <code><a href="./src/resources/compute/vms/availability.ts">AvailabilityCreateResponse</a></code>
+- <code><a href="./src/resources/compute/vms/availability.ts">AvailabilityUpdateResponse</a></code>
+
 Methods:
 
-- <code title="post /v1/compute/vms/availability">client.compute.vms.availability.<a href="./src/resources/compute/vms/availability.ts">create</a>({ ...params }) -> void</code>
-- <code title="patch /v1/compute/vms/{vm_id}/availability">client.compute.vms.availability.<a href="./src/resources/compute/vms/availability.ts">update</a>(vmID, { ...params }) -> void</code>
+- <code title="post /v1/compute/vms/availability">client.compute.vms.availability.<a href="./src/resources/compute/vms/availability.ts">create</a>({ ...params }) -> string</code>
+- <code title="patch /v1/compute/vms/{vm_id}/availability">client.compute.vms.availability.<a href="./src/resources/compute/vms/availability.ts">update</a>(vmID, { ...params }) -> string</code>
 
 ### Volumes
 
@@ -108,10 +113,15 @@ Methods:
 
 ### Availability
 
+Types:
+
+- <code><a href="./src/resources/compute/volumes/availability.ts">AvailabilityCreateResponse</a></code>
+- <code><a href="./src/resources/compute/volumes/availability.ts">AvailabilityUpdateResponse</a></code>
+
 Methods:
 
-- <code title="post /v1/compute/volumes/availability">client.compute.volumes.availability.<a href="./src/resources/compute/volumes/availability.ts">create</a>({ ...params }) -> void</code>
-- <code title="patch /v1/compute/volumes/{volume_id}/availability">client.compute.volumes.availability.<a href="./src/resources/compute/volumes/availability.ts">update</a>(volumeID, { ...params }) -> void</code>
+- <code title="post /v1/compute/volumes/availability">client.compute.volumes.availability.<a href="./src/resources/compute/volumes/availability.ts">create</a>({ ...params }) -> string</code>
+- <code title="patch /v1/compute/volumes/{volume_id}/availability">client.compute.volumes.availability.<a href="./src/resources/compute/volumes/availability.ts">update</a>(volumeID, { ...params }) -> string</code>
 
 # Networking
 

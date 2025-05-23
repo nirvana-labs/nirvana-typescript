@@ -12,18 +12,19 @@ export class Availability extends APIResource {
    *
    * @example
    * ```ts
-   * await client.compute.volumes.availability.create({
-   *   name: 'my-data-volume',
-   *   size: 100,
-   *   vm_id: 'vm_id',
-   * });
+   * const availability =
+   *   await client.compute.volumes.availability.create({
+   *     name: 'my-data-volume',
+   *     size: 100,
+   *     vm_id: 'vm_id',
+   *   });
    * ```
    */
-  create(body: AvailabilityCreateParams, options?: RequestOptions): APIPromise<void> {
+  create(body: AvailabilityCreateParams, options?: RequestOptions): APIPromise<string> {
     return this._client.post('/v1/compute/volumes/availability', {
       body,
       ...options,
-      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+      headers: buildHeaders([{ Accept: 'text/plain' }, options?.headers]),
     });
   }
 
@@ -32,19 +33,24 @@ export class Availability extends APIResource {
    *
    * @example
    * ```ts
-   * await client.compute.volumes.availability.update(
-   *   'volume_id',
-   * );
+   * const availability =
+   *   await client.compute.volumes.availability.update(
+   *     'volume_id',
+   *   );
    * ```
    */
-  update(volumeID: string, body: AvailabilityUpdateParams, options?: RequestOptions): APIPromise<void> {
+  update(volumeID: string, body: AvailabilityUpdateParams, options?: RequestOptions): APIPromise<string> {
     return this._client.patch(path`/v1/compute/volumes/${volumeID}/availability`, {
       body,
       ...options,
-      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+      headers: buildHeaders([{ Accept: 'text/plain' }, options?.headers]),
     });
   }
 }
+
+export type AvailabilityCreateResponse = string;
+
+export type AvailabilityUpdateResponse = string;
 
 export interface AvailabilityCreateParams {
   /**
@@ -77,6 +83,8 @@ export interface AvailabilityUpdateParams {
 
 export declare namespace Availability {
   export {
+    type AvailabilityCreateResponse as AvailabilityCreateResponse,
+    type AvailabilityUpdateResponse as AvailabilityUpdateResponse,
     type AvailabilityCreateParams as AvailabilityCreateParams,
     type AvailabilityUpdateParams as AvailabilityUpdateParams,
   };

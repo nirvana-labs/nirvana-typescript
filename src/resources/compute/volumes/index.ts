@@ -1,6 +1,12 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { Availability, type AvailabilityCreateParams, type AvailabilityUpdateParams } from './availability';
+export {
+  Availability,
+  type AvailabilityCreateResponse,
+  type AvailabilityUpdateResponse,
+  type AvailabilityCreateParams,
+  type AvailabilityUpdateParams,
+} from './availability';
 export {
   Volumes,
   type StorageType,
