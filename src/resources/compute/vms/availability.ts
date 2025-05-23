@@ -14,27 +14,28 @@ export class Availability extends APIResource {
    *
    * @example
    * ```ts
-   * await client.compute.vms.availability.create({
-   *   boot_volume: { size: 100 },
-   *   cpu_config: { vcpu: 2 },
-   *   memory_config: { size: 2 },
-   *   name: 'my-vm',
-   *   os_image_name: 'ubuntu-noble-2025-04-03',
-   *   public_ip_enabled: true,
-   *   region: 'us-wdc-1',
-   *   ssh_key: {
-   *     public_key:
-   *       'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2',
-   *   },
-   *   subnet_id: '123e4567-e89b-12d3-a456-426614174000',
-   * });
+   * const availability =
+   *   await client.compute.vms.availability.create({
+   *     boot_volume: { size: 100 },
+   *     cpu_config: { vcpu: 2 },
+   *     memory_config: { size: 2 },
+   *     name: 'my-vm',
+   *     os_image_name: 'ubuntu-noble-2025-04-03',
+   *     public_ip_enabled: true,
+   *     region: 'us-wdc-1',
+   *     ssh_key: {
+   *       public_key:
+   *         'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2',
+   *     },
+   *     subnet_id: '123e4567-e89b-12d3-a456-426614174000',
+   *   });
    * ```
    */
-  create(body: AvailabilityCreateParams, options?: RequestOptions): APIPromise<void> {
+  create(body: AvailabilityCreateParams, options?: RequestOptions): APIPromise<string> {
     return this._client.post('/v1/compute/vms/availability', {
       body,
       ...options,
-      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+      headers: buildHeaders([{ Accept: 'text/plain' }, options?.headers]),
     });
   }
 
@@ -43,17 +44,22 @@ export class Availability extends APIResource {
    *
    * @example
    * ```ts
-   * await client.compute.vms.availability.update('vm_id');
+   * const availability =
+   *   await client.compute.vms.availability.update('vm_id');
    * ```
    */
-  update(vmID: string, body: AvailabilityUpdateParams, options?: RequestOptions): APIPromise<void> {
+  update(vmID: string, body: AvailabilityUpdateParams, options?: RequestOptions): APIPromise<string> {
     return this._client.patch(path`/v1/compute/vms/${vmID}/availability`, {
       body,
       ...options,
-      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+      headers: buildHeaders([{ Accept: 'text/plain' }, options?.headers]),
     });
   }
 }
+
+export type AvailabilityCreateResponse = string;
+
+export type AvailabilityUpdateResponse = string;
 
 export interface AvailabilityCreateParams {
   /**
@@ -158,6 +164,8 @@ export interface AvailabilityUpdateParams {
 
 export declare namespace Availability {
   export {
+    type AvailabilityCreateResponse as AvailabilityCreateResponse,
+    type AvailabilityUpdateResponse as AvailabilityUpdateResponse,
     type AvailabilityCreateParams as AvailabilityCreateParams,
     type AvailabilityUpdateParams as AvailabilityUpdateParams,
   };
