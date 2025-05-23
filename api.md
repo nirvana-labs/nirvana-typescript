@@ -66,6 +66,18 @@ Methods:
 - <code title="delete /v1/compute/vms/{vm_id}">client.compute.vms.<a href="./src/resources/compute/vms/vms.ts">delete</a>(vmID) -> Operation</code>
 - <code title="get /v1/compute/vms/{vm_id}">client.compute.vms.<a href="./src/resources/compute/vms/vms.ts">get</a>(vmID) -> VM</code>
 
+### Availability
+
+Types:
+
+- <code><a href="./src/resources/compute/vms/availability.ts">AvailabilityCreateResponse</a></code>
+- <code><a href="./src/resources/compute/vms/availability.ts">AvailabilityUpdateResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/compute/vms/availability">client.compute.vms.availability.<a href="./src/resources/compute/vms/availability.ts">create</a>({ ...params }) -> string</code>
+- <code title="patch /v1/compute/vms/{vm_id}/availability">client.compute.vms.availability.<a href="./src/resources/compute/vms/availability.ts">update</a>(vmID, { ...params }) -> string</code>
+
 ### Volumes
 
 Methods:
@@ -86,18 +98,30 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/compute/volumes.ts">StorageType</a></code>
-- <code><a href="./src/resources/compute/volumes.ts">Volume</a></code>
-- <code><a href="./src/resources/compute/volumes.ts">VolumeKind</a></code>
-- <code><a href="./src/resources/compute/volumes.ts">VolumeList</a></code>
+- <code><a href="./src/resources/compute/volumes/volumes.ts">StorageType</a></code>
+- <code><a href="./src/resources/compute/volumes/volumes.ts">Volume</a></code>
+- <code><a href="./src/resources/compute/volumes/volumes.ts">VolumeKind</a></code>
+- <code><a href="./src/resources/compute/volumes/volumes.ts">VolumeList</a></code>
 
 Methods:
 
-- <code title="post /v1/compute/volumes">client.compute.volumes.<a href="./src/resources/compute/volumes.ts">create</a>({ ...params }) -> Operation</code>
-- <code title="patch /v1/compute/volumes/{volume_id}">client.compute.volumes.<a href="./src/resources/compute/volumes.ts">update</a>(volumeID, { ...params }) -> Operation</code>
-- <code title="get /v1/compute/volumes">client.compute.volumes.<a href="./src/resources/compute/volumes.ts">list</a>() -> VolumeList</code>
-- <code title="delete /v1/compute/volumes/{volume_id}">client.compute.volumes.<a href="./src/resources/compute/volumes.ts">delete</a>(volumeID) -> Operation</code>
-- <code title="get /v1/compute/volumes/{volume_id}">client.compute.volumes.<a href="./src/resources/compute/volumes.ts">get</a>(volumeID) -> Volume</code>
+- <code title="post /v1/compute/volumes">client.compute.volumes.<a href="./src/resources/compute/volumes/volumes.ts">create</a>({ ...params }) -> Operation</code>
+- <code title="patch /v1/compute/volumes/{volume_id}">client.compute.volumes.<a href="./src/resources/compute/volumes/volumes.ts">update</a>(volumeID, { ...params }) -> Operation</code>
+- <code title="get /v1/compute/volumes">client.compute.volumes.<a href="./src/resources/compute/volumes/volumes.ts">list</a>() -> VolumeList</code>
+- <code title="delete /v1/compute/volumes/{volume_id}">client.compute.volumes.<a href="./src/resources/compute/volumes/volumes.ts">delete</a>(volumeID) -> Operation</code>
+- <code title="get /v1/compute/volumes/{volume_id}">client.compute.volumes.<a href="./src/resources/compute/volumes/volumes.ts">get</a>(volumeID) -> Volume</code>
+
+### Availability
+
+Types:
+
+- <code><a href="./src/resources/compute/volumes/availability.ts">AvailabilityCreateResponse</a></code>
+- <code><a href="./src/resources/compute/volumes/availability.ts">AvailabilityUpdateResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/compute/volumes/availability">client.compute.volumes.availability.<a href="./src/resources/compute/volumes/availability.ts">create</a>({ ...params }) -> string</code>
+- <code title="patch /v1/compute/volumes/{volume_id}/availability">client.compute.volumes.availability.<a href="./src/resources/compute/volumes/availability.ts">update</a>(volumeID, { ...params }) -> string</code>
 
 # Networking
 

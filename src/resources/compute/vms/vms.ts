@@ -3,6 +3,14 @@
 import { APIResource } from '../../../core/resource';
 import * as OperationsAPI from '../../operations';
 import * as Shared from '../../shared';
+import * as AvailabilityAPI from './availability';
+import {
+  Availability,
+  AvailabilityCreateParams,
+  AvailabilityCreateResponse,
+  AvailabilityUpdateParams,
+  AvailabilityUpdateResponse,
+} from './availability';
 import * as OSImagesAPI from './os-images';
 import { OSImageListResponse, OSImages } from './os-images';
 import * as VolumesAPI from './volumes';
@@ -12,6 +20,7 @@ import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
 export class VMs extends APIResource {
+  availability: AvailabilityAPI.Availability = new AvailabilityAPI.Availability(this._client);
   volumes: VolumesAPI.Volumes = new VolumesAPI.Volumes(this._client);
   osImages: OSImagesAPI.OSImages = new OSImagesAPI.OSImages(this._client);
 
@@ -30,7 +39,7 @@ export class VMs extends APIResource {
    *   region: 'us-wdc-1',
    *   ssh_key: {
    *     public_key:
-   *       'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDJiJabIUkXw7VrQG+yBohvhEsyoKEYvejZc4RFzV5maybqQei1punVsoe4r6gJttMM1Gr3cNr3OfepikCQAhAchw5ww94ZWqDsDYIqMrlDFbqhGTXDNzFAjeVIKptCOlz9k+7aM69YtLXJ6gFUCq1fbK9PjY+AK28UpMfKYUcyHQ== noname',
+   *       'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2',
    *   },
    *   subnet_id: '123e4567-e89b-12d3-a456-426614174000',
    * });
@@ -324,6 +333,7 @@ export interface VMUpdateParams {
   public_ip_enabled?: boolean;
 }
 
+VMs.Availability = Availability;
 VMs.Volumes = Volumes;
 VMs.OSImages = OSImages;
 
@@ -337,6 +347,14 @@ export declare namespace VMs {
     type VMList as VMList,
     type VMCreateParams as VMCreateParams,
     type VMUpdateParams as VMUpdateParams,
+  };
+
+  export {
+    Availability as Availability,
+    type AvailabilityCreateResponse as AvailabilityCreateResponse,
+    type AvailabilityUpdateResponse as AvailabilityUpdateResponse,
+    type AvailabilityCreateParams as AvailabilityCreateParams,
+    type AvailabilityUpdateParams as AvailabilityUpdateParams,
   };
 
   export { Volumes as Volumes };

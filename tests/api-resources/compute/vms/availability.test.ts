@@ -7,9 +7,9 @@ const client = new NirvanaLabs({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource vms', () => {
+describe('resource availability', () => {
   test('create: only required params', async () => {
-    const responsePromise = client.compute.vms.create({
+    const responsePromise = client.compute.vms.availability.create({
       boot_volume: { size: 100 },
       cpu_config: { vcpu: 2 },
       memory_config: { size: 2 },
@@ -32,7 +32,7 @@ describe('resource vms', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await client.compute.vms.create({
+    const response = await client.compute.vms.availability.create({
       boot_volume: { size: 100 },
       cpu_config: { vcpu: 2 },
       memory_config: { size: 2 },
@@ -49,40 +49,7 @@ describe('resource vms', () => {
   });
 
   test('update', async () => {
-    const responsePromise = client.compute.vms.update('vm_id', {});
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  test('list', async () => {
-    const responsePromise = client.compute.vms.list();
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  test('delete', async () => {
-    const responsePromise = client.compute.vms.delete('vm_id');
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  test('get', async () => {
-    const responsePromise = client.compute.vms.get('vm_id');
+    const responsePromise = client.compute.vms.availability.update('vm_id', {});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;

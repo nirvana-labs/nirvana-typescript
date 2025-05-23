@@ -1,16 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../core/resource';
-import * as VolumesAPI from './volumes';
-import {
-  StorageType,
-  Volume,
-  VolumeCreateParams,
-  VolumeKind,
-  VolumeList,
-  VolumeUpdateParams,
-  Volumes,
-} from './volumes';
 import * as VMsAPI from './vms/vms';
 import {
   CPUConfig,
@@ -23,6 +13,16 @@ import {
   VMUpdateParams,
   VMs,
 } from './vms/vms';
+import * as VolumesAPI from './volumes/volumes';
+import {
+  StorageType,
+  Volume,
+  VolumeCreateParams,
+  VolumeKind,
+  VolumeList,
+  VolumeUpdateParams,
+  Volumes,
+} from './volumes/volumes';
 
 export class Compute extends APIResource {
   vms: VMsAPI.VMs = new VMsAPI.VMs(this._client);
