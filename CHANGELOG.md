@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.2.0 (2025-05-23)
+
+Full Changelog: [v1.1.2...v1.2.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.1.2...v1.2.0)
+
+### Features
+
+* **api:** add availability resources for VM and Volumes ([f5ace3e](https://github.com/nirvana-labs/nirvana-typescript/commit/f5ace3ec13a085414181276932a8f451343c3096))
+* **api:** api update ([fd29863](https://github.com/nirvana-labs/nirvana-typescript/commit/fd2986318225f1c98bb7464a577deda46811782d))
+* **api:** manual updates ([7a429ba](https://github.com/nirvana-labs/nirvana-typescript/commit/7a429bac659ef8b3f63b70920907f2fe84e52287))
+* **api:** manual updates ([09d69f6](https://github.com/nirvana-labs/nirvana-typescript/commit/09d69f6fd993d8eb34f12a12c754438e2d182096))
+* **api:** update create/update vm/volume param names ([c842b29](https://github.com/nirvana-labs/nirvana-typescript/commit/c842b291c351618f838a12f6f8279698e24090c6))
+
+
+### Chores
+
+* **docs:** grammar improvements ([56996b8](https://github.com/nirvana-labs/nirvana-typescript/commit/56996b8f70a919e0fef502470dac517298169fc5))
+
 ## 1.1.2 (2025-05-13)
 
 Full Changelog: [v1.1.1...v1.1.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.1.1...v1.1.2)
