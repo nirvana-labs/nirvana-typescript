@@ -17,4 +17,4 @@ export {
   type VPCList,
   type VPCCreateParams,
   type VPCUpdateParams,
-} from './vpcs';
+} from './vpcs/index';

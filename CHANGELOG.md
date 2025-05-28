@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.3.0 (2025-05-28)
+
+Full Changelog: [v1.2.0...v1.3.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.2.0...v1.3.0)
+
+### Features
+
+* **api:** api update ([1dbdf80](https://github.com/nirvana-labs/nirvana-typescript/commit/1dbdf80857330b8c0dd6ef908e9b7a7aa2d323fd))
+
+
+### Chores
+
+* improve publish-npm script --latest tag logic ([a5386d0](https://github.com/nirvana-labs/nirvana-typescript/commit/a5386d023dff600b222c56303168e2731a1ae225))
+
 ## 1.2.0 (2025-05-23)
 
 Full Changelog: [v1.1.2...v1.2.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.1.2...v1.2.0)
