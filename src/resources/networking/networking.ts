@@ -11,8 +11,8 @@ import {
   FirewallRuleUpdateParams,
   FirewallRules,
 } from './firewall-rules';
-import * as VPCsAPI from './vpcs';
-import { Subnet, VPC, VPCCreateParams, VPCList, VPCUpdateParams, VPCs } from './vpcs';
+import * as VPCsAPI from './vpcs/vpcs';
+import { Subnet, VPC, VPCCreateParams, VPCList, VPCUpdateParams, VPCs } from './vpcs/vpcs';
 
 export class Networking extends APIResource {
   vpcs: VPCsAPI.VPCs = new VPCsAPI.VPCs(this._client);
