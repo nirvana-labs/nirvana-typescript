@@ -129,17 +129,29 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/networking/vpcs.ts">Subnet</a></code>
-- <code><a href="./src/resources/networking/vpcs.ts">VPC</a></code>
-- <code><a href="./src/resources/networking/vpcs.ts">VPCList</a></code>
+- <code><a href="./src/resources/networking/vpcs/vpcs.ts">Subnet</a></code>
+- <code><a href="./src/resources/networking/vpcs/vpcs.ts">VPC</a></code>
+- <code><a href="./src/resources/networking/vpcs/vpcs.ts">VPCList</a></code>
 
 Methods:
 
-- <code title="post /v1/networking/vpcs">client.networking.vpcs.<a href="./src/resources/networking/vpcs.ts">create</a>({ ...params }) -> Operation</code>
-- <code title="patch /v1/networking/vpcs/{vpc_id}">client.networking.vpcs.<a href="./src/resources/networking/vpcs.ts">update</a>(vpcID, { ...params }) -> Operation</code>
-- <code title="get /v1/networking/vpcs">client.networking.vpcs.<a href="./src/resources/networking/vpcs.ts">list</a>() -> VPCList</code>
-- <code title="delete /v1/networking/vpcs/{vpc_id}">client.networking.vpcs.<a href="./src/resources/networking/vpcs.ts">delete</a>(vpcID) -> Operation</code>
-- <code title="get /v1/networking/vpcs/{vpc_id}">client.networking.vpcs.<a href="./src/resources/networking/vpcs.ts">get</a>(vpcID) -> VPC</code>
+- <code title="post /v1/networking/vpcs">client.networking.vpcs.<a href="./src/resources/networking/vpcs/vpcs.ts">create</a>({ ...params }) -> Operation</code>
+- <code title="patch /v1/networking/vpcs/{vpc_id}">client.networking.vpcs.<a href="./src/resources/networking/vpcs/vpcs.ts">update</a>(vpcID, { ...params }) -> Operation</code>
+- <code title="get /v1/networking/vpcs">client.networking.vpcs.<a href="./src/resources/networking/vpcs/vpcs.ts">list</a>() -> VPCList</code>
+- <code title="delete /v1/networking/vpcs/{vpc_id}">client.networking.vpcs.<a href="./src/resources/networking/vpcs/vpcs.ts">delete</a>(vpcID) -> Operation</code>
+- <code title="get /v1/networking/vpcs/{vpc_id}">client.networking.vpcs.<a href="./src/resources/networking/vpcs/vpcs.ts">get</a>(vpcID) -> VPC</code>
+
+### Availability
+
+Types:
+
+- <code><a href="./src/resources/networking/vpcs/availability.ts">AvailabilityCreateResponse</a></code>
+- <code><a href="./src/resources/networking/vpcs/availability.ts">AvailabilityUpdateResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/networking/vpcs/availability">client.networking.vpcs.availability.<a href="./src/resources/networking/vpcs/availability.ts">create</a>({ ...params }) -> unknown</code>
+- <code title="patch /v1/networking/vpcs/{vpc_id}/availability">client.networking.vpcs.availability.<a href="./src/resources/networking/vpcs/availability.ts">update</a>(vpcID, { ...params }) -> unknown</code>
 
 ## FirewallRules
 
