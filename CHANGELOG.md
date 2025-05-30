@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.1 (2025-05-30)
+
+Full Changelog: [v1.3.0...v1.3.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.3.0...v1.3.1)
+
+### Bug Fixes
+
+* compat with more runtimes ([4bd4287](https://github.com/nirvana-labs/nirvana-typescript/commit/4bd4287cea06c7f66fca40517f239892d0a69ad0))
+
 ## 1.3.0 (2025-05-28)
 
 Full Changelog: [v1.2.0...v1.3.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.2.0...v1.3.0)
