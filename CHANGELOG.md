@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.3.2 (2025-05-31)
+
+Full Changelog: [v1.3.1...v1.3.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.3.1...v1.3.2)
+
+### Chores
+
+* **deps:** bump eslint-plugin-prettier ([f2a5fa9](https://github.com/nirvana-labs/nirvana-typescript/commit/f2a5fa9d68330e0efe7a52a978ce25bd257873ab))
+* **internal:** update jest config ([ab39754](https://github.com/nirvana-labs/nirvana-typescript/commit/ab39754a968f5edf58911368678656419c07a90b))
+
 ## 1.3.1 (2025-05-30)
 
 Full Changelog: [v1.3.0...v1.3.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.3.0...v1.3.1)
