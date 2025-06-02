@@ -3,6 +3,7 @@
 import { APIResource } from '../../../core/resource';
 import * as Shared from '../../shared';
 import { APIPromise } from '../../../core/api-promise';
+import { buildHeaders } from '../../../internal/headers';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
@@ -20,8 +21,12 @@ export class Availability extends APIResource {
    *   });
    * ```
    */
-  create(body: AvailabilityCreateParams, options?: RequestOptions): APIPromise<unknown> {
-    return this._client.post('/v1/networking/vpcs/availability', { body, ...options });
+  create(body: AvailabilityCreateParams, options?: RequestOptions): APIPromise<string> {
+    return this._client.post('/v1/networking/vpcs/availability', {
+      body,
+      ...options,
+      headers: buildHeaders([{ Accept: 'text/plain' }, options?.headers]),
+    });
   }
 
   /**
@@ -35,14 +40,18 @@ export class Availability extends APIResource {
    *   );
    * ```
    */
-  update(vpcID: string, body: AvailabilityUpdateParams, options?: RequestOptions): APIPromise<unknown> {
-    return this._client.patch(path`/v1/networking/vpcs/${vpcID}/availability`, { body, ...options });
+  update(vpcID: string, body: AvailabilityUpdateParams, options?: RequestOptions): APIPromise<string> {
+    return this._client.patch(path`/v1/networking/vpcs/${vpcID}/availability`, {
+      body,
+      ...options,
+      headers: buildHeaders([{ Accept: 'text/plain' }, options?.headers]),
+    });
   }
 }
 
-export type AvailabilityCreateResponse = unknown;
+export type AvailabilityCreateResponse = string;
 
-export type AvailabilityUpdateResponse = unknown;
+export type AvailabilityUpdateResponse = string;
 
 export interface AvailabilityCreateParams {
   /**
