@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.1 (2025-06-03)
+
+Full Changelog: [v1.4.0...v1.4.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.4.0...v1.4.1)
+
+### Chores
+
+* adjust eslint.config.mjs ignore pattern ([c7ebc63](https://github.com/nirvana-labs/nirvana-typescript/commit/c7ebc63b9c674f39f8d2c8b2e542e724d662694a))
+
 ## 1.4.0 (2025-06-02)
 
 Full Changelog: [v1.3.2...v1.4.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.3.2...v1.4.0)
