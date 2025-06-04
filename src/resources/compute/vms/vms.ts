@@ -198,6 +198,11 @@ export interface VM {
   public_ip: string | null;
 
   /**
+   * Whether the public IP is enabled for the VM.
+   */
+  public_ip_enabled: boolean;
+
+  /**
    * Region the resource is in.
    */
   region: Shared.RegionName;
