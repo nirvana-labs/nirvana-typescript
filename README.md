@@ -24,25 +24,19 @@ const client = new NirvanaLabs({
   apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const operation = await client.compute.vms.create({
-    boot_volume: { size: 100 },
-    cpu_config: { vcpu: 2 },
-    memory_config: { size: 2 },
-    name: 'my-vm',
-    os_image_name: 'ubuntu-noble-2025-04-03',
-    public_ip_enabled: true,
-    region: 'us-wdc-1',
-    ssh_key: {
-      public_key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2',
-    },
-    subnet_id: '123e4567-e89b-12d3-a456-426614174000',
-  });
+const operation = await client.compute.vms.create({
+  boot_volume: { size: 100 },
+  cpu_config: { vcpu: 2 },
+  memory_config: { size: 2 },
+  name: 'my-vm',
+  os_image_name: 'ubuntu-noble-2025-04-03',
+  public_ip_enabled: true,
+  region: 'us-wdc-1',
+  ssh_key: { public_key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2' },
+  subnet_id: '123e4567-e89b-12d3-a456-426614174000',
+});
 
-  console.log(operation.id);
-}
-
-main();
+console.log(operation.id);
 ```
 
 ### Request & Response types
@@ -57,24 +51,18 @@ const client = new NirvanaLabs({
   apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const params: NirvanaLabs.Compute.VMCreateParams = {
-    boot_volume: { size: 100 },
-    cpu_config: { vcpu: 2 },
-    memory_config: { size: 2 },
-    name: 'my-vm',
-    os_image_name: 'ubuntu-noble-2025-04-03',
-    public_ip_enabled: true,
-    region: 'us-wdc-1',
-    ssh_key: {
-      public_key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2',
-    },
-    subnet_id: '123e4567-e89b-12d3-a456-426614174000',
-  };
-  const operation: NirvanaLabs.Operation = await client.compute.vms.create(params);
-}
-
-main();
+const params: NirvanaLabs.Compute.VMCreateParams = {
+  boot_volume: { size: 100 },
+  cpu_config: { vcpu: 2 },
+  memory_config: { size: 2 },
+  name: 'my-vm',
+  os_image_name: 'ubuntu-noble-2025-04-03',
+  public_ip_enabled: true,
+  region: 'us-wdc-1',
+  ssh_key: { public_key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2' },
+  subnet_id: '123e4567-e89b-12d3-a456-426614174000',
+};
+const operation: NirvanaLabs.Operation = await client.compute.vms.create(params);
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -87,33 +75,29 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-async function main() {
-  const operation = await client.compute.vms
-    .create({
-      boot_volume: { size: 100 },
-      cpu_config: { vcpu: 2 },
-      memory_config: { size: 2 },
-      name: 'my-vm',
-      os_image_name: 'ubuntu-noble-2025-04-03',
-      public_ip_enabled: true,
-      region: 'us-wdc-1',
-      ssh_key: {
-        public_key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2',
-      },
-      subnet_id: '123e4567-e89b-12d3-a456-426614174000',
-    })
-    .catch(async (err) => {
-      if (err instanceof NirvanaLabs.APIError) {
-        console.log(err.status); // 400
-        console.log(err.name); // BadRequestError
-        console.log(err.headers); // {server: 'nginx', ...}
-      } else {
-        throw err;
-      }
-    });
-}
-
-main();
+const operation = await client.compute.vms
+  .create({
+    boot_volume: { size: 100 },
+    cpu_config: { vcpu: 2 },
+    memory_config: { size: 2 },
+    name: 'my-vm',
+    os_image_name: 'ubuntu-noble-2025-04-03',
+    public_ip_enabled: true,
+    region: 'us-wdc-1',
+    ssh_key: {
+      public_key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2',
+    },
+    subnet_id: '123e4567-e89b-12d3-a456-426614174000',
+  })
+  .catch(async (err) => {
+    if (err instanceof NirvanaLabs.APIError) {
+      console.log(err.status); // 400
+      console.log(err.name); // BadRequestError
+      console.log(err.headers); // {server: 'nginx', ...}
+    } else {
+      throw err;
+    }
+  });
 ```
 
 Error codes are as follows:
