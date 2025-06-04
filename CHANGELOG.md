@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.4.2 (2025-06-04)
+
+Full Changelog: [v1.4.1...v1.4.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.4.1...v1.4.2)
+
+### Chores
+
+* **docs:** use top-level-await in example snippets ([2737ebc](https://github.com/nirvana-labs/nirvana-typescript/commit/2737ebc21d10b1730cbdb1fa916cbd2155a504b9))
+* **internal:** fix readablestream types in node 20 ([bf215df](https://github.com/nirvana-labs/nirvana-typescript/commit/bf215df5c71769f4f29cf5b3e2857235b626f090))
+
 ## 1.4.1 (2025-06-03)
 
 Full Changelog: [v1.4.0...v1.4.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.4.0...v1.4.1)
