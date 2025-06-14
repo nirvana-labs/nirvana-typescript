@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.5.1 (2025-06-14)
+
+Full Changelog: [v1.5.0...v1.5.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.5.0...v1.5.1)
+
+### Bug Fixes
+
+* publish script — handle NPM errors correctly ([e52463e](https://github.com/nirvana-labs/nirvana-typescript/commit/e52463eb490d1d2012b7ca24250fbf7e10f8d17f))
+
+
+### Chores
+
+* avoid type error in certain environments ([a9c3fcd](https://github.com/nirvana-labs/nirvana-typescript/commit/a9c3fcdd39ad995585361c2ec294b9f0f40adb20))
+* **internal:** add pure annotations, make base APIResource abstract ([909e252](https://github.com/nirvana-labs/nirvana-typescript/commit/909e25241420eed56b44b8f6f84659999ab54819))
+
 ## 1.5.0 (2025-06-04)
 
 Full Changelog: [v1.4.2...v1.5.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.4.2...v1.5.0)

@@ -2,7 +2,7 @@
 
 import type { NirvanaLabs } from '../client';
 
-export class APIResource {
+export abstract class APIResource {
   protected _client: NirvanaLabs;
 
   constructor(client: NirvanaLabs) {
