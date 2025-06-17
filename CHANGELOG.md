@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.5.1 (2025-06-17)
+
+Full Changelog: [v1.5.1...v1.5.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.5.1...v1.5.1)
+
+### Features
+
+* **client:** add support for endpoint-specific base URLs ([b179ed5](https://github.com/nirvana-labs/nirvana-typescript/commit/b179ed548265bf6ff6b82afef719250266aced80))
+
+
+### Chores
+
+* **ci:** enable for pull requests ([8a1de8a](https://github.com/nirvana-labs/nirvana-typescript/commit/8a1de8a5aae08bef8727b2a1ae3d78b281f119a7))
+* **client:** refactor imports ([320b552](https://github.com/nirvana-labs/nirvana-typescript/commit/320b55259098951e2a4302f6e5dd3279fec2f61d))
+
 ## 1.5.1 (2025-06-14)
 
 Full Changelog: [v1.5.0...v1.5.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.5.0...v1.5.1)
