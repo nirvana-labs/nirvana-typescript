@@ -1,6 +1,6 @@
 # Nirvana Labs TypeScript API Library
 
-[![NPM version](https://img.shields.io/npm/v/@nirvana-labs/nirvana.svg)](https://npmjs.org/package/@nirvana-labs/nirvana) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@nirvana-labs/nirvana)
+[![NPM version](<https://img.shields.io/npm/v/@nirvana-labs/nirvana.svg?label=npm%20(stable)>)](https://npmjs.org/package/@nirvana-labs/nirvana) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@nirvana-labs/nirvana)
 
 This library provides convenient access to the Nirvana Labs REST API from server-side TypeScript or JavaScript.
 
