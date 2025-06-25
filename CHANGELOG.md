@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.6.0 (2025-06-24)
+
+Full Changelog: [v1.5.1...v1.6.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.5.1...v1.6.0)
+
+### Features
+
+* **api:** api update ([67fcbe7](https://github.com/nirvana-labs/nirvana-typescript/commit/67fcbe7b2c3cc63df344f3b580e876161ebeec5f))
+
+
+### Bug Fixes
+
+* **client:** explicitly copy fetch in withOptions ([392bdbf](https://github.com/nirvana-labs/nirvana-typescript/commit/392bdbf4575bc1773681aa9b0e6f89ec6e8cf4d6))
+
+
+### Chores
+
+* **readme:** update badges ([ff92918](https://github.com/nirvana-labs/nirvana-typescript/commit/ff929183f7dbb7a413ba58a2a713777ac503882f))
+* **readme:** use better example snippet for undocumented params ([328d81c](https://github.com/nirvana-labs/nirvana-typescript/commit/328d81c71bfdcc9dfef4baa2debfd6a3d2887739))
+
 ## 1.5.1 (2025-06-17)
 
 Full Changelog: [v1.5.1...v1.5.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.5.1...v1.5.1)

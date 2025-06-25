@@ -21,6 +21,7 @@ import { Operations } from './resources/operations';
 import { UserResource } from './resources/user';
 import { Compute } from './resources/compute/compute';
 import { Networking } from './resources/networking/networking';
+import { RPCNodes } from './resources/rpc-nodes/rpc-nodes';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
@@ -185,6 +186,7 @@ export class NirvanaLabs {
       timeout: this.timeout,
       logger: this.logger,
       logLevel: this.logLevel,
+      fetch: this.fetch,
       fetchOptions: this.fetchOptions,
       apiKey: this.apiKey,
       ...options,
@@ -717,12 +719,14 @@ export class NirvanaLabs {
   operations: API.Operations = new API.Operations(this);
   compute: API.Compute = new API.Compute(this);
   networking: API.Networking = new API.Networking(this);
+  rpcNodes: API.RPCNodes = new API.RPCNodes(this);
 }
 NirvanaLabs.UserResource = UserResource;
 NirvanaLabs.APIKeys = APIKeys;
 NirvanaLabs.Operations = Operations;
 NirvanaLabs.Compute = Compute;
 NirvanaLabs.Networking = Networking;
+NirvanaLabs.RPCNodes = RPCNodes;
 export declare namespace NirvanaLabs {
   export type RequestOptions = Opts.RequestOptions;
 
@@ -735,6 +739,8 @@ export declare namespace NirvanaLabs {
   export { Compute as Compute };
 
   export { Networking as Networking };
+
+  export { RPCNodes as RPCNodes };
 
   export type RegionName = API.RegionName;
   export type ResourceStatus = API.ResourceStatus;

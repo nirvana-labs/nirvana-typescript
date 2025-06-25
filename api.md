@@ -167,3 +167,25 @@ Methods:
 - <code title="get /v1/networking/vpcs/{vpc_id}/firewall_rules">client.networking.firewallRules.<a href="./src/resources/networking/firewall-rules.ts">list</a>(vpcID) -> FirewallRuleList</code>
 - <code title="delete /v1/networking/vpcs/{vpc_id}/firewall_rules/{firewall_rule_id}">client.networking.firewallRules.<a href="./src/resources/networking/firewall-rules.ts">delete</a>(firewallRuleID, { ...params }) -> Operation</code>
 - <code title="get /v1/networking/vpcs/{vpc_id}/firewall_rules/{firewall_rule_id}">client.networking.firewallRules.<a href="./src/resources/networking/firewall-rules.ts">get</a>(firewallRuleID, { ...params }) -> FirewallRule</code>
+
+# RPCNodes
+
+## Flex
+
+Types:
+
+- <code><a href="./src/resources/rpc-nodes/flex/flex.ts">RPCNodesFlex</a></code>
+- <code><a href="./src/resources/rpc-nodes/flex/flex.ts">RPCNodesFlexBlockchain</a></code>
+- <code><a href="./src/resources/rpc-nodes/flex/flex.ts">RPCNodesFlexBlockchainList</a></code>
+- <code><a href="./src/resources/rpc-nodes/flex/flex.ts">RPCNodesFlexList</a></code>
+
+Methods:
+
+- <code title="get /v1/rpc_nodes/flex">client.rpcNodes.flex.<a href="./src/resources/rpc-nodes/flex/flex.ts">list</a>() -> RPCNodesFlexList</code>
+- <code title="get /v1/rpc_nodes/flex/{node_id}">client.rpcNodes.flex.<a href="./src/resources/rpc-nodes/flex/flex.ts">get</a>(nodeID) -> RPCNodesFlex</code>
+
+### Blockchains
+
+Methods:
+
+- <code title="get /v1/rpc_nodes/flex/blockchains">client.rpcNodes.flex.blockchains.<a href="./src/resources/rpc-nodes/flex/blockchains.ts">list</a>() -> RPCNodesFlexBlockchainList</code>
