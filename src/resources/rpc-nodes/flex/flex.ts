@@ -32,6 +32,8 @@ export interface RPCNodesFlex {
 
   created_at: string;
 
+  endpoint: string;
+
   name: string;
 
   network: string;
