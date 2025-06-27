@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.7.0 (2025-06-27)
+
+Full Changelog: [v1.6.0...v1.7.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.6.0...v1.7.0)
+
+### Features
+
+* **api:** api update ([1018d9f](https://github.com/nirvana-labs/nirvana-typescript/commit/1018d9f26a8471d51b2bf4abbe67d2cf143ff48c))
+
+
+### Bug Fixes
+
+* **ci:** release-doctor — report correct token name ([17588c0](https://github.com/nirvana-labs/nirvana-typescript/commit/17588c07a122f6783b82c7fb2a4d54631570fe3d))
+* **client:** get fetchOptions type more reliably ([b0d39b4](https://github.com/nirvana-labs/nirvana-typescript/commit/b0d39b4a44d77f55043b9f28a65586b3fac37835))
+
 ## 1.6.0 (2025-06-24)
 
 Full Changelog: [v1.5.1...v1.6.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.5.1...v1.6.0)
