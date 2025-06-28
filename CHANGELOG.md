@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.7.1 (2025-06-28)
+
+Full Changelog: [v1.7.0...v1.7.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.7.0...v1.7.1)
+
+### Chores
+
+* **ci:** only run for pushes and fork pull requests ([07031f8](https://github.com/nirvana-labs/nirvana-typescript/commit/07031f8c985e632ec87ff6bc8363aea0a67561f7))
+
 ## 1.7.0 (2025-06-27)
 
 Full Changelog: [v1.6.0...v1.7.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.6.0...v1.7.0)
