@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.8.0 (2025-07-02)
+
+Full Changelog: [v1.7.1...v1.8.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.7.1...v1.8.0)
+
+### Features
+
+* **api:** api update ([a541eba](https://github.com/nirvana-labs/nirvana-typescript/commit/a541eba33b082649e0f07fc3c493981a0106654f))
+* **api:** api update ([c15679d](https://github.com/nirvana-labs/nirvana-typescript/commit/c15679da62b8166fda664f2f7238c2b8c446dc76))
+
+
+### Chores
+
+* **client:** improve path param validation ([e6a2c7e](https://github.com/nirvana-labs/nirvana-typescript/commit/e6a2c7e18e01b9e3b91fb932722c30f73b249bd6))
+
 ## 1.7.1 (2025-06-28)
 
 Full Changelog: [v1.7.0...v1.7.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.7.0...v1.7.1)

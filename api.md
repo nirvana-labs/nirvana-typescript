@@ -189,3 +189,23 @@ Methods:
 Methods:
 
 - <code title="get /v1/rpc_nodes/flex/blockchains">client.rpcNodes.flex.blockchains.<a href="./src/resources/rpc-nodes/flex/blockchains.ts">list</a>() -> RPCNodesFlexBlockchainList</code>
+
+## Dedicated
+
+Types:
+
+- <code><a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">RPCNodesDedicated</a></code>
+- <code><a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">RPCNodesDedicatedBlockchain</a></code>
+- <code><a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">RPCNodesDedicatedBlockchainList</a></code>
+- <code><a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">RPCNodesDedicatedList</a></code>
+
+Methods:
+
+- <code title="get /v1/rpc_nodes/dedicated">client.rpcNodes.dedicated.<a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">list</a>() -> RPCNodesDedicatedList</code>
+- <code title="get /v1/rpc_nodes/dedicated/{node_id}">client.rpcNodes.dedicated.<a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">get</a>(nodeID) -> RPCNodesDedicated</code>
+
+### Blockchains
+
+Methods:
+
+- <code title="get /v1/rpc_nodes/dedicated/blockchains">client.rpcNodes.dedicated.blockchains.<a href="./src/resources/rpc-nodes/dedicated/blockchains.ts">list</a>() -> RPCNodesDedicatedBlockchainList</code>
