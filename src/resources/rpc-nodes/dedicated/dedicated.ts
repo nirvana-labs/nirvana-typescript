@@ -32,8 +32,6 @@ export interface RPCNodesDedicated {
 
   created_at: string;
 
-  dedicated_ip: string;
-
   endpoint: string;
 
   name: string;
