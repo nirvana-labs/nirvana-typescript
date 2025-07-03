@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.8.1 (2025-07-03)
+
+Full Changelog: [v1.8.0...v1.8.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.8.0...v1.8.1)
+
+### Chores
+
+* add docs to RequestOptions type ([b1d3b04](https://github.com/nirvana-labs/nirvana-typescript/commit/b1d3b049ea2846cb6512bb08efff67cd4102069e))
+
 ## 1.8.0 (2025-07-02)
 
 Full Changelog: [v1.7.1...v1.8.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.7.1...v1.8.0)
