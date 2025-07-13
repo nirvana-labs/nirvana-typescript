@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.8.3 (2025-07-13)
+
+Full Changelog: [v1.8.2...v1.8.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.8.2...v1.8.3)
+
+### Features
+
+* **api:** api update ([f035e07](https://github.com/nirvana-labs/nirvana-typescript/commit/f035e07d0069cba0e8872dcaec35cb6eeab87bb9))
+* **api:** api update ([c3fed1e](https://github.com/nirvana-labs/nirvana-typescript/commit/c3fed1e923665fcb7b3f9a097328dadf815b45e4))
+
+
+### Chores
+
+* make some internal functions async ([2add496](https://github.com/nirvana-labs/nirvana-typescript/commit/2add4966ec68b1d645795887cac420046132187a))
+
 ## 1.8.2 (2025-07-03)
 
 Full Changelog: [v1.8.1...v1.8.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.8.1...v1.8.2)
