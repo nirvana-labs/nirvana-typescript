@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.8.4 (2025-07-17)
+
+Full Changelog: [v1.8.3...v1.8.4](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.8.3...v1.8.4)
+
+### Chores
+
+* **ts:** reorder package.json imports ([f640b60](https://github.com/nirvana-labs/nirvana-typescript/commit/f640b6015b386663a87335bd7e371a0d3ec504a4))
+
 ## 1.8.3 (2025-07-13)
 
 Full Changelog: [v1.8.2...v1.8.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.8.2...v1.8.3)
