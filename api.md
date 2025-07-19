@@ -209,3 +209,17 @@ Methods:
 Methods:
 
 - <code title="get /v1/rpc_nodes/dedicated/blockchains">client.rpcNodes.dedicated.blockchains.<a href="./src/resources/rpc-nodes/dedicated/blockchains.ts">list</a>() -> RPCNodesDedicatedBlockchainList</code>
+
+# Connect
+
+## Flux
+
+Types:
+
+- <code><a href="./src/resources/connect/flux.ts">ConnectFlux</a></code>
+- <code><a href="./src/resources/connect/flux.ts">ConnectFluxList</a></code>
+
+Methods:
+
+- <code title="get /v1/connect/flux">client.connect.flux.<a href="./src/resources/connect/flux.ts">list</a>() -> ConnectFluxList</code>
+- <code title="get /v1/connect/flux/{flux_id}">client.connect.flux.<a href="./src/resources/connect/flux.ts">get</a>(fluxID) -> ConnectFlux</code>

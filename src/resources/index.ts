@@ -3,6 +3,7 @@
 export * from './shared';
 export { APIKeys } from './api-keys';
 export { Compute } from './compute/compute';
+export { Connect } from './connect/connect';
 export { Networking } from './networking/networking';
 export { Operations } from './operations';
 export { RPCNodes } from './rpc-nodes/rpc-nodes';
