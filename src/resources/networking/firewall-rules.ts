@@ -189,7 +189,7 @@ export interface FirewallRuleCreateParams {
   /**
    * Protocol of the firewall rule.
    */
-  protocol: string;
+  protocol: 'tcp' | 'udp';
 
   /**
    * Source address of the firewall rule.
