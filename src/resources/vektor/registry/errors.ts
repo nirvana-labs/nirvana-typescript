@@ -26,7 +26,7 @@ export interface ErrorListResponse {
   /**
    * A list of errors
    */
-  items: Array<VektorAPI.Error>;
+  items: Array<VektorAPI.VektorError>;
 }
 
 export interface ErrorListParams {

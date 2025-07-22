@@ -554,33 +554,13 @@ export type ChainType = 'evm';
 export type Decimal = string;
 
 /**
- * An error
- */
-export interface Error {
-  /**
-   * Error message
-   */
-  message: string;
-
-  /**
-   * Error parameters
-   */
-  params: { [key: string]: unknown };
-
-  /**
-   * Error type
-   */
-  type: string;
-}
-
-/**
  * Wraps a list of errors into an error response
  */
 export interface ErrorWrapper {
   /**
    * A list of errors
    */
-  errors?: Array<Error>;
+  errors?: Array<VektorError>;
 }
 
 /**
@@ -3289,6 +3269,26 @@ export type TimestampOrBlockNumber = Timestamp | BlockNumber;
 export type TransactionHash = string;
 
 /**
+ * An error
+ */
+export interface VektorError {
+  /**
+   * Error message
+   */
+  message: string;
+
+  /**
+   * Error parameters
+   */
+  params: { [key: string]: unknown };
+
+  /**
+   * Error type
+   */
+  type: string;
+}
+
+/**
  * On-chain venue
  */
 export interface Venue {
@@ -3478,7 +3478,6 @@ export declare namespace Vektor {
     type BuyQuote as BuyQuote,
     type ChainType as ChainType,
     type Decimal as Decimal,
-    type Error as Error,
     type ErrorWrapper as ErrorWrapper,
     type EVMChainData as EVMChainData,
     type Execution as Execution,
@@ -3525,6 +3524,7 @@ export declare namespace Vektor {
     type Timestamp as Timestamp,
     type TimestampOrBlockNumber as TimestampOrBlockNumber,
     type TransactionHash as TransactionHash,
+    type VektorError as VektorError,
     type Venue as Venue,
     type VenueID as VenueID,
     type VenueIDOrVenueSymbol as VenueIDOrVenueSymbol,

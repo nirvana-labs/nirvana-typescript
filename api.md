@@ -250,7 +250,6 @@ Types:
 - <code><a href="./src/resources/vektor/vektor.ts">BuyQuote</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">ChainType</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">Decimal</a></code>
-- <code><a href="./src/resources/vektor/vektor.ts">Error</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">ErrorWrapper</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">EVMChainData</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">Execution</a></code>
@@ -297,6 +296,7 @@ Types:
 - <code><a href="./src/resources/vektor/vektor.ts">Timestamp</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">TimestampOrBlockNumber</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">TransactionHash</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">VektorError</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">Venue</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">VenueID</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">VenueIDOrVenueSymbol</a></code>
