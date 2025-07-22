@@ -223,3 +223,451 @@ Methods:
 
 - <code title="get /v1/connect/flux">client.connect.flux.<a href="./src/resources/connect/flux.ts">list</a>() -> ConnectFluxList</code>
 - <code title="get /v1/connect/flux/{flux_id}">client.connect.flux.<a href="./src/resources/connect/flux.ts">get</a>(fluxID) -> ConnectFlux</code>
+
+# Vektor
+
+Types:
+
+- <code><a href="./src/resources/vektor/vektor.ts">Account</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">AddressEVM</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">APY</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">Asset</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">AssetID</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">AssetIDOrAddressEVMOrAssetSymbol</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">AssetSymbol</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">Balance</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">BlockNumber</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">Blockchain</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">BlockchainID</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">BlockchainIDOrBlockchainSymbol</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">BlockchainName</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">BlockchainSymbol</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">Blockstamp</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">BorrowAccount</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">BorrowMarket</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">BorrowPosition</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">BridgeQuote</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">BuyQuote</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">ChainType</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">Decimal</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">ErrorWrapper</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">EVMChainData</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">Execution</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">ExecutionEVMTransactionEIP1559Payload</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">ExecutionEVMTransactionPayload</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">ExecutionEVMTransactionState</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">ExecutionID</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">ExecutionState</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">ExecutionStepID</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">HexString</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">IncentivizeMarket</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">LendBorrowAPYs</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">LendBorrowMarketID</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">LendMarket</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">LendPosition</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">LockMarket</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">LockPosition</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">LPPool</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">LPPoolSolidlyAttributes</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">LPPoolUniswapV3Attributes</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">LPPosition</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">LPPositionAttributes</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">LPPositionUniswapV3Attributes</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">LPQuote</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">LPUniswapV3PositionSpecifier</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">LPUniswapV3Range</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">NetworkFeeEstimate</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">NetworkName</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">NFT</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">NFTCollection</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">OffChainHistoricalRange</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">OnChainHistoricalRange</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">Price</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">QuoteInfo0x</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">QuoteInfo0xFill</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">QuoteInfo0xRoute</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">QuoteInfo0xToken</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">QuoteInfoCurve</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">QuoteInfoUniswapV2</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">QuoteInfoUniswapV3</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">RegistryLendBorrowMarket</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">RegistryLPPool</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">SellQuote</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">Timestamp</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">TimestampOrBlockNumber</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">TransactionHash</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">VektorError</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">Venue</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">VenueID</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">VenueIDOrVenueSymbol</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">VenueSymbol</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">VoteMarket</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">VoteReward</a></code>
+
+## Registry
+
+### Assets
+
+Types:
+
+- <code><a href="./src/resources/vektor/registry/assets.ts">AssetListResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/registry/assets">client.vektor.registry.assets.<a href="./src/resources/vektor/registry/assets.ts">list</a>({ ...params }) -> AssetListResponse</code>
+
+### Blockchains
+
+Types:
+
+- <code><a href="./src/resources/vektor/registry/blockchains.ts">BlockchainListResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/registry/blockchains">client.vektor.registry.blockchains.<a href="./src/resources/vektor/registry/blockchains.ts">list</a>({ ...params }) -> BlockchainListResponse</code>
+
+### Venues
+
+Types:
+
+- <code><a href="./src/resources/vektor/registry/venues.ts">VenueListResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/registry/venues">client.vektor.registry.venues.<a href="./src/resources/vektor/registry/venues.ts">list</a>({ ...params }) -> VenueListResponse</code>
+
+### Errors
+
+Types:
+
+- <code><a href="./src/resources/vektor/registry/errors.ts">ErrorListResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/registry/errors">client.vektor.registry.errors.<a href="./src/resources/vektor/registry/errors.ts">list</a>({ ...params }) -> ErrorListResponse</code>
+
+### LendMarkets
+
+Types:
+
+- <code><a href="./src/resources/vektor/registry/lend-markets.ts">LendMarketListResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/registry/lend/markets">client.vektor.registry.lendMarkets.<a href="./src/resources/vektor/registry/lend-markets.ts">list</a>({ ...params }) -> LendMarketListResponse</code>
+
+### BorrowMarkets
+
+Types:
+
+- <code><a href="./src/resources/vektor/registry/borrow-markets.ts">BorrowMarketListResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/registry/borrow/markets">client.vektor.registry.borrowMarkets.<a href="./src/resources/vektor/registry/borrow-markets.ts">list</a>({ ...params }) -> BorrowMarketListResponse</code>
+
+### LPPools
+
+Types:
+
+- <code><a href="./src/resources/vektor/registry/lp-pools.ts">LPPoolListResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/registry/lp/pools">client.vektor.registry.lpPools.<a href="./src/resources/vektor/registry/lp-pools.ts">list</a>({ ...params }) -> LPPoolListResponse</code>
+
+## Balances
+
+Types:
+
+- <code><a href="./src/resources/vektor/balances.ts">BalanceListResponse</a></code>
+- <code><a href="./src/resources/vektor/balances.ts">BalanceListHistoricalResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/balances">client.vektor.balances.<a href="./src/resources/vektor/balances.ts">list</a>({ ...params }) -> BalanceListResponse</code>
+- <code title="post /v1/vektor/balances/historical">client.vektor.balances.<a href="./src/resources/vektor/balances.ts">listHistorical</a>({ ...params }) -> BalanceListHistoricalResponse</code>
+
+## Prices
+
+Types:
+
+- <code><a href="./src/resources/vektor/prices.ts">PriceListResponse</a></code>
+- <code><a href="./src/resources/vektor/prices.ts">PriceListHistoricalResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/prices">client.vektor.prices.<a href="./src/resources/vektor/prices.ts">list</a>({ ...params }) -> PriceListResponse</code>
+- <code title="post /v1/vektor/prices/historical">client.vektor.prices.<a href="./src/resources/vektor/prices.ts">listHistorical</a>({ ...params }) -> PriceListHistoricalResponse</code>
+
+## Lend
+
+### Markets
+
+Types:
+
+- <code><a href="./src/resources/vektor/lend/markets.ts">MarketListResponse</a></code>
+- <code><a href="./src/resources/vektor/lend/markets.ts">MarketListHistoricalResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/lend/markets">client.vektor.lend.markets.<a href="./src/resources/vektor/lend/markets.ts">list</a>({ ...params }) -> MarketListResponse</code>
+- <code title="post /v1/vektor/lend/markets/historical">client.vektor.lend.markets.<a href="./src/resources/vektor/lend/markets.ts">listHistorical</a>({ ...params }) -> MarketListHistoricalResponse</code>
+
+### Positions
+
+Types:
+
+- <code><a href="./src/resources/vektor/lend/positions.ts">PositionListResponse</a></code>
+- <code><a href="./src/resources/vektor/lend/positions.ts">PositionListHistoricalResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/lend/positions">client.vektor.lend.positions.<a href="./src/resources/vektor/lend/positions.ts">list</a>({ ...params }) -> PositionListResponse</code>
+- <code title="post /v1/vektor/lend/positions/historical">client.vektor.lend.positions.<a href="./src/resources/vektor/lend/positions.ts">listHistorical</a>({ ...params }) -> PositionListHistoricalResponse</code>
+
+### Lend
+
+Methods:
+
+- <code title="post /v1/vektor/lend/lend">client.vektor.lend.lend.<a href="./src/resources/vektor/lend/lend_.ts">create</a>({ ...params }) -> Execution</code>
+
+### Withdraw
+
+Methods:
+
+- <code title="post /v1/vektor/lend/withdraw">client.vektor.lend.withdraw.<a href="./src/resources/vektor/lend/withdraw.ts">create</a>({ ...params }) -> Execution</code>
+
+### SetCollateral
+
+Methods:
+
+- <code title="post /v1/vektor/lend/set_collateral">client.vektor.lend.setCollateral.<a href="./src/resources/vektor/lend/set-collateral.ts">create</a>({ ...params }) -> Execution</code>
+
+## Borrow
+
+### Markets
+
+Types:
+
+- <code><a href="./src/resources/vektor/borrow/markets.ts">MarketListResponse</a></code>
+- <code><a href="./src/resources/vektor/borrow/markets.ts">MarketListHistoricalResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/borrow/markets">client.vektor.borrow.markets.<a href="./src/resources/vektor/borrow/markets.ts">list</a>({ ...params }) -> MarketListResponse</code>
+- <code title="post /v1/vektor/borrow/markets/historical">client.vektor.borrow.markets.<a href="./src/resources/vektor/borrow/markets.ts">listHistorical</a>({ ...params }) -> MarketListHistoricalResponse</code>
+
+### Positions
+
+Types:
+
+- <code><a href="./src/resources/vektor/borrow/positions.ts">PositionListResponse</a></code>
+- <code><a href="./src/resources/vektor/borrow/positions.ts">PositionListHistoricalResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/borrow/positions">client.vektor.borrow.positions.<a href="./src/resources/vektor/borrow/positions.ts">list</a>({ ...params }) -> PositionListResponse</code>
+- <code title="post /v1/vektor/borrow/positions/historical">client.vektor.borrow.positions.<a href="./src/resources/vektor/borrow/positions.ts">listHistorical</a>({ ...params }) -> PositionListHistoricalResponse</code>
+
+### Accounts
+
+Types:
+
+- <code><a href="./src/resources/vektor/borrow/accounts.ts">AccountListResponse</a></code>
+- <code><a href="./src/resources/vektor/borrow/accounts.ts">AccountListHistoricalResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/borrow/accounts">client.vektor.borrow.accounts.<a href="./src/resources/vektor/borrow/accounts.ts">list</a>({ ...params }) -> AccountListResponse</code>
+- <code title="post /v1/vektor/borrow/accounts/historical">client.vektor.borrow.accounts.<a href="./src/resources/vektor/borrow/accounts.ts">listHistorical</a>({ ...params }) -> AccountListHistoricalResponse</code>
+
+## LP
+
+### Pools
+
+Types:
+
+- <code><a href="./src/resources/vektor/lp/pools.ts">PoolListResponse</a></code>
+- <code><a href="./src/resources/vektor/lp/pools.ts">PoolListHistoricalResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/lp/pools">client.vektor.lp.pools.<a href="./src/resources/vektor/lp/pools.ts">list</a>({ ...params }) -> PoolListResponse</code>
+- <code title="post /v1/vektor/lp/pools/historical">client.vektor.lp.pools.<a href="./src/resources/vektor/lp/pools.ts">listHistorical</a>({ ...params }) -> PoolListHistoricalResponse</code>
+
+### Positions
+
+Types:
+
+- <code><a href="./src/resources/vektor/lp/positions.ts">PositionListResponse</a></code>
+- <code><a href="./src/resources/vektor/lp/positions.ts">PositionListHistoricalResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/lp/positions">client.vektor.lp.positions.<a href="./src/resources/vektor/lp/positions.ts">list</a>({ ...params }) -> PositionListResponse</code>
+- <code title="post /v1/vektor/lp/positions/historical">client.vektor.lp.positions.<a href="./src/resources/vektor/lp/positions.ts">listHistorical</a>({ ...params }) -> PositionListHistoricalResponse</code>
+
+### DepositQuote
+
+Types:
+
+- <code><a href="./src/resources/vektor/lp/deposit-quote.ts">DepositQuoteCreateResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/lp/deposit_quote">client.vektor.lp.depositQuote.<a href="./src/resources/vektor/lp/deposit-quote.ts">create</a>({ ...params }) -> DepositQuoteCreateResponse</code>
+
+### WithdrawQuote
+
+Types:
+
+- <code><a href="./src/resources/vektor/lp/withdraw-quote.ts">WithdrawQuoteCreateResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/lp/withdraw_quote">client.vektor.lp.withdrawQuote.<a href="./src/resources/vektor/lp/withdraw-quote.ts">create</a>({ ...params }) -> WithdrawQuoteCreateResponse</code>
+
+## Buy
+
+### Quotes
+
+Types:
+
+- <code><a href="./src/resources/vektor/buy/quotes.ts">QuoteListResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/buy/quotes">client.vektor.buy.quotes.<a href="./src/resources/vektor/buy/quotes.ts">list</a>({ ...params }) -> QuoteListResponse</code>
+
+### Buy
+
+Methods:
+
+- <code title="post /v1/vektor/buy/buy">client.vektor.buy.buy.<a href="./src/resources/vektor/buy/buy_.ts">create</a>({ ...params }) -> Execution</code>
+
+## Sell
+
+### Quotes
+
+Types:
+
+- <code><a href="./src/resources/vektor/sell/quotes.ts">QuoteListResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/sell/quotes">client.vektor.sell.quotes.<a href="./src/resources/vektor/sell/quotes.ts">list</a>({ ...params }) -> QuoteListResponse</code>
+
+### Sell
+
+Methods:
+
+- <code title="post /v1/vektor/sell/sell">client.vektor.sell.sell.<a href="./src/resources/vektor/sell/sell_.ts">create</a>({ ...params }) -> Execution</code>
+
+## Move
+
+Methods:
+
+- <code title="post /v1/vektor/move/move">client.vektor.move.<a href="./src/resources/vektor/move.ts">create</a>({ ...params }) -> Execution</code>
+
+## Wrap
+
+### Wrap
+
+Methods:
+
+- <code title="post /v1/vektor/wrap/wrap">client.vektor.wrap.wrap.<a href="./src/resources/vektor/wrap/wrap_.ts">create</a>({ ...params }) -> Execution</code>
+
+### Unwrap
+
+Methods:
+
+- <code title="post /v1/vektor/wrap/unwrap">client.vektor.wrap.unwrap.<a href="./src/resources/vektor/wrap/unwrap.ts">create</a>({ ...params }) -> Execution</code>
+
+## Bridge
+
+### Quotes
+
+Types:
+
+- <code><a href="./src/resources/vektor/bridge/quotes.ts">QuoteListResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/bridge/quotes">client.vektor.bridge.quotes.<a href="./src/resources/vektor/bridge/quotes.ts">list</a>({ ...params }) -> QuoteListResponse</code>
+
+## Lock
+
+### Markets
+
+Types:
+
+- <code><a href="./src/resources/vektor/lock/markets.ts">MarketListResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/lock/markets">client.vektor.lock.markets.<a href="./src/resources/vektor/lock/markets.ts">list</a>({ ...params }) -> MarketListResponse</code>
+
+### Positions
+
+Types:
+
+- <code><a href="./src/resources/vektor/lock/positions.ts">PositionListResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/lock/positions">client.vektor.lock.positions.<a href="./src/resources/vektor/lock/positions.ts">list</a>({ ...params }) -> PositionListResponse</code>
+
+## Vote
+
+### Markets
+
+Types:
+
+- <code><a href="./src/resources/vektor/vote/markets.ts">MarketListResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/vote/markets">client.vektor.vote.markets.<a href="./src/resources/vektor/vote/markets.ts">list</a>({ ...params }) -> MarketListResponse</code>
+
+### Rewards
+
+Types:
+
+- <code><a href="./src/resources/vektor/vote/rewards.ts">RewardListResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/vote/rewards">client.vektor.vote.rewards.<a href="./src/resources/vektor/vote/rewards.ts">list</a>({ ...params }) -> RewardListResponse</code>
+
+## Incentivize
+
+Types:
+
+- <code><a href="./src/resources/vektor/incentivize.ts">IncentivizeListResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/vektor/incentivize/markets">client.vektor.incentivize.<a href="./src/resources/vektor/incentivize.ts">list</a>({ ...params }) -> IncentivizeListResponse</code>
+
+## Executions
+
+Types:
+
+- <code><a href="./src/resources/vektor/executions/executions.ts">ExecutionListResponse</a></code>
+
+Methods:
+
+- <code title="get /v1/vektor/executions">client.vektor.executions.<a href="./src/resources/vektor/executions/executions.ts">list</a>() -> ExecutionListResponse</code>
+- <code title="get /v1/vektor/executions/{execution_id}">client.vektor.executions.<a href="./src/resources/vektor/executions/executions.ts">get</a>(executionID) -> Execution</code>
+
+### Steps
+
+Types:
+
+- <code><a href="./src/resources/vektor/executions/steps.ts">StepGetResponse</a></code>
+
+Methods:
+
+- <code title="get /v1/vektor/executions/{execution_id}/steps/{step_id}">client.vektor.executions.steps.<a href="./src/resources/vektor/executions/steps.ts">get</a>(stepID, { ...params }) -> StepGetResponse</code>
+- <code title="post /v1/vektor/executions/{execution_id}/steps/{step_id}/sign">client.vektor.executions.steps.<a href="./src/resources/vektor/executions/steps.ts">sign</a>(stepID, { ...params }) -> void</code>

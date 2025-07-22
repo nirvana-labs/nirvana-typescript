@@ -57,6 +57,8 @@ This affects the following methods:
 - `client.networking.firewallRules.update()`
 - `client.networking.firewallRules.delete()`
 - `client.networking.firewallRules.get()`
+- `client.vektor.executions.steps.get()`
+- `client.vektor.executions.steps.sign()`
 
 ### URI encoded path parameters
 
@@ -71,6 +73,29 @@ For example:
 ```
 
 Previously without the `encodeURIComponent()` call we would have used the path `/example/string/with/slash`; now we'll use `/example/string%2Fwith%2Fslash`.
+
+### Removed request options overloads
+
+When making requests with no required body, query or header parameters, you must now explicitly pass `null`, `undefined` or an empty object `{}` to the params argument in order to customise request options.
+
+```diff
+client.example.list();
+client.example.list({}, { headers: { ... } });
+client.example.list(null, { headers: { ... } });
+client.example.list(undefined, { headers: { ... } });
+- client.example.list({ headers: { ... } });
++ client.example.list({}, { headers: { ... } });
+```
+
+This affects the following methods:
+
+- `client.vektor.registry.assets.list()`
+- `client.vektor.registry.blockchains.list()`
+- `client.vektor.registry.venues.list()`
+- `client.vektor.registry.errors.list()`
+- `client.vektor.registry.lendMarkets.list()`
+- `client.vektor.registry.borrowMarkets.list()`
+- `client.vektor.registry.lpPools.list()`
 
 ### Removed `httpAgent` in favor of `fetchOptions`
 

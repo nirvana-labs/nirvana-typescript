@@ -8,3 +8,4 @@ export { Networking } from './networking/networking';
 export { Operations } from './operations';
 export { RPCNodes } from './rpc-nodes/rpc-nodes';
 export { UserResource } from './user';
+export { Vektor } from './vektor/vektor';

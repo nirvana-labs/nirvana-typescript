@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.10.0 (2025-07-22)
+
+Full Changelog: [v1.9.0...v1.10.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.9.0...v1.10.0)
+
+### Features
+
+* **feat:** add Vektor endpoints ([d944e0d](https://github.com/nirvana-labs/nirvana-typescript/commit/d944e0d956390a5834ed7a2c69570a085e058ef1))
+* **api:** manual updates ([b66a798](https://github.com/nirvana-labs/nirvana-typescript/commit/b66a7982eb2b7a8583951b55d5bf7a7640247470))
+
 ## 1.9.0 (2025-07-19)
 
 Full Changelog: [v1.8.4...v1.9.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.8.4...v1.9.0)

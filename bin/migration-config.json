@@ -105,6 +105,76 @@
           "type": "options"
         }
       ]
+    },
+    {
+      "base": "vektor.executions.steps",
+      "name": "get",
+      "params": [
+        {
+          "type": "param",
+          "key": "step_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ],
+      "oldParams": [
+        {
+          "type": "param",
+          "key": "execution_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "step_id",
+          "location": "path"
+        },
+        {
+          "type": "options"
+        }
+      ]
+    },
+    {
+      "base": "vektor.executions.steps",
+      "name": "sign",
+      "params": [
+        {
+          "type": "param",
+          "key": "step_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ],
+      "oldParams": [
+        {
+          "type": "param",
+          "key": "execution_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "step_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ]
     }
   ]
 }
