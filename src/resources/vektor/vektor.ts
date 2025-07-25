@@ -594,7 +594,6 @@ export interface Execution {
     | Execution.BorrowRequestFull
     | Execution.BuyRequestFull
     | Execution.LendRequestFull
-    | Execution.BuyRequestFull
     | Execution.LendSetCollateralRequestFull
     | Execution.LendWithdrawRequestFull
     | Execution.MoveRequestFull
@@ -719,46 +718,6 @@ export namespace Execution {
      * An EVM address
      */
     from: VektorAPI.Account;
-
-    /**
-     * A list of venues
-     */
-    venues: Array<VektorAPI.Venue>;
-  }
-
-  /**
-   * A request to buy an asset
-   */
-  export interface BuyRequestFull {
-    /**
-     * Data about a blockchain
-     */
-    blockchain: VektorAPI.Blockchain;
-
-    /**
-     * An EVM address
-     */
-    from: VektorAPI.Account;
-
-    /**
-     * An arbitrary precision decimal represented as a string
-     */
-    receive_amount: VektorAPI.Decimal;
-
-    /**
-     * On-chain asset (aka token)
-     */
-    receive_asset: VektorAPI.Asset;
-
-    /**
-     * An arbitrary precision decimal represented as a string
-     */
-    slippage: VektorAPI.Decimal;
-
-    /**
-     * On-chain asset (aka token)
-     */
-    spend_asset: VektorAPI.Asset;
 
     /**
      * A list of venues
