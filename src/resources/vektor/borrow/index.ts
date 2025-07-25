@@ -22,3 +22,4 @@ export {
   type PositionListParams,
   type PositionListHistoricalParams,
 } from './positions';
+export { type BorrowCreateParams } from './borrow_';
