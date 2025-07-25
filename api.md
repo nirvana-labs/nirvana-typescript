@@ -482,6 +482,12 @@ Methods:
 - <code title="post /v1/vektor/borrow/accounts">client.vektor.borrow.accounts.<a href="./src/resources/vektor/borrow/accounts.ts">list</a>({ ...params }) -> AccountListResponse</code>
 - <code title="post /v1/vektor/borrow/accounts/historical">client.vektor.borrow.accounts.<a href="./src/resources/vektor/borrow/accounts.ts">listHistorical</a>({ ...params }) -> AccountListHistoricalResponse</code>
 
+### Borrow
+
+Methods:
+
+- <code title="post /v1/vektor/borrow/borrow">client.vektor.borrow.borrow.<a href="./src/resources/vektor/borrow/borrow_.ts">create</a>({ ...params }) -> Execution</code>
+
 ## LP
 
 ### Pools
