@@ -64,6 +64,7 @@ export interface StepGetResponse {
    */
   definition:
     | StepGetResponse.ExecutionEVMTransactionApprove
+    | StepGetResponse.ExecutionEVMTransactionBorrow
     | StepGetResponse.ExecutionEVMTransactionBuy
     | StepGetResponse.ExecutionEVMTransactionLend
     | StepGetResponse.ExecutionEVMTransactionLendSetCollateral
@@ -81,6 +82,7 @@ export interface StepGetResponse {
    */
   type:
     | 'evm_transaction_approve'
+    | 'evm_transaction_borrow'
     | 'evm_transaction_buy'
     | 'evm_transaction_lend'
     | 'evm_transaction_lend_set_collateral'
@@ -192,6 +194,11 @@ export namespace StepGetResponse {
     to: string | null;
 
     /**
+     * The type of approval
+     */
+    type: 'spend_erc20' | 'borrow_erc20' | 'spend_erc721' | 'spend_erc721_collection';
+
+    /**
      * ISO8601 Timestamp
      */
     updated_at: VektorAPI.Timestamp;
@@ -203,6 +210,138 @@ export namespace StepGetResponse {
   }
 
   export namespace ExecutionEVMTransactionApprove {
+    /**
+     * An error
+     */
+    export interface Error {
+      /**
+       * Error message
+       */
+      message: string;
+
+      /**
+       * Error parameters
+       */
+      params: { [key: string]: unknown };
+
+      /**
+       * Error type
+       */
+      type: string;
+    }
+  }
+
+  /**
+   * Borrowing an asset
+   */
+  export interface ExecutionEVMTransactionBorrow {
+    /**
+     * An arbitrary precision decimal represented as a string
+     */
+    amount: VektorAPI.Decimal;
+
+    /**
+     * On-chain asset (aka token)
+     */
+    asset: VektorAPI.Asset;
+
+    block_number: number | null;
+
+    /**
+     * ISO8601 Timestamp
+     */
+    broadcasted_at: string | null;
+
+    confirmation_target: number;
+
+    /**
+     * ISO8601 Timestamp
+     */
+    confirmed_at: string | null;
+
+    /**
+     * ISO8601 Timestamp
+     */
+    created_at: VektorAPI.Timestamp;
+
+    /**
+     * A hex string starting with 0x
+     */
+    data: string | null;
+
+    /**
+     * An arbitrary precision decimal represented as a string
+     */
+    effective_gas_price: string | null;
+
+    /**
+     * An error
+     */
+    error: ExecutionEVMTransactionBorrow.Error | null;
+
+    /**
+     * ISO8601 Timestamp
+     */
+    errored_at: string | null;
+
+    /**
+     * An arbitrary precision decimal represented as a string
+     */
+    gas_used: string | null;
+
+    /**
+     * A transaction hash
+     */
+    hash: string | null;
+
+    /**
+     * A lend/borrow market ID, represented as a TypeID with `lend_borrow_market`
+     * prefix
+     */
+    lend_borrow_market_id: VektorAPI.LendBorrowMarketID;
+
+    /**
+     * The payload of an EIP-1559 transaction
+     */
+    payload: VektorAPI.ExecutionEVMTransactionEIP1559Payload;
+
+    /**
+     * ISO8601 Timestamp
+     */
+    signed_at: string | null;
+
+    /**
+     * The state of an EVM transaction
+     */
+    state: VektorAPI.ExecutionEVMTransactionState;
+
+    /**
+     * The state of an EVM transaction
+     */
+    target_state: VektorAPI.ExecutionEVMTransactionState;
+
+    /**
+     * An EVM address
+     */
+    to: string | null;
+
+    /**
+     * ISO8601 Timestamp
+     */
+    updated_at: VektorAPI.Timestamp;
+
+    /**
+     * An arbitrary precision decimal represented as a string
+     */
+    value: string | null;
+
+    /**
+     * A venue symbol
+     */
+    venue_symbol: VektorAPI.VenueSymbol;
+  }
+
+  export namespace ExecutionEVMTransactionBorrow {
     /**
      * An error
      */
