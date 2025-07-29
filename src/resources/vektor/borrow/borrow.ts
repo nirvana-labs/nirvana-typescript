@@ -27,18 +27,22 @@ import {
   PositionListResponse,
   Positions,
 } from './positions';
+import * as RepayAPI from './repay';
+import { Repay, RepayCreateParams } from './repay';
 
 export class Borrow extends APIResource {
   markets: MarketsAPI.Markets = new MarketsAPI.Markets(this._client);
   positions: PositionsAPI.Positions = new PositionsAPI.Positions(this._client);
   accounts: AccountsAPI.Accounts = new AccountsAPI.Accounts(this._client);
   borrow: BorrowAPI.Borrow = new BorrowAPI.Borrow(this._client);
+  repay: RepayAPI.Repay = new RepayAPI.Repay(this._client);
 }
 
 Borrow.Markets = Markets;
 Borrow.Positions = Positions;
 Borrow.Accounts = Accounts;
 Borrow.Borrow = BorrowAPIBorrow;
+Borrow.Repay = Repay;
 
 export declare namespace Borrow {
   export {
@@ -66,4 +70,6 @@ export declare namespace Borrow {
   };
 
   export { BorrowAPIBorrow as Borrow, type BorrowCreateParams as BorrowCreateParams };
+
+  export { Repay as Repay, type RepayCreateParams as RepayCreateParams };
 }

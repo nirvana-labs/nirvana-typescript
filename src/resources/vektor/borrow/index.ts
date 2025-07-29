@@ -22,4 +22,5 @@ export {
   type PositionListParams,
   type PositionListHistoricalParams,
 } from './positions';
+export { Repay, type RepayCreateParams } from './repay';
 export { type BorrowCreateParams } from './borrow_';
