@@ -488,6 +488,12 @@ Methods:
 
 - <code title="post /v1/vektor/borrow/borrow">client.vektor.borrow.borrow.<a href="./src/resources/vektor/borrow/borrow_.ts">create</a>({ ...params }) -> Execution</code>
 
+### Repay
+
+Methods:
+
+- <code title="post /v1/vektor/borrow/repay">client.vektor.borrow.repay.<a href="./src/resources/vektor/borrow/repay.ts">create</a>({ ...params }) -> Execution</code>
+
 ## LP
 
 ### Pools
