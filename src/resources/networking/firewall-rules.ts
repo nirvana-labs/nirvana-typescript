@@ -15,7 +15,7 @@ export class FirewallRules extends APIResource {
    * ```ts
    * const operation =
    *   await client.networking.firewallRules.create('vpc_id', {
-   *     destination_address: '0.0.0.0/0',
+   *     destination_address: '10.0.0.0/25',
    *     destination_ports: ['22', '80', '443'],
    *     name: 'my-firewall-rule',
    *     protocol: 'tcp',
@@ -126,7 +126,7 @@ export interface FirewallRule {
   created_at: string;
 
   /**
-   * Destination address of the firewall rule.
+   * Destination address of the firewall rule. Either VPC CIDR or VM in VPC.
    */
   destination_address: string;
 
@@ -146,7 +146,8 @@ export interface FirewallRule {
   protocol: 'tcp' | 'udp';
 
   /**
-   * Source address of the firewall rule.
+   * Source address of the firewall rule. Address of 0.0.0.0 requires a CIDR mask
+   * of 0.
    */
   source_address: string;
 
@@ -172,7 +173,7 @@ export interface FirewallRuleList {
 
 export interface FirewallRuleCreateParams {
   /**
-   * Destination address of the firewall rule.
+   * Destination address of the firewall rule. Either VPC CIDR or VM in VPC.
    */
   destination_address: string;
 
@@ -192,7 +193,8 @@ export interface FirewallRuleCreateParams {
   protocol: 'tcp' | 'udp';
 
   /**
-   * Source address of the firewall rule.
+   * Source address of the firewall rule. Address of 0.0.0.0 requires a CIDR mask
+   * of 0.
    */
   source_address: string;
 }
@@ -204,7 +206,8 @@ export interface FirewallRuleUpdateParams {
   vpc_id: string;
 
   /**
-   * Body param: Destination address of the firewall rule.
+   * Body param: Destination address of the firewall rule. Either VPC CIDR or VM in
+   * VPC.
    */
   destination_address?: string;
 
@@ -224,7 +227,8 @@ export interface FirewallRuleUpdateParams {
   protocol?: 'tcp' | 'udp';
 
   /**
-   * Body param: Source address of the firewall rule.
+   * Body param: Source address of the firewall rule. Address of 0.0.0.0 requires a
+   * CIDR mask of 0.
    */
   source_address?: string;
 }

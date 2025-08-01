@@ -10,7 +10,7 @@ const client = new NirvanaLabs({
 describe('resource firewallRules', () => {
   test('create: only required params', async () => {
     const responsePromise = client.networking.firewallRules.create('vpc_id', {
-      destination_address: '0.0.0.0/0',
+      destination_address: '10.0.0.0/25',
       destination_ports: ['22', '80', '443'],
       name: 'my-firewall-rule',
       protocol: 'tcp',
@@ -27,7 +27,7 @@ describe('resource firewallRules', () => {
 
   test('create: required and optional params', async () => {
     const response = await client.networking.firewallRules.create('vpc_id', {
-      destination_address: '0.0.0.0/0',
+      destination_address: '10.0.0.0/25',
       destination_ports: ['22', '80', '443'],
       name: 'my-firewall-rule',
       protocol: 'tcp',
@@ -49,7 +49,7 @@ describe('resource firewallRules', () => {
   test('update: required and optional params', async () => {
     const response = await client.networking.firewallRules.update('firewall_rule_id', {
       vpc_id: 'vpc_id',
-      destination_address: '0.0.0.0/0',
+      destination_address: '10.0.0.0/25',
       destination_ports: ['22', '80', '443'],
       name: 'my-firewall-rule',
       protocol: 'tcp',
