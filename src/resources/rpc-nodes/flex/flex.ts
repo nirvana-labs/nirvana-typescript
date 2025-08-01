@@ -25,30 +25,63 @@ export class Flex extends APIResource {
   }
 }
 
+/**
+ * RPC Node Flex details.
+ */
 export interface RPCNodesFlex {
+  /**
+   * Unique identifier for the RPC Node Flex.
+   */
   id: string;
 
+  /**
+   * Blockchain type.
+   */
   blockchain: string;
 
+  /**
+   * When the RPC Node Flex was created.
+   */
   created_at: string;
 
+  /**
+   * RPC endpoint URL.
+   */
   endpoint: string;
 
+  /**
+   * Name of the RPC Node Flex.
+   */
   name: string;
 
+  /**
+   * Network type (e.g., mainnet, testnet).
+   */
   network: string;
 
+  /**
+   * When the RPC Node Flex was updated.
+   */
   updated_at: string;
 
+  /**
+   * User ID associated with the RPC Node Flex.
+   */
   user_id: string;
 }
 
 /**
- * Blockchain supported by the API.
+ * Blockchain supported by the Flex RPC Node.
  */
 export interface RPCNodesFlexBlockchain {
+  /**
+   * Blockchain type.
+   */
   blockchain: string;
 
+  /**
+   * Network type (e.g., mainnet, testnet).
+   */
   network: string;
 }
 
