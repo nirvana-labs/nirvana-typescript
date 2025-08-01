@@ -25,30 +25,63 @@ export class Dedicated extends APIResource {
   }
 }
 
+/**
+ * RPC Node Dedicated details.
+ */
 export interface RPCNodesDedicated {
+  /**
+   * Unique identifier for the RPC Node Dedicated.
+   */
   id: string;
 
+  /**
+   * Blockchain type.
+   */
   blockchain: string;
 
+  /**
+   * When the RPC Node Dedicated was created.
+   */
   created_at: string;
 
+  /**
+   * RPC endpoint URL.
+   */
   endpoint: string;
 
+  /**
+   * Name of the RPC Node Dedicated.
+   */
   name: string;
 
+  /**
+   * Network type (e.g., mainnet, testnet).
+   */
   network: string;
 
+  /**
+   * When the RPC Node Dedicated was updated.
+   */
   updated_at: string;
 
+  /**
+   * User ID associated with the RPC Node Dedicated.
+   */
   user_id: string;
 }
 
 /**
- * Blockchain supported by a dedicated node.
+ * Blockchain supported by the Dedicated RPC Node.
  */
 export interface RPCNodesDedicatedBlockchain {
+  /**
+   * Blockchain type.
+   */
   blockchain: string;
 
+  /**
+   * Network type (e.g., mainnet, testnet).
+   */
   network: string;
 }
 
