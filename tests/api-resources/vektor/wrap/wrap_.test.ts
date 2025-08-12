@@ -8,7 +8,7 @@ const client = new NirvanaLabs({
 });
 
 describe('resource wrap', () => {
-  // skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url
+  // Prism doesn't support callbacks yet
   test.skip('create: only required params', async () => {
     const responsePromise = client.vektor.wrap.wrap.create({
       amount: '10.0000000000000024',
@@ -24,7 +24,7 @@ describe('resource wrap', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url
+  // Prism doesn't support callbacks yet
   test.skip('create: required and optional params', async () => {
     const response = await client.vektor.wrap.wrap.create({
       amount: '10.0000000000000024',
