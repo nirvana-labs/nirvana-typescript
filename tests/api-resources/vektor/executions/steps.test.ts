@@ -8,7 +8,7 @@ const client = new NirvanaLabs({
 });
 
 describe('resource steps', () => {
-  // skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url
+  // Prism doesn't support callbacks yet
   test.skip('get: only required params', async () => {
     const responsePromise = client.vektor.executions.steps.get('step_id', { execution_id: 'execution_id' });
     const rawResponse = await responsePromise.asResponse();
@@ -20,12 +20,12 @@ describe('resource steps', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url
+  // Prism doesn't support callbacks yet
   test.skip('get: required and optional params', async () => {
     const response = await client.vektor.executions.steps.get('step_id', { execution_id: 'execution_id' });
   });
 
-  // skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url
+  // Prism doesn't support callbacks yet
   test.skip('sign: only required params', async () => {
     const responsePromise = client.vektor.executions.steps.sign('step_id', {
       execution_id: 'execution_id',
@@ -40,7 +40,7 @@ describe('resource steps', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url
+  // Prism doesn't support callbacks yet
   test.skip('sign: required and optional params', async () => {
     const response = await client.vektor.executions.steps.sign('step_id', {
       execution_id: 'execution_id',

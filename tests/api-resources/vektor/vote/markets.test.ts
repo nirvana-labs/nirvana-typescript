@@ -8,7 +8,7 @@ const client = new NirvanaLabs({
 });
 
 describe('resource markets', () => {
-  // skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url
+  // Prism doesn't support callbacks yet
   test.skip('list: only required params', async () => {
     const responsePromise = client.vektor.vote.markets.list({
       assets: ['asset_01jbz9qc00f8wr64hfe459gb7y'],
@@ -24,7 +24,7 @@ describe('resource markets', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url
+  // Prism doesn't support callbacks yet
   test.skip('list: required and optional params', async () => {
     const response = await client.vektor.vote.markets.list({
       assets: ['asset_01jbz9qc00f8wr64hfe459gb7y'],

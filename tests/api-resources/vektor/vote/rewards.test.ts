@@ -8,7 +8,7 @@ const client = new NirvanaLabs({
 });
 
 describe('resource rewards', () => {
-  // skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url
+  // Prism doesn't support callbacks yet
   test.skip('list: only required params', async () => {
     const responsePromise = client.vektor.vote.rewards.list({
       accounts: ['0x6b175474e89094c44da98b954eedeac495271d0f'],
@@ -25,7 +25,7 @@ describe('resource rewards', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url
+  // Prism doesn't support callbacks yet
   test.skip('list: required and optional params', async () => {
     const response = await client.vektor.vote.rewards.list({
       accounts: ['0x6b175474e89094c44da98b954eedeac495271d0f'],

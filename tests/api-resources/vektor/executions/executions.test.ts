@@ -8,7 +8,7 @@ const client = new NirvanaLabs({
 });
 
 describe('resource executions', () => {
-  // skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url
+  // Prism doesn't support callbacks yet
   test.skip('list', async () => {
     const responsePromise = client.vektor.executions.list();
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource executions', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url
+  // Prism doesn't support callbacks yet
   test.skip('get', async () => {
     const responsePromise = client.vektor.executions.get('execution_id');
     const rawResponse = await responsePromise.asResponse();
