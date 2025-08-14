@@ -554,16 +554,6 @@ export type ChainType = 'evm';
 export type Decimal = string;
 
 /**
- * Wraps a list of errors into an error response
- */
-export interface ErrorWrapper {
-  /**
-   * A list of errors
-   */
-  errors?: Array<VektorError>;
-}
-
-/**
  * Data about an EVM blockchain
  */
 export interface EVMChainData {
@@ -3636,24 +3626,33 @@ export type TimestampOrBlockNumber = Timestamp | BlockNumber;
  */
 export type TransactionHash = string;
 
-/**
- * An error
- */
 export interface VektorError {
-  /**
-   * Error message
-   */
-  message: string;
+  timestamp: string;
 
-  /**
-   * Error parameters
-   */
-  params: { [key: string]: unknown };
+  context?: VektorError.Context;
 
-  /**
-   * Error type
-   */
-  type: string;
+  message?: string;
+
+  request_id?: string;
+
+  resource?: string;
+
+  type?:
+    | 'INTERNAL_SERVER_ERROR'
+    | 'VALIDATION_ERROR'
+    | 'NOT_FOUND'
+    | 'UNAUTHORIZED'
+    | 'FORBIDDEN'
+    | 'BAD_REQUEST'
+    | 'CONFLICT'
+    | 'TOO_MANY_REQUESTS'
+    | 'SERVICE_UNAVAILABLE';
+}
+
+export namespace VektorError {
+  export interface Context {
+    parameters?: { [key: string]: string };
+  }
 }
 
 /**
@@ -3846,7 +3845,6 @@ export declare namespace Vektor {
     type BuyQuote as BuyQuote,
     type ChainType as ChainType,
     type Decimal as Decimal,
-    type ErrorWrapper as ErrorWrapper,
     type EVMChainData as EVMChainData,
     type Execution as Execution,
     type ExecutionEVMTransactionEIP1559Payload as ExecutionEVMTransactionEIP1559Payload,
