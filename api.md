@@ -250,7 +250,6 @@ Types:
 - <code><a href="./src/resources/vektor/vektor.ts">BuyQuote</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">ChainType</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">Decimal</a></code>
-- <code><a href="./src/resources/vektor/vektor.ts">ErrorWrapper</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">EVMChainData</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">Execution</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">ExecutionEVMTransactionEIP1559Payload</a></code>
