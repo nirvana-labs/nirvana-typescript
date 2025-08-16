@@ -730,6 +730,7 @@ export class NirvanaLabs {
   connect: API.Connect = new API.Connect(this);
   vektor: API.Vektor = new API.Vektor(this);
 }
+
 NirvanaLabs.UserResource = UserResource;
 NirvanaLabs.APIKeys = APIKeys;
 NirvanaLabs.Operations = Operations;
@@ -738,6 +739,7 @@ NirvanaLabs.Networking = Networking;
 NirvanaLabs.RPCNodes = RPCNodes;
 NirvanaLabs.Connect = Connect;
 NirvanaLabs.Vektor = Vektor;
+
 export declare namespace NirvanaLabs {
   export type RequestOptions = Opts.RequestOptions;
 
