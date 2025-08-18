@@ -3626,33 +3626,46 @@ export type TimestampOrBlockNumber = Timestamp | BlockNumber;
  */
 export type TransactionHash = string;
 
+/**
+ * An error
+ */
 export interface VektorError {
-  timestamp: string;
+  /**
+   * Error message
+   */
+  message: string;
 
-  context?: VektorError.Context;
+  /**
+   * Error parameters
+   */
+  params: { [key: string]: unknown };
 
-  message?: string;
-
-  request_id?: string;
-
-  resource?: string;
-
-  type?:
-    | 'INTERNAL_SERVER_ERROR'
-    | 'VALIDATION_ERROR'
-    | 'NOT_FOUND'
-    | 'UNAUTHORIZED'
-    | 'FORBIDDEN'
-    | 'BAD_REQUEST'
-    | 'CONFLICT'
-    | 'TOO_MANY_REQUESTS'
-    | 'SERVICE_UNAVAILABLE';
+  /**
+   * Error type
+   */
+  type: string;
 }
 
-export namespace VektorError {
-  export interface Context {
-    parameters?: { [key: string]: string };
-  }
+/**
+ * A list of errors
+ */
+export type VektorErrorList = Array<VektorError>;
+
+export interface VektorErrorListOutput {
+  /**
+   * A list of errors
+   */
+  items: VektorErrorList;
+}
+
+/**
+ * Wraps a list of errors into an error response
+ */
+export interface VektorErrorWrapper {
+  /**
+   * A list of errors
+   */
+  errors?: VektorErrorList;
 }
 
 /**
@@ -3891,6 +3904,9 @@ export declare namespace Vektor {
     type TimestampOrBlockNumber as TimestampOrBlockNumber,
     type TransactionHash as TransactionHash,
     type VektorError as VektorError,
+    type VektorErrorList as VektorErrorList,
+    type VektorErrorListOutput as VektorErrorListOutput,
+    type VektorErrorWrapper as VektorErrorWrapper,
     type Venue as Venue,
     type VenueID as VenueID,
     type VenueIDOrVenueSymbol as VenueIDOrVenueSymbol,

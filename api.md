@@ -296,6 +296,9 @@ Types:
 - <code><a href="./src/resources/vektor/vektor.ts">TimestampOrBlockNumber</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">TransactionHash</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">VektorError</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">VektorErrorList</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">VektorErrorListOutput</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">VektorErrorWrapper</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">Venue</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">VenueID</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">VenueIDOrVenueSymbol</a></code>
@@ -337,13 +340,9 @@ Methods:
 
 ### Errors
 
-Types:
-
-- <code><a href="./src/resources/vektor/registry/errors.ts">ErrorListResponse</a></code>
-
 Methods:
 
-- <code title="post /v1/vektor/registry/errors">client.vektor.registry.errors.<a href="./src/resources/vektor/registry/errors.ts">list</a>({ ...params }) -> ErrorListResponse</code>
+- <code title="post /v1/vektor/registry/errors">client.vektor.registry.errors.<a href="./src/resources/vektor/registry/errors.ts">list</a>({ ...params }) -> VektorErrorListOutput</code>
 
 ### LendMarkets
 
