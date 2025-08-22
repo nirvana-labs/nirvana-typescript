@@ -63,11 +63,6 @@ export interface RPCNodesDedicated {
    * When the RPC Node Dedicated was updated.
    */
   updated_at: string;
-
-  /**
-   * User ID associated with the RPC Node Dedicated.
-   */
-  user_id: string;
 }
 
 /**
