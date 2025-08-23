@@ -553,6 +553,13 @@ export type ChainType = 'evm';
  */
 export type Decimal = string;
 
+export interface ErrorListOutput {
+  /**
+   * A list of vektor errors
+   */
+  items: VektorErrorList;
+}
+
 /**
  * Data about an EVM blockchain
  */
@@ -1086,7 +1093,7 @@ export namespace Execution {
       effective_gas_price: string | null;
 
       /**
-       * An error
+       * Vektor error
        */
       error: ExecutionEVMTransactionApprove.Error | null;
 
@@ -1153,23 +1160,50 @@ export namespace Execution {
 
     export namespace ExecutionEVMTransactionApprove {
       /**
-       * An error
+       * Vektor error
        */
       export interface Error {
+        /**
+         * Error context
+         */
+        context: Error.Context;
+
         /**
          * Error message
          */
         message: string;
 
         /**
-         * Error parameters
+         * Request ID
          */
-        params: { [key: string]: unknown };
+        request_id: string;
+
+        /**
+         * Error resource
+         */
+        resource: string | null;
+
+        /**
+         * ISO8601 Timestamp
+         */
+        timestamp: VektorAPI.Timestamp;
 
         /**
          * Error type
          */
         type: string;
+      }
+
+      export namespace Error {
+        /**
+         * Error context
+         */
+        export interface Context {
+          /**
+           * Error parameters
+           */
+          parameters: { [key: string]: unknown };
+        }
       }
     }
 
@@ -1217,7 +1251,7 @@ export namespace Execution {
       effective_gas_price: string | null;
 
       /**
-       * An error
+       * Vektor error
        */
       error: ExecutionEVMTransactionBorrow.Error | null;
 
@@ -1285,23 +1319,50 @@ export namespace Execution {
 
     export namespace ExecutionEVMTransactionBorrow {
       /**
-       * An error
+       * Vektor error
        */
       export interface Error {
+        /**
+         * Error context
+         */
+        context: Error.Context;
+
         /**
          * Error message
          */
         message: string;
 
         /**
-         * Error parameters
+         * Request ID
          */
-        params: { [key: string]: unknown };
+        request_id: string;
+
+        /**
+         * Error resource
+         */
+        resource: string | null;
+
+        /**
+         * ISO8601 Timestamp
+         */
+        timestamp: VektorAPI.Timestamp;
 
         /**
          * Error type
          */
         type: string;
+      }
+
+      export namespace Error {
+        /**
+         * Error context
+         */
+        export interface Context {
+          /**
+           * Error parameters
+           */
+          parameters: { [key: string]: unknown };
+        }
       }
     }
 
@@ -1349,7 +1410,7 @@ export namespace Execution {
       effective_gas_price: string | null;
 
       /**
-       * An error
+       * Vektor error
        */
       error: ExecutionEVMTransactionBorrowRepay.Error | null;
 
@@ -1412,23 +1473,50 @@ export namespace Execution {
 
     export namespace ExecutionEVMTransactionBorrowRepay {
       /**
-       * An error
+       * Vektor error
        */
       export interface Error {
+        /**
+         * Error context
+         */
+        context: Error.Context;
+
         /**
          * Error message
          */
         message: string;
 
         /**
-         * Error parameters
+         * Request ID
          */
-        params: { [key: string]: unknown };
+        request_id: string;
+
+        /**
+         * Error resource
+         */
+        resource: string | null;
+
+        /**
+         * ISO8601 Timestamp
+         */
+        timestamp: VektorAPI.Timestamp;
 
         /**
          * Error type
          */
         type: string;
+      }
+
+      export namespace Error {
+        /**
+         * Error context
+         */
+        export interface Context {
+          /**
+           * Error parameters
+           */
+          parameters: { [key: string]: unknown };
+        }
       }
     }
 
@@ -1471,7 +1559,7 @@ export namespace Execution {
       effective_gas_price: string | null;
 
       /**
-       * An error
+       * Vektor error
        */
       error: ExecutionEVMTransactionBuy.Error | null;
 
@@ -1543,23 +1631,50 @@ export namespace Execution {
 
     export namespace ExecutionEVMTransactionBuy {
       /**
-       * An error
+       * Vektor error
        */
       export interface Error {
+        /**
+         * Error context
+         */
+        context: Error.Context;
+
         /**
          * Error message
          */
         message: string;
 
         /**
-         * Error parameters
+         * Request ID
          */
-        params: { [key: string]: unknown };
+        request_id: string;
+
+        /**
+         * Error resource
+         */
+        resource: string | null;
+
+        /**
+         * ISO8601 Timestamp
+         */
+        timestamp: VektorAPI.Timestamp;
 
         /**
          * Error type
          */
         type: string;
+      }
+
+      export namespace Error {
+        /**
+         * Error context
+         */
+        export interface Context {
+          /**
+           * Error parameters
+           */
+          parameters: { [key: string]: unknown };
+        }
       }
     }
 
@@ -1607,7 +1722,7 @@ export namespace Execution {
       effective_gas_price: string | null;
 
       /**
-       * An error
+       * Vektor error
        */
       error: ExecutionEVMTransactionLend.Error | null;
 
@@ -1675,23 +1790,50 @@ export namespace Execution {
 
     export namespace ExecutionEVMTransactionLend {
       /**
-       * An error
+       * Vektor error
        */
       export interface Error {
+        /**
+         * Error context
+         */
+        context: Error.Context;
+
         /**
          * Error message
          */
         message: string;
 
         /**
-         * Error parameters
+         * Request ID
          */
-        params: { [key: string]: unknown };
+        request_id: string;
+
+        /**
+         * Error resource
+         */
+        resource: string | null;
+
+        /**
+         * ISO8601 Timestamp
+         */
+        timestamp: VektorAPI.Timestamp;
 
         /**
          * Error type
          */
         type: string;
+      }
+
+      export namespace Error {
+        /**
+         * Error context
+         */
+        export interface Context {
+          /**
+           * Error parameters
+           */
+          parameters: { [key: string]: unknown };
+        }
       }
     }
 
@@ -1729,7 +1871,7 @@ export namespace Execution {
       effective_gas_price: string | null;
 
       /**
-       * An error
+       * Vektor error
        */
       error: ExecutionEVMTransactionLendSetCollateral.Error | null;
 
@@ -1794,23 +1936,50 @@ export namespace Execution {
 
     export namespace ExecutionEVMTransactionLendSetCollateral {
       /**
-       * An error
+       * Vektor error
        */
       export interface Error {
+        /**
+         * Error context
+         */
+        context: Error.Context;
+
         /**
          * Error message
          */
         message: string;
 
         /**
-         * Error parameters
+         * Request ID
          */
-        params: { [key: string]: unknown };
+        request_id: string;
+
+        /**
+         * Error resource
+         */
+        resource: string | null;
+
+        /**
+         * ISO8601 Timestamp
+         */
+        timestamp: VektorAPI.Timestamp;
 
         /**
          * Error type
          */
         type: string;
+      }
+
+      export namespace Error {
+        /**
+         * Error context
+         */
+        export interface Context {
+          /**
+           * Error parameters
+           */
+          parameters: { [key: string]: unknown };
+        }
       }
     }
 
@@ -1858,7 +2027,7 @@ export namespace Execution {
       effective_gas_price: string | null;
 
       /**
-       * An error
+       * Vektor error
        */
       error: ExecutionEVMTransactionLendWithdraw.Error | null;
 
@@ -1921,23 +2090,50 @@ export namespace Execution {
 
     export namespace ExecutionEVMTransactionLendWithdraw {
       /**
-       * An error
+       * Vektor error
        */
       export interface Error {
+        /**
+         * Error context
+         */
+        context: Error.Context;
+
         /**
          * Error message
          */
         message: string;
 
         /**
-         * Error parameters
+         * Request ID
          */
-        params: { [key: string]: unknown };
+        request_id: string;
+
+        /**
+         * Error resource
+         */
+        resource: string | null;
+
+        /**
+         * ISO8601 Timestamp
+         */
+        timestamp: VektorAPI.Timestamp;
 
         /**
          * Error type
          */
         type: string;
+      }
+
+      export namespace Error {
+        /**
+         * Error context
+         */
+        export interface Context {
+          /**
+           * Error parameters
+           */
+          parameters: { [key: string]: unknown };
+        }
       }
     }
 
@@ -1985,7 +2181,7 @@ export namespace Execution {
       effective_gas_price: string | null;
 
       /**
-       * An error
+       * Vektor error
        */
       error: ExecutionEVMTransactionMove.Error | null;
 
@@ -2042,23 +2238,50 @@ export namespace Execution {
 
     export namespace ExecutionEVMTransactionMove {
       /**
-       * An error
+       * Vektor error
        */
       export interface Error {
+        /**
+         * Error context
+         */
+        context: Error.Context;
+
         /**
          * Error message
          */
         message: string;
 
         /**
-         * Error parameters
+         * Request ID
          */
-        params: { [key: string]: unknown };
+        request_id: string;
+
+        /**
+         * Error resource
+         */
+        resource: string | null;
+
+        /**
+         * ISO8601 Timestamp
+         */
+        timestamp: VektorAPI.Timestamp;
 
         /**
          * Error type
          */
         type: string;
+      }
+
+      export namespace Error {
+        /**
+         * Error context
+         */
+        export interface Context {
+          /**
+           * Error parameters
+           */
+          parameters: { [key: string]: unknown };
+        }
       }
     }
 
@@ -2101,7 +2324,7 @@ export namespace Execution {
       effective_gas_price: string | null;
 
       /**
-       * An error
+       * Vektor error
        */
       error: ExecutionEVMTransactionPermission.Error | null;
 
@@ -2176,23 +2399,50 @@ export namespace Execution {
 
     export namespace ExecutionEVMTransactionPermission {
       /**
-       * An error
+       * Vektor error
        */
       export interface Error {
+        /**
+         * Error context
+         */
+        context: Error.Context;
+
         /**
          * Error message
          */
         message: string;
 
         /**
-         * Error parameters
+         * Request ID
          */
-        params: { [key: string]: unknown };
+        request_id: string;
+
+        /**
+         * Error resource
+         */
+        resource: string | null;
+
+        /**
+         * ISO8601 Timestamp
+         */
+        timestamp: VektorAPI.Timestamp;
 
         /**
          * Error type
          */
         type: string;
+      }
+
+      export namespace Error {
+        /**
+         * Error context
+         */
+        export interface Context {
+          /**
+           * Error parameters
+           */
+          parameters: { [key: string]: unknown };
+        }
       }
     }
 
@@ -2235,7 +2485,7 @@ export namespace Execution {
       effective_gas_price: string | null;
 
       /**
-       * An error
+       * Vektor error
        */
       error: ExecutionEVMTransactionUnwrap.Error | null;
 
@@ -2292,23 +2542,50 @@ export namespace Execution {
 
     export namespace ExecutionEVMTransactionUnwrap {
       /**
-       * An error
+       * Vektor error
        */
       export interface Error {
+        /**
+         * Error context
+         */
+        context: Error.Context;
+
         /**
          * Error message
          */
         message: string;
 
         /**
-         * Error parameters
+         * Request ID
          */
-        params: { [key: string]: unknown };
+        request_id: string;
+
+        /**
+         * Error resource
+         */
+        resource: string | null;
+
+        /**
+         * ISO8601 Timestamp
+         */
+        timestamp: VektorAPI.Timestamp;
 
         /**
          * Error type
          */
         type: string;
+      }
+
+      export namespace Error {
+        /**
+         * Error context
+         */
+        export interface Context {
+          /**
+           * Error parameters
+           */
+          parameters: { [key: string]: unknown };
+        }
       }
     }
 
@@ -2351,7 +2628,7 @@ export namespace Execution {
       effective_gas_price: string | null;
 
       /**
-       * An error
+       * Vektor error
        */
       error: ExecutionEVMTransactionWrap.Error | null;
 
@@ -2408,23 +2685,50 @@ export namespace Execution {
 
     export namespace ExecutionEVMTransactionWrap {
       /**
-       * An error
+       * Vektor error
        */
       export interface Error {
+        /**
+         * Error context
+         */
+        context: Error.Context;
+
         /**
          * Error message
          */
         message: string;
 
         /**
-         * Error parameters
+         * Request ID
          */
-        params: { [key: string]: unknown };
+        request_id: string;
+
+        /**
+         * Error resource
+         */
+        resource: string | null;
+
+        /**
+         * ISO8601 Timestamp
+         */
+        timestamp: VektorAPI.Timestamp;
 
         /**
          * Error type
          */
         type: string;
+      }
+
+      export namespace Error {
+        /**
+         * Error context
+         */
+        export interface Context {
+          /**
+           * Error parameters
+           */
+          parameters: { [key: string]: unknown };
+        }
       }
     }
 
@@ -2467,7 +2771,7 @@ export namespace Execution {
       effective_gas_price: string | null;
 
       /**
-       * An error
+       * Vektor error
        */
       error: ExecutionEVMTransactionSell.Error | null;
 
@@ -2539,23 +2843,50 @@ export namespace Execution {
 
     export namespace ExecutionEVMTransactionSell {
       /**
-       * An error
+       * Vektor error
        */
       export interface Error {
+        /**
+         * Error context
+         */
+        context: Error.Context;
+
         /**
          * Error message
          */
         message: string;
 
         /**
-         * Error parameters
+         * Request ID
          */
-        params: { [key: string]: unknown };
+        request_id: string;
+
+        /**
+         * Error resource
+         */
+        resource: string | null;
+
+        /**
+         * ISO8601 Timestamp
+         */
+        timestamp: VektorAPI.Timestamp;
 
         /**
          * Error type
          */
         type: string;
+      }
+
+      export namespace Error {
+        /**
+         * Error context
+         */
+        export interface Context {
+          /**
+           * Error parameters
+           */
+          parameters: { [key: string]: unknown };
+        }
       }
     }
   }
@@ -3627,18 +3958,33 @@ export type TimestampOrBlockNumber = Timestamp | BlockNumber;
 export type TransactionHash = string;
 
 /**
- * An error
+ * Vektor error
  */
 export interface VektorError {
+  /**
+   * Error context
+   */
+  context: VektorError.Context;
+
   /**
    * Error message
    */
   message: string;
 
   /**
-   * Error parameters
+   * Request ID
    */
-  params: { [key: string]: unknown };
+  request_id: string;
+
+  /**
+   * Error resource
+   */
+  resource: string | null;
+
+  /**
+   * ISO8601 Timestamp
+   */
+  timestamp: Timestamp;
 
   /**
    * Error type
@@ -3646,24 +3992,34 @@ export interface VektorError {
   type: string;
 }
 
-/**
- * A list of errors
- */
-export type VektorErrorList = Array<VektorError>;
-
-export interface VektorErrorListOutput {
+export namespace VektorError {
   /**
-   * A list of errors
+   * Error context
    */
-  items: VektorErrorList;
+  export interface Context {
+    /**
+     * Error parameters
+     */
+    parameters: { [key: string]: unknown };
+  }
 }
 
 /**
- * Wraps a list of errors into an error response
+ * A list of vektor errors
+ */
+export type VektorErrorList = Array<VektorError>;
+
+/**
+ * Wraps a list of vektor errors into an error response
  */
 export interface VektorErrorWrapper {
   /**
-   * A list of errors
+   * Error message
+   */
+  error?: string;
+
+  /**
+   * A list of vektor errors
    */
   errors?: VektorErrorList;
 }
@@ -3858,6 +4214,7 @@ export declare namespace Vektor {
     type BuyQuote as BuyQuote,
     type ChainType as ChainType,
     type Decimal as Decimal,
+    type ErrorListOutput as ErrorListOutput,
     type EVMChainData as EVMChainData,
     type Execution as Execution,
     type ExecutionEVMTransactionEIP1559Payload as ExecutionEVMTransactionEIP1559Payload,
@@ -3905,7 +4262,6 @@ export declare namespace Vektor {
     type TransactionHash as TransactionHash,
     type VektorError as VektorError,
     type VektorErrorList as VektorErrorList,
-    type VektorErrorListOutput as VektorErrorListOutput,
     type VektorErrorWrapper as VektorErrorWrapper,
     type Venue as Venue,
     type VenueID as VenueID,

@@ -11,14 +11,14 @@ export class Errors extends APIResource {
    *
    * @example
    * ```ts
-   * const vektorErrorListOutput =
+   * const errorListOutput =
    *   await client.vektor.registry.errors.list();
    * ```
    */
   list(
     body: ErrorListParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<VektorAPI.VektorErrorListOutput> {
+  ): APIPromise<VektorAPI.ErrorListOutput> {
     return this._client.post('/v1/vektor/registry/errors', { body, ...options });
   }
 }
