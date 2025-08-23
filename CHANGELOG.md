@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.13.1 (2025-08-23)
+
+Full Changelog: [v1.13.0...v1.13.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.13.0...v1.13.1)
+
+### Chores
+
+* update CI script ([77b9373](https://github.com/nirvana-labs/nirvana-typescript/commit/77b93737ca1e5f97f1497398cb30cdf7357a895b))
+
 ## 1.13.0 (2025-08-23)
 
 Full Changelog: [v1.12.0...v1.13.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.12.0...v1.13.0)
