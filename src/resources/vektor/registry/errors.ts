@@ -11,22 +11,16 @@ export class Errors extends APIResource {
    *
    * @example
    * ```ts
-   * const errors = await client.vektor.registry.errors.list();
+   * const errorListOutput =
+   *   await client.vektor.registry.errors.list();
    * ```
    */
   list(
     body: ErrorListParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<ErrorListResponse> {
+  ): APIPromise<VektorAPI.ErrorListOutput> {
     return this._client.post('/v1/vektor/registry/errors', { body, ...options });
   }
-}
-
-export interface ErrorListResponse {
-  /**
-   * A list of errors
-   */
-  items: Array<VektorAPI.VektorError>;
 }
 
 export interface ErrorListParams {
@@ -34,5 +28,5 @@ export interface ErrorListParams {
 }
 
 export declare namespace Errors {
-  export { type ErrorListResponse as ErrorListResponse, type ErrorListParams as ErrorListParams };
+  export { type ErrorListParams as ErrorListParams };
 }

@@ -23,7 +23,7 @@ export class APIKeys extends APIResource {
   }
 
   /**
-   * Update an API key's name
+   * Update an existing API key
    *
    * @example
    * ```ts
@@ -35,7 +35,7 @@ export class APIKeys extends APIResource {
   }
 
   /**
-   * List all API keys you created
+   * List all API keys for the authenticated user
    *
    * @example
    * ```ts

@@ -682,7 +682,7 @@ export class NirvanaLabs {
         // Preserve legacy string encoding behavior for now
         headers.values.has('content-type')) ||
       // `Blob` is superset of `File`
-      body instanceof Blob ||
+      ((globalThis as any).Blob && body instanceof (globalThis as any).Blob) ||
       // `FormData` -> `multipart/form-data`
       body instanceof FormData ||
       // `URLSearchParams` -> `application/x-www-form-urlencoded`
@@ -730,6 +730,7 @@ export class NirvanaLabs {
   connect: API.Connect = new API.Connect(this);
   vektor: API.Vektor = new API.Vektor(this);
 }
+
 NirvanaLabs.UserResource = UserResource;
 NirvanaLabs.APIKeys = APIKeys;
 NirvanaLabs.Operations = Operations;
@@ -738,6 +739,7 @@ NirvanaLabs.Networking = Networking;
 NirvanaLabs.RPCNodes = RPCNodes;
 NirvanaLabs.Connect = Connect;
 NirvanaLabs.Vektor = Vektor;
+
 export declare namespace NirvanaLabs {
   export type RequestOptions = Opts.RequestOptions;
 

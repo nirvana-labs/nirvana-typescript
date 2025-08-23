@@ -146,7 +146,7 @@ export namespace StepGetResponse {
     effective_gas_price: string | null;
 
     /**
-     * An error
+     * Vektor error
      */
     error: ExecutionEVMTransactionApprove.Error | null;
 
@@ -213,23 +213,50 @@ export namespace StepGetResponse {
 
   export namespace ExecutionEVMTransactionApprove {
     /**
-     * An error
+     * Vektor error
      */
     export interface Error {
+      /**
+       * Error context
+       */
+      context: Error.Context;
+
       /**
        * Error message
        */
       message: string;
 
       /**
-       * Error parameters
+       * Request ID
        */
-      params: { [key: string]: unknown };
+      request_id: string;
+
+      /**
+       * Error resource
+       */
+      resource: string | null;
+
+      /**
+       * ISO8601 Timestamp
+       */
+      timestamp: VektorAPI.Timestamp;
 
       /**
        * Error type
        */
       type: string;
+    }
+
+    export namespace Error {
+      /**
+       * Error context
+       */
+      export interface Context {
+        /**
+         * Error parameters
+         */
+        parameters: { [key: string]: unknown };
+      }
     }
   }
 
@@ -277,7 +304,7 @@ export namespace StepGetResponse {
     effective_gas_price: string | null;
 
     /**
-     * An error
+     * Vektor error
      */
     error: ExecutionEVMTransactionBorrow.Error | null;
 
@@ -345,23 +372,50 @@ export namespace StepGetResponse {
 
   export namespace ExecutionEVMTransactionBorrow {
     /**
-     * An error
+     * Vektor error
      */
     export interface Error {
+      /**
+       * Error context
+       */
+      context: Error.Context;
+
       /**
        * Error message
        */
       message: string;
 
       /**
-       * Error parameters
+       * Request ID
        */
-      params: { [key: string]: unknown };
+      request_id: string;
+
+      /**
+       * Error resource
+       */
+      resource: string | null;
+
+      /**
+       * ISO8601 Timestamp
+       */
+      timestamp: VektorAPI.Timestamp;
 
       /**
        * Error type
        */
       type: string;
+    }
+
+    export namespace Error {
+      /**
+       * Error context
+       */
+      export interface Context {
+        /**
+         * Error parameters
+         */
+        parameters: { [key: string]: unknown };
+      }
     }
   }
 
@@ -409,7 +463,7 @@ export namespace StepGetResponse {
     effective_gas_price: string | null;
 
     /**
-     * An error
+     * Vektor error
      */
     error: ExecutionEVMTransactionBorrowRepay.Error | null;
 
@@ -472,23 +526,50 @@ export namespace StepGetResponse {
 
   export namespace ExecutionEVMTransactionBorrowRepay {
     /**
-     * An error
+     * Vektor error
      */
     export interface Error {
+      /**
+       * Error context
+       */
+      context: Error.Context;
+
       /**
        * Error message
        */
       message: string;
 
       /**
-       * Error parameters
+       * Request ID
        */
-      params: { [key: string]: unknown };
+      request_id: string;
+
+      /**
+       * Error resource
+       */
+      resource: string | null;
+
+      /**
+       * ISO8601 Timestamp
+       */
+      timestamp: VektorAPI.Timestamp;
 
       /**
        * Error type
        */
       type: string;
+    }
+
+    export namespace Error {
+      /**
+       * Error context
+       */
+      export interface Context {
+        /**
+         * Error parameters
+         */
+        parameters: { [key: string]: unknown };
+      }
     }
   }
 
@@ -531,7 +612,7 @@ export namespace StepGetResponse {
     effective_gas_price: string | null;
 
     /**
-     * An error
+     * Vektor error
      */
     error: ExecutionEVMTransactionBuy.Error | null;
 
@@ -603,23 +684,50 @@ export namespace StepGetResponse {
 
   export namespace ExecutionEVMTransactionBuy {
     /**
-     * An error
+     * Vektor error
      */
     export interface Error {
+      /**
+       * Error context
+       */
+      context: Error.Context;
+
       /**
        * Error message
        */
       message: string;
 
       /**
-       * Error parameters
+       * Request ID
        */
-      params: { [key: string]: unknown };
+      request_id: string;
+
+      /**
+       * Error resource
+       */
+      resource: string | null;
+
+      /**
+       * ISO8601 Timestamp
+       */
+      timestamp: VektorAPI.Timestamp;
 
       /**
        * Error type
        */
       type: string;
+    }
+
+    export namespace Error {
+      /**
+       * Error context
+       */
+      export interface Context {
+        /**
+         * Error parameters
+         */
+        parameters: { [key: string]: unknown };
+      }
     }
   }
 
@@ -667,7 +775,7 @@ export namespace StepGetResponse {
     effective_gas_price: string | null;
 
     /**
-     * An error
+     * Vektor error
      */
     error: ExecutionEVMTransactionLend.Error | null;
 
@@ -735,23 +843,50 @@ export namespace StepGetResponse {
 
   export namespace ExecutionEVMTransactionLend {
     /**
-     * An error
+     * Vektor error
      */
     export interface Error {
+      /**
+       * Error context
+       */
+      context: Error.Context;
+
       /**
        * Error message
        */
       message: string;
 
       /**
-       * Error parameters
+       * Request ID
        */
-      params: { [key: string]: unknown };
+      request_id: string;
+
+      /**
+       * Error resource
+       */
+      resource: string | null;
+
+      /**
+       * ISO8601 Timestamp
+       */
+      timestamp: VektorAPI.Timestamp;
 
       /**
        * Error type
        */
       type: string;
+    }
+
+    export namespace Error {
+      /**
+       * Error context
+       */
+      export interface Context {
+        /**
+         * Error parameters
+         */
+        parameters: { [key: string]: unknown };
+      }
     }
   }
 
@@ -789,7 +924,7 @@ export namespace StepGetResponse {
     effective_gas_price: string | null;
 
     /**
-     * An error
+     * Vektor error
      */
     error: ExecutionEVMTransactionLendSetCollateral.Error | null;
 
@@ -854,23 +989,50 @@ export namespace StepGetResponse {
 
   export namespace ExecutionEVMTransactionLendSetCollateral {
     /**
-     * An error
+     * Vektor error
      */
     export interface Error {
+      /**
+       * Error context
+       */
+      context: Error.Context;
+
       /**
        * Error message
        */
       message: string;
 
       /**
-       * Error parameters
+       * Request ID
        */
-      params: { [key: string]: unknown };
+      request_id: string;
+
+      /**
+       * Error resource
+       */
+      resource: string | null;
+
+      /**
+       * ISO8601 Timestamp
+       */
+      timestamp: VektorAPI.Timestamp;
 
       /**
        * Error type
        */
       type: string;
+    }
+
+    export namespace Error {
+      /**
+       * Error context
+       */
+      export interface Context {
+        /**
+         * Error parameters
+         */
+        parameters: { [key: string]: unknown };
+      }
     }
   }
 
@@ -918,7 +1080,7 @@ export namespace StepGetResponse {
     effective_gas_price: string | null;
 
     /**
-     * An error
+     * Vektor error
      */
     error: ExecutionEVMTransactionLendWithdraw.Error | null;
 
@@ -981,23 +1143,50 @@ export namespace StepGetResponse {
 
   export namespace ExecutionEVMTransactionLendWithdraw {
     /**
-     * An error
+     * Vektor error
      */
     export interface Error {
+      /**
+       * Error context
+       */
+      context: Error.Context;
+
       /**
        * Error message
        */
       message: string;
 
       /**
-       * Error parameters
+       * Request ID
        */
-      params: { [key: string]: unknown };
+      request_id: string;
+
+      /**
+       * Error resource
+       */
+      resource: string | null;
+
+      /**
+       * ISO8601 Timestamp
+       */
+      timestamp: VektorAPI.Timestamp;
 
       /**
        * Error type
        */
       type: string;
+    }
+
+    export namespace Error {
+      /**
+       * Error context
+       */
+      export interface Context {
+        /**
+         * Error parameters
+         */
+        parameters: { [key: string]: unknown };
+      }
     }
   }
 
@@ -1045,7 +1234,7 @@ export namespace StepGetResponse {
     effective_gas_price: string | null;
 
     /**
-     * An error
+     * Vektor error
      */
     error: ExecutionEVMTransactionMove.Error | null;
 
@@ -1102,23 +1291,50 @@ export namespace StepGetResponse {
 
   export namespace ExecutionEVMTransactionMove {
     /**
-     * An error
+     * Vektor error
      */
     export interface Error {
+      /**
+       * Error context
+       */
+      context: Error.Context;
+
       /**
        * Error message
        */
       message: string;
 
       /**
-       * Error parameters
+       * Request ID
        */
-      params: { [key: string]: unknown };
+      request_id: string;
+
+      /**
+       * Error resource
+       */
+      resource: string | null;
+
+      /**
+       * ISO8601 Timestamp
+       */
+      timestamp: VektorAPI.Timestamp;
 
       /**
        * Error type
        */
       type: string;
+    }
+
+    export namespace Error {
+      /**
+       * Error context
+       */
+      export interface Context {
+        /**
+         * Error parameters
+         */
+        parameters: { [key: string]: unknown };
+      }
     }
   }
 
@@ -1161,7 +1377,7 @@ export namespace StepGetResponse {
     effective_gas_price: string | null;
 
     /**
-     * An error
+     * Vektor error
      */
     error: ExecutionEVMTransactionPermission.Error | null;
 
@@ -1236,23 +1452,50 @@ export namespace StepGetResponse {
 
   export namespace ExecutionEVMTransactionPermission {
     /**
-     * An error
+     * Vektor error
      */
     export interface Error {
+      /**
+       * Error context
+       */
+      context: Error.Context;
+
       /**
        * Error message
        */
       message: string;
 
       /**
-       * Error parameters
+       * Request ID
        */
-      params: { [key: string]: unknown };
+      request_id: string;
+
+      /**
+       * Error resource
+       */
+      resource: string | null;
+
+      /**
+       * ISO8601 Timestamp
+       */
+      timestamp: VektorAPI.Timestamp;
 
       /**
        * Error type
        */
       type: string;
+    }
+
+    export namespace Error {
+      /**
+       * Error context
+       */
+      export interface Context {
+        /**
+         * Error parameters
+         */
+        parameters: { [key: string]: unknown };
+      }
     }
   }
 
@@ -1295,7 +1538,7 @@ export namespace StepGetResponse {
     effective_gas_price: string | null;
 
     /**
-     * An error
+     * Vektor error
      */
     error: ExecutionEVMTransactionUnwrap.Error | null;
 
@@ -1352,23 +1595,50 @@ export namespace StepGetResponse {
 
   export namespace ExecutionEVMTransactionUnwrap {
     /**
-     * An error
+     * Vektor error
      */
     export interface Error {
+      /**
+       * Error context
+       */
+      context: Error.Context;
+
       /**
        * Error message
        */
       message: string;
 
       /**
-       * Error parameters
+       * Request ID
        */
-      params: { [key: string]: unknown };
+      request_id: string;
+
+      /**
+       * Error resource
+       */
+      resource: string | null;
+
+      /**
+       * ISO8601 Timestamp
+       */
+      timestamp: VektorAPI.Timestamp;
 
       /**
        * Error type
        */
       type: string;
+    }
+
+    export namespace Error {
+      /**
+       * Error context
+       */
+      export interface Context {
+        /**
+         * Error parameters
+         */
+        parameters: { [key: string]: unknown };
+      }
     }
   }
 
@@ -1411,7 +1681,7 @@ export namespace StepGetResponse {
     effective_gas_price: string | null;
 
     /**
-     * An error
+     * Vektor error
      */
     error: ExecutionEVMTransactionWrap.Error | null;
 
@@ -1468,23 +1738,50 @@ export namespace StepGetResponse {
 
   export namespace ExecutionEVMTransactionWrap {
     /**
-     * An error
+     * Vektor error
      */
     export interface Error {
+      /**
+       * Error context
+       */
+      context: Error.Context;
+
       /**
        * Error message
        */
       message: string;
 
       /**
-       * Error parameters
+       * Request ID
        */
-      params: { [key: string]: unknown };
+      request_id: string;
+
+      /**
+       * Error resource
+       */
+      resource: string | null;
+
+      /**
+       * ISO8601 Timestamp
+       */
+      timestamp: VektorAPI.Timestamp;
 
       /**
        * Error type
        */
       type: string;
+    }
+
+    export namespace Error {
+      /**
+       * Error context
+       */
+      export interface Context {
+        /**
+         * Error parameters
+         */
+        parameters: { [key: string]: unknown };
+      }
     }
   }
 
@@ -1527,7 +1824,7 @@ export namespace StepGetResponse {
     effective_gas_price: string | null;
 
     /**
-     * An error
+     * Vektor error
      */
     error: ExecutionEVMTransactionSell.Error | null;
 
@@ -1599,23 +1896,50 @@ export namespace StepGetResponse {
 
   export namespace ExecutionEVMTransactionSell {
     /**
-     * An error
+     * Vektor error
      */
     export interface Error {
+      /**
+       * Error context
+       */
+      context: Error.Context;
+
       /**
        * Error message
        */
       message: string;
 
       /**
-       * Error parameters
+       * Request ID
        */
-      params: { [key: string]: unknown };
+      request_id: string;
+
+      /**
+       * Error resource
+       */
+      resource: string | null;
+
+      /**
+       * ISO8601 Timestamp
+       */
+      timestamp: VektorAPI.Timestamp;
 
       /**
        * Error type
        */
       type: string;
+    }
+
+    export namespace Error {
+      /**
+       * Error context
+       */
+      export interface Context {
+        /**
+         * Error parameters
+         */
+        parameters: { [key: string]: unknown };
+      }
     }
   }
 }

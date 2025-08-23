@@ -8,7 +8,7 @@ import { BlockchainListParams, BlockchainListResponse, Blockchains } from './blo
 import * as BorrowMarketsAPI from './borrow-markets';
 import { BorrowMarketListParams, BorrowMarketListResponse, BorrowMarkets } from './borrow-markets';
 import * as ErrorsAPI from './errors';
-import { ErrorListParams, ErrorListResponse, Errors } from './errors';
+import { ErrorListParams, Errors } from './errors';
 import * as LendMarketsAPI from './lend-markets';
 import { LendMarketListParams, LendMarketListResponse, LendMarkets } from './lend-markets';
 import * as LPPoolsAPI from './lp-pools';
@@ -53,11 +53,7 @@ export declare namespace Registry {
     type VenueListParams as VenueListParams,
   };
 
-  export {
-    Errors as Errors,
-    type ErrorListResponse as ErrorListResponse,
-    type ErrorListParams as ErrorListParams,
-  };
+  export { Errors as Errors, type ErrorListParams as ErrorListParams };
 
   export {
     LendMarkets as LendMarkets,

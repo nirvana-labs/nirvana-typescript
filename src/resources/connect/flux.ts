@@ -15,7 +15,7 @@ export class Flux extends APIResource {
   }
 
   /**
-   * Get details about a Connect Flux
+   * Get Connect Flux details
    */
   get(fluxID: string, options?: RequestOptions): APIPromise<ConnectFlux> {
     return this._client.get(path`/v1/connect/flux/${fluxID}`, options);

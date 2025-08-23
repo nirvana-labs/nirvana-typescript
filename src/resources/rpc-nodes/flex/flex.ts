@@ -63,11 +63,6 @@ export interface RPCNodesFlex {
    * When the RPC Node Flex was updated.
    */
   updated_at: string;
-
-  /**
-   * User ID associated with the RPC Node Flex.
-   */
-  user_id: string;
 }
 
 /**

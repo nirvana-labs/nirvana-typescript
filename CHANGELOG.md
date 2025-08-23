@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.13.0 (2025-08-23)
+
+Full Changelog: [v1.12.0...v1.13.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.12.0...v1.13.0)
+
+### Features
+
+* **api:** api update ([f09502a](https://github.com/nirvana-labs/nirvana-typescript/commit/f09502a861185d618a9cedcd2aba17632a211fd7))
+* **api:** api update ([2424a2b](https://github.com/nirvana-labs/nirvana-typescript/commit/2424a2bd9fe4906ad3cd7a326f629b1273352462))
+* **api:** api update ([5454efa](https://github.com/nirvana-labs/nirvana-typescript/commit/5454efa1547b2221f966856f77f9ef88294d626f))
+* **api:** api update ([cd7ac1b](https://github.com/nirvana-labs/nirvana-typescript/commit/cd7ac1bc118da10875662fc21408e0f50dd806f1))
+* **mcp:** add code execution tool ([ddfea44](https://github.com/nirvana-labs/nirvana-typescript/commit/ddfea44a61d9ccdfe3eecc781f5b651e2d1720d1))
+
+
+### Chores
+
+* add package to package.json ([daf3e18](https://github.com/nirvana-labs/nirvana-typescript/commit/daf3e18f116c2144703bca70c396f737f4ba7c13))
+* **client:** qualify global Blob ([8b607de](https://github.com/nirvana-labs/nirvana-typescript/commit/8b607de8a0f41b78c1e4add027970165d650d083))
+* **deps:** update dependency @types/node to v20.17.58 ([1c595e2](https://github.com/nirvana-labs/nirvana-typescript/commit/1c595e20b84936c1e04b90e997b22706a9d86d39))
+* **internal:** codegen related update ([654a53f](https://github.com/nirvana-labs/nirvana-typescript/commit/654a53fb27688d1325435a63ce0f0dd2a3f57f7a))
+* **internal:** formatting change ([ba3785b](https://github.com/nirvana-labs/nirvana-typescript/commit/ba3785b87bd7b629a93aa7eadbe3a82057192e79))
+* **internal:** move publish config ([4324e3e](https://github.com/nirvana-labs/nirvana-typescript/commit/4324e3ed0589d6da02f2136077e6a8133aeac6a6))
+* **internal:** update comment in script ([3bd4a58](https://github.com/nirvana-labs/nirvana-typescript/commit/3bd4a58cec00d75bc1182d96df15519e212fe510))
+* update @stainless-api/prism-cli to v5.15.0 ([92ea01e](https://github.com/nirvana-labs/nirvana-typescript/commit/92ea01e2c160be8c44d7d851d164ed9fd5e0dba2))
+
 ## 1.12.0 (2025-07-29)
 
 Full Changelog: [v1.11.0...v1.12.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.11.0...v1.12.0)

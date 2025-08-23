@@ -8,7 +8,7 @@ const client = new NirvanaLabs({
 });
 
 describe('resource withdrawQuote', () => {
-  // skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url
+  // Prism doesn't support callbacks yet
   test.skip('create: only required params', async () => {
     const responsePromise = client.vektor.lp.withdrawQuote.create({
       account: '0x6b175474e89094c44da98b954eedeac495271d0f',
@@ -26,7 +26,7 @@ describe('resource withdrawQuote', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url
+  // Prism doesn't support callbacks yet
   test.skip('create: required and optional params', async () => {
     const response = await client.vektor.lp.withdrawQuote.create({
       account: '0x6b175474e89094c44da98b954eedeac495271d0f',

@@ -8,7 +8,7 @@ const client = new NirvanaLabs({
 });
 
 describe('resource prices', () => {
-  // skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url
+  // Prism doesn't support callbacks yet
   test.skip('list: only required params', async () => {
     const responsePromise = client.vektor.prices.list({ asset_symbols: ['eth'] });
     const rawResponse = await responsePromise.asResponse();
@@ -20,12 +20,12 @@ describe('resource prices', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url
+  // Prism doesn't support callbacks yet
   test.skip('list: required and optional params', async () => {
     const response = await client.vektor.prices.list({ asset_symbols: ['eth'], quote_asset_symbol: 'eth' });
   });
 
-  // skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url
+  // Prism doesn't support callbacks yet
   test.skip('listHistorical: only required params', async () => {
     const responsePromise = client.vektor.prices.listHistorical({ asset_symbols: ['eth'] });
     const rawResponse = await responsePromise.asResponse();
@@ -37,7 +37,7 @@ describe('resource prices', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: currently no good way to test endpoints defining callbacks, Prism mock server will fail trying to reach the provided callback url
+  // Prism doesn't support callbacks yet
   test.skip('listHistorical: required and optional params', async () => {
     const response = await client.vektor.prices.listHistorical({
       asset_symbols: ['eth'],
