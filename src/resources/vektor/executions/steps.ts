@@ -148,7 +148,7 @@ export namespace StepGetResponse {
     /**
      * Vektor error
      */
-    error: ExecutionEVMTransactionApprove.Error | null;
+    error: VektorAPI.ExecutionError;
 
     /**
      * ISO8601 Timestamp
@@ -211,55 +211,6 @@ export namespace StepGetResponse {
     value: string | null;
   }
 
-  export namespace ExecutionEVMTransactionApprove {
-    /**
-     * Vektor error
-     */
-    export interface Error {
-      /**
-       * Error context
-       */
-      context: Error.Context;
-
-      /**
-       * Error message
-       */
-      message: string;
-
-      /**
-       * Request ID
-       */
-      request_id: string;
-
-      /**
-       * Error resource
-       */
-      resource: string | null;
-
-      /**
-       * ISO8601 Timestamp
-       */
-      timestamp: VektorAPI.Timestamp;
-
-      /**
-       * Error type
-       */
-      type: string;
-    }
-
-    export namespace Error {
-      /**
-       * Error context
-       */
-      export interface Context {
-        /**
-         * Error parameters
-         */
-        parameters: { [key: string]: unknown };
-      }
-    }
-  }
-
   /**
    * Borrowing an asset
    */
@@ -306,7 +257,7 @@ export namespace StepGetResponse {
     /**
      * Vektor error
      */
-    error: ExecutionEVMTransactionBorrow.Error | null;
+    error: VektorAPI.ExecutionError;
 
     /**
      * ISO8601 Timestamp
@@ -370,55 +321,6 @@ export namespace StepGetResponse {
     venue_symbol: VektorAPI.VenueSymbol;
   }
 
-  export namespace ExecutionEVMTransactionBorrow {
-    /**
-     * Vektor error
-     */
-    export interface Error {
-      /**
-       * Error context
-       */
-      context: Error.Context;
-
-      /**
-       * Error message
-       */
-      message: string;
-
-      /**
-       * Request ID
-       */
-      request_id: string;
-
-      /**
-       * Error resource
-       */
-      resource: string | null;
-
-      /**
-       * ISO8601 Timestamp
-       */
-      timestamp: VektorAPI.Timestamp;
-
-      /**
-       * Error type
-       */
-      type: string;
-    }
-
-    export namespace Error {
-      /**
-       * Error context
-       */
-      export interface Context {
-        /**
-         * Error parameters
-         */
-        parameters: { [key: string]: unknown };
-      }
-    }
-  }
-
   /**
    * Repaying a borrowed asset
    */
@@ -465,7 +367,7 @@ export namespace StepGetResponse {
     /**
      * Vektor error
      */
-    error: ExecutionEVMTransactionBorrowRepay.Error | null;
+    error: VektorAPI.ExecutionError;
 
     /**
      * ISO8601 Timestamp
@@ -524,55 +426,6 @@ export namespace StepGetResponse {
     value: string | null;
   }
 
-  export namespace ExecutionEVMTransactionBorrowRepay {
-    /**
-     * Vektor error
-     */
-    export interface Error {
-      /**
-       * Error context
-       */
-      context: Error.Context;
-
-      /**
-       * Error message
-       */
-      message: string;
-
-      /**
-       * Request ID
-       */
-      request_id: string;
-
-      /**
-       * Error resource
-       */
-      resource: string | null;
-
-      /**
-       * ISO8601 Timestamp
-       */
-      timestamp: VektorAPI.Timestamp;
-
-      /**
-       * Error type
-       */
-      type: string;
-    }
-
-    export namespace Error {
-      /**
-       * Error context
-       */
-      export interface Context {
-        /**
-         * Error parameters
-         */
-        parameters: { [key: string]: unknown };
-      }
-    }
-  }
-
   /**
    * Buying an asset with another asset
    */
@@ -614,7 +467,7 @@ export namespace StepGetResponse {
     /**
      * Vektor error
      */
-    error: ExecutionEVMTransactionBuy.Error | null;
+    error: VektorAPI.ExecutionError;
 
     /**
      * ISO8601 Timestamp
@@ -682,55 +535,6 @@ export namespace StepGetResponse {
     value: string | null;
   }
 
-  export namespace ExecutionEVMTransactionBuy {
-    /**
-     * Vektor error
-     */
-    export interface Error {
-      /**
-       * Error context
-       */
-      context: Error.Context;
-
-      /**
-       * Error message
-       */
-      message: string;
-
-      /**
-       * Request ID
-       */
-      request_id: string;
-
-      /**
-       * Error resource
-       */
-      resource: string | null;
-
-      /**
-       * ISO8601 Timestamp
-       */
-      timestamp: VektorAPI.Timestamp;
-
-      /**
-       * Error type
-       */
-      type: string;
-    }
-
-    export namespace Error {
-      /**
-       * Error context
-       */
-      export interface Context {
-        /**
-         * Error parameters
-         */
-        parameters: { [key: string]: unknown };
-      }
-    }
-  }
-
   /**
    * Lending an asset
    */
@@ -777,7 +581,7 @@ export namespace StepGetResponse {
     /**
      * Vektor error
      */
-    error: ExecutionEVMTransactionLend.Error | null;
+    error: VektorAPI.ExecutionError;
 
     /**
      * ISO8601 Timestamp
@@ -841,55 +645,6 @@ export namespace StepGetResponse {
     venue_symbol: VektorAPI.VenueSymbol;
   }
 
-  export namespace ExecutionEVMTransactionLend {
-    /**
-     * Vektor error
-     */
-    export interface Error {
-      /**
-       * Error context
-       */
-      context: Error.Context;
-
-      /**
-       * Error message
-       */
-      message: string;
-
-      /**
-       * Request ID
-       */
-      request_id: string;
-
-      /**
-       * Error resource
-       */
-      resource: string | null;
-
-      /**
-       * ISO8601 Timestamp
-       */
-      timestamp: VektorAPI.Timestamp;
-
-      /**
-       * Error type
-       */
-      type: string;
-    }
-
-    export namespace Error {
-      /**
-       * Error context
-       */
-      export interface Context {
-        /**
-         * Error parameters
-         */
-        parameters: { [key: string]: unknown };
-      }
-    }
-  }
-
   /**
    * Setting/unsetting a position as collateral
    */
@@ -926,7 +681,7 @@ export namespace StepGetResponse {
     /**
      * Vektor error
      */
-    error: ExecutionEVMTransactionLendSetCollateral.Error | null;
+    error: VektorAPI.ExecutionError;
 
     /**
      * ISO8601 Timestamp
@@ -987,55 +742,6 @@ export namespace StepGetResponse {
     value: string | null;
   }
 
-  export namespace ExecutionEVMTransactionLendSetCollateral {
-    /**
-     * Vektor error
-     */
-    export interface Error {
-      /**
-       * Error context
-       */
-      context: Error.Context;
-
-      /**
-       * Error message
-       */
-      message: string;
-
-      /**
-       * Request ID
-       */
-      request_id: string;
-
-      /**
-       * Error resource
-       */
-      resource: string | null;
-
-      /**
-       * ISO8601 Timestamp
-       */
-      timestamp: VektorAPI.Timestamp;
-
-      /**
-       * Error type
-       */
-      type: string;
-    }
-
-    export namespace Error {
-      /**
-       * Error context
-       */
-      export interface Context {
-        /**
-         * Error parameters
-         */
-        parameters: { [key: string]: unknown };
-      }
-    }
-  }
-
   /**
    * Withdrawing an asset
    */
@@ -1082,7 +788,7 @@ export namespace StepGetResponse {
     /**
      * Vektor error
      */
-    error: ExecutionEVMTransactionLendWithdraw.Error | null;
+    error: VektorAPI.ExecutionError;
 
     /**
      * ISO8601 Timestamp
@@ -1141,55 +847,6 @@ export namespace StepGetResponse {
     value: string | null;
   }
 
-  export namespace ExecutionEVMTransactionLendWithdraw {
-    /**
-     * Vektor error
-     */
-    export interface Error {
-      /**
-       * Error context
-       */
-      context: Error.Context;
-
-      /**
-       * Error message
-       */
-      message: string;
-
-      /**
-       * Request ID
-       */
-      request_id: string;
-
-      /**
-       * Error resource
-       */
-      resource: string | null;
-
-      /**
-       * ISO8601 Timestamp
-       */
-      timestamp: VektorAPI.Timestamp;
-
-      /**
-       * Error type
-       */
-      type: string;
-    }
-
-    export namespace Error {
-      /**
-       * Error context
-       */
-      export interface Context {
-        /**
-         * Error parameters
-         */
-        parameters: { [key: string]: unknown };
-      }
-    }
-  }
-
   /**
    * A move of assets from one account to another
    */
@@ -1236,7 +893,7 @@ export namespace StepGetResponse {
     /**
      * Vektor error
      */
-    error: ExecutionEVMTransactionMove.Error | null;
+    error: VektorAPI.ExecutionError;
 
     /**
      * ISO8601 Timestamp
@@ -1289,55 +946,6 @@ export namespace StepGetResponse {
     value: string | null;
   }
 
-  export namespace ExecutionEVMTransactionMove {
-    /**
-     * Vektor error
-     */
-    export interface Error {
-      /**
-       * Error context
-       */
-      context: Error.Context;
-
-      /**
-       * Error message
-       */
-      message: string;
-
-      /**
-       * Request ID
-       */
-      request_id: string;
-
-      /**
-       * Error resource
-       */
-      resource: string | null;
-
-      /**
-       * ISO8601 Timestamp
-       */
-      timestamp: VektorAPI.Timestamp;
-
-      /**
-       * Error type
-       */
-      type: string;
-    }
-
-    export namespace Error {
-      /**
-       * Error context
-       */
-      export interface Context {
-        /**
-         * Error parameters
-         */
-        parameters: { [key: string]: unknown };
-      }
-    }
-  }
-
   /**
    * A permission to a contract
    */
@@ -1379,7 +987,7 @@ export namespace StepGetResponse {
     /**
      * Vektor error
      */
-    error: ExecutionEVMTransactionPermission.Error | null;
+    error: VektorAPI.ExecutionError;
 
     /**
      * ISO8601 Timestamp
@@ -1450,55 +1058,6 @@ export namespace StepGetResponse {
     value: string | null;
   }
 
-  export namespace ExecutionEVMTransactionPermission {
-    /**
-     * Vektor error
-     */
-    export interface Error {
-      /**
-       * Error context
-       */
-      context: Error.Context;
-
-      /**
-       * Error message
-       */
-      message: string;
-
-      /**
-       * Request ID
-       */
-      request_id: string;
-
-      /**
-       * Error resource
-       */
-      resource: string | null;
-
-      /**
-       * ISO8601 Timestamp
-       */
-      timestamp: VektorAPI.Timestamp;
-
-      /**
-       * Error type
-       */
-      type: string;
-    }
-
-    export namespace Error {
-      /**
-       * Error context
-       */
-      export interface Context {
-        /**
-         * Error parameters
-         */
-        parameters: { [key: string]: unknown };
-      }
-    }
-  }
-
   /**
    * An unwrap of the wrapped native asset
    */
@@ -1540,7 +1099,7 @@ export namespace StepGetResponse {
     /**
      * Vektor error
      */
-    error: ExecutionEVMTransactionUnwrap.Error | null;
+    error: VektorAPI.ExecutionError;
 
     /**
      * ISO8601 Timestamp
@@ -1591,55 +1150,6 @@ export namespace StepGetResponse {
      * An arbitrary precision decimal represented as a string
      */
     value: string | null;
-  }
-
-  export namespace ExecutionEVMTransactionUnwrap {
-    /**
-     * Vektor error
-     */
-    export interface Error {
-      /**
-       * Error context
-       */
-      context: Error.Context;
-
-      /**
-       * Error message
-       */
-      message: string;
-
-      /**
-       * Request ID
-       */
-      request_id: string;
-
-      /**
-       * Error resource
-       */
-      resource: string | null;
-
-      /**
-       * ISO8601 Timestamp
-       */
-      timestamp: VektorAPI.Timestamp;
-
-      /**
-       * Error type
-       */
-      type: string;
-    }
-
-    export namespace Error {
-      /**
-       * Error context
-       */
-      export interface Context {
-        /**
-         * Error parameters
-         */
-        parameters: { [key: string]: unknown };
-      }
-    }
   }
 
   /**
@@ -1683,7 +1193,7 @@ export namespace StepGetResponse {
     /**
      * Vektor error
      */
-    error: ExecutionEVMTransactionWrap.Error | null;
+    error: VektorAPI.ExecutionError;
 
     /**
      * ISO8601 Timestamp
@@ -1736,55 +1246,6 @@ export namespace StepGetResponse {
     value: string | null;
   }
 
-  export namespace ExecutionEVMTransactionWrap {
-    /**
-     * Vektor error
-     */
-    export interface Error {
-      /**
-       * Error context
-       */
-      context: Error.Context;
-
-      /**
-       * Error message
-       */
-      message: string;
-
-      /**
-       * Request ID
-       */
-      request_id: string;
-
-      /**
-       * Error resource
-       */
-      resource: string | null;
-
-      /**
-       * ISO8601 Timestamp
-       */
-      timestamp: VektorAPI.Timestamp;
-
-      /**
-       * Error type
-       */
-      type: string;
-    }
-
-    export namespace Error {
-      /**
-       * Error context
-       */
-      export interface Context {
-        /**
-         * Error parameters
-         */
-        parameters: { [key: string]: unknown };
-      }
-    }
-  }
-
   /**
    * Selling an asset for another asset
    */
@@ -1826,7 +1287,7 @@ export namespace StepGetResponse {
     /**
      * Vektor error
      */
-    error: ExecutionEVMTransactionSell.Error | null;
+    error: VektorAPI.ExecutionError;
 
     /**
      * ISO8601 Timestamp
@@ -1892,55 +1353,6 @@ export namespace StepGetResponse {
      * An arbitrary precision decimal represented as a string
      */
     value: string | null;
-  }
-
-  export namespace ExecutionEVMTransactionSell {
-    /**
-     * Vektor error
-     */
-    export interface Error {
-      /**
-       * Error context
-       */
-      context: Error.Context;
-
-      /**
-       * Error message
-       */
-      message: string;
-
-      /**
-       * Request ID
-       */
-      request_id: string;
-
-      /**
-       * Error resource
-       */
-      resource: string | null;
-
-      /**
-       * ISO8601 Timestamp
-       */
-      timestamp: VektorAPI.Timestamp;
-
-      /**
-       * Error type
-       */
-      type: string;
-    }
-
-    export namespace Error {
-      /**
-       * Error context
-       */
-      export interface Context {
-        /**
-         * Error parameters
-         */
-        parameters: { [key: string]: unknown };
-      }
-    }
   }
 }
 
