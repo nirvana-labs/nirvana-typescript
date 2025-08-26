@@ -1095,7 +1095,7 @@ export namespace Execution {
       /**
        * Vektor error
        */
-      error: ExecutionEVMTransactionApprove.Error | null;
+      error: VektorAPI.ExecutionError;
 
       /**
        * ISO8601 Timestamp
@@ -1158,55 +1158,6 @@ export namespace Execution {
       value: string | null;
     }
 
-    export namespace ExecutionEVMTransactionApprove {
-      /**
-       * Vektor error
-       */
-      export interface Error {
-        /**
-         * Error context
-         */
-        context: Error.Context;
-
-        /**
-         * Error message
-         */
-        message: string;
-
-        /**
-         * Request ID
-         */
-        request_id: string;
-
-        /**
-         * Error resource
-         */
-        resource: string | null;
-
-        /**
-         * ISO8601 Timestamp
-         */
-        timestamp: VektorAPI.Timestamp;
-
-        /**
-         * Error type
-         */
-        type: string;
-      }
-
-      export namespace Error {
-        /**
-         * Error context
-         */
-        export interface Context {
-          /**
-           * Error parameters
-           */
-          parameters: { [key: string]: unknown };
-        }
-      }
-    }
-
     /**
      * Borrowing an asset
      */
@@ -1253,7 +1204,7 @@ export namespace Execution {
       /**
        * Vektor error
        */
-      error: ExecutionEVMTransactionBorrow.Error | null;
+      error: VektorAPI.ExecutionError;
 
       /**
        * ISO8601 Timestamp
@@ -1317,55 +1268,6 @@ export namespace Execution {
       venue_symbol: VektorAPI.VenueSymbol;
     }
 
-    export namespace ExecutionEVMTransactionBorrow {
-      /**
-       * Vektor error
-       */
-      export interface Error {
-        /**
-         * Error context
-         */
-        context: Error.Context;
-
-        /**
-         * Error message
-         */
-        message: string;
-
-        /**
-         * Request ID
-         */
-        request_id: string;
-
-        /**
-         * Error resource
-         */
-        resource: string | null;
-
-        /**
-         * ISO8601 Timestamp
-         */
-        timestamp: VektorAPI.Timestamp;
-
-        /**
-         * Error type
-         */
-        type: string;
-      }
-
-      export namespace Error {
-        /**
-         * Error context
-         */
-        export interface Context {
-          /**
-           * Error parameters
-           */
-          parameters: { [key: string]: unknown };
-        }
-      }
-    }
-
     /**
      * Repaying a borrowed asset
      */
@@ -1412,7 +1314,7 @@ export namespace Execution {
       /**
        * Vektor error
        */
-      error: ExecutionEVMTransactionBorrowRepay.Error | null;
+      error: VektorAPI.ExecutionError;
 
       /**
        * ISO8601 Timestamp
@@ -1471,55 +1373,6 @@ export namespace Execution {
       value: string | null;
     }
 
-    export namespace ExecutionEVMTransactionBorrowRepay {
-      /**
-       * Vektor error
-       */
-      export interface Error {
-        /**
-         * Error context
-         */
-        context: Error.Context;
-
-        /**
-         * Error message
-         */
-        message: string;
-
-        /**
-         * Request ID
-         */
-        request_id: string;
-
-        /**
-         * Error resource
-         */
-        resource: string | null;
-
-        /**
-         * ISO8601 Timestamp
-         */
-        timestamp: VektorAPI.Timestamp;
-
-        /**
-         * Error type
-         */
-        type: string;
-      }
-
-      export namespace Error {
-        /**
-         * Error context
-         */
-        export interface Context {
-          /**
-           * Error parameters
-           */
-          parameters: { [key: string]: unknown };
-        }
-      }
-    }
-
     /**
      * Buying an asset with another asset
      */
@@ -1561,7 +1414,7 @@ export namespace Execution {
       /**
        * Vektor error
        */
-      error: ExecutionEVMTransactionBuy.Error | null;
+      error: VektorAPI.ExecutionError;
 
       /**
        * ISO8601 Timestamp
@@ -1629,55 +1482,6 @@ export namespace Execution {
       value: string | null;
     }
 
-    export namespace ExecutionEVMTransactionBuy {
-      /**
-       * Vektor error
-       */
-      export interface Error {
-        /**
-         * Error context
-         */
-        context: Error.Context;
-
-        /**
-         * Error message
-         */
-        message: string;
-
-        /**
-         * Request ID
-         */
-        request_id: string;
-
-        /**
-         * Error resource
-         */
-        resource: string | null;
-
-        /**
-         * ISO8601 Timestamp
-         */
-        timestamp: VektorAPI.Timestamp;
-
-        /**
-         * Error type
-         */
-        type: string;
-      }
-
-      export namespace Error {
-        /**
-         * Error context
-         */
-        export interface Context {
-          /**
-           * Error parameters
-           */
-          parameters: { [key: string]: unknown };
-        }
-      }
-    }
-
     /**
      * Lending an asset
      */
@@ -1724,7 +1528,7 @@ export namespace Execution {
       /**
        * Vektor error
        */
-      error: ExecutionEVMTransactionLend.Error | null;
+      error: VektorAPI.ExecutionError;
 
       /**
        * ISO8601 Timestamp
@@ -1788,55 +1592,6 @@ export namespace Execution {
       venue_symbol: VektorAPI.VenueSymbol;
     }
 
-    export namespace ExecutionEVMTransactionLend {
-      /**
-       * Vektor error
-       */
-      export interface Error {
-        /**
-         * Error context
-         */
-        context: Error.Context;
-
-        /**
-         * Error message
-         */
-        message: string;
-
-        /**
-         * Request ID
-         */
-        request_id: string;
-
-        /**
-         * Error resource
-         */
-        resource: string | null;
-
-        /**
-         * ISO8601 Timestamp
-         */
-        timestamp: VektorAPI.Timestamp;
-
-        /**
-         * Error type
-         */
-        type: string;
-      }
-
-      export namespace Error {
-        /**
-         * Error context
-         */
-        export interface Context {
-          /**
-           * Error parameters
-           */
-          parameters: { [key: string]: unknown };
-        }
-      }
-    }
-
     /**
      * Setting/unsetting a position as collateral
      */
@@ -1873,7 +1628,7 @@ export namespace Execution {
       /**
        * Vektor error
        */
-      error: ExecutionEVMTransactionLendSetCollateral.Error | null;
+      error: VektorAPI.ExecutionError;
 
       /**
        * ISO8601 Timestamp
@@ -1934,55 +1689,6 @@ export namespace Execution {
       value: string | null;
     }
 
-    export namespace ExecutionEVMTransactionLendSetCollateral {
-      /**
-       * Vektor error
-       */
-      export interface Error {
-        /**
-         * Error context
-         */
-        context: Error.Context;
-
-        /**
-         * Error message
-         */
-        message: string;
-
-        /**
-         * Request ID
-         */
-        request_id: string;
-
-        /**
-         * Error resource
-         */
-        resource: string | null;
-
-        /**
-         * ISO8601 Timestamp
-         */
-        timestamp: VektorAPI.Timestamp;
-
-        /**
-         * Error type
-         */
-        type: string;
-      }
-
-      export namespace Error {
-        /**
-         * Error context
-         */
-        export interface Context {
-          /**
-           * Error parameters
-           */
-          parameters: { [key: string]: unknown };
-        }
-      }
-    }
-
     /**
      * Withdrawing an asset
      */
@@ -2029,7 +1735,7 @@ export namespace Execution {
       /**
        * Vektor error
        */
-      error: ExecutionEVMTransactionLendWithdraw.Error | null;
+      error: VektorAPI.ExecutionError;
 
       /**
        * ISO8601 Timestamp
@@ -2088,55 +1794,6 @@ export namespace Execution {
       value: string | null;
     }
 
-    export namespace ExecutionEVMTransactionLendWithdraw {
-      /**
-       * Vektor error
-       */
-      export interface Error {
-        /**
-         * Error context
-         */
-        context: Error.Context;
-
-        /**
-         * Error message
-         */
-        message: string;
-
-        /**
-         * Request ID
-         */
-        request_id: string;
-
-        /**
-         * Error resource
-         */
-        resource: string | null;
-
-        /**
-         * ISO8601 Timestamp
-         */
-        timestamp: VektorAPI.Timestamp;
-
-        /**
-         * Error type
-         */
-        type: string;
-      }
-
-      export namespace Error {
-        /**
-         * Error context
-         */
-        export interface Context {
-          /**
-           * Error parameters
-           */
-          parameters: { [key: string]: unknown };
-        }
-      }
-    }
-
     /**
      * A move of assets from one account to another
      */
@@ -2183,7 +1840,7 @@ export namespace Execution {
       /**
        * Vektor error
        */
-      error: ExecutionEVMTransactionMove.Error | null;
+      error: VektorAPI.ExecutionError;
 
       /**
        * ISO8601 Timestamp
@@ -2236,55 +1893,6 @@ export namespace Execution {
       value: string | null;
     }
 
-    export namespace ExecutionEVMTransactionMove {
-      /**
-       * Vektor error
-       */
-      export interface Error {
-        /**
-         * Error context
-         */
-        context: Error.Context;
-
-        /**
-         * Error message
-         */
-        message: string;
-
-        /**
-         * Request ID
-         */
-        request_id: string;
-
-        /**
-         * Error resource
-         */
-        resource: string | null;
-
-        /**
-         * ISO8601 Timestamp
-         */
-        timestamp: VektorAPI.Timestamp;
-
-        /**
-         * Error type
-         */
-        type: string;
-      }
-
-      export namespace Error {
-        /**
-         * Error context
-         */
-        export interface Context {
-          /**
-           * Error parameters
-           */
-          parameters: { [key: string]: unknown };
-        }
-      }
-    }
-
     /**
      * A permission to a contract
      */
@@ -2326,7 +1934,7 @@ export namespace Execution {
       /**
        * Vektor error
        */
-      error: ExecutionEVMTransactionPermission.Error | null;
+      error: VektorAPI.ExecutionError;
 
       /**
        * ISO8601 Timestamp
@@ -2397,55 +2005,6 @@ export namespace Execution {
       value: string | null;
     }
 
-    export namespace ExecutionEVMTransactionPermission {
-      /**
-       * Vektor error
-       */
-      export interface Error {
-        /**
-         * Error context
-         */
-        context: Error.Context;
-
-        /**
-         * Error message
-         */
-        message: string;
-
-        /**
-         * Request ID
-         */
-        request_id: string;
-
-        /**
-         * Error resource
-         */
-        resource: string | null;
-
-        /**
-         * ISO8601 Timestamp
-         */
-        timestamp: VektorAPI.Timestamp;
-
-        /**
-         * Error type
-         */
-        type: string;
-      }
-
-      export namespace Error {
-        /**
-         * Error context
-         */
-        export interface Context {
-          /**
-           * Error parameters
-           */
-          parameters: { [key: string]: unknown };
-        }
-      }
-    }
-
     /**
      * An unwrap of the wrapped native asset
      */
@@ -2487,7 +2046,7 @@ export namespace Execution {
       /**
        * Vektor error
        */
-      error: ExecutionEVMTransactionUnwrap.Error | null;
+      error: VektorAPI.ExecutionError;
 
       /**
        * ISO8601 Timestamp
@@ -2538,55 +2097,6 @@ export namespace Execution {
        * An arbitrary precision decimal represented as a string
        */
       value: string | null;
-    }
-
-    export namespace ExecutionEVMTransactionUnwrap {
-      /**
-       * Vektor error
-       */
-      export interface Error {
-        /**
-         * Error context
-         */
-        context: Error.Context;
-
-        /**
-         * Error message
-         */
-        message: string;
-
-        /**
-         * Request ID
-         */
-        request_id: string;
-
-        /**
-         * Error resource
-         */
-        resource: string | null;
-
-        /**
-         * ISO8601 Timestamp
-         */
-        timestamp: VektorAPI.Timestamp;
-
-        /**
-         * Error type
-         */
-        type: string;
-      }
-
-      export namespace Error {
-        /**
-         * Error context
-         */
-        export interface Context {
-          /**
-           * Error parameters
-           */
-          parameters: { [key: string]: unknown };
-        }
-      }
     }
 
     /**
@@ -2630,7 +2140,7 @@ export namespace Execution {
       /**
        * Vektor error
        */
-      error: ExecutionEVMTransactionWrap.Error | null;
+      error: VektorAPI.ExecutionError;
 
       /**
        * ISO8601 Timestamp
@@ -2683,55 +2193,6 @@ export namespace Execution {
       value: string | null;
     }
 
-    export namespace ExecutionEVMTransactionWrap {
-      /**
-       * Vektor error
-       */
-      export interface Error {
-        /**
-         * Error context
-         */
-        context: Error.Context;
-
-        /**
-         * Error message
-         */
-        message: string;
-
-        /**
-         * Request ID
-         */
-        request_id: string;
-
-        /**
-         * Error resource
-         */
-        resource: string | null;
-
-        /**
-         * ISO8601 Timestamp
-         */
-        timestamp: VektorAPI.Timestamp;
-
-        /**
-         * Error type
-         */
-        type: string;
-      }
-
-      export namespace Error {
-        /**
-         * Error context
-         */
-        export interface Context {
-          /**
-           * Error parameters
-           */
-          parameters: { [key: string]: unknown };
-        }
-      }
-    }
-
     /**
      * Selling an asset for another asset
      */
@@ -2773,7 +2234,7 @@ export namespace Execution {
       /**
        * Vektor error
        */
-      error: ExecutionEVMTransactionSell.Error | null;
+      error: VektorAPI.ExecutionError;
 
       /**
        * ISO8601 Timestamp
@@ -2840,55 +2301,53 @@ export namespace Execution {
        */
       value: string | null;
     }
+  }
+}
 
-    export namespace ExecutionEVMTransactionSell {
-      /**
-       * Vektor error
-       */
-      export interface Error {
-        /**
-         * Error context
-         */
-        context: Error.Context;
+/**
+ * Vektor error
+ */
+export interface ExecutionError {
+  /**
+   * Error context
+   */
+  context: ExecutionError.Context;
 
-        /**
-         * Error message
-         */
-        message: string;
+  /**
+   * Error message
+   */
+  message: string;
 
-        /**
-         * Request ID
-         */
-        request_id: string;
+  /**
+   * Request ID
+   */
+  request_id: string;
 
-        /**
-         * Error resource
-         */
-        resource: string | null;
+  /**
+   * Error resource
+   */
+  resource: string | null;
 
-        /**
-         * ISO8601 Timestamp
-         */
-        timestamp: VektorAPI.Timestamp;
+  /**
+   * ISO8601 Timestamp
+   */
+  timestamp: Timestamp;
 
-        /**
-         * Error type
-         */
-        type: string;
-      }
+  /**
+   * Error type
+   */
+  type: string;
+}
 
-      export namespace Error {
-        /**
-         * Error context
-         */
-        export interface Context {
-          /**
-           * Error parameters
-           */
-          parameters: { [key: string]: unknown };
-        }
-      }
-    }
+export namespace ExecutionError {
+  /**
+   * Error context
+   */
+  export interface Context {
+    /**
+     * Error parameters
+     */
+    parameters: { [key: string]: unknown };
   }
 }
 
@@ -4217,6 +3676,7 @@ export declare namespace Vektor {
     type ErrorListOutput as ErrorListOutput,
     type EVMChainData as EVMChainData,
     type Execution as Execution,
+    type ExecutionError as ExecutionError,
     type ExecutionEVMTransactionEIP1559Payload as ExecutionEVMTransactionEIP1559Payload,
     type ExecutionEVMTransactionPayload as ExecutionEVMTransactionPayload,
     type ExecutionEVMTransactionState as ExecutionEVMTransactionState,

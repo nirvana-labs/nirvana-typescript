@@ -253,6 +253,7 @@ Types:
 - <code><a href="./src/resources/vektor/vektor.ts">ErrorListOutput</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">EVMChainData</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">Execution</a></code>
+- <code><a href="./src/resources/vektor/vektor.ts">ExecutionError</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">ExecutionEVMTransactionEIP1559Payload</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">ExecutionEVMTransactionPayload</a></code>
 - <code><a href="./src/resources/vektor/vektor.ts">ExecutionEVMTransactionState</a></code>
