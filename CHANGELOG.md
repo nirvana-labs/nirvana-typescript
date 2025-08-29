@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.14.1 (2025-08-29)
+
+Full Changelog: [v1.14.0...v1.14.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.14.0...v1.14.1)
+
+### Chores
+
+* **internal:** update global Error reference ([239225f](https://github.com/nirvana-labs/nirvana-typescript/commit/239225fb8dc91c161a3ea3eca9773582822c3ad6))
+
 ## 1.14.0 (2025-08-26)
 
 Full Changelog: [v1.13.1...v1.14.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.13.1...v1.14.0)
