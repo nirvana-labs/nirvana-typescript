@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.14.2 (2025-09-06)
+
+Full Changelog: [v1.14.1...v1.14.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.14.1...v1.14.2)
+
+### Chores
+
+* ci build action ([98a1434](https://github.com/nirvana-labs/nirvana-typescript/commit/98a14349fa57639bb57ce25132c9e6dfd777bce9))
+
 ## 1.14.1 (2025-08-29)
 
 Full Changelog: [v1.14.0...v1.14.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.14.0...v1.14.1)
