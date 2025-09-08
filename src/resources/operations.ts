@@ -78,7 +78,7 @@ export type OperationStatus = 'pending' | 'running' | 'done' | 'failed' | 'unkno
 /**
  * Type of operation.
  */
-export type OperationType = 'create' | 'update' | 'delete';
+export type OperationType = 'create' | 'update' | 'delete' | 'restart';
 
 export declare namespace Operations {
   export {
