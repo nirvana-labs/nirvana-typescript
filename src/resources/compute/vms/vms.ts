@@ -96,6 +96,18 @@ export class VMs extends APIResource {
   get(vmID: string, options?: RequestOptions): APIPromise<VM> {
     return this._client.get(path`/v1/compute/vms/${vmID}`, options);
   }
+
+  /**
+   * Restart a VM
+   *
+   * @example
+   * ```ts
+   * const operation = await client.compute.vms.restart('vm_id');
+   * ```
+   */
+  restart(vmID: string, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
+    return this._client.post(path`/v1/compute/vms/${vmID}/restart`, options);
+  }
 }
 
 /**
