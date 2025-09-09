@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.15.1 (2025-09-09)
+
+Full Changelog: [v1.15.0...v1.15.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.15.0...v1.15.1)
+
+### Bug Fixes
+
+* coerce nullable values to undefined ([0988289](https://github.com/nirvana-labs/nirvana-typescript/commit/09882893f8d0b2ccc004730d3c8f1a28cfe2b0ef))
+
 ## 1.15.0 (2025-09-08)
 
 Full Changelog: [v1.14.2...v1.15.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.14.2...v1.15.0)
