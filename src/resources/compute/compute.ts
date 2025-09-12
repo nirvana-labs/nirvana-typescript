@@ -4,9 +4,11 @@ import { APIResource } from '../../core/resource';
 import * as VMsAPI from './vms/vms';
 import {
   CPUConfig,
+  CPUConfigRequest,
   MemoryConfig,
+  MemoryConfigRequest,
   OSImage,
-  SSHKey,
+  SSHKeyRequest,
   VM,
   VMCreateParams,
   VMList,
@@ -36,9 +38,11 @@ export declare namespace Compute {
   export {
     VMs as VMs,
     type CPUConfig as CPUConfig,
+    type CPUConfigRequest as CPUConfigRequest,
     type MemoryConfig as MemoryConfig,
+    type MemoryConfigRequest as MemoryConfigRequest,
     type OSImage as OSImage,
-    type SSHKey as SSHKey,
+    type SSHKeyRequest as SSHKeyRequest,
     type VM as VM,
     type VMList as VMList,
     type VMCreateParams as VMCreateParams,

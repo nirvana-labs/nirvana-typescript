@@ -96,7 +96,7 @@ export class VPCs extends APIResource {
  */
 export interface Subnet {
   /**
-   * Unique identifier for the subnet.
+   * Unique identifier for the Subnet.
    */
   id: string;
 

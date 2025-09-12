@@ -109,11 +109,6 @@ export interface APIKey {
   updated_at: string;
 
   /**
-   * User ID that owns the API key.
-   */
-  user_id: string;
-
-  /**
    * API key. Only returned on creation.
    */
   key?: string;

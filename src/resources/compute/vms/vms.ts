@@ -121,9 +121,29 @@ export interface CPUConfig {
 }
 
 /**
+ * CPU configuration for the VM.
+ */
+export interface CPUConfigRequest {
+  /**
+   * Number of virtual CPUs.
+   */
+  vcpu: number;
+}
+
+/**
  * Memory configuration for the VM.
  */
 export interface MemoryConfig {
+  /**
+   * Size of the memory in GB.
+   */
+  size: number;
+}
+
+/**
+ * Memory configuration for the VM.
+ */
+export interface MemoryConfigRequest {
   /**
    * Size of the memory in GB.
    */
@@ -153,7 +173,7 @@ export interface OSImage {
 /**
  * Public SSH key configuration for the VM.
  */
-export interface SSHKey {
+export interface SSHKeyRequest {
   /**
    * Public key to and and use to access the VM.
    */
@@ -258,12 +278,12 @@ export interface VMCreateParams {
   /**
    * CPU configuration for the VM.
    */
-  cpu_config: CPUConfig;
+  cpu_config: CPUConfigRequest;
 
   /**
    * Memory configuration for the VM.
    */
-  memory_config: MemoryConfig;
+  memory_config: MemoryConfigRequest;
 
   /**
    * Name of the VM.
@@ -288,7 +308,7 @@ export interface VMCreateParams {
   /**
    * Public SSH key configuration for the VM.
    */
-  ssh_key: SSHKey;
+  ssh_key: SSHKeyRequest;
 
   /**
    * ID of the subnet to use for the VM.
@@ -332,12 +352,12 @@ export interface VMUpdateParams {
   /**
    * CPU configuration for the VM.
    */
-  cpu_config?: CPUConfig;
+  cpu_config?: CPUConfigRequest;
 
   /**
    * Memory configuration for the VM.
    */
-  memory_config?: MemoryConfig;
+  memory_config?: MemoryConfigRequest;
 
   /**
    * Name of the VM.
@@ -357,9 +377,11 @@ VMs.OSImages = OSImages;
 export declare namespace VMs {
   export {
     type CPUConfig as CPUConfig,
+    type CPUConfigRequest as CPUConfigRequest,
     type MemoryConfig as MemoryConfig,
+    type MemoryConfigRequest as MemoryConfigRequest,
     type OSImage as OSImage,
-    type SSHKey as SSHKey,
+    type SSHKeyRequest as SSHKeyRequest,
     type VM as VM,
     type VMList as VMList,
     type VMCreateParams as VMCreateParams,
