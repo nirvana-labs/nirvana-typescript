@@ -70,12 +70,12 @@ export interface AvailabilityCreateParams {
   /**
    * CPU configuration for the VM.
    */
-  cpu_config: VMsAPI.CPUConfig;
+  cpu_config: VMsAPI.CPUConfigRequest;
 
   /**
    * Memory configuration for the VM.
    */
-  memory_config: VMsAPI.MemoryConfig;
+  memory_config: VMsAPI.MemoryConfigRequest;
 
   /**
    * Name of the VM.
@@ -100,7 +100,7 @@ export interface AvailabilityCreateParams {
   /**
    * Public SSH key configuration for the VM.
    */
-  ssh_key: VMsAPI.SSHKey;
+  ssh_key: VMsAPI.SSHKeyRequest;
 
   /**
    * ID of the subnet to use for the VM.
@@ -144,12 +144,12 @@ export interface AvailabilityUpdateParams {
   /**
    * CPU configuration for the VM.
    */
-  cpu_config?: VMsAPI.CPUConfig;
+  cpu_config?: VMsAPI.CPUConfigRequest;
 
   /**
    * Memory configuration for the VM.
    */
-  memory_config?: VMsAPI.MemoryConfig;
+  memory_config?: VMsAPI.MemoryConfigRequest;
 
   /**
    * Name of the VM.
