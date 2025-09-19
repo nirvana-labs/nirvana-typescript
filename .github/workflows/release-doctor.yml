@@ -12,11 +12,20 @@ jobs:
     if: github.repository == 'nirvana-labs/nirvana-typescript' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch' || startsWith(github.head_ref, 'release-please') || github.head_ref == 'next')
 
     steps:
+      - name: Set Release Bot GitHub App Token
+        uses: actions/create-github-app-token@a8d616148505b5069dccd32f177bb87d7f39123b # v2.1.1
+        id: app_token
+        with:
+          app-id: ${{ vars.GH_NIRVANA_LABS_RELEASE_BOT_APP_ID }}
+          private-key: ${{ secrets.GH_NIRVANA_LABS_RELEASE_BOT_PRIVATE_KEY }}
+
       - uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app_token.outputs.token }}
 
       - name: Check release environment
         run: |
           bash ./bin/check-release-environment
         env:
           NPM_TOKEN: ${{ secrets.NIRVANA_LABS_NPM_TOKEN || secrets.NPM_TOKEN }}
-          DOCKERHUB_TOKEN: ${{ secrets.NIRVANA_LABS_DOCKERHUB_TOKEN || secrets.DOCKERHUB_TOKEN }}
+          DOCKERHUB_TOKEN: ${{ secrets.NIRVANA_LABS_DOCKERHUB_TOKEN || secrets.DOCKERHUB_TOKEN || secrets.GITHUB_TOKEN }}
