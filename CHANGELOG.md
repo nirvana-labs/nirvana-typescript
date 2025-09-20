@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.17.1 (2025-09-20)
+
+Full Changelog: [v1.17.0...v1.17.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.17.0...v1.17.1)
+
+### Features
+
+* **api:** api update ([16a3e0e](https://github.com/nirvana-labs/nirvana-typescript/commit/16a3e0e762e8ec31fa4fc229cd37fd0ad0555c21))
+* **api:** manual updates ([233718a](https://github.com/nirvana-labs/nirvana-typescript/commit/233718adefddd25bd60e1cdc0c025c6d4ed35fc5))
+* **mcp:** add docs search tool ([3cd9c68](https://github.com/nirvana-labs/nirvana-typescript/commit/3cd9c68d0e94d17bcb475cb822960b4f965f4fae))
+
+
+### Chores
+
+* **codegen:** internal codegen update ([5cc8542](https://github.com/nirvana-labs/nirvana-typescript/commit/5cc8542ec3c81a55adfee6c9e4fbd8210058be7e))
+* do not install brew dependencies in ./scripts/bootstrap by default ([e433b04](https://github.com/nirvana-labs/nirvana-typescript/commit/e433b0492ba92875d8848f474d7fa6606be11869))
+* **internal:** gitignore .mcpb files ([4b9507f](https://github.com/nirvana-labs/nirvana-typescript/commit/4b9507f9fe12b93ba11e20c42304302e96bd48c5))
+* **mcp:** rename dxt to mcpb ([b70898e](https://github.com/nirvana-labs/nirvana-typescript/commit/b70898e8cbabeced63c32fb0bd30af49a17fcdb9))
+
 ## 1.17.0 (2025-09-17)
 
 Full Changelog: [v1.16.0...v1.17.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.16.0...v1.17.0)
