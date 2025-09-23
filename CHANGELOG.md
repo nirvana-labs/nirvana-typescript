@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.17.2 (2025-09-23)
+
+Full Changelog: [v1.17.1...v1.17.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.17.1...v1.17.2)
+
+### Features
+
+* **mcp:** enable experimental docs search tool ([968c0e6](https://github.com/nirvana-labs/nirvana-typescript/commit/968c0e682dab22af84ee1f4d087824f2f904afaa))
+
 ## 1.17.1 (2025-09-20)
 
 Full Changelog: [v1.17.0...v1.17.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.17.0...v1.17.1)
