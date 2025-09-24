@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../core/resource';
+import * as FluxAPI from './flux';
 import { APIPromise } from '../../../core/api-promise';
 import { RequestOptions } from '../../../internal/request-options';
 
@@ -10,36 +11,11 @@ export class Providers extends APIResource {
    *
    * @example
    * ```ts
-   * const providers =
+   * const connectFluxProviderList =
    *   await client.connect.flux.providers.list();
    * ```
    */
-  list(options?: RequestOptions): APIPromise<ProviderListResponse> {
+  list(options?: RequestOptions): APIPromise<FluxAPI.ConnectFluxProviderList> {
     return this._client.get('/v1/connect/flux/providers', options);
   }
-}
-
-export interface ProviderListResponse {
-  items: Array<ProviderListResponse.Item>;
-}
-
-export namespace ProviderListResponse {
-  /**
-   * Provider supported for Connect Flux.
-   */
-  export interface Item {
-    /**
-     * Provider name.
-     */
-    name: string;
-
-    /**
-     * Provider region name.
-     */
-    region: string;
-  }
-}
-
-export declare namespace Providers {
-  export { type ProviderListResponse as ProviderListResponse };
 }

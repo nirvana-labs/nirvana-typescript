@@ -4,7 +4,7 @@ import { APIResource } from '../../../core/resource';
 import * as OperationsAPI from '../../operations';
 import * as Shared from '../../shared';
 import * as ProvidersAPI from './providers';
-import { ProviderListResponse, Providers } from './providers';
+import { Providers } from './providers';
 import { APIPromise } from '../../../core/api-promise';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
@@ -173,6 +173,25 @@ export interface ConnectFluxList {
   items: Array<ConnectFlux>;
 }
 
+/**
+ * Provider supported for Connect Flux.
+ */
+export interface ConnectFluxProvider {
+  /**
+   * Provider name.
+   */
+  name: string;
+
+  /**
+   * Provider region name.
+   */
+  region: string;
+}
+
+export interface ConnectFluxProviderList {
+  items: Array<ConnectFluxProvider>;
+}
+
 export interface FluxCreateParams {
   /**
    * Connect flux speed in Mbps
@@ -235,9 +254,11 @@ export declare namespace Flux {
   export {
     type ConnectFlux as ConnectFlux,
     type ConnectFluxList as ConnectFluxList,
+    type ConnectFluxProvider as ConnectFluxProvider,
+    type ConnectFluxProviderList as ConnectFluxProviderList,
     type FluxCreateParams as FluxCreateParams,
     type FluxUpdateParams as FluxUpdateParams,
   };
 
-  export { Providers as Providers, type ProviderListResponse as ProviderListResponse };
+  export { Providers as Providers };
 }

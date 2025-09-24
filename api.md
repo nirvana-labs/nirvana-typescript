@@ -221,6 +221,8 @@ Types:
 
 - <code><a href="./src/resources/connect/flux/flux.ts">ConnectFlux</a></code>
 - <code><a href="./src/resources/connect/flux/flux.ts">ConnectFluxList</a></code>
+- <code><a href="./src/resources/connect/flux/flux.ts">ConnectFluxProvider</a></code>
+- <code><a href="./src/resources/connect/flux/flux.ts">ConnectFluxProviderList</a></code>
 
 Methods:
 
@@ -232,13 +234,9 @@ Methods:
 
 ### Providers
 
-Types:
-
-- <code><a href="./src/resources/connect/flux/providers.ts">ProviderListResponse</a></code>
-
 Methods:
 
-- <code title="get /v1/connect/flux/providers">client.connect.flux.providers.<a href="./src/resources/connect/flux/providers.ts">list</a>() -> ProviderListResponse</code>
+- <code title="get /v1/connect/flux/providers">client.connect.flux.providers.<a href="./src/resources/connect/flux/providers.ts">list</a>() -> ConnectFluxProviderList</code>
 
 # Vektor
 
