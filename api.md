@@ -219,13 +219,26 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/connect/flux.ts">ConnectFlux</a></code>
-- <code><a href="./src/resources/connect/flux.ts">ConnectFluxList</a></code>
+- <code><a href="./src/resources/connect/flux/flux.ts">ConnectFlux</a></code>
+- <code><a href="./src/resources/connect/flux/flux.ts">ConnectFluxList</a></code>
 
 Methods:
 
-- <code title="get /v1/connect/flux">client.connect.flux.<a href="./src/resources/connect/flux.ts">list</a>() -> ConnectFluxList</code>
-- <code title="get /v1/connect/flux/{flux_id}">client.connect.flux.<a href="./src/resources/connect/flux.ts">get</a>(fluxID) -> ConnectFlux</code>
+- <code title="post /v1/connect/flux">client.connect.flux.<a href="./src/resources/connect/flux/flux.ts">create</a>({ ...params }) -> Operation</code>
+- <code title="patch /v1/connect/flux/{flux_id}">client.connect.flux.<a href="./src/resources/connect/flux/flux.ts">update</a>(fluxID, { ...params }) -> Operation</code>
+- <code title="get /v1/connect/flux">client.connect.flux.<a href="./src/resources/connect/flux/flux.ts">list</a>() -> ConnectFluxList</code>
+- <code title="delete /v1/connect/flux/{flux_id}">client.connect.flux.<a href="./src/resources/connect/flux/flux.ts">delete</a>(fluxID) -> Operation</code>
+- <code title="get /v1/connect/flux/{flux_id}">client.connect.flux.<a href="./src/resources/connect/flux/flux.ts">get</a>(fluxID) -> ConnectFlux</code>
+
+### Providers
+
+Types:
+
+- <code><a href="./src/resources/connect/flux/providers.ts">ProviderListResponse</a></code>
+
+Methods:
+
+- <code title="get /v1/connect/flux/providers">client.connect.flux.providers.<a href="./src/resources/connect/flux/providers.ts">list</a>() -> ProviderListResponse</code>
 
 # Vektor
 

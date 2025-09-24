@@ -295,8 +295,15 @@ The following tools are available in this MCP server.
 
 ### Resource `connect.flux`:
 
+- `create_connect_flux` (`write`): Create a Connect Flux
+- `update_connect_flux` (`write`): Update Connect Flux details
 - `list_connect_flux` (`read`): List all Connect Flux
+- `delete_connect_flux` (`write`): Delete Connect Flux
 - `get_connect_flux` (`read`): Get Connect Flux details
+
+### Resource `connect.flux.providers`:
+
+- `list_flux_connect_providers` (`read`): List all supported providers with regions for Connect Flux.
 
 ### Resource `vektor.registry.assets`:
 
