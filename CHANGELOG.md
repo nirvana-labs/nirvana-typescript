@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.17.3 (2025-09-24)
+
+Full Changelog: [v1.17.2...v1.17.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.17.2...v1.17.3)
+
+### Features
+
+* **mcp:** add option for including docs tools ([62e94f4](https://github.com/nirvana-labs/nirvana-typescript/commit/62e94f4647339eadedd6fc29b5df0e1b0cfd3e23))
+
 ## 1.17.2 (2025-09-23)
 
 Full Changelog: [v1.17.1...v1.17.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.17.1...v1.17.2)
