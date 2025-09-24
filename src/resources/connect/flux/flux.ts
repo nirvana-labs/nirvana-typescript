@@ -20,7 +20,7 @@ export class Flux extends APIResource {
    * const operation = await client.connect.flux.create({
    *   bandwidth_mbps: 50,
    *   cidrs: ['10.0.0.0/16'],
-   *   name: 'my_aws_direct_connect',
+   *   name: 'my-connect-flux',
    *   provider_cidrs: ['172.16.0.0/16'],
    *   region: 'us-wdc-1',
    * });
@@ -94,7 +94,7 @@ export class Flux extends APIResource {
  */
 export interface ConnectFlux {
   /**
-   * Unique identifier for the connect flux
+   * Unique identifier for the Connect Flux
    */
   id: string;
 
@@ -104,22 +104,27 @@ export interface ConnectFlux {
   asn: number | null;
 
   /**
-   * Connect flux speed in Mbps
+   * AWS provider configuration
+   */
+  aws: ConnectFlux.Aws | null;
+
+  /**
+   * Connect Flux speed in Mbps
    */
   bandwidth_mbps: 50 | 200 | 500;
 
   /**
-   * CIDRs
+   * CIDRs for the Connect Flux
    */
   cidrs: Array<string>;
 
   /**
-   * When the connect flux was created
+   * When the Connect Flux was created
    */
   created_at: string;
 
   /**
-   * Name of the connect flux
+   * Name of the Connect Flux
    */
   name: string;
 
@@ -129,19 +134,9 @@ export interface ConnectFlux {
   provider_asn: number | null;
 
   /**
-   * Provider CIDRs
+   * Provider CIDRs for the Connect Flux
    */
   provider_cidrs: Array<string>;
-
-  /**
-   * Provider name
-   */
-  provider_name: string;
-
-  /**
-   * Provider region
-   */
-  provider_region: string;
 
   /**
    * Provider Router IP
@@ -164,9 +159,21 @@ export interface ConnectFlux {
   status: Shared.ResourceStatus;
 
   /**
-   * When the connect flux was updated
+   * When the Connect Flux was updated
    */
   updated_at: string;
+}
+
+export namespace ConnectFlux {
+  /**
+   * AWS provider configuration
+   */
+  export interface Aws {
+    /**
+     * AWS region where the connection is established
+     */
+    region: string;
+  }
 }
 
 export interface ConnectFluxList {
@@ -194,7 +201,7 @@ export interface ConnectFluxProviderList {
 
 export interface FluxCreateParams {
   /**
-   * Connect flux speed in Mbps
+   * Connect Flux speed in Mbps
    */
   bandwidth_mbps: 50 | 200 | 500;
 
