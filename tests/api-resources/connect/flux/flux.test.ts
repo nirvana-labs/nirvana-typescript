@@ -12,7 +12,7 @@ describe('resource flux', () => {
     const responsePromise = client.connect.flux.create({
       bandwidth_mbps: 50,
       cidrs: ['10.0.0.0/16'],
-      name: 'my_aws_direct_connect',
+      name: 'my-connect-flux',
       provider_cidrs: ['172.16.0.0/16'],
       region: 'us-wdc-1',
     });
@@ -29,10 +29,10 @@ describe('resource flux', () => {
     const response = await client.connect.flux.create({
       bandwidth_mbps: 50,
       cidrs: ['10.0.0.0/16'],
-      name: 'my_aws_direct_connect',
+      name: 'my-connect-flux',
       provider_cidrs: ['172.16.0.0/16'],
       region: 'us-wdc-1',
-      aws: { account_number: '522814707115', region: 'us-east-1' },
+      aws: { account_number: '523816707215', region: 'us-east-1' },
     });
   });
 
