@@ -5,6 +5,8 @@ export {
   Flux,
   type ConnectFlux,
   type ConnectFluxList,
+  type ConnectFluxProvider,
+  type ConnectFluxProviderList,
   type FluxCreateParams,
   type FluxUpdateParams,
 } from './flux/index';
