@@ -4,42 +4,36 @@ import { APIResource } from '../../core/resource';
 import * as DedicatedAPI from './dedicated/dedicated';
 import {
   Dedicated,
-  RPCNodesDedicated,
-  RPCNodesDedicatedBlockchain,
-  RPCNodesDedicatedBlockchainList,
-  RPCNodesDedicatedList,
+  DedicatedBlockchain,
+  DedicatedBlockchainList,
+  DedicatedList,
+  DedicatedResource,
 } from './dedicated/dedicated';
 import * as FlexAPI from './flex/flex';
-import {
-  Flex,
-  RPCNodesFlex,
-  RPCNodesFlexBlockchain,
-  RPCNodesFlexBlockchainList,
-  RPCNodesFlexList,
-} from './flex/flex';
+import { Flex, FlexBlockchain, FlexBlockchainList, FlexList, FlexResource } from './flex/flex';
 
 export class RPCNodes extends APIResource {
-  flex: FlexAPI.Flex = new FlexAPI.Flex(this._client);
-  dedicated: DedicatedAPI.Dedicated = new DedicatedAPI.Dedicated(this._client);
+  flex: FlexAPI.FlexResource = new FlexAPI.FlexResource(this._client);
+  dedicated: DedicatedAPI.DedicatedResource = new DedicatedAPI.DedicatedResource(this._client);
 }
 
-RPCNodes.Flex = Flex;
-RPCNodes.Dedicated = Dedicated;
+RPCNodes.FlexResource = FlexResource;
+RPCNodes.DedicatedResource = DedicatedResource;
 
 export declare namespace RPCNodes {
   export {
-    Flex as Flex,
-    type RPCNodesFlex as RPCNodesFlex,
-    type RPCNodesFlexBlockchain as RPCNodesFlexBlockchain,
-    type RPCNodesFlexBlockchainList as RPCNodesFlexBlockchainList,
-    type RPCNodesFlexList as RPCNodesFlexList,
+    FlexResource as FlexResource,
+    type Flex as Flex,
+    type FlexBlockchain as FlexBlockchain,
+    type FlexBlockchainList as FlexBlockchainList,
+    type FlexList as FlexList,
   };
 
   export {
-    Dedicated as Dedicated,
-    type RPCNodesDedicated as RPCNodesDedicated,
-    type RPCNodesDedicatedBlockchain as RPCNodesDedicatedBlockchain,
-    type RPCNodesDedicatedBlockchainList as RPCNodesDedicatedBlockchainList,
-    type RPCNodesDedicatedList as RPCNodesDedicatedList,
+    DedicatedResource as DedicatedResource,
+    type Dedicated as Dedicated,
+    type DedicatedBlockchain as DedicatedBlockchain,
+    type DedicatedBlockchainList as DedicatedBlockchainList,
+    type DedicatedList as DedicatedList,
   };
 }

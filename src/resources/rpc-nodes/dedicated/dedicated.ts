@@ -7,20 +7,20 @@ import { APIPromise } from '../../../core/api-promise';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
-export class Dedicated extends APIResource {
+export class DedicatedResource extends APIResource {
   blockchains: BlockchainsAPI.Blockchains = new BlockchainsAPI.Blockchains(this._client);
 
   /**
    * List all RPC Node Dedicated you created
    */
-  list(options?: RequestOptions): APIPromise<RPCNodesDedicatedList> {
+  list(options?: RequestOptions): APIPromise<DedicatedList> {
     return this._client.get('/v1/rpc_nodes/dedicated', options);
   }
 
   /**
    * Get details about an RPC Node Dedicated
    */
-  get(nodeID: string, options?: RequestOptions): APIPromise<RPCNodesDedicated> {
+  get(nodeID: string, options?: RequestOptions): APIPromise<Dedicated> {
     return this._client.get(path`/v1/rpc_nodes/dedicated/${nodeID}`, options);
   }
 }
@@ -28,7 +28,7 @@ export class Dedicated extends APIResource {
 /**
  * RPC Node Dedicated details.
  */
-export interface RPCNodesDedicated {
+export interface Dedicated {
   /**
    * Unique identifier for the RPC Node Dedicated.
    */
@@ -68,7 +68,7 @@ export interface RPCNodesDedicated {
 /**
  * Blockchain supported by the Dedicated RPC Node.
  */
-export interface RPCNodesDedicatedBlockchain {
+export interface DedicatedBlockchain {
   /**
    * Blockchain type.
    */
@@ -80,22 +80,22 @@ export interface RPCNodesDedicatedBlockchain {
   network: string;
 }
 
-export interface RPCNodesDedicatedBlockchainList {
-  items: Array<RPCNodesDedicatedBlockchain>;
+export interface DedicatedBlockchainList {
+  items: Array<DedicatedBlockchain>;
 }
 
-export interface RPCNodesDedicatedList {
-  items: Array<RPCNodesDedicated>;
+export interface DedicatedList {
+  items: Array<Dedicated>;
 }
 
-Dedicated.Blockchains = Blockchains;
+DedicatedResource.Blockchains = Blockchains;
 
-export declare namespace Dedicated {
+export declare namespace DedicatedResource {
   export {
-    type RPCNodesDedicated as RPCNodesDedicated,
-    type RPCNodesDedicatedBlockchain as RPCNodesDedicatedBlockchain,
-    type RPCNodesDedicatedBlockchainList as RPCNodesDedicatedBlockchainList,
-    type RPCNodesDedicatedList as RPCNodesDedicatedList,
+    type Dedicated as Dedicated,
+    type DedicatedBlockchain as DedicatedBlockchain,
+    type DedicatedBlockchainList as DedicatedBlockchainList,
+    type DedicatedList as DedicatedList,
   };
 
   export { Blockchains as Blockchains };
