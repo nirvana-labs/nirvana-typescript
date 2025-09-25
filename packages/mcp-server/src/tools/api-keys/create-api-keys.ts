@@ -18,23 +18,30 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'create_api_keys',
   description:
-    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nCreate a new API key\n\n# Response Schema\n```json\n{\n  $ref: '#/$defs/api_key',\n  $defs: {\n    api_key: {\n      type: 'object',\n      description: 'API key response.',\n      properties: {\n        id: {\n          type: 'string',\n          description: 'API key ID.'\n        },\n        created_at: {\n          type: 'string',\n          description: 'When the API key was created.',\n          format: 'date-time'\n        },\n        expires_at: {\n          type: 'string',\n          description: 'When the API key expires and is no longer valid.',\n          format: 'date-time'\n        },\n        name: {\n          type: 'string',\n          description: 'API key name.'\n        },\n        status: {\n          type: 'string',\n          description: 'Status of the API key.',\n          enum: [            'active',\n            'inactive',\n            'expired'\n          ]\n        },\n        updated_at: {\n          type: 'string',\n          description: 'When the API key was updated.',\n          format: 'date-time'\n        },\n        key: {\n          type: 'string',\n          description: 'API key. Only returned on creation.'\n        },\n        starts_at: {\n          type: 'string',\n          description: 'When the API key starts to be valid.',\n          format: 'date-time'\n        }\n      },\n      required: [        'id',\n        'created_at',\n        'expires_at',\n        'name',\n        'status',\n        'updated_at'\n      ]\n    }\n  }\n}\n```",
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nCreate a new API key\n\n# Response Schema\n```json\n{\n  $ref: '#/$defs/api_key',\n  $defs: {\n    api_key: {\n      type: 'object',\n      description: 'API Key response.',\n      properties: {\n        id: {\n          type: 'string',\n          description: 'API Key ID.'\n        },\n        created_at: {\n          type: 'string',\n          description: 'When the API Key was created.',\n          format: 'date-time'\n        },\n        expires_at: {\n          type: 'string',\n          description: 'When the API Key expires and is no longer valid.',\n          format: 'date-time'\n        },\n        name: {\n          type: 'string',\n          description: 'API Key name.'\n        },\n        status: {\n          type: 'string',\n          description: 'Status of the API Key.',\n          enum: [            'active',\n            'inactive',\n            'expired'\n          ]\n        },\n        tags: {\n          type: 'array',\n          description: 'Tags to attach to the API Key.',\n          items: {\n            type: 'string'\n          }\n        },\n        updated_at: {\n          type: 'string',\n          description: 'When the API Key was updated.',\n          format: 'date-time'\n        },\n        key: {\n          type: 'string',\n          description: 'API Key. Only returned on creation.'\n        },\n        starts_at: {\n          type: 'string',\n          description: 'When the API Key starts to be valid.',\n          format: 'date-time'\n        }\n      },\n      required: [        'id',\n        'created_at',\n        'expires_at',\n        'name',\n        'status',\n        'tags',\n        'updated_at'\n      ]\n    }\n  }\n}\n```",
   inputSchema: {
     type: 'object',
     properties: {
       expires_at: {
         type: 'string',
-        description: 'When the API key expires and is no longer valid.',
+        description: 'When the API Key expires and is no longer valid.',
         format: 'date-time',
       },
       name: {
         type: 'string',
-        description: 'API key name.',
+        description: 'API Key name.',
       },
       starts_at: {
         type: 'string',
-        description: 'When the API key starts to be valid.',
+        description: 'When the API Key starts to be valid.',
         format: 'date-time',
+      },
+      tags: {
+        type: 'array',
+        description: 'Tags to attach to the API Key.',
+        items: {
+          type: 'string',
+        },
       },
       jq_filter: {
         type: 'string',

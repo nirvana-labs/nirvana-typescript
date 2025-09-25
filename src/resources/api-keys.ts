@@ -75,46 +75,51 @@ export class APIKeys extends APIResource {
 }
 
 /**
- * API key response.
+ * API Key response.
  */
 export interface APIKey {
   /**
-   * API key ID.
+   * API Key ID.
    */
   id: string;
 
   /**
-   * When the API key was created.
+   * When the API Key was created.
    */
   created_at: string;
 
   /**
-   * When the API key expires and is no longer valid.
+   * When the API Key expires and is no longer valid.
    */
   expires_at: string;
 
   /**
-   * API key name.
+   * API Key name.
    */
   name: string;
 
   /**
-   * Status of the API key.
+   * Status of the API Key.
    */
   status: 'active' | 'inactive' | 'expired';
 
   /**
-   * When the API key was updated.
+   * Tags to attach to the API Key.
+   */
+  tags: Array<string>;
+
+  /**
+   * When the API Key was updated.
    */
   updated_at: string;
 
   /**
-   * API key. Only returned on creation.
+   * API Key. Only returned on creation.
    */
   key?: string;
 
   /**
-   * When the API key starts to be valid.
+   * When the API Key starts to be valid.
    */
   starts_at?: string;
 }
@@ -125,26 +130,36 @@ export interface APIKeyList {
 
 export interface APIKeyCreateParams {
   /**
-   * When the API key expires and is no longer valid.
+   * When the API Key expires and is no longer valid.
    */
   expires_at: string;
 
   /**
-   * API key name.
+   * API Key name.
    */
   name: string;
 
   /**
-   * When the API key starts to be valid.
+   * When the API Key starts to be valid.
    */
   starts_at?: string;
+
+  /**
+   * Tags to attach to the API Key.
+   */
+  tags?: Array<string>;
 }
 
 export interface APIKeyUpdateParams {
   /**
-   * API key name.
+   * API Key name.
    */
   name?: string;
+
+  /**
+   * Tags to attach to the API Key.
+   */
+  tags?: Array<string>;
 }
 
 export declare namespace APIKeys {

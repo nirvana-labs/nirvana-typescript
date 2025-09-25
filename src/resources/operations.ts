@@ -26,43 +26,43 @@ export class Operations extends APIResource {
  */
 export interface Operation {
   /**
-   * Unique identifier for the operation.
+   * Unique identifier for the Operation.
    */
   id: string;
 
   /**
-   * When the operation was created.
+   * When the Operation was created.
    */
   created_at: string;
 
   /**
-   * Kind of operation.
+   * Kind of Operation.
    */
   kind: OperationKind;
 
   /**
-   * ID of the resource that the operation is acting on.
+   * ID of the resource that the Operation is acting on.
    */
   resource_id: string;
 
   /**
-   * Status of the operation.
+   * Status of the Operation.
    */
   status: OperationStatus;
 
   /**
-   * Type of operation.
+   * Type of Operation.
    */
   type: OperationType;
 
   /**
-   * When the operation was updated.
+   * When the Operation was updated.
    */
   updated_at: string;
 }
 
 /**
- * Kind of operation.
+ * Kind of Operation.
  */
 export type OperationKind = 'vm' | 'volume' | 'vpc' | 'firewall_rule';
 
@@ -71,12 +71,12 @@ export interface OperationList {
 }
 
 /**
- * Status of the operation.
+ * Status of the Operation.
  */
 export type OperationStatus = 'pending' | 'running' | 'done' | 'failed' | 'unknown';
 
 /**
- * Type of operation.
+ * Type of Operation.
  */
 export type OperationType = 'create' | 'update' | 'delete' | 'restart';
 

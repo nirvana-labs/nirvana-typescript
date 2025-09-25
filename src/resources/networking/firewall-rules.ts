@@ -116,37 +116,37 @@ export class FirewallRules extends APIResource {
  */
 export interface FirewallRule {
   /**
-   * Unique identifier for the firewall rule.
+   * Unique identifier for the Firewall Rule.
    */
   id: string;
 
   /**
-   * When the firewall rule was created.
+   * When the Firewall Rule was created.
    */
   created_at: string;
 
   /**
-   * Destination address of the firewall rule. Either VPC CIDR or VM in VPC.
+   * Destination address of the Firewall Rule. Either VPC CIDR or VM in VPC.
    */
   destination_address: string;
 
   /**
-   * Destination ports of the firewall rule.
+   * Destination ports of the Firewall Rule.
    */
   destination_ports: Array<string>;
 
   /**
-   * Name of the firewall rule.
+   * Name of the Firewall Rule.
    */
   name: string;
 
   /**
-   * Protocol of the firewall rule.
+   * Protocol of the Firewall Rule.
    */
   protocol: 'tcp' | 'udp';
 
   /**
-   * Source address of the firewall rule. Address of 0.0.0.0 requires a CIDR mask
+   * Source address of the Firewall Rule. Address of 0.0.0.0 requires a CIDR mask
    * of 0.
    */
   source_address: string;
@@ -157,12 +157,17 @@ export interface FirewallRule {
   status: Shared.ResourceStatus;
 
   /**
-   * When the firewall rule was updated.
+   * Tags to attach to the Firewall Rule.
+   */
+  tags: Array<string>;
+
+  /**
+   * When the Firewall Rule was updated.
    */
   updated_at: string;
 
   /**
-   * ID of the VPC the firewall rule belongs to.
+   * ID of the VPC the Firewall Rule belongs to.
    */
   vpc_id: string;
 }
@@ -173,30 +178,35 @@ export interface FirewallRuleList {
 
 export interface FirewallRuleCreateParams {
   /**
-   * Destination address of the firewall rule. Either VPC CIDR or VM in VPC.
+   * Destination address of the Firewall Rule. Either VPC CIDR or VM in VPC.
    */
   destination_address: string;
 
   /**
-   * Destination ports of the firewall rule.
+   * Destination ports of the Firewall Rule.
    */
   destination_ports: Array<string>;
 
   /**
-   * Name of the firewall rule.
+   * Name of the Firewall Rule.
    */
   name: string;
 
   /**
-   * Protocol of the firewall rule.
+   * Protocol of the Firewall Rule.
    */
   protocol: 'tcp' | 'udp';
 
   /**
-   * Source address of the firewall rule. Address of 0.0.0.0 requires a CIDR mask
+   * Source address of the Firewall Rule. Address of 0.0.0.0 requires a CIDR mask
    * of 0.
    */
   source_address: string;
+
+  /**
+   * Tags to attach to the Firewall Rule.
+   */
+  tags?: Array<string>;
 }
 
 export interface FirewallRuleUpdateParams {
@@ -206,31 +216,36 @@ export interface FirewallRuleUpdateParams {
   vpc_id: string;
 
   /**
-   * Body param: Destination address of the firewall rule. Either VPC CIDR or VM in
+   * Body param: Destination address of the Firewall Rule. Either VPC CIDR or VM in
    * VPC.
    */
   destination_address?: string;
 
   /**
-   * Body param: Destination ports of the firewall rule.
+   * Body param: Destination ports of the Firewall Rule.
    */
   destination_ports?: Array<string>;
 
   /**
-   * Body param: Name of the firewall rule.
+   * Body param: Name of the Firewall Rule.
    */
   name?: string;
 
   /**
-   * Body param: Protocol of the firewall rule.
+   * Body param: Protocol of the Firewall Rule.
    */
   protocol?: 'tcp' | 'udp';
 
   /**
-   * Body param: Source address of the firewall rule. Address of 0.0.0.0 requires a
+   * Body param: Source address of the Firewall Rule. Address of 0.0.0.0 requires a
    * CIDR mask of 0.
    */
   source_address?: string;
+
+  /**
+   * Body param: Tags to attach to the Firewall Rule.
+   */
+  tags?: Array<string>;
 }
 
 export interface FirewallRuleDeleteParams {

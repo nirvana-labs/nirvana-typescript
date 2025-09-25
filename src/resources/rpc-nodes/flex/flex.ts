@@ -60,13 +60,18 @@ export interface Flex {
   network: string;
 
   /**
+   * Tags to attach to the RPC Node Flex.
+   */
+  tags: Array<string>;
+
+  /**
    * When the RPC Node Flex was updated.
    */
   updated_at: string;
 }
 
 /**
- * Blockchain supported by the Flex RPC Node.
+ * Blockchain supported by the RPC Node Flex.
  */
 export interface FlexBlockchain {
   /**

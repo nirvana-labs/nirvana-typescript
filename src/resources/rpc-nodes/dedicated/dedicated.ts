@@ -60,13 +60,18 @@ export interface Dedicated {
   network: string;
 
   /**
+   * Tags to attach to the RPC Node Dedicated.
+   */
+  tags: Array<string>;
+
+  /**
    * When the RPC Node Dedicated was updated.
    */
   updated_at: string;
 }
 
 /**
- * Blockchain supported by the Dedicated RPC Node.
+ * Blockchain supported by the RPC Node Dedicated.
  */
 export interface DedicatedBlockchain {
   /**
