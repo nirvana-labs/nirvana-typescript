@@ -9,7 +9,7 @@ export class Blockchains extends APIResource {
   /**
    * List all Flex Blockchains
    */
-  list(options?: RequestOptions): APIPromise<FlexAPI.RPCNodesFlexBlockchainList> {
+  list(options?: RequestOptions): APIPromise<FlexAPI.FlexBlockchainList> {
     return this._client.get('/v1/rpc_nodes/flex/blockchains', options);
   }
 }

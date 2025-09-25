@@ -177,41 +177,41 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/rpc-nodes/flex/flex.ts">RPCNodesFlex</a></code>
-- <code><a href="./src/resources/rpc-nodes/flex/flex.ts">RPCNodesFlexBlockchain</a></code>
-- <code><a href="./src/resources/rpc-nodes/flex/flex.ts">RPCNodesFlexBlockchainList</a></code>
-- <code><a href="./src/resources/rpc-nodes/flex/flex.ts">RPCNodesFlexList</a></code>
+- <code><a href="./src/resources/rpc-nodes/flex/flex.ts">Flex</a></code>
+- <code><a href="./src/resources/rpc-nodes/flex/flex.ts">FlexBlockchain</a></code>
+- <code><a href="./src/resources/rpc-nodes/flex/flex.ts">FlexBlockchainList</a></code>
+- <code><a href="./src/resources/rpc-nodes/flex/flex.ts">FlexList</a></code>
 
 Methods:
 
-- <code title="get /v1/rpc_nodes/flex">client.rpcNodes.flex.<a href="./src/resources/rpc-nodes/flex/flex.ts">list</a>() -> RPCNodesFlexList</code>
-- <code title="get /v1/rpc_nodes/flex/{node_id}">client.rpcNodes.flex.<a href="./src/resources/rpc-nodes/flex/flex.ts">get</a>(nodeID) -> RPCNodesFlex</code>
+- <code title="get /v1/rpc_nodes/flex">client.rpcNodes.flex.<a href="./src/resources/rpc-nodes/flex/flex.ts">list</a>() -> FlexList</code>
+- <code title="get /v1/rpc_nodes/flex/{node_id}">client.rpcNodes.flex.<a href="./src/resources/rpc-nodes/flex/flex.ts">get</a>(nodeID) -> Flex</code>
 
 ### Blockchains
 
 Methods:
 
-- <code title="get /v1/rpc_nodes/flex/blockchains">client.rpcNodes.flex.blockchains.<a href="./src/resources/rpc-nodes/flex/blockchains.ts">list</a>() -> RPCNodesFlexBlockchainList</code>
+- <code title="get /v1/rpc_nodes/flex/blockchains">client.rpcNodes.flex.blockchains.<a href="./src/resources/rpc-nodes/flex/blockchains.ts">list</a>() -> FlexBlockchainList</code>
 
 ## Dedicated
 
 Types:
 
-- <code><a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">RPCNodesDedicated</a></code>
-- <code><a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">RPCNodesDedicatedBlockchain</a></code>
-- <code><a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">RPCNodesDedicatedBlockchainList</a></code>
-- <code><a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">RPCNodesDedicatedList</a></code>
+- <code><a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">Dedicated</a></code>
+- <code><a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">DedicatedBlockchain</a></code>
+- <code><a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">DedicatedBlockchainList</a></code>
+- <code><a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">DedicatedList</a></code>
 
 Methods:
 
-- <code title="get /v1/rpc_nodes/dedicated">client.rpcNodes.dedicated.<a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">list</a>() -> RPCNodesDedicatedList</code>
-- <code title="get /v1/rpc_nodes/dedicated/{node_id}">client.rpcNodes.dedicated.<a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">get</a>(nodeID) -> RPCNodesDedicated</code>
+- <code title="get /v1/rpc_nodes/dedicated">client.rpcNodes.dedicated.<a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">list</a>() -> DedicatedList</code>
+- <code title="get /v1/rpc_nodes/dedicated/{node_id}">client.rpcNodes.dedicated.<a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">get</a>(nodeID) -> Dedicated</code>
 
 ### Blockchains
 
 Methods:
 
-- <code title="get /v1/rpc_nodes/dedicated/blockchains">client.rpcNodes.dedicated.blockchains.<a href="./src/resources/rpc-nodes/dedicated/blockchains.ts">list</a>() -> RPCNodesDedicatedBlockchainList</code>
+- <code title="get /v1/rpc_nodes/dedicated/blockchains">client.rpcNodes.dedicated.blockchains.<a href="./src/resources/rpc-nodes/dedicated/blockchains.ts">list</a>() -> DedicatedBlockchainList</code>
 
 # Connect
 
@@ -219,13 +219,26 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/connect/flux.ts">ConnectFlux</a></code>
-- <code><a href="./src/resources/connect/flux.ts">ConnectFluxList</a></code>
+- <code><a href="./src/resources/connect/flux/flux.ts">Flux</a></code>
+- <code><a href="./src/resources/connect/flux/flux.ts">FluxList</a></code>
+- <code><a href="./src/resources/connect/flux/flux.ts">FluxProvider</a></code>
+- <code><a href="./src/resources/connect/flux/flux.ts">FluxProviderAWSConfig</a></code>
+- <code><a href="./src/resources/connect/flux/flux.ts">FluxProviderAWSConfigRequest</a></code>
+- <code><a href="./src/resources/connect/flux/flux.ts">FluxProviderList</a></code>
 
 Methods:
 
-- <code title="get /v1/connect/flux">client.connect.flux.<a href="./src/resources/connect/flux.ts">list</a>() -> ConnectFluxList</code>
-- <code title="get /v1/connect/flux/{flux_id}">client.connect.flux.<a href="./src/resources/connect/flux.ts">get</a>(fluxID) -> ConnectFlux</code>
+- <code title="post /v1/connect/flux">client.connect.flux.<a href="./src/resources/connect/flux/flux.ts">create</a>({ ...params }) -> Operation</code>
+- <code title="patch /v1/connect/flux/{flux_id}">client.connect.flux.<a href="./src/resources/connect/flux/flux.ts">update</a>(fluxID, { ...params }) -> Operation</code>
+- <code title="get /v1/connect/flux">client.connect.flux.<a href="./src/resources/connect/flux/flux.ts">list</a>() -> FluxList</code>
+- <code title="delete /v1/connect/flux/{flux_id}">client.connect.flux.<a href="./src/resources/connect/flux/flux.ts">delete</a>(fluxID) -> Operation</code>
+- <code title="get /v1/connect/flux/{flux_id}">client.connect.flux.<a href="./src/resources/connect/flux/flux.ts">get</a>(fluxID) -> Flux</code>
+
+### Providers
+
+Methods:
+
+- <code title="get /v1/connect/flux/providers">client.connect.flux.providers.<a href="./src/resources/connect/flux/providers.ts">list</a>() -> FluxProviderList</code>
 
 # Vektor
 

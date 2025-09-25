@@ -2,9 +2,9 @@
 
 export { Blockchains } from './blockchains';
 export {
-  Dedicated,
-  type RPCNodesDedicated,
-  type RPCNodesDedicatedBlockchain,
-  type RPCNodesDedicatedBlockchainList,
-  type RPCNodesDedicatedList,
+  DedicatedResource,
+  type Dedicated,
+  type DedicatedBlockchain,
+  type DedicatedBlockchainList,
+  type DedicatedList,
 } from './dedicated';
