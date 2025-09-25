@@ -11,11 +11,11 @@ export class Providers extends APIResource {
    *
    * @example
    * ```ts
-   * const connectFluxProviderList =
+   * const fluxProviderList =
    *   await client.connect.flux.providers.list();
    * ```
    */
-  list(options?: RequestOptions): APIPromise<FluxAPI.ConnectFluxProviderList> {
+  list(options?: RequestOptions): APIPromise<FluxAPI.FluxProviderList> {
     return this._client.get('/v1/connect/flux/providers', options);
   }
 }

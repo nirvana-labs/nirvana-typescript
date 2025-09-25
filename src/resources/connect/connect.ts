@@ -3,28 +3,28 @@
 import { APIResource } from '../../core/resource';
 import * as FluxAPI from './flux/flux';
 import {
-  ConnectFlux,
-  ConnectFluxList,
-  ConnectFluxProvider,
-  ConnectFluxProviderList,
   Flux,
   FluxCreateParams,
+  FluxList,
+  FluxProvider,
+  FluxProviderList,
+  FluxResource,
   FluxUpdateParams,
 } from './flux/flux';
 
 export class Connect extends APIResource {
-  flux: FluxAPI.Flux = new FluxAPI.Flux(this._client);
+  flux: FluxAPI.FluxResource = new FluxAPI.FluxResource(this._client);
 }
 
-Connect.Flux = Flux;
+Connect.FluxResource = FluxResource;
 
 export declare namespace Connect {
   export {
-    Flux as Flux,
-    type ConnectFlux as ConnectFlux,
-    type ConnectFluxList as ConnectFluxList,
-    type ConnectFluxProvider as ConnectFluxProvider,
-    type ConnectFluxProviderList as ConnectFluxProviderList,
+    FluxResource as FluxResource,
+    type Flux as Flux,
+    type FluxList as FluxList,
+    type FluxProvider as FluxProvider,
+    type FluxProviderList as FluxProviderList,
     type FluxCreateParams as FluxCreateParams,
     type FluxUpdateParams as FluxUpdateParams,
   };
