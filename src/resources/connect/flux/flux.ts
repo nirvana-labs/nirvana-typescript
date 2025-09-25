@@ -9,7 +9,7 @@ import { APIPromise } from '../../../core/api-promise';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
-export class Flux extends APIResource {
+export class FluxResource extends APIResource {
   providers: ProvidersAPI.Providers = new ProvidersAPI.Providers(this._client);
 
   /**
@@ -53,10 +53,10 @@ export class Flux extends APIResource {
    *
    * @example
    * ```ts
-   * const connectFluxList = await client.connect.flux.list();
+   * const fluxList = await client.connect.flux.list();
    * ```
    */
-  list(options?: RequestOptions): APIPromise<ConnectFluxList> {
+  list(options?: RequestOptions): APIPromise<FluxList> {
     return this._client.get('/v1/connect/flux', options);
   }
 
@@ -79,12 +79,10 @@ export class Flux extends APIResource {
    *
    * @example
    * ```ts
-   * const connectFlux = await client.connect.flux.get(
-   *   'flux_id',
-   * );
+   * const flux = await client.connect.flux.get('flux_id');
    * ```
    */
-  get(fluxID: string, options?: RequestOptions): APIPromise<ConnectFlux> {
+  get(fluxID: string, options?: RequestOptions): APIPromise<Flux> {
     return this._client.get(path`/v1/connect/flux/${fluxID}`, options);
   }
 }
@@ -92,7 +90,7 @@ export class Flux extends APIResource {
 /**
  * Connect flux details.
  */
-export interface ConnectFlux {
+export interface Flux {
   /**
    * Unique identifier for the Connect Flux
    */
@@ -106,7 +104,7 @@ export interface ConnectFlux {
   /**
    * AWS provider configuration
    */
-  aws: ConnectFlux.Aws | null;
+  aws: Flux.Aws | null;
 
   /**
    * Connect Flux speed in Mbps
@@ -164,7 +162,7 @@ export interface ConnectFlux {
   updated_at: string;
 }
 
-export namespace ConnectFlux {
+export namespace Flux {
   /**
    * AWS provider configuration
    */
@@ -176,14 +174,14 @@ export namespace ConnectFlux {
   }
 }
 
-export interface ConnectFluxList {
-  items: Array<ConnectFlux>;
+export interface FluxList {
+  items: Array<Flux>;
 }
 
 /**
  * Provider supported for Connect Flux.
  */
-export interface ConnectFluxProvider {
+export interface FluxProvider {
   /**
    * Provider name.
    */
@@ -195,8 +193,8 @@ export interface ConnectFluxProvider {
   region: string;
 }
 
-export interface ConnectFluxProviderList {
-  items: Array<ConnectFluxProvider>;
+export interface FluxProviderList {
+  items: Array<FluxProvider>;
 }
 
 export interface FluxCreateParams {
@@ -255,14 +253,14 @@ export interface FluxUpdateParams {
   name?: string;
 }
 
-Flux.Providers = Providers;
+FluxResource.Providers = Providers;
 
-export declare namespace Flux {
+export declare namespace FluxResource {
   export {
-    type ConnectFlux as ConnectFlux,
-    type ConnectFluxList as ConnectFluxList,
-    type ConnectFluxProvider as ConnectFluxProvider,
-    type ConnectFluxProviderList as ConnectFluxProviderList,
+    type Flux as Flux,
+    type FluxList as FluxList,
+    type FluxProvider as FluxProvider,
+    type FluxProviderList as FluxProviderList,
     type FluxCreateParams as FluxCreateParams,
     type FluxUpdateParams as FluxUpdateParams,
   };
