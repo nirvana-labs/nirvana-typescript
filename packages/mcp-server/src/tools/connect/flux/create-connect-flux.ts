@@ -49,19 +49,7 @@ export const tool: Tool = {
         $ref: '#/$defs/region_name',
       },
       aws: {
-        type: 'object',
-        description: 'AWS provider configuration',
-        properties: {
-          account_number: {
-            type: 'string',
-            description: 'AWS account number',
-          },
-          region: {
-            type: 'string',
-            description: 'AWS region where the connection will be established',
-          },
-        },
-        required: ['account_number', 'region'],
+        $ref: '#/$defs/flux_provider_aws_config',
       },
       jq_filter: {
         type: 'string',
@@ -85,6 +73,21 @@ export const tool: Tool = {
           'ap-seo-1',
           'ap-tyo-1',
         ],
+      },
+      flux_provider_aws_config: {
+        type: 'object',
+        description: 'AWS provider configuration',
+        properties: {
+          account_number: {
+            type: 'string',
+            description: 'AWS account number',
+          },
+          region: {
+            type: 'string',
+            description: 'AWS region where the connection will be established',
+          },
+        },
+        required: ['account_number', 'region'],
       },
     },
   },

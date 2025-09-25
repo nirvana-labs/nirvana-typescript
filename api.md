@@ -222,6 +222,7 @@ Types:
 - <code><a href="./src/resources/connect/flux/flux.ts">Flux</a></code>
 - <code><a href="./src/resources/connect/flux/flux.ts">FluxList</a></code>
 - <code><a href="./src/resources/connect/flux/flux.ts">FluxProvider</a></code>
+- <code><a href="./src/resources/connect/flux/flux.ts">FluxProviderAWSConfig</a></code>
 - <code><a href="./src/resources/connect/flux/flux.ts">FluxProviderList</a></code>
 
 Methods:

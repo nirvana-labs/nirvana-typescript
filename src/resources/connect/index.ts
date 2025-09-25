@@ -6,6 +6,7 @@ export {
   type Flux,
   type FluxList,
   type FluxProvider,
+  type FluxProviderAWSConfig,
   type FluxProviderList,
   type FluxCreateParams,
   type FluxUpdateParams,
