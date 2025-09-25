@@ -9,7 +9,7 @@ export class Blockchains extends APIResource {
   /**
    * List all Dedicated Blockchains
    */
-  list(options?: RequestOptions): APIPromise<DedicatedAPI.RPCNodesDedicatedBlockchainList> {
+  list(options?: RequestOptions): APIPromise<DedicatedAPI.DedicatedBlockchainList> {
     return this._client.get('/v1/rpc_nodes/dedicated/blockchains', options);
   }
 }
