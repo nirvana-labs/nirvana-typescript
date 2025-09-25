@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.17.4 (2025-09-25)
+
+Full Changelog: [v1.17.3...v1.17.4](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.17.3...v1.17.4)
+
+### Features
+
+* **api:** api update ([4f83b50](https://github.com/nirvana-labs/nirvana-typescript/commit/4f83b5008e8ae8a986bf80eb30e1b6abf5cabe34))
+* **api:** api update ([a3382fa](https://github.com/nirvana-labs/nirvana-typescript/commit/a3382fad172d14ecfc21b97092ad308895c3104e))
+* **api:** api update ([04469c3](https://github.com/nirvana-labs/nirvana-typescript/commit/04469c3441696ee8677ee3e9e9ef3dfbc31be13d))
+* **api:** api update ([5a120de](https://github.com/nirvana-labs/nirvana-typescript/commit/5a120de2a45b90d858f12acb93d755aa6dc185ab))
+* **api:** api update ([fd389a9](https://github.com/nirvana-labs/nirvana-typescript/commit/fd389a90bfbef50a48bc34d30bef1a09ca3166c7))
+* **api:** api update ([c5b8b31](https://github.com/nirvana-labs/nirvana-typescript/commit/c5b8b31e3bb3bae16539f959199c892605d2a162))
+* **api:** api update ([415f5a9](https://github.com/nirvana-labs/nirvana-typescript/commit/415f5a956faaf727e0d0fc08c2f74cfca81b1778))
+* **api:** api update ([4cb601f](https://github.com/nirvana-labs/nirvana-typescript/commit/4cb601f606e2435b1b1e33ae210fb8b719c7ca18))
+* **api:** manual updates ([4cccf8e](https://github.com/nirvana-labs/nirvana-typescript/commit/4cccf8e25645a4636bfc12515a96f85ae1d7253d))
+
 ## 1.17.3 (2025-09-24)
 
 Full Changelog: [v1.17.2...v1.17.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.17.2...v1.17.3)
