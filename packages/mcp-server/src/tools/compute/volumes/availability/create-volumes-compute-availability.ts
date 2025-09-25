@@ -24,15 +24,22 @@ export const tool: Tool = {
     properties: {
       name: {
         type: 'string',
-        description: 'Name of the volume.',
+        description: 'Name of the Volume.',
       },
       size: {
         type: 'integer',
-        description: 'Size of the volume in GB.',
+        description: 'Size of the Volume in GB.',
       },
       vm_id: {
         type: 'string',
-        description: 'ID of the VM the volume is attached to.',
+        description: 'ID of the VM the Volume is attached to.',
+      },
+      tags: {
+        type: 'array',
+        description: 'Tags to attach to the Volume.',
+        items: {
+          type: 'string',
+        },
       },
       jq_filter: {
         type: 'string',

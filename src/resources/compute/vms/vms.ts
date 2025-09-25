@@ -250,6 +250,11 @@ export interface VM {
   subnet_id: string;
 
   /**
+   * Tags to attach to the VM.
+   */
+  tags: Array<string>;
+
+  /**
    * When the VM was updated.
    */
   updated_at: string;
@@ -319,6 +324,11 @@ export interface VMCreateParams {
    * Data volumes for the VM.
    */
   data_volumes?: Array<VMCreateParams.DataVolume>;
+
+  /**
+   * Tags to attach to the VM.
+   */
+  tags?: Array<string>;
 }
 
 export namespace VMCreateParams {
@@ -327,7 +337,7 @@ export namespace VMCreateParams {
    */
   export interface BootVolume {
     /**
-     * Size of the volume in GB.
+     * Size of the Volume in GB.
      */
     size: number;
   }
@@ -337,12 +347,12 @@ export namespace VMCreateParams {
    */
   export interface DataVolume {
     /**
-     * Name of the volume.
+     * Name of the Volume.
      */
     name: string;
 
     /**
-     * Size of the volume in GB.
+     * Size of the Volume in GB.
      */
     size: number;
   }
@@ -368,6 +378,11 @@ export interface VMUpdateParams {
    * Whether to enable public IP for the VM.
    */
   public_ip_enabled?: boolean;
+
+  /**
+   * Tags to attach to the VM.
+   */
+  tags?: Array<string>;
 }
 
 VMs.Availability = Availability;
