@@ -104,7 +104,7 @@ export interface Flux {
   /**
    * AWS provider configuration
    */
-  aws: Flux.AWS | null;
+  aws: FluxProviderAWSConfig | null;
 
   /**
    * Connect Flux speed in Mbps
@@ -162,18 +162,6 @@ export interface Flux {
   updated_at: string;
 }
 
-export namespace Flux {
-  /**
-   * AWS provider configuration
-   */
-  export interface AWS {
-    /**
-     * AWS region where the connection is established
-     */
-    region: string;
-  }
-}
-
 export interface FluxList {
   items: Array<Flux>;
 }
@@ -198,12 +186,7 @@ export interface FluxProvider {
  */
 export interface FluxProviderAWSConfig {
   /**
-   * AWS account number
-   */
-  account_number: string;
-
-  /**
-   * AWS region where the connection will be established
+   * AWS region where the connection is established
    */
   region: string;
 }
@@ -241,7 +224,24 @@ export interface FluxCreateParams {
   /**
    * AWS provider configuration
    */
-  aws?: FluxProviderAWSConfig;
+  aws?: FluxCreateParams.AWS;
+}
+
+export namespace FluxCreateParams {
+  /**
+   * AWS provider configuration
+   */
+  export interface AWS {
+    /**
+     * AWS account number
+     */
+    account_number: string;
+
+    /**
+     * AWS region where the connection will be established
+     */
+    region: string;
+  }
 }
 
 export interface FluxUpdateParams {
