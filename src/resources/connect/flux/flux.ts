@@ -191,6 +191,21 @@ export interface FluxProviderAWSConfig {
   region: string;
 }
 
+/**
+ * AWS provider configuration
+ */
+export interface FluxProviderAWSConfigRequest {
+  /**
+   * AWS account number
+   */
+  account_number: string;
+
+  /**
+   * AWS region where the connection will be established
+   */
+  region: string;
+}
+
 export interface FluxProviderList {
   items: Array<FluxProvider>;
 }
@@ -224,24 +239,7 @@ export interface FluxCreateParams {
   /**
    * AWS provider configuration
    */
-  aws?: FluxCreateParams.AWS;
-}
-
-export namespace FluxCreateParams {
-  /**
-   * AWS provider configuration
-   */
-  export interface AWS {
-    /**
-     * AWS account number
-     */
-    account_number: string;
-
-    /**
-     * AWS region where the connection will be established
-     */
-    region: string;
-  }
+  aws?: FluxProviderAWSConfigRequest;
 }
 
 export interface FluxUpdateParams {
@@ -259,6 +257,7 @@ export declare namespace FluxResource {
     type FluxList as FluxList,
     type FluxProvider as FluxProvider,
     type FluxProviderAWSConfig as FluxProviderAWSConfig,
+    type FluxProviderAWSConfigRequest as FluxProviderAWSConfigRequest,
     type FluxProviderList as FluxProviderList,
     type FluxCreateParams as FluxCreateParams,
     type FluxUpdateParams as FluxUpdateParams,
