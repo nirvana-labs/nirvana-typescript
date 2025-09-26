@@ -7,10 +7,9 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "baseUrl": "./",
     "paths": {
-      "@nirvana-labs/nirvana/*": ["src/*"],
-      "@nirvana-labs/nirvana": ["src/index.ts"]
+      "@nirvana-labs/nirvana/*": ["./src/*"],
+      "@nirvana-labs/nirvana": ["./src/index.ts"]
     },
     "noEmit": true,
 
