@@ -7,10 +7,9 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "baseUrl": "./",
     "paths": {
-      "@nirvana-labs/nirvana-mcp/*": ["src/*"],
-      "@nirvana-labs/nirvana-mcp": ["src/index.ts"]
+      "@nirvana-labs/nirvana-mcp/*": ["./src/*"],
+      "@nirvana-labs/nirvana-mcp": ["./src/index.ts"]
     },
     "noEmit": true,
 
