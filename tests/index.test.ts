@@ -306,13 +306,13 @@ describe('instantiate client', () => {
     test('empty env variable', () => {
       process.env['NIRVANA_LABS_BASE_URL'] = ''; // empty
       const client = new NirvanaLabs({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://api.nirvanalabs.io/');
+      expect(client.baseURL).toEqual('https://api.nirvanalabs.io');
     });
 
     test('blank env variable', () => {
       process.env['NIRVANA_LABS_BASE_URL'] = '  '; // blank
       const client = new NirvanaLabs({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://api.nirvanalabs.io/');
+      expect(client.baseURL).toEqual('https://api.nirvanalabs.io');
     });
 
     test('in request options', () => {
