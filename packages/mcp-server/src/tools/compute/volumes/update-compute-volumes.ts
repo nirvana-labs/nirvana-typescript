@@ -33,13 +33,6 @@ export const tool: Tool = {
         type: 'integer',
         description: 'Size of the Volume in GB.',
       },
-      tags: {
-        type: 'array',
-        description: 'Tags to attach to the Volume.',
-        items: {
-          type: 'string',
-        },
-      },
       jq_filter: {
         type: 'string',
         title: 'jq Filter',

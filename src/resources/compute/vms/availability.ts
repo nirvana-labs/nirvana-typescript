@@ -111,11 +111,6 @@ export interface AvailabilityCreateParams {
    * Data volumes for the VM.
    */
   data_volumes?: Array<AvailabilityCreateParams.DataVolume>;
-
-  /**
-   * Tags to attach to the VM.
-   */
-  tags?: Array<string>;
 }
 
 export namespace AvailabilityCreateParams {
@@ -165,11 +160,6 @@ export interface AvailabilityUpdateParams {
    * Whether to enable public IP for the VM.
    */
   public_ip_enabled?: boolean;
-
-  /**
-   * Tags to attach to the VM.
-   */
-  tags?: Array<string>;
 }
 
 export declare namespace Availability {
