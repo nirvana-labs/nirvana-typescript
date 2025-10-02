@@ -1,5 +1,39 @@
 # Changelog
 
+## 1.18.0 (2025-10-02)
+
+Full Changelog: [v1.17.4...v1.18.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.17.4...v1.18.0)
+
+### Features
+
+* **api:** api update ([48ec6ef](https://github.com/nirvana-labs/nirvana-typescript/commit/48ec6ef7080a1084a82a5b914d8ac4d4856ced83))
+* **api:** api update ([52552f6](https://github.com/nirvana-labs/nirvana-typescript/commit/52552f6f207b7dd6c37a7893c6110cf8e2148837))
+* **api:** api update ([d8d6b30](https://github.com/nirvana-labs/nirvana-typescript/commit/d8d6b30845ff2e1ac52eafb174573d89c0b87b41))
+* **api:** api update ([60f0719](https://github.com/nirvana-labs/nirvana-typescript/commit/60f071928f4b4bc365777bc62798ead0fba55339))
+* **api:** api update ([8ae8ae9](https://github.com/nirvana-labs/nirvana-typescript/commit/8ae8ae9c881feec44aa93c5e7eab62d98517ab49))
+
+
+### Bug Fixes
+
+* **mcp:** fix cli argument parsing logic ([169cad9](https://github.com/nirvana-labs/nirvana-typescript/commit/169cad96fb0df520220944adff2ccb181fe4f84b))
+* **mcp:** resolve a linting issue in server code ([15bf1e2](https://github.com/nirvana-labs/nirvana-typescript/commit/15bf1e21c67d54c9bbe85296f11a38a46e4eaf49))
+
+
+### Performance Improvements
+
+* faster formatting ([f7fe008](https://github.com/nirvana-labs/nirvana-typescript/commit/f7fe008d38632040c832abfe56de1ed113354ac5))
+
+
+### Chores
+
+* **internal:** codegen related update ([f693b63](https://github.com/nirvana-labs/nirvana-typescript/commit/f693b63081fd39089ef0f301267c98d0f6a7151d))
+* **internal:** fix incremental formatting in some cases ([1ac250b](https://github.com/nirvana-labs/nirvana-typescript/commit/1ac250bec7dbc073708df370e1b8d34e81a3261b))
+* **internal:** ignore .eslintcache ([7636e80](https://github.com/nirvana-labs/nirvana-typescript/commit/7636e80443b68965b010a803241dadbd8a844d6f))
+* **internal:** remove .eslintcache ([250a444](https://github.com/nirvana-labs/nirvana-typescript/commit/250a44418581c40c8a2b92c3fc4f56eddf182848))
+* **internal:** remove deprecated `compilerOptions.baseUrl` from tsconfig.json ([4fe9c93](https://github.com/nirvana-labs/nirvana-typescript/commit/4fe9c93f2d2c9b63af3b0a2a3f1d0b297276df81))
+* **mcp:** allow pointing `docs_search` tool at other URLs ([ecc5e36](https://github.com/nirvana-labs/nirvana-typescript/commit/ecc5e36f97cfc4596f5befdc2191e1697d1479f6))
+* update lockfile ([5412135](https://github.com/nirvana-labs/nirvana-typescript/commit/5412135a0160e887b40a8e7d9fbe52991d645ada))
+
 ## 1.17.4 (2025-09-25)
 
 Full Changelog: [v1.17.3...v1.17.4](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.17.3...v1.17.4)
