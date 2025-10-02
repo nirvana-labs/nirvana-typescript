@@ -94,7 +94,7 @@ export class Volumes extends APIResource {
 }
 
 /**
- * Storage type the volume is using.
+ * Storage type the Volume is using.
  */
 export type StorageType = 'nvme';
 
@@ -103,12 +103,12 @@ export type StorageType = 'nvme';
  */
 export interface Volume {
   /**
-   * Unique identifier for the volume.
+   * Unique identifier for the Volume.
    */
   id: string;
 
   /**
-   * When the volume was created.
+   * When the Volume was created.
    */
   created_at: string;
 
@@ -118,12 +118,12 @@ export interface Volume {
   kind: VolumeKind;
 
   /**
-   * Name of the volume.
+   * Name of the Volume.
    */
   name: string;
 
   /**
-   * Size of the volume in GB.
+   * Size of the Volume in GB.
    */
   size: number;
 
@@ -133,22 +133,22 @@ export interface Volume {
   status: Shared.ResourceStatus;
 
   /**
-   * Storage type the volume is using.
+   * Storage type the Volume is using.
    */
   type: StorageType;
 
   /**
-   * When the volume was updated.
+   * When the Volume was updated.
    */
   updated_at: string;
 
   /**
-   * ID of the VM the volume is attached to.
+   * ID of the VM the Volume is attached to.
    */
   vm_id: string | null;
 
   /**
-   * Name of the VM the volume is attached to.
+   * Name of the VM the Volume is attached to.
    */
   vm_name: string | null;
 }
@@ -164,29 +164,29 @@ export interface VolumeList {
 
 export interface VolumeCreateParams {
   /**
-   * Name of the volume.
+   * Name of the Volume.
    */
   name: string;
 
   /**
-   * Size of the volume in GB.
+   * Size of the Volume in GB.
    */
   size: number;
 
   /**
-   * ID of the VM the volume is attached to.
+   * ID of the VM the Volume is attached to.
    */
   vm_id: string;
 }
 
 export interface VolumeUpdateParams {
   /**
-   * Name of the volume.
+   * Name of the Volume.
    */
   name?: string;
 
   /**
-   * Size of the volume in GB.
+   * Size of the Volume in GB.
    */
   size?: number;
 }

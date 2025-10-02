@@ -109,7 +109,7 @@ export interface Flux {
   /**
    * Connect Flux speed in Mbps
    */
-  bandwidth_mbps: 50 | 200 | 500;
+  bandwidth_mbps: 50 | 200 | 500 | 1000 | 2000;
 
   /**
    * CIDRs for the Connect Flux
@@ -214,7 +214,7 @@ export interface FluxCreateParams {
   /**
    * Connect Flux speed in Mbps
    */
-  bandwidth_mbps: 50 | 200 | 500;
+  bandwidth_mbps: 50 | 200 | 500 | 1000 | 2000;
 
   /**
    * CIDRs for the Connect Flux

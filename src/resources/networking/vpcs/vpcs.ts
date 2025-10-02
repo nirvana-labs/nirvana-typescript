@@ -101,22 +101,22 @@ export interface Subnet {
   id: string;
 
   /**
-   * CIDR block for the subnet.
+   * CIDR block for the Subnet.
    */
   cidr: string;
 
   /**
-   * When the subnet was created.
+   * When the Subnet was created.
    */
   created_at: string;
 
   /**
-   * Name of the subnet.
+   * Name of the Subnet.
    */
   name: string;
 
   /**
-   * When the subnet was updated.
+   * When the Subnet was updated.
    */
   updated_at: string;
 }
@@ -136,7 +136,7 @@ export interface VPC {
   created_at: string;
 
   /**
-   * IDs of the firewall rules associated with the VPC.
+   * IDs of the Firewall Rules associated with the VPC.
    */
   firewall_rule_ids: Array<string>;
 

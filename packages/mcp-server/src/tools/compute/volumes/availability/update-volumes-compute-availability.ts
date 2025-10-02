@@ -27,11 +27,11 @@ export const tool: Tool = {
       },
       name: {
         type: 'string',
-        description: 'Name of the volume.',
+        description: 'Name of the Volume.',
       },
       size: {
         type: 'integer',
-        description: 'Size of the volume in GB.',
+        description: 'Size of the Volume in GB.',
       },
       jq_filter: {
         type: 'string',

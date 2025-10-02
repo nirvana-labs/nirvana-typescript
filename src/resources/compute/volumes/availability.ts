@@ -54,29 +54,29 @@ export type AvailabilityUpdateResponse = string;
 
 export interface AvailabilityCreateParams {
   /**
-   * Name of the volume.
+   * Name of the Volume.
    */
   name: string;
 
   /**
-   * Size of the volume in GB.
+   * Size of the Volume in GB.
    */
   size: number;
 
   /**
-   * ID of the VM the volume is attached to.
+   * ID of the VM the Volume is attached to.
    */
   vm_id: string;
 }
 
 export interface AvailabilityUpdateParams {
   /**
-   * Name of the volume.
+   * Name of the Volume.
    */
   name?: string;
 
   /**
-   * Size of the volume in GB.
+   * Size of the Volume in GB.
    */
   size?: number;
 }

@@ -24,6 +24,7 @@ describe('resource apiKeys', () => {
       expires_at: '2025-12-31T23:59:59Z',
       name: 'my-api-key',
       starts_at: '2025-01-01T00:00:00Z',
+      tags: ['production', 'ethereum'],
     });
   });
 

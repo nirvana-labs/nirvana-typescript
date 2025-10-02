@@ -66,7 +66,7 @@ export interface Dedicated {
 }
 
 /**
- * Blockchain supported by the Dedicated RPC Node.
+ * Blockchain supported by the RPC Node Dedicated.
  */
 export interface DedicatedBlockchain {
   /**

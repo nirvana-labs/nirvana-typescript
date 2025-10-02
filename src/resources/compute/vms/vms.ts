@@ -327,7 +327,7 @@ export namespace VMCreateParams {
    */
   export interface BootVolume {
     /**
-     * Size of the volume in GB.
+     * Size of the Volume in GB.
      */
     size: number;
   }
@@ -337,12 +337,12 @@ export namespace VMCreateParams {
    */
   export interface DataVolume {
     /**
-     * Name of the volume.
+     * Name of the Volume.
      */
     name: string;
 
     /**
-     * Size of the volume in GB.
+     * Size of the Volume in GB.
      */
     size: number;
   }

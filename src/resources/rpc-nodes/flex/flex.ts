@@ -66,7 +66,7 @@ export interface Flex {
 }
 
 /**
- * Blockchain supported by the Flex RPC Node.
+ * Blockchain supported by the RPC Node Flex.
  */
 export interface FlexBlockchain {
   /**
