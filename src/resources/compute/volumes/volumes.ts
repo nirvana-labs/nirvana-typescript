@@ -133,11 +133,6 @@ export interface Volume {
   status: Shared.ResourceStatus;
 
   /**
-   * Tags to attach to the Volume.
-   */
-  tags: Array<string>;
-
-  /**
    * Storage type the Volume is using.
    */
   type: StorageType;
@@ -182,11 +177,6 @@ export interface VolumeCreateParams {
    * ID of the VM the Volume is attached to.
    */
   vm_id: string;
-
-  /**
-   * Tags to attach to the Volume.
-   */
-  tags?: Array<string>;
 }
 
 export interface VolumeUpdateParams {
@@ -199,11 +189,6 @@ export interface VolumeUpdateParams {
    * Size of the Volume in GB.
    */
   size?: number;
-
-  /**
-   * Tags to attach to the Volume.
-   */
-  tags?: Array<string>;
 }
 
 Volumes.Availability = Availability;

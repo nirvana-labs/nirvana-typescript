@@ -161,11 +161,6 @@ export interface VPC {
   subnet: Subnet;
 
   /**
-   * Tags to attach to the VPC.
-   */
-  tags: Array<string>;
-
-  /**
    * When the VPC was updated.
    */
   updated_at: string;
@@ -190,11 +185,6 @@ export interface VPCCreateParams {
    * Name of the subnet to create.
    */
   subnet_name: string;
-
-  /**
-   * Tags to attach to the VPC.
-   */
-  tags?: Array<string>;
 }
 
 export interface VPCUpdateParams {
@@ -207,11 +197,6 @@ export interface VPCUpdateParams {
    * Name of the subnet to create.
    */
   subnet_name?: string;
-
-  /**
-   * Tags to attach to the VPC.
-   */
-  tags?: Array<string>;
 }
 
 VPCs.Availability = Availability;

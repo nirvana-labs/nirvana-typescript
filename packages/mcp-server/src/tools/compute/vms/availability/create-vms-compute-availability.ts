@@ -80,13 +80,6 @@ export const tool: Tool = {
           required: ['name', 'size'],
         },
       },
-      tags: {
-        type: 'array',
-        description: 'Tags to attach to the VM.',
-        items: {
-          type: 'string',
-        },
-      },
       jq_filter: {
         type: 'string',
         title: 'jq Filter',
