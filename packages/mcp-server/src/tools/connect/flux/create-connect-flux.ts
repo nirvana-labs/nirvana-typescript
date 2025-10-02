@@ -25,7 +25,7 @@ export const tool: Tool = {
       bandwidth_mbps: {
         type: 'string',
         description: 'Connect Flux speed in Mbps',
-        enum: [50, 200, 500],
+        enum: [50, 200, 500, 1000, 2000],
       },
       cidrs: {
         type: 'array',
