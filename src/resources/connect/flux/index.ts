@@ -3,6 +3,7 @@
 export {
   FluxResource,
   type Flux,
+  type FluxBandwidthMbps,
   type FluxList,
   type FluxProvider,
   type FluxProviderAWSConfig,

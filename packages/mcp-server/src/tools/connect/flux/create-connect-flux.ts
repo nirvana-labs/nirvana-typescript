@@ -23,9 +23,7 @@ export const tool: Tool = {
     type: 'object',
     properties: {
       bandwidth_mbps: {
-        type: 'string',
-        description: 'Connect Flux speed in Mbps',
-        enum: [50, 200, 500, 1000, 2000],
+        $ref: '#/$defs/flux_bandwidth_mbps',
       },
       cidrs: {
         type: 'array',
@@ -60,6 +58,11 @@ export const tool: Tool = {
     },
     required: ['bandwidth_mbps', 'cidrs', 'name', 'provider_cidrs', 'region'],
     $defs: {
+      flux_bandwidth_mbps: {
+        type: 'string',
+        description: 'Connect Flux speed in Mbps',
+        enum: [50, 200, 500, 1000, 2000],
+      },
       region_name: {
         type: 'string',
         description: 'Region the resource is in.',

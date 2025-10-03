@@ -4,6 +4,7 @@ import { APIResource } from '../../core/resource';
 import * as FluxAPI from './flux/flux';
 import {
   Flux,
+  FluxBandwidthMbps,
   FluxCreateParams,
   FluxList,
   FluxProvider,
@@ -24,6 +25,7 @@ export declare namespace Connect {
   export {
     FluxResource as FluxResource,
     type Flux as Flux,
+    type FluxBandwidthMbps as FluxBandwidthMbps,
     type FluxList as FluxList,
     type FluxProvider as FluxProvider,
     type FluxProviderAWSConfig as FluxProviderAWSConfig,
