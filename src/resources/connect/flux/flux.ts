@@ -109,7 +109,7 @@ export interface Flux {
   /**
    * Connect Flux speed in Mbps
    */
-  bandwidth_mbps: 50 | 200 | 500 | 1000 | 2000;
+  bandwidth_mbps: FluxBandwidthMbps;
 
   /**
    * CIDRs for the Connect Flux
@@ -161,6 +161,11 @@ export interface Flux {
    */
   updated_at: string;
 }
+
+/**
+ * Connect Flux speed in Mbps
+ */
+export type FluxBandwidthMbps = 50 | 200 | 500 | 1000 | 2000;
 
 export interface FluxList {
   items: Array<Flux>;
@@ -214,7 +219,7 @@ export interface FluxCreateParams {
   /**
    * Connect Flux speed in Mbps
    */
-  bandwidth_mbps: 50 | 200 | 500 | 1000 | 2000;
+  bandwidth_mbps: FluxBandwidthMbps;
 
   /**
    * CIDRs for the Connect Flux
@@ -254,6 +259,7 @@ FluxResource.Providers = Providers;
 export declare namespace FluxResource {
   export {
     type Flux as Flux,
+    type FluxBandwidthMbps as FluxBandwidthMbps,
     type FluxList as FluxList,
     type FluxProvider as FluxProvider,
     type FluxProviderAWSConfig as FluxProviderAWSConfig,
