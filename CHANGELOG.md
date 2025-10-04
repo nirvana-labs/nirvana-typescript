@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.18.2 (2025-10-04)
+
+Full Changelog: [v1.18.1...v1.18.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.18.1...v1.18.2)
+
+### Chores
+
+* **jsdoc:** fix [@link](https://github.com/link) annotations to refer only to parts of the package‘s public interface ([8a4739c](https://github.com/nirvana-labs/nirvana-typescript/commit/8a4739c1d7c1372f6083a3edf05d8a71cc793354))
+
 ## 1.18.1 (2025-10-03)
 
 Full Changelog: [v1.18.0...v1.18.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.18.0...v1.18.1)
