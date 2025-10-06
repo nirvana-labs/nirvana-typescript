@@ -201,9 +201,9 @@ export interface FluxProviderAWSConfig {
  */
 export interface FluxProviderAWSConfigRequest {
   /**
-   * AWS account number
+   * AWS account id
    */
-  account_number: string;
+  account_id: string;
 
   /**
    * AWS region where the connection will be established

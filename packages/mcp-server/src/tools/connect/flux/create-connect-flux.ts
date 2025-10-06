@@ -81,16 +81,16 @@ export const tool: Tool = {
         type: 'object',
         description: 'AWS provider configuration',
         properties: {
-          account_number: {
+          account_id: {
             type: 'string',
-            description: 'AWS account number',
+            description: 'AWS account id',
           },
           region: {
             type: 'string',
             description: 'AWS region where the connection will be established',
           },
         },
-        required: ['account_number', 'region'],
+        required: ['account_id', 'region'],
       },
     },
   },
