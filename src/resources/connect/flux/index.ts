@@ -5,11 +5,11 @@ export {
   type Flux,
   type FluxBandwidthMbps,
   type FluxList,
-  type FluxProvider,
   type FluxProviderAWSConfig,
   type FluxProviderAWSConfigRequest,
-  type FluxProviderList,
+  type FluxRoute,
+  type FluxRouteList,
   type FluxCreateParams,
   type FluxUpdateParams,
 } from './flux';
-export { Providers } from './providers';
+export { Routes } from './routes';

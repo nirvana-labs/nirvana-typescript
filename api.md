@@ -222,10 +222,10 @@ Types:
 - <code><a href="./src/resources/connect/flux/flux.ts">Flux</a></code>
 - <code><a href="./src/resources/connect/flux/flux.ts">FluxBandwidthMbps</a></code>
 - <code><a href="./src/resources/connect/flux/flux.ts">FluxList</a></code>
-- <code><a href="./src/resources/connect/flux/flux.ts">FluxProvider</a></code>
 - <code><a href="./src/resources/connect/flux/flux.ts">FluxProviderAWSConfig</a></code>
 - <code><a href="./src/resources/connect/flux/flux.ts">FluxProviderAWSConfigRequest</a></code>
-- <code><a href="./src/resources/connect/flux/flux.ts">FluxProviderList</a></code>
+- <code><a href="./src/resources/connect/flux/flux.ts">FluxRoute</a></code>
+- <code><a href="./src/resources/connect/flux/flux.ts">FluxRouteList</a></code>
 
 Methods:
 
@@ -235,11 +235,11 @@ Methods:
 - <code title="delete /v1/connect/flux/{flux_id}">client.connect.flux.<a href="./src/resources/connect/flux/flux.ts">delete</a>(fluxID) -> Operation</code>
 - <code title="get /v1/connect/flux/{flux_id}">client.connect.flux.<a href="./src/resources/connect/flux/flux.ts">get</a>(fluxID) -> Flux</code>
 
-### Providers
+### Routes
 
 Methods:
 
-- <code title="get /v1/connect/flux/providers">client.connect.flux.providers.<a href="./src/resources/connect/flux/providers.ts">list</a>() -> FluxProviderList</code>
+- <code title="get /v1/connect/flux/routes">client.connect.flux.routes.<a href="./src/resources/connect/flux/routes.ts">list</a>() -> FluxRouteList</code>
 
 # Vektor
 
