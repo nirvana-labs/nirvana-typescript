@@ -7,11 +7,11 @@ import {
   FluxBandwidthMbps,
   FluxCreateParams,
   FluxList,
-  FluxProvider,
   FluxProviderAWSConfig,
   FluxProviderAWSConfigRequest,
-  FluxProviderList,
   FluxResource,
+  FluxRoute,
+  FluxRouteList,
   FluxUpdateParams,
 } from './flux/flux';
 
@@ -27,10 +27,10 @@ export declare namespace Connect {
     type Flux as Flux,
     type FluxBandwidthMbps as FluxBandwidthMbps,
     type FluxList as FluxList,
-    type FluxProvider as FluxProvider,
     type FluxProviderAWSConfig as FluxProviderAWSConfig,
     type FluxProviderAWSConfigRequest as FluxProviderAWSConfigRequest,
-    type FluxProviderList as FluxProviderList,
+    type FluxRoute as FluxRoute,
+    type FluxRouteList as FluxRouteList,
     type FluxCreateParams as FluxCreateParams,
     type FluxUpdateParams as FluxUpdateParams,
   };
