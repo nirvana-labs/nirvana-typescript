@@ -32,6 +32,7 @@ describe('resource firewallRules', () => {
       name: 'my-firewall-rule',
       protocol: 'tcp',
       source_address: '0.0.0.0/0',
+      tags: ['production', 'ethereum'],
     });
   });
 
@@ -54,6 +55,7 @@ describe('resource firewallRules', () => {
       name: 'my-firewall-rule',
       protocol: 'tcp',
       source_address: '0.0.0.0/0',
+      tags: ['production', 'ethereum'],
     });
   });
 

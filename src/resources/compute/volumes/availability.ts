@@ -67,6 +67,11 @@ export interface AvailabilityCreateParams {
    * ID of the VM the Volume is attached to.
    */
   vm_id: string;
+
+  /**
+   * Tags to attach to the Volume.
+   */
+  tags?: Array<string>;
 }
 
 export interface AvailabilityUpdateParams {
@@ -79,6 +84,11 @@ export interface AvailabilityUpdateParams {
    * Size of the Volume in GB.
    */
   size?: number;
+
+  /**
+   * Tags to attach to the Volume.
+   */
+  tags?: Array<string>;
 }
 
 export declare namespace Availability {

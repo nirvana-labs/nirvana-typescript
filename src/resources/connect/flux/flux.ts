@@ -157,6 +157,11 @@ export interface Flux {
   status: Shared.ResourceStatus;
 
   /**
+   * Tags to attach to the Connect Flux
+   */
+  tags: Array<string>;
+
+  /**
    * When the Connect Flux was updated
    */
   updated_at: string;
@@ -250,6 +255,11 @@ export interface FluxCreateParams {
    * AWS provider configuration
    */
   aws?: FluxProviderAWSConfigRequest;
+
+  /**
+   * Tags to attach to the Connect Flux
+   */
+  tags?: Array<string>;
 }
 
 export interface FluxUpdateParams {
@@ -257,6 +267,11 @@ export interface FluxUpdateParams {
    * Name of the Connect Flux.
    */
   name?: string;
+
+  /**
+   * Tags to attach to the Connect Flux
+   */
+  tags?: Array<string>;
 }
 
 FluxResource.Routes = Routes;
