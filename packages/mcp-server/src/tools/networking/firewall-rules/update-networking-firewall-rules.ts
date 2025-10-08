@@ -52,6 +52,13 @@ export const tool: Tool = {
         type: 'string',
         description: 'Source address of the Firewall Rule. Address of 0.0.0.0 requires a CIDR mask of 0.',
       },
+      tags: {
+        type: 'array',
+        description: 'Tags to attach to the Firewall Rule.',
+        items: {
+          type: 'string',
+        },
+      },
       jq_filter: {
         type: 'string',
         title: 'jq Filter',

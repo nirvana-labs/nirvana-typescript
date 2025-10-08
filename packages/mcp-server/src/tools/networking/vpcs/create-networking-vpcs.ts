@@ -33,6 +33,13 @@ export const tool: Tool = {
         type: 'string',
         description: 'Name of the subnet to create.',
       },
+      tags: {
+        type: 'array',
+        description: 'Tags to attach to the VPC.',
+        items: {
+          type: 'string',
+        },
+      },
       jq_filter: {
         type: 'string',
         title: 'jq Filter',

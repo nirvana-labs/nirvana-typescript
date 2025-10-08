@@ -34,6 +34,13 @@ export const tool: Tool = {
         type: 'string',
         description: 'ID of the VM the Volume is attached to.',
       },
+      tags: {
+        type: 'array',
+        description: 'Tags to attach to the Volume.',
+        items: {
+          type: 'string',
+        },
+      },
       jq_filter: {
         type: 'string',
         title: 'jq Filter',

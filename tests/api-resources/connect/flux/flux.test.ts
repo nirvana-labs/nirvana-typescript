@@ -33,6 +33,7 @@ describe('resource flux', () => {
       provider_cidrs: ['172.16.0.0/16'],
       region: 'us-wdc-1',
       aws: { account_id: '523816707215', region: 'us-east-1' },
+      tags: ['production', 'ethereum'],
     });
   });
 

@@ -29,6 +29,13 @@ export const tool: Tool = {
         type: 'string',
         description: 'Name of the Connect Flux.',
       },
+      tags: {
+        type: 'array',
+        description: 'Tags to attach to the Connect Flux',
+        items: {
+          type: 'string',
+        },
+      },
       jq_filter: {
         type: 'string',
         title: 'jq Filter',

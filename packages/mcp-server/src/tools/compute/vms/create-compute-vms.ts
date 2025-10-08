@@ -30,6 +30,13 @@ export const tool: Tool = {
             type: 'integer',
             description: 'Size of the Volume in GB.',
           },
+          tags: {
+            type: 'array',
+            description: 'Tags to attach to the Volume.',
+            items: {
+              type: 'string',
+            },
+          },
         },
         required: ['size'],
       },
@@ -76,8 +83,22 @@ export const tool: Tool = {
               type: 'integer',
               description: 'Size of the Volume in GB.',
             },
+            tags: {
+              type: 'array',
+              description: 'Tags to attach to the Volume.',
+              items: {
+                type: 'string',
+              },
+            },
           },
           required: ['name', 'size'],
+        },
+      },
+      tags: {
+        type: 'array',
+        description: 'Tags to attach to the VM.',
+        items: {
+          type: 'string',
         },
       },
       jq_filter: {
