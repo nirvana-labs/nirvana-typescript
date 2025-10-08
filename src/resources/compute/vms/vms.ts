@@ -34,7 +34,7 @@ export class VMs extends APIResource {
    *   cpu_config: { vcpu: 2 },
    *   memory_config: { size: 2 },
    *   name: 'my-vm',
-   *   os_image_name: 'ubuntu-noble-2025-04-03',
+   *   os_image_name: 'ubuntu-noble-2025-10-01',
    *   public_ip_enabled: true,
    *   region: 'us-wdc-1',
    *   ssh_key: {
