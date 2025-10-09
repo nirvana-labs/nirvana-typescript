@@ -68,6 +68,11 @@ export interface AvailabilityCreateParams {
    * Name of the subnet to create.
    */
   subnet_name: string;
+
+  /**
+   * Tags to attach to the VPC.
+   */
+  tags?: Array<string>;
 }
 
 export interface AvailabilityUpdateParams {
@@ -80,6 +85,11 @@ export interface AvailabilityUpdateParams {
    * Name of the subnet to create.
    */
   subnet_name?: string;
+
+  /**
+   * Tags to attach to the VPC.
+   */
+  tags?: Array<string>;
 }
 
 export declare namespace Availability {

@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.19.0 (2025-10-09)
+
+Full Changelog: [v1.18.3...v1.19.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.18.3...v1.19.0)
+
+### Features
+
+* **api:** api update ([dfec73b](https://github.com/nirvana-labs/nirvana-typescript/commit/dfec73b8af236b365be8a87ef85db05bb26247ed))
+* **api:** api update ([80affba](https://github.com/nirvana-labs/nirvana-typescript/commit/80affbaeb17f8f962f1bbd6a6478161f056aec2e))
+* **api:** api update ([5c199c3](https://github.com/nirvana-labs/nirvana-typescript/commit/5c199c3f8437fd27ee0cc9accb34e09ae199080e))
+
+
+### Chores
+
+* extract some types in mcp docs ([1fe6915](https://github.com/nirvana-labs/nirvana-typescript/commit/1fe69151ee23fc1556d05678a05a7ef7a971c65b))
+* **internal:** use npm pack for build uploads ([7048a9a](https://github.com/nirvana-labs/nirvana-typescript/commit/7048a9abefc4f7bce358c0c36561cc71290f3abf))
+
 ## 1.18.3 (2025-10-06)
 
 Full Changelog: [v1.18.2...v1.18.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.18.2...v1.18.3)

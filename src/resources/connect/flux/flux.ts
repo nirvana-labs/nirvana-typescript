@@ -3,14 +3,14 @@
 import { APIResource } from '../../../core/resource';
 import * as OperationsAPI from '../../operations';
 import * as Shared from '../../shared';
-import * as ProvidersAPI from './providers';
-import { Providers } from './providers';
+import * as RoutesAPI from './routes';
+import { Routes } from './routes';
 import { APIPromise } from '../../../core/api-promise';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
 export class FluxResource extends APIResource {
-  providers: ProvidersAPI.Providers = new ProvidersAPI.Providers(this._client);
+  routes: RoutesAPI.Routes = new RoutesAPI.Routes(this._client);
 
   /**
    * Create a Connect Flux
@@ -157,6 +157,11 @@ export interface Flux {
   status: Shared.ResourceStatus;
 
   /**
+   * Tags to attach to the Connect Flux
+   */
+  tags: Array<string>;
+
+  /**
    * When the Connect Flux was updated
    */
   updated_at: string;
@@ -169,21 +174,6 @@ export type FluxBandwidthMbps = 50 | 200 | 500 | 1000 | 2000;
 
 export interface FluxList {
   items: Array<Flux>;
-}
-
-/**
- * Provider supported for Connect Flux.
- */
-export interface FluxProvider {
-  /**
-   * Provider name.
-   */
-  name: string;
-
-  /**
-   * Provider region name.
-   */
-  region: string;
 }
 
 /**
@@ -211,8 +201,28 @@ export interface FluxProviderAWSConfigRequest {
   region: string;
 }
 
-export interface FluxProviderList {
-  items: Array<FluxProvider>;
+/**
+ * Routes supported for Connect Flux.
+ */
+export interface FluxRoute {
+  /**
+   * Region the resource is in.
+   */
+  nirvana_region: Shared.RegionName;
+
+  /**
+   * Provider name.
+   */
+  provider: string;
+
+  /**
+   * Provider region name.
+   */
+  provider_region: string;
+}
+
+export interface FluxRouteList {
+  items: Array<FluxRoute>;
 }
 
 export interface FluxCreateParams {
@@ -245,6 +255,11 @@ export interface FluxCreateParams {
    * AWS provider configuration
    */
   aws?: FluxProviderAWSConfigRequest;
+
+  /**
+   * Tags to attach to the Connect Flux
+   */
+  tags?: Array<string>;
 }
 
 export interface FluxUpdateParams {
@@ -252,22 +267,27 @@ export interface FluxUpdateParams {
    * Name of the Connect Flux.
    */
   name?: string;
+
+  /**
+   * Tags to attach to the Connect Flux
+   */
+  tags?: Array<string>;
 }
 
-FluxResource.Providers = Providers;
+FluxResource.Routes = Routes;
 
 export declare namespace FluxResource {
   export {
     type Flux as Flux,
     type FluxBandwidthMbps as FluxBandwidthMbps,
     type FluxList as FluxList,
-    type FluxProvider as FluxProvider,
     type FluxProviderAWSConfig as FluxProviderAWSConfig,
     type FluxProviderAWSConfigRequest as FluxProviderAWSConfigRequest,
-    type FluxProviderList as FluxProviderList,
+    type FluxRoute as FluxRoute,
+    type FluxRouteList as FluxRouteList,
     type FluxCreateParams as FluxCreateParams,
     type FluxUpdateParams as FluxUpdateParams,
   };
 
-  export { Providers as Providers };
+  export { Routes as Routes };
 }

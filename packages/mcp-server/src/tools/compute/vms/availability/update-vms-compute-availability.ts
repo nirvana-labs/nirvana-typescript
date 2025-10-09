@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'update_vms_compute_availability',
   description:
-    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nCheck VM Update Availability\n\n# Response Schema\n```json\n{\n  type: 'string'\n}\n```",
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nCheck VM Update Availability\n\n# Response Schema\n```json\n{\n  $ref: '#/$defs/availability_update_response',\n  $defs: {\n    availability_update_response: {\n      type: 'string'\n    }\n  }\n}\n```",
   inputSchema: {
     type: 'object',
     properties: {
@@ -38,6 +38,13 @@ export const tool: Tool = {
       public_ip_enabled: {
         type: 'boolean',
         description: 'Whether to enable public IP for the VM.',
+      },
+      tags: {
+        type: 'array',
+        description: 'Tags to attach to the VM.',
+        items: {
+          type: 'string',
+        },
       },
       jq_filter: {
         type: 'string',

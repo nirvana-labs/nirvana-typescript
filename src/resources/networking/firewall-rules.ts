@@ -157,6 +157,11 @@ export interface FirewallRule {
   status: Shared.ResourceStatus;
 
   /**
+   * Tags to attach to the Firewall Rule.
+   */
+  tags: Array<string>;
+
+  /**
    * When the Firewall Rule was updated.
    */
   updated_at: string;
@@ -197,6 +202,11 @@ export interface FirewallRuleCreateParams {
    * of 0.
    */
   source_address: string;
+
+  /**
+   * Tags to attach to the Firewall Rule.
+   */
+  tags?: Array<string>;
 }
 
 export interface FirewallRuleUpdateParams {
@@ -231,6 +241,11 @@ export interface FirewallRuleUpdateParams {
    * CIDR mask of 0.
    */
   source_address?: string;
+
+  /**
+   * Body param: Tags to attach to the Firewall Rule.
+   */
+  tags?: Array<string>;
 }
 
 export interface FirewallRuleDeleteParams {

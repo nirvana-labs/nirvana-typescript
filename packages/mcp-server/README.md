@@ -301,9 +301,9 @@ The following tools are available in this MCP server.
 - `delete_connect_flux` (`write`): Delete Connect Flux
 - `get_connect_flux` (`read`): Get Connect Flux details
 
-### Resource `connect.flux.providers`:
+### Resource `connect.flux.routes`:
 
-- `list_flux_connect_providers` (`read`): List all supported providers with regions for Connect Flux.
+- `list_flux_connect_routes` (`read`): List all supported routes with regions for Connect Flux.
 
 ### Resource `vektor.registry.assets`:
 

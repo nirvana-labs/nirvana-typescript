@@ -5,17 +5,17 @@ import * as FluxAPI from './flux';
 import { APIPromise } from '../../../core/api-promise';
 import { RequestOptions } from '../../../internal/request-options';
 
-export class Providers extends APIResource {
+export class Routes extends APIResource {
   /**
-   * List all supported providers with regions for Connect Flux.
+   * List all supported routes with regions for Connect Flux.
    *
    * @example
    * ```ts
-   * const fluxProviderList =
-   *   await client.connect.flux.providers.list();
+   * const fluxRouteList =
+   *   await client.connect.flux.routes.list();
    * ```
    */
-  list(options?: RequestOptions): APIPromise<FluxAPI.FluxProviderList> {
-    return this._client.get('/v1/connect/flux/providers', options);
+  list(options?: RequestOptions): APIPromise<FluxAPI.FluxRouteList> {
+    return this._client.get('/v1/connect/flux/routes', options);
   }
 }

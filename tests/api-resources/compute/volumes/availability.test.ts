@@ -28,6 +28,7 @@ describe('resource availability', () => {
       name: 'my-data-volume',
       size: 100,
       vm_id: 'vm_id',
+      tags: ['production', 'ethereum'],
     });
   });
 

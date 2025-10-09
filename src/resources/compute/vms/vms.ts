@@ -34,7 +34,7 @@ export class VMs extends APIResource {
    *   cpu_config: { vcpu: 2 },
    *   memory_config: { size: 2 },
    *   name: 'my-vm',
-   *   os_image_name: 'ubuntu-noble-2025-04-03',
+   *   os_image_name: 'ubuntu-noble-2025-10-01',
    *   public_ip_enabled: true,
    *   region: 'us-wdc-1',
    *   ssh_key: {
@@ -250,6 +250,11 @@ export interface VM {
   subnet_id: string;
 
   /**
+   * Tags to attach to the VM.
+   */
+  tags: Array<string>;
+
+  /**
    * When the VM was updated.
    */
   updated_at: string;
@@ -319,6 +324,11 @@ export interface VMCreateParams {
    * Data volumes for the VM.
    */
   data_volumes?: Array<VMCreateParams.DataVolume>;
+
+  /**
+   * Tags to attach to the VM.
+   */
+  tags?: Array<string>;
 }
 
 export namespace VMCreateParams {
@@ -330,6 +340,11 @@ export namespace VMCreateParams {
      * Size of the Volume in GB.
      */
     size: number;
+
+    /**
+     * Tags to attach to the Volume.
+     */
+    tags?: Array<string>;
   }
 
   /**
@@ -345,6 +360,11 @@ export namespace VMCreateParams {
      * Size of the Volume in GB.
      */
     size: number;
+
+    /**
+     * Tags to attach to the Volume.
+     */
+    tags?: Array<string>;
   }
 }
 
@@ -368,6 +388,11 @@ export interface VMUpdateParams {
    * Whether to enable public IP for the VM.
    */
   public_ip_enabled?: boolean;
+
+  /**
+   * Tags to attach to the VM.
+   */
+  tags?: Array<string>;
 }
 
 VMs.Availability = Availability;

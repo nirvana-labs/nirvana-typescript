@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'update_volumes_compute_availability',
   description:
-    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nCheck Volume Update Availability\n\n# Response Schema\n```json\n{\n  type: 'string'\n}\n```",
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nCheck Volume Update Availability\n\n# Response Schema\n```json\n{\n  $ref: '#/$defs/availability_update_response',\n  $defs: {\n    availability_update_response: {\n      type: 'string'\n    }\n  }\n}\n```",
   inputSchema: {
     type: 'object',
     properties: {
@@ -32,6 +32,13 @@ export const tool: Tool = {
       size: {
         type: 'integer',
         description: 'Size of the Volume in GB.',
+      },
+      tags: {
+        type: 'array',
+        description: 'Tags to attach to the Volume.',
+        items: {
+          type: 'string',
+        },
       },
       jq_filter: {
         type: 'string',

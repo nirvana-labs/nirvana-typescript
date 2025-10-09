@@ -39,6 +39,13 @@ export const tool: Tool = {
         type: 'boolean',
         description: 'Whether to enable public IP for the VM.',
       },
+      tags: {
+        type: 'array',
+        description: 'Tags to attach to the VM.',
+        items: {
+          type: 'string',
+        },
+      },
       jq_filter: {
         type: 'string',
         title: 'jq Filter',

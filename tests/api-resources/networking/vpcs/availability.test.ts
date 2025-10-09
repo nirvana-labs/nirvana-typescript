@@ -28,6 +28,7 @@ describe('resource availability', () => {
       name: 'my-vpc',
       region: 'us-wdc-1',
       subnet_name: 'my-subnet',
+      tags: ['production', 'ethereum'],
     });
   });
 
