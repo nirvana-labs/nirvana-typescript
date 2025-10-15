@@ -8,6 +8,12 @@ import { RequestOptions } from '../../../internal/request-options';
 export class Blockchains extends APIResource {
   /**
    * List all Flex Blockchains
+   *
+   * @example
+   * ```ts
+   * const flexBlockchainList =
+   *   await client.rpcNodes.flex.blockchains.list();
+   * ```
    */
   list(options?: RequestOptions): APIPromise<FlexAPI.FlexBlockchainList> {
     return this._client.get('/v1/rpc_nodes/flex/blockchains', options);

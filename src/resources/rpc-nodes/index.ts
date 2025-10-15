@@ -13,5 +13,6 @@ export {
   type FlexBlockchain,
   type FlexBlockchainList,
   type FlexList,
+  type FlexCreateParams,
 } from './flex/index';
 export { RPCNodes } from './rpc-nodes';

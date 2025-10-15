@@ -8,6 +8,12 @@ import { RequestOptions } from '../../../internal/request-options';
 export class Blockchains extends APIResource {
   /**
    * List all Dedicated Blockchains
+   *
+   * @example
+   * ```ts
+   * const dedicatedBlockchainList =
+   *   await client.rpcNodes.dedicated.blockchains.list();
+   * ```
    */
   list(options?: RequestOptions): APIPromise<DedicatedAPI.DedicatedBlockchainList> {
     return this._client.get('/v1/rpc_nodes/dedicated/blockchains', options);

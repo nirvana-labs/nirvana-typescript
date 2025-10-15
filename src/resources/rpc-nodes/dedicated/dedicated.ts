@@ -12,6 +12,12 @@ export class DedicatedResource extends APIResource {
 
   /**
    * List all RPC Node Dedicated you created
+   *
+   * @example
+   * ```ts
+   * const dedicatedList =
+   *   await client.rpcNodes.dedicated.list();
+   * ```
    */
   list(options?: RequestOptions): APIPromise<DedicatedList> {
     return this._client.get('/v1/rpc_nodes/dedicated', options);
@@ -19,6 +25,13 @@ export class DedicatedResource extends APIResource {
 
   /**
    * Get details about an RPC Node Dedicated
+   *
+   * @example
+   * ```ts
+   * const dedicated = await client.rpcNodes.dedicated.get(
+   *   'node_id',
+   * );
+   * ```
    */
   get(nodeID: string, options?: RequestOptions): APIPromise<Dedicated> {
     return this._client.get(path`/v1/rpc_nodes/dedicated/${nodeID}`, options);

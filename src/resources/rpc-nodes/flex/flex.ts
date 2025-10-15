@@ -11,7 +11,28 @@ export class FlexResource extends APIResource {
   blockchains: BlockchainsAPI.Blockchains = new BlockchainsAPI.Blockchains(this._client);
 
   /**
+   * Create a new RPC Node Flex
+   *
+   * @example
+   * ```ts
+   * const flex = await client.rpcNodes.flex.create({
+   *   blockchain: 'ethereum',
+   *   name: 'my-ethereum-node',
+   *   network: 'mainnet',
+   * });
+   * ```
+   */
+  create(body: FlexCreateParams, options?: RequestOptions): APIPromise<Flex> {
+    return this._client.post('/v1/rpc_nodes/flex', { body, ...options });
+  }
+
+  /**
    * List all RPC Node Flex you created
+   *
+   * @example
+   * ```ts
+   * const flexList = await client.rpcNodes.flex.list();
+   * ```
    */
   list(options?: RequestOptions): APIPromise<FlexList> {
     return this._client.get('/v1/rpc_nodes/flex', options);
@@ -19,6 +40,11 @@ export class FlexResource extends APIResource {
 
   /**
    * Get details about an RPC Node Flex
+   *
+   * @example
+   * ```ts
+   * const flex = await client.rpcNodes.flex.get('node_id');
+   * ```
    */
   get(nodeID: string, options?: RequestOptions): APIPromise<Flex> {
     return this._client.get(path`/v1/rpc_nodes/flex/${nodeID}`, options);
@@ -93,6 +119,28 @@ export interface FlexList {
   items: Array<Flex>;
 }
 
+export interface FlexCreateParams {
+  /**
+   * Blockchain.
+   */
+  blockchain: string;
+
+  /**
+   * Name of the RPC Node Flex.
+   */
+  name: string;
+
+  /**
+   * Network type (e.g., mainnet, testnet).
+   */
+  network: string;
+
+  /**
+   * Tags to attach to the RPC Node Flex (optional, max 50).
+   */
+  tags?: Array<string>;
+}
+
 FlexResource.Blockchains = Blockchains;
 
 export declare namespace FlexResource {
@@ -101,6 +149,7 @@ export declare namespace FlexResource {
     type FlexBlockchain as FlexBlockchain,
     type FlexBlockchainList as FlexBlockchainList,
     type FlexList as FlexList,
+    type FlexCreateParams as FlexCreateParams,
   };
 
   export { Blockchains as Blockchains };
