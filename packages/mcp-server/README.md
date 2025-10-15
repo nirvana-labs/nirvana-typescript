@@ -277,6 +277,7 @@ The following tools are available in this MCP server.
 
 ### Resource `rpc_nodes.flex`:
 
+- `create_rpc_nodes_flex` (`write`): Create a new RPC Node Flex
 - `list_rpc_nodes_flex` (`read`): List all RPC Node Flex you created
 - `get_rpc_nodes_flex` (`read`): Get details about an RPC Node Flex
 

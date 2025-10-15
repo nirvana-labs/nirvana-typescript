@@ -41,6 +41,7 @@ import update_networking_firewall_rules from './networking/firewall-rules/update
 import list_networking_firewall_rules from './networking/firewall-rules/list-networking-firewall-rules';
 import delete_networking_firewall_rules from './networking/firewall-rules/delete-networking-firewall-rules';
 import get_networking_firewall_rules from './networking/firewall-rules/get-networking-firewall-rules';
+import create_rpc_nodes_flex from './rpc-nodes/flex/create-rpc-nodes-flex';
 import list_rpc_nodes_flex from './rpc-nodes/flex/list-rpc-nodes-flex';
 import get_rpc_nodes_flex from './rpc-nodes/flex/get-rpc-nodes-flex';
 import list_flex_rpc_nodes_blockchains from './rpc-nodes/flex/blockchains/list-flex-rpc-nodes-blockchains';
@@ -146,6 +147,7 @@ addEndpoint(update_networking_firewall_rules);
 addEndpoint(list_networking_firewall_rules);
 addEndpoint(delete_networking_firewall_rules);
 addEndpoint(get_networking_firewall_rules);
+addEndpoint(create_rpc_nodes_flex);
 addEndpoint(list_rpc_nodes_flex);
 addEndpoint(get_rpc_nodes_flex);
 addEndpoint(list_flex_rpc_nodes_blockchains);
