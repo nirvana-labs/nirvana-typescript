@@ -17,6 +17,7 @@ import {
   FlexCreateParams,
   FlexList,
   FlexResource,
+  FlexUpdateParams,
 } from './flex/flex';
 
 export class RPCNodes extends APIResource {
@@ -35,6 +36,7 @@ export declare namespace RPCNodes {
     type FlexBlockchainList as FlexBlockchainList,
     type FlexList as FlexList,
     type FlexCreateParams as FlexCreateParams,
+    type FlexUpdateParams as FlexUpdateParams,
   };
 
   export {

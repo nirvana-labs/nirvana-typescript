@@ -171,6 +171,34 @@ Methods:
 - <code title="delete /v1/networking/vpcs/{vpc_id}/firewall_rules/{firewall_rule_id}">client.networking.firewallRules.<a href="./src/resources/networking/firewall-rules.ts">delete</a>(firewallRuleID, { ...params }) -> Operation</code>
 - <code title="get /v1/networking/vpcs/{vpc_id}/firewall_rules/{firewall_rule_id}">client.networking.firewallRules.<a href="./src/resources/networking/firewall-rules.ts">get</a>(firewallRuleID, { ...params }) -> FirewallRule</code>
 
+## Connect
+
+Types:
+
+- <code><a href="./src/resources/networking/connect/connect.ts">ConnectBandwidthMbps</a></code>
+- <code><a href="./src/resources/networking/connect/connect.ts">ConnectConnection</a></code>
+- <code><a href="./src/resources/networking/connect/connect.ts">ConnectConnectionAWSConfig</a></code>
+- <code><a href="./src/resources/networking/connect/connect.ts">ConnectConnectionAWSConfigRequest</a></code>
+- <code><a href="./src/resources/networking/connect/connect.ts">ConnectConnectionList</a></code>
+- <code><a href="./src/resources/networking/connect/connect.ts">ConnectRoute</a></code>
+- <code><a href="./src/resources/networking/connect/connect.ts">ConnectRouteList</a></code>
+
+### Connections
+
+Methods:
+
+- <code title="post /v1/networking/connect/connections">client.networking.connect.connections.<a href="./src/resources/networking/connect/connections.ts">create</a>({ ...params }) -> Operation</code>
+- <code title="patch /v1/networking/connect/connections/{connection_id}">client.networking.connect.connections.<a href="./src/resources/networking/connect/connections.ts">update</a>(connectionID, { ...params }) -> Operation</code>
+- <code title="get /v1/networking/connect/connections">client.networking.connect.connections.<a href="./src/resources/networking/connect/connections.ts">list</a>() -> ConnectConnectionList</code>
+- <code title="delete /v1/networking/connect/connections/{connection_id}">client.networking.connect.connections.<a href="./src/resources/networking/connect/connections.ts">delete</a>(connectionID) -> Operation</code>
+- <code title="get /v1/networking/connect/connections/{connection_id}">client.networking.connect.connections.<a href="./src/resources/networking/connect/connections.ts">get</a>(connectionID) -> ConnectConnection</code>
+
+### Routes
+
+Methods:
+
+- <code title="get /v1/networking/connect/routes">client.networking.connect.routes.<a href="./src/resources/networking/connect/routes.ts">list</a>() -> ConnectRouteList</code>
+
 # RPCNodes
 
 ## Flex
@@ -185,6 +213,7 @@ Types:
 Methods:
 
 - <code title="post /v1/rpc_nodes/flex">client.rpcNodes.flex.<a href="./src/resources/rpc-nodes/flex/flex.ts">create</a>({ ...params }) -> Flex</code>
+- <code title="patch /v1/rpc_nodes/flex/{node_id}">client.rpcNodes.flex.<a href="./src/resources/rpc-nodes/flex/flex.ts">update</a>(nodeID, { ...params }) -> Flex</code>
 - <code title="get /v1/rpc_nodes/flex">client.rpcNodes.flex.<a href="./src/resources/rpc-nodes/flex/flex.ts">list</a>() -> FlexList</code>
 - <code title="get /v1/rpc_nodes/flex/{node_id}">client.rpcNodes.flex.<a href="./src/resources/rpc-nodes/flex/flex.ts">get</a>(nodeID) -> Flex</code>
 
@@ -218,29 +247,7 @@ Methods:
 
 ## Flux
 
-Types:
-
-- <code><a href="./src/resources/connect/flux/flux.ts">Flux</a></code>
-- <code><a href="./src/resources/connect/flux/flux.ts">FluxBandwidthMbps</a></code>
-- <code><a href="./src/resources/connect/flux/flux.ts">FluxList</a></code>
-- <code><a href="./src/resources/connect/flux/flux.ts">FluxProviderAWSConfig</a></code>
-- <code><a href="./src/resources/connect/flux/flux.ts">FluxProviderAWSConfigRequest</a></code>
-- <code><a href="./src/resources/connect/flux/flux.ts">FluxRoute</a></code>
-- <code><a href="./src/resources/connect/flux/flux.ts">FluxRouteList</a></code>
-
-Methods:
-
-- <code title="post /v1/connect/flux">client.connect.flux.<a href="./src/resources/connect/flux/flux.ts">create</a>({ ...params }) -> Operation</code>
-- <code title="patch /v1/connect/flux/{flux_id}">client.connect.flux.<a href="./src/resources/connect/flux/flux.ts">update</a>(fluxID, { ...params }) -> Operation</code>
-- <code title="get /v1/connect/flux">client.connect.flux.<a href="./src/resources/connect/flux/flux.ts">list</a>() -> FluxList</code>
-- <code title="delete /v1/connect/flux/{flux_id}">client.connect.flux.<a href="./src/resources/connect/flux/flux.ts">delete</a>(fluxID) -> Operation</code>
-- <code title="get /v1/connect/flux/{flux_id}">client.connect.flux.<a href="./src/resources/connect/flux/flux.ts">get</a>(fluxID) -> Flux</code>
-
 ### Routes
-
-Methods:
-
-- <code title="get /v1/connect/flux/routes">client.connect.flux.routes.<a href="./src/resources/connect/flux/routes.ts">list</a>() -> FluxRouteList</code>
 
 # Vektor
 

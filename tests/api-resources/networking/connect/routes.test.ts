@@ -9,7 +9,7 @@ const client = new NirvanaLabs({
 
 describe('resource routes', () => {
   test('list', async () => {
-    const responsePromise = client.connect.flux.routes.list();
+    const responsePromise = client.networking.connect.routes.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;

@@ -1,4 +1,3 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { Connect } from './connect';
-export { Flux } from './flux/index';
+export * from './connect/index';

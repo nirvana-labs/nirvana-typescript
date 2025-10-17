@@ -275,9 +275,22 @@ The following tools are available in this MCP server.
 - `delete_networking_firewall_rules` (`write`): Delete a firewall rule
 - `get_networking_firewall_rules` (`read`): Get details about a firewall rule
 
+### Resource `networking.connect.connections`:
+
+- `create_connect_networking_connections` (`write`): Create a Connect Connection
+- `update_connect_networking_connections` (`write`): Update Connect Connection details
+- `list_connect_networking_connections` (`read`): List all Connect Connections
+- `delete_connect_networking_connections` (`write`): Delete Connect Connection
+- `get_connect_networking_connections` (`read`): Get Connect Connection details
+
+### Resource `networking.connect.routes`:
+
+- `list_connect_networking_routes` (`read`): List all supported routes with regions for Connect.
+
 ### Resource `rpc_nodes.flex`:
 
 - `create_rpc_nodes_flex` (`write`): Create a new RPC Node Flex
+- `update_rpc_nodes_flex` (`write`): Update an existing RPC Node Flex
 - `list_rpc_nodes_flex` (`read`): List all RPC Node Flex you created
 - `get_rpc_nodes_flex` (`read`): Get details about an RPC Node Flex
 
@@ -293,18 +306,6 @@ The following tools are available in this MCP server.
 ### Resource `rpc_nodes.dedicated.blockchains`:
 
 - `list_dedicated_rpc_nodes_blockchains` (`read`): List all Dedicated Blockchains
-
-### Resource `connect.flux`:
-
-- `create_connect_flux` (`write`): Create a Connect Flux
-- `update_connect_flux` (`write`): Update Connect Flux details
-- `list_connect_flux` (`read`): List all Connect Flux
-- `delete_connect_flux` (`write`): Delete Connect Flux
-- `get_connect_flux` (`read`): Get Connect Flux details
-
-### Resource `connect.flux.routes`:
-
-- `list_flux_connect_routes` (`read`): List all supported routes with regions for Connect Flux.
 
 ### Resource `vektor.registry.assets`:
 

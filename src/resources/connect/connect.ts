@@ -2,36 +2,14 @@
 
 import { APIResource } from '../../core/resource';
 import * as FluxAPI from './flux/flux';
-import {
-  Flux,
-  FluxBandwidthMbps,
-  FluxCreateParams,
-  FluxList,
-  FluxProviderAWSConfig,
-  FluxProviderAWSConfigRequest,
-  FluxResource,
-  FluxRoute,
-  FluxRouteList,
-  FluxUpdateParams,
-} from './flux/flux';
+import { Flux } from './flux/flux';
 
 export class Connect extends APIResource {
-  flux: FluxAPI.FluxResource = new FluxAPI.FluxResource(this._client);
+  flux: FluxAPI.Flux = new FluxAPI.Flux(this._client);
 }
 
-Connect.FluxResource = FluxResource;
+Connect.Flux = Flux;
 
 export declare namespace Connect {
-  export {
-    FluxResource as FluxResource,
-    type Flux as Flux,
-    type FluxBandwidthMbps as FluxBandwidthMbps,
-    type FluxList as FluxList,
-    type FluxProviderAWSConfig as FluxProviderAWSConfig,
-    type FluxProviderAWSConfigRequest as FluxProviderAWSConfigRequest,
-    type FluxRoute as FluxRoute,
-    type FluxRouteList as FluxRouteList,
-    type FluxCreateParams as FluxCreateParams,
-    type FluxUpdateParams as FluxUpdateParams,
-  };
+  export { Flux as Flux };
 }

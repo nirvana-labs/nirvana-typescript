@@ -7,12 +7,12 @@ const client = new NirvanaLabs({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource flux', () => {
+describe('resource connections', () => {
   test('create: only required params', async () => {
-    const responsePromise = client.connect.flux.create({
+    const responsePromise = client.networking.connect.connections.create({
       bandwidth_mbps: 50,
       cidrs: ['10.0.0.0/16'],
-      name: 'my-connect-flux',
+      name: 'my-connect-connection',
       provider_cidrs: ['172.16.0.0/16'],
       region: 'us-wdc-1',
     });
@@ -26,10 +26,10 @@ describe('resource flux', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await client.connect.flux.create({
+    const response = await client.networking.connect.connections.create({
       bandwidth_mbps: 50,
       cidrs: ['10.0.0.0/16'],
-      name: 'my-connect-flux',
+      name: 'my-connect-connection',
       provider_cidrs: ['172.16.0.0/16'],
       region: 'us-wdc-1',
       aws: { account_id: '523816707215', region: 'us-east-1' },
@@ -38,7 +38,7 @@ describe('resource flux', () => {
   });
 
   test('update', async () => {
-    const responsePromise = client.connect.flux.update('flux_id', {});
+    const responsePromise = client.networking.connect.connections.update('connection_id', {});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -49,7 +49,7 @@ describe('resource flux', () => {
   });
 
   test('list', async () => {
-    const responsePromise = client.connect.flux.list();
+    const responsePromise = client.networking.connect.connections.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -60,7 +60,7 @@ describe('resource flux', () => {
   });
 
   test('delete', async () => {
-    const responsePromise = client.connect.flux.delete('flux_id');
+    const responsePromise = client.networking.connect.connections.delete('connection_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -71,7 +71,7 @@ describe('resource flux', () => {
   });
 
   test('get', async () => {
-    const responsePromise = client.connect.flux.get('flux_id');
+    const responsePromise = client.networking.connect.connections.get('connection_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
