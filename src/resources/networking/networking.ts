@@ -11,16 +11,29 @@ import {
   FirewallRuleUpdateParams,
   FirewallRules,
 } from './firewall-rules';
+import * as ConnectAPI from './connect/connect';
+import {
+  Connect,
+  ConnectBandwidthMbps,
+  ConnectConnection,
+  ConnectConnectionAWSConfig,
+  ConnectConnectionAWSConfigRequest,
+  ConnectConnectionList,
+  ConnectRoute,
+  ConnectRouteList,
+} from './connect/connect';
 import * as VPCsAPI from './vpcs/vpcs';
 import { Subnet, VPC, VPCCreateParams, VPCList, VPCUpdateParams, VPCs } from './vpcs/vpcs';
 
 export class Networking extends APIResource {
   vpcs: VPCsAPI.VPCs = new VPCsAPI.VPCs(this._client);
   firewallRules: FirewallRulesAPI.FirewallRules = new FirewallRulesAPI.FirewallRules(this._client);
+  connect: ConnectAPI.Connect = new ConnectAPI.Connect(this._client);
 }
 
 Networking.VPCs = VPCs;
 Networking.FirewallRules = FirewallRules;
+Networking.Connect = Connect;
 
 export declare namespace Networking {
   export {
@@ -40,5 +53,16 @@ export declare namespace Networking {
     type FirewallRuleUpdateParams as FirewallRuleUpdateParams,
     type FirewallRuleDeleteParams as FirewallRuleDeleteParams,
     type FirewallRuleGetParams as FirewallRuleGetParams,
+  };
+
+  export {
+    Connect as Connect,
+    type ConnectBandwidthMbps as ConnectBandwidthMbps,
+    type ConnectConnection as ConnectConnection,
+    type ConnectConnectionAWSConfig as ConnectConnectionAWSConfig,
+    type ConnectConnectionAWSConfigRequest as ConnectConnectionAWSConfigRequest,
+    type ConnectConnectionList as ConnectConnectionList,
+    type ConnectRoute as ConnectRoute,
+    type ConnectRouteList as ConnectRouteList,
   };
 }

@@ -8,4 +8,5 @@ export {
   type FlexBlockchainList,
   type FlexList,
   type FlexCreateParams,
+  type FlexUpdateParams,
 } from './flex';

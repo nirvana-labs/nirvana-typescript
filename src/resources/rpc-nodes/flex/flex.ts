@@ -27,6 +27,18 @@ export class FlexResource extends APIResource {
   }
 
   /**
+   * Update an existing RPC Node Flex
+   *
+   * @example
+   * ```ts
+   * const flex = await client.rpcNodes.flex.update('node_id');
+   * ```
+   */
+  update(nodeID: string, body: FlexUpdateParams, options?: RequestOptions): APIPromise<Flex> {
+    return this._client.patch(path`/v1/rpc_nodes/flex/${nodeID}`, { body, ...options });
+  }
+
+  /**
    * List all RPC Node Flex you created
    *
    * @example
@@ -141,6 +153,18 @@ export interface FlexCreateParams {
   tags?: Array<string>;
 }
 
+export interface FlexUpdateParams {
+  /**
+   * Name of the RPC Node Flex.
+   */
+  name?: string;
+
+  /**
+   * Tags to attach to the RPC Node Flex (optional, max 50).
+   */
+  tags?: Array<string>;
+}
+
 FlexResource.Blockchains = Blockchains;
 
 export declare namespace FlexResource {
@@ -150,6 +174,7 @@ export declare namespace FlexResource {
     type FlexBlockchainList as FlexBlockchainList,
     type FlexList as FlexList,
     type FlexCreateParams as FlexCreateParams,
+    type FlexUpdateParams as FlexUpdateParams,
   };
 
   export { Blockchains as Blockchains };
