@@ -20,7 +20,6 @@ import { APIKeys } from './resources/api-keys';
 import { Operations } from './resources/operations';
 import { UserResource } from './resources/user';
 import { Compute } from './resources/compute/compute';
-import { Connect } from './resources/connect/connect';
 import { Networking } from './resources/networking/networking';
 import { RPCNodes } from './resources/rpc-nodes/rpc-nodes';
 import { Vektor } from './resources/vektor/vektor';
@@ -727,7 +726,6 @@ export class NirvanaLabs {
   compute: API.Compute = new API.Compute(this);
   networking: API.Networking = new API.Networking(this);
   rpcNodes: API.RPCNodes = new API.RPCNodes(this);
-  connect: API.Connect = new API.Connect(this);
   vektor: API.Vektor = new API.Vektor(this);
 }
 
@@ -737,7 +735,6 @@ NirvanaLabs.Operations = Operations;
 NirvanaLabs.Compute = Compute;
 NirvanaLabs.Networking = Networking;
 NirvanaLabs.RPCNodes = RPCNodes;
-NirvanaLabs.Connect = Connect;
 NirvanaLabs.Vektor = Vektor;
 
 export declare namespace NirvanaLabs {
@@ -754,8 +751,6 @@ export declare namespace NirvanaLabs {
   export { Networking as Networking };
 
   export { RPCNodes as RPCNodes };
-
-  export { Connect as Connect };
 
   export { Vektor as Vektor };
 
