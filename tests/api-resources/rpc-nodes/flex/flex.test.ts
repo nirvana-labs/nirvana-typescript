@@ -54,6 +54,17 @@ describe('resource flex', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
+  test('delete', async () => {
+    const responsePromise = client.rpcNodes.flex.delete('node_id');
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
   test('get', async () => {
     const responsePromise = client.rpcNodes.flex.get('node_id');
     const rawResponse = await responsePromise.asResponse();
