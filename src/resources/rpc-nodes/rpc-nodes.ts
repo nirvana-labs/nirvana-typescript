@@ -10,7 +10,15 @@ import {
   DedicatedResource,
 } from './dedicated/dedicated';
 import * as FlexAPI from './flex/flex';
-import { Flex, FlexBlockchain, FlexBlockchainList, FlexList, FlexResource } from './flex/flex';
+import {
+  Flex,
+  FlexBlockchain,
+  FlexBlockchainList,
+  FlexCreateParams,
+  FlexList,
+  FlexResource,
+  FlexUpdateParams,
+} from './flex/flex';
 
 export class RPCNodes extends APIResource {
   flex: FlexAPI.FlexResource = new FlexAPI.FlexResource(this._client);
@@ -27,6 +35,8 @@ export declare namespace RPCNodes {
     type FlexBlockchain as FlexBlockchain,
     type FlexBlockchainList as FlexBlockchainList,
     type FlexList as FlexList,
+    type FlexCreateParams as FlexCreateParams,
+    type FlexUpdateParams as FlexUpdateParams,
   };
 
   export {
