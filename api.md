@@ -244,12 +244,6 @@ Methods:
 
 - <code title="get /v1/rpc_nodes/dedicated/blockchains">client.rpcNodes.dedicated.blockchains.<a href="./src/resources/rpc-nodes/dedicated/blockchains.ts">list</a>() -> DedicatedBlockchainList</code>
 
-# Connect
-
-## Flux
-
-### Routes
-
 # Vektor
 
 Types:
