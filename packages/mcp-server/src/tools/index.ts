@@ -50,6 +50,7 @@ import list_connect_networking_routes from './networking/connect/routes/list-con
 import create_rpc_nodes_flex from './rpc-nodes/flex/create-rpc-nodes-flex';
 import update_rpc_nodes_flex from './rpc-nodes/flex/update-rpc-nodes-flex';
 import list_rpc_nodes_flex from './rpc-nodes/flex/list-rpc-nodes-flex';
+import delete_rpc_nodes_flex from './rpc-nodes/flex/delete-rpc-nodes-flex';
 import get_rpc_nodes_flex from './rpc-nodes/flex/get-rpc-nodes-flex';
 import list_flex_rpc_nodes_blockchains from './rpc-nodes/flex/blockchains/list-flex-rpc-nodes-blockchains';
 import list_rpc_nodes_dedicated from './rpc-nodes/dedicated/list-rpc-nodes-dedicated';
@@ -157,6 +158,7 @@ addEndpoint(list_connect_networking_routes);
 addEndpoint(create_rpc_nodes_flex);
 addEndpoint(update_rpc_nodes_flex);
 addEndpoint(list_rpc_nodes_flex);
+addEndpoint(delete_rpc_nodes_flex);
 addEndpoint(get_rpc_nodes_flex);
 addEndpoint(list_flex_rpc_nodes_blockchains);
 addEndpoint(list_rpc_nodes_dedicated);

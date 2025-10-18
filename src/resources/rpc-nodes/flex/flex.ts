@@ -4,6 +4,7 @@ import { APIResource } from '../../../core/resource';
 import * as BlockchainsAPI from './blockchains';
 import { Blockchains } from './blockchains';
 import { APIPromise } from '../../../core/api-promise';
+import { buildHeaders } from '../../../internal/headers';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
@@ -48,6 +49,21 @@ export class FlexResource extends APIResource {
    */
   list(options?: RequestOptions): APIPromise<FlexList> {
     return this._client.get('/v1/rpc_nodes/flex', options);
+  }
+
+  /**
+   * Delete an RPC Node Flex
+   *
+   * @example
+   * ```ts
+   * await client.rpcNodes.flex.delete('node_id');
+   * ```
+   */
+  delete(nodeID: string, options?: RequestOptions): APIPromise<void> {
+    return this._client.delete(path`/v1/rpc_nodes/flex/${nodeID}`, {
+      ...options,
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+    });
   }
 
   /**

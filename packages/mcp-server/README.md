@@ -292,6 +292,7 @@ The following tools are available in this MCP server.
 - `create_rpc_nodes_flex` (`write`): Create a new RPC Node Flex
 - `update_rpc_nodes_flex` (`write`): Update an existing RPC Node Flex
 - `list_rpc_nodes_flex` (`read`): List all RPC Node Flex you created
+- `delete_rpc_nodes_flex` (`write`): Delete an RPC Node Flex
 - `get_rpc_nodes_flex` (`read`): Get details about an RPC Node Flex
 
 ### Resource `rpc_nodes.flex.blockchains`:
