@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.20.2 (2025-10-19)
+
+Full Changelog: [v1.20.1...v1.20.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.20.1...v1.20.2)
+
+### Build System
+
+* undo custom-code ([3495dd6](https://github.com/nirvana-labs/nirvana-typescript/commit/3495dd697f3246385714f4d7b8c3c69240087dad))
+
 ## 1.20.1 (2025-10-18)
 
 Full Changelog: [v1.20.0...v1.20.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.20.0...v1.20.1)
