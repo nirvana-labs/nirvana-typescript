@@ -174,6 +174,11 @@ export interface FirewallRule {
 
 export interface FirewallRuleList {
   items: Array<FirewallRule>;
+
+  /**
+   * Pagination response details.
+   */
+  pagination?: Shared.Pagination;
 }
 
 export interface FirewallRuleCreateParams {

@@ -1,6 +1,17 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 /**
+ * Pagination response details.
+ */
+export interface Pagination {
+  next_cursor: string | null;
+
+  previous_cursor: string | null;
+
+  total_count: number;
+}
+
+/**
  * Region the resource is in.
  */
 export type RegionName =
