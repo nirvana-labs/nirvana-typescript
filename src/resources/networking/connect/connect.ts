@@ -124,6 +124,11 @@ export interface ConnectConnectionAWSConfigRequest {
 
 export interface ConnectConnectionList {
   items: Array<ConnectConnection>;
+
+  /**
+   * Pagination response details.
+   */
+  pagination?: Shared.Pagination;
 }
 
 /**
@@ -148,6 +153,11 @@ export interface ConnectRoute {
 
 export interface ConnectRouteList {
   items: Array<ConnectRoute>;
+
+  /**
+   * Pagination response details.
+   */
+  pagination?: Shared.Pagination;
 }
 
 Connect.Connections = Connections;
