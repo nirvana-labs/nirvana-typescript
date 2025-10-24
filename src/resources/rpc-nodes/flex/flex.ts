@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../core/resource';
+import * as Shared from '../../shared';
 import * as BlockchainsAPI from './blockchains';
 import { Blockchains } from './blockchains';
 import { APIPromise } from '../../../core/api-promise';
@@ -141,10 +142,20 @@ export interface FlexBlockchain {
 
 export interface FlexBlockchainList {
   items: Array<FlexBlockchain>;
+
+  /**
+   * Pagination response details.
+   */
+  pagination?: Shared.Pagination;
 }
 
 export interface FlexList {
   items: Array<Flex>;
+
+  /**
+   * Pagination response details.
+   */
+  pagination?: Shared.Pagination;
 }
 
 export interface FlexCreateParams {

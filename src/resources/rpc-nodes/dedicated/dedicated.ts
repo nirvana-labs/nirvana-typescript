@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../core/resource';
+import * as Shared from '../../shared';
 import * as BlockchainsAPI from './blockchains';
 import { Blockchains } from './blockchains';
 import { APIPromise } from '../../../core/api-promise';
@@ -100,10 +101,20 @@ export interface DedicatedBlockchain {
 
 export interface DedicatedBlockchainList {
   items: Array<DedicatedBlockchain>;
+
+  /**
+   * Pagination response details.
+   */
+  pagination?: Shared.Pagination;
 }
 
 export interface DedicatedList {
   items: Array<Dedicated>;
+
+  /**
+   * Pagination response details.
+   */
+  pagination?: Shared.Pagination;
 }
 
 DedicatedResource.Blockchains = Blockchains;

@@ -272,6 +272,11 @@ export interface VM {
 
 export interface VMList {
   items: Array<VM>;
+
+  /**
+   * Pagination response details.
+   */
+  pagination?: Shared.Pagination;
 }
 
 export interface VMCreateParams {
