@@ -90,6 +90,7 @@ client.example.list(undefined, { headers: { ... } });
 This affects the following methods:
 
 - `client.apiKeys.list()`
+- `client.operations.list()`
 - `client.vektor.registry.assets.list()`
 - `client.vektor.registry.blockchains.list()`
 - `client.vektor.registry.venues.list()`
