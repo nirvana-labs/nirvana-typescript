@@ -3,6 +3,7 @@
 import { APIResource } from '../core/resource';
 import * as Shared from './shared';
 import { APIPromise } from '../core/api-promise';
+import { Cursor, type CursorParams, PagePromise } from '../core/pagination';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
 
@@ -10,8 +11,11 @@ export class Operations extends APIResource {
   /**
    * List all operations
    */
-  list(options?: RequestOptions): APIPromise<OperationList> {
-    return this._client.get('/v1/operations', options);
+  list(
+    query: OperationListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<OperationsCursor, Operation> {
+    return this._client.getAPIList('/v1/operations', Cursor<Operation>, { query, ...options });
   }
 
   /**
@@ -21,6 +25,8 @@ export class Operations extends APIResource {
     return this._client.get(path`/v1/operations/${operationID}`, options);
   }
 }
+
+export type OperationsCursor = Cursor<Operation>;
 
 /**
  * Operation details.
@@ -86,6 +92,8 @@ export type OperationStatus = 'pending' | 'running' | 'done' | 'failed' | 'unkno
  */
 export type OperationType = 'create' | 'update' | 'delete' | 'restart';
 
+export interface OperationListParams extends CursorParams {}
+
 export declare namespace Operations {
   export {
     type Operation as Operation,
@@ -93,5 +101,7 @@ export declare namespace Operations {
     type OperationList as OperationList,
     type OperationStatus as OperationStatus,
     type OperationType as OperationType,
+    type OperationsCursor as OperationsCursor,
+    type OperationListParams as OperationListParams,
   };
 }

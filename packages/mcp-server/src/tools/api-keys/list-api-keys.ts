@@ -24,9 +24,11 @@ export const tool: Tool = {
     properties: {
       cursor: {
         type: 'string',
+        description: 'Pagination cursor returned by a previous request',
       },
       limit: {
         type: 'integer',
+        description: 'Maximum number of items to return',
       },
       jq_filter: {
         type: 'string',
