@@ -8,8 +8,10 @@ import {
   FirewallRuleDeleteParams,
   FirewallRuleGetParams,
   FirewallRuleList,
+  FirewallRuleListParams,
   FirewallRuleUpdateParams,
   FirewallRules,
+  FirewallRulesCursor,
 } from './firewall-rules';
 import * as ConnectAPI from './connect/connect';
 import {
@@ -49,8 +51,10 @@ export declare namespace Networking {
     FirewallRules as FirewallRules,
     type FirewallRule as FirewallRule,
     type FirewallRuleList as FirewallRuleList,
+    type FirewallRulesCursor as FirewallRulesCursor,
     type FirewallRuleCreateParams as FirewallRuleCreateParams,
     type FirewallRuleUpdateParams as FirewallRuleUpdateParams,
+    type FirewallRuleListParams as FirewallRuleListParams,
     type FirewallRuleDeleteParams as FirewallRuleDeleteParams,
     type FirewallRuleGetParams as FirewallRuleGetParams,
   };

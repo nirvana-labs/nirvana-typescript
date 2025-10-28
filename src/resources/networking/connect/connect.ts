@@ -3,14 +3,22 @@
 import { APIResource } from '../../../core/resource';
 import * as Shared from '../../shared';
 import * as ConnectionsAPI from './connections';
-import { ConnectionCreateParams, ConnectionUpdateParams, Connections } from './connections';
+import {
+  ConnectionCreateParams,
+  ConnectionListParams,
+  ConnectionUpdateParams,
+  Connections,
+} from './connections';
 import * as RoutesAPI from './routes';
 import { Routes } from './routes';
+import { Cursor } from '../../../core/pagination';
 
 export class Connect extends APIResource {
   connections: ConnectionsAPI.Connections = new ConnectionsAPI.Connections(this._client);
   routes: RoutesAPI.Routes = new RoutesAPI.Routes(this._client);
 }
+
+export type ConnectConnectionsCursor = Cursor<ConnectConnection>;
 
 /**
  * Connect Connection speed in Mbps
@@ -178,6 +186,7 @@ export declare namespace Connect {
     Connections as Connections,
     type ConnectionCreateParams as ConnectionCreateParams,
     type ConnectionUpdateParams as ConnectionUpdateParams,
+    type ConnectionListParams as ConnectionListParams,
   };
 
   export { Routes as Routes };

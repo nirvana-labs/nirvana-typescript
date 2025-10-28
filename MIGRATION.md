@@ -91,6 +91,8 @@ This affects the following methods:
 
 - `client.apiKeys.list()`
 - `client.operations.list()`
+- `client.networking.firewallRules.list()`
+- `client.networking.connect.connections.list()`
 - `client.vektor.registry.assets.list()`
 - `client.vektor.registry.blockchains.list()`
 - `client.vektor.registry.venues.list()`
