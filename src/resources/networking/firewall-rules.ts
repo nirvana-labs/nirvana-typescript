@@ -4,6 +4,7 @@ import { APIResource } from '../../core/resource';
 import * as OperationsAPI from '../operations';
 import * as Shared from '../shared';
 import { APIPromise } from '../../core/api-promise';
+import { Cursor, type CursorParams, PagePromise } from '../../core/pagination';
 import { RequestOptions } from '../../internal/request-options';
 import { path } from '../../internal/utils/path';
 
@@ -60,12 +61,23 @@ export class FirewallRules extends APIResource {
    *
    * @example
    * ```ts
-   * const firewallRuleList =
-   *   await client.networking.firewallRules.list('vpc_id');
+   * // Automatically fetches more pages as needed.
+   * for await (const firewallRule of client.networking.firewallRules.list(
+   *   'vpc_id',
+   * )) {
+   *   // ...
+   * }
    * ```
    */
-  list(vpcID: string, options?: RequestOptions): APIPromise<FirewallRuleList> {
-    return this._client.get(path`/v1/networking/vpcs/${vpcID}/firewall_rules`, options);
+  list(
+    vpcID: string,
+    query: FirewallRuleListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<FirewallRulesCursor, FirewallRule> {
+    return this._client.getAPIList(path`/v1/networking/vpcs/${vpcID}/firewall_rules`, Cursor<FirewallRule>, {
+      query,
+      ...options,
+    });
   }
 
   /**
@@ -110,6 +122,8 @@ export class FirewallRules extends APIResource {
     return this._client.get(path`/v1/networking/vpcs/${vpc_id}/firewall_rules/${firewallRuleID}`, options);
   }
 }
+
+export type FirewallRulesCursor = Cursor<FirewallRule>;
 
 /**
  * Firewall rule details.
@@ -253,6 +267,8 @@ export interface FirewallRuleUpdateParams {
   tags?: Array<string>;
 }
 
+export interface FirewallRuleListParams extends CursorParams {}
+
 export interface FirewallRuleDeleteParams {
   /**
    * VPC ID
@@ -271,8 +287,10 @@ export declare namespace FirewallRules {
   export {
     type FirewallRule as FirewallRule,
     type FirewallRuleList as FirewallRuleList,
+    type FirewallRulesCursor as FirewallRulesCursor,
     type FirewallRuleCreateParams as FirewallRuleCreateParams,
     type FirewallRuleUpdateParams as FirewallRuleUpdateParams,
+    type FirewallRuleListParams as FirewallRuleListParams,
     type FirewallRuleDeleteParams as FirewallRuleDeleteParams,
     type FirewallRuleGetParams as FirewallRuleGetParams,
   };

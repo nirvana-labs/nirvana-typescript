@@ -25,6 +25,14 @@ export const tool: Tool = {
       vpc_id: {
         type: 'string',
       },
+      cursor: {
+        type: 'string',
+        description: 'Pagination cursor returned by a previous request',
+      },
+      limit: {
+        type: 'integer',
+        description: 'Maximum number of items to return',
+      },
       jq_filter: {
         type: 'string',
         title: 'jq Filter',
@@ -41,9 +49,8 @@ export const tool: Tool = {
 
 export const handler = async (client: NirvanaLabs, args: Record<string, unknown> | undefined) => {
   const { vpc_id, jq_filter, ...body } = args as any;
-  return asTextContentResult(
-    await maybeFilter(jq_filter, await client.networking.firewallRules.list(vpc_id)),
-  );
+  const response = await client.networking.firewallRules.list(vpc_id, body).asResponse();
+  return asTextContentResult(await maybeFilter(jq_filter, await response.json()));
 };
 
 export default { metadata, tool, handler };
