@@ -4,7 +4,9 @@ import { APIResource } from '../../../core/resource';
 import * as OperationsAPI from '../../operations';
 import * as Shared from '../../shared';
 import * as ConnectAPI from './connect';
+import { ConnectConnectionsCursor } from './connect';
 import { APIPromise } from '../../../core/api-promise';
+import { Cursor, type CursorParams, PagePromise } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
@@ -52,12 +54,21 @@ export class Connections extends APIResource {
    *
    * @example
    * ```ts
-   * const connectConnectionList =
-   *   await client.networking.connect.connections.list();
+   * // Automatically fetches more pages as needed.
+   * for await (const connectConnection of client.networking.connect.connections.list()) {
+   *   // ...
+   * }
    * ```
    */
-  list(options?: RequestOptions): APIPromise<ConnectAPI.ConnectConnectionList> {
-    return this._client.get('/v1/networking/connect/connections', options);
+  list(
+    query: ConnectionListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<ConnectConnectionsCursor, ConnectAPI.ConnectConnection> {
+    return this._client.getAPIList(
+      '/v1/networking/connect/connections',
+      Cursor<ConnectAPI.ConnectConnection>,
+      { query, ...options },
+    );
   }
 
   /**
@@ -140,9 +151,14 @@ export interface ConnectionUpdateParams {
   tags?: Array<string>;
 }
 
+export interface ConnectionListParams extends CursorParams {}
+
 export declare namespace Connections {
   export {
     type ConnectionCreateParams as ConnectionCreateParams,
     type ConnectionUpdateParams as ConnectionUpdateParams,
+    type ConnectionListParams as ConnectionListParams,
   };
 }
+
+export { type ConnectConnectionsCursor };

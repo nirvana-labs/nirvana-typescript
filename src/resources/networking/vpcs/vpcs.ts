@@ -173,6 +173,11 @@ export interface VPC {
 
 export interface VPCList {
   items: Array<VPC>;
+
+  /**
+   * Pagination response details.
+   */
+  pagination?: Shared.Pagination;
 }
 
 export interface VPCCreateParams {

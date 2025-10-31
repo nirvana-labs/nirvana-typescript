@@ -165,6 +165,11 @@ export type VolumeKind = 'boot' | 'data';
 
 export interface VolumeList {
   items: Array<Volume>;
+
+  /**
+   * Pagination response details.
+   */
+  pagination?: Shared.Pagination;
 }
 
 export interface VolumeCreateParams {

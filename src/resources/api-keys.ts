@@ -1,7 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../core/resource';
+import * as Shared from './shared';
 import { APIPromise } from '../core/api-promise';
+import { Cursor, type CursorParams, PagePromise } from '../core/pagination';
 import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
@@ -39,11 +41,17 @@ export class APIKeys extends APIResource {
    *
    * @example
    * ```ts
-   * const apiKeyList = await client.apiKeys.list();
+   * // Automatically fetches more pages as needed.
+   * for await (const apiKey of client.apiKeys.list()) {
+   *   // ...
+   * }
    * ```
    */
-  list(options?: RequestOptions): APIPromise<APIKeyList> {
-    return this._client.get('/v1/api_keys', options);
+  list(
+    query: APIKeyListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<APIKeysCursor, APIKey> {
+    return this._client.getAPIList('/v1/api_keys', Cursor<APIKey>, { query, ...options });
   }
 
   /**
@@ -73,6 +81,8 @@ export class APIKeys extends APIResource {
     return this._client.get(path`/v1/api_keys/${apiKeyID}`, options);
   }
 }
+
+export type APIKeysCursor = Cursor<APIKey>;
 
 /**
  * API Key response.
@@ -126,6 +136,11 @@ export interface APIKey {
 
 export interface APIKeyList {
   items: Array<APIKey>;
+
+  /**
+   * Pagination response details.
+   */
+  pagination?: Shared.Pagination;
 }
 
 export interface APIKeyCreateParams {
@@ -162,11 +177,15 @@ export interface APIKeyUpdateParams {
   tags?: Array<string>;
 }
 
+export interface APIKeyListParams extends CursorParams {}
+
 export declare namespace APIKeys {
   export {
     type APIKey as APIKey,
     type APIKeyList as APIKeyList,
+    type APIKeysCursor as APIKeysCursor,
     type APIKeyCreateParams as APIKeyCreateParams,
     type APIKeyUpdateParams as APIKeyUpdateParams,
+    type APIKeyListParams as APIKeyListParams,
   };
 }

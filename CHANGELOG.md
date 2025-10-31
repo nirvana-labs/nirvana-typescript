@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.21.0 (2025-10-31)
+
+Full Changelog: [v1.20.3...v1.21.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.20.3...v1.21.0)
+
+### Features
+
+* **api:** api update ([98b6e9a](https://github.com/nirvana-labs/nirvana-typescript/commit/98b6e9aa0fc6277a0808f32caf5b028f7de47ab4))
+* **api:** api update ([3784ecb](https://github.com/nirvana-labs/nirvana-typescript/commit/3784ecb9ad3ff272f9cb49b5e598b88f8aa88ba5))
+* **api:** api update ([e1ce716](https://github.com/nirvana-labs/nirvana-typescript/commit/e1ce716f3be4073792e91ed0bfd3b2e246236a4b))
+
+
+### Bug Fixes
+
+* **mcpb:** pin @anthropic-ai/mcpb version ([7ef4490](https://github.com/nirvana-labs/nirvana-typescript/commit/7ef44907cd7ac5146d3316f668f50f84063af24b))
+
+
+### Chores
+
+* remove custom code ([85655f4](https://github.com/nirvana-labs/nirvana-typescript/commit/85655f40a791aab1c19c1f630288cc0378cdbf5b))
+
 ## 1.20.3 (2025-10-19)
 
 Full Changelog: [v1.20.2...v1.20.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.20.2...v1.20.3)

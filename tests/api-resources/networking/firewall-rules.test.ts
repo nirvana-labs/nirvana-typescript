@@ -70,6 +70,17 @@ describe('resource firewallRules', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
+  test('list: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.networking.firewallRules.list(
+        'vpc_id',
+        { cursor: 'cursor', limit: 10 },
+        { path: '/_stainless_unknown_path' },
+      ),
+    ).rejects.toThrow(NirvanaLabs.NotFoundError);
+  });
+
   test('delete: only required params', async () => {
     const responsePromise = client.networking.firewallRules.delete('firewall_rule_id', { vpc_id: 'vpc_id' });
     const rawResponse = await responsePromise.asResponse();
