@@ -7,6 +7,7 @@ import {
   DedicatedBlockchain,
   DedicatedBlockchainList,
   DedicatedList,
+  DedicatedListParams,
   DedicatedResource,
 } from './dedicated/dedicated';
 import * as FlexAPI from './flex/flex';
@@ -16,6 +17,7 @@ import {
   FlexBlockchainList,
   FlexCreateParams,
   FlexList,
+  FlexListParams,
   FlexResource,
   FlexUpdateParams,
 } from './flex/flex';
@@ -37,6 +39,7 @@ export declare namespace RPCNodes {
     type FlexList as FlexList,
     type FlexCreateParams as FlexCreateParams,
     type FlexUpdateParams as FlexUpdateParams,
+    type FlexListParams as FlexListParams,
   };
 
   export {
@@ -45,5 +48,6 @@ export declare namespace RPCNodes {
     type DedicatedBlockchain as DedicatedBlockchain,
     type DedicatedBlockchainList as DedicatedBlockchainList,
     type DedicatedList as DedicatedList,
+    type DedicatedListParams as DedicatedListParams,
   };
 }

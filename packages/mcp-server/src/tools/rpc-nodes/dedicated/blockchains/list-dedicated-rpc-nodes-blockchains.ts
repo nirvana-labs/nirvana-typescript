@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   tags: [],
   httpMethod: 'get',
   httpPath: '/v1/rpc_nodes/dedicated/blockchains',
-  operationId: 'list_dedicated_blockchains',
+  operationId: 'list_rpc_nodes_dedicated_blockchains',
 };
 
 export const tool: Tool = {
@@ -22,6 +22,14 @@ export const tool: Tool = {
   inputSchema: {
     type: 'object',
     properties: {
+      cursor: {
+        type: 'string',
+        description: 'Pagination cursor returned by a previous request',
+      },
+      limit: {
+        type: 'integer',
+        description: 'Maximum number of items to return',
+      },
       jq_filter: {
         type: 'string',
         title: 'jq Filter',
@@ -37,9 +45,9 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: NirvanaLabs, args: Record<string, unknown> | undefined) => {
-  const { jq_filter } = args as any;
+  const { jq_filter, ...body } = args as any;
   return asTextContentResult(
-    await maybeFilter(jq_filter, await client.rpcNodes.dedicated.blockchains.list()),
+    await maybeFilter(jq_filter, await client.rpcNodes.dedicated.blockchains.list(body)),
   );
 };
 

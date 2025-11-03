@@ -10,7 +10,7 @@ import {
   Connections,
 } from './connections';
 import * as RoutesAPI from './routes';
-import { Routes } from './routes';
+import { RouteListParams, Routes } from './routes';
 import { Cursor } from '../../../core/pagination';
 
 export class Connect extends APIResource {
@@ -189,5 +189,5 @@ export declare namespace Connect {
     type ConnectionListParams as ConnectionListParams,
   };
 
-  export { Routes as Routes };
+  export { Routes as Routes, type RouteListParams as RouteListParams };
 }

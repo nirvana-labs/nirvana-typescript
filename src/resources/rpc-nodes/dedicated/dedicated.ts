@@ -3,7 +3,7 @@
 import { APIResource } from '../../../core/resource';
 import * as Shared from '../../shared';
 import * as BlockchainsAPI from './blockchains';
-import { Blockchains } from './blockchains';
+import { BlockchainListParams, Blockchains } from './blockchains';
 import { APIPromise } from '../../../core/api-promise';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
@@ -20,8 +20,11 @@ export class DedicatedResource extends APIResource {
    *   await client.rpcNodes.dedicated.list();
    * ```
    */
-  list(options?: RequestOptions): APIPromise<DedicatedList> {
-    return this._client.get('/v1/rpc_nodes/dedicated', options);
+  list(
+    query: DedicatedListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<DedicatedList> {
+    return this._client.get('/v1/rpc_nodes/dedicated', { query, ...options });
   }
 
   /**
@@ -117,6 +120,18 @@ export interface DedicatedList {
   pagination?: Shared.Pagination;
 }
 
+export interface DedicatedListParams {
+  /**
+   * Pagination cursor returned by a previous request
+   */
+  cursor?: string;
+
+  /**
+   * Maximum number of items to return
+   */
+  limit?: number;
+}
+
 DedicatedResource.Blockchains = Blockchains;
 
 export declare namespace DedicatedResource {
@@ -125,7 +140,8 @@ export declare namespace DedicatedResource {
     type DedicatedBlockchain as DedicatedBlockchain,
     type DedicatedBlockchainList as DedicatedBlockchainList,
     type DedicatedList as DedicatedList,
+    type DedicatedListParams as DedicatedListParams,
   };
 
-  export { Blockchains as Blockchains };
+  export { Blockchains as Blockchains, type BlockchainListParams as BlockchainListParams };
 }
