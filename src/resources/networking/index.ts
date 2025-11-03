@@ -10,6 +10,7 @@ export {
   type ConnectRoute,
   type ConnectRouteList,
   type ConnectConnectionsCursor,
+  type ConnectRoutesCursor,
 } from './connect/index';
 export {
   FirewallRules,

@@ -2,7 +2,8 @@
 
 import { APIResource } from '../../../core/resource';
 import * as FlexAPI from './flex';
-import { APIPromise } from '../../../core/api-promise';
+import { FlexBlockchainsCursor } from './flex';
+import { Cursor, type CursorParams, PagePromise } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
 
 export class Blockchains extends APIResource {
@@ -11,30 +12,27 @@ export class Blockchains extends APIResource {
    *
    * @example
    * ```ts
-   * const flexBlockchainList =
-   *   await client.rpcNodes.flex.blockchains.list();
+   * // Automatically fetches more pages as needed.
+   * for await (const flexBlockchain of client.rpcNodes.flex.blockchains.list()) {
+   *   // ...
+   * }
    * ```
    */
   list(
     query: BlockchainListParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<FlexAPI.FlexBlockchainList> {
-    return this._client.get('/v1/rpc_nodes/flex/blockchains', { query, ...options });
+  ): PagePromise<FlexBlockchainsCursor, FlexAPI.FlexBlockchain> {
+    return this._client.getAPIList('/v1/rpc_nodes/flex/blockchains', Cursor<FlexAPI.FlexBlockchain>, {
+      query,
+      ...options,
+    });
   }
 }
 
-export interface BlockchainListParams {
-  /**
-   * Pagination cursor returned by a previous request
-   */
-  cursor?: string;
-
-  /**
-   * Maximum number of items to return
-   */
-  limit?: number;
-}
+export interface BlockchainListParams extends CursorParams {}
 
 export declare namespace Blockchains {
   export { type BlockchainListParams as BlockchainListParams };
 }
+
+export { type FlexBlockchainsCursor };

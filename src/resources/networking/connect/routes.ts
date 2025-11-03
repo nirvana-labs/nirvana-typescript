@@ -2,7 +2,8 @@
 
 import { APIResource } from '../../../core/resource';
 import * as ConnectAPI from './connect';
-import { APIPromise } from '../../../core/api-promise';
+import { ConnectRoutesCursor } from './connect';
+import { Cursor, type CursorParams, PagePromise } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
 
 export class Routes extends APIResource {
@@ -11,30 +12,27 @@ export class Routes extends APIResource {
    *
    * @example
    * ```ts
-   * const connectRouteList =
-   *   await client.networking.connect.routes.list();
+   * // Automatically fetches more pages as needed.
+   * for await (const connectRoute of client.networking.connect.routes.list()) {
+   *   // ...
+   * }
    * ```
    */
   list(
     query: RouteListParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<ConnectAPI.ConnectRouteList> {
-    return this._client.get('/v1/networking/connect/routes', { query, ...options });
+  ): PagePromise<ConnectRoutesCursor, ConnectAPI.ConnectRoute> {
+    return this._client.getAPIList('/v1/networking/connect/routes', Cursor<ConnectAPI.ConnectRoute>, {
+      query,
+      ...options,
+    });
   }
 }
 
-export interface RouteListParams {
-  /**
-   * Pagination cursor returned by a previous request
-   */
-  cursor?: string;
-
-  /**
-   * Maximum number of items to return
-   */
-  limit?: number;
-}
+export interface RouteListParams extends CursorParams {}
 
 export declare namespace Routes {
   export { type RouteListParams as RouteListParams };
 }
+
+export { type ConnectRoutesCursor };

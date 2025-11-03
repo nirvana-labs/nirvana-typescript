@@ -9,6 +9,7 @@ import {
   DedicatedList,
   DedicatedListParams,
   DedicatedResource,
+  DedicatedsCursor,
 } from './dedicated/dedicated';
 import * as FlexAPI from './flex/flex';
 import {
@@ -20,6 +21,7 @@ import {
   FlexListParams,
   FlexResource,
   FlexUpdateParams,
+  FlexesCursor,
 } from './flex/flex';
 
 export class RPCNodes extends APIResource {
@@ -37,6 +39,7 @@ export declare namespace RPCNodes {
     type FlexBlockchain as FlexBlockchain,
     type FlexBlockchainList as FlexBlockchainList,
     type FlexList as FlexList,
+    type FlexesCursor as FlexesCursor,
     type FlexCreateParams as FlexCreateParams,
     type FlexUpdateParams as FlexUpdateParams,
     type FlexListParams as FlexListParams,
@@ -48,6 +51,7 @@ export declare namespace RPCNodes {
     type DedicatedBlockchain as DedicatedBlockchain,
     type DedicatedBlockchainList as DedicatedBlockchainList,
     type DedicatedList as DedicatedList,
+    type DedicatedsCursor as DedicatedsCursor,
     type DedicatedListParams as DedicatedListParams,
   };
 }

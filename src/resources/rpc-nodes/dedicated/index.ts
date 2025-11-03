@@ -8,4 +8,6 @@ export {
   type DedicatedBlockchainList,
   type DedicatedList,
   type DedicatedListParams,
+  type DedicatedBlockchainsCursor,
+  type DedicatedsCursor,
 } from './dedicated';
