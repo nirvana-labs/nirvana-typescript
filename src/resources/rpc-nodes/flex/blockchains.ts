@@ -15,7 +15,26 @@ export class Blockchains extends APIResource {
    *   await client.rpcNodes.flex.blockchains.list();
    * ```
    */
-  list(options?: RequestOptions): APIPromise<FlexAPI.FlexBlockchainList> {
-    return this._client.get('/v1/rpc_nodes/flex/blockchains', options);
+  list(
+    query: BlockchainListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<FlexAPI.FlexBlockchainList> {
+    return this._client.get('/v1/rpc_nodes/flex/blockchains', { query, ...options });
   }
+}
+
+export interface BlockchainListParams {
+  /**
+   * Pagination cursor returned by a previous request
+   */
+  cursor?: string;
+
+  /**
+   * Maximum number of items to return
+   */
+  limit?: number;
+}
+
+export declare namespace Blockchains {
+  export { type BlockchainListParams as BlockchainListParams };
 }

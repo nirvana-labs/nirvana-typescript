@@ -15,7 +15,26 @@ export class Routes extends APIResource {
    *   await client.networking.connect.routes.list();
    * ```
    */
-  list(options?: RequestOptions): APIPromise<ConnectAPI.ConnectRouteList> {
-    return this._client.get('/v1/networking/connect/routes', options);
+  list(
+    query: RouteListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<ConnectAPI.ConnectRouteList> {
+    return this._client.get('/v1/networking/connect/routes', { query, ...options });
   }
+}
+
+export interface RouteListParams {
+  /**
+   * Pagination cursor returned by a previous request
+   */
+  cursor?: string;
+
+  /**
+   * Maximum number of items to return
+   */
+  limit?: number;
+}
+
+export declare namespace Routes {
+  export { type RouteListParams as RouteListParams };
 }

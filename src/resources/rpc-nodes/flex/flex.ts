@@ -3,7 +3,7 @@
 import { APIResource } from '../../../core/resource';
 import * as Shared from '../../shared';
 import * as BlockchainsAPI from './blockchains';
-import { Blockchains } from './blockchains';
+import { BlockchainListParams, Blockchains } from './blockchains';
 import { APIPromise } from '../../../core/api-promise';
 import { buildHeaders } from '../../../internal/headers';
 import { RequestOptions } from '../../../internal/request-options';
@@ -48,8 +48,8 @@ export class FlexResource extends APIResource {
    * const flexList = await client.rpcNodes.flex.list();
    * ```
    */
-  list(options?: RequestOptions): APIPromise<FlexList> {
-    return this._client.get('/v1/rpc_nodes/flex', options);
+  list(query: FlexListParams | null | undefined = {}, options?: RequestOptions): APIPromise<FlexList> {
+    return this._client.get('/v1/rpc_nodes/flex', { query, ...options });
   }
 
   /**
@@ -192,6 +192,18 @@ export interface FlexUpdateParams {
   tags?: Array<string>;
 }
 
+export interface FlexListParams {
+  /**
+   * Pagination cursor returned by a previous request
+   */
+  cursor?: string;
+
+  /**
+   * Maximum number of items to return
+   */
+  limit?: number;
+}
+
 FlexResource.Blockchains = Blockchains;
 
 export declare namespace FlexResource {
@@ -202,7 +214,8 @@ export declare namespace FlexResource {
     type FlexList as FlexList,
     type FlexCreateParams as FlexCreateParams,
     type FlexUpdateParams as FlexUpdateParams,
+    type FlexListParams as FlexListParams,
   };
 
-  export { Blockchains as Blockchains };
+  export { Blockchains as Blockchains, type BlockchainListParams as BlockchainListParams };
 }

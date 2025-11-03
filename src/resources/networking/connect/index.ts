@@ -17,4 +17,4 @@ export {
   type ConnectionUpdateParams,
   type ConnectionListParams,
 } from './connections';
-export { Routes } from './routes';
+export { Routes, type RouteListParams } from './routes';

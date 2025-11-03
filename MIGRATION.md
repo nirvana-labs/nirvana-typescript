@@ -93,6 +93,11 @@ This affects the following methods:
 - `client.operations.list()`
 - `client.networking.firewallRules.list()`
 - `client.networking.connect.connections.list()`
+- `client.networking.connect.routes.list()`
+- `client.rpcNodes.flex.list()`
+- `client.rpcNodes.flex.blockchains.list()`
+- `client.rpcNodes.dedicated.list()`
+- `client.rpcNodes.dedicated.blockchains.list()`
 - `client.vektor.registry.assets.list()`
 - `client.vektor.registry.blockchains.list()`
 - `client.vektor.registry.venues.list()`

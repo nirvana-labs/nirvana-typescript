@@ -15,7 +15,26 @@ export class Blockchains extends APIResource {
    *   await client.rpcNodes.dedicated.blockchains.list();
    * ```
    */
-  list(options?: RequestOptions): APIPromise<DedicatedAPI.DedicatedBlockchainList> {
-    return this._client.get('/v1/rpc_nodes/dedicated/blockchains', options);
+  list(
+    query: BlockchainListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<DedicatedAPI.DedicatedBlockchainList> {
+    return this._client.get('/v1/rpc_nodes/dedicated/blockchains', { query, ...options });
   }
+}
+
+export interface BlockchainListParams {
+  /**
+   * Pagination cursor returned by a previous request
+   */
+  cursor?: string;
+
+  /**
+   * Maximum number of items to return
+   */
+  limit?: number;
+}
+
+export declare namespace Blockchains {
+  export { type BlockchainListParams as BlockchainListParams };
 }
