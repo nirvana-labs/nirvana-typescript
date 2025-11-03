@@ -10,4 +10,6 @@ export {
   type FlexCreateParams,
   type FlexUpdateParams,
   type FlexListParams,
+  type FlexBlockchainsCursor,
+  type FlexesCursor,
 } from './flex';

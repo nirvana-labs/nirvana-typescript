@@ -20,6 +20,8 @@ export class Connect extends APIResource {
 
 export type ConnectConnectionsCursor = Cursor<ConnectConnection>;
 
+export type ConnectRoutesCursor = Cursor<ConnectRoute>;
+
 /**
  * Connect Connection speed in Mbps
  */

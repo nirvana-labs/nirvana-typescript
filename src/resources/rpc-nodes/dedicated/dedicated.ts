@@ -5,6 +5,7 @@ import * as Shared from '../../shared';
 import * as BlockchainsAPI from './blockchains';
 import { BlockchainListParams, Blockchains } from './blockchains';
 import { APIPromise } from '../../../core/api-promise';
+import { Cursor, type CursorParams, PagePromise } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
@@ -16,15 +17,17 @@ export class DedicatedResource extends APIResource {
    *
    * @example
    * ```ts
-   * const dedicatedList =
-   *   await client.rpcNodes.dedicated.list();
+   * // Automatically fetches more pages as needed.
+   * for await (const dedicated of client.rpcNodes.dedicated.list()) {
+   *   // ...
+   * }
    * ```
    */
   list(
     query: DedicatedListParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<DedicatedList> {
-    return this._client.get('/v1/rpc_nodes/dedicated', { query, ...options });
+  ): PagePromise<DedicatedsCursor, Dedicated> {
+    return this._client.getAPIList('/v1/rpc_nodes/dedicated', Cursor<Dedicated>, { query, ...options });
   }
 
   /**
@@ -41,6 +44,10 @@ export class DedicatedResource extends APIResource {
     return this._client.get(path`/v1/rpc_nodes/dedicated/${nodeID}`, options);
   }
 }
+
+export type DedicatedsCursor = Cursor<Dedicated>;
+
+export type DedicatedBlockchainsCursor = Cursor<DedicatedBlockchain>;
 
 /**
  * RPC Node Dedicated details.
@@ -120,17 +127,7 @@ export interface DedicatedList {
   pagination?: Shared.Pagination;
 }
 
-export interface DedicatedListParams {
-  /**
-   * Pagination cursor returned by a previous request
-   */
-  cursor?: string;
-
-  /**
-   * Maximum number of items to return
-   */
-  limit?: number;
-}
+export interface DedicatedListParams extends CursorParams {}
 
 DedicatedResource.Blockchains = Blockchains;
 
@@ -140,6 +137,7 @@ export declare namespace DedicatedResource {
     type DedicatedBlockchain as DedicatedBlockchain,
     type DedicatedBlockchainList as DedicatedBlockchainList,
     type DedicatedList as DedicatedList,
+    type DedicatedsCursor as DedicatedsCursor,
     type DedicatedListParams as DedicatedListParams,
   };
 
