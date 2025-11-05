@@ -21,5 +21,6 @@ export {
   type VMCreateParams,
   type VMUpdateParams,
   type VMListParams,
+  type VMsCursor,
 } from './vms';
 export { Volumes, type VolumeListParams } from './volumes';
