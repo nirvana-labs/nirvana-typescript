@@ -12,6 +12,7 @@ import {
   AvailabilityUpdateResponse,
 } from './availability';
 import { APIPromise } from '../../../core/api-promise';
+import { Cursor, type CursorParams, PagePromise } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
@@ -57,11 +58,14 @@ export class VPCs extends APIResource {
    *
    * @example
    * ```ts
-   * const vpcList = await client.networking.vpcs.list();
+   * // Automatically fetches more pages as needed.
+   * for await (const vpc of client.networking.vpcs.list()) {
+   *   // ...
+   * }
    * ```
    */
-  list(query: VPCListParams | null | undefined = {}, options?: RequestOptions): APIPromise<VPCList> {
-    return this._client.get('/v1/networking/vpcs', { query, ...options });
+  list(query: VPCListParams | null | undefined = {}, options?: RequestOptions): PagePromise<VPCsCursor, VPC> {
+    return this._client.getAPIList('/v1/networking/vpcs', Cursor<VPC>, { query, ...options });
   }
 
   /**
@@ -90,6 +94,8 @@ export class VPCs extends APIResource {
     return this._client.get(path`/v1/networking/vpcs/${vpcID}`, options);
   }
 }
+
+export type VPCsCursor = Cursor<VPC>;
 
 /**
  * Subnet of the VPC.
@@ -219,17 +225,7 @@ export interface VPCUpdateParams {
   tags?: Array<string>;
 }
 
-export interface VPCListParams {
-  /**
-   * Pagination cursor returned by a previous request
-   */
-  cursor?: string;
-
-  /**
-   * Maximum number of items to return
-   */
-  limit?: number;
-}
+export interface VPCListParams extends CursorParams {}
 
 VPCs.Availability = Availability;
 
@@ -238,6 +234,7 @@ export declare namespace VPCs {
     type Subnet as Subnet,
     type VPC as VPC,
     type VPCList as VPCList,
+    type VPCsCursor as VPCsCursor,
     type VPCCreateParams as VPCCreateParams,
     type VPCUpdateParams as VPCUpdateParams,
     type VPCListParams as VPCListParams,

@@ -25,7 +25,16 @@ import {
   ConnectRouteList,
 } from './connect/connect';
 import * as VPCsAPI from './vpcs/vpcs';
-import { Subnet, VPC, VPCCreateParams, VPCList, VPCListParams, VPCUpdateParams, VPCs } from './vpcs/vpcs';
+import {
+  Subnet,
+  VPC,
+  VPCCreateParams,
+  VPCList,
+  VPCListParams,
+  VPCUpdateParams,
+  VPCs,
+  VPCsCursor,
+} from './vpcs/vpcs';
 
 export class Networking extends APIResource {
   vpcs: VPCsAPI.VPCs = new VPCsAPI.VPCs(this._client);
@@ -43,6 +52,7 @@ export declare namespace Networking {
     type Subnet as Subnet,
     type VPC as VPC,
     type VPCList as VPCList,
+    type VPCsCursor as VPCsCursor,
     type VPCCreateParams as VPCCreateParams,
     type VPCUpdateParams as VPCUpdateParams,
     type VPCListParams as VPCListParams,

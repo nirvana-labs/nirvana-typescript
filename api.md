@@ -65,7 +65,7 @@ Methods:
 
 - <code title="post /v1/compute/vms">client.compute.vms.<a href="./src/resources/compute/vms/vms.ts">create</a>({ ...params }) -> Operation</code>
 - <code title="patch /v1/compute/vms/{vm_id}">client.compute.vms.<a href="./src/resources/compute/vms/vms.ts">update</a>(vmID, { ...params }) -> Operation</code>
-- <code title="get /v1/compute/vms">client.compute.vms.<a href="./src/resources/compute/vms/vms.ts">list</a>({ ...params }) -> VMList</code>
+- <code title="get /v1/compute/vms">client.compute.vms.<a href="./src/resources/compute/vms/vms.ts">list</a>({ ...params }) -> VMsCursor</code>
 - <code title="delete /v1/compute/vms/{vm_id}">client.compute.vms.<a href="./src/resources/compute/vms/vms.ts">delete</a>(vmID) -> Operation</code>
 - <code title="get /v1/compute/vms/{vm_id}">client.compute.vms.<a href="./src/resources/compute/vms/vms.ts">get</a>(vmID) -> VM</code>
 - <code title="post /v1/compute/vms/{vm_id}/restart">client.compute.vms.<a href="./src/resources/compute/vms/vms.ts">restart</a>(vmID) -> Operation</code>
@@ -86,7 +86,7 @@ Methods:
 
 Methods:
 
-- <code title="get /v1/compute/vms/{vm_id}/volumes">client.compute.vms.volumes.<a href="./src/resources/compute/vms/volumes.ts">list</a>(vmID, { ...params }) -> VolumeList</code>
+- <code title="get /v1/compute/vms/{vm_id}/volumes">client.compute.vms.volumes.<a href="./src/resources/compute/vms/volumes.ts">list</a>(vmID, { ...params }) -> VolumesCursor</code>
 
 ### OSImages
 
@@ -111,7 +111,7 @@ Methods:
 
 - <code title="post /v1/compute/volumes">client.compute.volumes.<a href="./src/resources/compute/volumes/volumes.ts">create</a>({ ...params }) -> Operation</code>
 - <code title="patch /v1/compute/volumes/{volume_id}">client.compute.volumes.<a href="./src/resources/compute/volumes/volumes.ts">update</a>(volumeID, { ...params }) -> Operation</code>
-- <code title="get /v1/compute/volumes">client.compute.volumes.<a href="./src/resources/compute/volumes/volumes.ts">list</a>({ ...params }) -> VolumeList</code>
+- <code title="get /v1/compute/volumes">client.compute.volumes.<a href="./src/resources/compute/volumes/volumes.ts">list</a>({ ...params }) -> VolumesCursor</code>
 - <code title="delete /v1/compute/volumes/{volume_id}">client.compute.volumes.<a href="./src/resources/compute/volumes/volumes.ts">delete</a>(volumeID) -> Operation</code>
 - <code title="get /v1/compute/volumes/{volume_id}">client.compute.volumes.<a href="./src/resources/compute/volumes/volumes.ts">get</a>(volumeID) -> Volume</code>
 
@@ -141,7 +141,7 @@ Methods:
 
 - <code title="post /v1/networking/vpcs">client.networking.vpcs.<a href="./src/resources/networking/vpcs/vpcs.ts">create</a>({ ...params }) -> Operation</code>
 - <code title="patch /v1/networking/vpcs/{vpc_id}">client.networking.vpcs.<a href="./src/resources/networking/vpcs/vpcs.ts">update</a>(vpcID, { ...params }) -> Operation</code>
-- <code title="get /v1/networking/vpcs">client.networking.vpcs.<a href="./src/resources/networking/vpcs/vpcs.ts">list</a>({ ...params }) -> VPCList</code>
+- <code title="get /v1/networking/vpcs">client.networking.vpcs.<a href="./src/resources/networking/vpcs/vpcs.ts">list</a>({ ...params }) -> VPCsCursor</code>
 - <code title="delete /v1/networking/vpcs/{vpc_id}">client.networking.vpcs.<a href="./src/resources/networking/vpcs/vpcs.ts">delete</a>(vpcID) -> Operation</code>
 - <code title="get /v1/networking/vpcs/{vpc_id}">client.networking.vpcs.<a href="./src/resources/networking/vpcs/vpcs.ts">get</a>(vpcID) -> VPC</code>
 
