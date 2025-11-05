@@ -12,6 +12,7 @@ import {
   VM,
   VMCreateParams,
   VMList,
+  VMListParams,
   VMUpdateParams,
   VMs,
 } from './vms/vms';
@@ -22,6 +23,7 @@ import {
   VolumeCreateParams,
   VolumeKind,
   VolumeList,
+  VolumeListParams,
   VolumeUpdateParams,
   Volumes,
 } from './volumes/volumes';
@@ -47,6 +49,7 @@ export declare namespace Compute {
     type VMList as VMList,
     type VMCreateParams as VMCreateParams,
     type VMUpdateParams as VMUpdateParams,
+    type VMListParams as VMListParams,
   };
 
   export {
@@ -57,5 +60,6 @@ export declare namespace Compute {
     type VolumeList as VolumeList,
     type VolumeCreateParams as VolumeCreateParams,
     type VolumeUpdateParams as VolumeUpdateParams,
+    type VolumeListParams as VolumeListParams,
   };
 }

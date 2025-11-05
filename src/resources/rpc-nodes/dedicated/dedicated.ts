@@ -115,7 +115,7 @@ export interface DedicatedBlockchainList {
   /**
    * Pagination response details.
    */
-  pagination?: Shared.Pagination;
+  pagination: Shared.Pagination;
 }
 
 export interface DedicatedList {
@@ -124,7 +124,7 @@ export interface DedicatedList {
   /**
    * Pagination response details.
    */
-  pagination?: Shared.Pagination;
+  pagination: Shared.Pagination;
 }
 
 export interface DedicatedListParams extends CursorParams {}

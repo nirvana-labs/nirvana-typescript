@@ -192,7 +192,7 @@ export interface FirewallRuleList {
   /**
    * Pagination response details.
    */
-  pagination?: Shared.Pagination;
+  pagination: Shared.Pagination;
 }
 
 export interface FirewallRuleCreateParams {

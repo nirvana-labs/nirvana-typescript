@@ -60,8 +60,8 @@ export class Volumes extends APIResource {
    * const volumeList = await client.compute.volumes.list();
    * ```
    */
-  list(options?: RequestOptions): APIPromise<VolumeList> {
-    return this._client.get('/v1/compute/volumes', options);
+  list(query: VolumeListParams | null | undefined = {}, options?: RequestOptions): APIPromise<VolumeList> {
+    return this._client.get('/v1/compute/volumes', { query, ...options });
   }
 
   /**
@@ -169,7 +169,7 @@ export interface VolumeList {
   /**
    * Pagination response details.
    */
-  pagination?: Shared.Pagination;
+  pagination: Shared.Pagination;
 }
 
 export interface VolumeCreateParams {
@@ -211,6 +211,18 @@ export interface VolumeUpdateParams {
   tags?: Array<string>;
 }
 
+export interface VolumeListParams {
+  /**
+   * Pagination cursor returned by a previous request
+   */
+  cursor?: string;
+
+  /**
+   * Maximum number of items to return
+   */
+  limit?: number;
+}
+
 Volumes.Availability = Availability;
 
 export declare namespace Volumes {
@@ -221,6 +233,7 @@ export declare namespace Volumes {
     type VolumeList as VolumeList,
     type VolumeCreateParams as VolumeCreateParams,
     type VolumeUpdateParams as VolumeUpdateParams,
+    type VolumeListParams as VolumeListParams,
   };
 
   export {

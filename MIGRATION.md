@@ -91,6 +91,10 @@ This affects the following methods:
 
 - `client.apiKeys.list()`
 - `client.operations.list()`
+- `client.compute.vms.list()`
+- `client.compute.vms.volumes.list()`
+- `client.compute.volumes.list()`
+- `client.networking.vpcs.list()`
 - `client.networking.firewallRules.list()`
 - `client.networking.connect.connections.list()`
 - `client.networking.connect.routes.list()`
