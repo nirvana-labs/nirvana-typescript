@@ -14,4 +14,5 @@ export {
   type VPCList,
   type VPCCreateParams,
   type VPCUpdateParams,
+  type VPCListParams,
 } from './vpcs';

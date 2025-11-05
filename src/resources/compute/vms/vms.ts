@@ -14,7 +14,7 @@ import {
 import * as OSImagesAPI from './os-images';
 import { OSImageListResponse, OSImages } from './os-images';
 import * as VolumesAPI from './volumes';
-import { Volumes } from './volumes';
+import { VolumeListParams, Volumes } from './volumes';
 import { APIPromise } from '../../../core/api-promise';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
@@ -69,8 +69,8 @@ export class VMs extends APIResource {
    * const vmList = await client.compute.vms.list();
    * ```
    */
-  list(options?: RequestOptions): APIPromise<VMList> {
-    return this._client.get('/v1/compute/vms', options);
+  list(query: VMListParams | null | undefined = {}, options?: RequestOptions): APIPromise<VMList> {
+    return this._client.get('/v1/compute/vms', { query, ...options });
   }
 
   /**
@@ -276,7 +276,7 @@ export interface VMList {
   /**
    * Pagination response details.
    */
-  pagination?: Shared.Pagination;
+  pagination: Shared.Pagination;
 }
 
 export interface VMCreateParams {
@@ -400,6 +400,18 @@ export interface VMUpdateParams {
   tags?: Array<string>;
 }
 
+export interface VMListParams {
+  /**
+   * Pagination cursor returned by a previous request
+   */
+  cursor?: string;
+
+  /**
+   * Maximum number of items to return
+   */
+  limit?: number;
+}
+
 VMs.Availability = Availability;
 VMs.Volumes = Volumes;
 VMs.OSImages = OSImages;
@@ -416,6 +428,7 @@ export declare namespace VMs {
     type VMList as VMList,
     type VMCreateParams as VMCreateParams,
     type VMUpdateParams as VMUpdateParams,
+    type VMListParams as VMListParams,
   };
 
   export {
@@ -426,7 +439,7 @@ export declare namespace VMs {
     type AvailabilityUpdateParams as AvailabilityUpdateParams,
   };
 
-  export { Volumes as Volumes };
+  export { Volumes as Volumes, type VolumeListParams as VolumeListParams };
 
   export { OSImages as OSImages, type OSImageListResponse as OSImageListResponse };
 }

@@ -60,8 +60,8 @@ export class VPCs extends APIResource {
    * const vpcList = await client.networking.vpcs.list();
    * ```
    */
-  list(options?: RequestOptions): APIPromise<VPCList> {
-    return this._client.get('/v1/networking/vpcs', options);
+  list(query: VPCListParams | null | undefined = {}, options?: RequestOptions): APIPromise<VPCList> {
+    return this._client.get('/v1/networking/vpcs', { query, ...options });
   }
 
   /**
@@ -177,7 +177,7 @@ export interface VPCList {
   /**
    * Pagination response details.
    */
-  pagination?: Shared.Pagination;
+  pagination: Shared.Pagination;
 }
 
 export interface VPCCreateParams {
@@ -219,6 +219,18 @@ export interface VPCUpdateParams {
   tags?: Array<string>;
 }
 
+export interface VPCListParams {
+  /**
+   * Pagination cursor returned by a previous request
+   */
+  cursor?: string;
+
+  /**
+   * Maximum number of items to return
+   */
+  limit?: number;
+}
+
 VPCs.Availability = Availability;
 
 export declare namespace VPCs {
@@ -228,6 +240,7 @@ export declare namespace VPCs {
     type VPCList as VPCList,
     type VPCCreateParams as VPCCreateParams,
     type VPCUpdateParams as VPCUpdateParams,
+    type VPCListParams as VPCListParams,
   };
 
   export {

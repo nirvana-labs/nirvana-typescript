@@ -79,7 +79,7 @@ export interface OperationList {
   /**
    * Pagination response details.
    */
-  pagination?: Shared.Pagination;
+  pagination: Shared.Pagination;
 }
 
 /**

@@ -16,7 +16,7 @@ export class APIKeys extends APIResource {
    * ```ts
    * const apiKey = await client.apiKeys.create({
    *   expires_at: '2025-12-31T23:59:59Z',
-   *   name: 'my-api-key',
+   *   name: 'My API Key',
    * });
    * ```
    */
@@ -140,7 +140,7 @@ export interface APIKeyList {
   /**
    * Pagination response details.
    */
-  pagination?: Shared.Pagination;
+  pagination: Shared.Pagination;
 }
 
 export interface APIKeyCreateParams {

@@ -157,7 +157,7 @@ export interface FlexBlockchainList {
   /**
    * Pagination response details.
    */
-  pagination?: Shared.Pagination;
+  pagination: Shared.Pagination;
 }
 
 export interface FlexList {
@@ -166,7 +166,7 @@ export interface FlexList {
   /**
    * Pagination response details.
    */
-  pagination?: Shared.Pagination;
+  pagination: Shared.Pagination;
 }
 
 export interface FlexCreateParams {

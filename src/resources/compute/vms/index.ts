@@ -20,5 +20,6 @@ export {
   type VMList,
   type VMCreateParams,
   type VMUpdateParams,
+  type VMListParams,
 } from './vms';
-export { Volumes } from './volumes';
+export { Volumes, type VolumeListParams } from './volumes';

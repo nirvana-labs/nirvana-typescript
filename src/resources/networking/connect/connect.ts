@@ -138,7 +138,7 @@ export interface ConnectConnectionList {
   /**
    * Pagination response details.
    */
-  pagination?: Shared.Pagination;
+  pagination: Shared.Pagination;
 }
 
 /**
@@ -167,7 +167,7 @@ export interface ConnectRouteList {
   /**
    * Pagination response details.
    */
-  pagination?: Shared.Pagination;
+  pagination: Shared.Pagination;
 }
 
 Connect.Connections = Connections;

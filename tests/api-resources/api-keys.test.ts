@@ -9,7 +9,7 @@ const client = new NirvanaLabs({
 
 describe('resource apiKeys', () => {
   test('create: only required params', async () => {
-    const responsePromise = client.apiKeys.create({ expires_at: '2025-12-31T23:59:59Z', name: 'my-api-key' });
+    const responsePromise = client.apiKeys.create({ expires_at: '2025-12-31T23:59:59Z', name: 'My API Key' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,7 +22,7 @@ describe('resource apiKeys', () => {
   test('create: required and optional params', async () => {
     const response = await client.apiKeys.create({
       expires_at: '2025-12-31T23:59:59Z',
-      name: 'my-api-key',
+      name: 'My API Key',
       starts_at: '2025-01-01T00:00:00Z',
       tags: ['production', 'ethereum'],
     });
