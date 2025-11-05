@@ -252,8 +252,8 @@ The `for await` syntax **is not affected**. This still works as-is:
 
 ```ts
 // Automatically fetches more pages as needed.
-for await (const apiKey of client.apiKeys.list()) {
-  console.log(apiKey);
+for await (const vm of client.compute.vms.list()) {
+  console.log(vm);
 }
 ```
 
@@ -275,10 +275,10 @@ Page classes for individual methods are now type aliases:
 
 ```ts
 // Before
-export class APIKeysCursor extends Cursor<APIKey> {}
+export class VMsCursor extends Cursor<VM> {}
 
 // After
-export type APIKeysCursor = Cursor<APIKey>;
+export type VMsCursor = Cursor<VM>;
 ```
 
 If you were importing these classes at runtime, you'll need to switch to importing the base class or only import them at the type-level.
