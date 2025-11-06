@@ -1,5 +1,42 @@
 # Changelog
 
+## 1.21.0 (2025-11-06)
+
+Full Changelog: [v1.20.3...v1.21.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.20.3...v1.21.0)
+
+### Features
+
+* **api:** api update ([37d0ac1](https://github.com/nirvana-labs/nirvana-typescript/commit/37d0ac148ed7be4d037282540ef39f95086cc4b6))
+* **api:** api update ([b736103](https://github.com/nirvana-labs/nirvana-typescript/commit/b736103f7062a1ea957a16ffce6b893b4269d9b3))
+* **api:** api update ([4fa2c52](https://github.com/nirvana-labs/nirvana-typescript/commit/4fa2c5247152fcc78abbae18156a686832d23c07))
+* **api:** api update ([8c096bc](https://github.com/nirvana-labs/nirvana-typescript/commit/8c096bc10b1457fe2aa039c90cd309e0745f2232))
+* **api:** api update ([56f1381](https://github.com/nirvana-labs/nirvana-typescript/commit/56f1381a7004c6edb44d1d2f2e5b65bc6b1115f6))
+* **api:** api update ([98b6e9a](https://github.com/nirvana-labs/nirvana-typescript/commit/98b6e9aa0fc6277a0808f32caf5b028f7de47ab4))
+* **api:** api update ([3784ecb](https://github.com/nirvana-labs/nirvana-typescript/commit/3784ecb9ad3ff272f9cb49b5e598b88f8aa88ba5))
+* **api:** api update ([e1ce716](https://github.com/nirvana-labs/nirvana-typescript/commit/e1ce716f3be4073792e91ed0bfd3b2e246236a4b))
+* **mcp:** enable optional code execution tool on http mcp servers ([0b4a250](https://github.com/nirvana-labs/nirvana-typescript/commit/0b4a2505913606650a19f2e314a99034bd5a93c5))
+
+
+### Bug Fixes
+
+* **mcpb:** pin @anthropic-ai/mcpb version ([7ef4490](https://github.com/nirvana-labs/nirvana-typescript/commit/7ef44907cd7ac5146d3316f668f50f84063af24b))
+
+
+### Chores
+
+* **internal:** codegen related update ([7a4ff00](https://github.com/nirvana-labs/nirvana-typescript/commit/7a4ff00147b71dee9431d8bfdfec053bd643450b))
+* **internal:** grammar fix (it's -&gt; its) ([4ba773b](https://github.com/nirvana-labs/nirvana-typescript/commit/4ba773b2c57b9a2a09a6ea98cc974d9a2319a515))
+* mcp code tool explicit error message when missing a run function ([f072fee](https://github.com/nirvana-labs/nirvana-typescript/commit/f072fee09ddf45bfa89f2b24ed691fdf1d374ff6))
+* **mcp:** add friendlier MCP code tool errors on incorrect method invocations ([6cdf3b7](https://github.com/nirvana-labs/nirvana-typescript/commit/6cdf3b7e39f3a1b04a190cc1d0a74426c58122cb))
+* **mcp:** add line numbers to code tool errors ([89dd9c9](https://github.com/nirvana-labs/nirvana-typescript/commit/89dd9c9faecdd4ff5b5b0220947750dd5b29d930))
+* remove custom code ([85655f4](https://github.com/nirvana-labs/nirvana-typescript/commit/85655f40a791aab1c19c1f630288cc0378cdbf5b))
+* use structured error when code execution tool errors ([59ddfe2](https://github.com/nirvana-labs/nirvana-typescript/commit/59ddfe27277ef026e0ce94ac34dbb183e649f9ad))
+
+
+### Documentation
+
+* **mcp:** add a README button for one-click add to Cursor ([b1b80dc](https://github.com/nirvana-labs/nirvana-typescript/commit/b1b80dc41ab3d6169cef2f97c9305f1902a6d75a))
+
 ## 1.20.3 (2025-10-19)
 
 Full Changelog: [v1.20.2...v1.20.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.20.2...v1.20.3)
