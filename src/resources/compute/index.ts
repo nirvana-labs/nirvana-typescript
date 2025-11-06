@@ -13,6 +13,8 @@ export {
   type VMList,
   type VMCreateParams,
   type VMUpdateParams,
+  type VMListParams,
+  type VMsCursor,
 } from './vms/index';
 export {
   Volumes,
@@ -22,4 +24,6 @@ export {
   type VolumeList,
   type VolumeCreateParams,
   type VolumeUpdateParams,
+  type VolumeListParams,
+  type VolumesCursor,
 } from './volumes/index';

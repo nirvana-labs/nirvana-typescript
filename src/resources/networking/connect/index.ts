@@ -9,6 +9,13 @@ export {
   type ConnectConnectionList,
   type ConnectRoute,
   type ConnectRouteList,
+  type ConnectConnectionsCursor,
+  type ConnectRoutesCursor,
 } from './connect';
-export { Connections, type ConnectionCreateParams, type ConnectionUpdateParams } from './connections';
-export { Routes } from './routes';
+export {
+  Connections,
+  type ConnectionCreateParams,
+  type ConnectionUpdateParams,
+  type ConnectionListParams,
+} from './connections';
+export { Routes, type RouteListParams } from './routes';

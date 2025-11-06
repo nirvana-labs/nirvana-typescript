@@ -1,9 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../core/resource';
+import * as Shared from '../../shared';
 import * as BlockchainsAPI from './blockchains';
-import { Blockchains } from './blockchains';
+import { BlockchainListParams, Blockchains } from './blockchains';
 import { APIPromise } from '../../../core/api-promise';
+import { Cursor, type CursorParams, PagePromise } from '../../../core/pagination';
 import { buildHeaders } from '../../../internal/headers';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
@@ -44,11 +46,17 @@ export class FlexResource extends APIResource {
    *
    * @example
    * ```ts
-   * const flexList = await client.rpcNodes.flex.list();
+   * // Automatically fetches more pages as needed.
+   * for await (const flex of client.rpcNodes.flex.list()) {
+   *   // ...
+   * }
    * ```
    */
-  list(options?: RequestOptions): APIPromise<FlexList> {
-    return this._client.get('/v1/rpc_nodes/flex', options);
+  list(
+    query: FlexListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<FlexesCursor, Flex> {
+    return this._client.getAPIList('/v1/rpc_nodes/flex', Cursor<Flex>, { query, ...options });
   }
 
   /**
@@ -78,6 +86,10 @@ export class FlexResource extends APIResource {
     return this._client.get(path`/v1/rpc_nodes/flex/${nodeID}`, options);
   }
 }
+
+export type FlexesCursor = Cursor<Flex>;
+
+export type FlexBlockchainsCursor = Cursor<FlexBlockchain>;
 
 /**
  * RPC Node Flex details.
@@ -141,10 +153,20 @@ export interface FlexBlockchain {
 
 export interface FlexBlockchainList {
   items: Array<FlexBlockchain>;
+
+  /**
+   * Pagination response details.
+   */
+  pagination: Shared.Pagination;
 }
 
 export interface FlexList {
   items: Array<Flex>;
+
+  /**
+   * Pagination response details.
+   */
+  pagination: Shared.Pagination;
 }
 
 export interface FlexCreateParams {
@@ -181,6 +203,8 @@ export interface FlexUpdateParams {
   tags?: Array<string>;
 }
 
+export interface FlexListParams extends CursorParams {}
+
 FlexResource.Blockchains = Blockchains;
 
 export declare namespace FlexResource {
@@ -189,9 +213,11 @@ export declare namespace FlexResource {
     type FlexBlockchain as FlexBlockchain,
     type FlexBlockchainList as FlexBlockchainList,
     type FlexList as FlexList,
+    type FlexesCursor as FlexesCursor,
     type FlexCreateParams as FlexCreateParams,
     type FlexUpdateParams as FlexUpdateParams,
+    type FlexListParams as FlexListParams,
   };
 
-  export { Blockchains as Blockchains };
+  export { Blockchains as Blockchains, type BlockchainListParams as BlockchainListParams };
 }

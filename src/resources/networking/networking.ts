@@ -8,8 +8,10 @@ import {
   FirewallRuleDeleteParams,
   FirewallRuleGetParams,
   FirewallRuleList,
+  FirewallRuleListParams,
   FirewallRuleUpdateParams,
   FirewallRules,
+  FirewallRulesCursor,
 } from './firewall-rules';
 import * as ConnectAPI from './connect/connect';
 import {
@@ -23,7 +25,16 @@ import {
   ConnectRouteList,
 } from './connect/connect';
 import * as VPCsAPI from './vpcs/vpcs';
-import { Subnet, VPC, VPCCreateParams, VPCList, VPCUpdateParams, VPCs } from './vpcs/vpcs';
+import {
+  Subnet,
+  VPC,
+  VPCCreateParams,
+  VPCList,
+  VPCListParams,
+  VPCUpdateParams,
+  VPCs,
+  VPCsCursor,
+} from './vpcs/vpcs';
 
 export class Networking extends APIResource {
   vpcs: VPCsAPI.VPCs = new VPCsAPI.VPCs(this._client);
@@ -41,16 +52,20 @@ export declare namespace Networking {
     type Subnet as Subnet,
     type VPC as VPC,
     type VPCList as VPCList,
+    type VPCsCursor as VPCsCursor,
     type VPCCreateParams as VPCCreateParams,
     type VPCUpdateParams as VPCUpdateParams,
+    type VPCListParams as VPCListParams,
   };
 
   export {
     FirewallRules as FirewallRules,
     type FirewallRule as FirewallRule,
     type FirewallRuleList as FirewallRuleList,
+    type FirewallRulesCursor as FirewallRulesCursor,
     type FirewallRuleCreateParams as FirewallRuleCreateParams,
     type FirewallRuleUpdateParams as FirewallRuleUpdateParams,
+    type FirewallRuleListParams as FirewallRuleListParams,
     type FirewallRuleDeleteParams as FirewallRuleDeleteParams,
     type FirewallRuleGetParams as FirewallRuleGetParams,
   };

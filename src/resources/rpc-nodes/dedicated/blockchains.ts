@@ -2,7 +2,8 @@
 
 import { APIResource } from '../../../core/resource';
 import * as DedicatedAPI from './dedicated';
-import { APIPromise } from '../../../core/api-promise';
+import { DedicatedBlockchainsCursor } from './dedicated';
+import { Cursor, type CursorParams, PagePromise } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
 
 export class Blockchains extends APIResource {
@@ -11,11 +12,28 @@ export class Blockchains extends APIResource {
    *
    * @example
    * ```ts
-   * const dedicatedBlockchainList =
-   *   await client.rpcNodes.dedicated.blockchains.list();
+   * // Automatically fetches more pages as needed.
+   * for await (const dedicatedBlockchain of client.rpcNodes.dedicated.blockchains.list()) {
+   *   // ...
+   * }
    * ```
    */
-  list(options?: RequestOptions): APIPromise<DedicatedAPI.DedicatedBlockchainList> {
-    return this._client.get('/v1/rpc_nodes/dedicated/blockchains', options);
+  list(
+    query: BlockchainListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<DedicatedBlockchainsCursor, DedicatedAPI.DedicatedBlockchain> {
+    return this._client.getAPIList(
+      '/v1/rpc_nodes/dedicated/blockchains',
+      Cursor<DedicatedAPI.DedicatedBlockchain>,
+      { query, ...options },
+    );
   }
 }
+
+export interface BlockchainListParams extends CursorParams {}
+
+export declare namespace Blockchains {
+  export { type BlockchainListParams as BlockchainListParams };
+}
+
+export { type DedicatedBlockchainsCursor };

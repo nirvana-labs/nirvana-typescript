@@ -14,8 +14,9 @@ import {
 import * as OSImagesAPI from './os-images';
 import { OSImageListResponse, OSImages } from './os-images';
 import * as VolumesAPI from './volumes';
-import { Volumes } from './volumes';
+import { VolumeListParams, Volumes } from './volumes';
 import { APIPromise } from '../../../core/api-promise';
+import { Cursor, type CursorParams, PagePromise } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
@@ -66,11 +67,14 @@ export class VMs extends APIResource {
    *
    * @example
    * ```ts
-   * const vmList = await client.compute.vms.list();
+   * // Automatically fetches more pages as needed.
+   * for await (const vm of client.compute.vms.list()) {
+   *   // ...
+   * }
    * ```
    */
-  list(options?: RequestOptions): APIPromise<VMList> {
-    return this._client.get('/v1/compute/vms', options);
+  list(query: VMListParams | null | undefined = {}, options?: RequestOptions): PagePromise<VMsCursor, VM> {
+    return this._client.getAPIList('/v1/compute/vms', Cursor<VM>, { query, ...options });
   }
 
   /**
@@ -109,6 +113,8 @@ export class VMs extends APIResource {
     return this._client.post(path`/v1/compute/vms/${vmID}/restart`, options);
   }
 }
+
+export type VMsCursor = Cursor<VM>;
 
 /**
  * CPU configuration for the VM.
@@ -272,6 +278,11 @@ export interface VM {
 
 export interface VMList {
   items: Array<VM>;
+
+  /**
+   * Pagination response details.
+   */
+  pagination: Shared.Pagination;
 }
 
 export interface VMCreateParams {
@@ -395,6 +406,8 @@ export interface VMUpdateParams {
   tags?: Array<string>;
 }
 
+export interface VMListParams extends CursorParams {}
+
 VMs.Availability = Availability;
 VMs.Volumes = Volumes;
 VMs.OSImages = OSImages;
@@ -409,8 +422,10 @@ export declare namespace VMs {
     type SSHKeyRequest as SSHKeyRequest,
     type VM as VM,
     type VMList as VMList,
+    type VMsCursor as VMsCursor,
     type VMCreateParams as VMCreateParams,
     type VMUpdateParams as VMUpdateParams,
+    type VMListParams as VMListParams,
   };
 
   export {
@@ -421,7 +436,7 @@ export declare namespace VMs {
     type AvailabilityUpdateParams as AvailabilityUpdateParams,
   };
 
-  export { Volumes as Volumes };
+  export { Volumes as Volumes, type VolumeListParams as VolumeListParams };
 
   export { OSImages as OSImages, type OSImageListResponse as OSImageListResponse };
 }

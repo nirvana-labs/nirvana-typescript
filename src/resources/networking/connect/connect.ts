@@ -3,14 +3,24 @@
 import { APIResource } from '../../../core/resource';
 import * as Shared from '../../shared';
 import * as ConnectionsAPI from './connections';
-import { ConnectionCreateParams, ConnectionUpdateParams, Connections } from './connections';
+import {
+  ConnectionCreateParams,
+  ConnectionListParams,
+  ConnectionUpdateParams,
+  Connections,
+} from './connections';
 import * as RoutesAPI from './routes';
-import { Routes } from './routes';
+import { RouteListParams, Routes } from './routes';
+import { Cursor } from '../../../core/pagination';
 
 export class Connect extends APIResource {
   connections: ConnectionsAPI.Connections = new ConnectionsAPI.Connections(this._client);
   routes: RoutesAPI.Routes = new RoutesAPI.Routes(this._client);
 }
+
+export type ConnectConnectionsCursor = Cursor<ConnectConnection>;
+
+export type ConnectRoutesCursor = Cursor<ConnectRoute>;
 
 /**
  * Connect Connection speed in Mbps
@@ -124,6 +134,11 @@ export interface ConnectConnectionAWSConfigRequest {
 
 export interface ConnectConnectionList {
   items: Array<ConnectConnection>;
+
+  /**
+   * Pagination response details.
+   */
+  pagination: Shared.Pagination;
 }
 
 /**
@@ -148,6 +163,11 @@ export interface ConnectRoute {
 
 export interface ConnectRouteList {
   items: Array<ConnectRoute>;
+
+  /**
+   * Pagination response details.
+   */
+  pagination: Shared.Pagination;
 }
 
 Connect.Connections = Connections;
@@ -168,7 +188,8 @@ export declare namespace Connect {
     Connections as Connections,
     type ConnectionCreateParams as ConnectionCreateParams,
     type ConnectionUpdateParams as ConnectionUpdateParams,
+    type ConnectionListParams as ConnectionListParams,
   };
 
-  export { Routes as Routes };
+  export { Routes as Routes, type RouteListParams as RouteListParams };
 }

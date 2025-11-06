@@ -12,8 +12,10 @@ import {
   VM,
   VMCreateParams,
   VMList,
+  VMListParams,
   VMUpdateParams,
   VMs,
+  VMsCursor,
 } from './vms/vms';
 import * as VolumesAPI from './volumes/volumes';
 import {
@@ -22,8 +24,10 @@ import {
   VolumeCreateParams,
   VolumeKind,
   VolumeList,
+  VolumeListParams,
   VolumeUpdateParams,
   Volumes,
+  VolumesCursor,
 } from './volumes/volumes';
 
 export class Compute extends APIResource {
@@ -45,8 +49,10 @@ export declare namespace Compute {
     type SSHKeyRequest as SSHKeyRequest,
     type VM as VM,
     type VMList as VMList,
+    type VMsCursor as VMsCursor,
     type VMCreateParams as VMCreateParams,
     type VMUpdateParams as VMUpdateParams,
+    type VMListParams as VMListParams,
   };
 
   export {
@@ -55,7 +61,9 @@ export declare namespace Compute {
     type Volume as Volume,
     type VolumeKind as VolumeKind,
     type VolumeList as VolumeList,
+    type VolumesCursor as VolumesCursor,
     type VolumeCreateParams as VolumeCreateParams,
     type VolumeUpdateParams as VolumeUpdateParams,
+    type VolumeListParams as VolumeListParams,
   };
 }

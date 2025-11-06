@@ -89,6 +89,19 @@ client.example.list(undefined, { headers: { ... } });
 
 This affects the following methods:
 
+- `client.apiKeys.list()`
+- `client.operations.list()`
+- `client.compute.vms.list()`
+- `client.compute.vms.volumes.list()`
+- `client.compute.volumes.list()`
+- `client.networking.vpcs.list()`
+- `client.networking.firewallRules.list()`
+- `client.networking.connect.connections.list()`
+- `client.networking.connect.routes.list()`
+- `client.rpcNodes.flex.list()`
+- `client.rpcNodes.flex.blockchains.list()`
+- `client.rpcNodes.dedicated.list()`
+- `client.rpcNodes.dedicated.blockchains.list()`
 - `client.vektor.registry.assets.list()`
 - `client.vektor.registry.blockchains.list()`
 - `client.vektor.registry.venues.list()`
@@ -232,6 +245,43 @@ import NirvanaLabs from '@nirvana-labs/nirvana';
 ```
 
 The `@nirvana-labs/nirvana/shims` imports have been removed. Your global types must now be [correctly configured](#minimum-types-requirements).
+
+### Pagination changes
+
+The `for await` syntax **is not affected**. This still works as-is:
+
+```ts
+// Automatically fetches more pages as needed.
+for await (const vm of client.compute.vms.list()) {
+  console.log(vm);
+}
+```
+
+The interface for manually paginating through list results has been simplified:
+
+```ts
+// Before
+page.nextPageParams();
+page.nextPageInfo();
+// Required manually handling { url } | { params } type
+
+// After
+page.nextPageRequestOptions();
+```
+
+#### Removed unnecessary classes
+
+Page classes for individual methods are now type aliases:
+
+```ts
+// Before
+export class VMsCursor extends Cursor<VM> {}
+
+// After
+export type VMsCursor = Cursor<VM>;
+```
+
+If you were importing these classes at runtime, you'll need to switch to importing the base class or only import them at the type-level.
 
 ### `@nirvana-labs/nirvana/src` directory removed
 

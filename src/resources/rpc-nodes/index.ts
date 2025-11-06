@@ -6,6 +6,9 @@ export {
   type DedicatedBlockchain,
   type DedicatedBlockchainList,
   type DedicatedList,
+  type DedicatedListParams,
+  type DedicatedBlockchainsCursor,
+  type DedicatedsCursor,
 } from './dedicated/index';
 export {
   FlexResource,
@@ -15,5 +18,8 @@ export {
   type FlexList,
   type FlexCreateParams,
   type FlexUpdateParams,
+  type FlexListParams,
+  type FlexBlockchainsCursor,
+  type FlexesCursor,
 } from './flex/index';
 export { RPCNodes } from './rpc-nodes';

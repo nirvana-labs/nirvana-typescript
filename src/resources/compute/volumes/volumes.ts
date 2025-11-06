@@ -12,6 +12,7 @@ import {
   AvailabilityUpdateResponse,
 } from './availability';
 import { APIPromise } from '../../../core/api-promise';
+import { Cursor, type CursorParams, PagePromise } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
@@ -57,11 +58,17 @@ export class Volumes extends APIResource {
    *
    * @example
    * ```ts
-   * const volumeList = await client.compute.volumes.list();
+   * // Automatically fetches more pages as needed.
+   * for await (const volume of client.compute.volumes.list()) {
+   *   // ...
+   * }
    * ```
    */
-  list(options?: RequestOptions): APIPromise<VolumeList> {
-    return this._client.get('/v1/compute/volumes', options);
+  list(
+    query: VolumeListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<VolumesCursor, Volume> {
+    return this._client.getAPIList('/v1/compute/volumes', Cursor<Volume>, { query, ...options });
   }
 
   /**
@@ -92,6 +99,8 @@ export class Volumes extends APIResource {
     return this._client.get(path`/v1/compute/volumes/${volumeID}`, options);
   }
 }
+
+export type VolumesCursor = Cursor<Volume>;
 
 /**
  * Storage type the Volume is using.
@@ -165,6 +174,11 @@ export type VolumeKind = 'boot' | 'data';
 
 export interface VolumeList {
   items: Array<Volume>;
+
+  /**
+   * Pagination response details.
+   */
+  pagination: Shared.Pagination;
 }
 
 export interface VolumeCreateParams {
@@ -206,6 +220,8 @@ export interface VolumeUpdateParams {
   tags?: Array<string>;
 }
 
+export interface VolumeListParams extends CursorParams {}
+
 Volumes.Availability = Availability;
 
 export declare namespace Volumes {
@@ -214,8 +230,10 @@ export declare namespace Volumes {
     type Volume as Volume,
     type VolumeKind as VolumeKind,
     type VolumeList as VolumeList,
+    type VolumesCursor as VolumesCursor,
     type VolumeCreateParams as VolumeCreateParams,
     type VolumeUpdateParams as VolumeUpdateParams,
+    type VolumeListParams as VolumeListParams,
   };
 
   export {

@@ -9,6 +9,8 @@ export {
   type ConnectConnectionList,
   type ConnectRoute,
   type ConnectRouteList,
+  type ConnectConnectionsCursor,
+  type ConnectRoutesCursor,
 } from './connect/index';
 export {
   FirewallRules,
@@ -16,8 +18,10 @@ export {
   type FirewallRuleList,
   type FirewallRuleCreateParams,
   type FirewallRuleUpdateParams,
+  type FirewallRuleListParams,
   type FirewallRuleDeleteParams,
   type FirewallRuleGetParams,
+  type FirewallRulesCursor,
 } from './firewall-rules';
 export { Networking } from './networking';
 export {
@@ -27,4 +31,6 @@ export {
   type VPCList,
   type VPCCreateParams,
   type VPCUpdateParams,
+  type VPCListParams,
+  type VPCsCursor,
 } from './vpcs/index';

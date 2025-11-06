@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { Blockchains } from './blockchains';
+export { Blockchains, type BlockchainListParams } from './blockchains';
 export {
   FlexResource,
   type Flex,
@@ -9,4 +9,7 @@ export {
   type FlexList,
   type FlexCreateParams,
   type FlexUpdateParams,
+  type FlexListParams,
+  type FlexBlockchainsCursor,
+  type FlexesCursor,
 } from './flex';

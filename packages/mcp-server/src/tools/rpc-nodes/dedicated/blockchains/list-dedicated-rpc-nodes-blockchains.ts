@@ -12,16 +12,24 @@ export const metadata: Metadata = {
   tags: [],
   httpMethod: 'get',
   httpPath: '/v1/rpc_nodes/dedicated/blockchains',
-  operationId: 'list_dedicated_blockchains',
+  operationId: 'list_rpc_nodes_dedicated_blockchains',
 };
 
 export const tool: Tool = {
   name: 'list_dedicated_rpc_nodes_blockchains',
   description:
-    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nList all Dedicated Blockchains\n\n# Response Schema\n```json\n{\n  $ref: '#/$defs/dedicated_blockchain_list',\n  $defs: {\n    dedicated_blockchain_list: {\n      type: 'object',\n      properties: {\n        items: {\n          type: 'array',\n          items: {\n            $ref: '#/$defs/dedicated_blockchain'\n          }\n        }\n      },\n      required: [        'items'\n      ]\n    },\n    dedicated_blockchain: {\n      type: 'object',\n      description: 'Blockchain supported by the RPC Node Dedicated.',\n      properties: {\n        blockchain: {\n          type: 'string',\n          description: 'Blockchain type.'\n        },\n        network: {\n          type: 'string',\n          description: 'Network type (e.g., mainnet, testnet).'\n        }\n      },\n      required: [        'blockchain',\n        'network'\n      ]\n    }\n  }\n}\n```",
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nList all Dedicated Blockchains\n\n# Response Schema\n```json\n{\n  $ref: '#/$defs/dedicated_blockchain_list',\n  $defs: {\n    dedicated_blockchain_list: {\n      type: 'object',\n      properties: {\n        items: {\n          type: 'array',\n          items: {\n            $ref: '#/$defs/dedicated_blockchain'\n          }\n        },\n        pagination: {\n          $ref: '#/$defs/pagination'\n        }\n      },\n      required: [        'items',\n        'pagination'\n      ]\n    },\n    dedicated_blockchain: {\n      type: 'object',\n      description: 'Blockchain supported by the RPC Node Dedicated.',\n      properties: {\n        blockchain: {\n          type: 'string',\n          description: 'Blockchain type.'\n        },\n        network: {\n          type: 'string',\n          description: 'Network type (e.g., mainnet, testnet).'\n        }\n      },\n      required: [        'blockchain',\n        'network'\n      ]\n    },\n    pagination: {\n      type: 'object',\n      description: 'Pagination response details.',\n      properties: {\n        next_cursor: {\n          type: 'string'\n        },\n        previous_cursor: {\n          type: 'string'\n        },\n        total_count: {\n          type: 'integer'\n        }\n      },\n      required: [        'next_cursor',\n        'previous_cursor',\n        'total_count'\n      ]\n    }\n  }\n}\n```",
   inputSchema: {
     type: 'object',
     properties: {
+      cursor: {
+        type: 'string',
+        description: 'Pagination cursor returned by a previous request',
+      },
+      limit: {
+        type: 'integer',
+        description: 'Maximum number of items to return',
+      },
       jq_filter: {
         type: 'string',
         title: 'jq Filter',
@@ -37,10 +45,9 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: NirvanaLabs, args: Record<string, unknown> | undefined) => {
-  const { jq_filter } = args as any;
-  return asTextContentResult(
-    await maybeFilter(jq_filter, await client.rpcNodes.dedicated.blockchains.list()),
-  );
+  const { jq_filter, ...body } = args as any;
+  const response = await client.rpcNodes.dedicated.blockchains.list(body).asResponse();
+  return asTextContentResult(await maybeFilter(jq_filter, await response.json()));
 };
 
 export default { metadata, tool, handler };

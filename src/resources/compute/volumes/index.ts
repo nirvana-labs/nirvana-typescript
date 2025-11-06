@@ -15,4 +15,6 @@ export {
   type VolumeList,
   type VolumeCreateParams,
   type VolumeUpdateParams,
+  type VolumeListParams,
+  type VolumesCursor,
 } from './volumes';
