@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.22.0 (2025-11-07)
+
+Full Changelog: [v1.21.0...v1.22.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.21.0...v1.22.0)
+
+### Features
+
+* **api:** api update ([adf2918](https://github.com/nirvana-labs/nirvana-typescript/commit/adf29181fe7b74cf79e4914aace2fc18d5576ad0))
+
+
+### Documentation
+
+* **mcp:** add a README link to add server to VS Code or Claude Code ([8996202](https://github.com/nirvana-labs/nirvana-typescript/commit/89962029ecb3b70a9e422b96213cbdcf29d27ad8))
+
 ## 1.21.0 (2025-11-06)
 
 Full Changelog: [v1.20.3...v1.21.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.20.3...v1.21.0)
