@@ -2,7 +2,8 @@
 
 import { APIResource } from '../../../core/resource';
 import * as VMsAPI from './vms';
-import { APIPromise } from '../../../core/api-promise';
+import { OSImagesCursor } from './vms';
+import { Cursor, type CursorParams, PagePromise } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
 
 export class OSImages extends APIResource {
@@ -11,16 +12,27 @@ export class OSImages extends APIResource {
    *
    * @example
    * ```ts
-   * const osImages = await client.compute.vms.osImages.list();
+   * // Automatically fetches more pages as needed.
+   * for await (const osImage of client.compute.vms.osImages.list()) {
+   *   // ...
+   * }
    * ```
    */
-  list(options?: RequestOptions): APIPromise<OSImageListResponse> {
-    return this._client.get('/v1/compute/vms/os_images', options);
+  list(
+    query: OSImageListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<OSImagesCursor, VMsAPI.OSImage> {
+    return this._client.getAPIList('/v1/compute/vms/os_images', Cursor<VMsAPI.OSImage>, {
+      query,
+      ...options,
+    });
   }
 }
 
-export type OSImageListResponse = Array<VMsAPI.OSImage>;
+export interface OSImageListParams extends CursorParams {}
 
 export declare namespace OSImages {
-  export { type OSImageListResponse as OSImageListResponse };
+  export { type OSImageListParams as OSImageListParams };
 }
+
+export { type OSImagesCursor };
