@@ -87,12 +87,15 @@ client.example.list(undefined, { headers: { ... } });
 + client.example.list({}, { headers: { ... } });
 ```
 
-This affects the following methods:
+<details>
+
+<summary>This affects the following methods</summary>
 
 - `client.apiKeys.list()`
 - `client.operations.list()`
 - `client.compute.vms.list()`
 - `client.compute.vms.volumes.list()`
+- `client.compute.vms.osImages.list()`
 - `client.compute.volumes.list()`
 - `client.networking.vpcs.list()`
 - `client.networking.firewallRules.list()`
@@ -109,6 +112,8 @@ This affects the following methods:
 - `client.vektor.registry.lendMarkets.list()`
 - `client.vektor.registry.borrowMarkets.list()`
 - `client.vektor.registry.lpPools.list()`
+
+</details>
 
 ### Removed `httpAgent` in favor of `fetchOptions`
 

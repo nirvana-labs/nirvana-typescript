@@ -90,13 +90,9 @@ Methods:
 
 ### OSImages
 
-Types:
-
-- <code><a href="./src/resources/compute/vms/os-images.ts">OSImageListResponse</a></code>
-
 Methods:
 
-- <code title="get /v1/compute/vms/os_images">client.compute.vms.osImages.<a href="./src/resources/compute/vms/os-images.ts">list</a>() -> OSImageListResponse</code>
+- <code title="get /v1/compute/vms/os_images">client.compute.vms.osImages.<a href="./src/resources/compute/vms/os-images.ts">list</a>({ ...params }) -> OSImagesCursor</code>
 
 ## Volumes
 
