@@ -14,6 +14,7 @@ export {
   type VMCreateParams,
   type VMUpdateParams,
   type VMListParams,
+  type OSImagesCursor,
   type VMsCursor,
 } from './vms/index';
 export {

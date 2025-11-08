@@ -12,7 +12,7 @@ import {
   AvailabilityUpdateResponse,
 } from './availability';
 import * as OSImagesAPI from './os-images';
-import { OSImageListResponse, OSImages } from './os-images';
+import { OSImageListParams, OSImages } from './os-images';
 import * as VolumesAPI from './volumes';
 import { VolumeListParams, Volumes } from './volumes';
 import { APIPromise } from '../../../core/api-promise';
@@ -115,6 +115,8 @@ export class VMs extends APIResource {
 }
 
 export type VMsCursor = Cursor<VM>;
+
+export type OSImagesCursor = Cursor<OSImage>;
 
 /**
  * CPU configuration for the VM.
@@ -438,5 +440,5 @@ export declare namespace VMs {
 
   export { Volumes as Volumes, type VolumeListParams as VolumeListParams };
 
-  export { OSImages as OSImages, type OSImageListResponse as OSImageListResponse };
+  export { OSImages as OSImages, type OSImageListParams as OSImageListParams };
 }

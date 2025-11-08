@@ -7,7 +7,7 @@ export {
   type AvailabilityCreateParams,
   type AvailabilityUpdateParams,
 } from './availability';
-export { OSImages, type OSImageListResponse } from './os-images';
+export { OSImages, type OSImageListParams } from './os-images';
 export {
   VMs,
   type CPUConfig,
@@ -21,6 +21,7 @@ export {
   type VMCreateParams,
   type VMUpdateParams,
   type VMListParams,
+  type OSImagesCursor,
   type VMsCursor,
 } from './vms';
 export { Volumes, type VolumeListParams } from './volumes';

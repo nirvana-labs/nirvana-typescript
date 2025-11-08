@@ -18,10 +18,18 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'list_vms_compute_os_images',
   description:
-    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nList all OS Images\n\n# Response Schema\n```json\n{\n  $ref: '#/$defs/os_image_list_response',\n  $defs: {\n    os_image_list_response: {\n      type: 'array',\n      items: {\n        $ref: '#/$defs/os_image'\n      }\n    },\n    os_image: {\n      type: 'object',\n      description: 'OS Image details.',\n      properties: {\n        created_at: {\n          type: 'string',\n          description: 'When the OS Image was created.',\n          format: 'date-time'\n        },\n        display_name: {\n          type: 'string',\n          description: 'Display name of the OS Image.'\n        },\n        name: {\n          type: 'string',\n          description: 'Name of the OS Image.'\n        }\n      },\n      required: [        'created_at',\n        'display_name',\n        'name'\n      ]\n    }\n  }\n}\n```",
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nList all OS Images\n\n# Response Schema\n```json\n{\n  type: 'object',\n  properties: {\n    items: {\n      type: 'array',\n      items: {\n        $ref: '#/$defs/os_image'\n      }\n    },\n    pagination: {\n      $ref: '#/$defs/pagination'\n    }\n  },\n  required: [    'items',\n    'pagination'\n  ],\n  $defs: {\n    os_image: {\n      type: 'object',\n      description: 'OS Image details.',\n      properties: {\n        created_at: {\n          type: 'string',\n          description: 'When the OS Image was created.',\n          format: 'date-time'\n        },\n        display_name: {\n          type: 'string',\n          description: 'Display name of the OS Image.'\n        },\n        name: {\n          type: 'string',\n          description: 'Name of the OS Image.'\n        }\n      },\n      required: [        'created_at',\n        'display_name',\n        'name'\n      ]\n    },\n    pagination: {\n      type: 'object',\n      description: 'Pagination response details.',\n      properties: {\n        next_cursor: {\n          type: 'string'\n        },\n        previous_cursor: {\n          type: 'string'\n        },\n        total_count: {\n          type: 'integer'\n        }\n      },\n      required: [        'next_cursor',\n        'previous_cursor',\n        'total_count'\n      ]\n    }\n  }\n}\n```",
   inputSchema: {
     type: 'object',
     properties: {
+      cursor: {
+        type: 'string',
+        description: 'Pagination cursor returned by a previous request',
+      },
+      limit: {
+        type: 'integer',
+        description: 'Maximum number of items to return',
+      },
       jq_filter: {
         type: 'string',
         title: 'jq Filter',
@@ -37,8 +45,9 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: NirvanaLabs, args: Record<string, unknown> | undefined) => {
-  const { jq_filter } = args as any;
-  return asTextContentResult(await maybeFilter(jq_filter, await client.compute.vms.osImages.list()));
+  const { jq_filter, ...body } = args as any;
+  const response = await client.compute.vms.osImages.list(body).asResponse();
+  return asTextContentResult(await maybeFilter(jq_filter, await response.json()));
 };
 
 export default { metadata, tool, handler };
