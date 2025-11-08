@@ -255,6 +255,14 @@ The following tools are available in this MCP server.
 - `list_operations` (`read`): List all operations
 - `get_operations` (`read`): Get details about a specific operation
 
+### Resource `projects`:
+
+- `create_projects` (`write`): Create a new project
+- `update_projects` (`write`): Update an existing project
+- `list_projects` (`read`): List all projects for the authenticated user
+- `delete_projects` (`write`): Delete a project
+- `get_projects` (`read`): Get details about a project
+
 ### Resource `compute.vms`:
 
 - `create_compute_vms` (`write`): Create a VM
