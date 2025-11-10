@@ -30,7 +30,8 @@ export const tool: Tool = {
       },
       destination_address: {
         type: 'string',
-        description: 'Destination address of the Firewall Rule. Either VPC CIDR or VM in VPC.',
+        description:
+          'Destination address of the Firewall Rule. Either VPC CIDR or VM in VPC. Must be in network-aligned/canonical form.',
       },
       destination_ports: {
         type: 'array',
@@ -50,7 +51,8 @@ export const tool: Tool = {
       },
       source_address: {
         type: 'string',
-        description: 'Source address of the Firewall Rule. Address of 0.0.0.0 requires a CIDR mask of 0.',
+        description:
+          'Source address of the Firewall Rule. Address of 0.0.0.0 requires a CIDR mask of 0. Must be in network-aligned/canonical form.',
       },
       tags: {
         type: 'array',

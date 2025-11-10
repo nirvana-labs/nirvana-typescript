@@ -109,7 +109,7 @@ export interface ConnectionCreateParams {
   bandwidth_mbps: ConnectAPI.ConnectBandwidthMbps;
 
   /**
-   * CIDRs for the Connect Connection
+   * CIDRs for the Connect Connection. Must be in network-aligned/canonical form.
    */
   cidrs: Array<string>;
 
@@ -119,7 +119,7 @@ export interface ConnectionCreateParams {
   name: string;
 
   /**
-   * Provider CIDRs
+   * Provider CIDRs. Must be in network-aligned/canonical form.
    */
   provider_cidrs: Array<string>;
 

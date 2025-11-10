@@ -27,7 +27,7 @@ export const tool: Tool = {
       },
       cidrs: {
         type: 'array',
-        description: 'CIDRs for the Connect Connection',
+        description: 'CIDRs for the Connect Connection. Must be in network-aligned/canonical form.',
         items: {
           type: 'string',
         },
@@ -38,7 +38,7 @@ export const tool: Tool = {
       },
       provider_cidrs: {
         type: 'array',
-        description: 'Provider CIDRs',
+        description: 'Provider CIDRs. Must be in network-aligned/canonical form.',
         items: {
           type: 'string',
         },

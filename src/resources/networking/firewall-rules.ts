@@ -197,7 +197,8 @@ export interface FirewallRuleList {
 
 export interface FirewallRuleCreateParams {
   /**
-   * Destination address of the Firewall Rule. Either VPC CIDR or VM in VPC.
+   * Destination address of the Firewall Rule. Either VPC CIDR or VM in VPC. Must be
+   * in network-aligned/canonical form.
    */
   destination_address: string;
 
@@ -218,7 +219,7 @@ export interface FirewallRuleCreateParams {
 
   /**
    * Source address of the Firewall Rule. Address of 0.0.0.0 requires a CIDR mask
-   * of 0.
+   * of 0. Must be in network-aligned/canonical form.
    */
   source_address: string;
 
@@ -236,7 +237,7 @@ export interface FirewallRuleUpdateParams {
 
   /**
    * Body param: Destination address of the Firewall Rule. Either VPC CIDR or VM in
-   * VPC.
+   * VPC. Must be in network-aligned/canonical form.
    */
   destination_address?: string;
 
@@ -257,7 +258,7 @@ export interface FirewallRuleUpdateParams {
 
   /**
    * Body param: Source address of the Firewall Rule. Address of 0.0.0.0 requires a
-   * CIDR mask of 0.
+   * CIDR mask of 0. Must be in network-aligned/canonical form.
    */
   source_address?: string;
 
