@@ -84,6 +84,11 @@ export interface Dedicated {
   network: string;
 
   /**
+   * Project identifier associated with the RPC Node Dedicated.
+   */
+  project_id: string | null;
+
+  /**
    * Tags to attach to the RPC Node Dedicated.
    */
   tags: Array<string>;
@@ -127,7 +132,12 @@ export interface DedicatedList {
   pagination: Shared.Pagination;
 }
 
-export interface DedicatedListParams extends CursorParams {}
+export interface DedicatedListParams extends CursorParams {
+  /**
+   * Project ID of resources to request
+   */
+  project_id?: string;
+}
 
 DedicatedResource.Blockchains = Blockchains;
 

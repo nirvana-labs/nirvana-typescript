@@ -126,6 +126,11 @@ export interface Flex {
   network: string;
 
   /**
+   * Project identifier associated with the RPC Node Flex.
+   */
+  project_id: string | null;
+
+  /**
    * Tags to attach to the RPC Node Flex.
    */
   tags: Array<string>;
@@ -203,7 +208,12 @@ export interface FlexUpdateParams {
   tags?: Array<string>;
 }
 
-export interface FlexListParams extends CursorParams {}
+export interface FlexListParams extends CursorParams {
+  /**
+   * Project ID of resources to request
+   */
+  project_id?: string;
+}
 
 FlexResource.Blockchains = Blockchains;
 

@@ -5,6 +5,7 @@ export { APIKeys } from './api-keys';
 export { Compute } from './compute/compute';
 export { Networking } from './networking/networking';
 export { Operations } from './operations';
+export { Projects } from './projects';
 export { RPCNodes } from './rpc-nodes/rpc-nodes';
 export { UserResource } from './user';
 export { Vektor } from './vektor/vektor';

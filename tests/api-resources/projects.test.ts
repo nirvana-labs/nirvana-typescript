@@ -7,13 +7,9 @@ const client = new NirvanaLabs({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource flex', () => {
+describe('resource projects', () => {
   test('create: only required params', async () => {
-    const responsePromise = client.rpcNodes.flex.create({
-      blockchain: 'ethereum',
-      name: 'my-ethereum-node',
-      network: 'mainnet',
-    });
+    const responsePromise = client.projects.create({ name: 'My Project' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -24,16 +20,11 @@ describe('resource flex', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await client.rpcNodes.flex.create({
-      blockchain: 'ethereum',
-      name: 'my-ethereum-node',
-      network: 'mainnet',
-      tags: ['production', 'ethereum'],
-    });
+    const response = await client.projects.create({ name: 'My Project', tags: ['production', 'ethereum'] });
   });
 
   test('update', async () => {
-    const responsePromise = client.rpcNodes.flex.update('node_id', {});
+    const responsePromise = client.projects.update('project_id', {});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -44,7 +35,7 @@ describe('resource flex', () => {
   });
 
   test('list', async () => {
-    const responsePromise = client.rpcNodes.flex.list();
+    const responsePromise = client.projects.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -57,15 +48,12 @@ describe('resource flex', () => {
   test('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.rpcNodes.flex.list(
-        { cursor: 'cursor', limit: 10, project_id: 'project_id' },
-        { path: '/_stainless_unknown_path' },
-      ),
+      client.projects.list({ cursor: 'cursor', limit: 10 }, { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
   });
 
   test('delete', async () => {
-    const responsePromise = client.rpcNodes.flex.delete('node_id');
+    const responsePromise = client.projects.delete('project_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -76,7 +64,7 @@ describe('resource flex', () => {
   });
 
   test('get', async () => {
-    const responsePromise = client.rpcNodes.flex.get('node_id');
+    const responsePromise = client.projects.get('project_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
