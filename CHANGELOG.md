@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.23.0 (2025-11-13)
+
+Full Changelog: [v1.22.1...v1.23.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.22.1...v1.23.0)
+
+### Features
+
+* **api:** api update ([533936c](https://github.com/nirvana-labs/nirvana-typescript/commit/533936caa11417ca8916b3a6617a64f4c587e937))
+* **api:** api update ([e036291](https://github.com/nirvana-labs/nirvana-typescript/commit/e03629171a16669093cb282e338f76c564c484f7))
+* **api:** api update ([a3dd7a4](https://github.com/nirvana-labs/nirvana-typescript/commit/a3dd7a466be9fad9828f304f19ddb513198cbffe))
+
+
+### Bug Fixes
+
+* **mcp:** return tool execution error on jq failure ([ac0e496](https://github.com/nirvana-labs/nirvana-typescript/commit/ac0e49634a79bf34fbff9c702179be75aeae95fc))
+
+
+### Chores
+
+* **internal:** codegen related update ([ace0854](https://github.com/nirvana-labs/nirvana-typescript/commit/ace0854657cca47c56cad685b3d5cda82005d68d))
+* **internal:** codegen related update ([55d69c3](https://github.com/nirvana-labs/nirvana-typescript/commit/55d69c32a345c574a001e8d47e3adf1ef190cb43))
+* **mcp:** clarify http auth error ([f23db55](https://github.com/nirvana-labs/nirvana-typescript/commit/f23db553018af697f2b4a57a2dc984fc2b888762))
+* **mcp:** upgrade jq-web ([5bc6acd](https://github.com/nirvana-labs/nirvana-typescript/commit/5bc6acd39249bb5e878e5c40429f6a5db6d3ccba))
+
 ## 1.22.1 (2025-11-08)
 
 Full Changelog: [v1.22.0...v1.22.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.22.0...v1.22.1)
