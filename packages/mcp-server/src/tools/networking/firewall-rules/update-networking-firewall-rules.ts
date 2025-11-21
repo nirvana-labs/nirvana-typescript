@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { maybeFilter } from '@nirvana-labs/nirvana-mcp/filtering';
-import { Metadata, asTextContentResult } from '@nirvana-labs/nirvana-mcp/tools/types';
+import { isJqError, maybeFilter } from '@nirvana-labs/nirvana-mcp/filtering';
+import { Metadata, asErrorResult, asTextContentResult } from '@nirvana-labs/nirvana-mcp/tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import NirvanaLabs from '@nirvana-labs/nirvana';
@@ -30,7 +30,8 @@ export const tool: Tool = {
       },
       destination_address: {
         type: 'string',
-        description: 'Destination address of the Firewall Rule. Either VPC CIDR or VM in VPC.',
+        description:
+          'Destination address of the Firewall Rule. Either VPC CIDR or VM in VPC. Must be in network-aligned/canonical form.',
       },
       destination_ports: {
         type: 'array',
@@ -50,7 +51,8 @@ export const tool: Tool = {
       },
       source_address: {
         type: 'string',
-        description: 'Source address of the Firewall Rule. Address of 0.0.0.0 requires a CIDR mask of 0.',
+        description:
+          'Source address of the Firewall Rule. Address of 0.0.0.0 requires a CIDR mask of 0. Must be in network-aligned/canonical form.',
       },
       tags: {
         type: 'array',
@@ -73,9 +75,16 @@ export const tool: Tool = {
 
 export const handler = async (client: NirvanaLabs, args: Record<string, unknown> | undefined) => {
   const { firewall_rule_id, jq_filter, ...body } = args as any;
-  return asTextContentResult(
-    await maybeFilter(jq_filter, await client.networking.firewallRules.update(firewall_rule_id, body)),
-  );
+  try {
+    return asTextContentResult(
+      await maybeFilter(jq_filter, await client.networking.firewallRules.update(firewall_rule_id, body)),
+    );
+  } catch (error) {
+    if (isJqError(error)) {
+      return asErrorResult(error.message);
+    }
+    throw error;
+  }
 };
 
 export default { metadata, tool, handler };
