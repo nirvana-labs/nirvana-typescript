@@ -13,6 +13,7 @@ describe('resource flex', () => {
       blockchain: 'ethereum',
       name: 'my-ethereum-node',
       network: 'mainnet',
+      project_id: '123e4567-e89b-12d3-a456-426614174000',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -28,6 +29,7 @@ describe('resource flex', () => {
       blockchain: 'ethereum',
       name: 'my-ethereum-node',
       network: 'mainnet',
+      project_id: '123e4567-e89b-12d3-a456-426614174000',
       tags: ['production', 'ethereum'],
     });
   });
