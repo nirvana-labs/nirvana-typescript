@@ -22,6 +22,7 @@ export class FlexResource extends APIResource {
    *   blockchain: 'ethereum',
    *   name: 'my-ethereum-node',
    *   network: 'mainnet',
+   *   project_id: '123e4567-e89b-12d3-a456-426614174000',
    * });
    * ```
    */
@@ -189,6 +190,11 @@ export interface FlexCreateParams {
    * Network type (e.g., mainnet, testnet).
    */
   network: string;
+
+  /**
+   * Project ID to associate with the RPC Node Flex.
+   */
+  project_id: string;
 
   /**
    * Tags to attach to the RPC Node Flex (optional, max 50).

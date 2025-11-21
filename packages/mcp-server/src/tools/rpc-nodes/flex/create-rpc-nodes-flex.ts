@@ -34,6 +34,10 @@ export const tool: Tool = {
         type: 'string',
         description: 'Network type (e.g., mainnet, testnet).',
       },
+      project_id: {
+        type: 'string',
+        description: 'Project ID to associate with the RPC Node Flex.',
+      },
       tags: {
         type: 'array',
         description: 'Tags to attach to the RPC Node Flex (optional, max 50).',
@@ -48,7 +52,7 @@ export const tool: Tool = {
           'A jq filter to apply to the response to include certain fields. Consult the output schema in the tool description to see the fields that are available.\n\nFor example: to include only the `name` field in every object of a results array, you can provide ".results[].name".\n\nFor more information, see the [jq documentation](https://jqlang.org/manual/).',
       },
     },
-    required: ['blockchain', 'name', 'network'],
+    required: ['blockchain', 'name', 'network', 'project_id'],
   },
   annotations: {},
 };
