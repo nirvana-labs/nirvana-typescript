@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.25.0 (2025-11-26)
+
+Full Changelog: [v1.24.0...v1.25.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.24.0...v1.25.0)
+
+### Features
+
+* **api:** update ([4fbcb8e](https://github.com/nirvana-labs/nirvana-typescript/commit/4fbcb8e2a06bc066411e02c5cbd3b7ee61c8796f))
+* **mcp:** add detail field to docs search tool ([b68234d](https://github.com/nirvana-labs/nirvana-typescript/commit/b68234d17d1235b8ad284ba1a8934b2730f63ce6))
+
+
+### Chores
+
+* **internal:** codegen related update ([e49f888](https://github.com/nirvana-labs/nirvana-typescript/commit/e49f888b9ef4dc34fc31376c9aaa95bfc1864f73))
+
 ## 1.24.0 (2025-11-21)
 
 Full Changelog: [v1.23.0...v1.24.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.23.0...v1.24.0)

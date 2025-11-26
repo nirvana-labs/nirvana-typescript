@@ -41,6 +41,11 @@ export const tool: Tool = {
           type: 'string',
         },
       },
+      type: {
+        type: 'string',
+        description: 'Type of the Volume. Defaults to nvme if not provided.',
+        enum: ['nvme', 'abs'],
+      },
       jq_filter: {
         type: 'string',
         title: 'jq Filter',

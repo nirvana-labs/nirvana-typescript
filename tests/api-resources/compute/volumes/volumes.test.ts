@@ -29,6 +29,7 @@ describe('resource volumes', () => {
       size: 100,
       vm_id: 'vm_id',
       tags: ['production', 'ethereum'],
+      type: 'nvme',
     });
   });
 

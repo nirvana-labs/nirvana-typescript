@@ -76,6 +76,7 @@ export const tool: Tool = {
         enum: [
           'us-sea-1',
           'us-sva-1',
+          'us-sva-2',
           'us-chi-1',
           'us-wdc-1',
           'eu-frk-1',
