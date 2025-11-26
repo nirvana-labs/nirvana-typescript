@@ -37,6 +37,11 @@ export const tool: Tool = {
               type: 'string',
             },
           },
+          type: {
+            type: 'string',
+            description: 'Type of the Volume. Defaults to nvme if not provided.',
+            enum: ['nvme', 'abs'],
+          },
         },
         required: ['size'],
       },
@@ -89,6 +94,11 @@ export const tool: Tool = {
               items: {
                 type: 'string',
               },
+            },
+            type: {
+              type: 'string',
+              description: 'Type of the Volume. Defaults to nvme if not provided.',
+              enum: ['nvme', 'abs'],
             },
           },
           required: ['name', 'size'],
@@ -148,6 +158,7 @@ export const tool: Tool = {
         enum: [
           'us-sea-1',
           'us-sva-1',
+          'us-sva-2',
           'us-chi-1',
           'us-wdc-1',
           'eu-frk-1',

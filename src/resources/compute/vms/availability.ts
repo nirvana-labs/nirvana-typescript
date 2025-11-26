@@ -132,6 +132,11 @@ export namespace AvailabilityCreateParams {
      * Tags to attach to the Volume.
      */
     tags?: Array<string>;
+
+    /**
+     * Type of the Volume. Defaults to nvme if not provided.
+     */
+    type?: 'nvme' | 'abs';
   }
 
   /**
@@ -152,6 +157,11 @@ export namespace AvailabilityCreateParams {
      * Tags to attach to the Volume.
      */
     tags?: Array<string>;
+
+    /**
+     * Type of the Volume. Defaults to nvme if not provided.
+     */
+    type?: 'nvme' | 'abs';
   }
 }
 
