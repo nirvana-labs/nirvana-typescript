@@ -134,7 +134,7 @@ export namespace AvailabilityCreateParams {
     tags?: Array<string>;
 
     /**
-     * Type of the Volume. Defaults to nvme if not provided.
+     * Type of the Volume.
      */
     type?: 'nvme' | 'abs';
   }
@@ -159,7 +159,7 @@ export namespace AvailabilityCreateParams {
     tags?: Array<string>;
 
     /**
-     * Type of the Volume. Defaults to nvme if not provided.
+     * Type of the Volume.
      */
     type?: 'nvme' | 'abs';
   }
