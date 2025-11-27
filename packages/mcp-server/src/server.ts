@@ -34,7 +34,7 @@ export const newMcpServer = () =>
   new McpServer(
     {
       name: 'nirvana_labs_nirvana_api',
-      version: '1.25.1',
+      version: '1.25.2',
     },
     { capabilities: { tools: {}, logging: {} } },
   );
