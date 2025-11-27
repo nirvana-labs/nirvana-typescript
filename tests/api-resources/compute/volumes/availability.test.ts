@@ -12,6 +12,7 @@ describe('resource availability', () => {
     const responsePromise = client.compute.volumes.availability.create({
       name: 'my-data-volume',
       size: 100,
+      type: 'nvme',
       vm_id: 'vm_id',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -27,9 +28,9 @@ describe('resource availability', () => {
     const response = await client.compute.volumes.availability.create({
       name: 'my-data-volume',
       size: 100,
+      type: 'nvme',
       vm_id: 'vm_id',
       tags: ['production', 'ethereum'],
-      type: 'nvme',
     });
   });
 

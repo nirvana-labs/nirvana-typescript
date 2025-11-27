@@ -17,7 +17,7 @@ export class Availability extends APIResource {
    * ```ts
    * const availability =
    *   await client.compute.vms.availability.create({
-   *     boot_volume: { size: 100 },
+   *     boot_volume: { size: 100, type: 'nvme' },
    *     cpu_config: { vcpu: 2 },
    *     memory_config: { size: 2 },
    *     name: 'my-vm',
@@ -130,14 +130,14 @@ export namespace AvailabilityCreateParams {
     size: number;
 
     /**
+     * Type of the Volume.
+     */
+    type: VolumesAPI.VolumeType;
+
+    /**
      * Tags to attach to the Volume.
      */
     tags?: Array<string>;
-
-    /**
-     * Type of the Volume.
-     */
-    type?: VolumesAPI.VolumeType;
   }
 
   /**
@@ -155,14 +155,14 @@ export namespace AvailabilityCreateParams {
     size: number;
 
     /**
+     * Type of the Volume.
+     */
+    type: VolumesAPI.VolumeType;
+
+    /**
      * Tags to attach to the Volume.
      */
     tags?: Array<string>;
-
-    /**
-     * Type of the Volume.
-     */
-    type?: VolumesAPI.VolumeType;
   }
 }
 
