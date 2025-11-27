@@ -32,7 +32,7 @@ export class VMs extends APIResource {
    * @example
    * ```ts
    * const operation = await client.compute.vms.create({
-   *   boot_volume: { size: 100 },
+   *   boot_volume: { size: 100, type: 'nvme' },
    *   cpu_config: { vcpu: 2 },
    *   memory_config: { size: 2 },
    *   name: 'my-vm',
@@ -356,14 +356,14 @@ export namespace VMCreateParams {
     size: number;
 
     /**
+     * Type of the Volume.
+     */
+    type: VolumesVolumesAPI.VolumeType;
+
+    /**
      * Tags to attach to the Volume.
      */
     tags?: Array<string>;
-
-    /**
-     * Type of the Volume.
-     */
-    type?: VolumesVolumesAPI.VolumeType;
   }
 
   /**
@@ -381,14 +381,14 @@ export namespace VMCreateParams {
     size: number;
 
     /**
+     * Type of the Volume.
+     */
+    type: VolumesVolumesAPI.VolumeType;
+
+    /**
      * Tags to attach to the Volume.
      */
     tags?: Array<string>;
-
-    /**
-     * Type of the Volume.
-     */
-    type?: VolumesVolumesAPI.VolumeType;
   }
 }
 

@@ -12,6 +12,7 @@ describe('resource volumes', () => {
     const responsePromise = client.compute.volumes.create({
       name: 'my-data-volume',
       size: 100,
+      type: 'nvme',
       vm_id: 'vm_id',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -27,9 +28,9 @@ describe('resource volumes', () => {
     const response = await client.compute.volumes.create({
       name: 'my-data-volume',
       size: 100,
+      type: 'nvme',
       vm_id: 'vm_id',
       tags: ['production', 'ethereum'],
-      type: 'nvme',
     });
   });
 
