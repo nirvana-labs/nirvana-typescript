@@ -144,7 +144,7 @@ export interface Volume {
   /**
    * Type of the Volume.
    */
-  type: 'nvme' | 'abs';
+  type: VolumeType;
 
   /**
    * When the Volume was updated.
@@ -176,6 +176,11 @@ export interface VolumeList {
   pagination: Shared.Pagination;
 }
 
+/**
+ * Type of the Volume.
+ */
+export type VolumeType = 'nvme' | 'abs';
+
 export interface VolumeCreateParams {
   /**
    * Name of the Volume.
@@ -200,7 +205,7 @@ export interface VolumeCreateParams {
   /**
    * Type of the Volume.
    */
-  type?: 'nvme' | 'abs';
+  type?: VolumeType;
 }
 
 export interface VolumeUpdateParams {
@@ -229,6 +234,7 @@ export declare namespace Volumes {
     type Volume as Volume,
     type VolumeKind as VolumeKind,
     type VolumeList as VolumeList,
+    type VolumeType as VolumeType,
     type VolumesCursor as VolumesCursor,
     type VolumeCreateParams as VolumeCreateParams,
     type VolumeUpdateParams as VolumeUpdateParams,

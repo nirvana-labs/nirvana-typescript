@@ -12,6 +12,7 @@ export {
   type Volume,
   type VolumeKind,
   type VolumeList,
+  type VolumeType,
   type VolumeCreateParams,
   type VolumeUpdateParams,
   type VolumeListParams,
