@@ -39,7 +39,7 @@ export const tool: Tool = {
           },
           type: {
             type: 'string',
-            description: 'Type of the Volume. Defaults to nvme if not provided.',
+            description: 'Type of the Volume.',
             enum: ['nvme', 'abs'],
           },
         },
@@ -97,7 +97,7 @@ export const tool: Tool = {
             },
             type: {
               type: 'string',
-              description: 'Type of the Volume. Defaults to nvme if not provided.',
+              description: 'Type of the Volume.',
               enum: ['nvme', 'abs'],
             },
           },
