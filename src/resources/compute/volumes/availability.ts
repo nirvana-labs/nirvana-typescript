@@ -17,6 +17,7 @@ export class Availability extends APIResource {
    *   await client.compute.volumes.availability.create({
    *     name: 'my-data-volume',
    *     size: 100,
+   *     type: 'nvme',
    *     vm_id: 'vm_id',
    *   });
    * ```
@@ -65,6 +66,11 @@ export interface AvailabilityCreateParams {
   size: number;
 
   /**
+   * Type of the Volume.
+   */
+  type: VolumesAPI.VolumeType;
+
+  /**
    * ID of the VM the Volume is attached to.
    */
   vm_id: string;
@@ -73,11 +79,6 @@ export interface AvailabilityCreateParams {
    * Tags to attach to the Volume.
    */
   tags?: Array<string>;
-
-  /**
-   * Type of the Volume.
-   */
-  type?: VolumesAPI.VolumeType;
 }
 
 export interface AvailabilityUpdateParams {

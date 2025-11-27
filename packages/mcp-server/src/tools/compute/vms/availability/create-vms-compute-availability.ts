@@ -30,6 +30,9 @@ export const tool: Tool = {
             type: 'integer',
             description: 'Size of the Volume in GB.',
           },
+          type: {
+            $ref: '#/$defs/volume_type',
+          },
           tags: {
             type: 'array',
             description: 'Tags to attach to the Volume.',
@@ -37,11 +40,8 @@ export const tool: Tool = {
               type: 'string',
             },
           },
-          type: {
-            $ref: '#/$defs/volume_type',
-          },
         },
-        required: ['size'],
+        required: ['size', 'type'],
       },
       cpu_config: {
         $ref: '#/$defs/cpu_config_request',
@@ -86,6 +86,9 @@ export const tool: Tool = {
               type: 'integer',
               description: 'Size of the Volume in GB.',
             },
+            type: {
+              $ref: '#/$defs/volume_type',
+            },
             tags: {
               type: 'array',
               description: 'Tags to attach to the Volume.',
@@ -93,11 +96,8 @@ export const tool: Tool = {
                 type: 'string',
               },
             },
-            type: {
-              $ref: '#/$defs/volume_type',
-            },
           },
-          required: ['name', 'size'],
+          required: ['name', 'size', 'type'],
         },
       },
       tags: {
