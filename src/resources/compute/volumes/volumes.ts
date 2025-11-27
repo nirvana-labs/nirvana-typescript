@@ -103,11 +103,6 @@ export class Volumes extends APIResource {
 export type VolumesCursor = Cursor<Volume>;
 
 /**
- * Storage type the Volume is using.
- */
-export type StorageType = 'nvme';
-
-/**
  * Volume details.
  */
 export interface Volume {
@@ -147,9 +142,9 @@ export interface Volume {
   tags: Array<string>;
 
   /**
-   * Storage type the Volume is using.
+   * Type of the Volume.
    */
-  type: StorageType;
+  type: VolumeType;
 
   /**
    * When the Volume was updated.
@@ -181,6 +176,11 @@ export interface VolumeList {
   pagination: Shared.Pagination;
 }
 
+/**
+ * Type of the Volume.
+ */
+export type VolumeType = 'nvme' | 'abs';
+
 export interface VolumeCreateParams {
   /**
    * Name of the Volume.
@@ -203,9 +203,9 @@ export interface VolumeCreateParams {
   tags?: Array<string>;
 
   /**
-   * Type of the Volume. Defaults to nvme if not provided.
+   * Type of the Volume.
    */
-  type?: 'nvme' | 'abs';
+  type?: VolumeType;
 }
 
 export interface VolumeUpdateParams {
@@ -231,10 +231,10 @@ Volumes.Availability = Availability;
 
 export declare namespace Volumes {
   export {
-    type StorageType as StorageType,
     type Volume as Volume,
     type VolumeKind as VolumeKind,
     type VolumeList as VolumeList,
+    type VolumeType as VolumeType,
     type VolumesCursor as VolumesCursor,
     type VolumeCreateParams as VolumeCreateParams,
     type VolumeUpdateParams as VolumeUpdateParams,

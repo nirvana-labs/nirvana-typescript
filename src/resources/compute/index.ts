@@ -19,10 +19,10 @@ export {
 } from './vms/index';
 export {
   Volumes,
-  type StorageType,
   type Volume,
   type VolumeKind,
   type VolumeList,
+  type VolumeType,
   type VolumeCreateParams,
   type VolumeUpdateParams,
   type VolumeListParams,

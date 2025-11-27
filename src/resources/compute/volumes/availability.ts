@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../core/resource';
+import * as VolumesAPI from './volumes';
 import { APIPromise } from '../../../core/api-promise';
 import { buildHeaders } from '../../../internal/headers';
 import { RequestOptions } from '../../../internal/request-options';
@@ -74,9 +75,9 @@ export interface AvailabilityCreateParams {
   tags?: Array<string>;
 
   /**
-   * Type of the Volume. Defaults to nvme if not provided.
+   * Type of the Volume.
    */
-  type?: 'nvme' | 'abs';
+  type?: VolumesAPI.VolumeType;
 }
 
 export interface AvailabilityUpdateParams {

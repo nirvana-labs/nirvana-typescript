@@ -113,10 +113,10 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/compute/volumes/volumes.ts">StorageType</a></code>
 - <code><a href="./src/resources/compute/volumes/volumes.ts">Volume</a></code>
 - <code><a href="./src/resources/compute/volumes/volumes.ts">VolumeKind</a></code>
 - <code><a href="./src/resources/compute/volumes/volumes.ts">VolumeList</a></code>
+- <code><a href="./src/resources/compute/volumes/volumes.ts">VolumeType</a></code>
 
 Methods:
 

@@ -15,6 +15,7 @@ import * as OSImagesAPI from './os-images';
 import { OSImageListParams, OSImages } from './os-images';
 import * as VolumesAPI from './volumes';
 import { VolumeListParams, Volumes } from './volumes';
+import * as VolumesVolumesAPI from '../volumes/volumes';
 import { APIPromise } from '../../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
@@ -360,9 +361,9 @@ export namespace VMCreateParams {
     tags?: Array<string>;
 
     /**
-     * Type of the Volume. Defaults to nvme if not provided.
+     * Type of the Volume.
      */
-    type?: 'nvme' | 'abs';
+    type?: VolumesVolumesAPI.VolumeType;
   }
 
   /**
@@ -385,9 +386,9 @@ export namespace VMCreateParams {
     tags?: Array<string>;
 
     /**
-     * Type of the Volume. Defaults to nvme if not provided.
+     * Type of the Volume.
      */
-    type?: 'nvme' | 'abs';
+    type?: VolumesVolumesAPI.VolumeType;
   }
 }
 

@@ -19,12 +19,12 @@ import {
 } from './vms/vms';
 import * as VolumesAPI from './volumes/volumes';
 import {
-  StorageType,
   Volume,
   VolumeCreateParams,
   VolumeKind,
   VolumeList,
   VolumeListParams,
+  VolumeType,
   VolumeUpdateParams,
   Volumes,
   VolumesCursor,
@@ -57,10 +57,10 @@ export declare namespace Compute {
 
   export {
     Volumes as Volumes,
-    type StorageType as StorageType,
     type Volume as Volume,
     type VolumeKind as VolumeKind,
     type VolumeList as VolumeList,
+    type VolumeType as VolumeType,
     type VolumesCursor as VolumesCursor,
     type VolumeCreateParams as VolumeCreateParams,
     type VolumeUpdateParams as VolumeUpdateParams,

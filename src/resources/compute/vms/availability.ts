@@ -3,6 +3,7 @@
 import { APIResource } from '../../../core/resource';
 import * as Shared from '../../shared';
 import * as VMsAPI from './vms';
+import * as VolumesAPI from '../volumes/volumes';
 import { APIPromise } from '../../../core/api-promise';
 import { buildHeaders } from '../../../internal/headers';
 import { RequestOptions } from '../../../internal/request-options';
@@ -134,9 +135,9 @@ export namespace AvailabilityCreateParams {
     tags?: Array<string>;
 
     /**
-     * Type of the Volume. Defaults to nvme if not provided.
+     * Type of the Volume.
      */
-    type?: 'nvme' | 'abs';
+    type?: VolumesAPI.VolumeType;
   }
 
   /**
@@ -159,9 +160,9 @@ export namespace AvailabilityCreateParams {
     tags?: Array<string>;
 
     /**
-     * Type of the Volume. Defaults to nvme if not provided.
+     * Type of the Volume.
      */
-    type?: 'nvme' | 'abs';
+    type?: VolumesAPI.VolumeType;
   }
 }
 

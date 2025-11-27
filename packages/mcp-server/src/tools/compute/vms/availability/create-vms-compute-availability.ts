@@ -38,9 +38,7 @@ export const tool: Tool = {
             },
           },
           type: {
-            type: 'string',
-            description: 'Type of the Volume. Defaults to nvme if not provided.',
-            enum: ['nvme', 'abs'],
+            $ref: '#/$defs/volume_type',
           },
         },
         required: ['size'],
@@ -96,9 +94,7 @@ export const tool: Tool = {
               },
             },
             type: {
-              type: 'string',
-              description: 'Type of the Volume. Defaults to nvme if not provided.',
-              enum: ['nvme', 'abs'],
+              $ref: '#/$defs/volume_type',
             },
           },
           required: ['name', 'size'],
@@ -130,6 +126,11 @@ export const tool: Tool = {
       'subnet_id',
     ],
     $defs: {
+      volume_type: {
+        type: 'string',
+        description: 'Type of the Volume.',
+        enum: ['nvme', 'abs'],
+      },
       cpu_config_request: {
         type: 'object',
         description: 'CPU configuration for the VM.',
