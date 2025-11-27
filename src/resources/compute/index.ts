@@ -19,7 +19,6 @@ export {
 } from './vms/index';
 export {
   Volumes,
-  type StorageType,
   type Volume,
   type VolumeKind,
   type VolumeList,
