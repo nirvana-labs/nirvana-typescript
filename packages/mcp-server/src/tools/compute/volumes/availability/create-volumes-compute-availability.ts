@@ -42,9 +42,7 @@ export const tool: Tool = {
         },
       },
       type: {
-        type: 'string',
-        description: 'Type of the Volume.',
-        enum: ['nvme', 'abs'],
+        $ref: '#/$defs/volume_type',
       },
       jq_filter: {
         type: 'string',
@@ -54,6 +52,13 @@ export const tool: Tool = {
       },
     },
     required: ['name', 'size', 'vm_id'],
+    $defs: {
+      volume_type: {
+        type: 'string',
+        description: 'Type of the Volume.',
+        enum: ['nvme', 'abs'],
+      },
+    },
   },
   annotations: {},
 };
