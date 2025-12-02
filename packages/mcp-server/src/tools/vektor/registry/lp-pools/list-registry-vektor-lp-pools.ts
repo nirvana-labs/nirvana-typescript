@@ -80,7 +80,7 @@ export const handler = async (client: NirvanaLabs, args: Record<string, unknown>
   try {
     return asTextContentResult(await maybeFilter(jq_filter, await client.vektor.registry.lpPools.list(body)));
   } catch (error) {
-    if (isJqError(error)) {
+    if (error instanceof NirvanaLabs.APIError || isJqError(error)) {
       return asErrorResult(error.message);
     }
     throw error;
