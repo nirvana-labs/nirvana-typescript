@@ -59,7 +59,7 @@ export const handler = async (client: NirvanaLabs, args: Record<string, unknown>
       await maybeFilter(jq_filter, await client.networking.vpcs.update(vpc_id, body)),
     );
   } catch (error) {
-    if (isJqError(error)) {
+    if (error instanceof NirvanaLabs.APIError || isJqError(error)) {
       return asErrorResult(error.message);
     }
     throw error;
