@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.26.1 (2025-12-06)
+
+Full Changelog: [v1.26.0...v1.26.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.26.0...v1.26.1)
+
+### Features
+
+* **mcp:** add typescript check to code execution tool ([0b18815](https://github.com/nirvana-labs/nirvana-typescript/commit/0b188153956478abc41697587d180b858c803411))
+* **mcp:** return logs on code tool errors ([23ab440](https://github.com/nirvana-labs/nirvana-typescript/commit/23ab440c7a52e1ee1e43f215d1d667c547a8cd03))
+
+
+### Bug Fixes
+
+* **mcp:** return tool execution error on api error ([6b1a863](https://github.com/nirvana-labs/nirvana-typescript/commit/6b1a863d62e8fba8d7885b3b6adba5e1c083238e))
+
+
+### Chores
+
+* **client:** fix logger property type ([64ee4d4](https://github.com/nirvana-labs/nirvana-typescript/commit/64ee4d4a8fde51dc2064586194473877caf6f52a))
+* **internal:** add tests for constants ([e558c4f](https://github.com/nirvana-labs/nirvana-typescript/commit/e558c4f29d3bdc774a992419ec4ad86fd963ffce))
+* **internal:** codegen related update ([532a8e0](https://github.com/nirvana-labs/nirvana-typescript/commit/532a8e0edb1296ede5d44a6a54e02b63a3af5c06))
+* **internal:** upgrade eslint ([cde96c7](https://github.com/nirvana-labs/nirvana-typescript/commit/cde96c76304897d331cb37d16b45255e98bd652d))
+* use latest @modelcontextprotocol/sdk ([620668a](https://github.com/nirvana-labs/nirvana-typescript/commit/620668a743dd29d3a33e7149b9bbf02f528c9bbe))
+
 ## 1.26.0 (2025-11-27)
 
 Full Changelog: [v1.25.2...v1.26.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.25.2...v1.26.0)
