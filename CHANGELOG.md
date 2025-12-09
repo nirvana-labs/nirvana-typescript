@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.26.2 (2025-12-09)
+
+Full Changelog: [v1.26.1...v1.26.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.26.1...v1.26.2)
+
+### Chores
+
+* **internal:** escape package name in pnpm workspace file ([472c9e9](https://github.com/nirvana-labs/nirvana-typescript/commit/472c9e9c3cceeffa2b4c7eae2925b383093629f4))
+
 ## 1.26.1 (2025-12-06)
 
 Full Changelog: [v1.26.0...v1.26.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.26.0...v1.26.1)
