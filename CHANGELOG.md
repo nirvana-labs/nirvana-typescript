@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.26.3 (2025-12-11)
+
+Full Changelog: [v1.26.2...v1.26.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.26.2...v1.26.3)
+
+### Bug Fixes
+
+* **mcp:** add client instantiation options to code tool ([be5de99](https://github.com/nirvana-labs/nirvana-typescript/commit/be5de99f894374d13e30f49886aac76b2db0d222))
+
 ## 1.26.2 (2025-12-09)
 
 Full Changelog: [v1.26.1...v1.26.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.26.1...v1.26.2)
