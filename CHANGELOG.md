@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.26.4 (2025-12-12)
+
+Full Changelog: [v1.26.3...v1.26.4](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.26.3...v1.26.4)
+
+### Chores
+
+* **internal:** configure MCP Server hosting ([f5f14bc](https://github.com/nirvana-labs/nirvana-typescript/commit/f5f14bc0ea3d79e1578516e19e1383e4b021392f))
+
 ## 1.26.3 (2025-12-11)
 
 Full Changelog: [v1.26.2...v1.26.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.26.2...v1.26.3)
