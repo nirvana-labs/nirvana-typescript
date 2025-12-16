@@ -48,7 +48,7 @@ export interface Region {
   /**
    * Availability status of the region.
    */
-  availability: 'live' | 'preview' | 'maintenance' | 'sunset';
+  availability: RegionAvailability;
 
   /**
    * Compute products available in this region.
@@ -113,6 +113,11 @@ export namespace Region {
   }
 }
 
+/**
+ * Availability status of the region.
+ */
+export type RegionAvailability = 'live' | 'preview' | 'maintenance' | 'sunset';
+
 export interface RegionList {
   items: Array<Region>;
 
@@ -127,6 +132,7 @@ export interface RegionListParams extends CursorParams {}
 export declare namespace Regions {
   export {
     type Region as Region,
+    type RegionAvailability as RegionAvailability,
     type RegionList as RegionList,
     type RegionsCursor as RegionsCursor,
     type RegionListParams as RegionListParams,
