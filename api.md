@@ -66,6 +66,7 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/regions.ts">Region</a></code>
+- <code><a href="./src/resources/regions.ts">RegionAvailability</a></code>
 - <code><a href="./src/resources/regions.ts">RegionList</a></code>
 
 Methods:
