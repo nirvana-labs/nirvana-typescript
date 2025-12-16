@@ -266,7 +266,6 @@ The following tools are available in this MCP server.
 ### Resource `regions`:
 
 - `list_regions` (`read`): List all regions
-- `get_regions` (`read`): Get a region by name
 
 ### Resource `compute.vms`:
 

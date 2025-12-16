@@ -2,40 +2,18 @@
 
 import { APIResource } from '../core/resource';
 import * as Shared from './shared';
-import { APIPromise } from '../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../core/pagination';
 import { RequestOptions } from '../internal/request-options';
-import { path } from '../internal/utils/path';
 
 export class Regions extends APIResource {
   /**
    * List all regions
-   *
-   * @example
-   * ```ts
-   * // Automatically fetches more pages as needed.
-   * for await (const region of client.regions.list()) {
-   *   // ...
-   * }
-   * ```
    */
   list(
     query: RegionListParams | null | undefined = {},
     options?: RequestOptions,
   ): PagePromise<RegionsCursor, Region> {
     return this._client.getAPIList('/v1/regions', Cursor<Region>, { query, ...options });
-  }
-
-  /**
-   * Get a region by name
-   *
-   * @example
-   * ```ts
-   * const region = await client.regions.get('us-wdc-1');
-   * ```
-   */
-  get(name: string, options?: RequestOptions): APIPromise<Region> {
-    return this._client.get(path`/v1/regions/${name}`, options);
   }
 }
 
