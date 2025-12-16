@@ -263,6 +263,11 @@ The following tools are available in this MCP server.
 - `delete_projects` (`write`): Delete a project
 - `get_projects` (`read`): Get details about a project
 
+### Resource `regions`:
+
+- `list_regions` (`read`): List all regions
+- `get_regions` (`read`): Get a region by name
+
 ### Resource `compute.vms`:
 
 - `create_compute_vms` (`write`): Create a VM
