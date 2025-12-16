@@ -94,6 +94,7 @@ client.example.list(undefined, { headers: { ... } });
 - `client.apiKeys.list()`
 - `client.operations.list()`
 - `client.projects.list()`
+- `client.regions.list()`
 - `client.compute.vms.list()`
 - `client.compute.vms.volumes.list()`
 - `client.compute.vms.osImages.list()`

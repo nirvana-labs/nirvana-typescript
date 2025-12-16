@@ -61,6 +61,18 @@ Methods:
 - <code title="delete /v1/projects/{project_id}">client.projects.<a href="./src/resources/projects.ts">delete</a>(projectID) -> void</code>
 - <code title="get /v1/projects/{project_id}">client.projects.<a href="./src/resources/projects.ts">get</a>(projectID) -> Project</code>
 
+# Regions
+
+Types:
+
+- <code><a href="./src/resources/regions.ts">Region</a></code>
+- <code><a href="./src/resources/regions.ts">RegionList</a></code>
+
+Methods:
+
+- <code title="get /v1/regions">client.regions.<a href="./src/resources/regions.ts">list</a>({ ...params }) -> RegionsCursor</code>
+- <code title="get /v1/regions/{region_name}">client.regions.<a href="./src/resources/regions.ts">get</a>(regionName) -> Region</code>
+
 # Compute
 
 ## VMs

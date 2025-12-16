@@ -21,6 +21,7 @@ import { APIPromise } from './core/api-promise';
 import { APIKeys } from './resources/api-keys';
 import { Operations } from './resources/operations';
 import { Projects } from './resources/projects';
+import { Regions } from './resources/regions';
 import { UserResource } from './resources/user';
 import { Compute } from './resources/compute/compute';
 import { Networking } from './resources/networking/networking';
@@ -746,6 +747,7 @@ export class NirvanaLabs {
   apiKeys: API.APIKeys = new API.APIKeys(this);
   operations: API.Operations = new API.Operations(this);
   projects: API.Projects = new API.Projects(this);
+  regions: API.Regions = new API.Regions(this);
   compute: API.Compute = new API.Compute(this);
   networking: API.Networking = new API.Networking(this);
   rpcNodes: API.RPCNodes = new API.RPCNodes(this);
@@ -756,6 +758,7 @@ NirvanaLabs.UserResource = UserResource;
 NirvanaLabs.APIKeys = APIKeys;
 NirvanaLabs.Operations = Operations;
 NirvanaLabs.Projects = Projects;
+NirvanaLabs.Regions = Regions;
 NirvanaLabs.Compute = Compute;
 NirvanaLabs.Networking = Networking;
 NirvanaLabs.RPCNodes = RPCNodes;
@@ -774,6 +777,8 @@ export declare namespace NirvanaLabs {
   export { Operations as Operations };
 
   export { Projects as Projects };
+
+  export { Regions as Regions };
 
   export { Compute as Compute };
 
