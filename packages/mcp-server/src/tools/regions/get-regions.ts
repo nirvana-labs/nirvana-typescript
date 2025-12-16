@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   operation: 'read',
   tags: [],
   httpMethod: 'get',
-  httpPath: '/v1/regions/{region_name}',
+  httpPath: '/v1/regions/{name}',
   operationId: 'get_region',
 };
 
@@ -22,7 +22,7 @@ export const tool: Tool = {
   inputSchema: {
     type: 'object',
     properties: {
-      region_name: {
+      name: {
         type: 'string',
       },
       jq_filter: {
@@ -32,7 +32,7 @@ export const tool: Tool = {
           'A jq filter to apply to the response to include certain fields. Consult the output schema in the tool description to see the fields that are available.\n\nFor example: to include only the `name` field in every object of a results array, you can provide ".results[].name".\n\nFor more information, see the [jq documentation](https://jqlang.org/manual/).',
       },
     },
-    required: ['region_name'],
+    required: ['name'],
   },
   annotations: {
     readOnlyHint: true,
@@ -40,9 +40,9 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: NirvanaLabs, args: Record<string, unknown> | undefined) => {
-  const { region_name, jq_filter, ...body } = args as any;
+  const { name, jq_filter, ...body } = args as any;
   try {
-    return asTextContentResult(await maybeFilter(jq_filter, await client.regions.get(region_name)));
+    return asTextContentResult(await maybeFilter(jq_filter, await client.regions.get(name)));
   } catch (error) {
     if (error instanceof NirvanaLabs.APIError || isJqError(error)) {
       return asErrorResult(error.message);

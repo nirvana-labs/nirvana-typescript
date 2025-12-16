@@ -34,8 +34,8 @@ export class Regions extends APIResource {
    * const region = await client.regions.get('us-wdc-1');
    * ```
    */
-  get(regionName: string, options?: RequestOptions): APIPromise<Region> {
-    return this._client.get(path`/v1/regions/${regionName}`, options);
+  get(name: string, options?: RequestOptions): APIPromise<Region> {
+    return this._client.get(path`/v1/regions/${name}`, options);
   }
 }
 
