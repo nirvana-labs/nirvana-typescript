@@ -296,6 +296,8 @@ The following tools are available in this MCP server.
 - `update_compute_volumes` (`write`): Update a Volume. Boot or data volumes can be updated.
 - `list_compute_volumes` (`read`): List all volumes
 - `delete_compute_volumes` (`write`): Delete a Volume. Boot or data volumes can be deleted.
+- `attach_compute_volumes` (`write`): Attach a volume to a VM
+- `detach_compute_volumes` (`write`): Detach a volume from a VM
 - `get_compute_volumes` (`read`): Get a Volume.
 
 ### Resource `compute.volumes.availability`:
