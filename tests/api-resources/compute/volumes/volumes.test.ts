@@ -74,6 +74,36 @@ describe('resource volumes', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
+  test('attach: only required params', async () => {
+    const responsePromise = client.compute.volumes.attach('volume_id', {
+      vm_id: '123e4567-e89b-12d3-a456-426614174000',
+    });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  test('attach: required and optional params', async () => {
+    const response = await client.compute.volumes.attach('volume_id', {
+      vm_id: '123e4567-e89b-12d3-a456-426614174000',
+    });
+  });
+
+  test('detach', async () => {
+    const responsePromise = client.compute.volumes.detach('volume_id');
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
   test('get', async () => {
     const responsePromise = client.compute.volumes.get('volume_id');
     const rawResponse = await responsePromise.asResponse();
