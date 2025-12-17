@@ -137,6 +137,8 @@ Methods:
 - <code title="patch /v1/compute/volumes/{volume_id}">client.compute.volumes.<a href="./src/resources/compute/volumes/volumes.ts">update</a>(volumeID, { ...params }) -> Operation</code>
 - <code title="get /v1/compute/volumes">client.compute.volumes.<a href="./src/resources/compute/volumes/volumes.ts">list</a>({ ...params }) -> VolumesCursor</code>
 - <code title="delete /v1/compute/volumes/{volume_id}">client.compute.volumes.<a href="./src/resources/compute/volumes/volumes.ts">delete</a>(volumeID) -> Operation</code>
+- <code title="post /v1/compute/volumes/{volume_id}/attach">client.compute.volumes.<a href="./src/resources/compute/volumes/volumes.ts">attach</a>(volumeID, { ...params }) -> Operation</code>
+- <code title="post /v1/compute/volumes/{volume_id}/detach">client.compute.volumes.<a href="./src/resources/compute/volumes/volumes.ts">detach</a>(volumeID) -> Operation</code>
 - <code title="get /v1/compute/volumes/{volume_id}">client.compute.volumes.<a href="./src/resources/compute/volumes/volumes.ts">get</a>(volumeID) -> Volume</code>
 
 ### Availability

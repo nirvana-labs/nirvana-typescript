@@ -87,6 +87,39 @@ export class Volumes extends APIResource {
   }
 
   /**
+   * Attach a volume to a VM
+   *
+   * @example
+   * ```ts
+   * const operation = await client.compute.volumes.attach(
+   *   'volume_id',
+   *   { vm_id: '123e4567-e89b-12d3-a456-426614174000' },
+   * );
+   * ```
+   */
+  attach(
+    volumeID: string,
+    body: VolumeAttachParams,
+    options?: RequestOptions,
+  ): APIPromise<OperationsAPI.Operation> {
+    return this._client.post(path`/v1/compute/volumes/${volumeID}/attach`, { body, ...options });
+  }
+
+  /**
+   * Detach a volume from a VM
+   *
+   * @example
+   * ```ts
+   * const operation = await client.compute.volumes.detach(
+   *   'volume_id',
+   * );
+   * ```
+   */
+  detach(volumeID: string, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
+    return this._client.post(path`/v1/compute/volumes/${volumeID}/detach`, options);
+  }
+
+  /**
    * Get a Volume.
    *
    * @example
@@ -126,6 +159,11 @@ export interface Volume {
    * Name of the Volume.
    */
   name: string;
+
+  /**
+   * Region where the Volume is located.
+   */
+  region: string;
 
   /**
    * Size of the Volume in GB.
@@ -228,6 +266,13 @@ export interface VolumeUpdateParams {
 
 export interface VolumeListParams extends CursorParams {}
 
+export interface VolumeAttachParams {
+  /**
+   * ID of the VM to attach the Volume to.
+   */
+  vm_id: string;
+}
+
 Volumes.Availability = Availability;
 
 export declare namespace Volumes {
@@ -240,6 +285,7 @@ export declare namespace Volumes {
     type VolumeCreateParams as VolumeCreateParams,
     type VolumeUpdateParams as VolumeUpdateParams,
     type VolumeListParams as VolumeListParams,
+    type VolumeAttachParams as VolumeAttachParams,
   };
 
   export {

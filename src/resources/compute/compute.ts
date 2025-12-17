@@ -20,6 +20,7 @@ import {
 import * as VolumesAPI from './volumes/volumes';
 import {
   Volume,
+  VolumeAttachParams,
   VolumeCreateParams,
   VolumeKind,
   VolumeList,
@@ -65,5 +66,6 @@ export declare namespace Compute {
     type VolumeCreateParams as VolumeCreateParams,
     type VolumeUpdateParams as VolumeUpdateParams,
     type VolumeListParams as VolumeListParams,
+    type VolumeAttachParams as VolumeAttachParams,
   };
 }
