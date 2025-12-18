@@ -35,7 +35,10 @@ export async function codeTool() {
       headers: {
         ...(stainlessAPIKey && { Authorization: stainlessAPIKey }),
         'Content-Type': 'application/json',
-        client_envs: JSON.stringify({ NIRVANA_LABS_API_KEY: readEnv('NIRVANA_LABS_API_KEY') }),
+        client_envs: JSON.stringify({
+          NIRVANA_LABS_API_KEY: readEnv('NIRVANA_LABS_API_KEY'),
+          NIRVANA_LABS_BASE_URL: readEnv('NIRVANA_LABS_BASE_URL'),
+        }),
       },
       body: JSON.stringify({
         project_name: 'nirvana',
