@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.30.0 (2025-12-19)
+
+Full Changelog: [v1.29.0...v1.30.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.29.0...v1.30.0)
+
+### ⚠ BREAKING CHANGES
+
+* **mcp:** remove deprecated tool schemes
+* **mcp:** **Migration:** To migrate, simply modify the command used to invoke the MCP server. Currently, the only supported tool scheme is code mode. Now, starting the server with just `node /path/to/mcp/server` or `npx package-name` will invoke code tools: changing your command to one of these is likely all you will need to do.
+
+### Bug Fixes
+
+* **mcp:** pass base url to code tool ([ed3f84d](https://github.com/nirvana-labs/nirvana-typescript/commit/ed3f84d29ae070ee9700d6504d3e73b287c38f84))
+
+
+### Chores
+
+* **mcp:** remove deprecated tool schemes ([f8295a3](https://github.com/nirvana-labs/nirvana-typescript/commit/f8295a3cadd885dc7ffd1e4ba524fd93b39510c8))
+
 ## 1.29.0 (2025-12-17)
 
 Full Changelog: [v1.28.0...v1.29.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.28.0...v1.29.0)
