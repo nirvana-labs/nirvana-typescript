@@ -147,12 +147,12 @@ export namespace APIKey {
     /**
      * List of IPv4/IPv6 CIDR addresses to allow.
      */
-    in: Array<string>;
+    allowed: Array<string>;
 
     /**
      * List of IPv4/IPv6 CIDR addresses to deny.
      */
-    not_in: Array<string>;
+    blocked: Array<string>;
   }
 }
 
@@ -200,12 +200,12 @@ export namespace APIKeyCreateParams {
     /**
      * List of IPv4/IPv6 CIDR addresses to allow.
      */
-    in?: Array<string>;
+    allowed?: Array<string>;
 
     /**
      * List of IPv4/IPv6 CIDR addresses to deny.
      */
-    not_in?: Array<string>;
+    blocked?: Array<string>;
   }
 }
 
@@ -234,12 +234,12 @@ export namespace APIKeyUpdateParams {
     /**
      * List of IPv4/IPv6 CIDR addresses to allow.
      */
-    in?: Array<string>;
+    allowed?: Array<string>;
 
     /**
      * List of IPv4/IPv6 CIDR addresses to deny.
      */
-    not_in?: Array<string>;
+    blocked?: Array<string>;
   }
 }
 
