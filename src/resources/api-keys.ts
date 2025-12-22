@@ -109,6 +109,11 @@ export interface APIKey {
   name: string;
 
   /**
+   * IP filter configuration for the API Key.
+   */
+  source_ip_rule: APIKey.SourceIPRule;
+
+  /**
    * Status of the API Key.
    */
   status: 'active' | 'inactive' | 'expired';
@@ -134,6 +139,23 @@ export interface APIKey {
   starts_at?: string;
 }
 
+export namespace APIKey {
+  /**
+   * IP filter configuration for the API Key.
+   */
+  export interface SourceIPRule {
+    /**
+     * List of IPv4/IPv6 CIDR addresses to allow.
+     */
+    in: Array<string>;
+
+    /**
+     * List of IPv4/IPv6 CIDR addresses to deny.
+     */
+    not_in: Array<string>;
+  }
+}
+
 export interface APIKeyList {
   items: Array<APIKey>;
 
@@ -155,6 +177,11 @@ export interface APIKeyCreateParams {
   name: string;
 
   /**
+   * IP filter configuration for the API Key.
+   */
+  source_ip_rule?: APIKeyCreateParams.SourceIPRule;
+
+  /**
    * When the API Key starts to be valid.
    */
   starts_at?: string;
@@ -165,6 +192,23 @@ export interface APIKeyCreateParams {
   tags?: Array<string>;
 }
 
+export namespace APIKeyCreateParams {
+  /**
+   * IP filter configuration for the API Key.
+   */
+  export interface SourceIPRule {
+    /**
+     * List of IPv4/IPv6 CIDR addresses to allow.
+     */
+    in?: Array<string>;
+
+    /**
+     * List of IPv4/IPv6 CIDR addresses to deny.
+     */
+    not_in?: Array<string>;
+  }
+}
+
 export interface APIKeyUpdateParams {
   /**
    * API Key name.
@@ -172,9 +216,31 @@ export interface APIKeyUpdateParams {
   name?: string;
 
   /**
+   * IP filter configuration for the API Key.
+   */
+  source_ip_rule?: APIKeyUpdateParams.SourceIPRule;
+
+  /**
    * Tags to attach to the API Key.
    */
   tags?: Array<string>;
+}
+
+export namespace APIKeyUpdateParams {
+  /**
+   * IP filter configuration for the API Key.
+   */
+  export interface SourceIPRule {
+    /**
+     * List of IPv4/IPv6 CIDR addresses to allow.
+     */
+    in?: Array<string>;
+
+    /**
+     * List of IPv4/IPv6 CIDR addresses to deny.
+     */
+    not_in?: Array<string>;
+  }
 }
 
 export interface APIKeyListParams extends CursorParams {}
