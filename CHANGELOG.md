@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.31.1 (2025-12-23)
+
+Full Changelog: [v1.31.0...v1.31.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.31.0...v1.31.1)
+
+### Chores
+
+* remove custom code ([1b9770b](https://github.com/nirvana-labs/nirvana-typescript/commit/1b9770b9263fd9441309914f40dea4d4edd7cb60))
+
 ## 1.31.0 (2025-12-22)
 
 Full Changelog: [v1.30.0...v1.31.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.30.0...v1.31.0)
