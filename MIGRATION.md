@@ -186,7 +186,7 @@ const { UserResource } = require('@nirvana-labs/nirvana');
 
 // After
 const { NirvanaLabs } = require('@nirvana-labs/nirvana');
-NirvanaLabs.UserResource; // or import directly from @nirvana-labs/nirvana/resources/user
+NirvanaLabs.UserResource; // or import directly from @nirvana-labs/nirvana/resources/user/user
 ```
 
 #### Cleaned up `uploads` exports
