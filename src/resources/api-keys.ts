@@ -109,7 +109,7 @@ export interface APIKey {
   name: string;
 
   /**
-   * IP filter configuration for the API Key.
+   * IP filter rules.
    */
   source_ip_rule: APIKey.SourceIPRule;
 
@@ -141,16 +141,16 @@ export interface APIKey {
 
 export namespace APIKey {
   /**
-   * IP filter configuration for the API Key.
+   * IP filter rules.
    */
   export interface SourceIPRule {
     /**
-     * List of IPv4/IPv6 CIDR addresses to allow.
+     * List of IPv4 CIDR addresses to allow.
      */
     allowed: Array<string>;
 
     /**
-     * List of IPv4/IPv6 CIDR addresses to deny.
+     * List of IPv4 CIDR addresses to deny.
      */
     blocked: Array<string>;
   }
@@ -177,7 +177,7 @@ export interface APIKeyCreateParams {
   name: string;
 
   /**
-   * IP filter configuration for the API Key.
+   * IP filter rules.
    */
   source_ip_rule?: APIKeyCreateParams.SourceIPRule;
 
@@ -194,16 +194,16 @@ export interface APIKeyCreateParams {
 
 export namespace APIKeyCreateParams {
   /**
-   * IP filter configuration for the API Key.
+   * IP filter rules.
    */
   export interface SourceIPRule {
     /**
-     * List of IPv4/IPv6 CIDR addresses to allow.
+     * List of IPv4 CIDR addresses to allow.
      */
     allowed?: Array<string>;
 
     /**
-     * List of IPv4/IPv6 CIDR addresses to deny.
+     * List of IPv4 CIDR addresses to deny.
      */
     blocked?: Array<string>;
   }
@@ -216,7 +216,7 @@ export interface APIKeyUpdateParams {
   name?: string;
 
   /**
-   * IP filter configuration for the API Key.
+   * IP filter rules.
    */
   source_ip_rule?: APIKeyUpdateParams.SourceIPRule;
 
@@ -228,16 +228,16 @@ export interface APIKeyUpdateParams {
 
 export namespace APIKeyUpdateParams {
   /**
-   * IP filter configuration for the API Key.
+   * IP filter rules.
    */
   export interface SourceIPRule {
     /**
-     * List of IPv4/IPv6 CIDR addresses to allow.
+     * List of IPv4 CIDR addresses to allow.
      */
     allowed?: Array<string>;
 
     /**
-     * List of IPv4/IPv6 CIDR addresses to deny.
+     * List of IPv4 CIDR addresses to deny.
      */
     blocked?: Array<string>;
   }

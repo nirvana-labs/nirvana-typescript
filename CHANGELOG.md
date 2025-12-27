@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.33.0 (2025-12-27)
+
+Full Changelog: [v1.32.0...v1.33.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.32.0...v1.33.0)
+
+### Features
+
+* **api:** api update ([46b43fb](https://github.com/nirvana-labs/nirvana-typescript/commit/46b43fb39c21b2f5e12c0a174fc3e5b8284a15f5))
+
 ## 1.32.0 (2025-12-25)
 
 Full Changelog: [v1.31.1...v1.32.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.31.1...v1.32.0)
