@@ -8,5 +8,5 @@ export { Operations } from './operations';
 export { Projects } from './projects';
 export { RPCNodes } from './rpc-nodes/rpc-nodes';
 export { Regions } from './regions';
-export { UserResource } from './user';
+export { UserResource } from './user/user';
 export { Vektor } from './vektor/vektor';
