@@ -26,9 +26,9 @@ export class Volumes extends APIResource {
    * ```ts
    * const operation = await client.compute.volumes.create({
    *   name: 'my-data-volume',
+   *   region: 'us-wdc-1',
    *   size: 100,
    *   type: 'nvme',
-   *   vm_id: 'vm_id',
    * });
    * ```
    */
@@ -227,6 +227,11 @@ export interface VolumeCreateParams {
   name: string;
 
   /**
+   * Region the resource is in.
+   */
+  region: Shared.RegionName;
+
+  /**
    * Size of the Volume in GB.
    */
   size: number;
@@ -237,14 +242,14 @@ export interface VolumeCreateParams {
   type: VolumeType;
 
   /**
-   * ID of the VM the Volume is attached to.
-   */
-  vm_id: string;
-
-  /**
    * Tags to attach to the Volume.
    */
   tags?: Array<string>;
+
+  /**
+   * ID of the VM the Volume is attached to.
+   */
+  vm_id?: string;
 }
 
 export interface VolumeUpdateParams {
