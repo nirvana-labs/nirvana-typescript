@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../core/resource';
+import * as Shared from '../../shared';
 import * as VolumesAPI from './volumes';
 import { APIPromise } from '../../../core/api-promise';
 import { buildHeaders } from '../../../internal/headers';
@@ -16,9 +17,9 @@ export class Availability extends APIResource {
    * const availability =
    *   await client.compute.volumes.availability.create({
    *     name: 'my-data-volume',
+   *     region: 'us-wdc-1',
    *     size: 100,
    *     type: 'nvme',
-   *     vm_id: 'vm_id',
    *   });
    * ```
    */
@@ -61,6 +62,11 @@ export interface AvailabilityCreateParams {
   name: string;
 
   /**
+   * Region the resource is in.
+   */
+  region: Shared.RegionName;
+
+  /**
    * Size of the Volume in GB.
    */
   size: number;
@@ -71,14 +77,14 @@ export interface AvailabilityCreateParams {
   type: VolumesAPI.VolumeType;
 
   /**
-   * ID of the VM the Volume is attached to.
-   */
-  vm_id: string;
-
-  /**
    * Tags to attach to the Volume.
    */
   tags?: Array<string>;
+
+  /**
+   * ID of the VM the Volume is attached to.
+   */
+  vm_id?: string;
 }
 
 export interface AvailabilityUpdateParams {
