@@ -11,9 +11,9 @@ describe('resource volumes', () => {
   test('create: only required params', async () => {
     const responsePromise = client.compute.volumes.create({
       name: 'my-data-volume',
+      region: 'us-wdc-1',
       size: 100,
       type: 'nvme',
-      vm_id: 'vm_id',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -27,10 +27,11 @@ describe('resource volumes', () => {
   test('create: required and optional params', async () => {
     const response = await client.compute.volumes.create({
       name: 'my-data-volume',
+      region: 'us-wdc-1',
       size: 100,
       type: 'nvme',
-      vm_id: 'vm_id',
       tags: ['production', 'ethereum'],
+      vm_id: '123e4567-e89b-12d3-a456-426614174000',
     });
   });
 
