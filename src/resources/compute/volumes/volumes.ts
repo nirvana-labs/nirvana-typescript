@@ -161,9 +161,9 @@ export interface Volume {
   name: string;
 
   /**
-   * Region where the Volume is located.
+   * Region the resource is in.
    */
-  region: string;
+  region: Shared.RegionName;
 
   /**
    * Size of the Volume in GB.
