@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.35.2 (2026-01-06)
+
+Full Changelog: [v1.35.1...v1.35.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.35.1...v1.35.2)
+
+### Bug Fixes
+
+* **mcp:** correct code tool api output types ([b414581](https://github.com/nirvana-labs/nirvana-typescript/commit/b4145813ec233abeac5a11babace2f8eb92a3a40))
+
+
+### Documentation
+
+* prominently feature MCP server setup in root SDK readmes ([531f2fc](https://github.com/nirvana-labs/nirvana-typescript/commit/531f2fc063c8fbfae98da17d6a27d6e36cc80e1b))
+
 ## 1.35.1 (2026-01-03)
 
 Full Changelog: [v1.35.0...v1.35.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.35.0...v1.35.1)
