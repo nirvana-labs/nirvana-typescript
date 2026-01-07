@@ -35,7 +35,12 @@ describe('resource withdrawQuote', () => {
       blockchain: 'blockchain_01jbz9nsy8egar70jg79dkwmaf',
       lp_pool_id: 'lp_pool_01h455vb4pex5vsknk084sn02q',
       quote_asset_symbol: 'eth',
-      specifier: { position_nft: { id: 0, collection: { address: 'address' } } },
+      specifier: {
+        position_nft: {
+          id: 0,
+          collection: { address: 'address' },
+        },
+      },
     });
   });
 });

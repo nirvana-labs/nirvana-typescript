@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.35.4 (2026-01-07)
+
+Full Changelog: [v1.35.3...v1.35.4](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.35.3...v1.35.4)
+
+### Bug Fixes
+
+* **mcp:** fix options parsing ([4f1c356](https://github.com/nirvana-labs/nirvana-typescript/commit/4f1c356dcf4dbe760d51358ef6923686adbc4223))
+* **mcp:** update cloudflare worker host page ([71171cf](https://github.com/nirvana-labs/nirvana-typescript/commit/71171cf18e8ac7847882efd04b075b180705bd1b))
+
+
+### Chores
+
+* break long lines in snippets into multiline ([569a57a](https://github.com/nirvana-labs/nirvana-typescript/commit/569a57a3fca9cf4cb58bef4a2679829d1d486bf0))
+
 ## 1.35.3 (2026-01-06)
 
 Full Changelog: [v1.35.2...v1.35.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.35.2...v1.35.3)
