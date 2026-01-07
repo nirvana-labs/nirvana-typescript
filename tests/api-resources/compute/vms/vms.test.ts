@@ -33,7 +33,11 @@ describe('resource vms', () => {
 
   test('create: required and optional params', async () => {
     const response = await client.compute.vms.create({
-      boot_volume: { size: 100, type: 'nvme', tags: ['production', 'ethereum'] },
+      boot_volume: {
+        size: 100,
+        type: 'nvme',
+        tags: ['production', 'ethereum'],
+      },
       cpu_config: { vcpu: 2 },
       memory_config: { size: 2 },
       name: 'my-vm',
@@ -44,7 +48,14 @@ describe('resource vms', () => {
         public_key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2',
       },
       subnet_id: '123e4567-e89b-12d3-a456-426614174000',
-      data_volumes: [{ name: 'my-data-volume', size: 100, type: 'nvme', tags: ['production', 'ethereum'] }],
+      data_volumes: [
+        {
+          name: 'my-data-volume',
+          size: 100,
+          type: 'nvme',
+          tags: ['production', 'ethereum'],
+        },
+      ],
       tags: ['production', 'ethereum'],
     });
   });
