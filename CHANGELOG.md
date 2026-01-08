@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.35.5 (2026-01-08)
+
+Full Changelog: [v1.35.4...v1.35.5](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.35.4...v1.35.5)
+
+### Bug Fixes
+
+* **mcp:** fix env parsing ([14ce1f0](https://github.com/nirvana-labs/nirvana-typescript/commit/14ce1f0cb6e531ea612ed610870f73ddf30a776a))
+
 ## 1.35.4 (2026-01-07)
 
 Full Changelog: [v1.35.3...v1.35.4](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.35.3...v1.35.4)
