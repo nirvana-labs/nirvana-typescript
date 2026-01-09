@@ -4,6 +4,37 @@ import { McpTool, Metadata, ToolCallResult, asErrorResult, asTextContentResult }
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import { readEnv, readEnvOrError } from './server';
 import { WorkerInput, WorkerOutput } from './code-tool-types';
+
+const prompt = `Runs JavaScript code to interact with the Nirvana Labs API.
+
+You are a skilled programmer writing code to interface with the service.
+Define an async function named "run" that takes a single parameter of an initialized SDK client and it will be run.
+For example:
+
+\`\`\`
+async function run(client) {
+  const operation = await client.compute.vms.create({
+    boot_volume: { size: 100, type: 'nvme' },
+    cpu_config: { vcpu: 2 },
+    memory_config: { size: 2 },
+    name: 'my-vm',
+    os_image_name: 'ubuntu-noble-2025-10-01',
+    public_ip_enabled: true,
+    region: 'us-wdc-1',
+    ssh_key: { public_key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2' },
+    subnet_id: '123e4567-e89b-12d3-a456-426614174000',
+  });
+
+  console.log(operation.id);
+}
+\`\`\`
+
+You will be returned anything that your function returns, plus the results of any console.log statements.
+Do not add try-catch blocks for single API calls. The tool will handle errors for you.
+Do not add comments unless necessary for generating better code.
+Code will run in a container, and cannot interact with the network outside of the given SDK client.
+Variables will not persist between calls, so make sure to return or log any data you might need later.`;
+
 /**
  * A tool that runs code against a copy of the SDK.
  *
@@ -17,8 +48,7 @@ export function codeTool(): McpTool {
   const metadata: Metadata = { resource: 'all', operation: 'write', tags: [] };
   const tool: Tool = {
     name: 'execute',
-    description:
-      'Runs JavaScript code to interact with the API.\n\nYou are a skilled programmer writing code to interface with the service.\nDefine an async function named "run" that takes a single parameter of an initialized SDK client and it will be run.\nWrite code within this template:\n\n```\nasync function run(client) {\n  // Fill this out\n}\n```\n\nYou will be returned anything that your function returns, plus the results of any console.log statements.\nIf any code triggers an error, the tool will return an error response, so you do not need to add error handling unless you want to output something more helpful than the raw error.\nIt is not necessary to add comments to code, unless by adding those comments you believe that you can generate better code.\nThis code will run in a container, and you will not be able to use fetch or otherwise interact with the network calls other than through the client you are given.\nAny variables you define won\'t live between successive uses of this call, so make sure to return or log any data you might need later.',
+    description: prompt,
     inputSchema: { type: 'object', properties: { code: { type: 'string' } } },
   };
   const handler = async (_: unknown, args: any): Promise<ToolCallResult> => {
