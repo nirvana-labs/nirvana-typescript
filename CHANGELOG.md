@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.35.6 (2026-01-12)
+
+Full Changelog: [v1.35.5...v1.35.6](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.35.5...v1.35.6)
+
+### Bug Fixes
+
+* **mcp:** update code tool prompt ([28ee54f](https://github.com/nirvana-labs/nirvana-typescript/commit/28ee54f235eaa4d79b56cc34856cf50e5fd88ade))
+
+
+### Chores
+
+* **internal:** codegen related update ([df2d623](https://github.com/nirvana-labs/nirvana-typescript/commit/df2d623cb373357484b3c1f13711c9861dc58ab6))
+* **internal:** codegen related update ([ae6ab34](https://github.com/nirvana-labs/nirvana-typescript/commit/ae6ab3428710bb079f36eea3a1256d0ad0775ef3))
+
 ## 1.35.5 (2026-01-08)
 
 Full Changelog: [v1.35.4...v1.35.5](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.35.4...v1.35.5)
