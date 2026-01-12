@@ -57,8 +57,6 @@ This affects the following methods:
 - `client.networking.firewallRules.update()`
 - `client.networking.firewallRules.delete()`
 - `client.networking.firewallRules.get()`
-- `client.vektor.executions.steps.get()`
-- `client.vektor.executions.steps.sign()`
 
 ### URI encoded path parameters
 
@@ -87,9 +85,7 @@ client.example.list(undefined, { headers: { ... } });
 + client.example.list({}, { headers: { ... } });
 ```
 
-<details>
-
-<summary>This affects the following methods</summary>
+This affects the following methods:
 
 - `client.apiKeys.list()`
 - `client.operations.list()`
@@ -107,15 +103,6 @@ client.example.list(undefined, { headers: { ... } });
 - `client.rpcNodes.flex.blockchains.list()`
 - `client.rpcNodes.dedicated.list()`
 - `client.rpcNodes.dedicated.blockchains.list()`
-- `client.vektor.registry.assets.list()`
-- `client.vektor.registry.blockchains.list()`
-- `client.vektor.registry.venues.list()`
-- `client.vektor.registry.errors.list()`
-- `client.vektor.registry.lendMarkets.list()`
-- `client.vektor.registry.borrowMarkets.list()`
-- `client.vektor.registry.lpPools.list()`
-
-</details>
 
 ### Removed `httpAgent` in favor of `fetchOptions`
 
