@@ -26,7 +26,6 @@ import { Compute } from './resources/compute/compute';
 import { Networking } from './resources/networking/networking';
 import { RPCNodes } from './resources/rpc-nodes/rpc-nodes';
 import { UserResource } from './resources/user/user';
-import { Vektor } from './resources/vektor/vektor';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
@@ -751,7 +750,6 @@ export class NirvanaLabs {
   compute: API.Compute = new API.Compute(this);
   networking: API.Networking = new API.Networking(this);
   rpcNodes: API.RPCNodes = new API.RPCNodes(this);
-  vektor: API.Vektor = new API.Vektor(this);
 }
 
 NirvanaLabs.UserResource = UserResource;
@@ -762,7 +760,6 @@ NirvanaLabs.Regions = Regions;
 NirvanaLabs.Compute = Compute;
 NirvanaLabs.Networking = Networking;
 NirvanaLabs.RPCNodes = RPCNodes;
-NirvanaLabs.Vektor = Vektor;
 
 export declare namespace NirvanaLabs {
   export type RequestOptions = Opts.RequestOptions;
@@ -785,8 +782,6 @@ export declare namespace NirvanaLabs {
   export { Networking as Networking };
 
   export { RPCNodes as RPCNodes };
-
-  export { Vektor as Vektor };
 
   export type Pagination = API.Pagination;
   export type RegionName = API.RegionName;
