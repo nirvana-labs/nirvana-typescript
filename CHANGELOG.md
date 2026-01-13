@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.36.1 (2026-01-13)
+
+Full Changelog: [v1.36.0...v1.36.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.36.0...v1.36.1)
+
+### Bug Fixes
+
+* **publish:** remove extraneous npm copy from package ([e4d9b81](https://github.com/nirvana-labs/nirvana-typescript/commit/e4d9b8194415390d0823717c6ed71083f81b7301))
+
+
+### Chores
+
+* **internal:** codegen related update ([905f6af](https://github.com/nirvana-labs/nirvana-typescript/commit/905f6af2d75eeadb7b21cda5c38f42624f3a6dff))
+* **internal:** codegen related update ([e311507](https://github.com/nirvana-labs/nirvana-typescript/commit/e311507e40c5313a3ee9958c36dab3b3515354d6))
+
 ## 1.36.0 (2026-01-12)
 
 Full Changelog: [v1.35.6...v1.36.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.35.6...v1.36.0)
