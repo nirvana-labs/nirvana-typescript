@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.36.2 (2026-01-15)
+
+Full Changelog: [v1.36.1...v1.36.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.36.1...v1.36.2)
+
+### Bug Fixes
+
+* flag defaults ([24e0f27](https://github.com/nirvana-labs/nirvana-typescript/commit/24e0f2734fbf4e82bedfd806d72d8e80f0d47a4d))
+
+
+### Chores
+
+* **internal:** bump MCP dependencies ([82165a3](https://github.com/nirvana-labs/nirvana-typescript/commit/82165a32b2bb05264f40e8b858476918cd1294ba))
+* **internal:** upgrade babel, qs, js-yaml ([16fae11](https://github.com/nirvana-labs/nirvana-typescript/commit/16fae119c0f13b1cc860f18d5ac8c3ed785c7b13))
+* **mcp:** add intent param to execute tool ([7c63df9](https://github.com/nirvana-labs/nirvana-typescript/commit/7c63df929800edc4b73f1bec61e7b999e3ff7733))
+* **mcp:** pass intent param to execute handler ([9cd7f83](https://github.com/nirvana-labs/nirvana-typescript/commit/9cd7f83fdb78f6ac0cac31b17d6a2ec0f1d597f4))
+* **mcp:** upgrade dependencies ([5094554](https://github.com/nirvana-labs/nirvana-typescript/commit/5094554295aec9909fd1840864ca9d11e093b5d4))
+
 ## 1.36.1 (2026-01-13)
 
 Full Changelog: [v1.36.0...v1.36.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.36.0...v1.36.1)
