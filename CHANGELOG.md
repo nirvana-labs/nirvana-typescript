@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.36.3 (2026-01-17)
+
+Full Changelog: [v1.36.2...v1.36.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.36.2...v1.36.3)
+
+### Chores
+
+* **internal:** update `actions/checkout` version ([e27f0c5](https://github.com/nirvana-labs/nirvana-typescript/commit/e27f0c5028cfe5d759f11c10762236c93118a483))
+* **internal:** update lock file ([425e9ff](https://github.com/nirvana-labs/nirvana-typescript/commit/425e9ffe42aede3dc91226eb8810540058c7e123))
+* **internal:** upgrade brace-expansion and @babel/helpers ([3d57dd1](https://github.com/nirvana-labs/nirvana-typescript/commit/3d57dd18af33625cfdb5c43f958d928a7fef5d8e))
+
 ## 1.36.2 (2026-01-15)
 
 Full Changelog: [v1.36.1...v1.36.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.36.1...v1.36.2)
