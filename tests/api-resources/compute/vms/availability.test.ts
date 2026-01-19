@@ -8,7 +8,8 @@ const client = new NirvanaLabs({
 });
 
 describe('resource availability', () => {
-  test('create: only required params', async () => {
+  // Prism tests are disabled
+  test.skip('create: only required params', async () => {
     const responsePromise = client.compute.vms.availability.create({
       boot_volume: { size: 100, type: 'nvme' },
       cpu_config: { vcpu: 2 },
@@ -31,7 +32,8 @@ describe('resource availability', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('create: required and optional params', async () => {
+  // Prism tests are disabled
+  test.skip('create: required and optional params', async () => {
     const response = await client.compute.vms.availability.create({
       boot_volume: {
         size: 100,
@@ -60,7 +62,8 @@ describe('resource availability', () => {
     });
   });
 
-  test('update', async () => {
+  // Prism tests are disabled
+  test.skip('update', async () => {
     const responsePromise = client.compute.vms.availability.update('vm_id', {});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);

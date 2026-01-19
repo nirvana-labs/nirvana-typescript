@@ -8,7 +8,8 @@ const client = new NirvanaLabs({
 });
 
 describe('resource flex', () => {
-  test('create: only required params', async () => {
+  // Prism tests are disabled
+  test.skip('create: only required params', async () => {
     const responsePromise = client.rpcNodes.flex.create({
       blockchain: 'ethereum',
       name: 'my-ethereum-node',
@@ -24,7 +25,8 @@ describe('resource flex', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('create: required and optional params', async () => {
+  // Prism tests are disabled
+  test.skip('create: required and optional params', async () => {
     const response = await client.rpcNodes.flex.create({
       blockchain: 'ethereum',
       name: 'my-ethereum-node',
@@ -34,7 +36,8 @@ describe('resource flex', () => {
     });
   });
 
-  test('update', async () => {
+  // Prism tests are disabled
+  test.skip('update', async () => {
     const responsePromise = client.rpcNodes.flex.update('node_id', {});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -45,7 +48,8 @@ describe('resource flex', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('list', async () => {
+  // Prism tests are disabled
+  test.skip('list', async () => {
     const responsePromise = client.rpcNodes.flex.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -56,7 +60,8 @@ describe('resource flex', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('list: request options and params are passed correctly', async () => {
+  // Prism tests are disabled
+  test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.rpcNodes.flex.list(
@@ -70,7 +75,8 @@ describe('resource flex', () => {
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
   });
 
-  test('delete', async () => {
+  // Prism tests are disabled
+  test.skip('delete', async () => {
     const responsePromise = client.rpcNodes.flex.delete('node_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -81,7 +87,8 @@ describe('resource flex', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('get', async () => {
+  // Prism tests are disabled
+  test.skip('get', async () => {
     const responsePromise = client.rpcNodes.flex.get('node_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);

@@ -8,7 +8,8 @@ const client = new NirvanaLabs({
 });
 
 describe('resource user', () => {
-  test('get', async () => {
+  // Prism tests are disabled
+  test.skip('get', async () => {
     const responsePromise = client.user.get();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
