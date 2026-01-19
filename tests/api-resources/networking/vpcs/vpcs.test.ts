@@ -8,7 +8,8 @@ const client = new NirvanaLabs({
 });
 
 describe('resource vpcs', () => {
-  test('create: only required params', async () => {
+  // Prism tests are disabled
+  test.skip('create: only required params', async () => {
     const responsePromise = client.networking.vpcs.create({
       name: 'my-vpc',
       region: 'us-wdc-1',
@@ -23,7 +24,8 @@ describe('resource vpcs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('create: required and optional params', async () => {
+  // Prism tests are disabled
+  test.skip('create: required and optional params', async () => {
     const response = await client.networking.vpcs.create({
       name: 'my-vpc',
       region: 'us-wdc-1',
@@ -32,7 +34,8 @@ describe('resource vpcs', () => {
     });
   });
 
-  test('update', async () => {
+  // Prism tests are disabled
+  test.skip('update', async () => {
     const responsePromise = client.networking.vpcs.update('vpc_id', {});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -43,7 +46,8 @@ describe('resource vpcs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('list', async () => {
+  // Prism tests are disabled
+  test.skip('list', async () => {
     const responsePromise = client.networking.vpcs.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -54,14 +58,16 @@ describe('resource vpcs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('list: request options and params are passed correctly', async () => {
+  // Prism tests are disabled
+  test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.networking.vpcs.list({ cursor: 'cursor', limit: 10 }, { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
   });
 
-  test('delete', async () => {
+  // Prism tests are disabled
+  test.skip('delete', async () => {
     const responsePromise = client.networking.vpcs.delete('vpc_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -72,7 +78,8 @@ describe('resource vpcs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('get', async () => {
+  // Prism tests are disabled
+  test.skip('get', async () => {
     const responsePromise = client.networking.vpcs.get('vpc_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);

@@ -8,7 +8,8 @@ const client = new NirvanaLabs({
 });
 
 describe('resource security', () => {
-  test('update', async () => {
+  // Prism tests are disabled
+  test.skip('update', async () => {
     const responsePromise = client.user.security.update({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -19,7 +20,8 @@ describe('resource security', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('get', async () => {
+  // Prism tests are disabled
+  test.skip('get', async () => {
     const responsePromise = client.user.security.get();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
