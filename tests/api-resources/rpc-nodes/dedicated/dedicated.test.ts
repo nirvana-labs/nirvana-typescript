@@ -8,7 +8,8 @@ const client = new NirvanaLabs({
 });
 
 describe('resource dedicated', () => {
-  test('list', async () => {
+  // Prism tests are disabled
+  test.skip('list', async () => {
     const responsePromise = client.rpcNodes.dedicated.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -19,7 +20,8 @@ describe('resource dedicated', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('list: request options and params are passed correctly', async () => {
+  // Prism tests are disabled
+  test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.rpcNodes.dedicated.list(
@@ -33,7 +35,8 @@ describe('resource dedicated', () => {
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
   });
 
-  test('get', async () => {
+  // Prism tests are disabled
+  test.skip('get', async () => {
     const responsePromise = client.rpcNodes.dedicated.get('node_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);

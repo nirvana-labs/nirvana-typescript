@@ -8,7 +8,8 @@ const client = new NirvanaLabs({
 });
 
 describe('resource firewallRules', () => {
-  test('create: only required params', async () => {
+  // Prism tests are disabled
+  test.skip('create: only required params', async () => {
     const responsePromise = client.networking.firewallRules.create('vpc_id', {
       destination_address: '10.0.0.0/25',
       destination_ports: ['22', '80', '443'],
@@ -25,7 +26,8 @@ describe('resource firewallRules', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('create: required and optional params', async () => {
+  // Prism tests are disabled
+  test.skip('create: required and optional params', async () => {
     const response = await client.networking.firewallRules.create('vpc_id', {
       destination_address: '10.0.0.0/25',
       destination_ports: ['22', '80', '443'],
@@ -36,7 +38,8 @@ describe('resource firewallRules', () => {
     });
   });
 
-  test('update: only required params', async () => {
+  // Prism tests are disabled
+  test.skip('update: only required params', async () => {
     const responsePromise = client.networking.firewallRules.update('firewall_rule_id', { vpc_id: 'vpc_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -47,7 +50,8 @@ describe('resource firewallRules', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('update: required and optional params', async () => {
+  // Prism tests are disabled
+  test.skip('update: required and optional params', async () => {
     const response = await client.networking.firewallRules.update('firewall_rule_id', {
       vpc_id: 'vpc_id',
       destination_address: '10.0.0.0/25',
@@ -59,7 +63,8 @@ describe('resource firewallRules', () => {
     });
   });
 
-  test('list', async () => {
+  // Prism tests are disabled
+  test.skip('list', async () => {
     const responsePromise = client.networking.firewallRules.list('vpc_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -70,7 +75,8 @@ describe('resource firewallRules', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('list: request options and params are passed correctly', async () => {
+  // Prism tests are disabled
+  test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.networking.firewallRules.list(
@@ -81,7 +87,8 @@ describe('resource firewallRules', () => {
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
   });
 
-  test('delete: only required params', async () => {
+  // Prism tests are disabled
+  test.skip('delete: only required params', async () => {
     const responsePromise = client.networking.firewallRules.delete('firewall_rule_id', { vpc_id: 'vpc_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -92,11 +99,13 @@ describe('resource firewallRules', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('delete: required and optional params', async () => {
+  // Prism tests are disabled
+  test.skip('delete: required and optional params', async () => {
     const response = await client.networking.firewallRules.delete('firewall_rule_id', { vpc_id: 'vpc_id' });
   });
 
-  test('get: only required params', async () => {
+  // Prism tests are disabled
+  test.skip('get: only required params', async () => {
     const responsePromise = client.networking.firewallRules.get('firewall_rule_id', { vpc_id: 'vpc_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -107,7 +116,8 @@ describe('resource firewallRules', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('get: required and optional params', async () => {
+  // Prism tests are disabled
+  test.skip('get: required and optional params', async () => {
     const response = await client.networking.firewallRules.get('firewall_rule_id', { vpc_id: 'vpc_id' });
   });
 });
