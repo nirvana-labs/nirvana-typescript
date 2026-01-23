@@ -29,3 +29,18 @@ export type RegionName =
  * Status of the resource.
  */
 export type ResourceStatus = 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error';
+
+/**
+ * IP filter rules.
+ */
+export interface SourceIPRule {
+  /**
+   * List of IPv4 CIDR addresses to allow.
+   */
+  allowed?: Array<string>;
+
+  /**
+   * List of IPv4 CIDR addresses to deny.
+   */
+  blocked?: Array<string>;
+}
