@@ -786,4 +786,5 @@ export declare namespace NirvanaLabs {
   export type Pagination = API.Pagination;
   export type RegionName = API.RegionName;
   export type ResourceStatus = API.ResourceStatus;
+  export type SourceIPRule = API.SourceIPRule;
 }
