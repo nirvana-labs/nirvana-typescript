@@ -179,7 +179,7 @@ export interface APIKeyCreateParams {
   /**
    * IP filter rules.
    */
-  source_ip_rule?: APIKeyCreateParams.SourceIPRule;
+  source_ip_rule?: Shared.SourceIPRule;
 
   /**
    * When the API Key starts to be valid.
@@ -192,23 +192,6 @@ export interface APIKeyCreateParams {
   tags?: Array<string>;
 }
 
-export namespace APIKeyCreateParams {
-  /**
-   * IP filter rules.
-   */
-  export interface SourceIPRule {
-    /**
-     * List of IPv4 CIDR addresses to allow.
-     */
-    allowed?: Array<string>;
-
-    /**
-     * List of IPv4 CIDR addresses to deny.
-     */
-    blocked?: Array<string>;
-  }
-}
-
 export interface APIKeyUpdateParams {
   /**
    * API Key name.
@@ -218,29 +201,12 @@ export interface APIKeyUpdateParams {
   /**
    * IP filter rules.
    */
-  source_ip_rule?: APIKeyUpdateParams.SourceIPRule;
+  source_ip_rule?: Shared.SourceIPRule;
 
   /**
    * Tags to attach to the API Key.
    */
   tags?: Array<string>;
-}
-
-export namespace APIKeyUpdateParams {
-  /**
-   * IP filter rules.
-   */
-  export interface SourceIPRule {
-    /**
-     * List of IPv4 CIDR addresses to allow.
-     */
-    allowed?: Array<string>;
-
-    /**
-     * List of IPv4 CIDR addresses to deny.
-     */
-    blocked?: Array<string>;
-  }
 }
 
 export interface APIKeyListParams extends CursorParams {}

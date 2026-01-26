@@ -5,6 +5,7 @@ Types:
 - <code><a href="./src/resources/shared.ts">Pagination</a></code>
 - <code><a href="./src/resources/shared.ts">RegionName</a></code>
 - <code><a href="./src/resources/shared.ts">ResourceStatus</a></code>
+- <code><a href="./src/resources/shared.ts">SourceIPRule</a></code>
 
 # User
 

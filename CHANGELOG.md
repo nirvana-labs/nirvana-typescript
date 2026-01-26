@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.37.0 (2026-01-26)
+
+Full Changelog: [v1.36.3...v1.37.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.36.3...v1.37.0)
+
+### Features
+
+* **api:** api update ([bb292dd](https://github.com/nirvana-labs/nirvana-typescript/commit/bb292dd5cbbfebb38ad7dd09e968f6397160420f))
+
+
+### Chores
+
+* **ci:** upgrade `actions/github-script` ([1054e64](https://github.com/nirvana-labs/nirvana-typescript/commit/1054e640199f5fa1bae39ab76045ab426f99744f))
+
 ## 1.36.3 (2026-01-19)
 
 Full Changelog: [v1.36.2...v1.36.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.36.2...v1.36.3)

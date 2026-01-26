@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../core/resource';
+import * as Shared from '../shared';
 import { APIPromise } from '../../core/api-promise';
 import { RequestOptions } from '../../internal/request-options';
 
@@ -61,24 +62,7 @@ export interface SecurityUpdateParams {
   /**
    * IP filter rules.
    */
-  source_ip_rule?: SecurityUpdateParams.SourceIPRule;
-}
-
-export namespace SecurityUpdateParams {
-  /**
-   * IP filter rules.
-   */
-  export interface SourceIPRule {
-    /**
-     * List of IPv4 CIDR addresses to allow.
-     */
-    allowed?: Array<string>;
-
-    /**
-     * List of IPv4 CIDR addresses to deny.
-     */
-    blocked?: Array<string>;
-  }
+  source_ip_rule?: Shared.SourceIPRule;
 }
 
 export declare namespace Security {
