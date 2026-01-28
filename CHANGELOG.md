@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.37.1 (2026-01-28)
+
+Full Changelog: [v1.37.0...v1.37.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.37.0...v1.37.1)
+
+### Bug Fixes
+
+* **mcp:** allow falling back for required env variables ([5204be6](https://github.com/nirvana-labs/nirvana-typescript/commit/5204be67177bb1aa2bd1e02bbbf3ef9c3e1821b7))
+
+
+### Chores
+
+* **internal:** codegen related update ([4c0e2d3](https://github.com/nirvana-labs/nirvana-typescript/commit/4c0e2d343a40871f030117329c7292d29a40933c))
+* **internal:** upgrade wrangler version ([769d67b](https://github.com/nirvana-labs/nirvana-typescript/commit/769d67bcb9723d86520e49c03a8dd594807df407))
+
 ## 1.37.0 (2026-01-26)
 
 Full Changelog: [v1.36.3...v1.37.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.36.3...v1.37.0)
