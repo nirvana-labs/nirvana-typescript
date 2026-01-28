@@ -32,6 +32,16 @@ export interface User {
   email: string;
 
   /**
+   * First name of the user.
+   */
+  first_name: string | null;
+
+  /**
+   * Last name of the user.
+   */
+  last_name: string | null;
+
+  /**
    * Services that the User has access to.
    */
   services: User.Services;
