@@ -2,7 +2,7 @@
 
 import { McpTool, Metadata, ToolCallResult, asErrorResult, asTextContentResult } from './types';
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import { readEnv, readEnvOrError } from './server';
+import { readEnv, requireValue } from './server';
 import { WorkerInput, WorkerOutput } from './code-tool-types';
 import { NirvanaLabs } from '@nirvana-labs/nirvana';
 
@@ -81,7 +81,10 @@ export function codeTool(): McpTool {
         ...(stainlessAPIKey && { Authorization: stainlessAPIKey }),
         'Content-Type': 'application/json',
         client_envs: JSON.stringify({
-          NIRVANA_LABS_API_KEY: readEnvOrError('NIRVANA_LABS_API_KEY') ?? client.apiKey ?? undefined,
+          NIRVANA_LABS_API_KEY: requireValue(
+            readEnv('NIRVANA_LABS_API_KEY') ?? client.apiKey,
+            'set NIRVANA_LABS_API_KEY environment variable or provide apiKey client option',
+          ),
           NIRVANA_LABS_BASE_URL: readEnv('NIRVANA_LABS_BASE_URL') ?? client.baseURL ?? undefined,
         }),
       },
