@@ -2,8 +2,9 @@
 
 import { McpTool, Metadata, ToolCallResult, asErrorResult, asTextContentResult } from './types';
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import { readEnv, readEnvOrError } from './server';
+import { readEnv, requireValue } from './server';
 import { WorkerInput, WorkerOutput } from './code-tool-types';
+import { NirvanaLabs } from '@nirvana-labs/nirvana';
 
 const prompt = `Runs JavaScript code to interact with the Nirvana Labs API.
 
@@ -64,7 +65,7 @@ export function codeTool(): McpTool {
       required: ['code'],
     },
   };
-  const handler = async (_: unknown, args: any): Promise<ToolCallResult> => {
+  const handler = async (client: NirvanaLabs, args: any): Promise<ToolCallResult> => {
     const code = args.code as string;
     const intent = args.intent as string | undefined;
 
@@ -80,8 +81,11 @@ export function codeTool(): McpTool {
         ...(stainlessAPIKey && { Authorization: stainlessAPIKey }),
         'Content-Type': 'application/json',
         client_envs: JSON.stringify({
-          NIRVANA_LABS_API_KEY: readEnvOrError('NIRVANA_LABS_API_KEY'),
-          NIRVANA_LABS_BASE_URL: readEnv('NIRVANA_LABS_BASE_URL'),
+          NIRVANA_LABS_API_KEY: requireValue(
+            readEnv('NIRVANA_LABS_API_KEY') ?? client.apiKey,
+            'set NIRVANA_LABS_API_KEY environment variable or provide apiKey client option',
+          ),
+          NIRVANA_LABS_BASE_URL: readEnv('NIRVANA_LABS_BASE_URL') ?? client.baseURL ?? undefined,
         }),
       },
       body: JSON.stringify({
