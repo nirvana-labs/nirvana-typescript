@@ -22,7 +22,6 @@ export type RegionName =
   | 'us-wdc-1'
   | 'eu-frk-1'
   | 'ap-sin-1'
-  | 'ap-seo-1'
   | 'ap-tyo-1';
 
 /**
