@@ -21,8 +21,7 @@ export type RegionName =
   | 'us-chi-1'
   | 'us-wdc-1'
   | 'eu-frk-1'
-  | 'ap-sin-1'
-  | 'ap-tyo-1';
+  | 'ap-sin-1';
 
 /**
  * Status of the resource.
