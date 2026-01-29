@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.39.0 (2026-01-29)
+
+Full Changelog: [v1.38.0...v1.39.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.38.0...v1.39.0)
+
+### Features
+
+* **api:** api update ([5a39f8c](https://github.com/nirvana-labs/nirvana-typescript/commit/5a39f8cd6b962a13832afe37215afe3d27602fc6))
+
+
+### Bug Fixes
+
+* **docs:** fix mcp installation instructions for remote servers ([451b439](https://github.com/nirvana-labs/nirvana-typescript/commit/451b43966278fb86757f8e15e8f2e7aaeb4ac0ff))
+
+
+### Chores
+
+* **mcp:** up tsconfig lib version to es2022 ([cd5d20d](https://github.com/nirvana-labs/nirvana-typescript/commit/cd5d20d36a3c13f2a10f01b40ed91972f54d4941))
+
 ## 1.38.0 (2026-01-28)
 
 Full Changelog: [v1.37.1...v1.38.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.37.1...v1.38.0)
