@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.40.1 (2026-02-03)
+
+Full Changelog: [v1.40.0...v1.40.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.40.0...v1.40.1)
+
+### Bug Fixes
+
+* **client:** avoid memory leak with abort signals ([8d3932c](https://github.com/nirvana-labs/nirvana-typescript/commit/8d3932cde9743f1bc0cef9d28f600e1e6eac40bc))
+
+
+### Chores
+
+* **client:** do not parse responses with empty content-length ([ab07325](https://github.com/nirvana-labs/nirvana-typescript/commit/ab0732597f1e0f105496a38a881379e0aa019605))
+* **internal:** support oauth authorization code flow for MCP servers ([c18a534](https://github.com/nirvana-labs/nirvana-typescript/commit/c18a534c33c982532c297cb784261d0e93755183))
+
 ## 1.40.0 (2026-02-03)
 
 Full Changelog: [v1.39.0...v1.40.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.39.0...v1.40.0)
