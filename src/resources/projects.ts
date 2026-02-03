@@ -103,6 +103,11 @@ export interface Project {
   name: string;
 
   /**
+   * Resource counts for the project.
+   */
+  resources: Project.Resources;
+
+  /**
    * Tags attached to the Project.
    */
   tags: Array<string>;
@@ -116,6 +121,65 @@ export interface Project {
    * User ID that owns the project.
    */
   user_id: string;
+}
+
+export namespace Project {
+  /**
+   * Resource counts for the project.
+   */
+  export interface Resources {
+    /**
+     * Blockchain resources.
+     */
+    blockchain: Resources.Blockchain;
+
+    /**
+     * Cloud infrastructure resources.
+     */
+    cloud: Resources.Cloud;
+  }
+
+  export namespace Resources {
+    /**
+     * Blockchain resources.
+     */
+    export interface Blockchain {
+      /**
+       * Number of dedicated RPC nodes in the project.
+       */
+      rpc_nodes_dedicated: number;
+
+      /**
+       * Number of flex RPC nodes in the project.
+       */
+      rpc_nodes_flex: number;
+    }
+
+    /**
+     * Cloud infrastructure resources.
+     */
+    export interface Cloud {
+      /**
+       * Number of Connect connections in the project.
+       */
+      connect_connections: number;
+
+      /**
+       * Number of VMs in the project.
+       */
+      vms: number;
+
+      /**
+       * Number of volumes in the project.
+       */
+      volumes: number;
+
+      /**
+       * Number of VPCs in the project.
+       */
+      vpcs: number;
+    }
+  }
 }
 
 export interface ProjectList {
