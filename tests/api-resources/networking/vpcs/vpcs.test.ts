@@ -30,6 +30,7 @@ describe('resource vpcs', () => {
       name: 'my-vpc',
       region: 'us-wdc-1',
       subnet_name: 'my-subnet',
+      project_id: '123e4567-e89b-12d3-a456-426614174000',
       tags: ['production', 'ethereum'],
     });
   });
@@ -62,7 +63,14 @@ describe('resource vpcs', () => {
   test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.networking.vpcs.list({ cursor: 'cursor', limit: 10 }, { path: '/_stainless_unknown_path' }),
+      client.networking.vpcs.list(
+        {
+          cursor: 'cursor',
+          limit: 10,
+          project_id: 'project_id',
+        },
+        { path: '/_stainless_unknown_path' },
+      ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
   });
 

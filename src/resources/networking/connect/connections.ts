@@ -134,6 +134,11 @@ export interface ConnectionCreateParams {
   aws?: ConnectAPI.ConnectConnectionAWSConfigRequest;
 
   /**
+   * Project ID the Connect Connection belongs to
+   */
+  project_id?: string;
+
+  /**
    * Tags to attach to the Connect Connection
    */
   tags?: Array<string>;
@@ -151,7 +156,12 @@ export interface ConnectionUpdateParams {
   tags?: Array<string>;
 }
 
-export interface ConnectionListParams extends CursorParams {}
+export interface ConnectionListParams extends CursorParams {
+  /**
+   * Project ID of resources to request
+   */
+  project_id?: string;
+}
 
 export declare namespace Connections {
   export {

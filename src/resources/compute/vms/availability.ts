@@ -114,6 +114,11 @@ export interface AvailabilityCreateParams {
   data_volumes?: Array<AvailabilityCreateParams.DataVolume>;
 
   /**
+   * Project ID to create the VM in.
+   */
+  project_id?: string;
+
+  /**
    * Tags to attach to the VM.
    */
   tags?: Array<string>;

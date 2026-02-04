@@ -152,6 +152,11 @@ export interface VPC {
   name: string;
 
   /**
+   * Project ID the VPC belongs to.
+   */
+  project_id: string;
+
+  /**
    * Region the resource is in.
    */
   region: Shared.RegionName;
@@ -203,6 +208,11 @@ export interface VPCCreateParams {
   subnet_name: string;
 
   /**
+   * Project ID the VPC belongs to.
+   */
+  project_id?: string;
+
+  /**
    * Tags to attach to the VPC.
    */
   tags?: Array<string>;
@@ -225,7 +235,12 @@ export interface VPCUpdateParams {
   tags?: Array<string>;
 }
 
-export interface VPCListParams extends CursorParams {}
+export interface VPCListParams extends CursorParams {
+  /**
+   * Project ID of resources to request
+   */
+  project_id?: string;
+}
 
 VPCs.Availability = Availability;
 

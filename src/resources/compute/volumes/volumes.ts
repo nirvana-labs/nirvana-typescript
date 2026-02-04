@@ -161,6 +161,11 @@ export interface Volume {
   name: string;
 
   /**
+   * Project ID the Volume belongs to.
+   */
+  project_id: string;
+
+  /**
    * Region the resource is in.
    */
   region: Shared.RegionName;
@@ -242,6 +247,11 @@ export interface VolumeCreateParams {
   type: VolumeType;
 
   /**
+   * Project ID the Volume belongs to.
+   */
+  project_id?: string;
+
+  /**
    * Tags to attach to the Volume.
    */
   tags?: Array<string>;
@@ -269,7 +279,12 @@ export interface VolumeUpdateParams {
   tags?: Array<string>;
 }
 
-export interface VolumeListParams extends CursorParams {}
+export interface VolumeListParams extends CursorParams {
+  /**
+   * Project ID of resources to request
+   */
+  project_id?: string;
+}
 
 export interface VolumeAttachParams {
   /**
