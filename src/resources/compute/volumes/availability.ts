@@ -77,6 +77,11 @@ export interface AvailabilityCreateParams {
   type: VolumesAPI.VolumeType;
 
   /**
+   * Project ID the Volume belongs to.
+   */
+  project_id?: string;
+
+  /**
    * Tags to attach to the Volume.
    */
   tags?: Array<string>;

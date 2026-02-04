@@ -234,6 +234,11 @@ export interface VM {
   private_ip: string | null;
 
   /**
+   * Project ID the VM belongs to.
+   */
+  project_id: string;
+
+  /**
    * Public IP of the VM.
    */
   public_ip: string | null;
@@ -340,6 +345,11 @@ export interface VMCreateParams {
   data_volumes?: Array<VMCreateParams.DataVolume>;
 
   /**
+   * Project ID to create the VM in.
+   */
+  project_id?: string;
+
+  /**
    * Tags to attach to the VM.
    */
   tags?: Array<string>;
@@ -419,7 +429,12 @@ export interface VMUpdateParams {
   tags?: Array<string>;
 }
 
-export interface VMListParams extends CursorParams {}
+export interface VMListParams extends CursorParams {
+  /**
+   * Project ID of resources to request
+   */
+  project_id?: string;
+}
 
 VMs.Availability = Availability;
 VMs.Volumes = Volumes;
