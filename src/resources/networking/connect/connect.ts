@@ -67,6 +67,11 @@ export interface ConnectConnection {
   name: string;
 
   /**
+   * Project ID the Connect Connection belongs to
+   */
+  project_id: string;
+
+  /**
    * Provider ASN
    */
   provider_asn: number | null;

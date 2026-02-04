@@ -66,6 +66,11 @@ export interface Operation {
    * When the Operation was updated.
    */
   updated_at: string;
+
+  /**
+   * Project ID the Operation belongs to.
+   */
+  project_id?: string;
 }
 
 /**
@@ -92,7 +97,12 @@ export type OperationStatus = 'pending' | 'running' | 'done' | 'failed' | 'unkno
  */
 export type OperationType = 'create' | 'update' | 'delete' | 'restart';
 
-export interface OperationListParams extends CursorParams {}
+export interface OperationListParams extends CursorParams {
+  /**
+   * Project ID of resources to request
+   */
+  project_id?: string;
+}
 
 export declare namespace Operations {
   export {

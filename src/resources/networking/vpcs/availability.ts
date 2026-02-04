@@ -70,6 +70,11 @@ export interface AvailabilityCreateParams {
   subnet_name: string;
 
   /**
+   * Project ID the VPC belongs to.
+   */
+  project_id?: string;
+
+  /**
    * Tags to attach to the VPC.
    */
   tags?: Array<string>;

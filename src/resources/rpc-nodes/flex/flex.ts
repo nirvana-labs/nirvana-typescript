@@ -129,7 +129,7 @@ export interface Flex {
   /**
    * Project identifier associated with the RPC Node Flex.
    */
-  project_id: string | null;
+  project_id: string;
 
   /**
    * Tags to attach to the RPC Node Flex.
