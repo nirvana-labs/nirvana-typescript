@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.42.0 (2026-02-05)
+
+Full Changelog: [v1.41.0...v1.42.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.41.0...v1.42.0)
+
+### Features
+
+* **mcp:** add initial server instructions ([42ba7fc](https://github.com/nirvana-labs/nirvana-typescript/commit/42ba7fc4d5bdecf9a6395b9d7dd982785fa2e2b3))
+
+
+### Chores
+
+* **client:** restructure abort controller binding ([117c8ff](https://github.com/nirvana-labs/nirvana-typescript/commit/117c8ffb880bf825d4cc542ff0af595ea44cff9e))
+* **internal:** refactor flag parsing for MCP servers and add debug flag ([45eafa5](https://github.com/nirvana-labs/nirvana-typescript/commit/45eafa5238e916633b69450457485daef880853b))
+
 ## 1.41.0 (2026-02-04)
 
 Full Changelog: [v1.40.1...v1.41.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.40.1...v1.41.0)
