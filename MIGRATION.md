@@ -88,6 +88,7 @@ client.example.list(undefined, { headers: { ... } });
 This affects the following methods:
 
 - `client.apiKeys.list()`
+- `client.organizations.list()`
 - `client.projects.list()`
 - `client.regions.list()`
 - `client.compute.vms.volumes.list()`
