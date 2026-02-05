@@ -17,6 +17,7 @@ export class Availability extends APIResource {
    * const availability =
    *   await client.compute.volumes.availability.create({
    *     name: 'my-data-volume',
+   *     project_id: '123e4567-e89b-12d3-a456-426614174000',
    *     region: 'us-wdc-1',
    *     size: 100,
    *     type: 'nvme',
@@ -62,6 +63,11 @@ export interface AvailabilityCreateParams {
   name: string;
 
   /**
+   * Project ID the Volume belongs to.
+   */
+  project_id: string;
+
+  /**
    * Region the resource is in.
    */
   region: Shared.RegionName;
@@ -75,11 +81,6 @@ export interface AvailabilityCreateParams {
    * Type of the Volume.
    */
   type: VolumesAPI.VolumeType;
-
-  /**
-   * Project ID the Volume belongs to.
-   */
-  project_id?: string;
 
   /**
    * Tags to attach to the Volume.

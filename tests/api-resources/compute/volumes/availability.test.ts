@@ -12,6 +12,7 @@ describe('resource availability', () => {
   test.skip('create: only required params', async () => {
     const responsePromise = client.compute.volumes.availability.create({
       name: 'my-data-volume',
+      project_id: '123e4567-e89b-12d3-a456-426614174000',
       region: 'us-wdc-1',
       size: 100,
       type: 'nvme',
@@ -29,10 +30,10 @@ describe('resource availability', () => {
   test.skip('create: required and optional params', async () => {
     const response = await client.compute.volumes.availability.create({
       name: 'my-data-volume',
+      project_id: '123e4567-e89b-12d3-a456-426614174000',
       region: 'us-wdc-1',
       size: 100,
       type: 'nvme',
-      project_id: '123e4567-e89b-12d3-a456-426614174000',
       tags: ['production', 'ethereum'],
       vm_id: '123e4567-e89b-12d3-a456-426614174000',
     });

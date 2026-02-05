@@ -39,6 +39,7 @@ const operation = await client.compute.vms.create({
   memory_config: { size: 2 },
   name: 'my-vm',
   os_image_name: 'ubuntu-noble-2025-10-01',
+  project_id: '123e4567-e89b-12d3-a456-426614174000',
   public_ip_enabled: true,
   region: 'us-wdc-1',
   ssh_key: {
@@ -68,6 +69,7 @@ const params: NirvanaLabs.Compute.VMCreateParams = {
   memory_config: { size: 2 },
   name: 'my-vm',
   os_image_name: 'ubuntu-noble-2025-10-01',
+  project_id: '123e4567-e89b-12d3-a456-426614174000',
   public_ip_enabled: true,
   region: 'us-wdc-1',
   ssh_key: {
@@ -95,6 +97,7 @@ const operation = await client.compute.vms
     memory_config: { size: 2 },
     name: 'my-vm',
     os_image_name: 'ubuntu-noble-2025-10-01',
+    project_id: '123e4567-e89b-12d3-a456-426614174000',
     public_ip_enabled: true,
     region: 'us-wdc-1',
     ssh_key: {
@@ -149,6 +152,7 @@ await client.compute.vms.create({
   memory_config: { size: 2 },
   name: 'my-vm',
   os_image_name: 'ubuntu-noble-2025-10-01',
+  project_id: '123e4567-e89b-12d3-a456-426614174000',
   public_ip_enabled: true,
   region: 'us-wdc-1',
   ssh_key: { public_key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2' },
@@ -176,6 +180,7 @@ await client.compute.vms.create({
   memory_config: { size: 2 },
   name: 'my-vm',
   os_image_name: 'ubuntu-noble-2025-10-01',
+  project_id: '123e4567-e89b-12d3-a456-426614174000',
   public_ip_enabled: true,
   region: 'us-wdc-1',
   ssh_key: { public_key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2' },
@@ -198,7 +203,7 @@ You can use the `for await … of` syntax to iterate through items across all pa
 async function fetchAllVMs(params) {
   const allVMs = [];
   // Automatically fetches more pages as needed.
-  for await (const vm of client.compute.vms.list({ limit: 10 })) {
+  for await (const vm of client.compute.vms.list({ project_id: 'project_id', limit: 10 })) {
     allVMs.push(vm);
   }
   return allVMs;
@@ -208,7 +213,7 @@ async function fetchAllVMs(params) {
 Alternatively, you can request a single page at a time:
 
 ```ts
-let page = await client.compute.vms.list({ limit: 10 });
+let page = await client.compute.vms.list({ project_id: 'project_id', limit: 10 });
 for (const vm of page.items) {
   console.log(vm);
 }
@@ -241,6 +246,7 @@ const response = await client.compute.vms
     memory_config: { size: 2 },
     name: 'my-vm',
     os_image_name: 'ubuntu-noble-2025-10-01',
+    project_id: '123e4567-e89b-12d3-a456-426614174000',
     public_ip_enabled: true,
     region: 'us-wdc-1',
     ssh_key: {
@@ -260,6 +266,7 @@ const { data: operation, response: raw } = await client.compute.vms
     memory_config: { size: 2 },
     name: 'my-vm',
     os_image_name: 'ubuntu-noble-2025-10-01',
+    project_id: '123e4567-e89b-12d3-a456-426614174000',
     public_ip_enabled: true,
     region: 'us-wdc-1',
     ssh_key: {

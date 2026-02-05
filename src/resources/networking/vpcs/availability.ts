@@ -16,6 +16,7 @@ export class Availability extends APIResource {
    * const availability =
    *   await client.networking.vpcs.availability.create({
    *     name: 'my-vpc',
+   *     project_id: '123e4567-e89b-12d3-a456-426614174000',
    *     region: 'us-wdc-1',
    *     subnet_name: 'my-subnet',
    *   });
@@ -60,6 +61,11 @@ export interface AvailabilityCreateParams {
   name: string;
 
   /**
+   * Project ID the VPC belongs to.
+   */
+  project_id: string;
+
+  /**
    * Region the resource is in.
    */
   region: Shared.RegionName;
@@ -68,11 +74,6 @@ export interface AvailabilityCreateParams {
    * Name of the subnet to create.
    */
   subnet_name: string;
-
-  /**
-   * Project ID the VPC belongs to.
-   */
-  project_id?: string;
 
   /**
    * Tags to attach to the VPC.
