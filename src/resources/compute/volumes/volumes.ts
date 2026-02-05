@@ -26,6 +26,7 @@ export class Volumes extends APIResource {
    * ```ts
    * const operation = await client.compute.volumes.create({
    *   name: 'my-data-volume',
+   *   project_id: '123e4567-e89b-12d3-a456-426614174000',
    *   region: 'us-wdc-1',
    *   size: 100,
    *   type: 'nvme',
@@ -60,15 +61,14 @@ export class Volumes extends APIResource {
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const volume of client.compute.volumes.list()) {
+   * for await (const volume of client.compute.volumes.list({
+   *   project_id: 'project_id',
+   * })) {
    *   // ...
    * }
    * ```
    */
-  list(
-    query: VolumeListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): PagePromise<VolumesCursor, Volume> {
+  list(query: VolumeListParams, options?: RequestOptions): PagePromise<VolumesCursor, Volume> {
     return this._client.getAPIList('/v1/compute/volumes', Cursor<Volume>, { query, ...options });
   }
 
@@ -232,6 +232,11 @@ export interface VolumeCreateParams {
   name: string;
 
   /**
+   * Project ID the Volume belongs to.
+   */
+  project_id: string;
+
+  /**
    * Region the resource is in.
    */
   region: Shared.RegionName;
@@ -245,11 +250,6 @@ export interface VolumeCreateParams {
    * Type of the Volume.
    */
   type: VolumeType;
-
-  /**
-   * Project ID the Volume belongs to.
-   */
-  project_id?: string;
 
   /**
    * Tags to attach to the Volume.
@@ -283,7 +283,7 @@ export interface VolumeListParams extends CursorParams {
   /**
    * Project ID of resources to request
    */
-  project_id?: string;
+  project_id: string;
 }
 
 export interface VolumeAttachParams {

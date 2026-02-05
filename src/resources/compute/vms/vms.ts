@@ -37,6 +37,7 @@ export class VMs extends APIResource {
    *   memory_config: { size: 2 },
    *   name: 'my-vm',
    *   os_image_name: 'ubuntu-noble-2025-10-01',
+   *   project_id: '123e4567-e89b-12d3-a456-426614174000',
    *   public_ip_enabled: true,
    *   region: 'us-wdc-1',
    *   ssh_key: {
@@ -69,12 +70,14 @@ export class VMs extends APIResource {
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const vm of client.compute.vms.list()) {
+   * for await (const vm of client.compute.vms.list({
+   *   project_id: 'project_id',
+   * })) {
    *   // ...
    * }
    * ```
    */
-  list(query: VMListParams | null | undefined = {}, options?: RequestOptions): PagePromise<VMsCursor, VM> {
+  list(query: VMListParams, options?: RequestOptions): PagePromise<VMsCursor, VM> {
     return this._client.getAPIList('/v1/compute/vms', Cursor<VM>, { query, ...options });
   }
 
@@ -320,6 +323,11 @@ export interface VMCreateParams {
   os_image_name: string;
 
   /**
+   * Project ID to create the VM in.
+   */
+  project_id: string;
+
+  /**
    * Whether to enable public IP for the VM.
    */
   public_ip_enabled: boolean;
@@ -343,11 +351,6 @@ export interface VMCreateParams {
    * Data volumes for the VM.
    */
   data_volumes?: Array<VMCreateParams.DataVolume>;
-
-  /**
-   * Project ID to create the VM in.
-   */
-  project_id?: string;
 
   /**
    * Tags to attach to the VM.
@@ -433,7 +436,7 @@ export interface VMListParams extends CursorParams {
   /**
    * Project ID of resources to request
    */
-  project_id?: string;
+  project_id: string;
 }
 
 VMs.Availability = Availability;
