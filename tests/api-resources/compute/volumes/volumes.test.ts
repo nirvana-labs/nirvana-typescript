@@ -12,6 +12,7 @@ describe('resource volumes', () => {
   test.skip('create: only required params', async () => {
     const responsePromise = client.compute.volumes.create({
       name: 'my-data-volume',
+      project_id: '123e4567-e89b-12d3-a456-426614174000',
       region: 'us-wdc-1',
       size: 100,
       type: 'nvme',
@@ -29,10 +30,10 @@ describe('resource volumes', () => {
   test.skip('create: required and optional params', async () => {
     const response = await client.compute.volumes.create({
       name: 'my-data-volume',
+      project_id: '123e4567-e89b-12d3-a456-426614174000',
       region: 'us-wdc-1',
       size: 100,
       type: 'nvme',
-      project_id: '123e4567-e89b-12d3-a456-426614174000',
       tags: ['production', 'ethereum'],
       vm_id: '123e4567-e89b-12d3-a456-426614174000',
     });
@@ -51,8 +52,8 @@ describe('resource volumes', () => {
   });
 
   // Prism tests are disabled
-  test.skip('list', async () => {
-    const responsePromise = client.compute.volumes.list();
+  test.skip('list: only required params', async () => {
+    const responsePromise = client.compute.volumes.list({ project_id: 'project_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -63,18 +64,12 @@ describe('resource volumes', () => {
   });
 
   // Prism tests are disabled
-  test.skip('list: request options and params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.compute.volumes.list(
-        {
-          cursor: 'cursor',
-          limit: 10,
-          project_id: 'project_id',
-        },
-        { path: '/_stainless_unknown_path' },
-      ),
-    ).rejects.toThrow(NirvanaLabs.NotFoundError);
+  test.skip('list: required and optional params', async () => {
+    const response = await client.compute.volumes.list({
+      project_id: 'project_id',
+      cursor: 'cursor',
+      limit: 10,
+    });
   });
 
   // Prism tests are disabled

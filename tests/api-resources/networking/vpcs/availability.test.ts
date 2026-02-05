@@ -12,6 +12,7 @@ describe('resource availability', () => {
   test.skip('create: only required params', async () => {
     const responsePromise = client.networking.vpcs.availability.create({
       name: 'my-vpc',
+      project_id: '123e4567-e89b-12d3-a456-426614174000',
       region: 'us-wdc-1',
       subnet_name: 'my-subnet',
     });
@@ -28,9 +29,9 @@ describe('resource availability', () => {
   test.skip('create: required and optional params', async () => {
     const response = await client.networking.vpcs.availability.create({
       name: 'my-vpc',
+      project_id: '123e4567-e89b-12d3-a456-426614174000',
       region: 'us-wdc-1',
       subnet_name: 'my-subnet',
-      project_id: '123e4567-e89b-12d3-a456-426614174000',
       tags: ['production', 'ethereum'],
     });
   });

@@ -16,6 +16,7 @@ describe('resource vms', () => {
       memory_config: { size: 2 },
       name: 'my-vm',
       os_image_name: 'ubuntu-noble-2025-10-01',
+      project_id: '123e4567-e89b-12d3-a456-426614174000',
       public_ip_enabled: true,
       region: 'us-wdc-1',
       ssh_key: {
@@ -44,6 +45,7 @@ describe('resource vms', () => {
       memory_config: { size: 2 },
       name: 'my-vm',
       os_image_name: 'ubuntu-noble-2025-10-01',
+      project_id: '123e4567-e89b-12d3-a456-426614174000',
       public_ip_enabled: true,
       region: 'us-wdc-1',
       ssh_key: {
@@ -58,7 +60,6 @@ describe('resource vms', () => {
           tags: ['production', 'ethereum'],
         },
       ],
-      project_id: '123e4567-e89b-12d3-a456-426614174000',
       tags: ['production', 'ethereum'],
     });
   });
@@ -76,8 +77,8 @@ describe('resource vms', () => {
   });
 
   // Prism tests are disabled
-  test.skip('list', async () => {
-    const responsePromise = client.compute.vms.list();
+  test.skip('list: only required params', async () => {
+    const responsePromise = client.compute.vms.list({ project_id: 'project_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -88,18 +89,12 @@ describe('resource vms', () => {
   });
 
   // Prism tests are disabled
-  test.skip('list: request options and params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.compute.vms.list(
-        {
-          cursor: 'cursor',
-          limit: 10,
-          project_id: 'project_id',
-        },
-        { path: '/_stainless_unknown_path' },
-      ),
-    ).rejects.toThrow(NirvanaLabs.NotFoundError);
+  test.skip('list: required and optional params', async () => {
+    const response = await client.compute.vms.list({
+      project_id: 'project_id',
+      cursor: 'cursor',
+      limit: 10,
+    });
   });
 
   // Prism tests are disabled

@@ -48,15 +48,14 @@ export class FlexResource extends APIResource {
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const flex of client.rpcNodes.flex.list()) {
+   * for await (const flex of client.rpcNodes.flex.list({
+   *   project_id: 'project_id',
+   * })) {
    *   // ...
    * }
    * ```
    */
-  list(
-    query: FlexListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): PagePromise<FlexesCursor, Flex> {
+  list(query: FlexListParams, options?: RequestOptions): PagePromise<FlexesCursor, Flex> {
     return this._client.getAPIList('/v1/rpc_nodes/flex', Cursor<Flex>, { query, ...options });
   }
 
@@ -218,7 +217,7 @@ export interface FlexListParams extends CursorParams {
   /**
    * Project ID of resources to request
    */
-  project_id?: string;
+  project_id: string;
 }
 
 FlexResource.Blockchains = Blockchains;

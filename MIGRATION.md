@@ -88,20 +88,13 @@ client.example.list(undefined, { headers: { ... } });
 This affects the following methods:
 
 - `client.apiKeys.list()`
-- `client.operations.list()`
 - `client.projects.list()`
 - `client.regions.list()`
-- `client.compute.vms.list()`
 - `client.compute.vms.volumes.list()`
 - `client.compute.vms.osImages.list()`
-- `client.compute.volumes.list()`
-- `client.networking.vpcs.list()`
 - `client.networking.firewallRules.list()`
-- `client.networking.connect.connections.list()`
 - `client.networking.connect.routes.list()`
-- `client.rpcNodes.flex.list()`
 - `client.rpcNodes.flex.blockchains.list()`
-- `client.rpcNodes.dedicated.list()`
 - `client.rpcNodes.dedicated.blockchains.list()`
 
 ### Removed `httpAgent` in favor of `fetchOptions`
@@ -246,7 +239,7 @@ The `for await` syntax **is not affected**. This still works as-is:
 
 ```ts
 // Automatically fetches more pages as needed.
-for await (const vm of client.compute.vms.list()) {
+for await (const vm of client.compute.vms.list({ project_id: 'project_id' })) {
   console.log(vm);
 }
 ```

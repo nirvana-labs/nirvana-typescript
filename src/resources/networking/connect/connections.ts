@@ -21,6 +21,7 @@ export class Connections extends APIResource {
    *     bandwidth_mbps: 50,
    *     cidrs: ['10.0.0.0/16'],
    *     name: 'my-connect-connection',
+   *     project_id: '123e4567-e89b-12d3-a456-426614174000',
    *     provider_cidrs: ['172.16.0.0/16'],
    *     region: 'us-wdc-1',
    *   });
@@ -55,13 +56,15 @@ export class Connections extends APIResource {
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const connectConnection of client.networking.connect.connections.list()) {
+   * for await (const connectConnection of client.networking.connect.connections.list(
+   *   { project_id: 'project_id' },
+   * )) {
    *   // ...
    * }
    * ```
    */
   list(
-    query: ConnectionListParams | null | undefined = {},
+    query: ConnectionListParams,
     options?: RequestOptions,
   ): PagePromise<ConnectConnectionsCursor, ConnectAPI.ConnectConnection> {
     return this._client.getAPIList(
@@ -119,6 +122,11 @@ export interface ConnectionCreateParams {
   name: string;
 
   /**
+   * Project ID the Connect Connection belongs to
+   */
+  project_id: string;
+
+  /**
    * Provider CIDRs. Must be in network-aligned/canonical form.
    */
   provider_cidrs: Array<string>;
@@ -132,11 +140,6 @@ export interface ConnectionCreateParams {
    * AWS provider configuration
    */
   aws?: ConnectAPI.ConnectConnectionAWSConfigRequest;
-
-  /**
-   * Project ID the Connect Connection belongs to
-   */
-  project_id?: string;
 
   /**
    * Tags to attach to the Connect Connection
@@ -160,7 +163,7 @@ export interface ConnectionListParams extends CursorParams {
   /**
    * Project ID of resources to request
    */
-  project_id?: string;
+  project_id: string;
 }
 
 export declare namespace Connections {

@@ -22,6 +22,7 @@ export class Availability extends APIResource {
    *     memory_config: { size: 2 },
    *     name: 'my-vm',
    *     os_image_name: 'ubuntu-noble-2025-10-01',
+   *     project_id: '123e4567-e89b-12d3-a456-426614174000',
    *     public_ip_enabled: true,
    *     region: 'us-wdc-1',
    *     ssh_key: {
@@ -89,6 +90,11 @@ export interface AvailabilityCreateParams {
   os_image_name: string;
 
   /**
+   * Project ID to create the VM in.
+   */
+  project_id: string;
+
+  /**
    * Whether to enable public IP for the VM.
    */
   public_ip_enabled: boolean;
@@ -112,11 +118,6 @@ export interface AvailabilityCreateParams {
    * Data volumes for the VM.
    */
   data_volumes?: Array<AvailabilityCreateParams.DataVolume>;
-
-  /**
-   * Project ID to create the VM in.
-   */
-  project_id?: string;
 
   /**
    * Tags to attach to the VM.

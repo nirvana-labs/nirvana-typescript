@@ -18,15 +18,14 @@ export class DedicatedResource extends APIResource {
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const dedicated of client.rpcNodes.dedicated.list()) {
+   * for await (const dedicated of client.rpcNodes.dedicated.list(
+   *   { project_id: 'project_id' },
+   * )) {
    *   // ...
    * }
    * ```
    */
-  list(
-    query: DedicatedListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): PagePromise<DedicatedsCursor, Dedicated> {
+  list(query: DedicatedListParams, options?: RequestOptions): PagePromise<DedicatedsCursor, Dedicated> {
     return this._client.getAPIList('/v1/rpc_nodes/dedicated', Cursor<Dedicated>, { query, ...options });
   }
 
@@ -136,7 +135,7 @@ export interface DedicatedListParams extends CursorParams {
   /**
    * Project ID of resources to request
    */
-  project_id?: string;
+  project_id: string;
 }
 
 DedicatedResource.Blockchains = Blockchains;

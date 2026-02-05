@@ -11,10 +11,7 @@ export class Operations extends APIResource {
   /**
    * List all operations
    */
-  list(
-    query: OperationListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): PagePromise<OperationsCursor, Operation> {
+  list(query: OperationListParams, options?: RequestOptions): PagePromise<OperationsCursor, Operation> {
     return this._client.getAPIList('/v1/operations', Cursor<Operation>, { query, ...options });
   }
 
@@ -48,6 +45,11 @@ export interface Operation {
   kind: OperationKind;
 
   /**
+   * Project ID the Operation belongs to.
+   */
+  project_id: string;
+
+  /**
    * ID of the resource that the Operation is acting on.
    */
   resource_id: string;
@@ -66,11 +68,6 @@ export interface Operation {
    * When the Operation was updated.
    */
   updated_at: string;
-
-  /**
-   * Project ID the Operation belongs to.
-   */
-  project_id?: string;
 }
 
 /**
@@ -101,7 +98,7 @@ export interface OperationListParams extends CursorParams {
   /**
    * Project ID of resources to request
    */
-  project_id?: string;
+  project_id: string;
 }
 
 export declare namespace Operations {

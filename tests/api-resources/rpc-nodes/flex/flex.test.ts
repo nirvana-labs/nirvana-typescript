@@ -49,8 +49,8 @@ describe('resource flex', () => {
   });
 
   // Prism tests are disabled
-  test.skip('list', async () => {
-    const responsePromise = client.rpcNodes.flex.list();
+  test.skip('list: only required params', async () => {
+    const responsePromise = client.rpcNodes.flex.list({ project_id: 'project_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -61,18 +61,12 @@ describe('resource flex', () => {
   });
 
   // Prism tests are disabled
-  test.skip('list: request options and params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.rpcNodes.flex.list(
-        {
-          cursor: 'cursor',
-          limit: 10,
-          project_id: 'project_id',
-        },
-        { path: '/_stainless_unknown_path' },
-      ),
-    ).rejects.toThrow(NirvanaLabs.NotFoundError);
+  test.skip('list: required and optional params', async () => {
+    const response = await client.rpcNodes.flex.list({
+      project_id: 'project_id',
+      cursor: 'cursor',
+      limit: 10,
+    });
   });
 
   // Prism tests are disabled

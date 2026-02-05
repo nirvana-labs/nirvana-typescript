@@ -26,6 +26,7 @@ export class VPCs extends APIResource {
    * ```ts
    * const operation = await client.networking.vpcs.create({
    *   name: 'my-vpc',
+   *   project_id: '123e4567-e89b-12d3-a456-426614174000',
    *   region: 'us-wdc-1',
    *   subnet_name: 'my-subnet',
    * });
@@ -59,12 +60,14 @@ export class VPCs extends APIResource {
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const vpc of client.networking.vpcs.list()) {
+   * for await (const vpc of client.networking.vpcs.list({
+   *   project_id: 'project_id',
+   * })) {
    *   // ...
    * }
    * ```
    */
-  list(query: VPCListParams | null | undefined = {}, options?: RequestOptions): PagePromise<VPCsCursor, VPC> {
+  list(query: VPCListParams, options?: RequestOptions): PagePromise<VPCsCursor, VPC> {
     return this._client.getAPIList('/v1/networking/vpcs', Cursor<VPC>, { query, ...options });
   }
 
@@ -198,6 +201,11 @@ export interface VPCCreateParams {
   name: string;
 
   /**
+   * Project ID the VPC belongs to.
+   */
+  project_id: string;
+
+  /**
    * Region the resource is in.
    */
   region: Shared.RegionName;
@@ -206,11 +214,6 @@ export interface VPCCreateParams {
    * Name of the subnet to create.
    */
   subnet_name: string;
-
-  /**
-   * Project ID the VPC belongs to.
-   */
-  project_id?: string;
 
   /**
    * Tags to attach to the VPC.
@@ -239,7 +242,7 @@ export interface VPCListParams extends CursorParams {
   /**
    * Project ID of resources to request
    */
-  project_id?: string;
+  project_id: string;
 }
 
 VPCs.Availability = Availability;
