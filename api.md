@@ -58,6 +58,18 @@ Methods:
 - <code title="get /v1/operations">client.operations.<a href="./src/resources/operations.ts">list</a>({ ...params }) -> OperationsCursor</code>
 - <code title="get /v1/operations/{operation_id}">client.operations.<a href="./src/resources/operations.ts">get</a>(operationID) -> Operation</code>
 
+# Organizations
+
+Types:
+
+- <code><a href="./src/resources/organizations.ts">Organization</a></code>
+- <code><a href="./src/resources/organizations.ts">OrganizationList</a></code>
+
+Methods:
+
+- <code title="get /v1/organizations">client.organizations.<a href="./src/resources/organizations.ts">list</a>({ ...params }) -> OrganizationsCursor</code>
+- <code title="get /v1/organizations/{organization_id}">client.organizations.<a href="./src/resources/organizations.ts">get</a>(organizationID) -> Organization</code>
+
 # Projects
 
 Types:
