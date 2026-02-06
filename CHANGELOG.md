@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.44.1 (2026-02-06)
+
+Full Changelog: [v1.44.0...v1.44.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.44.0...v1.44.1)
+
+### Bug Fixes
+
+* **client:** avoid removing abort listener too early ([83bc95b](https://github.com/nirvana-labs/nirvana-typescript/commit/83bc95bc3bbb389525e6cdb0c8073208a439a6d7))
+
+
+### Chores
+
+* **internal:** fix pagination internals not accepting option promises ([8f0c148](https://github.com/nirvana-labs/nirvana-typescript/commit/8f0c14866a83320eef0db81769c39f3209672b83))
+* **internal:** upgrade pnpm ([f2ba845](https://github.com/nirvana-labs/nirvana-typescript/commit/f2ba845b97afe9f152075c1496a5172e314483cb))
+
 ## 1.44.0 (2026-02-05)
 
 Full Changelog: [v1.43.0...v1.44.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.43.0...v1.44.0)
