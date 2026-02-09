@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.45.0 (2026-02-09)
+
+Full Changelog: [v1.44.1...v1.45.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.44.1...v1.45.0)
+
+### Features
+
+* **api:** api update ([3730a00](https://github.com/nirvana-labs/nirvana-typescript/commit/3730a00abe0301a211f41879dafe50955d56fa20))
+
+
+### Chores
+
+* **internal:** add health check to MCP server when running in HTTP mode ([969027e](https://github.com/nirvana-labs/nirvana-typescript/commit/969027e6096b0bb914fc1e7ec600e5dc4d60aef1))
+* **internal:** upgrade hono ([14a33f7](https://github.com/nirvana-labs/nirvana-typescript/commit/14a33f7e00fe9378fe6680d7246060509ca0d424))
+
 ## 1.44.1 (2026-02-06)
 
 Full Changelog: [v1.44.0...v1.44.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.44.0...v1.44.1)

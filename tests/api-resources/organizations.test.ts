@@ -9,6 +9,35 @@ const client = new NirvanaLabs({
 
 describe('resource organizations', () => {
   // Prism tests are disabled
+  test.skip('create: only required params', async () => {
+    const responsePromise = client.organizations.create({ name: 'My Organization' });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Prism tests are disabled
+  test.skip('create: required and optional params', async () => {
+    const response = await client.organizations.create({ name: 'My Organization' });
+  });
+
+  // Prism tests are disabled
+  test.skip('update', async () => {
+    const responsePromise = client.organizations.update('organization_id', {});
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Prism tests are disabled
   test.skip('list', async () => {
     const responsePromise = client.organizations.list();
     const rawResponse = await responsePromise.asResponse();
