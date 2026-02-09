@@ -57,7 +57,7 @@ export const newMcpServer = async () =>
   new McpServer(
     {
       name: 'nirvana_labs_nirvana_api',
-      version: '1.44.1',
+      version: '1.45.0',
     },
     {
       instructions: await getInstructions(),
