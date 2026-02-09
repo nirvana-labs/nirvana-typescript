@@ -9,7 +9,47 @@ import { path } from '../internal/utils/path';
 
 export class Organizations extends APIResource {
   /**
+   * Create a new organization
+   *
+   * @example
+   * ```ts
+   * const organization = await client.organizations.create({
+   *   name: 'My Organization',
+   * });
+   * ```
+   */
+  create(body: OrganizationCreateParams, options?: RequestOptions): APIPromise<Organization> {
+    return this._client.post('/v1/organizations', { body, ...options });
+  }
+
+  /**
+   * Update an existing organization
+   *
+   * @example
+   * ```ts
+   * const organization = await client.organizations.update(
+   *   'organization_id',
+   * );
+   * ```
+   */
+  update(
+    organizationID: string,
+    body: OrganizationUpdateParams,
+    options?: RequestOptions,
+  ): APIPromise<Organization> {
+    return this._client.patch(path`/v1/organizations/${organizationID}`, { body, ...options });
+  }
+
+  /**
    * List all Organizations
+   *
+   * @example
+   * ```ts
+   * // Automatically fetches more pages as needed.
+   * for await (const organization of client.organizations.list()) {
+   *   // ...
+   * }
+   * ```
    */
   list(
     query: OrganizationListParams | null | undefined = {},
@@ -20,6 +60,13 @@ export class Organizations extends APIResource {
 
   /**
    * Get details about an Organization
+   *
+   * @example
+   * ```ts
+   * const organization = await client.organizations.get(
+   *   'organization_id',
+   * );
+   * ```
    */
   get(organizationID: string, options?: RequestOptions): APIPromise<Organization> {
     return this._client.get(path`/v1/organizations/${organizationID}`, options);
@@ -62,6 +109,20 @@ export interface OrganizationList {
   pagination: Shared.Pagination;
 }
 
+export interface OrganizationCreateParams {
+  /**
+   * Organization name.
+   */
+  name: string;
+}
+
+export interface OrganizationUpdateParams {
+  /**
+   * Organization name.
+   */
+  name?: string;
+}
+
 export interface OrganizationListParams extends CursorParams {}
 
 export declare namespace Organizations {
@@ -69,6 +130,8 @@ export declare namespace Organizations {
     type Organization as Organization,
     type OrganizationList as OrganizationList,
     type OrganizationsCursor as OrganizationsCursor,
+    type OrganizationCreateParams as OrganizationCreateParams,
+    type OrganizationUpdateParams as OrganizationUpdateParams,
     type OrganizationListParams as OrganizationListParams,
   };
 }
