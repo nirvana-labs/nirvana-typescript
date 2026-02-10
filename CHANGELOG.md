@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.45.1 (2026-02-10)
+
+Full Changelog: [v1.45.0...v1.45.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.45.0...v1.45.1)
+
+### Chores
+
+* **internal:** allow basic filtering of methods allowed for MCP code mode ([d5d2629](https://github.com/nirvana-labs/nirvana-typescript/commit/d5d2629298f23c98104e666a2a368963d1c3dcee))
+* **internal:** always generate MCP server dockerfiles and upgrade associated dependencies ([d4b8afd](https://github.com/nirvana-labs/nirvana-typescript/commit/d4b8afd89f4b386aaf067966cd1ca8770c5352f2))
+
 ## 1.45.0 (2026-02-09)
 
 Full Changelog: [v1.44.1...v1.45.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.44.1...v1.45.0)

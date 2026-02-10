@@ -1,6 +1,6 @@
 {
   "name": "@nirvana-labs/nirvana-mcp",
-  "version": "1.45.0",
+  "version": "1.45.1",
   "description": "The official MCP Server for the Nirvana Labs API",
   "author": "Nirvana Labs <engineering@nirvanalabs.io>",
   "types": "dist/index.d.ts",
