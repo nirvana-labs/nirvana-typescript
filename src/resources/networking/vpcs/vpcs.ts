@@ -4,13 +4,7 @@ import { APIResource } from '../../../core/resource';
 import * as OperationsAPI from '../../operations';
 import * as Shared from '../../shared';
 import * as AvailabilityAPI from './availability';
-import {
-  Availability,
-  AvailabilityCreateParams,
-  AvailabilityCreateResponse,
-  AvailabilityUpdateParams,
-  AvailabilityUpdateResponse,
-} from './availability';
+import { Availability, AvailabilityCreateParams, AvailabilityUpdateParams } from './availability';
 import { APIPromise } from '../../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
@@ -260,8 +254,6 @@ export declare namespace VPCs {
 
   export {
     Availability as Availability,
-    type AvailabilityCreateResponse as AvailabilityCreateResponse,
-    type AvailabilityUpdateResponse as AvailabilityUpdateResponse,
     type AvailabilityCreateParams as AvailabilityCreateParams,
     type AvailabilityUpdateParams as AvailabilityUpdateParams,
   };
