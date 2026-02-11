@@ -4,13 +4,7 @@ import { APIResource } from '../../../core/resource';
 import * as OperationsAPI from '../../operations';
 import * as Shared from '../../shared';
 import * as AvailabilityAPI from './availability';
-import {
-  Availability,
-  AvailabilityCreateParams,
-  AvailabilityCreateResponse,
-  AvailabilityUpdateParams,
-  AvailabilityUpdateResponse,
-} from './availability';
+import { Availability, AvailabilityCreateParams, AvailabilityUpdateParams } from './availability';
 import * as OSImagesAPI from './os-images';
 import { OSImageListParams, OSImages } from './os-images';
 import * as VolumesAPI from './volumes';
@@ -461,8 +455,6 @@ export declare namespace VMs {
 
   export {
     Availability as Availability,
-    type AvailabilityCreateResponse as AvailabilityCreateResponse,
-    type AvailabilityUpdateResponse as AvailabilityUpdateResponse,
     type AvailabilityCreateParams as AvailabilityCreateParams,
     type AvailabilityUpdateParams as AvailabilityUpdateParams,
   };

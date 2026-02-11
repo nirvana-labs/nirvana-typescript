@@ -13,20 +13,19 @@ export class Availability extends APIResource {
    *
    * @example
    * ```ts
-   * const availability =
-   *   await client.networking.vpcs.availability.create({
-   *     name: 'my-vpc',
-   *     project_id: '123e4567-e89b-12d3-a456-426614174000',
-   *     region: 'us-wdc-1',
-   *     subnet_name: 'my-subnet',
-   *   });
+   * await client.networking.vpcs.availability.create({
+   *   name: 'my-vpc',
+   *   project_id: '123e4567-e89b-12d3-a456-426614174000',
+   *   region: 'us-wdc-1',
+   *   subnet_name: 'my-subnet',
+   * });
    * ```
    */
-  create(body: AvailabilityCreateParams, options?: RequestOptions): APIPromise<string> {
+  create(body: AvailabilityCreateParams, options?: RequestOptions): APIPromise<void> {
     return this._client.post('/v1/networking/vpcs/availability', {
       body,
       ...options,
-      headers: buildHeaders([{ Accept: 'text/plain' }, options?.headers]),
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
     });
   }
 
@@ -35,24 +34,17 @@ export class Availability extends APIResource {
    *
    * @example
    * ```ts
-   * const availability =
-   *   await client.networking.vpcs.availability.update(
-   *     'vpc_id',
-   *   );
+   * await client.networking.vpcs.availability.update('vpc_id');
    * ```
    */
-  update(vpcID: string, body: AvailabilityUpdateParams, options?: RequestOptions): APIPromise<string> {
+  update(vpcID: string, body: AvailabilityUpdateParams, options?: RequestOptions): APIPromise<void> {
     return this._client.patch(path`/v1/networking/vpcs/${vpcID}/availability`, {
       body,
       ...options,
-      headers: buildHeaders([{ Accept: 'text/plain' }, options?.headers]),
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
     });
   }
 }
-
-export type AvailabilityCreateResponse = string;
-
-export type AvailabilityUpdateResponse = string;
 
 export interface AvailabilityCreateParams {
   /**
@@ -100,8 +92,6 @@ export interface AvailabilityUpdateParams {
 
 export declare namespace Availability {
   export {
-    type AvailabilityCreateResponse as AvailabilityCreateResponse,
-    type AvailabilityUpdateResponse as AvailabilityUpdateResponse,
     type AvailabilityCreateParams as AvailabilityCreateParams,
     type AvailabilityUpdateParams as AvailabilityUpdateParams,
   };
