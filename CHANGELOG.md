@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.46.0 (2026-02-11)
+
+Full Changelog: [v1.45.2...v1.46.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.45.2...v1.46.0)
+
+### Features
+
+* **api:** api update ([d9bb01c](https://github.com/nirvana-labs/nirvana-typescript/commit/d9bb01ca55b2d2349a0696db8ed3639bbebf6faa))
+* **api:** api update ([e1e32d5](https://github.com/nirvana-labs/nirvana-typescript/commit/e1e32d5b4e4622ac5166826fefebd6464238c902))
+
+
+### Chores
+
+* remove custom code ([336bb5c](https://github.com/nirvana-labs/nirvana-typescript/commit/336bb5c3602d468c02902c38d3a711652aa718bb))
+
 ## 1.45.2 (2026-02-11)
 
 Full Changelog: [v1.45.1...v1.45.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.45.1...v1.45.2)
