@@ -41,7 +41,7 @@ export class Organizations extends APIResource {
   }
 
   /**
-   * List all Organizations
+   * List organizations for the authenticated user
    *
    * @example
    * ```ts
@@ -98,6 +98,11 @@ export interface Organization {
    * When the Organization was updated.
    */
   updated_at: string;
+
+  /**
+   * Authentication provider organization ID.
+   */
+  auth_id?: string;
 }
 
 export interface OrganizationList {
