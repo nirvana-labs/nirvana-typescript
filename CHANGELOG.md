@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.46.2 (2026-02-12)
+
+Full Changelog: [v1.46.1...v1.46.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.46.1...v1.46.2)
+
+### Chores
+
+* **internal:** avoid type checking errors with ts-reset ([0325e94](https://github.com/nirvana-labs/nirvana-typescript/commit/0325e94d01ef259126f173a1d4313c776f3f91e8))
+
 ## 1.46.1 (2026-02-11)
 
 Full Changelog: [v1.46.0...v1.46.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.46.0...v1.46.1)
