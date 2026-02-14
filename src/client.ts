@@ -18,13 +18,13 @@ import { AbstractPage, type CursorParams, CursorResponse } from './core/paginati
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
-import { APIKeys } from './resources/api-keys';
-import { Operations } from './resources/operations';
-import { Organizations } from './resources/organizations';
-import { Projects } from './resources/projects';
-import { Regions } from './resources/regions';
+import { APIKeys } from './resources/api-keys/api-keys';
 import { Compute } from './resources/compute/compute';
 import { Networking } from './resources/networking/networking';
+import { Operations } from './resources/operations/operations';
+import { Organizations } from './resources/organizations/organizations';
+import { Projects } from './resources/projects/projects';
+import { Regions } from './resources/regions/regions';
 import { RPCNodes } from './resources/rpc-nodes/rpc-nodes';
 import { UserResource } from './resources/user/user';
 import { type Fetch } from './internal/builtin-types';
