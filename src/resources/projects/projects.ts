@@ -36,7 +36,7 @@ export class Projects extends APIResource {
   }
 
   /**
-   * List all projects for the authenticated user
+   * List all projects
    *
    * @example
    * ```ts
@@ -116,11 +116,6 @@ export interface Project {
    * When the Project was updated.
    */
   updated_at: string;
-
-  /**
-   * User ID that owns the project.
-   */
-  user_id: string;
 }
 
 export namespace Project {
