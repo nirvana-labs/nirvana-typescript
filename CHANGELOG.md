@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.47.0 (2026-02-18)
+
+Full Changelog: [v1.46.2...v1.47.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.46.2...v1.47.0)
+
+### Features
+
+* **api:** api update ([c1f9913](https://github.com/nirvana-labs/nirvana-typescript/commit/c1f9913689bba81275805fe48ac454fa84250a72))
+
+
+### Chores
+
+* format all `api.md` files ([1903a74](https://github.com/nirvana-labs/nirvana-typescript/commit/1903a745c3dbb2373f93e999789865c873e36e31))
+* **internal/client:** fix form-urlencoded requests ([d027306](https://github.com/nirvana-labs/nirvana-typescript/commit/d02730669fea26a3205dfa36739b0ccf1f1f1858))
+* **internal:** allow setting x-stainless-api-key header on mcp server requests ([0515856](https://github.com/nirvana-labs/nirvana-typescript/commit/051585694390bec3262e00e6c01f5c9c476e31ca))
+* **internal:** improve layout of generated MCP server files ([09867b6](https://github.com/nirvana-labs/nirvana-typescript/commit/09867b669975181e2db817167e3dc92c270f449f))
+* **internal:** improve reliability of MCP servers when using local code mode execution ([d963f19](https://github.com/nirvana-labs/nirvana-typescript/commit/d963f19c969b58f2b3e001aedcd39893beb7f036))
+* **mcp:** forward STAINLESS_API_KEY to docs search endpoint ([5834875](https://github.com/nirvana-labs/nirvana-typescript/commit/58348759da120bff83d96d60af471b97dcb46c1e))
+
 ## 1.46.2 (2026-02-12)
 
 Full Changelog: [v1.46.1...v1.46.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.46.1...v1.46.2)

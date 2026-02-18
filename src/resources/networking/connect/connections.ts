@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../core/resource';
-import * as OperationsAPI from '../../operations';
 import * as Shared from '../../shared';
+import * as OperationsAPI from '../../operations/operations';
 import * as ConnectAPI from './connect';
 import { ConnectConnectionsCursor } from './connect';
 import { APIPromise } from '../../../core/api-promise';

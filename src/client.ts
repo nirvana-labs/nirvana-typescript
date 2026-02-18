@@ -18,13 +18,13 @@ import { AbstractPage, type CursorParams, CursorResponse } from './core/paginati
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
-import { APIKeys } from './resources/api-keys';
-import { Operations } from './resources/operations';
-import { Organizations } from './resources/organizations';
-import { Projects } from './resources/projects';
-import { Regions } from './resources/regions';
+import { APIKeys } from './resources/api-keys/api-keys';
 import { Compute } from './resources/compute/compute';
 import { Networking } from './resources/networking/networking';
+import { Operations } from './resources/operations/operations';
+import { Organizations } from './resources/organizations/organizations';
+import { Projects } from './resources/projects/projects';
+import { Regions } from './resources/regions/regions';
 import { RPCNodes } from './resources/rpc-nodes/rpc-nodes';
 import { UserResource } from './resources/user/user';
 import { type Fetch } from './internal/builtin-types';
@@ -731,6 +731,14 @@ export class NirvanaLabs {
         (Symbol.iterator in body && 'next' in body && typeof body.next === 'function'))
     ) {
       return { bodyHeaders: undefined, body: Shims.ReadableStreamFrom(body as AsyncIterable<Uint8Array>) };
+    } else if (
+      typeof body === 'object' &&
+      headers.values.get('content-type') === 'application/x-www-form-urlencoded'
+    ) {
+      return {
+        bodyHeaders: { 'content-type': 'application/x-www-form-urlencoded' },
+        body: this.stringifyQuery(body as Record<string, unknown>),
+      };
     } else {
       return this.#encoder({ body, headers });
     }
