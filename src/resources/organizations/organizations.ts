@@ -41,7 +41,7 @@ export class Organizations extends APIResource {
   }
 
   /**
-   * List organizations for the authenticated user
+   * List organizations
    *
    * @example
    * ```ts

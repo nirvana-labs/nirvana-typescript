@@ -37,7 +37,7 @@ export class APIKeys extends APIResource {
   }
 
   /**
-   * List all API keys for the authenticated user
+   * List all API keys
    *
    * @example
    * ```ts
