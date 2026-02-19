@@ -92,7 +92,7 @@ export interface Organization {
   /**
    * Current user's membership details.
    */
-  membership: Organization.Membership;
+  membership: OrganizationMembership;
 
   /**
    * Organization name.
@@ -110,23 +110,6 @@ export interface Organization {
   auth_id?: string;
 }
 
-export namespace Organization {
-  /**
-   * Current user's membership details.
-   */
-  export interface Membership {
-    /**
-     * Membership ID.
-     */
-    id: string;
-
-    /**
-     * Role of the user in the organization.
-     */
-    role: 'owner' | 'member';
-  }
-}
-
 export interface OrganizationList {
   items: Array<Organization>;
 
@@ -134,6 +117,21 @@ export interface OrganizationList {
    * Pagination response details.
    */
   pagination: Shared.Pagination;
+}
+
+/**
+ * Current user's membership details.
+ */
+export interface OrganizationMembership {
+  /**
+   * Membership ID.
+   */
+  id: string;
+
+  /**
+   * Role of the user in the organization.
+   */
+  role: 'owner' | 'member';
 }
 
 export interface OrganizationCreateParams {
@@ -156,6 +154,7 @@ export declare namespace Organizations {
   export {
     type Organization as Organization,
     type OrganizationList as OrganizationList,
+    type OrganizationMembership as OrganizationMembership,
     type OrganizationsCursor as OrganizationsCursor,
     type OrganizationCreateParams as OrganizationCreateParams,
     type OrganizationUpdateParams as OrganizationUpdateParams,
