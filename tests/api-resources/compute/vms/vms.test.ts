@@ -11,7 +11,7 @@ describe('resource vms', () => {
   // Prism tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.compute.vms.create({
-      boot_volume: { size: 100, type: 'nvme' },
+      boot_volume: { size: 100, type: 'abs' },
       cpu_config: { vcpu: 2 },
       memory_config: { size: 2 },
       name: 'my-vm',
@@ -38,7 +38,7 @@ describe('resource vms', () => {
     const response = await client.compute.vms.create({
       boot_volume: {
         size: 100,
-        type: 'nvme',
+        type: 'abs',
         tags: ['production', 'ethereum'],
       },
       cpu_config: { vcpu: 2 },
@@ -56,7 +56,7 @@ describe('resource vms', () => {
         {
           name: 'my-data-volume',
           size: 100,
-          type: 'nvme',
+          type: 'abs',
           tags: ['production', 'ethereum'],
         },
       ],

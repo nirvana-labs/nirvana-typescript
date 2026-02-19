@@ -16,7 +16,7 @@ export class Availability extends APIResource {
    * @example
    * ```ts
    * await client.compute.vms.availability.create({
-   *   boot_volume: { size: 100, type: 'nvme' },
+   *   boot_volume: { size: 100, type: 'abs' },
    *   cpu_config: { vcpu: 2 },
    *   memory_config: { size: 2 },
    *   name: 'my-vm',
