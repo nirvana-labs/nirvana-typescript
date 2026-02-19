@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.47.1 (2026-02-19)
+
+Full Changelog: [v1.47.0...v1.47.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.47.0...v1.47.1)
+
+### Chores
+
+* **internal:** cache fetch instruction calls in MCP server ([90fc445](https://github.com/nirvana-labs/nirvana-typescript/commit/90fc445408c1898e22d74a6587cd673569000587))
+
 ## 1.47.0 (2026-02-18)
 
 Full Changelog: [v1.46.2...v1.47.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.46.2...v1.47.0)
