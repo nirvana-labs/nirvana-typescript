@@ -15,7 +15,7 @@ describe('resource availability', () => {
       project_id: '123e4567-e89b-12d3-a456-426614174000',
       region: 'us-wdc-1',
       size: 100,
-      type: 'nvme',
+      type: 'abs',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -33,7 +33,7 @@ describe('resource availability', () => {
       project_id: '123e4567-e89b-12d3-a456-426614174000',
       region: 'us-wdc-1',
       size: 100,
-      type: 'nvme',
+      type: 'abs',
       tags: ['production', 'ethereum'],
       vm_id: '123e4567-e89b-12d3-a456-426614174000',
     });
