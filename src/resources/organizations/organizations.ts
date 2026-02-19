@@ -90,6 +90,11 @@ export interface Organization {
   created_at: string;
 
   /**
+   * Current user's membership details.
+   */
+  membership: OrganizationMembership;
+
+  /**
    * Organization name.
    */
   name: string;
@@ -114,6 +119,21 @@ export interface OrganizationList {
   pagination: Shared.Pagination;
 }
 
+/**
+ * Current user's membership details.
+ */
+export interface OrganizationMembership {
+  /**
+   * Membership ID.
+   */
+  id: string;
+
+  /**
+   * Role of the user in the organization.
+   */
+  role: 'owner' | 'member';
+}
+
 export interface OrganizationCreateParams {
   /**
    * Organization name.
@@ -134,6 +154,7 @@ export declare namespace Organizations {
   export {
     type Organization as Organization,
     type OrganizationList as OrganizationList,
+    type OrganizationMembership as OrganizationMembership,
     type OrganizationsCursor as OrganizationsCursor,
     type OrganizationCreateParams as OrganizationCreateParams,
     type OrganizationUpdateParams as OrganizationUpdateParams,
