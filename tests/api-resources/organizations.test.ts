@@ -8,7 +8,7 @@ const client = new NirvanaLabs({
 });
 
 describe('resource organizations', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.organizations.create({ name: 'My Organization' });
     const rawResponse = await responsePromise.asResponse();
@@ -20,12 +20,12 @@ describe('resource organizations', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.organizations.create({ name: 'My Organization' });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('update', async () => {
     const responsePromise = client.organizations.update('organization_id', {});
     const rawResponse = await responsePromise.asResponse();
@@ -37,7 +37,7 @@ describe('resource organizations', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('list', async () => {
     const responsePromise = client.organizations.list();
     const rawResponse = await responsePromise.asResponse();
@@ -49,7 +49,7 @@ describe('resource organizations', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
@@ -57,7 +57,7 @@ describe('resource organizations', () => {
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get', async () => {
     const responsePromise = client.organizations.get('organization_id');
     const rawResponse = await responsePromise.asResponse();

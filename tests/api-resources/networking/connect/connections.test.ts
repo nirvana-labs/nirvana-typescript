@@ -8,7 +8,7 @@ const client = new NirvanaLabs({
 });
 
 describe('resource connections', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.networking.connect.connections.create({
       bandwidth_mbps: 50,
@@ -27,7 +27,7 @@ describe('resource connections', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.networking.connect.connections.create({
       bandwidth_mbps: 50,
@@ -41,7 +41,7 @@ describe('resource connections', () => {
     });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('update', async () => {
     const responsePromise = client.networking.connect.connections.update('connection_id', {});
     const rawResponse = await responsePromise.asResponse();
@@ -53,7 +53,7 @@ describe('resource connections', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('list: only required params', async () => {
     const responsePromise = client.networking.connect.connections.list({ project_id: 'project_id' });
     const rawResponse = await responsePromise.asResponse();
@@ -65,7 +65,7 @@ describe('resource connections', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('list: required and optional params', async () => {
     const response = await client.networking.connect.connections.list({
       project_id: 'project_id',
@@ -74,7 +74,7 @@ describe('resource connections', () => {
     });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('delete', async () => {
     const responsePromise = client.networking.connect.connections.delete('connection_id');
     const rawResponse = await responsePromise.asResponse();
@@ -86,7 +86,7 @@ describe('resource connections', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get', async () => {
     const responsePromise = client.networking.connect.connections.get('connection_id');
     const rawResponse = await responsePromise.asResponse();

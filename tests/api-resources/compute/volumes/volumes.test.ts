@@ -8,7 +8,7 @@ const client = new NirvanaLabs({
 });
 
 describe('resource volumes', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.compute.volumes.create({
       name: 'my-data-volume',
@@ -26,7 +26,7 @@ describe('resource volumes', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.compute.volumes.create({
       name: 'my-data-volume',
@@ -39,7 +39,7 @@ describe('resource volumes', () => {
     });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('update', async () => {
     const responsePromise = client.compute.volumes.update('volume_id', {});
     const rawResponse = await responsePromise.asResponse();
@@ -51,7 +51,7 @@ describe('resource volumes', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('list: only required params', async () => {
     const responsePromise = client.compute.volumes.list({ project_id: 'project_id' });
     const rawResponse = await responsePromise.asResponse();
@@ -63,7 +63,7 @@ describe('resource volumes', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('list: required and optional params', async () => {
     const response = await client.compute.volumes.list({
       project_id: 'project_id',
@@ -72,7 +72,7 @@ describe('resource volumes', () => {
     });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('delete', async () => {
     const responsePromise = client.compute.volumes.delete('volume_id');
     const rawResponse = await responsePromise.asResponse();
@@ -84,7 +84,7 @@ describe('resource volumes', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('attach: only required params', async () => {
     const responsePromise = client.compute.volumes.attach('volume_id', {
       vm_id: '123e4567-e89b-12d3-a456-426614174000',
@@ -98,14 +98,14 @@ describe('resource volumes', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('attach: required and optional params', async () => {
     const response = await client.compute.volumes.attach('volume_id', {
       vm_id: '123e4567-e89b-12d3-a456-426614174000',
     });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('detach', async () => {
     const responsePromise = client.compute.volumes.detach('volume_id');
     const rawResponse = await responsePromise.asResponse();
@@ -117,7 +117,7 @@ describe('resource volumes', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get', async () => {
     const responsePromise = client.compute.volumes.get('volume_id');
     const rawResponse = await responsePromise.asResponse();
