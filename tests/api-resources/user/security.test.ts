@@ -8,7 +8,7 @@ const client = new NirvanaLabs({
 });
 
 describe('resource security', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('update', async () => {
     const responsePromise = client.user.security.update({});
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource security', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get', async () => {
     const responsePromise = client.user.security.get();
     const rawResponse = await responsePromise.asResponse();

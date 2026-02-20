@@ -8,7 +8,7 @@ const client = new NirvanaLabs({
 });
 
 describe('resource dedicated', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('list: only required params', async () => {
     const responsePromise = client.rpcNodes.dedicated.list({ project_id: 'project_id' });
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource dedicated', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('list: required and optional params', async () => {
     const response = await client.rpcNodes.dedicated.list({
       project_id: 'project_id',
@@ -29,7 +29,7 @@ describe('resource dedicated', () => {
     });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get', async () => {
     const responsePromise = client.rpcNodes.dedicated.get('node_id');
     const rawResponse = await responsePromise.asResponse();
