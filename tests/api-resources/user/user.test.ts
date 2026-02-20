@@ -8,7 +8,7 @@ const client = new NirvanaLabs({
 });
 
 describe('resource user', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get', async () => {
     const responsePromise = client.user.get();
     const rawResponse = await responsePromise.asResponse();

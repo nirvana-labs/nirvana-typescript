@@ -8,7 +8,7 @@ const client = new NirvanaLabs({
 });
 
 describe('resource vpcs', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.networking.vpcs.create({
       name: 'my-vpc',
@@ -25,7 +25,7 @@ describe('resource vpcs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.networking.vpcs.create({
       name: 'my-vpc',
@@ -36,7 +36,7 @@ describe('resource vpcs', () => {
     });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('update', async () => {
     const responsePromise = client.networking.vpcs.update('vpc_id', {});
     const rawResponse = await responsePromise.asResponse();
@@ -48,7 +48,7 @@ describe('resource vpcs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('list: only required params', async () => {
     const responsePromise = client.networking.vpcs.list({ project_id: 'project_id' });
     const rawResponse = await responsePromise.asResponse();
@@ -60,7 +60,7 @@ describe('resource vpcs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('list: required and optional params', async () => {
     const response = await client.networking.vpcs.list({
       project_id: 'project_id',
@@ -69,7 +69,7 @@ describe('resource vpcs', () => {
     });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('delete', async () => {
     const responsePromise = client.networking.vpcs.delete('vpc_id');
     const rawResponse = await responsePromise.asResponse();
@@ -81,7 +81,7 @@ describe('resource vpcs', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get', async () => {
     const responsePromise = client.networking.vpcs.get('vpc_id');
     const rawResponse = await responsePromise.asResponse();

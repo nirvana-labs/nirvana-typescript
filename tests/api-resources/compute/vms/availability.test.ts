@@ -8,7 +8,7 @@ const client = new NirvanaLabs({
 });
 
 describe('resource availability', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.compute.vms.availability.create({
       boot_volume: { size: 100, type: 'abs' },
@@ -33,7 +33,7 @@ describe('resource availability', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.compute.vms.availability.create({
       boot_volume: {
@@ -64,7 +64,7 @@ describe('resource availability', () => {
     });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('update', async () => {
     const responsePromise = client.compute.vms.availability.update('vm_id', {});
     const rawResponse = await responsePromise.asResponse();

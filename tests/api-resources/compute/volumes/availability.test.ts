@@ -8,7 +8,7 @@ const client = new NirvanaLabs({
 });
 
 describe('resource availability', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.compute.volumes.availability.create({
       name: 'my-data-volume',
@@ -26,7 +26,7 @@ describe('resource availability', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.compute.volumes.availability.create({
       name: 'my-data-volume',
@@ -39,7 +39,7 @@ describe('resource availability', () => {
     });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('update', async () => {
     const responsePromise = client.compute.volumes.availability.update('volume_id', {});
     const rawResponse = await responsePromise.asResponse();

@@ -8,7 +8,7 @@ const client = new NirvanaLabs({
 });
 
 describe('resource apiKeys', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.apiKeys.create({ expires_at: '2025-12-31T23:59:59Z', name: 'My API Key' });
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource apiKeys', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.apiKeys.create({
       expires_at: '2025-12-31T23:59:59Z',
@@ -31,7 +31,7 @@ describe('resource apiKeys', () => {
     });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('update', async () => {
     const responsePromise = client.apiKeys.update('api_key_id', {});
     const rawResponse = await responsePromise.asResponse();
@@ -43,7 +43,7 @@ describe('resource apiKeys', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('list', async () => {
     const responsePromise = client.apiKeys.list();
     const rawResponse = await responsePromise.asResponse();
@@ -55,7 +55,7 @@ describe('resource apiKeys', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
@@ -63,7 +63,7 @@ describe('resource apiKeys', () => {
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('delete', async () => {
     const responsePromise = client.apiKeys.delete('api_key_id');
     const rawResponse = await responsePromise.asResponse();
@@ -75,7 +75,7 @@ describe('resource apiKeys', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get', async () => {
     const responsePromise = client.apiKeys.get('api_key_id');
     const rawResponse = await responsePromise.asResponse();
