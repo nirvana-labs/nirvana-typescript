@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.48.1 (2026-02-20)
+
+Full Changelog: [v1.48.0...v1.48.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.48.0...v1.48.1)
+
+### Bug Fixes
+
+* **mcp:** initialize SDK lazily to avoid failing the connection on init errors ([04ea71c](https://github.com/nirvana-labs/nirvana-typescript/commit/04ea71c470e57dc478c181f7c0802a681d7b3fff))
+
+
+### Chores
+
+* **internal:** remove mock server code ([9c8c72a](https://github.com/nirvana-labs/nirvana-typescript/commit/9c8c72a83fa9f975dd8e2ae99191afd875dd53a7))
+* **mcp:** correctly update version in sync with sdk ([675d088](https://github.com/nirvana-labs/nirvana-typescript/commit/675d0887cb1302a942d3513a2f75f8fccaacbbf9))
+* update mock server docs ([3c8bab4](https://github.com/nirvana-labs/nirvana-typescript/commit/3c8bab46a31fed0b5d91df81b0a3bbb1fa728ba9))
+
 ## 1.48.0 (2026-02-19)
 
 Full Changelog: [v1.47.1...v1.48.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.47.1...v1.48.0)
