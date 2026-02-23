@@ -100,6 +100,11 @@ export interface Organization {
   name: string;
 
   /**
+   * Services that the Organization has access to.
+   */
+  services: Organization.Services;
+
+  /**
    * When the Organization was updated.
    */
   updated_at: string;
@@ -108,6 +113,15 @@ export interface Organization {
    * Authentication provider organization ID.
    */
   auth_id?: string;
+}
+
+export namespace Organization {
+  /**
+   * Services that the Organization has access to.
+   */
+  export interface Services {
+    cloud?: boolean;
+  }
 }
 
 export interface OrganizationList {
