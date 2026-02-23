@@ -40,20 +40,6 @@ export interface User {
    * Last name of the user.
    */
   last_name: string | null;
-
-  /**
-   * Services that the User has access to.
-   */
-  services: User.Services;
-}
-
-export namespace User {
-  /**
-   * Services that the User has access to.
-   */
-  export interface Services {
-    cloud?: boolean;
-  }
 }
 
 UserResource.Security = Security;
