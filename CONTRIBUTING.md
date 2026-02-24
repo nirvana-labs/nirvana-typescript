@@ -60,7 +60,7 @@ $ yarn link @nirvana-labs/nirvana
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global @nirvana-labs/nirvana
+$ pnpm link --global @nirvana-labs/nirvana
 ```
 
 ## Running tests
