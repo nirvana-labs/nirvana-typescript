@@ -100,6 +100,11 @@ export interface Organization {
   name: string;
 
   /**
+   * Whether the organization is a personal Organization.
+   */
+  personal: boolean;
+
+  /**
    * Services that the Organization has access to.
    */
   services: Services;
