@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.50.1 (2026-02-24)
+
+Full Changelog: [v1.50.0...v1.50.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.50.0...v1.50.1)
+
+### Bug Fixes
+
+* **docs/contributing:** correct pnpm link command ([d93f935](https://github.com/nirvana-labs/nirvana-typescript/commit/d93f935f8cf93285b41ce89e9f9dc25ce32361c4))
+
+
+### Chores
+
+* **internal:** update agents version ([9d6e6db](https://github.com/nirvana-labs/nirvana-typescript/commit/9d6e6db14302c307cc20b9a038da5603d39b0ec0))
+* **internal:** upgrade @modelcontextprotocol/sdk and hono ([591df99](https://github.com/nirvana-labs/nirvana-typescript/commit/591df99b0a21c5dd191d0bc6d0f16e7686d181a4))
+* **internal:** upgrade pnpm version ([8c83af3](https://github.com/nirvana-labs/nirvana-typescript/commit/8c83af3c33ddb98cadac839bca8139dc8606af7e))
+
 ## 1.50.0 (2026-02-24)
 
 Full Changelog: [v1.49.0...v1.50.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.49.0...v1.50.0)
