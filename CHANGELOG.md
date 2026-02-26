@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.51.0 (2026-02-26)
+
+Full Changelog: [v1.50.1...v1.51.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.50.1...v1.51.0)
+
+### Features
+
+* **api:** api update ([9e83acc](https://github.com/nirvana-labs/nirvana-typescript/commit/9e83acc9b0964504f4763ae145cafc204f1bfbcd))
+* **api:** api update ([e5d6f95](https://github.com/nirvana-labs/nirvana-typescript/commit/e5d6f95a97d11328633cd58c7614cecfb440096e))
+
+
+### Chores
+
+* **internal:** codegen related update ([2b80ee7](https://github.com/nirvana-labs/nirvana-typescript/commit/2b80ee773eb80b701e976b959f7448407e8caa7f))
+* **internal:** make MCP code execution location configurable via a flag ([dc6dff2](https://github.com/nirvana-labs/nirvana-typescript/commit/dc6dff21593ada59fdc0edba739a4dddf06b91f5))
+
 ## 1.50.1 (2026-02-24)
 
 Full Changelog: [v1.50.0...v1.50.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.50.0...v1.50.1)
