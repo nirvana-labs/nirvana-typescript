@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.51.1 (2026-02-26)
+
+Full Changelog: [v1.51.0...v1.51.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.51.0...v1.51.1)
+
+### Chores
+
+* **internal:** fix MCP Dockerfiles so they can be built without buildkit ([34c3105](https://github.com/nirvana-labs/nirvana-typescript/commit/34c3105caac4dc30ac14f55a0924192e14b9f716))
+* **internal:** fix MCP Dockerfiles so they can be built without buildkit ([89ccc05](https://github.com/nirvana-labs/nirvana-typescript/commit/89ccc05c4a88cf5236cb1d072f37b57602723709))
+
 ## 1.51.0 (2026-02-26)
 
 Full Changelog: [v1.50.1...v1.51.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.50.1...v1.51.0)
