@@ -4,6 +4,39 @@
   "clientClass": "NirvanaLabs",
   "methods": [
     {
+      "base": "organizations.auditLogs",
+      "name": "get",
+      "params": [
+        {
+          "type": "param",
+          "key": "audit_log_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ],
+      "oldParams": [
+        {
+          "type": "param",
+          "key": "organization_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "audit_log_id",
+          "location": "path"
+        },
+        {
+          "type": "options"
+        }
+      ]
+    },
+    {
       "base": "networking.firewallRules",
       "name": "update",
       "params": [
