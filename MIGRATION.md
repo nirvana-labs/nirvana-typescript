@@ -54,6 +54,7 @@ client.parents.children.retrieve('c_456', { parent_id: 'p_123' });
 
 This affects the following methods:
 
+- `client.organizations.auditLogs.get()`
 - `client.networking.firewallRules.update()`
 - `client.networking.firewallRules.delete()`
 - `client.networking.firewallRules.get()`
@@ -89,6 +90,7 @@ This affects the following methods:
 
 - `client.apiKeys.list()`
 - `client.organizations.list()`
+- `client.organizations.auditLogs.list()`
 - `client.projects.list()`
 - `client.regions.list()`
 - `client.compute.vms.volumes.list()`
