@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.52.0 (2026-02-27)
+
+Full Changelog: [v1.51.1...v1.52.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.51.1...v1.52.0)
+
+### Features
+
+* **mcp:** add an option to disable code tool ([ebac901](https://github.com/nirvana-labs/nirvana-typescript/commit/ebac9014432c62d4a48f807caa0e38285914fa67))
+
+
+### Bug Fixes
+
+* **mcp:** update prompt ([312a3b6](https://github.com/nirvana-labs/nirvana-typescript/commit/312a3b6d41b85f7cdaa37bdbd4fca62920d2322f))
+
+
+### Chores
+
+* **internal:** move stringifyQuery implementation to internal function ([977e90b](https://github.com/nirvana-labs/nirvana-typescript/commit/977e90bb148337c71090e4a266cfeb94e6542528))
+
 ## 1.51.1 (2026-02-26)
 
 Full Changelog: [v1.51.0...v1.51.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.51.0...v1.51.1)
