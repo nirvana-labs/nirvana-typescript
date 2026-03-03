@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.52.1 (2026-03-03)
+
+Full Changelog: [v1.52.0...v1.52.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.52.0...v1.52.1)
+
+### Chores
+
+* **internal:** codegen related update ([9ffd2c9](https://github.com/nirvana-labs/nirvana-typescript/commit/9ffd2c9dc0301fab0baf8eff6a379c6ef99ecb66))
+
 ## 1.52.0 (2026-02-27)
 
 Full Changelog: [v1.51.1...v1.52.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.51.1...v1.52.0)
