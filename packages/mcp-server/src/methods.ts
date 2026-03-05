@@ -95,16 +95,16 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/organizations/{organization_id}',
   },
   {
-    clientCallName: 'client.organizations.auditLogs.list',
-    fullyQualifiedName: 'organizations.auditLogs.list',
+    clientCallName: 'client.auditLogs.list',
+    fullyQualifiedName: 'auditLogs.list',
     httpMethod: 'get',
-    httpPath: '/v1/organizations/{organization_id}/audit_logs',
+    httpPath: '/v1/audit_logs',
   },
   {
-    clientCallName: 'client.organizations.auditLogs.get',
-    fullyQualifiedName: 'organizations.auditLogs.get',
+    clientCallName: 'client.auditLogs.get',
+    fullyQualifiedName: 'auditLogs.get',
     httpMethod: 'get',
-    httpPath: '/v1/organizations/{organization_id}/audit_logs/{audit_log_id}',
+    httpPath: '/v1/audit_logs/{audit_log_id}',
   },
   {
     clientCallName: 'client.projects.create',

@@ -2,16 +2,12 @@
 
 import { APIResource } from '../../core/resource';
 import * as Shared from '../shared';
-import * as AuditLogsAPI from './audit-logs';
-import { AuditLogGetParams, AuditLogListParams, AuditLogs } from './audit-logs';
 import { APIPromise } from '../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../core/pagination';
 import { RequestOptions } from '../../internal/request-options';
 import { path } from '../../internal/utils/path';
 
 export class Organizations extends APIResource {
-  auditLogs: AuditLogsAPI.AuditLogs = new AuditLogsAPI.AuditLogs(this._client);
-
   /**
    * Create a new organization
    *
@@ -238,8 +234,6 @@ export interface OrganizationUpdateParams {
 
 export interface OrganizationListParams extends CursorParams {}
 
-Organizations.AuditLogs = AuditLogs;
-
 export declare namespace Organizations {
   export {
     type AuditLog as AuditLog,
@@ -253,11 +247,5 @@ export declare namespace Organizations {
     type OrganizationCreateParams as OrganizationCreateParams,
     type OrganizationUpdateParams as OrganizationUpdateParams,
     type OrganizationListParams as OrganizationListParams,
-  };
-
-  export {
-    AuditLogs as AuditLogs,
-    type AuditLogListParams as AuditLogListParams,
-    type AuditLogGetParams as AuditLogGetParams,
   };
 }
