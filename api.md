@@ -15,6 +15,8 @@ Types:
 
 # [Organizations](src/resources/organizations/api.md)
 
+# [AuditLogs](src/resources/audit-logs/api.md)
+
 # [Projects](src/resources/projects/api.md)
 
 # [Regions](src/resources/regions/api.md)
