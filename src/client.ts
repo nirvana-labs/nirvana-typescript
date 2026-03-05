@@ -20,6 +20,7 @@ import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
 import { APIKeys } from './resources/api-keys/api-keys';
+import { AuditLogs } from './resources/audit-logs/audit-logs';
 import { Compute } from './resources/compute/compute';
 import { Networking } from './resources/networking/networking';
 import { Operations } from './resources/operations/operations';
@@ -755,6 +756,7 @@ export class NirvanaLabs {
   apiKeys: API.APIKeys = new API.APIKeys(this);
   operations: API.Operations = new API.Operations(this);
   organizations: API.Organizations = new API.Organizations(this);
+  auditLogs: API.AuditLogs = new API.AuditLogs(this);
   projects: API.Projects = new API.Projects(this);
   regions: API.Regions = new API.Regions(this);
   compute: API.Compute = new API.Compute(this);
@@ -766,6 +768,7 @@ NirvanaLabs.UserResource = UserResource;
 NirvanaLabs.APIKeys = APIKeys;
 NirvanaLabs.Operations = Operations;
 NirvanaLabs.Organizations = Organizations;
+NirvanaLabs.AuditLogs = AuditLogs;
 NirvanaLabs.Projects = Projects;
 NirvanaLabs.Regions = Regions;
 NirvanaLabs.Compute = Compute;
@@ -785,6 +788,8 @@ export declare namespace NirvanaLabs {
   export { Operations as Operations };
 
   export { Organizations as Organizations };
+
+  export { AuditLogs as AuditLogs };
 
   export { Projects as Projects };
 

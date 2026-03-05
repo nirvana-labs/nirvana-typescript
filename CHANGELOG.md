@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.53.0 (2026-03-05)
+
+Full Changelog: [v1.52.1...v1.53.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.52.1...v1.53.0)
+
+### Features
+
+* **api:** api update ([7bffc2b](https://github.com/nirvana-labs/nirvana-typescript/commit/7bffc2bc3ade5aaa61b1a9531e620f4a25b237ec))
+
+
+### Chores
+
+* **internal:** use x-stainless-mcp-client-envs header for MCP remote code tool calls ([083df04](https://github.com/nirvana-labs/nirvana-typescript/commit/083df047520f4fc9a4b476c011d4363e71171e87))
+* **mcp-server:** return access instructions for 404 without API key ([e7db120](https://github.com/nirvana-labs/nirvana-typescript/commit/e7db120bde455acae083216f70cb4a711461f213))
+
 ## 1.52.1 (2026-03-03)
 
 Full Changelog: [v1.52.0...v1.52.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.52.0...v1.52.1)

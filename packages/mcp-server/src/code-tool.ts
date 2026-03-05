@@ -166,7 +166,7 @@ const remoteStainlessHandler = async ({
     headers: {
       ...(reqContext.stainlessApiKey && { Authorization: reqContext.stainlessApiKey }),
       'Content-Type': 'application/json',
-      client_envs: JSON.stringify({
+      'x-stainless-mcp-client-envs': JSON.stringify({
         NIRVANA_LABS_API_KEY: requireValue(
           readEnv('NIRVANA_LABS_API_KEY') ?? client.apiKey,
           'set NIRVANA_LABS_API_KEY environment variable or provide apiKey client option',
@@ -183,6 +183,11 @@ const remoteStainlessHandler = async ({
   });
 
   if (!res.ok) {
+    if (res.status === 404 && !reqContext.stainlessApiKey) {
+      throw new Error(
+        'Could not access code tool for this project. You may need to provide a Stainless API key via the STAINLESS_API_KEY environment variable, the --stainless-api-key flag, or the x-stainless-api-key HTTP header.',
+      );
+    }
     throw new Error(
       `${res.status}: ${
         res.statusText
