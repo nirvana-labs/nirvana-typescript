@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../core/resource';
-import * as VolumesVolumesAPI from '../volumes/volumes';
+import * as ComputeVolumesAPI from '../volumes/volumes';
 import { VolumesCursor } from '../volumes/volumes';
 import { Cursor, type CursorParams, PagePromise } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
@@ -25,8 +25,8 @@ export class Volumes extends APIResource {
     vmID: string,
     query: VolumeListParams | null | undefined = {},
     options?: RequestOptions,
-  ): PagePromise<VolumesCursor, VolumesVolumesAPI.Volume> {
-    return this._client.getAPIList(path`/v1/compute/vms/${vmID}/volumes`, Cursor<VolumesVolumesAPI.Volume>, {
+  ): PagePromise<VolumesCursor, ComputeVolumesAPI.Volume> {
+    return this._client.getAPIList(path`/v1/compute/vms/${vmID}/volumes`, Cursor<ComputeVolumesAPI.Volume>, {
       query,
       ...options,
     });
