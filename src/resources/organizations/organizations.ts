@@ -4,6 +4,7 @@ import { APIResource } from '../../core/resource';
 import * as Shared from '../shared';
 import { APIPromise } from '../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../core/pagination';
+import { buildHeaders } from '../../internal/headers';
 import { RequestOptions } from '../../internal/request-options';
 import { path } from '../../internal/utils/path';
 
@@ -71,76 +72,24 @@ export class Organizations extends APIResource {
   get(organizationID: string, options?: RequestOptions): APIPromise<Organization> {
     return this._client.get(path`/v1/organizations/${organizationID}`, options);
   }
+
+  /**
+   * Leave an Organization
+   *
+   * @example
+   * ```ts
+   * await client.organizations.leave('organization_id');
+   * ```
+   */
+  leave(organizationID: string, options?: RequestOptions): APIPromise<void> {
+    return this._client.post(path`/v1/organizations/${organizationID}/leave`, {
+      ...options,
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+    });
+  }
 }
 
 export type OrganizationsCursor = Cursor<Organization>;
-
-export type AuditLogsCursor = Cursor<AuditLog>;
-
-/**
- * Audit log entry.
- */
-export interface AuditLog {
-  /**
-   * Unique identifier for the audit log entry.
-   */
-  id: string;
-
-  /**
-   * The entity that performed the action.
-   */
-  actor: AuditLogActor;
-
-  /**
-   * Client IP address.
-   */
-  client_ip: string;
-
-  /**
-   * When the action occurred.
-   */
-  created_at: string;
-
-  /**
-   * HTTP method of the request.
-   */
-  method: string;
-
-  /**
-   * Request path.
-   */
-  path: string;
-
-  /**
-   * HTTP status code of the response.
-   */
-  status_code: number;
-
-  /**
-   * User agent string.
-   */
-  user_agent: string;
-}
-
-/**
- * The entity that performed the action.
- */
-export interface AuditLogActor {
-  /**
-   * Unique identifier for the actor.
-   */
-  id: string;
-
-  /**
-   * Type of actor.
-   */
-  type: AuditLogType;
-}
-
-/**
- * Type of actor.
- */
-export type AuditLogType = 'user' | 'api_key';
 
 /**
  * Organization response.
@@ -236,9 +185,6 @@ export interface OrganizationListParams extends CursorParams {}
 
 export declare namespace Organizations {
   export {
-    type AuditLog as AuditLog,
-    type AuditLogActor as AuditLogActor,
-    type AuditLogType as AuditLogType,
     type Organization as Organization,
     type OrganizationList as OrganizationList,
     type OrganizationMembership as OrganizationMembership,
