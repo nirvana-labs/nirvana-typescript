@@ -95,6 +95,12 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/organizations/{organization_id}',
   },
   {
+    clientCallName: 'client.organizations.leave',
+    fullyQualifiedName: 'organizations.leave',
+    httpMethod: 'post',
+    httpPath: '/v1/organizations/{organization_id}/leave',
+  },
+  {
     clientCallName: 'client.auditLogs.list',
     fullyQualifiedName: 'auditLogs.list',
     httpMethod: 'get',

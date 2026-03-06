@@ -2,8 +2,6 @@
 
 import { APIResource } from '../../core/resource';
 import * as Shared from '../shared';
-import * as OrganizationsAPI from '../organizations/organizations';
-import { AuditLogsCursor } from '../organizations/organizations';
 import { APIPromise } from '../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../core/pagination';
 import { RequestOptions } from '../../internal/request-options';
@@ -16,20 +14,19 @@ export class AuditLogs extends APIResource {
   list(
     query: AuditLogListParams | null | undefined = {},
     options?: RequestOptions,
-  ): PagePromise<AuditLogsCursor, OrganizationsAPI.AuditLog> {
-    return this._client.getAPIList('/v1/audit_logs', Cursor<OrganizationsAPI.AuditLog>, {
-      query,
-      ...options,
-    });
+  ): PagePromise<AuditLogsCursor, AuditLog> {
+    return this._client.getAPIList('/v1/audit_logs', Cursor<AuditLog>, { query, ...options });
   }
 
   /**
    * Get an Audit Log entry
    */
-  get(auditLogID: string, options?: RequestOptions): APIPromise<OrganizationsAPI.AuditLog> {
+  get(auditLogID: string, options?: RequestOptions): APIPromise<AuditLog> {
     return this._client.get(path`/v1/audit_logs/${auditLogID}`, options);
   }
 }
+
+export type AuditLogsCursor = Cursor<AuditLog>;
 
 /**
  * Audit log entry.
@@ -43,7 +40,7 @@ export interface AuditLog {
   /**
    * The entity that performed the action.
    */
-  actor: OrganizationsAPI.AuditLogActor;
+  actor: AuditLogActor;
 
   /**
    * Client IP address.
@@ -76,8 +73,23 @@ export interface AuditLog {
   user_agent: string;
 }
 
+/**
+ * The entity that performed the action.
+ */
+export interface AuditLogActor {
+  /**
+   * Unique identifier for the actor.
+   */
+  id: string;
+
+  /**
+   * Type of actor.
+   */
+  type: AuditLogType;
+}
+
 export interface AuditLogList {
-  items: Array<OrganizationsAPI.AuditLog>;
+  items: Array<AuditLog>;
 
   /**
    * Pagination response details.
@@ -85,14 +97,20 @@ export interface AuditLogList {
   pagination: Shared.Pagination;
 }
 
+/**
+ * Type of actor.
+ */
+export type AuditLogType = 'user' | 'api_key';
+
 export interface AuditLogListParams extends CursorParams {}
 
 export declare namespace AuditLogs {
   export {
     type AuditLog as AuditLog,
+    type AuditLogActor as AuditLogActor,
     type AuditLogList as AuditLogList,
+    type AuditLogType as AuditLogType,
+    type AuditLogsCursor as AuditLogsCursor,
     type AuditLogListParams as AuditLogListParams,
   };
 }
-
-export { type AuditLogsCursor };

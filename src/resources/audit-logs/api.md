@@ -3,7 +3,9 @@
 Types:
 
 - <code><a href="./src/resources/audit-logs.ts">AuditLog</a></code>
+- <code><a href="./src/resources/audit-logs.ts">AuditLogActor</a></code>
 - <code><a href="./src/resources/audit-logs.ts">AuditLogList</a></code>
+- <code><a href="./src/resources/audit-logs.ts">AuditLogType</a></code>
 
 Methods:
 
