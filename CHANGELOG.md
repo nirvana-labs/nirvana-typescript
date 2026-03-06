@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.53.1 (2026-03-06)
+
+Full Changelog: [v1.53.0...v1.53.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.53.0...v1.53.1)
+
+### Chores
+
+* **internal:** codegen related update ([8062690](https://github.com/nirvana-labs/nirvana-typescript/commit/8062690755dd70a03d9641d1f2d1478a6c346445))
+* **internal:** improve import alias names ([01df6bf](https://github.com/nirvana-labs/nirvana-typescript/commit/01df6bf7e364c21ff98dcf7cf790ee9d07a40d4a))
+
 ## 1.53.0 (2026-03-05)
 
 Full Changelog: [v1.52.1...v1.53.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.52.1...v1.53.0)
