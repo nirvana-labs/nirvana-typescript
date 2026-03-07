@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.54.1 (2026-03-07)
+
+Full Changelog: [v1.54.0...v1.54.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.54.0...v1.54.1)
+
+### Bug Fixes
+
+* **client:** preserve URL params already embedded in path ([e2e841d](https://github.com/nirvana-labs/nirvana-typescript/commit/e2e841d733960dcdd82f5b04ab562a370a05d833))
+
+
+### Chores
+
+* **ci:** skip uploading artifacts on stainless-internal branches ([b8d4c41](https://github.com/nirvana-labs/nirvana-typescript/commit/b8d4c41177b15b06effc82486885d16191a5f645))
+* **mcp-server:** improve instructions ([6af2120](https://github.com/nirvana-labs/nirvana-typescript/commit/6af2120a431982f7350a6f4634a3ff8950e34179))
+
 ## 1.54.0 (2026-03-06)
 
 Full Changelog: [v1.53.1...v1.54.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.53.1...v1.54.0)
