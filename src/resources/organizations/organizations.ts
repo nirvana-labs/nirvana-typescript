@@ -106,6 +106,11 @@ export interface Organization {
   created_at: string;
 
   /**
+   * Domains associated with the organization.
+   */
+  domains: Array<OrganizationDomain>;
+
+  /**
    * Current user's membership details.
    */
   membership: OrganizationMembership;
@@ -123,7 +128,7 @@ export interface Organization {
   /**
    * Services that the Organization has access to.
    */
-  services: Services;
+  services: Organization.Services;
 
   /**
    * When the Organization was updated.
@@ -134,6 +139,41 @@ export interface Organization {
    * Authentication provider organization ID.
    */
   auth_id?: string;
+}
+
+export namespace Organization {
+  /**
+   * Services that the Organization has access to.
+   */
+  export interface Services {
+    cloud: boolean;
+
+    scim: boolean;
+
+    siem: boolean;
+
+    sso: boolean;
+  }
+}
+
+/**
+ * Organization domain details.
+ */
+export interface OrganizationDomain {
+  /**
+   * Domain ID.
+   */
+  id: string;
+
+  /**
+   * Domain name.
+   */
+  domain: string;
+
+  /**
+   * Whether the domain has been verified.
+   */
+  verified: boolean;
 }
 
 export interface OrganizationList {
@@ -160,13 +200,6 @@ export interface OrganizationMembership {
   role: 'owner' | 'member';
 }
 
-/**
- * Services that the Organization has access to.
- */
-export interface Services {
-  cloud?: boolean;
-}
-
 export interface OrganizationCreateParams {
   /**
    * Organization name.
@@ -186,9 +219,9 @@ export interface OrganizationListParams extends CursorParams {}
 export declare namespace Organizations {
   export {
     type Organization as Organization,
+    type OrganizationDomain as OrganizationDomain,
     type OrganizationList as OrganizationList,
     type OrganizationMembership as OrganizationMembership,
-    type Services as Services,
     type OrganizationsCursor as OrganizationsCursor,
     type OrganizationCreateParams as OrganizationCreateParams,
     type OrganizationUpdateParams as OrganizationUpdateParams,

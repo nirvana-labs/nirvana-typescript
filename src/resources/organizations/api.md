@@ -3,9 +3,9 @@
 Types:
 
 - <code><a href="./src/resources/organizations.ts">Organization</a></code>
+- <code><a href="./src/resources/organizations.ts">OrganizationDomain</a></code>
 - <code><a href="./src/resources/organizations.ts">OrganizationList</a></code>
 - <code><a href="./src/resources/organizations.ts">OrganizationMembership</a></code>
-- <code><a href="./src/resources/organizations.ts">Services</a></code>
 
 Methods:
 
