@@ -128,7 +128,7 @@ export interface Organization {
   /**
    * Services that the Organization has access to.
    */
-  services: OrganizationServices;
+  services: Organization.Services;
 
   /**
    * When the Organization was updated.
@@ -139,6 +139,21 @@ export interface Organization {
    * Authentication provider organization ID.
    */
   auth_id?: string;
+}
+
+export namespace Organization {
+  /**
+   * Services that the Organization has access to.
+   */
+  export interface Services {
+    cloud: boolean;
+
+    scim: boolean;
+
+    siem: boolean;
+
+    sso: boolean;
+  }
 }
 
 /**
@@ -185,19 +200,6 @@ export interface OrganizationMembership {
   role: 'owner' | 'member';
 }
 
-/**
- * Services that the Organization has access to.
- */
-export interface OrganizationServices {
-  cloud: boolean;
-
-  scim: boolean;
-
-  siem: boolean;
-
-  sso: boolean;
-}
-
 export interface OrganizationCreateParams {
   /**
    * Organization name.
@@ -220,7 +222,6 @@ export declare namespace Organizations {
     type OrganizationDomain as OrganizationDomain,
     type OrganizationList as OrganizationList,
     type OrganizationMembership as OrganizationMembership,
-    type OrganizationServices as OrganizationServices,
     type OrganizationsCursor as OrganizationsCursor,
     type OrganizationCreateParams as OrganizationCreateParams,
     type OrganizationUpdateParams as OrganizationUpdateParams,
