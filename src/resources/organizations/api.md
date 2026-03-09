@@ -6,6 +6,7 @@ Types:
 - <code><a href="./src/resources/organizations.ts">OrganizationDomain</a></code>
 - <code><a href="./src/resources/organizations.ts">OrganizationList</a></code>
 - <code><a href="./src/resources/organizations.ts">OrganizationMembership</a></code>
+- <code><a href="./src/resources/organizations.ts">OrganizationServices</a></code>
 
 Methods:
 
