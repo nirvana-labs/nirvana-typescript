@@ -108,7 +108,7 @@ export interface Organization {
   /**
    * Domains associated with the organization.
    */
-  domains: Array<Organization.Domain>;
+  domains: Array<OrganizationDomain>;
 
   /**
    * Current user's membership details.
@@ -141,26 +141,24 @@ export interface Organization {
   auth_id?: string;
 }
 
-export namespace Organization {
+/**
+ * Organization domain details.
+ */
+export interface OrganizationDomain {
   /**
-   * Organization domain details.
+   * Domain ID.
    */
-  export interface Domain {
-    /**
-     * Domain ID.
-     */
-    id: string;
+  id: string;
 
-    /**
-     * Domain name.
-     */
-    domain: string;
+  /**
+   * Domain name.
+   */
+  domain: string;
 
-    /**
-     * Whether the domain has been verified.
-     */
-    verified: boolean;
-  }
+  /**
+   * Whether the domain has been verified.
+   */
+  verified: boolean;
 }
 
 export interface OrganizationList {
@@ -219,6 +217,7 @@ export interface OrganizationListParams extends CursorParams {}
 export declare namespace Organizations {
   export {
     type Organization as Organization,
+    type OrganizationDomain as OrganizationDomain,
     type OrganizationList as OrganizationList,
     type OrganizationMembership as OrganizationMembership,
     type Services as Services,
