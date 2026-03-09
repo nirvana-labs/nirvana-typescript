@@ -106,6 +106,11 @@ export interface Organization {
   created_at: string;
 
   /**
+   * Domains associated with the organization.
+   */
+  domains: Array<Organization.Domain>;
+
+  /**
    * Current user's membership details.
    */
   membership: OrganizationMembership;
@@ -134,6 +139,28 @@ export interface Organization {
    * Authentication provider organization ID.
    */
   auth_id?: string;
+}
+
+export namespace Organization {
+  /**
+   * Organization domain details.
+   */
+  export interface Domain {
+    /**
+     * Domain ID.
+     */
+    id: string;
+
+    /**
+     * Domain name.
+     */
+    domain: string;
+
+    /**
+     * Whether the domain has been verified.
+     */
+    verified: boolean;
+  }
 }
 
 export interface OrganizationList {
@@ -165,6 +192,12 @@ export interface OrganizationMembership {
  */
 export interface Services {
   cloud?: boolean;
+
+  scim?: boolean;
+
+  siem?: boolean;
+
+  sso?: boolean;
 }
 
 export interface OrganizationCreateParams {
