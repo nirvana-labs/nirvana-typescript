@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.55.2 (2026-03-10)
+
+Full Changelog: [v1.55.1...v1.55.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.55.1...v1.55.2)
+
+### Chores
+
+* **internal:** update dependencies to address dependabot vulnerabilities ([8dd458a](https://github.com/nirvana-labs/nirvana-typescript/commit/8dd458a58c0b2270d85430807c4554670dd4dd31))
+
 ## 1.55.1 (2026-03-09)
 
 Full Changelog: [v1.55.0...v1.55.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.55.0...v1.55.1)
