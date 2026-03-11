@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.55.3 (2026-03-11)
+
+Full Changelog: [v1.55.2...v1.55.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.55.2...v1.55.3)
+
+### Chores
+
+* **internal:** codegen related update ([2455699](https://github.com/nirvana-labs/nirvana-typescript/commit/2455699fac57ce5018b0a9f84bc951eabd07d6c2))
+* **internal:** codegen related update ([e09f8c8](https://github.com/nirvana-labs/nirvana-typescript/commit/e09f8c8c0b2adcbe72b34b4380a41ab6c5831918))
+* **internal:** codegen related update ([fd0a49e](https://github.com/nirvana-labs/nirvana-typescript/commit/fd0a49ece462a4596f32dd9d079fb3384255d9d2))
+* **internal:** codegen related update ([3b22e78](https://github.com/nirvana-labs/nirvana-typescript/commit/3b22e788e13804c342d634b8adda7f7f38d77885))
+* **internal:** codegen related update ([3b45f6d](https://github.com/nirvana-labs/nirvana-typescript/commit/3b45f6dc88ff3b61545f354238867db9f450d4b2))
+* **internal:** codegen related update ([0c5e5aa](https://github.com/nirvana-labs/nirvana-typescript/commit/0c5e5aaed80a29b44336247a6209f5b950a7b66b))
+* **internal:** codegen related update ([587a651](https://github.com/nirvana-labs/nirvana-typescript/commit/587a651d737a2d4d99cee2d85718880b2db38199))
+* **internal:** codegen related update ([44b7656](https://github.com/nirvana-labs/nirvana-typescript/commit/44b7656d452a6681e0a1191de15e52ca26d92a60))
+* **internal:** codegen related update ([1fcb642](https://github.com/nirvana-labs/nirvana-typescript/commit/1fcb64231635c93e13a0b70501c10a155a830d72))
+
+
+### Refactors
+
+* update sdk ([55d319e](https://github.com/nirvana-labs/nirvana-typescript/commit/55d319e98a88c4bb8de00dc4ca8e6010d19a0522))
+
 ## 1.55.2 (2026-03-10)
 
 Full Changelog: [v1.55.1...v1.55.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.55.1...v1.55.2)
