@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.55.4 (2026-03-14)
+
+Full Changelog: [v1.55.3...v1.55.4](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.55.3...v1.55.4)
+
+### Chores
+
+* **internal:** make generated MCP servers compatible with Cloudflare worker environments ([568bdeb](https://github.com/nirvana-labs/nirvana-typescript/commit/568bdeb2055bafdc0ae96178c395bc64c004af11))
+* **internal:** support x-stainless-mcp-client-envs header in MCP servers ([6ed9fce](https://github.com/nirvana-labs/nirvana-typescript/commit/6ed9fce0f9654a054a3f7ff1dadd07c3e17a1962))
+* **internal:** update lockfile ([25a784c](https://github.com/nirvana-labs/nirvana-typescript/commit/25a784cb1ee2074128ef54e95bc2ae04f5140954))
+
 ## 1.55.3 (2026-03-12)
 
 Full Changelog: [v1.55.2...v1.55.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.55.2...v1.55.3)
