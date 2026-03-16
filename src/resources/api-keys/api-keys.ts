@@ -17,6 +17,13 @@ export class APIKeys extends APIResource {
    * const apiKey = await client.apiKeys.create({
    *   expires_at: '2025-12-31T23:59:59Z',
    *   name: 'My API Key',
+   *   permissions: [
+   *     { permission: 'edit', resource_type: 'vm' },
+   *   ],
+   *   project_ids: [
+   *     '123e4567-e89b-12d3-a456-426614174000',
+   *     '123e4567-e89b-12d3-a456-426614174001',
+   *   ],
    * });
    * ```
    */
@@ -109,6 +116,16 @@ export interface APIKey {
   name: string;
 
   /**
+   * Scoped permissions for this API key.
+   */
+  permissions: Array<APIKeyPermission>;
+
+  /**
+   * Project IDs this API key is scoped to.
+   */
+  project_ids: Array<string>;
+
+  /**
    * IP filter rules.
    */
   source_ip_rule: APIKey.SourceIPRule;
@@ -165,6 +182,31 @@ export interface APIKeyList {
   pagination: Shared.Pagination;
 }
 
+/**
+ * API Key permission.
+ */
+export interface APIKeyPermission {
+  /**
+   * Permission level: "read" or "edit".
+   */
+  permission?: 'read' | 'edit';
+
+  /**
+   * Resource type this permission applies to.
+   */
+  resource_type?:
+    | 'vm'
+    | 'vpc'
+    | 'volume'
+    | 'connect_connection'
+    | 'rpc_node_dedicated'
+    | 'rpc_node_flex'
+    | 'nks_cluster'
+    | 'nks_worker_pool'
+    | 'project'
+    | 'api_key';
+}
+
 export interface APIKeyCreateParams {
   /**
    * When the API Key expires and is no longer valid.
@@ -175,6 +217,16 @@ export interface APIKeyCreateParams {
    * API Key name.
    */
   name: string;
+
+  /**
+   * Scoped permissions for this API key. At least one is required.
+   */
+  permissions: Array<APIKeyCreateParams.Permission>;
+
+  /**
+   * Project IDs this API key is scoped to. At least one is required.
+   */
+  project_ids: Array<string>;
 
   /**
    * IP filter rules.
@@ -192,11 +244,50 @@ export interface APIKeyCreateParams {
   tags?: Array<string>;
 }
 
+export namespace APIKeyCreateParams {
+  /**
+   * API Key permission request.
+   */
+  export interface Permission {
+    /**
+     * Permission level: "read" or "edit".
+     */
+    permission: 'read' | 'edit';
+
+    /**
+     * Resource type this permission applies to.
+     */
+    resource_type:
+      | 'vm'
+      | 'vpc'
+      | 'volume'
+      | 'connect_connection'
+      | 'rpc_node_dedicated'
+      | 'rpc_node_flex'
+      | 'nks_cluster'
+      | 'nks_worker_pool'
+      | 'project'
+      | 'api_key';
+  }
+}
+
 export interface APIKeyUpdateParams {
   /**
    * API Key name.
    */
   name?: string;
+
+  /**
+   * Scoped permissions for this API key. When provided, replaces the entire set. At
+   * least one is required.
+   */
+  permissions?: Array<APIKeyUpdateParams.Permission>;
+
+  /**
+   * Project IDs this API key is scoped to. When provided, replaces the entire set.
+   * At least one is required.
+   */
+  project_ids?: Array<string>;
 
   /**
    * IP filter rules.
@@ -209,12 +300,40 @@ export interface APIKeyUpdateParams {
   tags?: Array<string>;
 }
 
+export namespace APIKeyUpdateParams {
+  /**
+   * API Key permission request.
+   */
+  export interface Permission {
+    /**
+     * Permission level: "read" or "edit".
+     */
+    permission: 'read' | 'edit';
+
+    /**
+     * Resource type this permission applies to.
+     */
+    resource_type:
+      | 'vm'
+      | 'vpc'
+      | 'volume'
+      | 'connect_connection'
+      | 'rpc_node_dedicated'
+      | 'rpc_node_flex'
+      | 'nks_cluster'
+      | 'nks_worker_pool'
+      | 'project'
+      | 'api_key';
+  }
+}
+
 export interface APIKeyListParams extends CursorParams {}
 
 export declare namespace APIKeys {
   export {
     type APIKey as APIKey,
     type APIKeyList as APIKeyList,
+    type APIKeyPermission as APIKeyPermission,
     type APIKeysCursor as APIKeysCursor,
     type APIKeyCreateParams as APIKeyCreateParams,
     type APIKeyUpdateParams as APIKeyUpdateParams,
