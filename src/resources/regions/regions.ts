@@ -66,6 +66,11 @@ export interface Region {
   networking: Region.Networking;
 
   /**
+   * NKS products available in this region.
+   */
+  nks: Region.NKS;
+
+  /**
    * Storage products available in this region.
    */
   storage: Region.Storage;
@@ -95,6 +100,16 @@ export namespace Region {
      * VPCs indicates if Virtual Private Clouds are available.
      */
     vpcs: boolean;
+  }
+
+  /**
+   * NKS products available in this region.
+   */
+  export interface NKS {
+    /**
+     * Clusters indicates if NKS managed Kubernetes clusters are available.
+     */
+    clusters: boolean;
   }
 
   /**
