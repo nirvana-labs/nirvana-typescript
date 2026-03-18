@@ -23,6 +23,7 @@ import { APIKeys } from './resources/api-keys/api-keys';
 import { AuditLogs } from './resources/audit-logs/audit-logs';
 import { Compute } from './resources/compute/compute';
 import { Networking } from './resources/networking/networking';
+import { NKS } from './resources/nks/nks';
 import { Operations } from './resources/operations/operations';
 import { Organizations } from './resources/organizations/organizations';
 import { Projects } from './resources/projects/projects';
@@ -763,6 +764,7 @@ export class NirvanaLabs {
   compute: API.Compute = new API.Compute(this);
   networking: API.Networking = new API.Networking(this);
   rpcNodes: API.RPCNodes = new API.RPCNodes(this);
+  nks: API.NKS = new API.NKS(this);
 }
 
 NirvanaLabs.UserResource = UserResource;
@@ -775,6 +777,7 @@ NirvanaLabs.Regions = Regions;
 NirvanaLabs.Compute = Compute;
 NirvanaLabs.Networking = Networking;
 NirvanaLabs.RPCNodes = RPCNodes;
+NirvanaLabs.NKS = NKS;
 
 export declare namespace NirvanaLabs {
   export type RequestOptions = Opts.RequestOptions;
@@ -801,6 +804,8 @@ export declare namespace NirvanaLabs {
   export { Networking as Networking };
 
   export { RPCNodes as RPCNodes };
+
+  export { NKS as NKS };
 
   export type Pagination = API.Pagination;
   export type RegionName = API.RegionName;

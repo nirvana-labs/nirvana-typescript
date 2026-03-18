@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.56.0 (2026-03-18)
+
+Full Changelog: [v1.55.4...v1.56.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.55.4...v1.56.0)
+
+### Features
+
+* **api:** api update ([459cc06](https://github.com/nirvana-labs/nirvana-typescript/commit/459cc06ad8228b689f80d4a83cbd003203d4205c))
+* **api:** api update ([fe9207c](https://github.com/nirvana-labs/nirvana-typescript/commit/fe9207ccb140f8d68d21368dd8525b675b39dec8))
+* **api:** api update ([88fced2](https://github.com/nirvana-labs/nirvana-typescript/commit/88fced250a8dcd0cdf3591abe4815a0aa88c3e19))
+* **api:** api update ([ba74d8d](https://github.com/nirvana-labs/nirvana-typescript/commit/ba74d8d3053e8f74f80552a1418cd0ee3c872b6e))
+* **api:** api update ([43895d3](https://github.com/nirvana-labs/nirvana-typescript/commit/43895d3e7ff2c0d62496e220da615da50a3d2200))
+
+
+### Chores
+
+* **internal:** support x-stainless-mcp-client-permissions headers in MCP servers ([1d84459](https://github.com/nirvana-labs/nirvana-typescript/commit/1d84459a8d2c0ab8d3c1edbf2ef832016df65831))
+* **internal:** tweak CI branches ([8a465fb](https://github.com/nirvana-labs/nirvana-typescript/commit/8a465fbcf8980fd12b618d8d32293d7645aa8b66))
+
 ## 1.55.4 (2026-03-14)
 
 Full Changelog: [v1.55.3...v1.55.4](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.55.3...v1.55.4)

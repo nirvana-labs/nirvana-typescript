@@ -57,6 +57,14 @@ This affects the following methods:
 - `client.networking.firewallRules.update()`
 - `client.networking.firewallRules.delete()`
 - `client.networking.firewallRules.get()`
+- `client.nks.clusters.pools.update()`
+- `client.nks.clusters.pools.delete()`
+- `client.nks.clusters.pools.get()`
+- `client.nks.clusters.pools.availability.update()`
+- `client.nks.clusters.pools.nodes.list()`
+- `client.nks.clusters.pools.nodes.get()`
+- `client.nks.clusters.pools.nodes.volumes.list()`
+- `client.nks.clusters.pools.nodes.volumes.get()`
 
 ### URI encoded path parameters
 
@@ -98,6 +106,7 @@ This affects the following methods:
 - `client.networking.connect.routes.list()`
 - `client.rpcNodes.flex.blockchains.list()`
 - `client.rpcNodes.dedicated.blockchains.list()`
+- `client.nks.clusters.pools.list()`
 
 ### Removed `httpAgent` in favor of `fetchOptions`
 
