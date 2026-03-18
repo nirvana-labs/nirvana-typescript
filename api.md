@@ -26,3 +26,5 @@ Types:
 # [Networking](src/resources/networking/api.md)
 
 # [RPCNodes](src/resources/rpc-nodes/api.md)
+
+# [NKS](src/resources/nks/api.md)

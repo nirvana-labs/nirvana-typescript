@@ -7,10 +7,18 @@ const client = new NirvanaLabs({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource apiKeys', () => {
+describe('resource pools', () => {
   // Mock server tests are disabled
   test.skip('create: only required params', async () => {
-    const responsePromise = client.apiKeys.create({ expires_at: '2025-12-31T23:59:59Z', name: 'My API Key' });
+    const responsePromise = client.nks.clusters.pools.create('cluster_id', {
+      name: 'my-node-pool',
+      node_config: {
+        ram_gi: 8,
+        storage_gi: 100,
+        vcpu: 4,
+      },
+      node_count: 3,
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,18 +30,21 @@ describe('resource apiKeys', () => {
 
   // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
-    const response = await client.apiKeys.create({
-      expires_at: '2025-12-31T23:59:59Z',
-      name: 'My API Key',
-      source_ip_rule: { allowed: ['192.168.1.0/24', '10.0.0.0/8'], blocked: ['192.168.1.100/32'] },
-      starts_at: '2025-01-01T00:00:00Z',
+    const response = await client.nks.clusters.pools.create('cluster_id', {
+      name: 'my-node-pool',
+      node_config: {
+        ram_gi: 8,
+        storage_gi: 100,
+        vcpu: 4,
+      },
+      node_count: 3,
       tags: ['production', 'ethereum'],
     });
   });
 
   // Mock server tests are disabled
-  test.skip('update', async () => {
-    const responsePromise = client.apiKeys.update('api_key_id', {});
+  test.skip('update: only required params', async () => {
+    const responsePromise = client.nks.clusters.pools.update('pool_id', { cluster_id: 'cluster_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -44,8 +55,17 @@ describe('resource apiKeys', () => {
   });
 
   // Mock server tests are disabled
+  test.skip('update: required and optional params', async () => {
+    const response = await client.nks.clusters.pools.update('pool_id', {
+      cluster_id: 'cluster_id',
+      name: 'my-node-pool',
+      tags: ['production', 'ethereum'],
+    });
+  });
+
+  // Mock server tests are disabled
   test.skip('list', async () => {
-    const responsePromise = client.apiKeys.list();
+    const responsePromise = client.nks.clusters.pools.list('cluster_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -59,13 +79,17 @@ describe('resource apiKeys', () => {
   test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.apiKeys.list({ cursor: 'cursor', limit: 10 }, { path: '/_stainless_unknown_path' }),
+      client.nks.clusters.pools.list(
+        'cluster_id',
+        { cursor: 'cursor', limit: 10 },
+        { path: '/_stainless_unknown_path' },
+      ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
   });
 
   // Mock server tests are disabled
-  test.skip('delete', async () => {
-    const responsePromise = client.apiKeys.delete('api_key_id');
+  test.skip('delete: only required params', async () => {
+    const responsePromise = client.nks.clusters.pools.delete('pool_id', { cluster_id: 'cluster_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -76,8 +100,13 @@ describe('resource apiKeys', () => {
   });
 
   // Mock server tests are disabled
-  test.skip('get', async () => {
-    const responsePromise = client.apiKeys.get('api_key_id');
+  test.skip('delete: required and optional params', async () => {
+    const response = await client.nks.clusters.pools.delete('pool_id', { cluster_id: 'cluster_id' });
+  });
+
+  // Mock server tests are disabled
+  test.skip('get: only required params', async () => {
+    const responsePromise = client.nks.clusters.pools.get('pool_id', { cluster_id: 'cluster_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -85,5 +114,10 @@ describe('resource apiKeys', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Mock server tests are disabled
+  test.skip('get: required and optional params', async () => {
+    const response = await client.nks.clusters.pools.get('pool_id', { cluster_id: 'cluster_id' });
   });
 });
