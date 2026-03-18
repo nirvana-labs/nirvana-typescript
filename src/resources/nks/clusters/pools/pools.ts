@@ -177,11 +177,6 @@ export interface NKSNodePool {
   node_count: number;
 
   /**
-   * Project ID the node pool belongs to.
-   */
-  project_id: string;
-
-  /**
    * Status of the resource.
    */
   status: Shared.ResourceStatus;
