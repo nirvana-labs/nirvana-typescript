@@ -73,7 +73,7 @@ export interface Operation {
 /**
  * Kind of Operation.
  */
-export type OperationKind = 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_worker_pool';
+export type OperationKind = 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool';
 
 export interface OperationList {
   items: Array<Operation>;
