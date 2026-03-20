@@ -3,7 +3,10 @@
 Types:
 
 - <code><a href="./src/resources/projects.ts">Project</a></code>
+- <code><a href="./src/resources/projects.ts">ProjectBlockchainResources</a></code>
+- <code><a href="./src/resources/projects.ts">ProjectCloudResources</a></code>
 - <code><a href="./src/resources/projects.ts">ProjectList</a></code>
+- <code><a href="./src/resources/projects.ts">ProjectResources</a></code>
 
 Methods:
 

@@ -105,7 +105,7 @@ export interface Project {
   /**
    * Resource counts for the project.
    */
-  resources: Project.Resources;
+  resources: ProjectResources;
 
   /**
    * Tags attached to the Project.
@@ -118,78 +118,44 @@ export interface Project {
   updated_at: string;
 }
 
-export namespace Project {
+/**
+ * Blockchain resources.
+ */
+export interface ProjectBlockchainResources {
   /**
-   * Resource counts for the project.
+   * Number of dedicated RPC nodes in the project.
    */
-  export interface Resources {
-    /**
-     * Blockchain resources.
-     */
-    blockchain: Resources.Blockchain;
+  rpc_nodes_dedicated: number;
 
-    /**
-     * Cloud infrastructure resources.
-     */
-    cloud: Resources.Cloud;
+  /**
+   * Number of flex RPC nodes in the project.
+   */
+  rpc_nodes_flex: number;
+}
 
-    /**
-     * NKS resources.
-     */
-    nks: Resources.NKS;
-  }
+/**
+ * Cloud infrastructure resources.
+ */
+export interface ProjectCloudResources {
+  /**
+   * Number of Connect connections in the project.
+   */
+  connect_connections: number;
 
-  export namespace Resources {
-    /**
-     * Blockchain resources.
-     */
-    export interface Blockchain {
-      /**
-       * Number of dedicated RPC nodes in the project.
-       */
-      rpc_nodes_dedicated: number;
+  /**
+   * Number of VMs in the project.
+   */
+  vms: number;
 
-      /**
-       * Number of flex RPC nodes in the project.
-       */
-      rpc_nodes_flex: number;
-    }
+  /**
+   * Number of volumes in the project.
+   */
+  volumes: number;
 
-    /**
-     * Cloud infrastructure resources.
-     */
-    export interface Cloud {
-      /**
-       * Number of Connect connections in the project.
-       */
-      connect_connections: number;
-
-      /**
-       * Number of VMs in the project.
-       */
-      vms: number;
-
-      /**
-       * Number of volumes in the project.
-       */
-      volumes: number;
-
-      /**
-       * Number of VPCs in the project.
-       */
-      vpcs: number;
-    }
-
-    /**
-     * NKS resources.
-     */
-    export interface NKS {
-      /**
-       * Number of NKS clusters in the project.
-       */
-      clusters: number;
-    }
-  }
+  /**
+   * Number of VPCs in the project.
+   */
+  vpcs: number;
 }
 
 export interface ProjectList {
@@ -199,6 +165,38 @@ export interface ProjectList {
    * Pagination response details.
    */
   pagination: Shared.Pagination;
+}
+
+/**
+ * Resource counts for the project.
+ */
+export interface ProjectResources {
+  /**
+   * Blockchain resources.
+   */
+  blockchain: ProjectBlockchainResources;
+
+  /**
+   * Cloud infrastructure resources.
+   */
+  cloud: ProjectCloudResources;
+
+  /**
+   * NKS resources.
+   */
+  nks: ProjectResources.NKS;
+}
+
+export namespace ProjectResources {
+  /**
+   * NKS resources.
+   */
+  export interface NKS {
+    /**
+     * Number of NKS clusters in the project.
+     */
+    clusters: number;
+  }
 }
 
 export interface ProjectCreateParams {
@@ -230,7 +228,10 @@ export interface ProjectListParams extends CursorParams {}
 export declare namespace Projects {
   export {
     type Project as Project,
+    type ProjectBlockchainResources as ProjectBlockchainResources,
+    type ProjectCloudResources as ProjectCloudResources,
     type ProjectList as ProjectList,
+    type ProjectResources as ProjectResources,
     type ProjectsCursor as ProjectsCursor,
     type ProjectCreateParams as ProjectCreateParams,
     type ProjectUpdateParams as ProjectUpdateParams,
