@@ -4,6 +4,9 @@ Types:
 
 - <code><a href="./src/resources/api-keys.ts">APIKey</a></code>
 - <code><a href="./src/resources/api-keys.ts">APIKeyList</a></code>
+- <code><a href="./src/resources/api-keys.ts">APIKeyPermission</a></code>
+- <code><a href="./src/resources/api-keys.ts">APIPermissionLevel</a></code>
+- <code><a href="./src/resources/api-keys.ts">APIPermissionResourceType</a></code>
 
 Methods:
 
