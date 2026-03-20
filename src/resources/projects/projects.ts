@@ -132,6 +132,11 @@ export namespace Project {
      * Cloud infrastructure resources.
      */
     cloud: Resources.Cloud;
+
+    /**
+     * NKS resources.
+     */
+    nks: Resources.NKS;
   }
 
   export namespace Resources {
@@ -173,6 +178,16 @@ export namespace Project {
        * Number of VPCs in the project.
        */
       vpcs: number;
+    }
+
+    /**
+     * NKS resources.
+     */
+    export interface NKS {
+      /**
+       * Number of NKS clusters in the project.
+       */
+      clusters: number;
     }
   }
 }
