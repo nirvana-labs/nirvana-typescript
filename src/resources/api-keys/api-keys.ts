@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../core/resource';
+import * as APIKeysAPI from './api-keys';
 import * as Shared from '../shared';
 import { APIPromise } from '../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../core/pagination';
@@ -118,7 +119,7 @@ export interface APIKey {
   /**
    * Scoped permissions for this API key.
    */
-  permissions: Array<APIKey.Permission>;
+  permissions: Array<APIKeyPermission>;
 
   /**
    * Project IDs this API key is scoped to.
@@ -156,33 +157,6 @@ export interface APIKey {
   starts_at?: string;
 }
 
-export namespace APIKey {
-  /**
-   * API Key permission.
-   */
-  export interface Permission {
-    /**
-     * Permission level: "read" or "edit".
-     */
-    permission: 'read' | 'edit';
-
-    /**
-     * Resource type this permission applies to.
-     */
-    resource_type:
-      | 'vm'
-      | 'vpc'
-      | 'volume'
-      | 'connect_connection'
-      | 'rpc_node_dedicated'
-      | 'rpc_node_flex'
-      | 'nks_cluster'
-      | 'nks_node_pool'
-      | 'project'
-      | 'api_key';
-  }
-}
-
 export interface APIKeyList {
   items: Array<APIKey>;
 
@@ -191,6 +165,41 @@ export interface APIKeyList {
    */
   pagination: Shared.Pagination;
 }
+
+/**
+ * API Key permission.
+ */
+export interface APIKeyPermission {
+  /**
+   * Permission level: "read" or "edit".
+   */
+  permission: APIPermissionLevel;
+
+  /**
+   * Resource type this permission applies to.
+   */
+  resource_type: APIPermissionResourceType;
+}
+
+/**
+ * Permission level: "read" or "edit".
+ */
+export type APIPermissionLevel = 'read' | 'edit';
+
+/**
+ * Resource type this permission applies to.
+ */
+export type APIPermissionResourceType =
+  | 'vm'
+  | 'vpc'
+  | 'volume'
+  | 'connect_connection'
+  | 'rpc_node_dedicated'
+  | 'rpc_node_flex'
+  | 'nks_cluster'
+  | 'nks_node_pool'
+  | 'project'
+  | 'api_key';
 
 export interface APIKeyCreateParams {
   /**
@@ -237,22 +246,12 @@ export namespace APIKeyCreateParams {
     /**
      * Permission level: "read" or "edit".
      */
-    permission: 'read' | 'edit';
+    permission: APIKeysAPI.APIPermissionLevel;
 
     /**
      * Resource type this permission applies to.
      */
-    resource_type:
-      | 'vm'
-      | 'vpc'
-      | 'volume'
-      | 'connect_connection'
-      | 'rpc_node_dedicated'
-      | 'rpc_node_flex'
-      | 'nks_cluster'
-      | 'nks_node_pool'
-      | 'project'
-      | 'api_key';
+    resource_type: APIKeysAPI.APIPermissionResourceType;
   }
 }
 
@@ -293,22 +292,12 @@ export namespace APIKeyUpdateParams {
     /**
      * Permission level: "read" or "edit".
      */
-    permission: 'read' | 'edit';
+    permission: APIKeysAPI.APIPermissionLevel;
 
     /**
      * Resource type this permission applies to.
      */
-    resource_type:
-      | 'vm'
-      | 'vpc'
-      | 'volume'
-      | 'connect_connection'
-      | 'rpc_node_dedicated'
-      | 'rpc_node_flex'
-      | 'nks_cluster'
-      | 'nks_node_pool'
-      | 'project'
-      | 'api_key';
+    resource_type: APIKeysAPI.APIPermissionResourceType;
   }
 }
 
@@ -318,6 +307,9 @@ export declare namespace APIKeys {
   export {
     type APIKey as APIKey,
     type APIKeyList as APIKeyList,
+    type APIKeyPermission as APIKeyPermission,
+    type APIPermissionLevel as APIPermissionLevel,
+    type APIPermissionResourceType as APIPermissionResourceType,
     type APIKeysCursor as APIKeysCursor,
     type APIKeyCreateParams as APIKeyCreateParams,
     type APIKeyUpdateParams as APIKeyUpdateParams,
