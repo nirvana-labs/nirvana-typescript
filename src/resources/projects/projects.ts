@@ -143,6 +143,16 @@ export interface ProjectCloudResources {
   connect_connections: number;
 
   /**
+   * Number of NKS clusters in the project.
+   */
+  nks_clusters: number;
+
+  /**
+   * Number of NKS node pools in the project.
+   */
+  nks_node_pools: number;
+
+  /**
    * Number of VMs in the project.
    */
   vms: number;
@@ -180,23 +190,6 @@ export interface ProjectResources {
    * Cloud infrastructure resources.
    */
   cloud: ProjectCloudResources;
-
-  /**
-   * NKS resources.
-   */
-  nks: ProjectResources.NKS;
-}
-
-export namespace ProjectResources {
-  /**
-   * NKS resources.
-   */
-  export interface NKS {
-    /**
-     * Number of NKS clusters in the project.
-     */
-    clusters: number;
-  }
 }
 
 export interface ProjectCreateParams {
