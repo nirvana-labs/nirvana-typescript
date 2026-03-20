@@ -14,6 +14,7 @@ export {
 export {
   Pools,
   type NKSNodeConfig,
+  type NKSNodeConfigResponse,
   type NKSNodePool,
   type NKSNodePoolList,
   type PoolCreateParams,

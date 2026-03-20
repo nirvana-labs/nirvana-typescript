@@ -35,3 +35,18 @@ export interface SourceIPRule {
    */
   blocked?: Array<string>;
 }
+
+/**
+ * IP filter rules.
+ */
+export interface SourceIPRuleResponse {
+  /**
+   * List of IPv4 CIDR addresses to allow.
+   */
+  allowed: Array<string>;
+
+  /**
+   * List of IPv4 CIDR addresses to deny.
+   */
+  blocked: Array<string>;
+}

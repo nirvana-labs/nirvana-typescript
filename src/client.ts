@@ -811,4 +811,5 @@ export declare namespace NirvanaLabs {
   export type RegionName = API.RegionName;
   export type ResourceStatus = API.ResourceStatus;
   export type SourceIPRule = API.SourceIPRule;
+  export type SourceIPRuleResponse = API.SourceIPRuleResponse;
 }
