@@ -14,14 +14,7 @@ export interface Pagination {
 /**
  * Region the resource is in.
  */
-export type RegionName =
-  | 'us-sea-1'
-  | 'us-sva-1'
-  | 'us-sva-2'
-  | 'us-chi-1'
-  | 'us-wdc-1'
-  | 'eu-frk-1'
-  | 'ap-sin-1';
+export type RegionName = 'us-sea-1' | 'us-sva-1' | 'us-sva-2' | 'us-chi-1' | 'us-wdc-1';
 
 /**
  * Status of the resource.
