@@ -143,6 +143,26 @@ export interface NKSNodeConfig {
 }
 
 /**
+ * Node configuration.
+ */
+export interface NKSNodeConfigResponse {
+  /**
+   * RAM size in GiB per node.
+   */
+  ram_gi: number;
+
+  /**
+   * Storage size in GiB per node.
+   */
+  storage_gi: number;
+
+  /**
+   * Number of virtual CPUs per node.
+   */
+  vcpu: number;
+}
+
+/**
  * NKS node pool details.
  */
 export interface NKSNodePool {
@@ -169,7 +189,7 @@ export interface NKSNodePool {
   /**
    * Node configuration.
    */
-  node_config: NKSNodePool.NodeConfig;
+  node_config: NKSNodeConfigResponse;
 
   /**
    * Number of nodes.
@@ -190,28 +210,6 @@ export interface NKSNodePool {
    * When the node pool was last updated.
    */
   updated_at: string;
-}
-
-export namespace NKSNodePool {
-  /**
-   * Node configuration.
-   */
-  export interface NodeConfig {
-    /**
-     * RAM size in GiB per node.
-     */
-    ram_gi: number;
-
-    /**
-     * Storage size in GiB per node.
-     */
-    storage_gi: number;
-
-    /**
-     * Number of virtual CPUs per node.
-     */
-    vcpu: number;
-  }
 }
 
 export interface NKSNodePoolList {
@@ -284,6 +282,7 @@ Pools.Nodes = Nodes;
 export declare namespace Pools {
   export {
     type NKSNodeConfig as NKSNodeConfig,
+    type NKSNodeConfigResponse as NKSNodeConfigResponse,
     type NKSNodePool as NKSNodePool,
     type NKSNodePoolList as NKSNodePoolList,
     type NKSNodePoolsCursor as NKSNodePoolsCursor,
