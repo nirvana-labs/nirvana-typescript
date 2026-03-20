@@ -28,7 +28,7 @@ export interface UserSecurity {
   /**
    * IP filter rules.
    */
-  source_ip_rule: UserSecurity.SourceIPRule;
+  source_ip_rule: Shared.SourceIPRuleResponse;
 
   /**
    * When the user security settings were created.
@@ -39,23 +39,6 @@ export interface UserSecurity {
    * When the user security settings were updated.
    */
   updated_at?: string;
-}
-
-export namespace UserSecurity {
-  /**
-   * IP filter rules.
-   */
-  export interface SourceIPRule {
-    /**
-     * List of IPv4 CIDR addresses to allow.
-     */
-    allowed: Array<string>;
-
-    /**
-     * List of IPv4 CIDR addresses to deny.
-     */
-    blocked: Array<string>;
-  }
 }
 
 export interface SecurityUpdateParams {

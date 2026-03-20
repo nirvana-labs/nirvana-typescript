@@ -111,7 +111,7 @@ export interface APIKey {
   /**
    * IP filter rules.
    */
-  source_ip_rule: APIKey.SourceIPRule;
+  source_ip_rule: Shared.SourceIPRuleResponse;
 
   /**
    * Status of the API Key.
@@ -137,23 +137,6 @@ export interface APIKey {
    * When the API Key starts to be valid.
    */
   starts_at?: string;
-}
-
-export namespace APIKey {
-  /**
-   * IP filter rules.
-   */
-  export interface SourceIPRule {
-    /**
-     * List of IPv4 CIDR addresses to allow.
-     */
-    allowed: Array<string>;
-
-    /**
-     * List of IPv4 CIDR addresses to deny.
-     */
-    blocked: Array<string>;
-  }
 }
 
 export interface APIKeyList {

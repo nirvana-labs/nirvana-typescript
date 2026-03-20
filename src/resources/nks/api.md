@@ -34,6 +34,7 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/nks/clusters/pools/pools.ts">NKSNodeConfig</a></code>
+- <code><a href="./src/resources/nks/clusters/pools/pools.ts">NKSNodeConfigResponse</a></code>
 - <code><a href="./src/resources/nks/clusters/pools/pools.ts">NKSNodePool</a></code>
 - <code><a href="./src/resources/nks/clusters/pools/pools.ts">NKSNodePoolList</a></code>
 
