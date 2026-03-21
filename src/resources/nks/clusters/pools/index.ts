@@ -11,8 +11,6 @@ export {
 } from './nodes/index';
 export {
   Pools,
-  type NKSNodeConfig,
-  type NKSNodeConfigResponse,
   type NKSNodePool,
   type NKSNodePoolList,
   type PoolCreateParams,

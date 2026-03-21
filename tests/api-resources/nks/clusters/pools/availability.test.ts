@@ -13,9 +13,9 @@ describe('resource availability', () => {
     const responsePromise = client.nks.clusters.pools.availability.create('cluster_id', {
       name: 'my-node-pool',
       node_config: {
-        ram_gi: 8,
-        storage_gi: 100,
-        vcpu: 4,
+        boot_volume: { size: 100, type: 'abs' },
+        cpu_config: { vcpu: 4 },
+        memory_config: { size: 8 },
       },
       node_count: 3,
     });
@@ -33,9 +33,9 @@ describe('resource availability', () => {
     const response = await client.nks.clusters.pools.availability.create('cluster_id', {
       name: 'my-node-pool',
       node_config: {
-        ram_gi: 8,
-        storage_gi: 100,
-        vcpu: 4,
+        boot_volume: { size: 100, type: 'abs' },
+        cpu_config: { vcpu: 4 },
+        memory_config: { size: 8 },
       },
       node_count: 3,
       tags: ['production', 'ethereum'],

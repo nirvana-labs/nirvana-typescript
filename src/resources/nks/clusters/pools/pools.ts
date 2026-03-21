@@ -3,6 +3,7 @@
 import { APIResource } from '../../../../core/resource';
 import * as Shared from '../../../shared';
 import * as OperationsAPI from '../../../operations/operations';
+import * as VolumesAPI from '../../../compute/volumes/volumes';
 import * as AvailabilityAPI from './availability';
 import { Availability, AvailabilityCreateParams, AvailabilityUpdateParams } from './availability';
 import * as NodesAPI from './nodes/nodes';
@@ -26,9 +27,9 @@ export class Pools extends APIResource {
    *   {
    *     name: 'my-node-pool',
    *     node_config: {
-   *       ram_gi: 8,
-   *       storage_gi: 100,
-   *       vcpu: 4,
+   *       boot_volume: { size: 100, type: 'abs' },
+   *       cpu_config: { vcpu: 4 },
+   *       memory_config: { size: 8 },
    *     },
    *     node_count: 3,
    *   },
@@ -123,46 +124,6 @@ export class Pools extends APIResource {
 export type NKSNodePoolsCursor = Cursor<NKSNodePool>;
 
 /**
- * Node configuration.
- */
-export interface NKSNodeConfig {
-  /**
-   * RAM size in GiB per node.
-   */
-  ram_gi: number;
-
-  /**
-   * Storage size in GiB per node.
-   */
-  storage_gi: number;
-
-  /**
-   * Number of virtual CPUs per node.
-   */
-  vcpu: number;
-}
-
-/**
- * Node configuration.
- */
-export interface NKSNodeConfigResponse {
-  /**
-   * RAM size in GiB per node.
-   */
-  ram_gi: number;
-
-  /**
-   * Storage size in GiB per node.
-   */
-  storage_gi: number;
-
-  /**
-   * Number of virtual CPUs per node.
-   */
-  vcpu: number;
-}
-
-/**
  * NKS node pool details.
  */
 export interface NKSNodePool {
@@ -189,7 +150,7 @@ export interface NKSNodePool {
   /**
    * Node configuration.
    */
-  node_config: NKSNodeConfigResponse;
+  node_config: NKSNodePool.NodeConfig;
 
   /**
    * Number of nodes.
@@ -212,6 +173,65 @@ export interface NKSNodePool {
   updated_at: string;
 }
 
+export namespace NKSNodePool {
+  /**
+   * Node configuration.
+   */
+  export interface NodeConfig {
+    /**
+     * Boot volume configuration.
+     */
+    boot_volume: NodeConfig.BootVolume;
+
+    /**
+     * CPU configuration.
+     */
+    cpu_config: NodeConfig.CPUConfig;
+
+    /**
+     * Memory configuration.
+     */
+    memory_config: NodeConfig.MemoryConfig;
+  }
+
+  export namespace NodeConfig {
+    /**
+     * Boot volume configuration.
+     */
+    export interface BootVolume {
+      /**
+       * Size of the boot volume in GB.
+       */
+      size: number;
+
+      /**
+       * Type of the Volume.
+       */
+      type: VolumesAPI.VolumeType;
+    }
+
+    /**
+     * CPU configuration.
+     */
+    export interface CPUConfig {
+      /**
+       * Number of virtual CPUs.
+       */
+      vcpu: number;
+    }
+
+    /**
+     * Memory configuration.
+     */
+    export interface MemoryConfig {
+      /**
+       * Size of the memory in GB.
+       */
+      size: number;
+    }
+  }
+}
+
 export interface NKSNodePoolList {
   items: Array<NKSNodePool>;
 
@@ -230,7 +250,7 @@ export interface PoolCreateParams {
   /**
    * Node configuration.
    */
-  node_config: NKSNodeConfig;
+  node_config: PoolCreateParams.NodeConfig;
 
   /**
    * Number of nodes. Must be between 1 and 100.
@@ -241,6 +261,65 @@ export interface PoolCreateParams {
    * Tags to attach to the node pool.
    */
   tags?: Array<string>;
+}
+
+export namespace PoolCreateParams {
+  /**
+   * Node configuration.
+   */
+  export interface NodeConfig {
+    /**
+     * Boot volume configuration.
+     */
+    boot_volume: NodeConfig.BootVolume;
+
+    /**
+     * CPU configuration.
+     */
+    cpu_config: NodeConfig.CPUConfig;
+
+    /**
+     * Memory configuration.
+     */
+    memory_config: NodeConfig.MemoryConfig;
+  }
+
+  export namespace NodeConfig {
+    /**
+     * Boot volume configuration.
+     */
+    export interface BootVolume {
+      /**
+       * Size of the boot volume in GB.
+       */
+      size: number;
+
+      /**
+       * Type of the Volume.
+       */
+      type: VolumesAPI.VolumeType;
+    }
+
+    /**
+     * CPU configuration.
+     */
+    export interface CPUConfig {
+      /**
+       * Number of virtual CPUs.
+       */
+      vcpu: number;
+    }
+
+    /**
+     * Memory configuration.
+     */
+    export interface MemoryConfig {
+      /**
+       * Size of the memory in GB.
+       */
+      size: number;
+    }
+  }
 }
 
 export interface PoolUpdateParams {
@@ -281,8 +360,6 @@ Pools.Nodes = Nodes;
 
 export declare namespace Pools {
   export {
-    type NKSNodeConfig as NKSNodeConfig,
-    type NKSNodeConfigResponse as NKSNodeConfigResponse,
     type NKSNodePool as NKSNodePool,
     type NKSNodePoolList as NKSNodePoolList,
     type NKSNodePoolsCursor as NKSNodePoolsCursor,

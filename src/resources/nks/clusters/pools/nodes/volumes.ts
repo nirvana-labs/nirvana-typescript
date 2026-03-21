@@ -88,6 +88,11 @@ export interface NKSNodeVolume {
   name: string;
 
   /**
+   * Size of the volume in GB.
+   */
+  size: number;
+
+  /**
    * Status of the resource.
    */
   status: Shared.ResourceStatus;
