@@ -18,9 +18,9 @@ export class Availability extends APIResource {
    *   {
    *     name: 'my-node-pool',
    *     node_config: {
-   *       ram_gi: 8,
-   *       storage_gi: 100,
-   *       vcpu: 4,
+   *       boot_volume: { size: 100, type: 'abs' },
+   *       cpu_config: { vcpu: 4 },
+   *       memory_config: { size: 8 },
    *     },
    *     node_count: 3,
    *   },
@@ -65,7 +65,7 @@ export interface AvailabilityCreateParams {
   /**
    * Node configuration.
    */
-  node_config: PoolsAPI.NKSNodeConfig;
+  node_config: PoolsAPI.NKSNodePoolNodeConfig;
 
   /**
    * Number of nodes. Must be between 1 and 100.
