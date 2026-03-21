@@ -34,7 +34,15 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/nks/clusters/pools/pools.ts">NKSNodePool</a></code>
+- <code><a href="./src/resources/nks/clusters/pools/pools.ts">NKSNodePoolBootVolume</a></code>
+- <code><a href="./src/resources/nks/clusters/pools/pools.ts">NKSNodePoolBootVolumeResponse</a></code>
+- <code><a href="./src/resources/nks/clusters/pools/pools.ts">NKSNodePoolCPUConfig</a></code>
+- <code><a href="./src/resources/nks/clusters/pools/pools.ts">NKSNodePoolCPUConfigResponse</a></code>
 - <code><a href="./src/resources/nks/clusters/pools/pools.ts">NKSNodePoolList</a></code>
+- <code><a href="./src/resources/nks/clusters/pools/pools.ts">NKSNodePoolMemoryConfig</a></code>
+- <code><a href="./src/resources/nks/clusters/pools/pools.ts">NKSNodePoolMemoryConfigResponse</a></code>
+- <code><a href="./src/resources/nks/clusters/pools/pools.ts">NKSNodePoolNodeConfig</a></code>
+- <code><a href="./src/resources/nks/clusters/pools/pools.ts">NKSNodePoolNodeConfigResponse</a></code>
 
 Methods:
 

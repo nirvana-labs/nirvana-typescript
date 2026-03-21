@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../../core/resource';
-import * as VolumesAPI from '../../../compute/volumes/volumes';
+import * as PoolsAPI from './pools';
 import { APIPromise } from '../../../../core/api-promise';
 import { buildHeaders } from '../../../../internal/headers';
 import { RequestOptions } from '../../../../internal/request-options';
@@ -65,7 +65,7 @@ export interface AvailabilityCreateParams {
   /**
    * Node configuration.
    */
-  node_config: AvailabilityCreateParams.NodeConfig;
+  node_config: PoolsAPI.NKSNodePoolNodeConfig;
 
   /**
    * Number of nodes. Must be between 1 and 100.
@@ -76,65 +76,6 @@ export interface AvailabilityCreateParams {
    * Tags to attach to the node pool.
    */
   tags?: Array<string>;
-}
-
-export namespace AvailabilityCreateParams {
-  /**
-   * Node configuration.
-   */
-  export interface NodeConfig {
-    /**
-     * Boot volume configuration.
-     */
-    boot_volume: NodeConfig.BootVolume;
-
-    /**
-     * CPU configuration.
-     */
-    cpu_config: NodeConfig.CPUConfig;
-
-    /**
-     * Memory configuration.
-     */
-    memory_config: NodeConfig.MemoryConfig;
-  }
-
-  export namespace NodeConfig {
-    /**
-     * Boot volume configuration.
-     */
-    export interface BootVolume {
-      /**
-       * Size of the boot volume in GB.
-       */
-      size: number;
-
-      /**
-       * Type of the Volume.
-       */
-      type: VolumesAPI.VolumeType;
-    }
-
-    /**
-     * CPU configuration.
-     */
-    export interface CPUConfig {
-      /**
-       * Number of virtual CPUs.
-       */
-      vcpu: number;
-    }
-
-    /**
-     * Memory configuration.
-     */
-    export interface MemoryConfig {
-      /**
-       * Size of the memory in GB.
-       */
-      size: number;
-    }
-  }
 }
 
 export interface AvailabilityUpdateParams {
