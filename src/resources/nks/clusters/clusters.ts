@@ -8,8 +8,6 @@ import { Availability, AvailabilityCreateParams, AvailabilityUpdateParams } from
 import * as KubeconfigAPI from './kubeconfig';
 import * as PoolsAPI from './pools/pools';
 import {
-  NKSNodeConfig,
-  NKSNodeConfigResponse,
   NKSNodePool,
   NKSNodePoolList,
   NKSNodePoolsCursor,
@@ -261,8 +259,6 @@ export declare namespace Clusters {
 
   export {
     Pools as Pools,
-    type NKSNodeConfig as NKSNodeConfig,
-    type NKSNodeConfigResponse as NKSNodeConfigResponse,
     type NKSNodePool as NKSNodePool,
     type NKSNodePoolList as NKSNodePoolList,
     type NKSNodePoolsCursor as NKSNodePoolsCursor,
