@@ -79,7 +79,7 @@ export interface NKSController {
   /**
    * CPU configuration.
    */
-  cpu_config: NKSController.CPUConfig;
+  cpu_config: NKSControllerCPUConfigResponse;
 
   /**
    * When the controller was created.
@@ -89,7 +89,7 @@ export interface NKSController {
   /**
    * Memory configuration.
    */
-  memory_config: NKSController.MemoryConfig;
+  memory_config: NKSControllerMemoryConfigResponse;
 
   /**
    * Name of the controller.
@@ -112,26 +112,14 @@ export interface NKSController {
   updated_at: string;
 }
 
-export namespace NKSController {
+/**
+ * CPU configuration.
+ */
+export interface NKSControllerCPUConfigResponse {
   /**
-   * CPU configuration.
+   * Number of virtual CPUs.
    */
-  export interface CPUConfig {
-    /**
-     * Number of virtual CPUs.
-     */
-    vcpu: number;
-  }
-
-  /**
-   * Memory configuration.
-   */
-  export interface MemoryConfig {
-    /**
-     * Size of the memory in GB.
-     */
-    size: number;
-  }
+  vcpu: number;
 }
 
 export interface NKSControllerList {
@@ -141,6 +129,16 @@ export interface NKSControllerList {
    * Pagination response details.
    */
   pagination: Shared.Pagination;
+}
+
+/**
+ * Memory configuration.
+ */
+export interface NKSControllerMemoryConfigResponse {
+  /**
+   * Size of the memory in GB.
+   */
+  size: number;
 }
 
 export interface ControllerListParams extends CursorParams {}
@@ -157,7 +155,9 @@ Controllers.Volumes = Volumes;
 export declare namespace Controllers {
   export {
     type NKSController as NKSController,
+    type NKSControllerCPUConfigResponse as NKSControllerCPUConfigResponse,
     type NKSControllerList as NKSControllerList,
+    type NKSControllerMemoryConfigResponse as NKSControllerMemoryConfigResponse,
     type NKSControllersCursor as NKSControllersCursor,
     type ControllerListParams as ControllerListParams,
     type ControllerGetParams as ControllerGetParams,

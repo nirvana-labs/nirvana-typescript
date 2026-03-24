@@ -12,7 +12,9 @@ import {
   ControllerListParams,
   Controllers,
   NKSController,
+  NKSControllerCPUConfigResponse,
   NKSControllerList,
+  NKSControllerMemoryConfigResponse,
   NKSControllersCursor,
 } from './controllers/controllers';
 import * as PoolsAPI from './pools/pools';
@@ -43,8 +45,8 @@ import { path } from '../../../internal/utils/path';
 export class Clusters extends APIResource {
   availability: AvailabilityAPI.Availability = new AvailabilityAPI.Availability(this._client);
   kubeconfig: KubeconfigAPI.Kubeconfig = new KubeconfigAPI.Kubeconfig(this._client);
-  pools: PoolsAPI.Pools = new PoolsAPI.Pools(this._client);
   controllers: ControllersAPI.Controllers = new ControllersAPI.Controllers(this._client);
+  pools: PoolsAPI.Pools = new PoolsAPI.Pools(this._client);
 
   /**
    * Create an NKS Cluster
@@ -256,8 +258,8 @@ export interface ClusterListParams extends CursorParams {
 }
 
 Clusters.Availability = Availability;
-Clusters.Pools = Pools;
 Clusters.Controllers = Controllers;
+Clusters.Pools = Pools;
 
 export declare namespace Clusters {
   export {
@@ -274,6 +276,17 @@ export declare namespace Clusters {
     Availability as Availability,
     type AvailabilityCreateParams as AvailabilityCreateParams,
     type AvailabilityUpdateParams as AvailabilityUpdateParams,
+  };
+
+  export {
+    Controllers as Controllers,
+    type NKSController as NKSController,
+    type NKSControllerCPUConfigResponse as NKSControllerCPUConfigResponse,
+    type NKSControllerList as NKSControllerList,
+    type NKSControllerMemoryConfigResponse as NKSControllerMemoryConfigResponse,
+    type NKSControllersCursor as NKSControllersCursor,
+    type ControllerListParams as ControllerListParams,
+    type ControllerGetParams as ControllerGetParams,
   };
 
   export {
@@ -294,14 +307,5 @@ export declare namespace Clusters {
     type PoolListParams as PoolListParams,
     type PoolDeleteParams as PoolDeleteParams,
     type PoolGetParams as PoolGetParams,
-  };
-
-  export {
-    Controllers as Controllers,
-    type NKSController as NKSController,
-    type NKSControllerList as NKSControllerList,
-    type NKSControllersCursor as NKSControllersCursor,
-    type ControllerListParams as ControllerListParams,
-    type ControllerGetParams as ControllerGetParams,
   };
 }

@@ -14,7 +14,9 @@ export {
 export {
   Controllers,
   type NKSController,
+  type NKSControllerCPUConfigResponse,
   type NKSControllerList,
+  type NKSControllerMemoryConfigResponse,
   type ControllerListParams,
   type ControllerGetParams,
   type NKSControllersCursor,
