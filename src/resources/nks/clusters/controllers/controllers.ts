@@ -11,7 +11,6 @@ import {
   VolumeListParams,
   Volumes,
 } from './volumes';
-import * as PoolsAPI from '../pools/pools';
 import { APIPromise } from '../../../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../../../core/pagination';
 import { RequestOptions } from '../../../../internal/request-options';
@@ -80,7 +79,7 @@ export interface NKSController {
   /**
    * CPU configuration.
    */
-  cpu_config: PoolsAPI.NKSNodePoolCPUConfigResponse;
+  cpu_config: NKSController.CPUConfig;
 
   /**
    * When the controller was created.
@@ -90,7 +89,7 @@ export interface NKSController {
   /**
    * Memory configuration.
    */
-  memory_config: PoolsAPI.NKSNodePoolMemoryConfigResponse;
+  memory_config: NKSController.MemoryConfig;
 
   /**
    * Name of the controller.
@@ -111,6 +110,28 @@ export interface NKSController {
    * When the controller was last updated.
    */
   updated_at: string;
+}
+
+export namespace NKSController {
+  /**
+   * CPU configuration.
+   */
+  export interface CPUConfig {
+    /**
+     * Number of virtual CPUs.
+     */
+    vcpu: number;
+  }
+
+  /**
+   * Memory configuration.
+   */
+  export interface MemoryConfig {
+    /**
+     * Size of the memory in GB.
+     */
+    size: number;
+  }
 }
 
 export interface NKSControllerList {
