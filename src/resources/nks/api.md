@@ -29,6 +29,32 @@ Methods:
 
 - <code title="get /v1/nks/clusters/{cluster_id}/kubeconfig">client.nks.clusters.kubeconfig.<a href="./src/resources/nks/clusters/kubeconfig.ts">get</a>(clusterID) -> Kubeconfig</code>
 
+### Controllers
+
+Types:
+
+- <code><a href="./src/resources/nks/clusters/controllers/controllers.ts">NKSController</a></code>
+- <code><a href="./src/resources/nks/clusters/controllers/controllers.ts">NKSControllerCPUConfigResponse</a></code>
+- <code><a href="./src/resources/nks/clusters/controllers/controllers.ts">NKSControllerList</a></code>
+- <code><a href="./src/resources/nks/clusters/controllers/controllers.ts">NKSControllerMemoryConfigResponse</a></code>
+
+Methods:
+
+- <code title="get /v1/nks/clusters/{cluster_id}/controllers">client.nks.clusters.controllers.<a href="./src/resources/nks/clusters/controllers/controllers.ts">list</a>(clusterID, { ...params }) -> NKSControllersCursor</code>
+- <code title="get /v1/nks/clusters/{cluster_id}/controllers/{controller_id}">client.nks.clusters.controllers.<a href="./src/resources/nks/clusters/controllers/controllers.ts">get</a>(controllerID, { ...params }) -> NKSController</code>
+
+#### Volumes
+
+Types:
+
+- <code><a href="./src/resources/nks/clusters/controllers/volumes.ts">NKSControllerVolume</a></code>
+- <code><a href="./src/resources/nks/clusters/controllers/volumes.ts">NKSControllerVolumeList</a></code>
+
+Methods:
+
+- <code title="get /v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes">client.nks.clusters.controllers.volumes.<a href="./src/resources/nks/clusters/controllers/volumes.ts">list</a>(controllerID, { ...params }) -> NKSControllerVolumesCursor</code>
+- <code title="get /v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes/{volume_id}">client.nks.clusters.controllers.volumes.<a href="./src/resources/nks/clusters/controllers/volumes.ts">get</a>(volumeID, { ...params }) -> NKSControllerVolume</code>
+
 ### Pools
 
 Types:
@@ -82,27 +108,3 @@ Methods:
 
 - <code title="get /v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}/volumes">client.nks.clusters.pools.nodes.volumes.<a href="./src/resources/nks/clusters/pools/nodes/volumes.ts">list</a>(nodeID, { ...params }) -> NKSNodeVolumesCursor</code>
 - <code title="get /v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}/volumes/{volume_id}">client.nks.clusters.pools.nodes.volumes.<a href="./src/resources/nks/clusters/pools/nodes/volumes.ts">get</a>(volumeID, { ...params }) -> NKSNodeVolume</code>
-
-### Controllers
-
-Types:
-
-- <code><a href="./src/resources/nks/clusters/controllers/controllers.ts">NKSController</a></code>
-- <code><a href="./src/resources/nks/clusters/controllers/controllers.ts">NKSControllerList</a></code>
-
-Methods:
-
-- <code title="get /v1/nks/clusters/{cluster_id}/controllers">client.nks.clusters.controllers.<a href="./src/resources/nks/clusters/controllers/controllers.ts">list</a>(clusterID, { ...params }) -> NKSControllersCursor</code>
-- <code title="get /v1/nks/clusters/{cluster_id}/controllers/{controller_id}">client.nks.clusters.controllers.<a href="./src/resources/nks/clusters/controllers/controllers.ts">get</a>(controllerID, { ...params }) -> NKSController</code>
-
-#### Volumes
-
-Types:
-
-- <code><a href="./src/resources/nks/clusters/controllers/volumes.ts">NKSControllerVolume</a></code>
-- <code><a href="./src/resources/nks/clusters/controllers/volumes.ts">NKSControllerVolumeList</a></code>
-
-Methods:
-
-- <code title="get /v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes">client.nks.clusters.controllers.volumes.<a href="./src/resources/nks/clusters/controllers/volumes.ts">list</a>(controllerID, { ...params }) -> NKSControllerVolumesCursor</code>
-- <code title="get /v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes/{volume_id}">client.nks.clusters.controllers.volumes.<a href="./src/resources/nks/clusters/controllers/volumes.ts">get</a>(volumeID, { ...params }) -> NKSControllerVolume</code>
