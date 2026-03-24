@@ -193,6 +193,10 @@ const fuse = new Fuse(
     'client.nks.clusters.pools.nodes.list',
     'client.nks.clusters.pools.nodes.volumes.get',
     'client.nks.clusters.pools.nodes.volumes.list',
+    'client.nks.clusters.controllers.get',
+    'client.nks.clusters.controllers.list',
+    'client.nks.clusters.controllers.volumes.get',
+    'client.nks.clusters.controllers.volumes.list',
   ],
   { threshold: 1, shouldSort: true },
 );

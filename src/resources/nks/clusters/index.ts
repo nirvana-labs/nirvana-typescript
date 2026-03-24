@@ -12,6 +12,14 @@ export {
   type NKSClustersCursor,
 } from './clusters';
 export {
+  Controllers,
+  type NKSController,
+  type NKSControllerList,
+  type ControllerListParams,
+  type ControllerGetParams,
+  type NKSControllersCursor,
+} from './controllers/index';
+export {
   Pools,
   type NKSNodePool,
   type NKSNodePoolBootVolume,
