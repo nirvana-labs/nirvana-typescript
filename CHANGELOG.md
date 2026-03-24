@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.59.2 (2026-03-24)
+
+Full Changelog: [v1.59.1...v1.59.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.59.1...v1.59.2)
+
+### Chores
+
+* **internal:** fix MCP server TS errors that occur with required client options ([48bdd12](https://github.com/nirvana-labs/nirvana-typescript/commit/48bdd1224e9b2c466b704ed31ffdc2be8d69348d))
+* **internal:** update gitignore ([9e8383e](https://github.com/nirvana-labs/nirvana-typescript/commit/9e8383ee9bc8d3f5b04451288f8ee95d9832962f))
+
 ## 1.59.1 (2026-03-23)
 
 Full Changelog: [v1.59.0...v1.59.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.59.0...v1.59.1)
