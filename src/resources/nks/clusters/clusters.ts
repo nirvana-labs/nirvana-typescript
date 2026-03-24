@@ -6,6 +6,17 @@ import * as OperationsAPI from '../../operations/operations';
 import * as AvailabilityAPI from './availability';
 import { Availability, AvailabilityCreateParams, AvailabilityUpdateParams } from './availability';
 import * as KubeconfigAPI from './kubeconfig';
+import * as ControllersAPI from './controllers/controllers';
+import {
+  ControllerGetParams,
+  ControllerListParams,
+  Controllers,
+  NKSController,
+  NKSControllerCPUConfigResponse,
+  NKSControllerList,
+  NKSControllerMemoryConfigResponse,
+  NKSControllersCursor,
+} from './controllers/controllers';
 import * as PoolsAPI from './pools/pools';
 import {
   NKSNodePool,
@@ -34,6 +45,7 @@ import { path } from '../../../internal/utils/path';
 export class Clusters extends APIResource {
   availability: AvailabilityAPI.Availability = new AvailabilityAPI.Availability(this._client);
   kubeconfig: KubeconfigAPI.Kubeconfig = new KubeconfigAPI.Kubeconfig(this._client);
+  controllers: ControllersAPI.Controllers = new ControllersAPI.Controllers(this._client);
   pools: PoolsAPI.Pools = new PoolsAPI.Pools(this._client);
 
   /**
@@ -246,6 +258,7 @@ export interface ClusterListParams extends CursorParams {
 }
 
 Clusters.Availability = Availability;
+Clusters.Controllers = Controllers;
 Clusters.Pools = Pools;
 
 export declare namespace Clusters {
@@ -263,6 +276,17 @@ export declare namespace Clusters {
     Availability as Availability,
     type AvailabilityCreateParams as AvailabilityCreateParams,
     type AvailabilityUpdateParams as AvailabilityUpdateParams,
+  };
+
+  export {
+    Controllers as Controllers,
+    type NKSController as NKSController,
+    type NKSControllerCPUConfigResponse as NKSControllerCPUConfigResponse,
+    type NKSControllerList as NKSControllerList,
+    type NKSControllerMemoryConfigResponse as NKSControllerMemoryConfigResponse,
+    type NKSControllersCursor as NKSControllersCursor,
+    type ControllerListParams as ControllerListParams,
+    type ControllerGetParams as ControllerGetParams,
   };
 
   export {

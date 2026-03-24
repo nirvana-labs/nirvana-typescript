@@ -479,6 +479,30 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/nks/clusters/{cluster_id}/kubeconfig',
   },
   {
+    clientCallName: 'client.nks.clusters.controllers.list',
+    fullyQualifiedName: 'nks.clusters.controllers.list',
+    httpMethod: 'get',
+    httpPath: '/v1/nks/clusters/{cluster_id}/controllers',
+  },
+  {
+    clientCallName: 'client.nks.clusters.controllers.get',
+    fullyQualifiedName: 'nks.clusters.controllers.get',
+    httpMethod: 'get',
+    httpPath: '/v1/nks/clusters/{cluster_id}/controllers/{controller_id}',
+  },
+  {
+    clientCallName: 'client.nks.clusters.controllers.volumes.list',
+    fullyQualifiedName: 'nks.clusters.controllers.volumes.list',
+    httpMethod: 'get',
+    httpPath: '/v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes',
+  },
+  {
+    clientCallName: 'client.nks.clusters.controllers.volumes.get',
+    fullyQualifiedName: 'nks.clusters.controllers.volumes.get',
+    httpMethod: 'get',
+    httpPath: '/v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes/{volume_id}',
+  },
+  {
     clientCallName: 'client.nks.clusters.pools.create',
     fullyQualifiedName: 'nks.clusters.pools.create',
     httpMethod: 'post',

@@ -107,6 +107,114 @@
       ]
     },
     {
+      "base": "nks.clusters.controllers",
+      "name": "get",
+      "params": [
+        {
+          "type": "param",
+          "key": "controller_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ],
+      "oldParams": [
+        {
+          "type": "param",
+          "key": "cluster_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "controller_id",
+          "location": "path"
+        },
+        {
+          "type": "options"
+        }
+      ]
+    },
+    {
+      "base": "nks.clusters.controllers.volumes",
+      "name": "list",
+      "params": [
+        {
+          "type": "param",
+          "key": "controller_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ],
+      "oldParams": [
+        {
+          "type": "param",
+          "key": "cluster_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "controller_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": true
+        },
+        {
+          "type": "options"
+        }
+      ]
+    },
+    {
+      "base": "nks.clusters.controllers.volumes",
+      "name": "get",
+      "params": [
+        {
+          "type": "param",
+          "key": "volume_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ],
+      "oldParams": [
+        {
+          "type": "param",
+          "key": "cluster_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "controller_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "volume_id",
+          "location": "path"
+        },
+        {
+          "type": "options"
+        }
+      ]
+    },
+    {
       "base": "nks.clusters.pools",
       "name": "update",
       "params": [
