@@ -6,6 +6,15 @@ import * as OperationsAPI from '../../operations/operations';
 import * as AvailabilityAPI from './availability';
 import { Availability, AvailabilityCreateParams, AvailabilityUpdateParams } from './availability';
 import * as KubeconfigAPI from './kubeconfig';
+import * as ControllersAPI from './controllers/controllers';
+import {
+  ControllerGetParams,
+  ControllerListParams,
+  Controllers,
+  NKSController,
+  NKSControllerList,
+  NKSControllersCursor,
+} from './controllers/controllers';
 import * as PoolsAPI from './pools/pools';
 import {
   NKSNodePool,
@@ -35,6 +44,7 @@ export class Clusters extends APIResource {
   availability: AvailabilityAPI.Availability = new AvailabilityAPI.Availability(this._client);
   kubeconfig: KubeconfigAPI.Kubeconfig = new KubeconfigAPI.Kubeconfig(this._client);
   pools: PoolsAPI.Pools = new PoolsAPI.Pools(this._client);
+  controllers: ControllersAPI.Controllers = new ControllersAPI.Controllers(this._client);
 
   /**
    * Create an NKS Cluster
@@ -247,6 +257,7 @@ export interface ClusterListParams extends CursorParams {
 
 Clusters.Availability = Availability;
 Clusters.Pools = Pools;
+Clusters.Controllers = Controllers;
 
 export declare namespace Clusters {
   export {
@@ -283,5 +294,14 @@ export declare namespace Clusters {
     type PoolListParams as PoolListParams,
     type PoolDeleteParams as PoolDeleteParams,
     type PoolGetParams as PoolGetParams,
+  };
+
+  export {
+    Controllers as Controllers,
+    type NKSController as NKSController,
+    type NKSControllerList as NKSControllerList,
+    type NKSControllersCursor as NKSControllersCursor,
+    type ControllerListParams as ControllerListParams,
+    type ControllerGetParams as ControllerGetParams,
   };
 }
