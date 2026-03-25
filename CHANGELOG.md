@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.60.1 (2026-03-25)
+
+Full Changelog: [v1.60.0...v1.60.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.60.0...v1.60.1)
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([838da22](https://github.com/nirvana-labs/nirvana-typescript/commit/838da22907ec63e8734471b36676f811a2e05848))
+
 ## 1.60.0 (2026-03-24)
 
 Full Changelog: [v1.59.2...v1.60.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.59.2...v1.60.0)
