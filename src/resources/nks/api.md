@@ -55,6 +55,18 @@ Methods:
 - <code title="get /v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes">client.nks.clusters.controllers.volumes.<a href="./src/resources/nks/clusters/controllers/volumes.ts">list</a>(controllerID, { ...params }) -> NKSControllerVolumesCursor</code>
 - <code title="get /v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes/{volume_id}">client.nks.clusters.controllers.volumes.<a href="./src/resources/nks/clusters/controllers/volumes.ts">get</a>(volumeID, { ...params }) -> NKSControllerVolume</code>
 
+### LoadBalancers
+
+Types:
+
+- <code><a href="./src/resources/nks/clusters/load-balancers.ts">NKSLoadBalancer</a></code>
+- <code><a href="./src/resources/nks/clusters/load-balancers.ts">NKSLoadBalancerList</a></code>
+
+Methods:
+
+- <code title="get /v1/nks/clusters/{cluster_id}/load_balancers">client.nks.clusters.loadBalancers.<a href="./src/resources/nks/clusters/load-balancers.ts">list</a>(clusterID, { ...params }) -> NKSLoadBalancersCursor</code>
+- <code title="get /v1/nks/clusters/{cluster_id}/load_balancers/{load_balancer_id}">client.nks.clusters.loadBalancers.<a href="./src/resources/nks/clusters/load-balancers.ts">get</a>(loadBalancerID, { ...params }) -> NKSLoadBalancer</code>
+
 ### Pools
 
 Types:
