@@ -38,6 +38,11 @@ export interface AuditLog {
   id: string;
 
   /**
+   * The action that was performed.
+   */
+  action: string;
+
+  /**
    * The entity that performed the action.
    */
   actor: AuditLogActor;
@@ -71,6 +76,28 @@ export interface AuditLog {
    * User agent string.
    */
   user_agent: string;
+
+  /**
+   * The target resource of the action.
+   */
+  target?: AuditLog.Target | null;
+}
+
+export namespace AuditLog {
+  /**
+   * The target resource of the action.
+   */
+  export interface Target {
+    /**
+     * Unique identifier for the target resource.
+     */
+    id: string;
+
+    /**
+     * Type of the target resource.
+     */
+    type: string;
+  }
 }
 
 /**
