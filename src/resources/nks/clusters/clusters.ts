@@ -6,6 +6,15 @@ import * as OperationsAPI from '../../operations/operations';
 import * as AvailabilityAPI from './availability';
 import { Availability, AvailabilityCreateParams, AvailabilityUpdateParams } from './availability';
 import * as KubeconfigAPI from './kubeconfig';
+import * as LoadBalancersAPI from './load-balancers';
+import {
+  LoadBalancerGetParams,
+  LoadBalancerListParams,
+  LoadBalancers,
+  NKSLoadBalancer,
+  NKSLoadBalancerList,
+  NKSLoadBalancersCursor,
+} from './load-balancers';
 import * as ControllersAPI from './controllers/controllers';
 import {
   ControllerGetParams,
@@ -46,6 +55,7 @@ export class Clusters extends APIResource {
   availability: AvailabilityAPI.Availability = new AvailabilityAPI.Availability(this._client);
   kubeconfig: KubeconfigAPI.Kubeconfig = new KubeconfigAPI.Kubeconfig(this._client);
   controllers: ControllersAPI.Controllers = new ControllersAPI.Controllers(this._client);
+  loadBalancers: LoadBalancersAPI.LoadBalancers = new LoadBalancersAPI.LoadBalancers(this._client);
   pools: PoolsAPI.Pools = new PoolsAPI.Pools(this._client);
 
   /**
@@ -259,6 +269,7 @@ export interface ClusterListParams extends CursorParams {
 
 Clusters.Availability = Availability;
 Clusters.Controllers = Controllers;
+Clusters.LoadBalancers = LoadBalancers;
 Clusters.Pools = Pools;
 
 export declare namespace Clusters {
@@ -287,6 +298,15 @@ export declare namespace Clusters {
     type NKSControllersCursor as NKSControllersCursor,
     type ControllerListParams as ControllerListParams,
     type ControllerGetParams as ControllerGetParams,
+  };
+
+  export {
+    LoadBalancers as LoadBalancers,
+    type NKSLoadBalancer as NKSLoadBalancer,
+    type NKSLoadBalancerList as NKSLoadBalancerList,
+    type NKSLoadBalancersCursor as NKSLoadBalancersCursor,
+    type LoadBalancerListParams as LoadBalancerListParams,
+    type LoadBalancerGetParams as LoadBalancerGetParams,
   };
 
   export {

@@ -22,6 +22,14 @@ export {
   type NKSControllersCursor,
 } from './controllers/index';
 export {
+  LoadBalancers,
+  type NKSLoadBalancer,
+  type NKSLoadBalancerList,
+  type LoadBalancerListParams,
+  type LoadBalancerGetParams,
+  type NKSLoadBalancersCursor,
+} from './load-balancers';
+export {
   Pools,
   type NKSNodePool,
   type NKSNodePoolBootVolume,

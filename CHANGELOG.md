@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.61.0 (2026-03-27)
+
+Full Changelog: [v1.60.1...v1.61.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.60.1...v1.61.0)
+
+### Features
+
+* **api:** api update ([7ca28dd](https://github.com/nirvana-labs/nirvana-typescript/commit/7ca28dd0c4acfbcd93de6247dc84404e4f680f44))
+* **api:** api update ([bef70d4](https://github.com/nirvana-labs/nirvana-typescript/commit/bef70d43ce8e17b0de4d3221a93726e233c0475f))
+
+
+### Bug Fixes
+
+* **mcp:** bump agents version in cloudflare worker MCP servers ([e699a16](https://github.com/nirvana-labs/nirvana-typescript/commit/e699a167623eda7237e02f573f47f6c8be57ae34))
+
+
+### Chores
+
+* **internal:** support custom-instructions-path flag in MCP servers ([cb6b32f](https://github.com/nirvana-labs/nirvana-typescript/commit/cb6b32fbc2e299c3eee30cd7416bb054bbc00329))
+
 ## 1.60.1 (2026-03-25)
 
 Full Changelog: [v1.60.0...v1.60.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.60.0...v1.60.1)
