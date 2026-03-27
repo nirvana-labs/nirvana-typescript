@@ -131,6 +131,11 @@ export interface Organization {
   services: OrganizationServices;
 
   /**
+   * Organization settings.
+   */
+  settings: Organization.Settings;
+
+  /**
    * When the Organization was updated.
    */
   updated_at: string;
@@ -139,6 +144,18 @@ export interface Organization {
    * Authentication provider organization ID.
    */
   auth_id?: string;
+}
+
+export namespace Organization {
+  /**
+   * Organization settings.
+   */
+  export interface Settings {
+    /**
+     * Whether just-in-time provisioning is enabled for the organization.
+     */
+    jit_provisioning: boolean;
+  }
 }
 
 /**
@@ -210,6 +227,25 @@ export interface OrganizationUpdateParams {
    * Organization name.
    */
   name?: string;
+
+  /**
+   * Organization settings.
+   */
+  settings?: OrganizationUpdateParams.Settings;
+}
+
+export namespace OrganizationUpdateParams {
+  /**
+   * Organization settings.
+   */
+  export interface Settings {
+    /**
+     * Whether JIT provisioning is enabled. When enabled, users with SSO access are
+     * automatically added to the organization on first login. When disabled, users
+     * must be invited.
+     */
+    jit_provisioning?: boolean;
+  }
 }
 
 export interface OrganizationListParams extends CursorParams {}
