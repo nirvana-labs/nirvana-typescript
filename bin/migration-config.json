@@ -215,6 +215,39 @@
       ]
     },
     {
+      "base": "nks.clusters.loadBalancers",
+      "name": "get",
+      "params": [
+        {
+          "type": "param",
+          "key": "load_balancer_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ],
+      "oldParams": [
+        {
+          "type": "param",
+          "key": "cluster_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "load_balancer_id",
+          "location": "path"
+        },
+        {
+          "type": "options"
+        }
+      ]
+    },
+    {
       "base": "nks.clusters.pools",
       "name": "update",
       "params": [
