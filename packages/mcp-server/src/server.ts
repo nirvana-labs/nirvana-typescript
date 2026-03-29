@@ -11,6 +11,8 @@ import { ClientOptions } from '@nirvana-labs/nirvana';
 import NirvanaLabs from '@nirvana-labs/nirvana';
 import { codeTool } from './code-tool';
 import docsSearchTool from './docs-search-tool';
+import { setLocalSearch } from './docs-search-tool';
+import { LocalDocsSearch } from './local-docs-search';
 import { getInstructions } from './instructions';
 import { McpOptions } from './options';
 import { blockedMethodsForCodeTool } from './methods';
@@ -26,7 +28,7 @@ export const newMcpServer = async ({
   new McpServer(
     {
       name: 'nirvana_labs_nirvana_api',
-      version: '1.63.0',
+      version: '1.63.1',
     },
     {
       instructions: await getInstructions({ stainlessApiKey, customInstructionsPath }),
@@ -61,6 +63,12 @@ export async function initMcpServer(params: {
     warn: logAtLevel('warning'),
     error: logAtLevel('error'),
   };
+
+  if (params.mcpOptions?.docsSearchMode === 'local') {
+    const docsDir = params.mcpOptions?.docsDir;
+    const localSearch = await LocalDocsSearch.create(docsDir ? { docsDir } : undefined);
+    setLocalSearch(localSearch);
+  }
 
   let _client: NirvanaLabs | undefined;
   let _clientError: Error | undefined;

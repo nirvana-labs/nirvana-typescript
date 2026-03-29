@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.63.1 (2026-03-28)
+
+Full Changelog: [v1.63.0...v1.63.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.63.0...v1.63.1)
+
+### Chores
+
+* **ci:** escape input path in publish-npm workflow ([e0312ae](https://github.com/nirvana-labs/nirvana-typescript/commit/e0312aead23824cbdf7545b54fff9cf44d31c79f))
+* **internal:** support local docs search in MCP servers ([2201cc9](https://github.com/nirvana-labs/nirvana-typescript/commit/2201cc9a9975d0eb5af5c64baf710a2177fea2fd))
+* remove custom code ([98c2c4e](https://github.com/nirvana-labs/nirvana-typescript/commit/98c2c4e30441c5560d4ea8dc299fd5376756f9e3))
+
 ## 1.63.0 (2026-03-27)
 
 Full Changelog: [v1.62.0...v1.63.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.62.0...v1.63.0)
