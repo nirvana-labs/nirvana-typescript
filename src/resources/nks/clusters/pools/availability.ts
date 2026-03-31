@@ -90,6 +90,11 @@ export interface AvailabilityUpdateParams {
   name?: string;
 
   /**
+   * Body param: Number of nodes.
+   */
+  node_count?: number;
+
+  /**
    * Body param: Tags to attach to the node pool.
    */
   tags?: Array<string>;

@@ -49,13 +49,17 @@ export class Pools extends APIResource {
    *
    * @example
    * ```ts
-   * const nksNodePool = await client.nks.clusters.pools.update(
+   * const operation = await client.nks.clusters.pools.update(
    *   'pool_id',
    *   { cluster_id: 'cluster_id' },
    * );
    * ```
    */
-  update(poolID: string, params: PoolUpdateParams, options?: RequestOptions): APIPromise<NKSNodePool> {
+  update(
+    poolID: string,
+    params: PoolUpdateParams,
+    options?: RequestOptions,
+  ): APIPromise<OperationsAPI.Operation> {
     const { cluster_id, ...body } = params;
     return this._client.patch(path`/v1/nks/clusters/${cluster_id}/pools/${poolID}`, { body, ...options });
   }
@@ -324,6 +328,11 @@ export interface PoolUpdateParams {
    * Body param: Name of the node pool.
    */
   name?: string;
+
+  /**
+   * Body param: Number of nodes.
+   */
+  node_count?: number;
 
   /**
    * Body param: Tags to attach to the node pool.
