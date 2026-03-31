@@ -5,6 +5,7 @@ export {
   type NKSNode,
   type NKSNodeList,
   type NodeListParams,
+  type NodeDeleteParams,
   type NodeGetParams,
   type NKSNodesCursor,
 } from './nodes';

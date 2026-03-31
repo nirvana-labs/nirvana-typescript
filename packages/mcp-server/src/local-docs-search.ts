@@ -1455,6 +1455,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       "## list\n\n`client.nks.clusters.pools.nodes.list(cluster_id: string, pool_id: string, cursor?: string, limit?: number): { id: string; created_at: string; name: string; private_ip: string; status: resource_status; updated_at: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes`\n\nList all nodes in an NKS node pool\n\n### Parameters\n\n- `cluster_id: string`\n\n- `pool_id: string`\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; created_at: string; name: string; private_ip: string; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; updated_at: string; }`\n  NKS node details.\n\n  - `id: string`\n  - `created_at: string`\n  - `name: string`\n  - `private_ip: string`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const nksNode of client.nks.clusters.pools.nodes.list('pool_id', { cluster_id: 'cluster_id' })) {\n  console.log(nksNode);\n}\n```",
   },
   {
+    name: 'delete',
+    endpoint: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}',
+    httpMethod: 'delete',
+    summary: 'Delete NKS Node',
+    description: 'Delete a single node from an NKS node pool',
+    stainlessPath: '(resource) nks.clusters.pools.nodes > (method) delete',
+    qualified: 'client.nks.clusters.pools.nodes.delete',
+    params: ['cluster_id: string;', 'pool_id: string;', 'node_id: string;'],
+    response:
+      "{ id: string; created_at: string; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }",
+    markdown:
+      "## delete\n\n`client.nks.clusters.pools.nodes.delete(cluster_id: string, pool_id: string, node_id: string): { id: string; created_at: string; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**delete** `/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}`\n\nDelete a single node from an NKS node pool\n\n### Parameters\n\n- `cluster_id: string`\n\n- `pool_id: string`\n\n- `node_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.nks.clusters.pools.nodes.delete('node_id', { cluster_id: 'cluster_id', pool_id: 'pool_id' });\n\nconsole.log(operation);\n```",
+  },
+  {
     name: 'get',
     endpoint: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}',
     httpMethod: 'get',

@@ -66,6 +66,7 @@ This affects the following methods:
 - `client.nks.clusters.pools.get()`
 - `client.nks.clusters.pools.availability.update()`
 - `client.nks.clusters.pools.nodes.list()`
+- `client.nks.clusters.pools.nodes.delete()`
 - `client.nks.clusters.pools.nodes.get()`
 - `client.nks.clusters.pools.nodes.volumes.list()`
 - `client.nks.clusters.pools.nodes.volumes.get()`
