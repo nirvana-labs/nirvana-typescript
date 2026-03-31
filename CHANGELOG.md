@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.63.2 (2026-03-31)
+
+Full Changelog: [v1.63.1...v1.63.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.63.1...v1.63.2)
+
+### Chores
+
+* **internal:** improve local docs search for MCP servers ([ab20b70](https://github.com/nirvana-labs/nirvana-typescript/commit/ab20b70a87659d591b491516f3a65a8fe9a1311c))
+* **mcp-server:** add support for session id, forward client info ([49b4efe](https://github.com/nirvana-labs/nirvana-typescript/commit/49b4efe1b8d55a577851b6851eb07655b0378076))
+
 ## 1.63.1 (2026-03-28)
 
 Full Changelog: [v1.63.0...v1.63.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.63.0...v1.63.1)
