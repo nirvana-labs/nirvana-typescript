@@ -563,6 +563,12 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes',
   },
   {
+    clientCallName: 'client.nks.clusters.pools.nodes.delete',
+    fullyQualifiedName: 'nks.clusters.pools.nodes.delete',
+    httpMethod: 'delete',
+    httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}',
+  },
+  {
     clientCallName: 'client.nks.clusters.pools.nodes.get',
     fullyQualifiedName: 'nks.clusters.pools.nodes.get',
     httpMethod: 'get',

@@ -2,6 +2,7 @@
 
 import { APIResource } from '../../../../../core/resource';
 import * as Shared from '../../../../shared';
+import * as OperationsAPI from '../../../../operations/operations';
 import * as VolumesAPI from './volumes';
 import {
   NKSNodeVolume,
@@ -43,6 +44,30 @@ export class Nodes extends APIResource {
       path`/v1/nks/clusters/${cluster_id}/pools/${poolID}/nodes`,
       Cursor<NKSNode>,
       { query, ...options },
+    );
+  }
+
+  /**
+   * Delete a single node from an NKS node pool
+   *
+   * @example
+   * ```ts
+   * const operation =
+   *   await client.nks.clusters.pools.nodes.delete('node_id', {
+   *     cluster_id: 'cluster_id',
+   *     pool_id: 'pool_id',
+   *   });
+   * ```
+   */
+  delete(
+    nodeID: string,
+    params: NodeDeleteParams,
+    options?: RequestOptions,
+  ): APIPromise<OperationsAPI.Operation> {
+    const { cluster_id, pool_id } = params;
+    return this._client.delete(
+      path`/v1/nks/clusters/${cluster_id}/pools/${pool_id}/nodes/${nodeID}`,
+      options,
     );
   }
 
@@ -116,6 +141,18 @@ export interface NodeListParams extends CursorParams {
   cluster_id: string;
 }
 
+export interface NodeDeleteParams {
+  /**
+   * Cluster ID
+   */
+  cluster_id: string;
+
+  /**
+   * Node Pool ID
+   */
+  pool_id: string;
+}
+
 export interface NodeGetParams {
   /**
    * Cluster ID
@@ -136,6 +173,7 @@ export declare namespace Nodes {
     type NKSNodeList as NKSNodeList,
     type NKSNodesCursor as NKSNodesCursor,
     type NodeListParams as NodeListParams,
+    type NodeDeleteParams as NodeDeleteParams,
     type NodeGetParams as NodeGetParams,
   };
 

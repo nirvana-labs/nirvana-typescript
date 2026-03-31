@@ -195,6 +195,7 @@ const fuse = new Fuse(
     'client.nks.clusters.pools.update',
     'client.nks.clusters.pools.availability.create',
     'client.nks.clusters.pools.availability.update',
+    'client.nks.clusters.pools.nodes.delete',
     'client.nks.clusters.pools.nodes.get',
     'client.nks.clusters.pools.nodes.list',
     'client.nks.clusters.pools.nodes.volumes.get',

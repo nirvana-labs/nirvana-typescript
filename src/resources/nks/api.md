@@ -85,7 +85,7 @@ Types:
 Methods:
 
 - <code title="post /v1/nks/clusters/{cluster_id}/pools">client.nks.clusters.pools.<a href="./src/resources/nks/clusters/pools/pools.ts">create</a>(clusterID, { ...params }) -> Operation</code>
-- <code title="patch /v1/nks/clusters/{cluster_id}/pools/{pool_id}">client.nks.clusters.pools.<a href="./src/resources/nks/clusters/pools/pools.ts">update</a>(poolID, { ...params }) -> NKSNodePool</code>
+- <code title="patch /v1/nks/clusters/{cluster_id}/pools/{pool_id}">client.nks.clusters.pools.<a href="./src/resources/nks/clusters/pools/pools.ts">update</a>(poolID, { ...params }) -> Operation</code>
 - <code title="get /v1/nks/clusters/{cluster_id}/pools">client.nks.clusters.pools.<a href="./src/resources/nks/clusters/pools/pools.ts">list</a>(clusterID, { ...params }) -> NKSNodePoolsCursor</code>
 - <code title="delete /v1/nks/clusters/{cluster_id}/pools/{pool_id}">client.nks.clusters.pools.<a href="./src/resources/nks/clusters/pools/pools.ts">delete</a>(poolID, { ...params }) -> Operation</code>
 - <code title="get /v1/nks/clusters/{cluster_id}/pools/{pool_id}">client.nks.clusters.pools.<a href="./src/resources/nks/clusters/pools/pools.ts">get</a>(poolID, { ...params }) -> NKSNodePool</code>
@@ -107,6 +107,7 @@ Types:
 Methods:
 
 - <code title="get /v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes">client.nks.clusters.pools.nodes.<a href="./src/resources/nks/clusters/pools/nodes/nodes.ts">list</a>(poolID, { ...params }) -> NKSNodesCursor</code>
+- <code title="delete /v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}">client.nks.clusters.pools.nodes.<a href="./src/resources/nks/clusters/pools/nodes/nodes.ts">delete</a>(nodeID, { ...params }) -> Operation</code>
 - <code title="get /v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}">client.nks.clusters.pools.nodes.<a href="./src/resources/nks/clusters/pools/nodes/nodes.ts">get</a>(nodeID, { ...params }) -> NKSNode</code>
 
 ##### Volumes

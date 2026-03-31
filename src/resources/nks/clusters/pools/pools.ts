@@ -7,7 +7,15 @@ import * as VolumesAPI from '../../../compute/volumes/volumes';
 import * as AvailabilityAPI from './availability';
 import { Availability, AvailabilityCreateParams, AvailabilityUpdateParams } from './availability';
 import * as NodesAPI from './nodes/nodes';
-import { NKSNode, NKSNodeList, NKSNodesCursor, NodeGetParams, NodeListParams, Nodes } from './nodes/nodes';
+import {
+  NKSNode,
+  NKSNodeList,
+  NKSNodesCursor,
+  NodeDeleteParams,
+  NodeGetParams,
+  NodeListParams,
+  Nodes,
+} from './nodes/nodes';
 import { APIPromise } from '../../../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../../../core/pagination';
 import { RequestOptions } from '../../../../internal/request-options';
@@ -49,13 +57,17 @@ export class Pools extends APIResource {
    *
    * @example
    * ```ts
-   * const nksNodePool = await client.nks.clusters.pools.update(
+   * const operation = await client.nks.clusters.pools.update(
    *   'pool_id',
    *   { cluster_id: 'cluster_id' },
    * );
    * ```
    */
-  update(poolID: string, params: PoolUpdateParams, options?: RequestOptions): APIPromise<NKSNodePool> {
+  update(
+    poolID: string,
+    params: PoolUpdateParams,
+    options?: RequestOptions,
+  ): APIPromise<OperationsAPI.Operation> {
     const { cluster_id, ...body } = params;
     return this._client.patch(path`/v1/nks/clusters/${cluster_id}/pools/${poolID}`, { body, ...options });
   }
@@ -326,6 +338,11 @@ export interface PoolUpdateParams {
   name?: string;
 
   /**
+   * Body param: Number of nodes.
+   */
+  node_count?: number;
+
+  /**
    * Body param: Tags to attach to the node pool.
    */
   tags?: Array<string>;
@@ -382,6 +399,7 @@ export declare namespace Pools {
     type NKSNodeList as NKSNodeList,
     type NKSNodesCursor as NKSNodesCursor,
     type NodeListParams as NodeListParams,
+    type NodeDeleteParams as NodeDeleteParams,
     type NodeGetParams as NodeGetParams,
   };
 }
