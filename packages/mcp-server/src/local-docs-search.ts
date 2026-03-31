@@ -1350,11 +1350,17 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     description: 'Update an NKS node pool',
     stainlessPath: '(resource) nks.clusters.pools > (method) update',
     qualified: 'client.nks.clusters.pools.update',
-    params: ['cluster_id: string;', 'pool_id: string;', 'name?: string;', 'tags?: string[];'],
+    params: [
+      'cluster_id: string;',
+      'pool_id: string;',
+      'name?: string;',
+      'node_count?: number;',
+      'tags?: string[];',
+    ],
     response:
-      "{ id: string; cluster_id: string; created_at: string; name: string; node_config: { boot_volume: nks_node_pool_boot_volume_response; cpu_config: nks_node_pool_cpu_config_response; memory_config: nks_node_pool_memory_config_response; }; node_count: number; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; updated_at: string; }",
+      "{ id: string; created_at: string; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }",
     markdown:
-      "## update\n\n`client.nks.clusters.pools.update(cluster_id: string, pool_id: string, name?: string, tags?: string[]): { id: string; cluster_id: string; created_at: string; name: string; node_config: nks_node_pool_node_config_response; node_count: number; status: resource_status; tags: string[]; updated_at: string; }`\n\n**patch** `/v1/nks/clusters/{cluster_id}/pools/{pool_id}`\n\nUpdate an NKS node pool\n\n### Parameters\n\n- `cluster_id: string`\n\n- `pool_id: string`\n\n- `name?: string`\n  Name of the node pool.\n\n- `tags?: string[]`\n  Tags to attach to the node pool.\n\n### Returns\n\n- `{ id: string; cluster_id: string; created_at: string; name: string; node_config: { boot_volume: nks_node_pool_boot_volume_response; cpu_config: nks_node_pool_cpu_config_response; memory_config: nks_node_pool_memory_config_response; }; node_count: number; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; updated_at: string; }`\n  NKS node pool details.\n\n  - `id: string`\n  - `cluster_id: string`\n  - `created_at: string`\n  - `name: string`\n  - `node_config: { boot_volume: { size: number; type: volume_type; }; cpu_config: { vcpu: number; }; memory_config: { size: number; }; }`\n  - `node_count: number`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `tags: string[]`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst nksNodePool = await client.nks.clusters.pools.update('pool_id', { cluster_id: 'cluster_id' });\n\nconsole.log(nksNodePool);\n```",
+      "## update\n\n`client.nks.clusters.pools.update(cluster_id: string, pool_id: string, name?: string, node_count?: number, tags?: string[]): { id: string; created_at: string; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**patch** `/v1/nks/clusters/{cluster_id}/pools/{pool_id}`\n\nUpdate an NKS node pool\n\n### Parameters\n\n- `cluster_id: string`\n\n- `pool_id: string`\n\n- `name?: string`\n  Name of the node pool.\n\n- `node_count?: number`\n  Number of nodes.\n\n- `tags?: string[]`\n  Tags to attach to the node pool.\n\n### Returns\n\n- `{ id: string; created_at: string; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.nks.clusters.pools.update('pool_id', { cluster_id: 'cluster_id' });\n\nconsole.log(operation);\n```",
   },
   {
     name: 'list',
@@ -1424,9 +1430,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     description: 'Check if an NKS node pool can be updated',
     stainlessPath: '(resource) nks.clusters.pools.availability > (method) update',
     qualified: 'client.nks.clusters.pools.availability.update',
-    params: ['cluster_id: string;', 'pool_id: string;', 'name?: string;', 'tags?: string[];'],
+    params: [
+      'cluster_id: string;',
+      'pool_id: string;',
+      'name?: string;',
+      'node_count?: number;',
+      'tags?: string[];',
+    ],
     markdown:
-      "## update\n\n`client.nks.clusters.pools.availability.update(cluster_id: string, pool_id: string, name?: string, tags?: string[]): void`\n\n**patch** `/v1/nks/clusters/{cluster_id}/pools/{pool_id}/availability`\n\nCheck if an NKS node pool can be updated\n\n### Parameters\n\n- `cluster_id: string`\n\n- `pool_id: string`\n\n- `name?: string`\n  Name of the node pool.\n\n- `tags?: string[]`\n  Tags to attach to the node pool.\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nawait client.nks.clusters.pools.availability.update('pool_id', { cluster_id: 'cluster_id' })\n```",
+      "## update\n\n`client.nks.clusters.pools.availability.update(cluster_id: string, pool_id: string, name?: string, node_count?: number, tags?: string[]): void`\n\n**patch** `/v1/nks/clusters/{cluster_id}/pools/{pool_id}/availability`\n\nCheck if an NKS node pool can be updated\n\n### Parameters\n\n- `cluster_id: string`\n\n- `pool_id: string`\n\n- `name?: string`\n  Name of the node pool.\n\n- `node_count?: number`\n  Number of nodes.\n\n- `tags?: string[]`\n  Tags to attach to the node pool.\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nawait client.nks.clusters.pools.availability.update('pool_id', { cluster_id: 'cluster_id' })\n```",
   },
   {
     name: 'list',
