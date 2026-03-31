@@ -113,7 +113,7 @@ export interface Organization {
   /**
    * Current user's membership details.
    */
-  membership: OrganizationMembership;
+  membership: Organization.Membership;
 
   /**
    * Organization name.
@@ -139,6 +139,23 @@ export interface Organization {
    * Authentication provider organization ID.
    */
   auth_id?: string;
+}
+
+export namespace Organization {
+  /**
+   * Current user's membership details.
+   */
+  export interface Membership {
+    /**
+     * Membership ID.
+     */
+    id: string;
+
+    /**
+     * Role of the user in the organization.
+     */
+    role: 'owner' | 'member';
+  }
 }
 
 /**
@@ -171,7 +188,7 @@ export interface OrganizationList {
 }
 
 /**
- * Current user's membership details.
+ * Organization membership details.
  */
 export interface OrganizationMembership {
   /**
@@ -180,9 +197,29 @@ export interface OrganizationMembership {
   id: string;
 
   /**
+   * When the membership was created.
+   */
+  created_at: string;
+
+  /**
+   * Organization ID.
+   */
+  organization_id: string;
+
+  /**
    * Role of the user in the organization.
    */
   role: 'owner' | 'member';
+
+  /**
+   * When the membership was updated.
+   */
+  updated_at: string;
+
+  /**
+   * User ID.
+   */
+  user_id: string;
 }
 
 /**
