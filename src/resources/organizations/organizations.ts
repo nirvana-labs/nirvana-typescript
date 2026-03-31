@@ -2,6 +2,13 @@
 
 import { APIResource } from '../../core/resource';
 import * as Shared from '../shared';
+import * as MembershipsAPI from './memberships';
+import {
+  MembershipGetParams,
+  MembershipListParams,
+  Memberships,
+  OrganizationMembershipList,
+} from './memberships';
 import { APIPromise } from '../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../core/pagination';
 import { buildHeaders } from '../../internal/headers';
@@ -9,6 +16,8 @@ import { RequestOptions } from '../../internal/request-options';
 import { path } from '../../internal/utils/path';
 
 export class Organizations extends APIResource {
+  memberships: MembershipsAPI.Memberships = new MembershipsAPI.Memberships(this._client);
+
   /**
    * Create a new organization
    *
@@ -90,6 +99,8 @@ export class Organizations extends APIResource {
 }
 
 export type OrganizationsCursor = Cursor<Organization>;
+
+export type OrganizationMembershipsCursor = Cursor<OrganizationMembership>;
 
 /**
  * Organization response.
@@ -268,6 +279,8 @@ export interface OrganizationUpdateParams {
 
 export interface OrganizationListParams extends CursorParams {}
 
+Organizations.Memberships = Memberships;
+
 export declare namespace Organizations {
   export {
     type Organization as Organization,
@@ -279,5 +292,12 @@ export declare namespace Organizations {
     type OrganizationCreateParams as OrganizationCreateParams,
     type OrganizationUpdateParams as OrganizationUpdateParams,
     type OrganizationListParams as OrganizationListParams,
+  };
+
+  export {
+    Memberships as Memberships,
+    type OrganizationMembershipList as OrganizationMembershipList,
+    type MembershipListParams as MembershipListParams,
+    type MembershipGetParams as MembershipGetParams,
   };
 }

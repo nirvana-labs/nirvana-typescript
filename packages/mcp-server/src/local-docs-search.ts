@@ -270,6 +270,34 @@ const EMBEDDED_METHODS: MethodEntry[] = [
   },
   {
     name: 'list',
+    endpoint: '/v1/organizations/{organization_id}/memberships',
+    httpMethod: 'get',
+    summary: 'List Organization Memberships',
+    description: 'List all memberships for an organization',
+    stainlessPath: '(resource) organizations.memberships > (method) list',
+    qualified: 'client.organizations.memberships.list',
+    params: ['organization_id: string;', 'cursor?: string;', 'limit?: number;'],
+    response:
+      "{ id: string; created_at: string; organization_id: string; role: 'owner' | 'member'; updated_at: string; user_id: string; }",
+    markdown:
+      "## list\n\n`client.organizations.memberships.list(organization_id: string, cursor?: string, limit?: number): { id: string; created_at: string; organization_id: string; role: 'owner' | 'member'; updated_at: string; user_id: string; }`\n\n**get** `/v1/organizations/{organization_id}/memberships`\n\nList all memberships for an organization\n\n### Parameters\n\n- `organization_id: string`\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; created_at: string; organization_id: string; role: 'owner' | 'member'; updated_at: string; user_id: string; }`\n  Organization membership details.\n\n  - `id: string`\n  - `created_at: string`\n  - `organization_id: string`\n  - `role: 'owner' | 'member'`\n  - `updated_at: string`\n  - `user_id: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const organizationMembership of client.organizations.memberships.list('organization_id')) {\n  console.log(organizationMembership);\n}\n```",
+  },
+  {
+    name: 'get',
+    endpoint: '/v1/organizations/{organization_id}/memberships/{membership_id}',
+    httpMethod: 'get',
+    summary: 'Get Organization Membership',
+    description: 'Get details about an organization membership',
+    stainlessPath: '(resource) organizations.memberships > (method) get',
+    qualified: 'client.organizations.memberships.get',
+    params: ['organization_id: string;', 'membership_id: string;'],
+    response:
+      "{ id: string; created_at: string; organization_id: string; role: 'owner' | 'member'; updated_at: string; user_id: string; }",
+    markdown:
+      "## get\n\n`client.organizations.memberships.get(organization_id: string, membership_id: string): { id: string; created_at: string; organization_id: string; role: 'owner' | 'member'; updated_at: string; user_id: string; }`\n\n**get** `/v1/organizations/{organization_id}/memberships/{membership_id}`\n\nGet details about an organization membership\n\n### Parameters\n\n- `organization_id: string`\n\n- `membership_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; organization_id: string; role: 'owner' | 'member'; updated_at: string; user_id: string; }`\n  Organization membership details.\n\n  - `id: string`\n  - `created_at: string`\n  - `organization_id: string`\n  - `role: 'owner' | 'member'`\n  - `updated_at: string`\n  - `user_id: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst organizationMembership = await client.organizations.memberships.get('membership_id', { organization_id: 'organization_id' });\n\nconsole.log(organizationMembership);\n```",
+  },
+  {
+    name: 'list',
     endpoint: '/v1/audit_logs',
     httpMethod: 'get',
     summary: 'List Audit Logs',
