@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.65.0 (2026-04-01)
+
+Full Changelog: [v1.64.0...v1.65.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.64.0...v1.65.0)
+
+### Features
+
+* **api:** api update ([1decdec](https://github.com/nirvana-labs/nirvana-typescript/commit/1decdec2ea0a51d5aa9b1f891e4e91470ea60df7))
+* **api:** api update ([3e432d3](https://github.com/nirvana-labs/nirvana-typescript/commit/3e432d3f28fcb8c1fd946bc6c51a8222b64b04f0))
+
+
+### Bug Fixes
+
+* **internal:** gitignore generated `oidc` dir ([e3afaf5](https://github.com/nirvana-labs/nirvana-typescript/commit/e3afaf569540565c2dbfd39ab7a7fcd9010f4a89))
+
+
+### Chores
+
+* **internal:** improve local docs search for MCP servers ([0e8deb5](https://github.com/nirvana-labs/nirvana-typescript/commit/0e8deb5b216a59dda5b5b0d6967c43d1ca98c5dd))
+
 ## 1.64.0 (2026-03-31)
 
 Full Changelog: [v1.63.2...v1.64.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.63.2...v1.64.0)
