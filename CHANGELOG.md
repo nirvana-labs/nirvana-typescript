@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.66.0 (2026-04-02)
+
+Full Changelog: [v1.65.0...v1.66.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.65.0...v1.66.0)
+
+### Features
+
+* **api:** api update ([7896692](https://github.com/nirvana-labs/nirvana-typescript/commit/78966928284be6efa43123f091768e58bf989d2d))
+
+
+### Chores
+
+* **internal:** support type annotations when running MCP in local execution mode ([2665003](https://github.com/nirvana-labs/nirvana-typescript/commit/2665003a9c6bedbb4df3c7ee0587edcbf40bf02f))
+
 ## 1.65.0 (2026-04-01)
 
 Full Changelog: [v1.64.0...v1.65.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.64.0...v1.65.0)

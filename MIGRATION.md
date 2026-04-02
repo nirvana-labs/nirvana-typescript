@@ -107,6 +107,7 @@ This affects the following methods:
 - `client.auditLogs.list()`
 - `client.projects.list()`
 - `client.regions.list()`
+- `client.instanceTypes.list()`
 - `client.compute.vms.volumes.list()`
 - `client.compute.vms.osImages.list()`
 - `client.networking.firewallRules.list()`

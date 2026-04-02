@@ -947,6 +947,40 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     },
   },
   {
+    name: 'list',
+    endpoint: '/v1/instance_types',
+    httpMethod: 'get',
+    summary: 'List Instance Types',
+    description: 'List instance types',
+    stainlessPath: '(resource) instance_types > (method) list',
+    qualified: 'client.instanceTypes.list',
+    params: ['cursor?: string;', 'limit?: number;'],
+    response:
+      '{ chipset: string; created_at: string; memory_gi: number; name: string; region: string; updated_at: string; vcpu: number; }',
+    markdown:
+      "## list\n\n`client.instanceTypes.list(cursor?: string, limit?: number): { chipset: string; created_at: string; memory_gi: number; name: string; region: string; updated_at: string; vcpu: number; }`\n\n**get** `/v1/instance_types`\n\nList instance types\n\n### Parameters\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ chipset: string; created_at: string; memory_gi: number; name: string; region: string; updated_at: string; vcpu: number; }`\n  Instance type.\n\n  - `chipset: string`\n  - `created_at: string`\n  - `memory_gi: number`\n  - `name: string`\n  - `region: string`\n  - `updated_at: string`\n  - `vcpu: number`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const instanceType of client.instanceTypes.list()) {\n  console.log(instanceType);\n}\n```",
+    perLanguage: {
+      cli: {
+        method: 'instance_types list',
+        example: "nirvana instance-types list \\\n  --api-key 'My API Key'",
+      },
+      go: {
+        method: 'client.InstanceTypes.List',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/instance_types"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.InstanceTypes.List(context.TODO(), instance_types.InstanceTypeListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/instance_types \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY"',
+      },
+      typescript: {
+        method: 'client.instanceTypes.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const instanceType of client.instanceTypes.list()) {\n  console.log(instanceType.chipset);\n}",
+      },
+    },
+  },
+  {
     name: 'create',
     endpoint: '/v1/compute/vms',
     httpMethod: 'post',

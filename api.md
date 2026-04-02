@@ -22,6 +22,8 @@ Types:
 
 # [Regions](src/resources/regions/api.md)
 
+# [InstanceTypes](src/resources/instance-types/api.md)
+
 # [Compute](src/resources/compute/api.md)
 
 # [Networking](src/resources/networking/api.md)
