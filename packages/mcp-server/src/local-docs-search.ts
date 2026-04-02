@@ -947,6 +947,41 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     },
   },
   {
+    name: 'get',
+    endpoint: '/v1/instance_types/{region}/{name}',
+    httpMethod: 'get',
+    summary: 'Get Instance Type',
+    description: 'Get an instance type by region and name',
+    stainlessPath: '(resource) instance_types > (method) get',
+    qualified: 'client.instanceTypes.get',
+    params: ["region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1' | 'us-wdc-1';", 'name: string;'],
+    response:
+      '{ chipset: string; created_at: string; memory_gi: number; name: string; region: string; updated_at: string; vcpu: number; }',
+    markdown:
+      "## get\n\n`client.instanceTypes.get(region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1' | 'us-wdc-1', name: string): { chipset: string; created_at: string; memory_gi: number; name: string; region: string; updated_at: string; vcpu: number; }`\n\n**get** `/v1/instance_types/{region}/{name}`\n\nGet an instance type by region and name\n\n### Parameters\n\n- `region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1' | 'us-wdc-1'`\n\n- `name: string`\n\n### Returns\n\n- `{ chipset: string; created_at: string; memory_gi: number; name: string; region: string; updated_at: string; vcpu: number; }`\n  Instance type.\n\n  - `chipset: string`\n  - `created_at: string`\n  - `memory_gi: number`\n  - `name: string`\n  - `region: string`\n  - `updated_at: string`\n  - `vcpu: number`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst instanceType = await client.instanceTypes.get('n1-standard-8', { region: 'us-sva-2' });\n\nconsole.log(instanceType);\n```",
+    perLanguage: {
+      cli: {
+        method: 'instance_types get',
+        example:
+          "nirvana instance-types get \\\n  --api-key 'My API Key' \\\n  --region us-sva-2 \\\n  --name n1-standard-8",
+      },
+      go: {
+        method: 'client.InstanceTypes.Get',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/instance_types"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tinstanceType, err := client.InstanceTypes.Get(\n\t\tcontext.TODO(),\n\t\tinstance_types.InstanceTypeGetParamsRegionUsSva2,\n\t\t"n1-standard-8",\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", instanceType.Chipset)\n}\n',
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/instance_types/$REGION/$NAME \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY"',
+      },
+      typescript: {
+        method: 'client.instanceTypes.get',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst instanceType = await client.instanceTypes.get('n1-standard-8', { region: 'us-sva-2' });\n\nconsole.log(instanceType.chipset);",
+      },
+    },
+  },
+  {
     name: 'list',
     endpoint: '/v1/instance_types',
     httpMethod: 'get',
