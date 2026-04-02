@@ -173,6 +173,12 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/instance_types',
   },
   {
+    clientCallName: 'client.instanceTypes.get',
+    fullyQualifiedName: 'instanceTypes.get',
+    httpMethod: 'get',
+    httpPath: '/v1/instance_types/{region}/{name}',
+  },
+  {
     clientCallName: 'client.compute.vms.create',
     fullyQualifiedName: 'compute.vms.create',
     httpMethod: 'post',

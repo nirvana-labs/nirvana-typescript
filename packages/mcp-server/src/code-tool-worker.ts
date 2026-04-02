@@ -134,6 +134,7 @@ const fuse = new Fuse(
     'client.projects.update',
     'client.regions.get',
     'client.regions.list',
+    'client.instanceTypes.get',
     'client.instanceTypes.list',
     'client.compute.vms.create',
     'client.compute.vms.delete',

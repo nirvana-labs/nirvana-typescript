@@ -37,6 +37,39 @@
       ]
     },
     {
+      "base": "instanceTypes",
+      "name": "get",
+      "params": [
+        {
+          "type": "param",
+          "key": "name",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ],
+      "oldParams": [
+        {
+          "type": "param",
+          "key": "region",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "name",
+          "location": "path"
+        },
+        {
+          "type": "options"
+        }
+      ]
+    },
+    {
       "base": "networking.firewallRules",
       "name": "update",
       "params": [
