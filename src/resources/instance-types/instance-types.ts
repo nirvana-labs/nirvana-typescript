@@ -60,7 +60,10 @@ export interface InstanceType {
 
   name: string;
 
-  region: string;
+  /**
+   * Region the resource is in.
+   */
+  region: Shared.RegionName;
 
   /**
    * When the Instance Type was updated.
