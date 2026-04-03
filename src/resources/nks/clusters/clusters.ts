@@ -15,6 +15,15 @@ import {
   NKSLoadBalancerList,
   NKSLoadBalancersCursor,
 } from './load-balancers';
+import * as PersistentVolumeClaimsAPI from './persistent-volume-claims';
+import {
+  PersistentVolumeClaim,
+  PersistentVolumeClaimGetParams,
+  PersistentVolumeClaimList,
+  PersistentVolumeClaimListParams,
+  PersistentVolumeClaims,
+  PersistentVolumeClaimsCursor,
+} from './persistent-volume-claims';
 import * as ControllersAPI from './controllers/controllers';
 import {
   ControllerGetParams,
@@ -53,6 +62,8 @@ import { path } from '../../../internal/utils/path';
 
 export class Clusters extends APIResource {
   availability: AvailabilityAPI.Availability = new AvailabilityAPI.Availability(this._client);
+  persistentVolumeClaims: PersistentVolumeClaimsAPI.PersistentVolumeClaims =
+    new PersistentVolumeClaimsAPI.PersistentVolumeClaims(this._client);
   kubeconfig: KubeconfigAPI.Kubeconfig = new KubeconfigAPI.Kubeconfig(this._client);
   controllers: ControllersAPI.Controllers = new ControllersAPI.Controllers(this._client);
   loadBalancers: LoadBalancersAPI.LoadBalancers = new LoadBalancersAPI.LoadBalancers(this._client);
@@ -268,6 +279,7 @@ export interface ClusterListParams extends CursorParams {
 }
 
 Clusters.Availability = Availability;
+Clusters.PersistentVolumeClaims = PersistentVolumeClaims;
 Clusters.Controllers = Controllers;
 Clusters.LoadBalancers = LoadBalancers;
 Clusters.Pools = Pools;
@@ -287,6 +299,15 @@ export declare namespace Clusters {
     Availability as Availability,
     type AvailabilityCreateParams as AvailabilityCreateParams,
     type AvailabilityUpdateParams as AvailabilityUpdateParams,
+  };
+
+  export {
+    PersistentVolumeClaims as PersistentVolumeClaims,
+    type PersistentVolumeClaim as PersistentVolumeClaim,
+    type PersistentVolumeClaimList as PersistentVolumeClaimList,
+    type PersistentVolumeClaimsCursor as PersistentVolumeClaimsCursor,
+    type PersistentVolumeClaimListParams as PersistentVolumeClaimListParams,
+    type PersistentVolumeClaimGetParams as PersistentVolumeClaimGetParams,
   };
 
   export {

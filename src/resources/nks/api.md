@@ -23,6 +23,18 @@ Methods:
 - <code title="post /v1/nks/clusters/availability">client.nks.clusters.availability.<a href="./src/resources/nks/clusters/availability.ts">create</a>({ ...params }) -> void</code>
 - <code title="patch /v1/nks/clusters/{cluster_id}/availability">client.nks.clusters.availability.<a href="./src/resources/nks/clusters/availability.ts">update</a>(clusterID, { ...params }) -> void</code>
 
+### PersistentVolumeClaims
+
+Types:
+
+- <code><a href="./src/resources/nks/clusters/persistent-volume-claims.ts">PersistentVolumeClaim</a></code>
+- <code><a href="./src/resources/nks/clusters/persistent-volume-claims.ts">PersistentVolumeClaimList</a></code>
+
+Methods:
+
+- <code title="get /v1/nks/clusters/{cluster_id}/persistent_volume_claims">client.nks.clusters.persistentVolumeClaims.<a href="./src/resources/nks/clusters/persistent-volume-claims.ts">list</a>(clusterID, { ...params }) -> PersistentVolumeClaimsCursor</code>
+- <code title="get /v1/nks/clusters/{cluster_id}/persistent_volume_claims/{persistent_volume_claim_id}">client.nks.clusters.persistentVolumeClaims.<a href="./src/resources/nks/clusters/persistent-volume-claims.ts">get</a>(persistentVolumeClaimID, { ...params }) -> PersistentVolumeClaim</code>
+
 ### Kubeconfig
 
 Methods:
