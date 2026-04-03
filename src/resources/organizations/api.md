@@ -5,7 +5,6 @@ Types:
 - <code><a href="./src/resources/organizations/organizations.ts">Organization</a></code>
 - <code><a href="./src/resources/organizations/organizations.ts">OrganizationDomain</a></code>
 - <code><a href="./src/resources/organizations/organizations.ts">OrganizationList</a></code>
-- <code><a href="./src/resources/organizations/organizations.ts">OrganizationMembership</a></code>
 - <code><a href="./src/resources/organizations/organizations.ts">OrganizationServices</a></code>
 
 Methods:
@@ -20,6 +19,7 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/organizations/memberships.ts">OrganizationMembership</a></code>
 - <code><a href="./src/resources/organizations/memberships.ts">OrganizationMembershipList</a></code>
 
 Methods:

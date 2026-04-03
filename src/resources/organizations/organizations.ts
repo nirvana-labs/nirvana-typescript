@@ -7,7 +7,9 @@ import {
   MembershipGetParams,
   MembershipListParams,
   Memberships,
+  OrganizationMembership,
   OrganizationMembershipList,
+  OrganizationMembershipsCursor,
 } from './memberships';
 import { APIPromise } from '../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../core/pagination';
@@ -100,8 +102,6 @@ export class Organizations extends APIResource {
 
 export type OrganizationsCursor = Cursor<Organization>;
 
-export type OrganizationMembershipsCursor = Cursor<OrganizationMembership>;
-
 /**
  * Organization response.
  */
@@ -177,41 +177,6 @@ export interface OrganizationList {
 }
 
 /**
- * Organization membership details.
- */
-export interface OrganizationMembership {
-  /**
-   * Membership ID.
-   */
-  id: string;
-
-  /**
-   * When the membership was created.
-   */
-  created_at: string;
-
-  /**
-   * Organization ID.
-   */
-  organization_id: string;
-
-  /**
-   * Role of the user in the organization.
-   */
-  role: 'owner' | 'member';
-
-  /**
-   * When the membership was updated.
-   */
-  updated_at: string;
-
-  /**
-   * User ID.
-   */
-  user_id: string;
-}
-
-/**
  * Services that the Organization has access to.
  */
 export interface OrganizationServices {
@@ -264,7 +229,6 @@ export declare namespace Organizations {
     type Organization as Organization,
     type OrganizationDomain as OrganizationDomain,
     type OrganizationList as OrganizationList,
-    type OrganizationMembership as OrganizationMembership,
     type OrganizationServices as OrganizationServices,
     type OrganizationsCursor as OrganizationsCursor,
     type OrganizationCreateParams as OrganizationCreateParams,
@@ -274,7 +238,9 @@ export declare namespace Organizations {
 
   export {
     Memberships as Memberships,
+    type OrganizationMembership as OrganizationMembership,
     type OrganizationMembershipList as OrganizationMembershipList,
+    type OrganizationMembershipsCursor as OrganizationMembershipsCursor,
     type MembershipListParams as MembershipListParams,
     type MembershipGetParams as MembershipGetParams,
   };
