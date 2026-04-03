@@ -55,6 +55,7 @@ client.parents.children.retrieve('c_456', { parent_id: 'p_123' });
 This affects the following methods:
 
 - `client.organizations.memberships.get()`
+- `client.instanceTypes.get()`
 - `client.networking.firewallRules.update()`
 - `client.networking.firewallRules.delete()`
 - `client.networking.firewallRules.get()`
