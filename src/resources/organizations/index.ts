@@ -2,8 +2,10 @@
 
 export {
   Memberships,
+  type OrganizationMembership,
   type OrganizationMembershipList,
   type MembershipListParams,
   type MembershipGetParams,
+  type OrganizationMembershipsCursor,
 } from './memberships';
 export { Organizations } from './organizations';

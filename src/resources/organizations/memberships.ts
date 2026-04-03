@@ -2,8 +2,6 @@
 
 import { APIResource } from '../../core/resource';
 import * as Shared from '../shared';
-import * as OrganizationsAPI from './organizations';
-import { OrganizationMembershipsCursor } from './organizations';
 import { APIPromise } from '../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../core/pagination';
 import { RequestOptions } from '../../internal/request-options';
@@ -27,10 +25,10 @@ export class Memberships extends APIResource {
     organizationID: string,
     query: MembershipListParams | null | undefined = {},
     options?: RequestOptions,
-  ): PagePromise<OrganizationMembershipsCursor, OrganizationsAPI.OrganizationMembership> {
+  ): PagePromise<OrganizationMembershipsCursor, OrganizationMembership> {
     return this._client.getAPIList(
       path`/v1/organizations/${organizationID}/memberships`,
-      Cursor<OrganizationsAPI.OrganizationMembership>,
+      Cursor<OrganizationMembership>,
       { query, ...options },
     );
   }
@@ -51,14 +49,51 @@ export class Memberships extends APIResource {
     membershipID: string,
     params: MembershipGetParams,
     options?: RequestOptions,
-  ): APIPromise<OrganizationsAPI.OrganizationMembership> {
+  ): APIPromise<OrganizationMembership> {
     const { organization_id } = params;
     return this._client.get(path`/v1/organizations/${organization_id}/memberships/${membershipID}`, options);
   }
 }
 
+export type OrganizationMembershipsCursor = Cursor<OrganizationMembership>;
+
+/**
+ * Organization membership details.
+ */
+export interface OrganizationMembership {
+  /**
+   * Membership ID.
+   */
+  id: string;
+
+  /**
+   * When the membership was created.
+   */
+  created_at: string;
+
+  /**
+   * Organization ID.
+   */
+  organization_id: string;
+
+  /**
+   * Role of the user in the organization.
+   */
+  role: 'owner' | 'member';
+
+  /**
+   * When the membership was updated.
+   */
+  updated_at: string;
+
+  /**
+   * User ID.
+   */
+  user_id: string;
+}
+
 export interface OrganizationMembershipList {
-  items: Array<OrganizationsAPI.OrganizationMembership>;
+  items: Array<OrganizationMembership>;
 
   /**
    * Pagination response details.
@@ -77,10 +112,10 @@ export interface MembershipGetParams {
 
 export declare namespace Memberships {
   export {
+    type OrganizationMembership as OrganizationMembership,
     type OrganizationMembershipList as OrganizationMembershipList,
+    type OrganizationMembershipsCursor as OrganizationMembershipsCursor,
     type MembershipListParams as MembershipListParams,
     type MembershipGetParams as MembershipGetParams,
   };
 }
-
-export { type OrganizationMembershipsCursor };
