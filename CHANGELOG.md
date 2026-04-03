@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.69.1 (2026-04-03)
+
+Full Changelog: [v1.69.0...v1.69.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.69.0...v1.69.1)
+
+### Chores
+
+* **mcp-server:** log client info ([5cf5308](https://github.com/nirvana-labs/nirvana-typescript/commit/5cf5308104251d9a63b76e7e26181b3e82754a41))
+
 ## 1.69.0 (2026-04-03)
 
 Full Changelog: [v1.68.0...v1.69.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.68.0...v1.69.0)
