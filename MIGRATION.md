@@ -59,6 +59,7 @@ This affects the following methods:
 - `client.networking.firewallRules.update()`
 - `client.networking.firewallRules.delete()`
 - `client.networking.firewallRules.get()`
+- `client.nks.clusters.persistentVolumeClaims.get()`
 - `client.nks.clusters.controllers.get()`
 - `client.nks.clusters.controllers.volumes.list()`
 - `client.nks.clusters.controllers.volumes.get()`
@@ -115,6 +116,7 @@ This affects the following methods:
 - `client.networking.connect.routes.list()`
 - `client.rpcNodes.flex.blockchains.list()`
 - `client.rpcNodes.dedicated.blockchains.list()`
+- `client.nks.clusters.persistentVolumeClaims.list()`
 - `client.nks.clusters.controllers.list()`
 - `client.nks.clusters.loadBalancers.list()`
 - `client.nks.clusters.pools.list()`

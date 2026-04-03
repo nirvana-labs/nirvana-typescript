@@ -2933,6 +2933,76 @@ const EMBEDDED_METHODS: MethodEntry[] = [
   },
   {
     name: 'get',
+    endpoint: '/v1/nks/clusters/{cluster_id}/persistent_volume_claims/{persistent_volume_claim_id}',
+    httpMethod: 'get',
+    summary: 'Get NKS Persistent Volume Claim Details',
+    description: 'Get details about an NKS persistent volume claim',
+    stainlessPath: '(resource) nks.clusters.persistent_volume_claims > (method) get',
+    qualified: 'client.nks.clusters.persistentVolumeClaims.get',
+    params: ['cluster_id: string;', 'persistent_volume_claim_id: string;'],
+    response:
+      "{ id: string; cluster_id: string; created_at: string; name: string; size: number; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; type: 'nvme' | 'abs'; updated_at: string; }",
+    markdown:
+      "## get\n\n`client.nks.clusters.persistentVolumeClaims.get(cluster_id: string, persistent_volume_claim_id: string): { id: string; cluster_id: string; created_at: string; name: string; size: number; status: resource_status; type: volume_type; updated_at: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}/persistent_volume_claims/{persistent_volume_claim_id}`\n\nGet details about an NKS persistent volume claim\n\n### Parameters\n\n- `cluster_id: string`\n\n- `persistent_volume_claim_id: string`\n\n### Returns\n\n- `{ id: string; cluster_id: string; created_at: string; name: string; size: number; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; type: 'nvme' | 'abs'; updated_at: string; }`\n  NKS persistent volume claim details.\n\n  - `id: string`\n  - `cluster_id: string`\n  - `created_at: string`\n  - `name: string`\n  - `size: number`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `type: 'nvme' | 'abs'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst persistentVolumeClaim = await client.nks.clusters.persistentVolumeClaims.get('persistent_volume_claim_id', { cluster_id: 'cluster_id' });\n\nconsole.log(persistentVolumeClaim);\n```",
+    perLanguage: {
+      cli: {
+        method: 'persistent_volume_claims get',
+        example:
+          "nirvana nks:clusters:persistent-volume-claims get \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --persistent-volume-claim-id persistent_volume_claim_id",
+      },
+      go: {
+        method: 'client.NKS.Clusters.PersistentVolumeClaims.Get',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpersistentVolumeClaim, err := client.NKS.Clusters.PersistentVolumeClaims.Get(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\t"persistent_volume_claim_id",\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", persistentVolumeClaim.ID)\n}\n',
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/nks/clusters/$CLUSTER_ID/persistent_volume_claims/$PERSISTENT_VOLUME_CLAIM_ID \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY"',
+      },
+      typescript: {
+        method: 'client.nks.clusters.persistentVolumeClaims.get',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst persistentVolumeClaim = await client.nks.clusters.persistentVolumeClaims.get(\n  'persistent_volume_claim_id',\n  { cluster_id: 'cluster_id' },\n);\n\nconsole.log(persistentVolumeClaim.id);",
+      },
+    },
+  },
+  {
+    name: 'list',
+    endpoint: '/v1/nks/clusters/{cluster_id}/persistent_volume_claims',
+    httpMethod: 'get',
+    summary: 'List NKS Persistent Volume Claims',
+    description: 'List all persistent volume claims in an NKS cluster',
+    stainlessPath: '(resource) nks.clusters.persistent_volume_claims > (method) list',
+    qualified: 'client.nks.clusters.persistentVolumeClaims.list',
+    params: ['cluster_id: string;', 'cursor?: string;', 'limit?: number;'],
+    response:
+      "{ id: string; cluster_id: string; created_at: string; name: string; size: number; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; type: 'nvme' | 'abs'; updated_at: string; }",
+    markdown:
+      "## list\n\n`client.nks.clusters.persistentVolumeClaims.list(cluster_id: string, cursor?: string, limit?: number): { id: string; cluster_id: string; created_at: string; name: string; size: number; status: resource_status; type: volume_type; updated_at: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}/persistent_volume_claims`\n\nList all persistent volume claims in an NKS cluster\n\n### Parameters\n\n- `cluster_id: string`\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; cluster_id: string; created_at: string; name: string; size: number; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; type: 'nvme' | 'abs'; updated_at: string; }`\n  NKS persistent volume claim details.\n\n  - `id: string`\n  - `cluster_id: string`\n  - `created_at: string`\n  - `name: string`\n  - `size: number`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `type: 'nvme' | 'abs'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const persistentVolumeClaim of client.nks.clusters.persistentVolumeClaims.list('cluster_id')) {\n  console.log(persistentVolumeClaim);\n}\n```",
+    perLanguage: {
+      cli: {
+        method: 'persistent_volume_claims list',
+        example:
+          "nirvana nks:clusters:persistent-volume-claims list \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id",
+      },
+      go: {
+        method: 'client.NKS.Clusters.PersistentVolumeClaims.List',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.NKS.Clusters.PersistentVolumeClaims.List(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\tnks.ClusterPersistentVolumeClaimListParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/nks/clusters/$CLUSTER_ID/persistent_volume_claims \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY"',
+      },
+      typescript: {
+        method: 'client.nks.clusters.persistentVolumeClaims.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const persistentVolumeClaim of client.nks.clusters.persistentVolumeClaims.list(\n  'cluster_id',\n)) {\n  console.log(persistentVolumeClaim.id);\n}",
+      },
+    },
+  },
+  {
+    name: 'get',
     endpoint: '/v1/nks/clusters/{cluster_id}/kubeconfig',
     httpMethod: 'get',
     summary: 'Get NKS Cluster Kubeconfig',
