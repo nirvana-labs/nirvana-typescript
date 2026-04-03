@@ -56,7 +56,9 @@ export interface InstanceType {
    */
   created_at: string;
 
-  memory_gi: number;
+  family: string;
+
+  memory_gb: number;
 
   name: string;
 
@@ -64,6 +66,8 @@ export interface InstanceType {
    * Region the resource is in.
    */
   region: Shared.RegionName;
+
+  series: string;
 
   /**
    * When the Instance Type was updated.
