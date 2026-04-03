@@ -497,6 +497,18 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/nks/clusters/{cluster_id}/availability',
   },
   {
+    clientCallName: 'client.nks.clusters.persistentVolumeClaims.list',
+    fullyQualifiedName: 'nks.clusters.persistentVolumeClaims.list',
+    httpMethod: 'get',
+    httpPath: '/v1/nks/clusters/{cluster_id}/persistent_volume_claims',
+  },
+  {
+    clientCallName: 'client.nks.clusters.persistentVolumeClaims.get',
+    fullyQualifiedName: 'nks.clusters.persistentVolumeClaims.get',
+    httpMethod: 'get',
+    httpPath: '/v1/nks/clusters/{cluster_id}/persistent_volume_claims/{persistent_volume_claim_id}',
+  },
+  {
     clientCallName: 'client.nks.clusters.kubeconfig.get',
     fullyQualifiedName: 'nks.clusters.kubeconfig.get',
     httpMethod: 'get',

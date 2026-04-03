@@ -30,6 +30,14 @@ export {
   type NKSLoadBalancersCursor,
 } from './load-balancers';
 export {
+  PersistentVolumeClaims,
+  type PersistentVolumeClaim,
+  type PersistentVolumeClaimList,
+  type PersistentVolumeClaimListParams,
+  type PersistentVolumeClaimGetParams,
+  type PersistentVolumeClaimsCursor,
+} from './persistent-volume-claims';
+export {
   Pools,
   type NKSNodePool,
   type NKSNodePoolBootVolume,
