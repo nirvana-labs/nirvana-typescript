@@ -87,6 +87,16 @@ export interface NKSLoadBalancer {
   private_ip: string | null;
 
   /**
+   * Public IP address assigned to this load balancer.
+   */
+  public_ip: string | null;
+
+  /**
+   * Whether a public IP is enabled for this load balancer.
+   */
+  public_ip_enabled: boolean;
+
+  /**
    * Kubernetes service name of the load balancer.
    */
   service_name: string;
