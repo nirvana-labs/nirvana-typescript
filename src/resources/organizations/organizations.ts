@@ -122,11 +122,6 @@ export interface Organization {
   domains: Array<OrganizationDomain>;
 
   /**
-   * Current user's membership details.
-   */
-  membership: Organization.Membership;
-
-  /**
    * Organization name.
    */
   name: string;
@@ -150,23 +145,6 @@ export interface Organization {
    * Authentication provider organization ID.
    */
   auth_id?: string;
-}
-
-export namespace Organization {
-  /**
-   * Current user's membership details.
-   */
-  export interface Membership {
-    /**
-     * Membership ID.
-     */
-    id: string;
-
-    /**
-     * Role of the user in the organization.
-     */
-    role: 'owner' | 'member';
-  }
 }
 
 /**
