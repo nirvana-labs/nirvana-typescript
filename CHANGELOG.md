@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.71.1 (2026-04-07)
+
+Full Changelog: [v1.71.0...v1.71.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.71.0...v1.71.1)
+
+### Chores
+
+* **internal:** fix MCP server import ordering ([2f2d228](https://github.com/nirvana-labs/nirvana-typescript/commit/2f2d228b7dfa8c2baceb18ea749f0c4892382c3c))
+
 ## 1.71.0 (2026-04-03)
 
 Full Changelog: [v1.70.0...v1.71.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.70.0...v1.71.0)
