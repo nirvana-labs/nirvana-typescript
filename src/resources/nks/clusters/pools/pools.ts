@@ -36,8 +36,7 @@ export class Pools extends APIResource {
    *     name: 'my-node-pool',
    *     node_config: {
    *       boot_volume: { size: 100, type: 'abs' },
-   *       cpu_config: { vcpu: 4 },
-   *       memory_config: { size: 8 },
+   *       instance_type: 'n1-standard-8',
    *     },
    *     node_count: 3,
    *   },
@@ -215,26 +214,6 @@ export interface NKSNodePoolBootVolumeResponse {
   type: VolumesAPI.VolumeType;
 }
 
-/**
- * CPU configuration.
- */
-export interface NKSNodePoolCPUConfig {
-  /**
-   * Number of virtual CPUs.
-   */
-  vcpu: number;
-}
-
-/**
- * CPU configuration.
- */
-export interface NKSNodePoolCPUConfigResponse {
-  /**
-   * Number of virtual CPUs.
-   */
-  vcpu: number;
-}
-
 export interface NKSNodePoolList {
   items: Array<NKSNodePool>;
 
@@ -242,26 +221,6 @@ export interface NKSNodePoolList {
    * Pagination response details.
    */
   pagination: Shared.Pagination;
-}
-
-/**
- * Memory configuration.
- */
-export interface NKSNodePoolMemoryConfig {
-  /**
-   * Size of the memory in GB.
-   */
-  size: number;
-}
-
-/**
- * Memory configuration.
- */
-export interface NKSNodePoolMemoryConfigResponse {
-  /**
-   * Size of the memory in GB.
-   */
-  size: number;
 }
 
 /**
@@ -274,14 +233,9 @@ export interface NKSNodePoolNodeConfig {
   boot_volume: NKSNodePoolBootVolume;
 
   /**
-   * CPU configuration.
+   * Instance type name used for worker nodes.
    */
-  cpu_config: NKSNodePoolCPUConfig;
-
-  /**
-   * Memory configuration.
-   */
-  memory_config: NKSNodePoolMemoryConfig;
+  instance_type: string;
 }
 
 /**
@@ -294,14 +248,9 @@ export interface NKSNodePoolNodeConfigResponse {
   boot_volume: NKSNodePoolBootVolumeResponse;
 
   /**
-   * CPU configuration.
+   * Instance type name.
    */
-  cpu_config: NKSNodePoolCPUConfigResponse;
-
-  /**
-   * Memory configuration.
-   */
-  memory_config: NKSNodePoolMemoryConfigResponse;
+  instance_type: string;
 }
 
 export interface PoolCreateParams {
@@ -372,11 +321,7 @@ export declare namespace Pools {
     type NKSNodePool as NKSNodePool,
     type NKSNodePoolBootVolume as NKSNodePoolBootVolume,
     type NKSNodePoolBootVolumeResponse as NKSNodePoolBootVolumeResponse,
-    type NKSNodePoolCPUConfig as NKSNodePoolCPUConfig,
-    type NKSNodePoolCPUConfigResponse as NKSNodePoolCPUConfigResponse,
     type NKSNodePoolList as NKSNodePoolList,
-    type NKSNodePoolMemoryConfig as NKSNodePoolMemoryConfig,
-    type NKSNodePoolMemoryConfigResponse as NKSNodePoolMemoryConfigResponse,
     type NKSNodePoolNodeConfig as NKSNodePoolNodeConfig,
     type NKSNodePoolNodeConfigResponse as NKSNodePoolNodeConfigResponse,
     type NKSNodePoolsCursor as NKSNodePoolsCursor,

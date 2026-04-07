@@ -19,8 +19,7 @@ export class Availability extends APIResource {
    *     name: 'my-node-pool',
    *     node_config: {
    *       boot_volume: { size: 100, type: 'abs' },
-   *       cpu_config: { vcpu: 4 },
-   *       memory_config: { size: 8 },
+   *       instance_type: 'n1-standard-8',
    *     },
    *     node_count: 3,
    *   },
