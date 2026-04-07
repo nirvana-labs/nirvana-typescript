@@ -110,6 +110,11 @@ export interface AuditLogActor {
   id: string;
 
   /**
+   * Display name of the actor.
+   */
+  name: string | null;
+
+  /**
    * Type of actor.
    */
   type: AuditLogType;
