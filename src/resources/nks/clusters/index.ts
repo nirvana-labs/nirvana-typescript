@@ -3,7 +3,6 @@
 export { Availability, type AvailabilityCreateParams, type AvailabilityUpdateParams } from './availability';
 export {
   Clusters,
-  type Kubeconfig,
   type NKSCluster,
   type NKSClusterList,
   type ClusterCreateParams,
@@ -19,6 +18,7 @@ export {
   type ControllerGetParams,
   type NKSControllersCursor,
 } from './controllers/index';
+export { KubeconfigResource, type Kubeconfig } from './kubeconfig';
 export {
   LoadBalancers,
   type NKSLoadBalancer,

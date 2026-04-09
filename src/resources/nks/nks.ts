@@ -7,7 +7,6 @@ import {
   ClusterListParams,
   ClusterUpdateParams,
   Clusters,
-  Kubeconfig,
   NKSCluster,
   NKSClusterList,
   NKSClustersCursor,
@@ -22,7 +21,6 @@ NKS.Clusters = Clusters;
 export declare namespace NKS {
   export {
     Clusters as Clusters,
-    type Kubeconfig as Kubeconfig,
     type NKSCluster as NKSCluster,
     type NKSClusterList as NKSClusterList,
     type NKSClustersCursor as NKSClustersCursor,
