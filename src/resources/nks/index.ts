@@ -2,7 +2,6 @@
 
 export {
   Clusters,
-  type Kubeconfig,
   type NKSCluster,
   type NKSClusterList,
   type ClusterCreateParams,

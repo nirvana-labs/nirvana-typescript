@@ -4,7 +4,6 @@
 
 Types:
 
-- <code><a href="./src/resources/nks/clusters/clusters.ts">Kubeconfig</a></code>
 - <code><a href="./src/resources/nks/clusters/clusters.ts">NKSCluster</a></code>
 - <code><a href="./src/resources/nks/clusters/clusters.ts">NKSClusterList</a></code>
 
@@ -36,6 +35,10 @@ Methods:
 - <code title="get /v1/nks/clusters/{cluster_id}/persistent_volume_claims/{persistent_volume_claim_id}">client.nks.clusters.persistentVolumeClaims.<a href="./src/resources/nks/clusters/persistent-volume-claims.ts">get</a>(persistentVolumeClaimID, { ...params }) -> PersistentVolumeClaim</code>
 
 ### Kubeconfig
+
+Types:
+
+- <code><a href="./src/resources/nks/clusters/kubeconfig.ts">Kubeconfig</a></code>
 
 Methods:
 

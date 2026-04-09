@@ -6,6 +6,7 @@ import * as OperationsAPI from '../../operations/operations';
 import * as AvailabilityAPI from './availability';
 import { Availability, AvailabilityCreateParams, AvailabilityUpdateParams } from './availability';
 import * as KubeconfigAPI from './kubeconfig';
+import { Kubeconfig, KubeconfigResource } from './kubeconfig';
 import * as LoadBalancersAPI from './load-balancers';
 import {
   LoadBalancerGetParams,
@@ -58,7 +59,7 @@ export class Clusters extends APIResource {
   availability: AvailabilityAPI.Availability = new AvailabilityAPI.Availability(this._client);
   persistentVolumeClaims: PersistentVolumeClaimsAPI.PersistentVolumeClaims =
     new PersistentVolumeClaimsAPI.PersistentVolumeClaims(this._client);
-  kubeconfig: KubeconfigAPI.Kubeconfig = new KubeconfigAPI.Kubeconfig(this._client);
+  kubeconfig: KubeconfigAPI.KubeconfigResource = new KubeconfigAPI.KubeconfigResource(this._client);
   controllers: ControllersAPI.Controllers = new ControllersAPI.Controllers(this._client);
   loadBalancers: LoadBalancersAPI.LoadBalancers = new LoadBalancersAPI.LoadBalancers(this._client);
   pools: PoolsAPI.Pools = new PoolsAPI.Pools(this._client);
@@ -141,16 +142,6 @@ export class Clusters extends APIResource {
 }
 
 export type NKSClustersCursor = Cursor<NKSCluster>;
-
-/**
- * Kubeconfig for an NKS Cluster.
- */
-export interface Kubeconfig {
-  /**
-   * Kubeconfig content for the Cluster.
-   */
-  kubeconfig: string;
-}
 
 /**
  * NKS Cluster details.
@@ -274,13 +265,13 @@ export interface ClusterListParams extends CursorParams {
 
 Clusters.Availability = Availability;
 Clusters.PersistentVolumeClaims = PersistentVolumeClaims;
+Clusters.KubeconfigResource = KubeconfigResource;
 Clusters.Controllers = Controllers;
 Clusters.LoadBalancers = LoadBalancers;
 Clusters.Pools = Pools;
 
 export declare namespace Clusters {
   export {
-    type Kubeconfig as Kubeconfig,
     type NKSCluster as NKSCluster,
     type NKSClusterList as NKSClusterList,
     type NKSClustersCursor as NKSClustersCursor,
@@ -303,6 +294,8 @@ export declare namespace Clusters {
     type PersistentVolumeClaimListParams as PersistentVolumeClaimListParams,
     type PersistentVolumeClaimGetParams as PersistentVolumeClaimGetParams,
   };
+
+  export { KubeconfigResource as KubeconfigResource, type Kubeconfig as Kubeconfig };
 
   export {
     Controllers as Controllers,
