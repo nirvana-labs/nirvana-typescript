@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.73.1 (2026-04-09)
+
+Full Changelog: [v1.73.0...v1.73.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.73.0...v1.73.1)
+
+### Chores
+
+* **internal:** codegen related update ([29e02ef](https://github.com/nirvana-labs/nirvana-typescript/commit/29e02eff0293175ad6d556cc16b86d2a8a8f660c))
+* **mcp-server:** increase local docs search result count from 5 to 10 ([6594f26](https://github.com/nirvana-labs/nirvana-typescript/commit/6594f267bf157fb4c64bc4bf091e16b9a121cefd))
+
 ## 1.73.0 (2026-04-07)
 
 Full Changelog: [v1.72.0...v1.73.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.72.0...v1.73.0)
