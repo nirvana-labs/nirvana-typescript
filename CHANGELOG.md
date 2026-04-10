@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.76.0 (2026-04-10)
+
+Full Changelog: [v1.75.0...v1.76.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.75.0...v1.76.0)
+
+### Features
+
+* **api:** api update ([b9eeb7d](https://github.com/nirvana-labs/nirvana-typescript/commit/b9eeb7d2180c5d9423b00ae88b00b0b789752c55))
+
+
+### Chores
+
+* **internal:** show error causes in MCP servers when running in local mode ([a88b298](https://github.com/nirvana-labs/nirvana-typescript/commit/a88b298d53292d555671e9cece89a7932acd9bab))
+
 ## 1.75.0 (2026-04-10)
 
 Full Changelog: [v1.74.0...v1.75.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.74.0...v1.75.0)
