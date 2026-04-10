@@ -30,7 +30,7 @@ describe('resource regions', () => {
 
   // Mock server tests are disabled
   test.skip('get', async () => {
-    const responsePromise = client.regions.get('us-wdc-1');
+    const responsePromise = client.regions.get('us-sva-2');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;

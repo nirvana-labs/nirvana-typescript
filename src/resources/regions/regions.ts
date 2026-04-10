@@ -31,7 +31,7 @@ export class Regions extends APIResource {
    *
    * @example
    * ```ts
-   * const region = await client.regions.get('us-wdc-1');
+   * const region = await client.regions.get('us-sva-2');
    * ```
    */
   get(name: string, options?: RequestOptions): APIPromise<Region> {

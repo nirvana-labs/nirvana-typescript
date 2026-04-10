@@ -13,7 +13,7 @@ describe('resource clusters', () => {
     const responsePromise = client.nks.clusters.create({
       name: 'my-cluster',
       project_id: '123e4567-e89b-12d3-a456-426614174000',
-      region: 'us-wdc-1',
+      region: 'us-sva-2',
       vpc_id: '123e4567-e89b-12d3-a456-426614174000',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -30,7 +30,7 @@ describe('resource clusters', () => {
     const response = await client.nks.clusters.create({
       name: 'my-cluster',
       project_id: '123e4567-e89b-12d3-a456-426614174000',
-      region: 'us-wdc-1',
+      region: 'us-sva-2',
       vpc_id: '123e4567-e89b-12d3-a456-426614174000',
       tags: ['production', 'ethereum'],
     });
