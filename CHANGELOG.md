@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.76.1 (2026-04-14)
+
+Full Changelog: [v1.76.0...v1.76.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.76.0...v1.76.1)
+
+### Chores
+
+* update CLI documentation ([3aa5627](https://github.com/nirvana-labs/nirvana-typescript/commit/3aa562779744f7fa1f4bd4f9b45010ef65c14f78))
+
 ## 1.76.0 (2026-04-10)
 
 Full Changelog: [v1.75.0...v1.76.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.75.0...v1.76.0)
