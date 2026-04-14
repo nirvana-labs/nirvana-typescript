@@ -27,8 +27,6 @@ export class VMs extends APIResource {
    * ```ts
    * const operation = await client.compute.vms.create({
    *   boot_volume: { size: 100, type: 'abs' },
-   *   cpu_config: { vcpu: 2 },
-   *   memory_config: { size: 2 },
    *   name: 'my-vm',
    *   os_image_name: 'ubuntu-noble-2025-10-01',
    *   project_id: '123e4567-e89b-12d3-a456-426614174000',
@@ -133,7 +131,7 @@ export interface CPUConfigRequest {
   /**
    * Number of virtual CPUs.
    */
-  vcpu: number;
+  vcpu?: number;
 }
 
 /**
@@ -153,7 +151,7 @@ export interface MemoryConfigRequest {
   /**
    * Size of the memory in GB.
    */
-  size: number;
+  size?: number;
 }
 
 /**
@@ -279,6 +277,11 @@ export interface VM {
    * Name of the VPC the VM is in.
    */
   vpc_name: string;
+
+  /**
+   * Instance type name.
+   */
+  instance_type?: string | null;
 }
 
 export interface VMList {
@@ -295,16 +298,6 @@ export interface VMCreateParams {
    * Boot volume for the VM.
    */
   boot_volume: VMCreateParams.BootVolume;
-
-  /**
-   * CPU configuration for the VM.
-   */
-  cpu_config: CPUConfigRequest;
-
-  /**
-   * Memory configuration for the VM.
-   */
-  memory_config: MemoryConfigRequest;
 
   /**
    * Name of the VM.
@@ -342,9 +335,24 @@ export interface VMCreateParams {
   subnet_id: string;
 
   /**
+   * CPU configuration for the VM.
+   */
+  cpu_config?: CPUConfigRequest;
+
+  /**
    * Data volumes for the VM.
    */
   data_volumes?: Array<VMCreateParams.DataVolume>;
+
+  /**
+   * Instance type name.
+   */
+  instance_type?: string;
+
+  /**
+   * Memory configuration for the VM.
+   */
+  memory_config?: MemoryConfigRequest;
 
   /**
    * Tags to attach to the VM.
@@ -404,6 +412,11 @@ export interface VMUpdateParams {
    * CPU configuration for the VM.
    */
   cpu_config?: CPUConfigRequest;
+
+  /**
+   * Instance type name.
+   */
+  instance_type?: string;
 
   /**
    * Memory configuration for the VM.
