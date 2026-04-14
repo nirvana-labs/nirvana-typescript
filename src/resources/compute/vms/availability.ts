@@ -17,8 +17,6 @@ export class Availability extends APIResource {
    * ```ts
    * await client.compute.vms.availability.create({
    *   boot_volume: { size: 100, type: 'abs' },
-   *   cpu_config: { vcpu: 2 },
-   *   memory_config: { size: 2 },
    *   name: 'my-vm',
    *   os_image_name: 'ubuntu-noble-2025-10-01',
    *   project_id: '123e4567-e89b-12d3-a456-426614174000',
@@ -64,16 +62,6 @@ export interface AvailabilityCreateParams {
   boot_volume: AvailabilityCreateParams.BootVolume;
 
   /**
-   * CPU configuration for the VM.
-   */
-  cpu_config: VMsAPI.CPUConfigRequest;
-
-  /**
-   * Memory configuration for the VM.
-   */
-  memory_config: VMsAPI.MemoryConfigRequest;
-
-  /**
    * Name of the VM.
    */
   name: string;
@@ -109,9 +97,24 @@ export interface AvailabilityCreateParams {
   subnet_id: string;
 
   /**
+   * CPU configuration for the VM.
+   */
+  cpu_config?: VMsAPI.CPUConfigRequest;
+
+  /**
    * Data volumes for the VM.
    */
   data_volumes?: Array<AvailabilityCreateParams.DataVolume>;
+
+  /**
+   * Instance type name.
+   */
+  instance_type?: string;
+
+  /**
+   * Memory configuration for the VM.
+   */
+  memory_config?: VMsAPI.MemoryConfigRequest;
 
   /**
    * Tags to attach to the VM.
@@ -171,6 +174,11 @@ export interface AvailabilityUpdateParams {
    * CPU configuration for the VM.
    */
   cpu_config?: VMsAPI.CPUConfigRequest;
+
+  /**
+   * Instance type name.
+   */
+  instance_type?: string;
 
   /**
    * Memory configuration for the VM.
