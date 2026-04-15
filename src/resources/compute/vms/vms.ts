@@ -179,7 +179,7 @@ export interface OSImage {
  */
 export interface SSHKeyRequest {
   /**
-   * Public key to and and use to access the VM.
+   * Public key to and use to access the VM.
    */
   public_key: string;
 }
