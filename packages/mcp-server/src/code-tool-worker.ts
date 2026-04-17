@@ -198,6 +198,7 @@ const fuse = new Fuse(
     'client.nks.clusters.controllers.volumes.list',
     'client.nks.clusters.loadBalancers.get',
     'client.nks.clusters.loadBalancers.list',
+    'client.nks.clusters.loadBalancers.update',
     'client.nks.clusters.pools.create',
     'client.nks.clusters.pools.delete',
     'client.nks.clusters.pools.get',

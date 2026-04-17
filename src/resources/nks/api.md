@@ -77,6 +77,7 @@ Types:
 
 Methods:
 
+- <code title="patch /v1/nks/clusters/{cluster_id}/load_balancers/{load_balancer_id}">client.nks.clusters.loadBalancers.<a href="./src/resources/nks/clusters/load-balancers.ts">update</a>(loadBalancerID, { ...params }) -> Operation</code>
 - <code title="get /v1/nks/clusters/{cluster_id}/load_balancers">client.nks.clusters.loadBalancers.<a href="./src/resources/nks/clusters/load-balancers.ts">list</a>(clusterID, { ...params }) -> NKSLoadBalancersCursor</code>
 - <code title="get /v1/nks/clusters/{cluster_id}/load_balancers/{load_balancer_id}">client.nks.clusters.loadBalancers.<a href="./src/resources/nks/clusters/load-balancers.ts">get</a>(loadBalancerID, { ...params }) -> NKSLoadBalancer</code>
 

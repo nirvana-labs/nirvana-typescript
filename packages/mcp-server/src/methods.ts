@@ -539,6 +539,12 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes/{volume_id}',
   },
   {
+    clientCallName: 'client.nks.clusters.loadBalancers.update',
+    fullyQualifiedName: 'nks.clusters.loadBalancers.update',
+    httpMethod: 'patch',
+    httpPath: '/v1/nks/clusters/{cluster_id}/load_balancers/{load_balancer_id}',
+  },
+  {
     clientCallName: 'client.nks.clusters.loadBalancers.list',
     fullyQualifiedName: 'nks.clusters.loadBalancers.list',
     httpMethod: 'get',

@@ -2,12 +2,37 @@
 
 import { APIResource } from '../../../core/resource';
 import * as Shared from '../../shared';
+import * as OperationsAPI from '../../operations/operations';
 import { APIPromise } from '../../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
 export class LoadBalancers extends APIResource {
+  /**
+   * Update an NKS load balancer
+   *
+   * @example
+   * ```ts
+   * const operation =
+   *   await client.nks.clusters.loadBalancers.update(
+   *     'load_balancer_id',
+   *     { cluster_id: 'cluster_id', public_ip_enabled: true },
+   *   );
+   * ```
+   */
+  update(
+    loadBalancerID: string,
+    params: LoadBalancerUpdateParams,
+    options?: RequestOptions,
+  ): APIPromise<OperationsAPI.Operation> {
+    const { cluster_id, ...body } = params;
+    return this._client.patch(path`/v1/nks/clusters/${cluster_id}/load_balancers/${loadBalancerID}`, {
+      body,
+      ...options,
+    });
+  }
+
   /**
    * List all load balancers in an NKS cluster
    *
@@ -121,6 +146,18 @@ export interface NKSLoadBalancerList {
   pagination: Shared.Pagination;
 }
 
+export interface LoadBalancerUpdateParams {
+  /**
+   * Path param: Cluster ID
+   */
+  cluster_id: string;
+
+  /**
+   * Body param: Whether to enable a public IP for this load balancer.
+   */
+  public_ip_enabled: boolean;
+}
+
 export interface LoadBalancerListParams extends CursorParams {}
 
 export interface LoadBalancerGetParams {
@@ -135,6 +172,7 @@ export declare namespace LoadBalancers {
     type NKSLoadBalancer as NKSLoadBalancer,
     type NKSLoadBalancerList as NKSLoadBalancerList,
     type NKSLoadBalancersCursor as NKSLoadBalancersCursor,
+    type LoadBalancerUpdateParams as LoadBalancerUpdateParams,
     type LoadBalancerListParams as LoadBalancerListParams,
     type LoadBalancerGetParams as LoadBalancerGetParams,
   };
