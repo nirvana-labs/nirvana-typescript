@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.78.0 (2026-04-17)
+
+Full Changelog: [v1.77.1...v1.78.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.77.1...v1.78.0)
+
+### Features
+
+* **api:** add update method to nks.clusters.loadBalancers ([d6b7a02](https://github.com/nirvana-labs/nirvana-typescript/commit/d6b7a02b2a943da91f94b146a370afdc32313ab1))
+
 ## 1.77.1 (2026-04-15)
 
 Full Changelog: [v1.77.0...v1.77.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.77.0...v1.77.1)
