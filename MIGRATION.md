@@ -63,6 +63,7 @@ This affects the following methods:
 - `client.nks.clusters.controllers.get()`
 - `client.nks.clusters.controllers.volumes.list()`
 - `client.nks.clusters.controllers.volumes.get()`
+- `client.nks.clusters.loadBalancers.update()`
 - `client.nks.clusters.loadBalancers.get()`
 - `client.nks.clusters.pools.update()`
 - `client.nks.clusters.pools.delete()`

@@ -315,6 +315,43 @@
     },
     {
       "base": "nks.clusters.loadBalancers",
+      "name": "update",
+      "params": [
+        {
+          "type": "param",
+          "key": "load_balancer_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ],
+      "oldParams": [
+        {
+          "type": "param",
+          "key": "cluster_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "load_balancer_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ]
+    },
+    {
+      "base": "nks.clusters.loadBalancers",
       "name": "get",
       "params": [
         {

@@ -11,6 +11,7 @@ import * as LoadBalancersAPI from './load-balancers';
 import {
   LoadBalancerGetParams,
   LoadBalancerListParams,
+  LoadBalancerUpdateParams,
   LoadBalancers,
   NKSLoadBalancer,
   NKSLoadBalancerList,
@@ -311,6 +312,7 @@ export declare namespace Clusters {
     type NKSLoadBalancer as NKSLoadBalancer,
     type NKSLoadBalancerList as NKSLoadBalancerList,
     type NKSLoadBalancersCursor as NKSLoadBalancersCursor,
+    type LoadBalancerUpdateParams as LoadBalancerUpdateParams,
     type LoadBalancerListParams as LoadBalancerListParams,
     type LoadBalancerGetParams as LoadBalancerGetParams,
   };

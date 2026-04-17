@@ -80,24 +80,7 @@ export interface AuditLog {
   /**
    * The target resource of the action.
    */
-  target?: AuditLog.Target | null;
-}
-
-export namespace AuditLog {
-  /**
-   * The target resource of the action.
-   */
-  export interface Target {
-    /**
-     * Unique identifier for the target resource.
-     */
-    id: string;
-
-    /**
-     * Type of the target resource.
-     */
-    type: string;
-  }
+  target?: AuditLogTarget | null;
 }
 
 /**
@@ -130,6 +113,21 @@ export interface AuditLogList {
 }
 
 /**
+ * The target resource of the action.
+ */
+export interface AuditLogTarget {
+  /**
+   * Unique identifier for the target resource.
+   */
+  id: string;
+
+  /**
+   * Type of the target resource.
+   */
+  type: string;
+}
+
+/**
  * Type of actor.
  */
 export type AuditLogType = 'user' | 'api_key';
@@ -141,6 +139,7 @@ export declare namespace AuditLogs {
     type AuditLog as AuditLog,
     type AuditLogActor as AuditLogActor,
     type AuditLogList as AuditLogList,
+    type AuditLogTarget as AuditLogTarget,
     type AuditLogType as AuditLogType,
     type AuditLogsCursor as AuditLogsCursor,
     type AuditLogListParams as AuditLogListParams,

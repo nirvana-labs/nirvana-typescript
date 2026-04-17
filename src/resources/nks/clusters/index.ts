@@ -23,6 +23,7 @@ export {
   LoadBalancers,
   type NKSLoadBalancer,
   type NKSLoadBalancerList,
+  type LoadBalancerUpdateParams,
   type LoadBalancerListParams,
   type LoadBalancerGetParams,
   type NKSLoadBalancersCursor,

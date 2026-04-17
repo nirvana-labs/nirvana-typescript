@@ -9,6 +9,29 @@ const client = new NirvanaLabs({
 
 describe('resource loadBalancers', () => {
   // Mock server tests are disabled
+  test.skip('update: only required params', async () => {
+    const responsePromise = client.nks.clusters.loadBalancers.update('load_balancer_id', {
+      cluster_id: 'cluster_id',
+      public_ip_enabled: true,
+    });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Mock server tests are disabled
+  test.skip('update: required and optional params', async () => {
+    const response = await client.nks.clusters.loadBalancers.update('load_balancer_id', {
+      cluster_id: 'cluster_id',
+      public_ip_enabled: true,
+    });
+  });
+
+  // Mock server tests are disabled
   test.skip('list', async () => {
     const responsePromise = client.nks.clusters.loadBalancers.list('cluster_id');
     const rawResponse = await responsePromise.asResponse();
