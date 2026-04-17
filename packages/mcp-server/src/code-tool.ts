@@ -26,16 +26,15 @@ For example:
 \`\`\`
 async function run(client) {
   const operation = await client.compute.vms.create({
-    boot_volume: { size: 100, type: 'nvme' },
+    boot_volume: { size: 100, type: 'abs' },
     name: 'my-vm',
     os_image_name: 'ubuntu-noble-2025-10-01',
     project_id: '123e4567-e89b-12d3-a456-426614174000',
     public_ip_enabled: true,
-    region: 'us-sva-1',
+    region: 'us-sva-2',
     ssh_key: { public_key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2' },
     subnet_id: '123e4567-e89b-12d3-a456-426614174000',
-    cpu_config: { vcpu: 2 },
-    memory_config: { size: 2 },
+    instance_type: 'n1-standard-2',
   });
 
   console.log(operation.id);
