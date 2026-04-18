@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.79.0 (2026-04-18)
+
+Full Changelog: [v1.78.0...v1.79.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.78.0...v1.79.0)
+
+### Features
+
+* add network_bandwidth_gbps to InstanceType ([72ef8a6](https://github.com/nirvana-labs/nirvana-typescript/commit/72ef8a6e87ca274b24a7b215e71492665249df3d))
+
 ## 1.78.0 (2026-04-17)
 
 Full Changelog: [v1.77.1...v1.78.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.77.1...v1.78.0)
