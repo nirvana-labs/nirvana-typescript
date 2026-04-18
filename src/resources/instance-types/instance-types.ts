@@ -63,6 +63,11 @@ export interface InstanceType {
   name: string;
 
   /**
+   * Network bandwidth in Gbps.
+   */
+  network_bandwidth_gbps: number;
+
+  /**
    * Region the resource is in.
    */
   region: Shared.RegionName;

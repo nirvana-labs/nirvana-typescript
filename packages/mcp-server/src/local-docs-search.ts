@@ -956,9 +956,9 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     qualified: 'client.instanceTypes.get',
     params: ["region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1';", 'name: string;'],
     response:
-      "{ chipset: string; created_at: string; family: string; memory_gb: number; name: string; region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1'; series: string; updated_at: string; vcpu: number; }",
+      "{ chipset: string; created_at: string; family: string; memory_gb: number; name: string; network_bandwidth_gbps: number; region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1'; series: string; updated_at: string; vcpu: number; }",
     markdown:
-      "## get\n\n`client.instanceTypes.get(region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1', name: string): { chipset: string; created_at: string; family: string; memory_gb: number; name: string; region: region_name; series: string; updated_at: string; vcpu: number; }`\n\n**get** `/v1/instance_types/{region}/{name}`\n\nGet an instance type by region and name\n\n### Parameters\n\n- `region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1'`\n\n- `name: string`\n\n### Returns\n\n- `{ chipset: string; created_at: string; family: string; memory_gb: number; name: string; region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1'; series: string; updated_at: string; vcpu: number; }`\n  Instance type.\n\n  - `chipset: string`\n  - `created_at: string`\n  - `family: string`\n  - `memory_gb: number`\n  - `name: string`\n  - `region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1'`\n  - `series: string`\n  - `updated_at: string`\n  - `vcpu: number`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst instanceType = await client.instanceTypes.get('n1-standard-8', { region: 'us-sva-2' });\n\nconsole.log(instanceType);\n```",
+      "## get\n\n`client.instanceTypes.get(region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1', name: string): { chipset: string; created_at: string; family: string; memory_gb: number; name: string; network_bandwidth_gbps: number; region: region_name; series: string; updated_at: string; vcpu: number; }`\n\n**get** `/v1/instance_types/{region}/{name}`\n\nGet an instance type by region and name\n\n### Parameters\n\n- `region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1'`\n\n- `name: string`\n\n### Returns\n\n- `{ chipset: string; created_at: string; family: string; memory_gb: number; name: string; network_bandwidth_gbps: number; region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1'; series: string; updated_at: string; vcpu: number; }`\n  Instance type.\n\n  - `chipset: string`\n  - `created_at: string`\n  - `family: string`\n  - `memory_gb: number`\n  - `name: string`\n  - `network_bandwidth_gbps: number`\n  - `region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1'`\n  - `series: string`\n  - `updated_at: string`\n  - `vcpu: number`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst instanceType = await client.instanceTypes.get('n1-standard-8', { region: 'us-sva-2' });\n\nconsole.log(instanceType);\n```",
     perLanguage: {
       cli: {
         method: 'instance_types get',
@@ -968,7 +968,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       go: {
         method: 'client.InstanceTypes.Get',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/instance_types"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tinstanceType, err := client.InstanceTypes.Get(\n\t\tcontext.TODO(),\n\t\tinstance_types.InstanceTypeGetParamsRegionUsSva2,\n\t\t"n1-standard-8",\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", instanceType.Chipset)\n}\n',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/instance_types"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tinstanceType, err := client.InstanceTypes.Get(\n\t\tcontext.TODO(),\n\t\tinstance_types.InstanceTypeGetParamsRegionUsSva2,\n\t\t"n1-standard-8",\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", instanceType.NetworkBandwidthGbps)\n}\n',
       },
       http: {
         example:
@@ -977,7 +977,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       typescript: {
         method: 'client.instanceTypes.get',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst instanceType = await client.instanceTypes.get('n1-standard-8', { region: 'us-sva-2' });\n\nconsole.log(instanceType.chipset);",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst instanceType = await client.instanceTypes.get('n1-standard-8', { region: 'us-sva-2' });\n\nconsole.log(instanceType.network_bandwidth_gbps);",
       },
     },
   },
@@ -991,9 +991,9 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     qualified: 'client.instanceTypes.list',
     params: ['cursor?: string;', 'limit?: number;'],
     response:
-      "{ chipset: string; created_at: string; family: string; memory_gb: number; name: string; region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1'; series: string; updated_at: string; vcpu: number; }",
+      "{ chipset: string; created_at: string; family: string; memory_gb: number; name: string; network_bandwidth_gbps: number; region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1'; series: string; updated_at: string; vcpu: number; }",
     markdown:
-      "## list\n\n`client.instanceTypes.list(cursor?: string, limit?: number): { chipset: string; created_at: string; family: string; memory_gb: number; name: string; region: region_name; series: string; updated_at: string; vcpu: number; }`\n\n**get** `/v1/instance_types`\n\nList instance types\n\n### Parameters\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ chipset: string; created_at: string; family: string; memory_gb: number; name: string; region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1'; series: string; updated_at: string; vcpu: number; }`\n  Instance type.\n\n  - `chipset: string`\n  - `created_at: string`\n  - `family: string`\n  - `memory_gb: number`\n  - `name: string`\n  - `region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1'`\n  - `series: string`\n  - `updated_at: string`\n  - `vcpu: number`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const instanceType of client.instanceTypes.list()) {\n  console.log(instanceType);\n}\n```",
+      "## list\n\n`client.instanceTypes.list(cursor?: string, limit?: number): { chipset: string; created_at: string; family: string; memory_gb: number; name: string; network_bandwidth_gbps: number; region: region_name; series: string; updated_at: string; vcpu: number; }`\n\n**get** `/v1/instance_types`\n\nList instance types\n\n### Parameters\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ chipset: string; created_at: string; family: string; memory_gb: number; name: string; network_bandwidth_gbps: number; region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1'; series: string; updated_at: string; vcpu: number; }`\n  Instance type.\n\n  - `chipset: string`\n  - `created_at: string`\n  - `family: string`\n  - `memory_gb: number`\n  - `name: string`\n  - `network_bandwidth_gbps: number`\n  - `region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1'`\n  - `series: string`\n  - `updated_at: string`\n  - `vcpu: number`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const instanceType of client.instanceTypes.list()) {\n  console.log(instanceType);\n}\n```",
     perLanguage: {
       cli: {
         method: 'instance_types list',
@@ -1011,7 +1011,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       typescript: {
         method: 'client.instanceTypes.list',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const instanceType of client.instanceTypes.list()) {\n  console.log(instanceType.chipset);\n}",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const instanceType of client.instanceTypes.list()) {\n  console.log(instanceType.network_bandwidth_gbps);\n}",
       },
     },
   },
