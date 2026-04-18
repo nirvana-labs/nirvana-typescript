@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.79.1 (2026-04-18)
+
+Full Changelog: [v1.79.0...v1.79.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.79.0...v1.79.1)
+
+### ⚠ BREAKING CHANGES
+
+* **Migration:** To migrate, simply modify the command used to invoke the MCP server. Currently, the only supported tool scheme is code mode. Now, starting the server with just `node /path/to/mcp/server` or `npx package-name` will invoke code tools: changing your command to one of these is likely all you will need to do.
+
+### release
+
+* 1.30.0 ([#295](https://github.com/nirvana-labs/nirvana-typescript/issues/295)) ([d7efecb](https://github.com/nirvana-labs/nirvana-typescript/commit/d7efecbee7838039d728c676be45ccbd7dc26c61))
+
+
+### Chores
+
+* configure new SDK language ([582e21d](https://github.com/nirvana-labs/nirvana-typescript/commit/582e21db74acab8a38296256e3fbf72eff8b582c))
+* configure new SDK language ([e238864](https://github.com/nirvana-labs/nirvana-typescript/commit/e2388648a1d9914bb33f1bdbb815df12b352920e))
+
+
+### Build System
+
+* undo custom-code ([3495dd6](https://github.com/nirvana-labs/nirvana-typescript/commit/3495dd697f3246385714f4d7b8c3c69240087dad))
+
 ## 1.79.0 (2026-04-18)
 
 Full Changelog: [v1.78.0...v1.79.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.78.0...v1.79.0)
