@@ -10,6 +10,7 @@ export { Networking } from './networking/networking';
 export { Operations } from './operations';
 export { Organizations } from './organizations/organizations';
 export { Projects } from './projects';
+export { Quotas } from './quotas';
 export { RPCNodes } from './rpc-nodes/rpc-nodes';
 export { Regions } from './regions';
 export { UserResource } from './user/user';

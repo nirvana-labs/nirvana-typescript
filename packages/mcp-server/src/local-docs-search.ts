@@ -411,9 +411,9 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     qualified: 'client.organizations.create',
     params: ['name: string;'],
     response:
-      '{ id: string; created_at: string; domains: { id: string; domain: string; verified: boolean; }[]; name: string; personal: boolean; services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }; updated_at: string; auth_id?: string; }',
+      "{ id: string; created_at: string; domains: { id: string; domain: string; verified: boolean; }[]; name: string; personal: boolean; services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }; type: 'personal' | 'company'; updated_at: string; auth_id?: string; }",
     markdown:
-      "## create\n\n`client.organizations.create(name: string): { id: string; created_at: string; domains: organization_domain[]; name: string; personal: boolean; services: organization_services; updated_at: string; auth_id?: string; }`\n\n**post** `/v1/organizations`\n\nCreate a new organization\n\n### Parameters\n\n- `name: string`\n  Organization name.\n\n### Returns\n\n- `{ id: string; created_at: string; domains: { id: string; domain: string; verified: boolean; }[]; name: string; personal: boolean; services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }; updated_at: string; auth_id?: string; }`\n  Organization response.\n\n  - `id: string`\n  - `created_at: string`\n  - `domains: { id: string; domain: string; verified: boolean; }[]`\n  - `name: string`\n  - `personal: boolean`\n  - `services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }`\n  - `updated_at: string`\n  - `auth_id?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst organization = await client.organizations.create({ name: 'My Organization' });\n\nconsole.log(organization);\n```",
+      "## create\n\n`client.organizations.create(name: string): { id: string; created_at: string; domains: organization_domain[]; name: string; personal: boolean; services: organization_services; type: organization_type; updated_at: string; auth_id?: string; }`\n\n**post** `/v1/organizations`\n\nCreate a new organization\n\n### Parameters\n\n- `name: string`\n  Organization name.\n\n### Returns\n\n- `{ id: string; created_at: string; domains: { id: string; domain: string; verified: boolean; }[]; name: string; personal: boolean; services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }; type: 'personal' | 'company'; updated_at: string; auth_id?: string; }`\n  Organization response.\n\n  - `id: string`\n  - `created_at: string`\n  - `domains: { id: string; domain: string; verified: boolean; }[]`\n  - `name: string`\n  - `personal: boolean`\n  - `services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }`\n  - `type: 'personal' | 'company'`\n  - `updated_at: string`\n  - `auth_id?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst organization = await client.organizations.create({ name: 'My Organization' });\n\nconsole.log(organization);\n```",
     perLanguage: {
       cli: {
         method: 'organizations create',
@@ -445,9 +445,9 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     qualified: 'client.organizations.get',
     params: ['organization_id: string;'],
     response:
-      '{ id: string; created_at: string; domains: { id: string; domain: string; verified: boolean; }[]; name: string; personal: boolean; services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }; updated_at: string; auth_id?: string; }',
+      "{ id: string; created_at: string; domains: { id: string; domain: string; verified: boolean; }[]; name: string; personal: boolean; services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }; type: 'personal' | 'company'; updated_at: string; auth_id?: string; }",
     markdown:
-      "## get\n\n`client.organizations.get(organization_id: string): { id: string; created_at: string; domains: organization_domain[]; name: string; personal: boolean; services: organization_services; updated_at: string; auth_id?: string; }`\n\n**get** `/v1/organizations/{organization_id}`\n\nGet details about an Organization\n\n### Parameters\n\n- `organization_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; domains: { id: string; domain: string; verified: boolean; }[]; name: string; personal: boolean; services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }; updated_at: string; auth_id?: string; }`\n  Organization response.\n\n  - `id: string`\n  - `created_at: string`\n  - `domains: { id: string; domain: string; verified: boolean; }[]`\n  - `name: string`\n  - `personal: boolean`\n  - `services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }`\n  - `updated_at: string`\n  - `auth_id?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst organization = await client.organizations.get('organization_id');\n\nconsole.log(organization);\n```",
+      "## get\n\n`client.organizations.get(organization_id: string): { id: string; created_at: string; domains: organization_domain[]; name: string; personal: boolean; services: organization_services; type: organization_type; updated_at: string; auth_id?: string; }`\n\n**get** `/v1/organizations/{organization_id}`\n\nGet details about an Organization\n\n### Parameters\n\n- `organization_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; domains: { id: string; domain: string; verified: boolean; }[]; name: string; personal: boolean; services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }; type: 'personal' | 'company'; updated_at: string; auth_id?: string; }`\n  Organization response.\n\n  - `id: string`\n  - `created_at: string`\n  - `domains: { id: string; domain: string; verified: boolean; }[]`\n  - `name: string`\n  - `personal: boolean`\n  - `services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }`\n  - `type: 'personal' | 'company'`\n  - `updated_at: string`\n  - `auth_id?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst organization = await client.organizations.get('organization_id');\n\nconsole.log(organization);\n```",
     perLanguage: {
       cli: {
         method: 'organizations get',
@@ -480,9 +480,9 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     qualified: 'client.organizations.update',
     params: ['organization_id: string;', 'name?: string;'],
     response:
-      '{ id: string; created_at: string; domains: { id: string; domain: string; verified: boolean; }[]; name: string; personal: boolean; services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }; updated_at: string; auth_id?: string; }',
+      "{ id: string; created_at: string; domains: { id: string; domain: string; verified: boolean; }[]; name: string; personal: boolean; services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }; type: 'personal' | 'company'; updated_at: string; auth_id?: string; }",
     markdown:
-      "## update\n\n`client.organizations.update(organization_id: string, name?: string): { id: string; created_at: string; domains: organization_domain[]; name: string; personal: boolean; services: organization_services; updated_at: string; auth_id?: string; }`\n\n**patch** `/v1/organizations/{organization_id}`\n\nUpdate an existing organization\n\n### Parameters\n\n- `organization_id: string`\n\n- `name?: string`\n  Organization name.\n\n### Returns\n\n- `{ id: string; created_at: string; domains: { id: string; domain: string; verified: boolean; }[]; name: string; personal: boolean; services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }; updated_at: string; auth_id?: string; }`\n  Organization response.\n\n  - `id: string`\n  - `created_at: string`\n  - `domains: { id: string; domain: string; verified: boolean; }[]`\n  - `name: string`\n  - `personal: boolean`\n  - `services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }`\n  - `updated_at: string`\n  - `auth_id?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst organization = await client.organizations.update('organization_id');\n\nconsole.log(organization);\n```",
+      "## update\n\n`client.organizations.update(organization_id: string, name?: string): { id: string; created_at: string; domains: organization_domain[]; name: string; personal: boolean; services: organization_services; type: organization_type; updated_at: string; auth_id?: string; }`\n\n**patch** `/v1/organizations/{organization_id}`\n\nUpdate an existing organization\n\n### Parameters\n\n- `organization_id: string`\n\n- `name?: string`\n  Organization name.\n\n### Returns\n\n- `{ id: string; created_at: string; domains: { id: string; domain: string; verified: boolean; }[]; name: string; personal: boolean; services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }; type: 'personal' | 'company'; updated_at: string; auth_id?: string; }`\n  Organization response.\n\n  - `id: string`\n  - `created_at: string`\n  - `domains: { id: string; domain: string; verified: boolean; }[]`\n  - `name: string`\n  - `personal: boolean`\n  - `services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }`\n  - `type: 'personal' | 'company'`\n  - `updated_at: string`\n  - `auth_id?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst organization = await client.organizations.update('organization_id');\n\nconsole.log(organization);\n```",
     perLanguage: {
       cli: {
         method: 'organizations update',
@@ -515,9 +515,9 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     qualified: 'client.organizations.list',
     params: ['cursor?: string;', 'limit?: number;'],
     response:
-      '{ id: string; created_at: string; domains: { id: string; domain: string; verified: boolean; }[]; name: string; personal: boolean; services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }; updated_at: string; auth_id?: string; }',
+      "{ id: string; created_at: string; domains: { id: string; domain: string; verified: boolean; }[]; name: string; personal: boolean; services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }; type: 'personal' | 'company'; updated_at: string; auth_id?: string; }",
     markdown:
-      "## list\n\n`client.organizations.list(cursor?: string, limit?: number): { id: string; created_at: string; domains: organization_domain[]; name: string; personal: boolean; services: organization_services; updated_at: string; auth_id?: string; }`\n\n**get** `/v1/organizations`\n\nList organizations\n\n### Parameters\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; created_at: string; domains: { id: string; domain: string; verified: boolean; }[]; name: string; personal: boolean; services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }; updated_at: string; auth_id?: string; }`\n  Organization response.\n\n  - `id: string`\n  - `created_at: string`\n  - `domains: { id: string; domain: string; verified: boolean; }[]`\n  - `name: string`\n  - `personal: boolean`\n  - `services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }`\n  - `updated_at: string`\n  - `auth_id?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const organization of client.organizations.list()) {\n  console.log(organization);\n}\n```",
+      "## list\n\n`client.organizations.list(cursor?: string, limit?: number): { id: string; created_at: string; domains: organization_domain[]; name: string; personal: boolean; services: organization_services; type: organization_type; updated_at: string; auth_id?: string; }`\n\n**get** `/v1/organizations`\n\nList organizations\n\n### Parameters\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; created_at: string; domains: { id: string; domain: string; verified: boolean; }[]; name: string; personal: boolean; services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }; type: 'personal' | 'company'; updated_at: string; auth_id?: string; }`\n  Organization response.\n\n  - `id: string`\n  - `created_at: string`\n  - `domains: { id: string; domain: string; verified: boolean; }[]`\n  - `name: string`\n  - `personal: boolean`\n  - `services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }`\n  - `type: 'personal' | 'company'`\n  - `updated_at: string`\n  - `auth_id?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const organization of client.organizations.list()) {\n  console.log(organization);\n}\n```",
     perLanguage: {
       cli: {
         method: 'organizations list',
@@ -639,6 +639,73 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         method: 'client.organizations.memberships.list',
         example:
           "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const organizationMembership of client.organizations.memberships.list(\n  'organization_id',\n)) {\n  console.log(organizationMembership.id);\n}",
+      },
+    },
+  },
+  {
+    name: 'get',
+    endpoint: '/v1/quotas/{region}',
+    httpMethod: 'get',
+    summary: 'Get Region Quota',
+    description: 'Get quota usage and limits for the current organization in a single region',
+    stainlessPath: '(resource) quotas > (method) get',
+    qualified: 'client.quotas.get',
+    params: ["region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1';"],
+    response:
+      "{ compute: { memory_gb: quota_resource_detail; vcpu: quota_resource_detail; }; networking: { connect_connections: quota_resource_detail; public_ips: quota_resource_detail; vpcs: quota_resource_detail; }; nks: { clusters: quota_resource_detail; memory_gb: quota_resource_detail; public_ips: quota_resource_detail; vcpu: quota_resource_detail; }; region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1'; storage: { abs: quota_resource_detail; local_nvme: quota_resource_detail; }; }",
+    markdown:
+      "## get\n\n`client.quotas.get(region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1'): { compute: quota_compute; networking: quota_networking; nks: quota_nks; region: region_name; storage: quota_storage; }`\n\n**get** `/v1/quotas/{region}`\n\nGet quota usage and limits for the current organization in a single region\n\n### Parameters\n\n- `region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1'`\n\n### Returns\n\n- `{ compute: { memory_gb: quota_resource_detail; vcpu: quota_resource_detail; }; networking: { connect_connections: quota_resource_detail; public_ips: quota_resource_detail; vpcs: quota_resource_detail; }; nks: { clusters: quota_resource_detail; memory_gb: quota_resource_detail; public_ips: quota_resource_detail; vcpu: quota_resource_detail; }; region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1'; storage: { abs: quota_resource_detail; local_nvme: quota_resource_detail; }; }`\n  Quota response.\n\n  - `compute: { memory_gb: { limit: number; remaining: number; used: number; }; vcpu: { limit: number; remaining: number; used: number; }; }`\n  - `networking: { connect_connections: { limit: number; remaining: number; used: number; }; public_ips: { limit: number; remaining: number; used: number; }; vpcs: { limit: number; remaining: number; used: number; }; }`\n  - `nks: { clusters: { limit: number; remaining: number; used: number; }; memory_gb: { limit: number; remaining: number; used: number; }; public_ips: { limit: number; remaining: number; used: number; }; vcpu: { limit: number; remaining: number; used: number; }; }`\n  - `region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1'`\n  - `storage: { abs: { limit: number; remaining: number; used: number; }; local_nvme: { limit: number; remaining: number; used: number; }; }`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst quota = await client.quotas.get('us-sva-1');\n\nconsole.log(quota);\n```",
+    perLanguage: {
+      cli: {
+        method: 'quotas get',
+        example: "nirvana quotas get \\\n  --api-key 'My API Key' \\\n  --region us-sva-1",
+      },
+      go: {
+        method: 'client.Quotas.Get',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/quotas"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tquota, err := client.Quotas.Get(context.TODO(), quotas.QuotaGetParamsRegionUsSva1)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", quota.Compute)\n}\n',
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/quotas/$REGION \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY"',
+      },
+      typescript: {
+        method: 'client.quotas.get',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst quota = await client.quotas.get('us-sva-1');\n\nconsole.log(quota.compute);",
+      },
+    },
+  },
+  {
+    name: 'list',
+    endpoint: '/v1/quotas',
+    httpMethod: 'get',
+    summary: 'List Quotas',
+    description: 'List quota usage and limits for the current organization across all regions',
+    stainlessPath: '(resource) quotas > (method) list',
+    qualified: 'client.quotas.list',
+    response:
+      '{ items: { compute: quota_compute; networking: quota_networking; nks: quota_nks; region: region_name; storage: quota_storage; }[]; pagination: { next_cursor: string; previous_cursor: string; total_count: number; }; }',
+    markdown:
+      "## list\n\n`client.quotas.list(): { items: quota[]; pagination: pagination; }`\n\n**get** `/v1/quotas`\n\nList quota usage and limits for the current organization across all regions\n\n### Returns\n\n- `{ items: { compute: quota_compute; networking: quota_networking; nks: quota_nks; region: region_name; storage: quota_storage; }[]; pagination: { next_cursor: string; previous_cursor: string; total_count: number; }; }`\n\n  - `items: { compute: { memory_gb: quota_resource_detail; vcpu: quota_resource_detail; }; networking: { connect_connections: quota_resource_detail; public_ips: quota_resource_detail; vpcs: quota_resource_detail; }; nks: { clusters: quota_resource_detail; memory_gb: quota_resource_detail; public_ips: quota_resource_detail; vcpu: quota_resource_detail; }; region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1'; storage: { abs: quota_resource_detail; local_nvme: quota_resource_detail; }; }[]`\n  - `pagination: { next_cursor: string; previous_cursor: string; total_count: number; }`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst quotaList = await client.quotas.list();\n\nconsole.log(quotaList);\n```",
+    perLanguage: {
+      cli: {
+        method: 'quotas list',
+        example: "nirvana quotas list \\\n  --api-key 'My API Key'",
+      },
+      go: {
+        method: 'client.Quotas.List',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tquotaList, err := client.Quotas.List(context.TODO())\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", quotaList.Items)\n}\n',
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/quotas \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY"',
+      },
+      typescript: {
+        method: 'client.quotas.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst quotaList = await client.quotas.list();\n\nconsole.log(quotaList.items);",
       },
     },
   },
