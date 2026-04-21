@@ -28,6 +28,7 @@ import { NKS } from './resources/nks/nks';
 import { Operations } from './resources/operations/operations';
 import { Organizations } from './resources/organizations/organizations';
 import { Projects } from './resources/projects/projects';
+import { Quotas } from './resources/quotas/quotas';
 import { Regions } from './resources/regions/regions';
 import { RPCNodes } from './resources/rpc-nodes/rpc-nodes';
 import { UserResource } from './resources/user/user';
@@ -759,6 +760,7 @@ export class NirvanaLabs {
   apiKeys: API.APIKeys = new API.APIKeys(this);
   operations: API.Operations = new API.Operations(this);
   organizations: API.Organizations = new API.Organizations(this);
+  quotas: API.Quotas = new API.Quotas(this);
   auditLogs: API.AuditLogs = new API.AuditLogs(this);
   projects: API.Projects = new API.Projects(this);
   regions: API.Regions = new API.Regions(this);
@@ -773,6 +775,7 @@ NirvanaLabs.UserResource = UserResource;
 NirvanaLabs.APIKeys = APIKeys;
 NirvanaLabs.Operations = Operations;
 NirvanaLabs.Organizations = Organizations;
+NirvanaLabs.Quotas = Quotas;
 NirvanaLabs.AuditLogs = AuditLogs;
 NirvanaLabs.Projects = Projects;
 NirvanaLabs.Regions = Regions;
@@ -795,6 +798,8 @@ export declare namespace NirvanaLabs {
   export { Operations as Operations };
 
   export { Organizations as Organizations };
+
+  export { Quotas as Quotas };
 
   export { AuditLogs as AuditLogs };
 

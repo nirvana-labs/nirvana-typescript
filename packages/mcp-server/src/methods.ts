@@ -113,6 +113,18 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/organizations/{organization_id}/memberships/{membership_id}',
   },
   {
+    clientCallName: 'client.quotas.list',
+    fullyQualifiedName: 'quotas.list',
+    httpMethod: 'get',
+    httpPath: '/v1/quotas',
+  },
+  {
+    clientCallName: 'client.quotas.get',
+    fullyQualifiedName: 'quotas.get',
+    httpMethod: 'get',
+    httpPath: '/v1/quotas/{region}',
+  },
+  {
     clientCallName: 'client.auditLogs.list',
     fullyQualifiedName: 'auditLogs.list',
     httpMethod: 'get',
