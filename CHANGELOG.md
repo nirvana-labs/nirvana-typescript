@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.80.0 (2026-04-21)
+
+Full Changelog: [v1.79.1...v1.80.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.79.1...v1.80.0)
+
+### Features
+
+* **api:** add type field to Organization response ([2b88e6d](https://github.com/nirvana-labs/nirvana-typescript/commit/2b88e6dfd652c16c82eab4cd8e9ee6ea01f01e80))
+
 ## 1.79.1 (2026-04-18)
 
 Full Changelog: [v1.79.0...v1.79.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.79.0...v1.79.1)
