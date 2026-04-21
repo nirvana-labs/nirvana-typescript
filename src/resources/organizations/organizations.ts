@@ -137,6 +137,11 @@ export interface Organization {
   services: OrganizationServices;
 
   /**
+   * Organization type.
+   */
+  type: OrganizationType;
+
+  /**
    * When the Organization was updated.
    */
   updated_at: string;
@@ -206,6 +211,11 @@ export interface OrganizationServices {
   sso: boolean;
 }
 
+/**
+ * Organization type.
+ */
+export type OrganizationType = 'personal' | 'company';
+
 export interface OrganizationCreateParams {
   /**
    * Organization name.
@@ -230,6 +240,7 @@ export declare namespace Organizations {
     type OrganizationDomain as OrganizationDomain,
     type OrganizationList as OrganizationList,
     type OrganizationServices as OrganizationServices,
+    type OrganizationType as OrganizationType,
     type OrganizationsCursor as OrganizationsCursor,
     type OrganizationCreateParams as OrganizationCreateParams,
     type OrganizationUpdateParams as OrganizationUpdateParams,

@@ -125,6 +125,8 @@ const fuse = new Fuse(
     'client.organizations.update',
     'client.organizations.memberships.get',
     'client.organizations.memberships.list',
+    'client.quotas.get',
+    'client.quotas.list',
     'client.auditLogs.get',
     'client.auditLogs.list',
     'client.projects.create',
