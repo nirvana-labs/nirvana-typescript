@@ -34,6 +34,7 @@ describe('resource pools', () => {
       node_config: {
         boot_volume: { size: 100, type: 'abs' },
         instance_type: 'n1-standard-8',
+        labels: ['env=prod', 'team=platform'],
       },
       node_count: 3,
       tags: ['production', 'ethereum'],
@@ -57,6 +58,7 @@ describe('resource pools', () => {
     const response = await client.nks.clusters.pools.update('pool_id', {
       cluster_id: 'cluster_id',
       name: 'my-node-pool',
+      node_config: { labels: ['env=prod', 'team=platform'] },
       node_count: 5,
       tags: ['production', 'ethereum'],
     });
