@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.81.0 (2026-04-22)
+
+Full Changelog: [v1.80.0...v1.81.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.80.0...v1.81.0)
+
+### Features
+
+* **api:** add labels parameter to nks node pools methods and response ([0c9a959](https://github.com/nirvana-labs/nirvana-typescript/commit/0c9a95917a57782947040a2e4a2a14d049035bea))
+
 ## 1.80.0 (2026-04-21)
 
 Full Changelog: [v1.79.1...v1.80.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.79.1...v1.80.0)

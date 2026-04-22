@@ -89,6 +89,11 @@ export interface AvailabilityUpdateParams {
   name?: string;
 
   /**
+   * Body param: Partial node configuration update.
+   */
+  node_config?: AvailabilityUpdateParams.NodeConfig;
+
+  /**
    * Body param: Number of nodes.
    */
   node_count?: number;
@@ -97,6 +102,20 @@ export interface AvailabilityUpdateParams {
    * Body param: Tags to attach to the node pool.
    */
   tags?: Array<string>;
+}
+
+export namespace AvailabilityUpdateParams {
+  /**
+   * Partial node configuration update.
+   */
+  export interface NodeConfig {
+    /**
+     * Kubernetes labels to apply to each node in the pool. Each entry is "key=value".
+     * When provided, the list fully replaces the current labels on the pool and on
+     * live nodes.
+     */
+    labels?: Array<string>;
+  }
 }
 
 export declare namespace Availability {
