@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.81.1 (2026-04-23)
+
+Full Changelog: [v1.81.0...v1.81.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.81.0...v1.81.1)
+
+### Chores
+
+* **internal:** more robust bootstrap script ([5bfb10f](https://github.com/nirvana-labs/nirvana-typescript/commit/5bfb10f1c28677ac50da4961041e0ae5a1e8b4e9))
+* **internal:** update docs ordering ([2df1301](https://github.com/nirvana-labs/nirvana-typescript/commit/2df13014c2d45c60cf191d0d03d39a92f503a833))
+
 ## 1.81.0 (2026-04-22)
 
 Full Changelog: [v1.80.0...v1.81.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.80.0...v1.81.0)
