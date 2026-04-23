@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.81.2 (2026-04-23)
+
+Full Changelog: [v1.81.1...v1.81.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.81.1...v1.81.2)
+
+### Bug Fixes
+
+* **api:** rename memory_gb/vcpu to node_pool_* in nks quotas ([48e4fcf](https://github.com/nirvana-labs/nirvana-typescript/commit/48e4fcf3eaeb1c425a8a241e8f7eed47e07d7df9))
+
 ## 1.81.1 (2026-04-23)
 
 Full Changelog: [v1.81.0...v1.81.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.81.0...v1.81.1)

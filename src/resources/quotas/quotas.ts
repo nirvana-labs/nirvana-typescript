@@ -118,17 +118,17 @@ export interface QuotaNKS {
   /**
    * Quota resource detail.
    */
-  memory_gb: QuotaResourceDetail;
+  node_pool_memory_gb: QuotaResourceDetail;
+
+  /**
+   * Quota resource detail.
+   */
+  node_pool_vcpu: QuotaResourceDetail;
 
   /**
    * Quota resource detail.
    */
   public_ips: QuotaResourceDetail;
-
-  /**
-   * Quota resource detail.
-   */
-  vcpu: QuotaResourceDetail;
 }
 
 /**
