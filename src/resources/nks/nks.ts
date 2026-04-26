@@ -2,15 +2,7 @@
 
 import { APIResource } from '../../core/resource';
 import * as ClustersAPI from './clusters/clusters';
-import {
-  ClusterCreateParams,
-  ClusterListParams,
-  ClusterUpdateParams,
-  Clusters,
-  NKSCluster,
-  NKSClusterList,
-  NKSClustersCursor,
-} from './clusters/clusters';
+import { ClusterCreateParams, ClusterListParams, ClusterUpdateParams, Clusters, NKSCluster, NKSClusterList, NKSClustersCursor } from './clusters/clusters';
 
 export class NKS extends APIResource {
   clusters: ClustersAPI.Clusters = new ClustersAPI.Clusters(this._client);
@@ -26,6 +18,6 @@ export declare namespace NKS {
     type NKSClustersCursor as NKSClustersCursor,
     type ClusterCreateParams as ClusterCreateParams,
     type ClusterUpdateParams as ClusterUpdateParams,
-    type ClusterListParams as ClusterListParams,
+    type ClusterListParams as ClusterListParams
   };
 }

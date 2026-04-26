@@ -8,49 +8,13 @@ import { Availability, AvailabilityCreateParams, AvailabilityUpdateParams } from
 import * as KubeconfigAPI from './kubeconfig';
 import { Kubeconfig, KubeconfigResource } from './kubeconfig';
 import * as LoadBalancersAPI from './load-balancers';
-import {
-  LoadBalancerGetParams,
-  LoadBalancerListParams,
-  LoadBalancerUpdateParams,
-  LoadBalancers,
-  NKSLoadBalancer,
-  NKSLoadBalancerList,
-  NKSLoadBalancersCursor,
-} from './load-balancers';
+import { LoadBalancerGetParams, LoadBalancerListParams, LoadBalancerUpdateParams, LoadBalancers, NKSLoadBalancer, NKSLoadBalancerList, NKSLoadBalancersCursor } from './load-balancers';
 import * as PersistentVolumeClaimsAPI from './persistent-volume-claims';
-import {
-  PersistentVolumeClaim,
-  PersistentVolumeClaimGetParams,
-  PersistentVolumeClaimList,
-  PersistentVolumeClaimListParams,
-  PersistentVolumeClaims,
-  PersistentVolumeClaimsCursor,
-} from './persistent-volume-claims';
+import { PersistentVolumeClaim, PersistentVolumeClaimGetParams, PersistentVolumeClaimList, PersistentVolumeClaimListParams, PersistentVolumeClaims, PersistentVolumeClaimsCursor } from './persistent-volume-claims';
 import * as ControllersAPI from './controllers/controllers';
-import {
-  ControllerGetParams,
-  ControllerListParams,
-  Controllers,
-  NKSController,
-  NKSControllerList,
-  NKSControllersCursor,
-} from './controllers/controllers';
+import { ControllerGetParams, ControllerListParams, Controllers, NKSController, NKSControllerList, NKSControllersCursor } from './controllers/controllers';
 import * as PoolsAPI from './pools/pools';
-import {
-  NKSNodePool,
-  NKSNodePoolBootVolume,
-  NKSNodePoolBootVolumeResponse,
-  NKSNodePoolList,
-  NKSNodePoolNodeConfig,
-  NKSNodePoolNodeConfigResponse,
-  NKSNodePoolsCursor,
-  PoolCreateParams,
-  PoolDeleteParams,
-  PoolGetParams,
-  PoolListParams,
-  PoolUpdateParams,
-  Pools,
-} from './pools/pools';
+import { NKSNodePool, NKSNodePoolBootVolume, NKSNodePoolBootVolumeResponse, NKSNodePoolList, NKSNodePoolNodeConfig, NKSNodePoolNodeConfigResponse, NKSNodePoolsCursor, PoolCreateParams, PoolDeleteParams, PoolGetParams, PoolListParams, PoolUpdateParams, Pools } from './pools/pools';
 import { APIPromise } from '../../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
@@ -58,8 +22,7 @@ import { path } from '../../../internal/utils/path';
 
 export class Clusters extends APIResource {
   availability: AvailabilityAPI.Availability = new AvailabilityAPI.Availability(this._client);
-  persistentVolumeClaims: PersistentVolumeClaimsAPI.PersistentVolumeClaims =
-    new PersistentVolumeClaimsAPI.PersistentVolumeClaims(this._client);
+  persistentVolumeClaims: PersistentVolumeClaimsAPI.PersistentVolumeClaims = new PersistentVolumeClaimsAPI.PersistentVolumeClaims(this._client);
   kubeconfig: KubeconfigAPI.KubeconfigResource = new KubeconfigAPI.KubeconfigResource(this._client);
   controllers: ControllersAPI.Controllers = new ControllersAPI.Controllers(this._client);
   loadBalancers: LoadBalancersAPI.LoadBalancers = new LoadBalancersAPI.LoadBalancers(this._client);
@@ -142,7 +105,7 @@ export class Clusters extends APIResource {
   }
 }
 
-export type NKSClustersCursor = Cursor<NKSCluster>;
+export type NKSClustersCursor = Cursor<NKSCluster>
 
 /**
  * NKS Cluster details.
@@ -278,13 +241,13 @@ export declare namespace Clusters {
     type NKSClustersCursor as NKSClustersCursor,
     type ClusterCreateParams as ClusterCreateParams,
     type ClusterUpdateParams as ClusterUpdateParams,
-    type ClusterListParams as ClusterListParams,
+    type ClusterListParams as ClusterListParams
   };
 
   export {
     Availability as Availability,
     type AvailabilityCreateParams as AvailabilityCreateParams,
-    type AvailabilityUpdateParams as AvailabilityUpdateParams,
+    type AvailabilityUpdateParams as AvailabilityUpdateParams
   };
 
   export {
@@ -293,10 +256,13 @@ export declare namespace Clusters {
     type PersistentVolumeClaimList as PersistentVolumeClaimList,
     type PersistentVolumeClaimsCursor as PersistentVolumeClaimsCursor,
     type PersistentVolumeClaimListParams as PersistentVolumeClaimListParams,
-    type PersistentVolumeClaimGetParams as PersistentVolumeClaimGetParams,
+    type PersistentVolumeClaimGetParams as PersistentVolumeClaimGetParams
   };
 
-  export { KubeconfigResource as KubeconfigResource, type Kubeconfig as Kubeconfig };
+  export {
+    KubeconfigResource as KubeconfigResource,
+    type Kubeconfig as Kubeconfig
+  };
 
   export {
     Controllers as Controllers,
@@ -304,7 +270,7 @@ export declare namespace Clusters {
     type NKSControllerList as NKSControllerList,
     type NKSControllersCursor as NKSControllersCursor,
     type ControllerListParams as ControllerListParams,
-    type ControllerGetParams as ControllerGetParams,
+    type ControllerGetParams as ControllerGetParams
   };
 
   export {
@@ -314,7 +280,7 @@ export declare namespace Clusters {
     type NKSLoadBalancersCursor as NKSLoadBalancersCursor,
     type LoadBalancerUpdateParams as LoadBalancerUpdateParams,
     type LoadBalancerListParams as LoadBalancerListParams,
-    type LoadBalancerGetParams as LoadBalancerGetParams,
+    type LoadBalancerGetParams as LoadBalancerGetParams
   };
 
   export {
@@ -330,6 +296,6 @@ export declare namespace Clusters {
     type PoolUpdateParams as PoolUpdateParams,
     type PoolListParams as PoolListParams,
     type PoolDeleteParams as PoolDeleteParams,
-    type PoolGetParams as PoolGetParams,
+    type PoolGetParams as PoolGetParams
   };
 }

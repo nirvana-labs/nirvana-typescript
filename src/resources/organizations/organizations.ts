@@ -3,14 +3,7 @@
 import { APIResource } from '../../core/resource';
 import * as Shared from '../shared';
 import * as MembershipsAPI from './memberships';
-import {
-  MembershipGetParams,
-  MembershipListParams,
-  Memberships,
-  OrganizationMembership,
-  OrganizationMembershipList,
-  OrganizationMembershipsCursor,
-} from './memberships';
+import { MembershipGetParams, MembershipListParams, Memberships, OrganizationMembership, OrganizationMembershipList, OrganizationMembershipsCursor } from './memberships';
 import { APIPromise } from '../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../core/pagination';
 import { buildHeaders } from '../../internal/headers';
@@ -44,11 +37,7 @@ export class Organizations extends APIResource {
    * );
    * ```
    */
-  update(
-    organizationID: string,
-    body: OrganizationUpdateParams,
-    options?: RequestOptions,
-  ): APIPromise<Organization> {
+  update(organizationID: string, body: OrganizationUpdateParams, options?: RequestOptions): APIPromise<Organization> {
     return this._client.patch(path`/v1/organizations/${organizationID}`, { body, ...options });
   }
 
@@ -63,10 +52,7 @@ export class Organizations extends APIResource {
    * }
    * ```
    */
-  list(
-    query: OrganizationListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): PagePromise<OrganizationsCursor, Organization> {
+  list(query: OrganizationListParams | null | undefined = {}, options?: RequestOptions): PagePromise<OrganizationsCursor, Organization> {
     return this._client.getAPIList('/v1/organizations', Cursor<Organization>, { query, ...options });
   }
 
@@ -93,14 +79,11 @@ export class Organizations extends APIResource {
    * ```
    */
   leave(organizationID: string, options?: RequestOptions): APIPromise<void> {
-    return this._client.post(path`/v1/organizations/${organizationID}/leave`, {
-      ...options,
-      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
-    });
+    return this._client.post(path`/v1/organizations/${organizationID}/leave`, { ...options, headers: buildHeaders([{Accept: '*/*'}, options?.headers]) });
   }
 }
 
-export type OrganizationsCursor = Cursor<Organization>;
+export type OrganizationsCursor = Cursor<Organization>
 
 /**
  * Organization response.
@@ -214,7 +197,7 @@ export interface OrganizationServices {
 /**
  * Organization type.
  */
-export type OrganizationType = 'personal' | 'company';
+export type OrganizationType = 'personal' | 'company'
 
 export interface OrganizationCreateParams {
   /**
@@ -230,7 +213,8 @@ export interface OrganizationUpdateParams {
   name?: string;
 }
 
-export interface OrganizationListParams extends CursorParams {}
+export interface OrganizationListParams extends CursorParams {
+}
 
 Organizations.Memberships = Memberships;
 
@@ -244,7 +228,7 @@ export declare namespace Organizations {
     type OrganizationsCursor as OrganizationsCursor,
     type OrganizationCreateParams as OrganizationCreateParams,
     type OrganizationUpdateParams as OrganizationUpdateParams,
-    type OrganizationListParams as OrganizationListParams,
+    type OrganizationListParams as OrganizationListParams
   };
 
   export {
@@ -253,6 +237,6 @@ export declare namespace Organizations {
     type OrganizationMembershipList as OrganizationMembershipList,
     type OrganizationMembershipsCursor as OrganizationMembershipsCursor,
     type MembershipListParams as MembershipListParams,
-    type MembershipGetParams as MembershipGetParams,
+    type MembershipGetParams as MembershipGetParams
   };
 }

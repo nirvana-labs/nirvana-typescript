@@ -10,7 +10,9 @@ const config: JestConfigWithTsJest = {
     '^@nirvana-labs/nirvana-mcp$': '<rootDir>/src/index.ts',
     '^@nirvana-labs/nirvana-mcp/(.*)$': '<rootDir>/src/$1',
   },
-  modulePathIgnorePatterns: ['<rootDir>/dist/'],
+  modulePathIgnorePatterns: [
+    '<rootDir>/dist/',
+  ],
   testPathIgnorePatterns: ['scripts'],
 };
 

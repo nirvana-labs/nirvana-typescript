@@ -68,10 +68,7 @@ export class FlexResource extends APIResource {
    * ```
    */
   delete(nodeID: string, options?: RequestOptions): APIPromise<void> {
-    return this._client.delete(path`/v1/rpc_nodes/flex/${nodeID}`, {
-      ...options,
-      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
-    });
+    return this._client.delete(path`/v1/rpc_nodes/flex/${nodeID}`, { ...options, headers: buildHeaders([{Accept: '*/*'}, options?.headers]) });
   }
 
   /**
@@ -87,9 +84,9 @@ export class FlexResource extends APIResource {
   }
 }
 
-export type FlexesCursor = Cursor<Flex>;
+export type FlexesCursor = Cursor<Flex>
 
-export type FlexBlockchainsCursor = Cursor<FlexBlockchain>;
+export type FlexBlockchainsCursor = Cursor<FlexBlockchain>
 
 /**
  * RPC Node Flex details.
@@ -231,8 +228,11 @@ export declare namespace FlexResource {
     type FlexesCursor as FlexesCursor,
     type FlexCreateParams as FlexCreateParams,
     type FlexUpdateParams as FlexUpdateParams,
-    type FlexListParams as FlexListParams,
+    type FlexListParams as FlexListParams
   };
 
-  export { Blockchains as Blockchains, type BlockchainListParams as BlockchainListParams };
+  export {
+    Blockchains as Blockchains,
+    type BlockchainListParams as BlockchainListParams
+  };
 }

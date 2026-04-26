@@ -165,6 +165,6 @@ export declare namespace Quotas {
     type QuotaNetworking as QuotaNetworking,
     type QuotaNKS as QuotaNKS,
     type QuotaResourceDetail as QuotaResourceDetail,
-    type QuotaStorage as QuotaStorage,
+    type QuotaStorage as QuotaStorage
   };
 }

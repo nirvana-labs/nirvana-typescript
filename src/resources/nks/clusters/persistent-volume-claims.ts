@@ -22,16 +22,8 @@ export class PersistentVolumeClaims extends APIResource {
    * }
    * ```
    */
-  list(
-    clusterID: string,
-    query: PersistentVolumeClaimListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): PagePromise<PersistentVolumeClaimsCursor, PersistentVolumeClaim> {
-    return this._client.getAPIList(
-      path`/v1/nks/clusters/${clusterID}/persistent_volume_claims`,
-      Cursor<PersistentVolumeClaim>,
-      { query, ...options },
-    );
+  list(clusterID: string, query: PersistentVolumeClaimListParams | null | undefined = {}, options?: RequestOptions): PagePromise<PersistentVolumeClaimsCursor, PersistentVolumeClaim> {
+    return this._client.getAPIList(path`/v1/nks/clusters/${clusterID}/persistent_volume_claims`, Cursor<PersistentVolumeClaim>, { query, ...options });
   }
 
   /**
@@ -46,20 +38,13 @@ export class PersistentVolumeClaims extends APIResource {
    *   );
    * ```
    */
-  get(
-    persistentVolumeClaimID: string,
-    params: PersistentVolumeClaimGetParams,
-    options?: RequestOptions,
-  ): APIPromise<PersistentVolumeClaim> {
-    const { cluster_id } = params;
-    return this._client.get(
-      path`/v1/nks/clusters/${cluster_id}/persistent_volume_claims/${persistentVolumeClaimID}`,
-      options,
-    );
+  get(persistentVolumeClaimID: string, params: PersistentVolumeClaimGetParams, options?: RequestOptions): APIPromise<PersistentVolumeClaim> {
+    const { cluster_id } = params
+    return this._client.get(path`/v1/nks/clusters/${cluster_id}/persistent_volume_claims/${persistentVolumeClaimID}`, options);
   }
 }
 
-export type PersistentVolumeClaimsCursor = Cursor<PersistentVolumeClaim>;
+export type PersistentVolumeClaimsCursor = Cursor<PersistentVolumeClaim>
 
 /**
  * NKS persistent volume claim details.
@@ -115,7 +100,8 @@ export interface PersistentVolumeClaimList {
   pagination: Shared.Pagination;
 }
 
-export interface PersistentVolumeClaimListParams extends CursorParams {}
+export interface PersistentVolumeClaimListParams extends CursorParams {
+}
 
 export interface PersistentVolumeClaimGetParams {
   /**
@@ -130,6 +116,6 @@ export declare namespace PersistentVolumeClaims {
     type PersistentVolumeClaimList as PersistentVolumeClaimList,
     type PersistentVolumeClaimsCursor as PersistentVolumeClaimsCursor,
     type PersistentVolumeClaimListParams as PersistentVolumeClaimListParams,
-    type PersistentVolumeClaimGetParams as PersistentVolumeClaimGetParams,
+    type PersistentVolumeClaimGetParams as PersistentVolumeClaimGetParams
   };
 }

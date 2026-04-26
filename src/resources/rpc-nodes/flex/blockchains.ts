@@ -18,21 +18,18 @@ export class Blockchains extends APIResource {
    * }
    * ```
    */
-  list(
-    query: BlockchainListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): PagePromise<FlexBlockchainsCursor, FlexAPI.FlexBlockchain> {
-    return this._client.getAPIList('/v1/rpc_nodes/flex/blockchains', Cursor<FlexAPI.FlexBlockchain>, {
-      query,
-      ...options,
-    });
+  list(query: BlockchainListParams | null | undefined = {}, options?: RequestOptions): PagePromise<FlexBlockchainsCursor, FlexAPI.FlexBlockchain> {
+    return this._client.getAPIList('/v1/rpc_nodes/flex/blockchains', Cursor<FlexAPI.FlexBlockchain>, { query, ...options });
   }
 }
 
-export interface BlockchainListParams extends CursorParams {}
-
-export declare namespace Blockchains {
-  export { type BlockchainListParams as BlockchainListParams };
+export interface BlockchainListParams extends CursorParams {
 }
 
-export { type FlexBlockchainsCursor };
+export declare namespace Blockchains {
+  export {
+    type BlockchainListParams as BlockchainListParams
+  };
+}
+
+export { type FlexBlockchainsCursor }

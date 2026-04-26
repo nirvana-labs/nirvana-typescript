@@ -2,20 +2,17 @@
 
 import NirvanaLabs from '@nirvana-labs/nirvana';
 
-const client = new NirvanaLabs({
-  apiKey: 'My API Key',
-  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
-});
+const client = new NirvanaLabs({ apiKey: 'My API Key', baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010' });
 
 describe('resource apiKeys', () => {
   // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.apiKeys.create({
-      expires_at: '2025-12-31T23:59:59Z',
-      name: 'My API Key',
-      permissions: [{ permission: 'edit', resource_type: 'vm' }],
-      project_ids: ['123e4567-e89b-12d3-a456-426614174000', '123e4567-e89b-12d3-a456-426614174001'],
-    });
+    expires_at: '2025-12-31T23:59:59Z',
+    name: 'My API Key',
+    permissions: [{ permission: 'edit', resource_type: 'vm' }],
+    project_ids: ['123e4567-e89b-12d3-a456-426614174000', '123e4567-e89b-12d3-a456-426614174001'],
+  });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -28,14 +25,14 @@ describe('resource apiKeys', () => {
   // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.apiKeys.create({
-      expires_at: '2025-12-31T23:59:59Z',
-      name: 'My API Key',
-      permissions: [{ permission: 'edit', resource_type: 'vm' }],
-      project_ids: ['123e4567-e89b-12d3-a456-426614174000', '123e4567-e89b-12d3-a456-426614174001'],
-      source_ip_rule: { allowed: ['192.168.1.0/24', '10.0.0.0/8'], blocked: ['192.168.1.100/32'] },
-      starts_at: '2025-01-01T00:00:00Z',
-      tags: ['production', 'ethereum'],
-    });
+    expires_at: '2025-12-31T23:59:59Z',
+    name: 'My API Key',
+    permissions: [{ permission: 'edit', resource_type: 'vm' }],
+    project_ids: ['123e4567-e89b-12d3-a456-426614174000', '123e4567-e89b-12d3-a456-426614174001'],
+    source_ip_rule: { allowed: ['192.168.1.0/24', '10.0.0.0/8'], blocked: ['192.168.1.100/32'] },
+    starts_at: '2025-01-01T00:00:00Z',
+    tags: ['production', 'ethereum'],
+  });
   });
 
   // Mock server tests are disabled
@@ -65,9 +62,9 @@ describe('resource apiKeys', () => {
   // Mock server tests are disabled
   test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.apiKeys.list({ cursor: 'cursor', limit: 10 }, { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(NirvanaLabs.NotFoundError);
+    await expect(client.apiKeys.list({ cursor: 'cursor', limit: 10 }, { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(NirvanaLabs.NotFoundError);
   });
 
   // Mock server tests are disabled

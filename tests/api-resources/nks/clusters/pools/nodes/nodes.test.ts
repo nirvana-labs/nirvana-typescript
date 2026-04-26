@@ -2,10 +2,7 @@
 
 import NirvanaLabs from '@nirvana-labs/nirvana';
 
-const client = new NirvanaLabs({
-  apiKey: 'My API Key',
-  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
-});
+const client = new NirvanaLabs({ apiKey: 'My API Key', baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010' });
 
 describe('resource nodes', () => {
   // Mock server tests are disabled
@@ -23,18 +20,15 @@ describe('resource nodes', () => {
   // Mock server tests are disabled
   test.skip('list: required and optional params', async () => {
     const response = await client.nks.clusters.pools.nodes.list('pool_id', {
-      cluster_id: 'cluster_id',
-      cursor: 'cursor',
-      limit: 10,
-    });
+    cluster_id: 'cluster_id',
+    cursor: 'cursor',
+    limit: 10,
+  });
   });
 
   // Mock server tests are disabled
   test.skip('delete: only required params', async () => {
-    const responsePromise = client.nks.clusters.pools.nodes.delete('node_id', {
-      cluster_id: 'cluster_id',
-      pool_id: 'pool_id',
-    });
+    const responsePromise = client.nks.clusters.pools.nodes.delete('node_id', { cluster_id: 'cluster_id', pool_id: 'pool_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -46,18 +40,12 @@ describe('resource nodes', () => {
 
   // Mock server tests are disabled
   test.skip('delete: required and optional params', async () => {
-    const response = await client.nks.clusters.pools.nodes.delete('node_id', {
-      cluster_id: 'cluster_id',
-      pool_id: 'pool_id',
-    });
+    const response = await client.nks.clusters.pools.nodes.delete('node_id', { cluster_id: 'cluster_id', pool_id: 'pool_id' });
   });
 
   // Mock server tests are disabled
   test.skip('get: only required params', async () => {
-    const responsePromise = client.nks.clusters.pools.nodes.get('node_id', {
-      cluster_id: 'cluster_id',
-      pool_id: 'pool_id',
-    });
+    const responsePromise = client.nks.clusters.pools.nodes.get('node_id', { cluster_id: 'cluster_id', pool_id: 'pool_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -69,9 +57,6 @@ describe('resource nodes', () => {
 
   // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
-    const response = await client.nks.clusters.pools.nodes.get('node_id', {
-      cluster_id: 'cluster_id',
-      pool_id: 'pool_id',
-    });
+    const response = await client.nks.clusters.pools.nodes.get('node_id', { cluster_id: 'cluster_id', pool_id: 'pool_id' });
   });
 });

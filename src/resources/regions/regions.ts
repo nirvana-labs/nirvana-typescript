@@ -19,10 +19,7 @@ export class Regions extends APIResource {
    * }
    * ```
    */
-  list(
-    query: RegionListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): PagePromise<RegionsCursor, Region> {
+  list(query: RegionListParams | null | undefined = {}, options?: RequestOptions): PagePromise<RegionsCursor, Region> {
     return this._client.getAPIList('/v1/regions', Cursor<Region>, { query, ...options });
   }
 
@@ -39,7 +36,7 @@ export class Regions extends APIResource {
   }
 }
 
-export type RegionsCursor = Cursor<Region>;
+export type RegionsCursor = Cursor<Region>
 
 /**
  * Region response with product availability.
@@ -131,7 +128,7 @@ export namespace Region {
 /**
  * Availability status of the region.
  */
-export type RegionAvailability = 'live' | 'preview' | 'maintenance' | 'sunset';
+export type RegionAvailability = 'live' | 'preview' | 'maintenance' | 'sunset'
 
 export interface RegionList {
   items: Array<Region>;
@@ -142,7 +139,8 @@ export interface RegionList {
   pagination: Shared.Pagination;
 }
 
-export interface RegionListParams extends CursorParams {}
+export interface RegionListParams extends CursorParams {
+}
 
 export declare namespace Regions {
   export {
@@ -150,6 +148,6 @@ export declare namespace Regions {
     type RegionAvailability as RegionAvailability,
     type RegionList as RegionList,
     type RegionsCursor as RegionsCursor,
-    type RegionListParams as RegionListParams,
+    type RegionListParams as RegionListParams
   };
 }

@@ -4,14 +4,7 @@ import { APIResource } from '../../../../../core/resource';
 import * as Shared from '../../../../shared';
 import * as OperationsAPI from '../../../../operations/operations';
 import * as VolumesAPI from './volumes';
-import {
-  NKSNodeVolume,
-  NKSNodeVolumeList,
-  NKSNodeVolumesCursor,
-  VolumeGetParams,
-  VolumeListParams,
-  Volumes,
-} from './volumes';
+import { NKSNodeVolume, NKSNodeVolumeList, NKSNodeVolumesCursor, VolumeGetParams, VolumeListParams, Volumes } from './volumes';
 import { APIPromise } from '../../../../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../../../../core/pagination';
 import { RequestOptions } from '../../../../../internal/request-options';
@@ -34,17 +27,9 @@ export class Nodes extends APIResource {
    * }
    * ```
    */
-  list(
-    poolID: string,
-    params: NodeListParams,
-    options?: RequestOptions,
-  ): PagePromise<NKSNodesCursor, NKSNode> {
-    const { cluster_id, ...query } = params;
-    return this._client.getAPIList(
-      path`/v1/nks/clusters/${cluster_id}/pools/${poolID}/nodes`,
-      Cursor<NKSNode>,
-      { query, ...options },
-    );
+  list(poolID: string, params: NodeListParams, options?: RequestOptions): PagePromise<NKSNodesCursor, NKSNode> {
+    const { cluster_id, ...query } = params
+    return this._client.getAPIList(path`/v1/nks/clusters/${cluster_id}/pools/${poolID}/nodes`, Cursor<NKSNode>, { query, ...options });
   }
 
   /**
@@ -59,16 +44,9 @@ export class Nodes extends APIResource {
    *   });
    * ```
    */
-  delete(
-    nodeID: string,
-    params: NodeDeleteParams,
-    options?: RequestOptions,
-  ): APIPromise<OperationsAPI.Operation> {
-    const { cluster_id, pool_id } = params;
-    return this._client.delete(
-      path`/v1/nks/clusters/${cluster_id}/pools/${pool_id}/nodes/${nodeID}`,
-      options,
-    );
+  delete(nodeID: string, params: NodeDeleteParams, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
+    const { cluster_id, pool_id } = params
+    return this._client.delete(path`/v1/nks/clusters/${cluster_id}/pools/${pool_id}/nodes/${nodeID}`, options);
   }
 
   /**
@@ -83,12 +61,12 @@ export class Nodes extends APIResource {
    * ```
    */
   get(nodeID: string, params: NodeGetParams, options?: RequestOptions): APIPromise<NKSNode> {
-    const { cluster_id, pool_id } = params;
+    const { cluster_id, pool_id } = params
     return this._client.get(path`/v1/nks/clusters/${cluster_id}/pools/${pool_id}/nodes/${nodeID}`, options);
   }
 }
 
-export type NKSNodesCursor = Cursor<NKSNode>;
+export type NKSNodesCursor = Cursor<NKSNode>
 
 /**
  * NKS node details.
@@ -174,7 +152,7 @@ export declare namespace Nodes {
     type NKSNodesCursor as NKSNodesCursor,
     type NodeListParams as NodeListParams,
     type NodeDeleteParams as NodeDeleteParams,
-    type NodeGetParams as NodeGetParams,
+    type NodeGetParams as NodeGetParams
   };
 
   export {
@@ -183,6 +161,6 @@ export declare namespace Nodes {
     type NKSNodeVolumeList as NKSNodeVolumeList,
     type NKSNodeVolumesCursor as NKSNodeVolumesCursor,
     type VolumeListParams as VolumeListParams,
-    type VolumeGetParams as VolumeGetParams,
+    type VolumeGetParams as VolumeGetParams
   };
 }

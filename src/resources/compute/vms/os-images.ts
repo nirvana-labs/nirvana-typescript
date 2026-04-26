@@ -18,21 +18,18 @@ export class OSImages extends APIResource {
    * }
    * ```
    */
-  list(
-    query: OSImageListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): PagePromise<OSImagesCursor, VMsAPI.OSImage> {
-    return this._client.getAPIList('/v1/compute/vms/os_images', Cursor<VMsAPI.OSImage>, {
-      query,
-      ...options,
-    });
+  list(query: OSImageListParams | null | undefined = {}, options?: RequestOptions): PagePromise<OSImagesCursor, VMsAPI.OSImage> {
+    return this._client.getAPIList('/v1/compute/vms/os_images', Cursor<VMsAPI.OSImage>, { query, ...options });
   }
 }
 
-export interface OSImageListParams extends CursorParams {}
-
-export declare namespace OSImages {
-  export { type OSImageListParams as OSImageListParams };
+export interface OSImageListParams extends CursorParams {
 }
 
-export { type OSImagesCursor };
+export declare namespace OSImages {
+  export {
+    type OSImageListParams as OSImageListParams
+  };
+}
+
+export { type OSImagesCursor }

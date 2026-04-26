@@ -18,21 +18,18 @@ export class Routes extends APIResource {
    * }
    * ```
    */
-  list(
-    query: RouteListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): PagePromise<ConnectRoutesCursor, ConnectAPI.ConnectRoute> {
-    return this._client.getAPIList('/v1/networking/connect/routes', Cursor<ConnectAPI.ConnectRoute>, {
-      query,
-      ...options,
-    });
+  list(query: RouteListParams | null | undefined = {}, options?: RequestOptions): PagePromise<ConnectRoutesCursor, ConnectAPI.ConnectRoute> {
+    return this._client.getAPIList('/v1/networking/connect/routes', Cursor<ConnectAPI.ConnectRoute>, { query, ...options });
   }
 }
 
-export interface RouteListParams extends CursorParams {}
-
-export declare namespace Routes {
-  export { type RouteListParams as RouteListParams };
+export interface RouteListParams extends CursorParams {
 }
 
-export { type ConnectRoutesCursor };
+export declare namespace Routes {
+  export {
+    type RouteListParams as RouteListParams
+  };
+}
+
+export { type ConnectRoutesCursor }
