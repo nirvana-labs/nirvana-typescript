@@ -3,14 +3,7 @@
 import { APIResource } from '../../../../core/resource';
 import * as Shared from '../../../shared';
 import * as VolumesAPI from './volumes';
-import {
-  NKSControllerVolume,
-  NKSControllerVolumeList,
-  NKSControllerVolumesCursor,
-  VolumeGetParams,
-  VolumeListParams,
-  Volumes,
-} from './volumes';
+import { NKSControllerVolume, NKSControllerVolumeList, NKSControllerVolumesCursor, VolumeGetParams, VolumeListParams, Volumes } from './volumes';
 import { APIPromise } from '../../../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../../../core/pagination';
 import { RequestOptions } from '../../../../internal/request-options';
@@ -32,15 +25,8 @@ export class Controllers extends APIResource {
    * }
    * ```
    */
-  list(
-    clusterID: string,
-    query: ControllerListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): PagePromise<NKSControllersCursor, NKSController> {
-    return this._client.getAPIList(path`/v1/nks/clusters/${clusterID}/controllers`, Cursor<NKSController>, {
-      query,
-      ...options,
-    });
+  list(clusterID: string, query: ControllerListParams | null | undefined = {}, options?: RequestOptions): PagePromise<NKSControllersCursor, NKSController> {
+    return this._client.getAPIList(path`/v1/nks/clusters/${clusterID}/controllers`, Cursor<NKSController>, { query, ...options });
   }
 
   /**
@@ -55,17 +41,13 @@ export class Controllers extends APIResource {
    *   );
    * ```
    */
-  get(
-    controllerID: string,
-    params: ControllerGetParams,
-    options?: RequestOptions,
-  ): APIPromise<NKSController> {
-    const { cluster_id } = params;
+  get(controllerID: string, params: ControllerGetParams, options?: RequestOptions): APIPromise<NKSController> {
+    const { cluster_id } = params
     return this._client.get(path`/v1/nks/clusters/${cluster_id}/controllers/${controllerID}`, options);
   }
 }
 
-export type NKSControllersCursor = Cursor<NKSController>;
+export type NKSControllersCursor = Cursor<NKSController>
 
 /**
  * NKS controller details.
@@ -116,7 +98,8 @@ export interface NKSControllerList {
   pagination: Shared.Pagination;
 }
 
-export interface ControllerListParams extends CursorParams {}
+export interface ControllerListParams extends CursorParams {
+}
 
 export interface ControllerGetParams {
   /**
@@ -133,7 +116,7 @@ export declare namespace Controllers {
     type NKSControllerList as NKSControllerList,
     type NKSControllersCursor as NKSControllersCursor,
     type ControllerListParams as ControllerListParams,
-    type ControllerGetParams as ControllerGetParams,
+    type ControllerGetParams as ControllerGetParams
   };
 
   export {
@@ -142,6 +125,6 @@ export declare namespace Controllers {
     type NKSControllerVolumeList as NKSControllerVolumeList,
     type NKSControllerVolumesCursor as NKSControllerVolumesCursor,
     type VolumeListParams as VolumeListParams,
-    type VolumeGetParams as VolumeGetParams,
+    type VolumeGetParams as VolumeGetParams
   };
 }

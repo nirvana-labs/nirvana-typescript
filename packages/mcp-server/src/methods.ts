@@ -7,640 +7,534 @@ export type SdkMethod = {
   fullyQualifiedName: string;
   httpMethod?: 'get' | 'post' | 'put' | 'patch' | 'delete' | 'query';
   httpPath?: string;
-};
+}
 
-export const sdkMethods: SdkMethod[] = [
-  {
-    clientCallName: 'client.user.get',
-    fullyQualifiedName: 'user.get',
-    httpMethod: 'get',
-    httpPath: '/v1/user',
-  },
-  {
-    clientCallName: 'client.user.security.update',
-    fullyQualifiedName: 'user.security.update',
-    httpMethod: 'patch',
-    httpPath: '/v1/user/security',
-  },
-  {
-    clientCallName: 'client.user.security.get',
-    fullyQualifiedName: 'user.security.get',
-    httpMethod: 'get',
-    httpPath: '/v1/user/security',
-  },
-  {
-    clientCallName: 'client.apiKeys.create',
-    fullyQualifiedName: 'apiKeys.create',
-    httpMethod: 'post',
-    httpPath: '/v1/api_keys',
-  },
-  {
-    clientCallName: 'client.apiKeys.update',
-    fullyQualifiedName: 'apiKeys.update',
-    httpMethod: 'patch',
-    httpPath: '/v1/api_keys/{api_key_id}',
-  },
-  {
-    clientCallName: 'client.apiKeys.list',
-    fullyQualifiedName: 'apiKeys.list',
-    httpMethod: 'get',
-    httpPath: '/v1/api_keys',
-  },
-  {
-    clientCallName: 'client.apiKeys.delete',
-    fullyQualifiedName: 'apiKeys.delete',
-    httpMethod: 'delete',
-    httpPath: '/v1/api_keys/{api_key_id}',
-  },
-  {
-    clientCallName: 'client.apiKeys.get',
-    fullyQualifiedName: 'apiKeys.get',
-    httpMethod: 'get',
-    httpPath: '/v1/api_keys/{api_key_id}',
-  },
-  {
-    clientCallName: 'client.operations.list',
-    fullyQualifiedName: 'operations.list',
-    httpMethod: 'get',
-    httpPath: '/v1/operations',
-  },
-  {
-    clientCallName: 'client.operations.get',
-    fullyQualifiedName: 'operations.get',
-    httpMethod: 'get',
-    httpPath: '/v1/operations/{operation_id}',
-  },
-  {
-    clientCallName: 'client.organizations.create',
-    fullyQualifiedName: 'organizations.create',
-    httpMethod: 'post',
-    httpPath: '/v1/organizations',
-  },
-  {
-    clientCallName: 'client.organizations.update',
-    fullyQualifiedName: 'organizations.update',
-    httpMethod: 'patch',
-    httpPath: '/v1/organizations/{organization_id}',
-  },
-  {
-    clientCallName: 'client.organizations.list',
-    fullyQualifiedName: 'organizations.list',
-    httpMethod: 'get',
-    httpPath: '/v1/organizations',
-  },
-  {
-    clientCallName: 'client.organizations.get',
-    fullyQualifiedName: 'organizations.get',
-    httpMethod: 'get',
-    httpPath: '/v1/organizations/{organization_id}',
-  },
-  {
-    clientCallName: 'client.organizations.leave',
-    fullyQualifiedName: 'organizations.leave',
-    httpMethod: 'post',
-    httpPath: '/v1/organizations/{organization_id}/leave',
-  },
-  {
-    clientCallName: 'client.organizations.memberships.list',
-    fullyQualifiedName: 'organizations.memberships.list',
-    httpMethod: 'get',
-    httpPath: '/v1/organizations/{organization_id}/memberships',
-  },
-  {
-    clientCallName: 'client.organizations.memberships.get',
-    fullyQualifiedName: 'organizations.memberships.get',
-    httpMethod: 'get',
-    httpPath: '/v1/organizations/{organization_id}/memberships/{membership_id}',
-  },
-  {
-    clientCallName: 'client.quotas.list',
-    fullyQualifiedName: 'quotas.list',
-    httpMethod: 'get',
-    httpPath: '/v1/quotas',
-  },
-  {
-    clientCallName: 'client.quotas.get',
-    fullyQualifiedName: 'quotas.get',
-    httpMethod: 'get',
-    httpPath: '/v1/quotas/{region}',
-  },
-  {
-    clientCallName: 'client.auditLogs.list',
-    fullyQualifiedName: 'auditLogs.list',
-    httpMethod: 'get',
-    httpPath: '/v1/audit_logs',
-  },
-  {
-    clientCallName: 'client.auditLogs.get',
-    fullyQualifiedName: 'auditLogs.get',
-    httpMethod: 'get',
-    httpPath: '/v1/audit_logs/{audit_log_id}',
-  },
-  {
-    clientCallName: 'client.projects.create',
-    fullyQualifiedName: 'projects.create',
-    httpMethod: 'post',
-    httpPath: '/v1/projects',
-  },
-  {
-    clientCallName: 'client.projects.update',
-    fullyQualifiedName: 'projects.update',
-    httpMethod: 'patch',
-    httpPath: '/v1/projects/{project_id}',
-  },
-  {
-    clientCallName: 'client.projects.list',
-    fullyQualifiedName: 'projects.list',
-    httpMethod: 'get',
-    httpPath: '/v1/projects',
-  },
-  {
-    clientCallName: 'client.projects.delete',
-    fullyQualifiedName: 'projects.delete',
-    httpMethod: 'delete',
-    httpPath: '/v1/projects/{project_id}',
-  },
-  {
-    clientCallName: 'client.projects.get',
-    fullyQualifiedName: 'projects.get',
-    httpMethod: 'get',
-    httpPath: '/v1/projects/{project_id}',
-  },
-  {
-    clientCallName: 'client.regions.list',
-    fullyQualifiedName: 'regions.list',
-    httpMethod: 'get',
-    httpPath: '/v1/regions',
-  },
-  {
-    clientCallName: 'client.regions.get',
-    fullyQualifiedName: 'regions.get',
-    httpMethod: 'get',
-    httpPath: '/v1/regions/{name}',
-  },
-  {
-    clientCallName: 'client.instanceTypes.list',
-    fullyQualifiedName: 'instanceTypes.list',
-    httpMethod: 'get',
-    httpPath: '/v1/instance_types',
-  },
-  {
-    clientCallName: 'client.instanceTypes.get',
-    fullyQualifiedName: 'instanceTypes.get',
-    httpMethod: 'get',
-    httpPath: '/v1/instance_types/{region}/{name}',
-  },
-  {
-    clientCallName: 'client.compute.vms.create',
-    fullyQualifiedName: 'compute.vms.create',
-    httpMethod: 'post',
-    httpPath: '/v1/compute/vms',
-  },
-  {
-    clientCallName: 'client.compute.vms.update',
-    fullyQualifiedName: 'compute.vms.update',
-    httpMethod: 'patch',
-    httpPath: '/v1/compute/vms/{vm_id}',
-  },
-  {
-    clientCallName: 'client.compute.vms.list',
-    fullyQualifiedName: 'compute.vms.list',
-    httpMethod: 'get',
-    httpPath: '/v1/compute/vms',
-  },
-  {
-    clientCallName: 'client.compute.vms.delete',
-    fullyQualifiedName: 'compute.vms.delete',
-    httpMethod: 'delete',
-    httpPath: '/v1/compute/vms/{vm_id}',
-  },
-  {
-    clientCallName: 'client.compute.vms.get',
-    fullyQualifiedName: 'compute.vms.get',
-    httpMethod: 'get',
-    httpPath: '/v1/compute/vms/{vm_id}',
-  },
-  {
-    clientCallName: 'client.compute.vms.restart',
-    fullyQualifiedName: 'compute.vms.restart',
-    httpMethod: 'post',
-    httpPath: '/v1/compute/vms/{vm_id}/restart',
-  },
-  {
-    clientCallName: 'client.compute.vms.availability.create',
-    fullyQualifiedName: 'compute.vms.availability.create',
-    httpMethod: 'post',
-    httpPath: '/v1/compute/vms/availability',
-  },
-  {
-    clientCallName: 'client.compute.vms.availability.update',
-    fullyQualifiedName: 'compute.vms.availability.update',
-    httpMethod: 'patch',
-    httpPath: '/v1/compute/vms/{vm_id}/availability',
-  },
-  {
-    clientCallName: 'client.compute.vms.volumes.list',
-    fullyQualifiedName: 'compute.vms.volumes.list',
-    httpMethod: 'get',
-    httpPath: '/v1/compute/vms/{vm_id}/volumes',
-  },
-  {
-    clientCallName: 'client.compute.vms.osImages.list',
-    fullyQualifiedName: 'compute.vms.osImages.list',
-    httpMethod: 'get',
-    httpPath: '/v1/compute/vms/os_images',
-  },
-  {
-    clientCallName: 'client.compute.volumes.create',
-    fullyQualifiedName: 'compute.volumes.create',
-    httpMethod: 'post',
-    httpPath: '/v1/compute/volumes',
-  },
-  {
-    clientCallName: 'client.compute.volumes.update',
-    fullyQualifiedName: 'compute.volumes.update',
-    httpMethod: 'patch',
-    httpPath: '/v1/compute/volumes/{volume_id}',
-  },
-  {
-    clientCallName: 'client.compute.volumes.list',
-    fullyQualifiedName: 'compute.volumes.list',
-    httpMethod: 'get',
-    httpPath: '/v1/compute/volumes',
-  },
-  {
-    clientCallName: 'client.compute.volumes.delete',
-    fullyQualifiedName: 'compute.volumes.delete',
-    httpMethod: 'delete',
-    httpPath: '/v1/compute/volumes/{volume_id}',
-  },
-  {
-    clientCallName: 'client.compute.volumes.attach',
-    fullyQualifiedName: 'compute.volumes.attach',
-    httpMethod: 'post',
-    httpPath: '/v1/compute/volumes/{volume_id}/attach',
-  },
-  {
-    clientCallName: 'client.compute.volumes.detach',
-    fullyQualifiedName: 'compute.volumes.detach',
-    httpMethod: 'post',
-    httpPath: '/v1/compute/volumes/{volume_id}/detach',
-  },
-  {
-    clientCallName: 'client.compute.volumes.get',
-    fullyQualifiedName: 'compute.volumes.get',
-    httpMethod: 'get',
-    httpPath: '/v1/compute/volumes/{volume_id}',
-  },
-  {
-    clientCallName: 'client.compute.volumes.availability.create',
-    fullyQualifiedName: 'compute.volumes.availability.create',
-    httpMethod: 'post',
-    httpPath: '/v1/compute/volumes/availability',
-  },
-  {
-    clientCallName: 'client.compute.volumes.availability.update',
-    fullyQualifiedName: 'compute.volumes.availability.update',
-    httpMethod: 'patch',
-    httpPath: '/v1/compute/volumes/{volume_id}/availability',
-  },
-  {
-    clientCallName: 'client.networking.vpcs.create',
-    fullyQualifiedName: 'networking.vpcs.create',
-    httpMethod: 'post',
-    httpPath: '/v1/networking/vpcs',
-  },
-  {
-    clientCallName: 'client.networking.vpcs.update',
-    fullyQualifiedName: 'networking.vpcs.update',
-    httpMethod: 'patch',
-    httpPath: '/v1/networking/vpcs/{vpc_id}',
-  },
-  {
-    clientCallName: 'client.networking.vpcs.list',
-    fullyQualifiedName: 'networking.vpcs.list',
-    httpMethod: 'get',
-    httpPath: '/v1/networking/vpcs',
-  },
-  {
-    clientCallName: 'client.networking.vpcs.delete',
-    fullyQualifiedName: 'networking.vpcs.delete',
-    httpMethod: 'delete',
-    httpPath: '/v1/networking/vpcs/{vpc_id}',
-  },
-  {
-    clientCallName: 'client.networking.vpcs.get',
-    fullyQualifiedName: 'networking.vpcs.get',
-    httpMethod: 'get',
-    httpPath: '/v1/networking/vpcs/{vpc_id}',
-  },
-  {
-    clientCallName: 'client.networking.vpcs.availability.create',
-    fullyQualifiedName: 'networking.vpcs.availability.create',
-    httpMethod: 'post',
-    httpPath: '/v1/networking/vpcs/availability',
-  },
-  {
-    clientCallName: 'client.networking.vpcs.availability.update',
-    fullyQualifiedName: 'networking.vpcs.availability.update',
-    httpMethod: 'patch',
-    httpPath: '/v1/networking/vpcs/{vpc_id}/availability',
-  },
-  {
-    clientCallName: 'client.networking.firewallRules.create',
-    fullyQualifiedName: 'networking.firewallRules.create',
-    httpMethod: 'post',
-    httpPath: '/v1/networking/vpcs/{vpc_id}/firewall_rules',
-  },
-  {
-    clientCallName: 'client.networking.firewallRules.update',
-    fullyQualifiedName: 'networking.firewallRules.update',
-    httpMethod: 'patch',
-    httpPath: '/v1/networking/vpcs/{vpc_id}/firewall_rules/{firewall_rule_id}',
-  },
-  {
-    clientCallName: 'client.networking.firewallRules.list',
-    fullyQualifiedName: 'networking.firewallRules.list',
-    httpMethod: 'get',
-    httpPath: '/v1/networking/vpcs/{vpc_id}/firewall_rules',
-  },
-  {
-    clientCallName: 'client.networking.firewallRules.delete',
-    fullyQualifiedName: 'networking.firewallRules.delete',
-    httpMethod: 'delete',
-    httpPath: '/v1/networking/vpcs/{vpc_id}/firewall_rules/{firewall_rule_id}',
-  },
-  {
-    clientCallName: 'client.networking.firewallRules.get',
-    fullyQualifiedName: 'networking.firewallRules.get',
-    httpMethod: 'get',
-    httpPath: '/v1/networking/vpcs/{vpc_id}/firewall_rules/{firewall_rule_id}',
-  },
-  {
-    clientCallName: 'client.networking.connect.connections.create',
-    fullyQualifiedName: 'networking.connect.connections.create',
-    httpMethod: 'post',
-    httpPath: '/v1/networking/connect/connections',
-  },
-  {
-    clientCallName: 'client.networking.connect.connections.update',
-    fullyQualifiedName: 'networking.connect.connections.update',
-    httpMethod: 'patch',
-    httpPath: '/v1/networking/connect/connections/{connection_id}',
-  },
-  {
-    clientCallName: 'client.networking.connect.connections.list',
-    fullyQualifiedName: 'networking.connect.connections.list',
-    httpMethod: 'get',
-    httpPath: '/v1/networking/connect/connections',
-  },
-  {
-    clientCallName: 'client.networking.connect.connections.delete',
-    fullyQualifiedName: 'networking.connect.connections.delete',
-    httpMethod: 'delete',
-    httpPath: '/v1/networking/connect/connections/{connection_id}',
-  },
-  {
-    clientCallName: 'client.networking.connect.connections.get',
-    fullyQualifiedName: 'networking.connect.connections.get',
-    httpMethod: 'get',
-    httpPath: '/v1/networking/connect/connections/{connection_id}',
-  },
-  {
-    clientCallName: 'client.networking.connect.routes.list',
-    fullyQualifiedName: 'networking.connect.routes.list',
-    httpMethod: 'get',
-    httpPath: '/v1/networking/connect/routes',
-  },
-  {
-    clientCallName: 'client.rpcNodes.flex.create',
-    fullyQualifiedName: 'rpcNodes.flex.create',
-    httpMethod: 'post',
-    httpPath: '/v1/rpc_nodes/flex',
-  },
-  {
-    clientCallName: 'client.rpcNodes.flex.update',
-    fullyQualifiedName: 'rpcNodes.flex.update',
-    httpMethod: 'patch',
-    httpPath: '/v1/rpc_nodes/flex/{node_id}',
-  },
-  {
-    clientCallName: 'client.rpcNodes.flex.list',
-    fullyQualifiedName: 'rpcNodes.flex.list',
-    httpMethod: 'get',
-    httpPath: '/v1/rpc_nodes/flex',
-  },
-  {
-    clientCallName: 'client.rpcNodes.flex.delete',
-    fullyQualifiedName: 'rpcNodes.flex.delete',
-    httpMethod: 'delete',
-    httpPath: '/v1/rpc_nodes/flex/{node_id}',
-  },
-  {
-    clientCallName: 'client.rpcNodes.flex.get',
-    fullyQualifiedName: 'rpcNodes.flex.get',
-    httpMethod: 'get',
-    httpPath: '/v1/rpc_nodes/flex/{node_id}',
-  },
-  {
-    clientCallName: 'client.rpcNodes.flex.blockchains.list',
-    fullyQualifiedName: 'rpcNodes.flex.blockchains.list',
-    httpMethod: 'get',
-    httpPath: '/v1/rpc_nodes/flex/blockchains',
-  },
-  {
-    clientCallName: 'client.rpcNodes.dedicated.list',
-    fullyQualifiedName: 'rpcNodes.dedicated.list',
-    httpMethod: 'get',
-    httpPath: '/v1/rpc_nodes/dedicated',
-  },
-  {
-    clientCallName: 'client.rpcNodes.dedicated.get',
-    fullyQualifiedName: 'rpcNodes.dedicated.get',
-    httpMethod: 'get',
-    httpPath: '/v1/rpc_nodes/dedicated/{node_id}',
-  },
-  {
-    clientCallName: 'client.rpcNodes.dedicated.blockchains.list',
-    fullyQualifiedName: 'rpcNodes.dedicated.blockchains.list',
-    httpMethod: 'get',
-    httpPath: '/v1/rpc_nodes/dedicated/blockchains',
-  },
-  {
-    clientCallName: 'client.nks.clusters.create',
-    fullyQualifiedName: 'nks.clusters.create',
-    httpMethod: 'post',
-    httpPath: '/v1/nks/clusters',
-  },
-  {
-    clientCallName: 'client.nks.clusters.update',
-    fullyQualifiedName: 'nks.clusters.update',
-    httpMethod: 'patch',
-    httpPath: '/v1/nks/clusters/{cluster_id}',
-  },
-  {
-    clientCallName: 'client.nks.clusters.list',
-    fullyQualifiedName: 'nks.clusters.list',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters',
-  },
-  {
-    clientCallName: 'client.nks.clusters.delete',
-    fullyQualifiedName: 'nks.clusters.delete',
-    httpMethod: 'delete',
-    httpPath: '/v1/nks/clusters/{cluster_id}',
-  },
-  {
-    clientCallName: 'client.nks.clusters.get',
-    fullyQualifiedName: 'nks.clusters.get',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}',
-  },
-  {
-    clientCallName: 'client.nks.clusters.availability.create',
-    fullyQualifiedName: 'nks.clusters.availability.create',
-    httpMethod: 'post',
-    httpPath: '/v1/nks/clusters/availability',
-  },
-  {
-    clientCallName: 'client.nks.clusters.availability.update',
-    fullyQualifiedName: 'nks.clusters.availability.update',
-    httpMethod: 'patch',
-    httpPath: '/v1/nks/clusters/{cluster_id}/availability',
-  },
-  {
-    clientCallName: 'client.nks.clusters.persistentVolumeClaims.list',
-    fullyQualifiedName: 'nks.clusters.persistentVolumeClaims.list',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/persistent_volume_claims',
-  },
-  {
-    clientCallName: 'client.nks.clusters.persistentVolumeClaims.get',
-    fullyQualifiedName: 'nks.clusters.persistentVolumeClaims.get',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/persistent_volume_claims/{persistent_volume_claim_id}',
-  },
-  {
-    clientCallName: 'client.nks.clusters.kubeconfig.get',
-    fullyQualifiedName: 'nks.clusters.kubeconfig.get',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/kubeconfig',
-  },
-  {
-    clientCallName: 'client.nks.clusters.controllers.list',
-    fullyQualifiedName: 'nks.clusters.controllers.list',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/controllers',
-  },
-  {
-    clientCallName: 'client.nks.clusters.controllers.get',
-    fullyQualifiedName: 'nks.clusters.controllers.get',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/controllers/{controller_id}',
-  },
-  {
-    clientCallName: 'client.nks.clusters.controllers.volumes.list',
-    fullyQualifiedName: 'nks.clusters.controllers.volumes.list',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes',
-  },
-  {
-    clientCallName: 'client.nks.clusters.controllers.volumes.get',
-    fullyQualifiedName: 'nks.clusters.controllers.volumes.get',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes/{volume_id}',
-  },
-  {
-    clientCallName: 'client.nks.clusters.loadBalancers.update',
-    fullyQualifiedName: 'nks.clusters.loadBalancers.update',
-    httpMethod: 'patch',
-    httpPath: '/v1/nks/clusters/{cluster_id}/load_balancers/{load_balancer_id}',
-  },
-  {
-    clientCallName: 'client.nks.clusters.loadBalancers.list',
-    fullyQualifiedName: 'nks.clusters.loadBalancers.list',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/load_balancers',
-  },
-  {
-    clientCallName: 'client.nks.clusters.loadBalancers.get',
-    fullyQualifiedName: 'nks.clusters.loadBalancers.get',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/load_balancers/{load_balancer_id}',
-  },
-  {
-    clientCallName: 'client.nks.clusters.pools.create',
-    fullyQualifiedName: 'nks.clusters.pools.create',
-    httpMethod: 'post',
-    httpPath: '/v1/nks/clusters/{cluster_id}/pools',
-  },
-  {
-    clientCallName: 'client.nks.clusters.pools.update',
-    fullyQualifiedName: 'nks.clusters.pools.update',
-    httpMethod: 'patch',
-    httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}',
-  },
-  {
-    clientCallName: 'client.nks.clusters.pools.list',
-    fullyQualifiedName: 'nks.clusters.pools.list',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/pools',
-  },
-  {
-    clientCallName: 'client.nks.clusters.pools.delete',
-    fullyQualifiedName: 'nks.clusters.pools.delete',
-    httpMethod: 'delete',
-    httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}',
-  },
-  {
-    clientCallName: 'client.nks.clusters.pools.get',
-    fullyQualifiedName: 'nks.clusters.pools.get',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}',
-  },
-  {
-    clientCallName: 'client.nks.clusters.pools.availability.create',
-    fullyQualifiedName: 'nks.clusters.pools.availability.create',
-    httpMethod: 'post',
-    httpPath: '/v1/nks/clusters/{cluster_id}/pools/availability',
-  },
-  {
-    clientCallName: 'client.nks.clusters.pools.availability.update',
-    fullyQualifiedName: 'nks.clusters.pools.availability.update',
-    httpMethod: 'patch',
-    httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/availability',
-  },
-  {
-    clientCallName: 'client.nks.clusters.pools.nodes.list',
-    fullyQualifiedName: 'nks.clusters.pools.nodes.list',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes',
-  },
-  {
-    clientCallName: 'client.nks.clusters.pools.nodes.delete',
-    fullyQualifiedName: 'nks.clusters.pools.nodes.delete',
-    httpMethod: 'delete',
-    httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}',
-  },
-  {
-    clientCallName: 'client.nks.clusters.pools.nodes.get',
-    fullyQualifiedName: 'nks.clusters.pools.nodes.get',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}',
-  },
-  {
-    clientCallName: 'client.nks.clusters.pools.nodes.volumes.list',
-    fullyQualifiedName: 'nks.clusters.pools.nodes.volumes.list',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}/volumes',
-  },
-  {
-    clientCallName: 'client.nks.clusters.pools.nodes.volumes.get',
-    fullyQualifiedName: 'nks.clusters.pools.nodes.volumes.get',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}/volumes/{volume_id}',
-  },
-];
+export const sdkMethods: SdkMethod[] = [{
+  clientCallName: 'client.user.get',
+  fullyQualifiedName: 'user.get',
+  httpMethod: 'get',
+  httpPath: '/v1/user',
+},{
+  clientCallName: 'client.user.security.update',
+  fullyQualifiedName: 'user.security.update',
+  httpMethod: 'patch',
+  httpPath: '/v1/user/security',
+},{
+  clientCallName: 'client.user.security.get',
+  fullyQualifiedName: 'user.security.get',
+  httpMethod: 'get',
+  httpPath: '/v1/user/security',
+},{
+  clientCallName: 'client.apiKeys.create',
+  fullyQualifiedName: 'apiKeys.create',
+  httpMethod: 'post',
+  httpPath: '/v1/api_keys',
+},{
+  clientCallName: 'client.apiKeys.update',
+  fullyQualifiedName: 'apiKeys.update',
+  httpMethod: 'patch',
+  httpPath: '/v1/api_keys/{api_key_id}',
+},{
+  clientCallName: 'client.apiKeys.list',
+  fullyQualifiedName: 'apiKeys.list',
+  httpMethod: 'get',
+  httpPath: '/v1/api_keys',
+},{
+  clientCallName: 'client.apiKeys.delete',
+  fullyQualifiedName: 'apiKeys.delete',
+  httpMethod: 'delete',
+  httpPath: '/v1/api_keys/{api_key_id}',
+},{
+  clientCallName: 'client.apiKeys.get',
+  fullyQualifiedName: 'apiKeys.get',
+  httpMethod: 'get',
+  httpPath: '/v1/api_keys/{api_key_id}',
+},{
+  clientCallName: 'client.operations.list',
+  fullyQualifiedName: 'operations.list',
+  httpMethod: 'get',
+  httpPath: '/v1/operations',
+},{
+  clientCallName: 'client.operations.get',
+  fullyQualifiedName: 'operations.get',
+  httpMethod: 'get',
+  httpPath: '/v1/operations/{operation_id}',
+},{
+  clientCallName: 'client.organizations.create',
+  fullyQualifiedName: 'organizations.create',
+  httpMethod: 'post',
+  httpPath: '/v1/organizations',
+},{
+  clientCallName: 'client.organizations.update',
+  fullyQualifiedName: 'organizations.update',
+  httpMethod: 'patch',
+  httpPath: '/v1/organizations/{organization_id}',
+},{
+  clientCallName: 'client.organizations.list',
+  fullyQualifiedName: 'organizations.list',
+  httpMethod: 'get',
+  httpPath: '/v1/organizations',
+},{
+  clientCallName: 'client.organizations.get',
+  fullyQualifiedName: 'organizations.get',
+  httpMethod: 'get',
+  httpPath: '/v1/organizations/{organization_id}',
+},{
+  clientCallName: 'client.organizations.leave',
+  fullyQualifiedName: 'organizations.leave',
+  httpMethod: 'post',
+  httpPath: '/v1/organizations/{organization_id}/leave',
+},{
+  clientCallName: 'client.organizations.memberships.list',
+  fullyQualifiedName: 'organizations.memberships.list',
+  httpMethod: 'get',
+  httpPath: '/v1/organizations/{organization_id}/memberships',
+},{
+  clientCallName: 'client.organizations.memberships.get',
+  fullyQualifiedName: 'organizations.memberships.get',
+  httpMethod: 'get',
+  httpPath: '/v1/organizations/{organization_id}/memberships/{membership_id}',
+},{
+  clientCallName: 'client.quotas.list',
+  fullyQualifiedName: 'quotas.list',
+  httpMethod: 'get',
+  httpPath: '/v1/quotas',
+},{
+  clientCallName: 'client.quotas.get',
+  fullyQualifiedName: 'quotas.get',
+  httpMethod: 'get',
+  httpPath: '/v1/quotas/{region}',
+},{
+  clientCallName: 'client.auditLogs.list',
+  fullyQualifiedName: 'auditLogs.list',
+  httpMethod: 'get',
+  httpPath: '/v1/audit_logs',
+},{
+  clientCallName: 'client.auditLogs.get',
+  fullyQualifiedName: 'auditLogs.get',
+  httpMethod: 'get',
+  httpPath: '/v1/audit_logs/{audit_log_id}',
+},{
+  clientCallName: 'client.projects.create',
+  fullyQualifiedName: 'projects.create',
+  httpMethod: 'post',
+  httpPath: '/v1/projects',
+},{
+  clientCallName: 'client.projects.update',
+  fullyQualifiedName: 'projects.update',
+  httpMethod: 'patch',
+  httpPath: '/v1/projects/{project_id}',
+},{
+  clientCallName: 'client.projects.list',
+  fullyQualifiedName: 'projects.list',
+  httpMethod: 'get',
+  httpPath: '/v1/projects',
+},{
+  clientCallName: 'client.projects.delete',
+  fullyQualifiedName: 'projects.delete',
+  httpMethod: 'delete',
+  httpPath: '/v1/projects/{project_id}',
+},{
+  clientCallName: 'client.projects.get',
+  fullyQualifiedName: 'projects.get',
+  httpMethod: 'get',
+  httpPath: '/v1/projects/{project_id}',
+},{
+  clientCallName: 'client.regions.list',
+  fullyQualifiedName: 'regions.list',
+  httpMethod: 'get',
+  httpPath: '/v1/regions',
+},{
+  clientCallName: 'client.regions.get',
+  fullyQualifiedName: 'regions.get',
+  httpMethod: 'get',
+  httpPath: '/v1/regions/{name}',
+},{
+  clientCallName: 'client.instanceTypes.list',
+  fullyQualifiedName: 'instanceTypes.list',
+  httpMethod: 'get',
+  httpPath: '/v1/instance_types',
+},{
+  clientCallName: 'client.instanceTypes.get',
+  fullyQualifiedName: 'instanceTypes.get',
+  httpMethod: 'get',
+  httpPath: '/v1/instance_types/{region}/{name}',
+},{
+  clientCallName: 'client.compute.vms.create',
+  fullyQualifiedName: 'compute.vms.create',
+  httpMethod: 'post',
+  httpPath: '/v1/compute/vms',
+},{
+  clientCallName: 'client.compute.vms.update',
+  fullyQualifiedName: 'compute.vms.update',
+  httpMethod: 'patch',
+  httpPath: '/v1/compute/vms/{vm_id}',
+},{
+  clientCallName: 'client.compute.vms.list',
+  fullyQualifiedName: 'compute.vms.list',
+  httpMethod: 'get',
+  httpPath: '/v1/compute/vms',
+},{
+  clientCallName: 'client.compute.vms.delete',
+  fullyQualifiedName: 'compute.vms.delete',
+  httpMethod: 'delete',
+  httpPath: '/v1/compute/vms/{vm_id}',
+},{
+  clientCallName: 'client.compute.vms.get',
+  fullyQualifiedName: 'compute.vms.get',
+  httpMethod: 'get',
+  httpPath: '/v1/compute/vms/{vm_id}',
+},{
+  clientCallName: 'client.compute.vms.restart',
+  fullyQualifiedName: 'compute.vms.restart',
+  httpMethod: 'post',
+  httpPath: '/v1/compute/vms/{vm_id}/restart',
+},{
+  clientCallName: 'client.compute.vms.availability.create',
+  fullyQualifiedName: 'compute.vms.availability.create',
+  httpMethod: 'post',
+  httpPath: '/v1/compute/vms/availability',
+},{
+  clientCallName: 'client.compute.vms.availability.update',
+  fullyQualifiedName: 'compute.vms.availability.update',
+  httpMethod: 'patch',
+  httpPath: '/v1/compute/vms/{vm_id}/availability',
+},{
+  clientCallName: 'client.compute.vms.volumes.list',
+  fullyQualifiedName: 'compute.vms.volumes.list',
+  httpMethod: 'get',
+  httpPath: '/v1/compute/vms/{vm_id}/volumes',
+},{
+  clientCallName: 'client.compute.vms.osImages.list',
+  fullyQualifiedName: 'compute.vms.osImages.list',
+  httpMethod: 'get',
+  httpPath: '/v1/compute/vms/os_images',
+},{
+  clientCallName: 'client.compute.volumes.create',
+  fullyQualifiedName: 'compute.volumes.create',
+  httpMethod: 'post',
+  httpPath: '/v1/compute/volumes',
+},{
+  clientCallName: 'client.compute.volumes.update',
+  fullyQualifiedName: 'compute.volumes.update',
+  httpMethod: 'patch',
+  httpPath: '/v1/compute/volumes/{volume_id}',
+},{
+  clientCallName: 'client.compute.volumes.list',
+  fullyQualifiedName: 'compute.volumes.list',
+  httpMethod: 'get',
+  httpPath: '/v1/compute/volumes',
+},{
+  clientCallName: 'client.compute.volumes.delete',
+  fullyQualifiedName: 'compute.volumes.delete',
+  httpMethod: 'delete',
+  httpPath: '/v1/compute/volumes/{volume_id}',
+},{
+  clientCallName: 'client.compute.volumes.attach',
+  fullyQualifiedName: 'compute.volumes.attach',
+  httpMethod: 'post',
+  httpPath: '/v1/compute/volumes/{volume_id}/attach',
+},{
+  clientCallName: 'client.compute.volumes.detach',
+  fullyQualifiedName: 'compute.volumes.detach',
+  httpMethod: 'post',
+  httpPath: '/v1/compute/volumes/{volume_id}/detach',
+},{
+  clientCallName: 'client.compute.volumes.get',
+  fullyQualifiedName: 'compute.volumes.get',
+  httpMethod: 'get',
+  httpPath: '/v1/compute/volumes/{volume_id}',
+},{
+  clientCallName: 'client.compute.volumes.availability.create',
+  fullyQualifiedName: 'compute.volumes.availability.create',
+  httpMethod: 'post',
+  httpPath: '/v1/compute/volumes/availability',
+},{
+  clientCallName: 'client.compute.volumes.availability.update',
+  fullyQualifiedName: 'compute.volumes.availability.update',
+  httpMethod: 'patch',
+  httpPath: '/v1/compute/volumes/{volume_id}/availability',
+},{
+  clientCallName: 'client.networking.vpcs.create',
+  fullyQualifiedName: 'networking.vpcs.create',
+  httpMethod: 'post',
+  httpPath: '/v1/networking/vpcs',
+},{
+  clientCallName: 'client.networking.vpcs.update',
+  fullyQualifiedName: 'networking.vpcs.update',
+  httpMethod: 'patch',
+  httpPath: '/v1/networking/vpcs/{vpc_id}',
+},{
+  clientCallName: 'client.networking.vpcs.list',
+  fullyQualifiedName: 'networking.vpcs.list',
+  httpMethod: 'get',
+  httpPath: '/v1/networking/vpcs',
+},{
+  clientCallName: 'client.networking.vpcs.delete',
+  fullyQualifiedName: 'networking.vpcs.delete',
+  httpMethod: 'delete',
+  httpPath: '/v1/networking/vpcs/{vpc_id}',
+},{
+  clientCallName: 'client.networking.vpcs.get',
+  fullyQualifiedName: 'networking.vpcs.get',
+  httpMethod: 'get',
+  httpPath: '/v1/networking/vpcs/{vpc_id}',
+},{
+  clientCallName: 'client.networking.vpcs.availability.create',
+  fullyQualifiedName: 'networking.vpcs.availability.create',
+  httpMethod: 'post',
+  httpPath: '/v1/networking/vpcs/availability',
+},{
+  clientCallName: 'client.networking.vpcs.availability.update',
+  fullyQualifiedName: 'networking.vpcs.availability.update',
+  httpMethod: 'patch',
+  httpPath: '/v1/networking/vpcs/{vpc_id}/availability',
+},{
+  clientCallName: 'client.networking.firewallRules.create',
+  fullyQualifiedName: 'networking.firewallRules.create',
+  httpMethod: 'post',
+  httpPath: '/v1/networking/vpcs/{vpc_id}/firewall_rules',
+},{
+  clientCallName: 'client.networking.firewallRules.update',
+  fullyQualifiedName: 'networking.firewallRules.update',
+  httpMethod: 'patch',
+  httpPath: '/v1/networking/vpcs/{vpc_id}/firewall_rules/{firewall_rule_id}',
+},{
+  clientCallName: 'client.networking.firewallRules.list',
+  fullyQualifiedName: 'networking.firewallRules.list',
+  httpMethod: 'get',
+  httpPath: '/v1/networking/vpcs/{vpc_id}/firewall_rules',
+},{
+  clientCallName: 'client.networking.firewallRules.delete',
+  fullyQualifiedName: 'networking.firewallRules.delete',
+  httpMethod: 'delete',
+  httpPath: '/v1/networking/vpcs/{vpc_id}/firewall_rules/{firewall_rule_id}',
+},{
+  clientCallName: 'client.networking.firewallRules.get',
+  fullyQualifiedName: 'networking.firewallRules.get',
+  httpMethod: 'get',
+  httpPath: '/v1/networking/vpcs/{vpc_id}/firewall_rules/{firewall_rule_id}',
+},{
+  clientCallName: 'client.networking.connect.connections.create',
+  fullyQualifiedName: 'networking.connect.connections.create',
+  httpMethod: 'post',
+  httpPath: '/v1/networking/connect/connections',
+},{
+  clientCallName: 'client.networking.connect.connections.update',
+  fullyQualifiedName: 'networking.connect.connections.update',
+  httpMethod: 'patch',
+  httpPath: '/v1/networking/connect/connections/{connection_id}',
+},{
+  clientCallName: 'client.networking.connect.connections.list',
+  fullyQualifiedName: 'networking.connect.connections.list',
+  httpMethod: 'get',
+  httpPath: '/v1/networking/connect/connections',
+},{
+  clientCallName: 'client.networking.connect.connections.delete',
+  fullyQualifiedName: 'networking.connect.connections.delete',
+  httpMethod: 'delete',
+  httpPath: '/v1/networking/connect/connections/{connection_id}',
+},{
+  clientCallName: 'client.networking.connect.connections.get',
+  fullyQualifiedName: 'networking.connect.connections.get',
+  httpMethod: 'get',
+  httpPath: '/v1/networking/connect/connections/{connection_id}',
+},{
+  clientCallName: 'client.networking.connect.routes.list',
+  fullyQualifiedName: 'networking.connect.routes.list',
+  httpMethod: 'get',
+  httpPath: '/v1/networking/connect/routes',
+},{
+  clientCallName: 'client.rpcNodes.flex.create',
+  fullyQualifiedName: 'rpcNodes.flex.create',
+  httpMethod: 'post',
+  httpPath: '/v1/rpc_nodes/flex',
+},{
+  clientCallName: 'client.rpcNodes.flex.update',
+  fullyQualifiedName: 'rpcNodes.flex.update',
+  httpMethod: 'patch',
+  httpPath: '/v1/rpc_nodes/flex/{node_id}',
+},{
+  clientCallName: 'client.rpcNodes.flex.list',
+  fullyQualifiedName: 'rpcNodes.flex.list',
+  httpMethod: 'get',
+  httpPath: '/v1/rpc_nodes/flex',
+},{
+  clientCallName: 'client.rpcNodes.flex.delete',
+  fullyQualifiedName: 'rpcNodes.flex.delete',
+  httpMethod: 'delete',
+  httpPath: '/v1/rpc_nodes/flex/{node_id}',
+},{
+  clientCallName: 'client.rpcNodes.flex.get',
+  fullyQualifiedName: 'rpcNodes.flex.get',
+  httpMethod: 'get',
+  httpPath: '/v1/rpc_nodes/flex/{node_id}',
+},{
+  clientCallName: 'client.rpcNodes.flex.blockchains.list',
+  fullyQualifiedName: 'rpcNodes.flex.blockchains.list',
+  httpMethod: 'get',
+  httpPath: '/v1/rpc_nodes/flex/blockchains',
+},{
+  clientCallName: 'client.rpcNodes.dedicated.list',
+  fullyQualifiedName: 'rpcNodes.dedicated.list',
+  httpMethod: 'get',
+  httpPath: '/v1/rpc_nodes/dedicated',
+},{
+  clientCallName: 'client.rpcNodes.dedicated.get',
+  fullyQualifiedName: 'rpcNodes.dedicated.get',
+  httpMethod: 'get',
+  httpPath: '/v1/rpc_nodes/dedicated/{node_id}',
+},{
+  clientCallName: 'client.rpcNodes.dedicated.blockchains.list',
+  fullyQualifiedName: 'rpcNodes.dedicated.blockchains.list',
+  httpMethod: 'get',
+  httpPath: '/v1/rpc_nodes/dedicated/blockchains',
+},{
+  clientCallName: 'client.nks.clusters.create',
+  fullyQualifiedName: 'nks.clusters.create',
+  httpMethod: 'post',
+  httpPath: '/v1/nks/clusters',
+},{
+  clientCallName: 'client.nks.clusters.update',
+  fullyQualifiedName: 'nks.clusters.update',
+  httpMethod: 'patch',
+  httpPath: '/v1/nks/clusters/{cluster_id}',
+},{
+  clientCallName: 'client.nks.clusters.list',
+  fullyQualifiedName: 'nks.clusters.list',
+  httpMethod: 'get',
+  httpPath: '/v1/nks/clusters',
+},{
+  clientCallName: 'client.nks.clusters.delete',
+  fullyQualifiedName: 'nks.clusters.delete',
+  httpMethod: 'delete',
+  httpPath: '/v1/nks/clusters/{cluster_id}',
+},{
+  clientCallName: 'client.nks.clusters.get',
+  fullyQualifiedName: 'nks.clusters.get',
+  httpMethod: 'get',
+  httpPath: '/v1/nks/clusters/{cluster_id}',
+},{
+  clientCallName: 'client.nks.clusters.availability.create',
+  fullyQualifiedName: 'nks.clusters.availability.create',
+  httpMethod: 'post',
+  httpPath: '/v1/nks/clusters/availability',
+},{
+  clientCallName: 'client.nks.clusters.availability.update',
+  fullyQualifiedName: 'nks.clusters.availability.update',
+  httpMethod: 'patch',
+  httpPath: '/v1/nks/clusters/{cluster_id}/availability',
+},{
+  clientCallName: 'client.nks.clusters.persistentVolumeClaims.list',
+  fullyQualifiedName: 'nks.clusters.persistentVolumeClaims.list',
+  httpMethod: 'get',
+  httpPath: '/v1/nks/clusters/{cluster_id}/persistent_volume_claims',
+},{
+  clientCallName: 'client.nks.clusters.persistentVolumeClaims.get',
+  fullyQualifiedName: 'nks.clusters.persistentVolumeClaims.get',
+  httpMethod: 'get',
+  httpPath: '/v1/nks/clusters/{cluster_id}/persistent_volume_claims/{persistent_volume_claim_id}',
+},{
+  clientCallName: 'client.nks.clusters.kubeconfig.get',
+  fullyQualifiedName: 'nks.clusters.kubeconfig.get',
+  httpMethod: 'get',
+  httpPath: '/v1/nks/clusters/{cluster_id}/kubeconfig',
+},{
+  clientCallName: 'client.nks.clusters.controllers.list',
+  fullyQualifiedName: 'nks.clusters.controllers.list',
+  httpMethod: 'get',
+  httpPath: '/v1/nks/clusters/{cluster_id}/controllers',
+},{
+  clientCallName: 'client.nks.clusters.controllers.get',
+  fullyQualifiedName: 'nks.clusters.controllers.get',
+  httpMethod: 'get',
+  httpPath: '/v1/nks/clusters/{cluster_id}/controllers/{controller_id}',
+},{
+  clientCallName: 'client.nks.clusters.controllers.volumes.list',
+  fullyQualifiedName: 'nks.clusters.controllers.volumes.list',
+  httpMethod: 'get',
+  httpPath: '/v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes',
+},{
+  clientCallName: 'client.nks.clusters.controllers.volumes.get',
+  fullyQualifiedName: 'nks.clusters.controllers.volumes.get',
+  httpMethod: 'get',
+  httpPath: '/v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes/{volume_id}',
+},{
+  clientCallName: 'client.nks.clusters.loadBalancers.update',
+  fullyQualifiedName: 'nks.clusters.loadBalancers.update',
+  httpMethod: 'patch',
+  httpPath: '/v1/nks/clusters/{cluster_id}/load_balancers/{load_balancer_id}',
+},{
+  clientCallName: 'client.nks.clusters.loadBalancers.list',
+  fullyQualifiedName: 'nks.clusters.loadBalancers.list',
+  httpMethod: 'get',
+  httpPath: '/v1/nks/clusters/{cluster_id}/load_balancers',
+},{
+  clientCallName: 'client.nks.clusters.loadBalancers.get',
+  fullyQualifiedName: 'nks.clusters.loadBalancers.get',
+  httpMethod: 'get',
+  httpPath: '/v1/nks/clusters/{cluster_id}/load_balancers/{load_balancer_id}',
+},{
+  clientCallName: 'client.nks.clusters.pools.create',
+  fullyQualifiedName: 'nks.clusters.pools.create',
+  httpMethod: 'post',
+  httpPath: '/v1/nks/clusters/{cluster_id}/pools',
+},{
+  clientCallName: 'client.nks.clusters.pools.update',
+  fullyQualifiedName: 'nks.clusters.pools.update',
+  httpMethod: 'patch',
+  httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}',
+},{
+  clientCallName: 'client.nks.clusters.pools.list',
+  fullyQualifiedName: 'nks.clusters.pools.list',
+  httpMethod: 'get',
+  httpPath: '/v1/nks/clusters/{cluster_id}/pools',
+},{
+  clientCallName: 'client.nks.clusters.pools.delete',
+  fullyQualifiedName: 'nks.clusters.pools.delete',
+  httpMethod: 'delete',
+  httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}',
+},{
+  clientCallName: 'client.nks.clusters.pools.get',
+  fullyQualifiedName: 'nks.clusters.pools.get',
+  httpMethod: 'get',
+  httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}',
+},{
+  clientCallName: 'client.nks.clusters.pools.availability.create',
+  fullyQualifiedName: 'nks.clusters.pools.availability.create',
+  httpMethod: 'post',
+  httpPath: '/v1/nks/clusters/{cluster_id}/pools/availability',
+},{
+  clientCallName: 'client.nks.clusters.pools.availability.update',
+  fullyQualifiedName: 'nks.clusters.pools.availability.update',
+  httpMethod: 'patch',
+  httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/availability',
+},{
+  clientCallName: 'client.nks.clusters.pools.nodes.list',
+  fullyQualifiedName: 'nks.clusters.pools.nodes.list',
+  httpMethod: 'get',
+  httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes',
+},{
+  clientCallName: 'client.nks.clusters.pools.nodes.delete',
+  fullyQualifiedName: 'nks.clusters.pools.nodes.delete',
+  httpMethod: 'delete',
+  httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}',
+},{
+  clientCallName: 'client.nks.clusters.pools.nodes.get',
+  fullyQualifiedName: 'nks.clusters.pools.nodes.get',
+  httpMethod: 'get',
+  httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}',
+},{
+  clientCallName: 'client.nks.clusters.pools.nodes.volumes.list',
+  fullyQualifiedName: 'nks.clusters.pools.nodes.volumes.list',
+  httpMethod: 'get',
+  httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}/volumes',
+},{
+  clientCallName: 'client.nks.clusters.pools.nodes.volumes.get',
+  fullyQualifiedName: 'nks.clusters.pools.nodes.volumes.get',
+  httpMethod: 'get',
+  httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}/volumes/{volume_id}',
+}];
 
 function allowedMethodsForCodeTool(options: McpOptions | undefined): SdkMethod[] | undefined {
   if (!options) {
@@ -655,9 +549,9 @@ function allowedMethodsForCodeTool(options: McpOptions | undefined): SdkMethod[]
 
     if (options.codeAllowHttpGets) {
       // Add all methods that map to an HTTP GET
-      sdkMethods
-        .filter((method) => method.httpMethod === 'get')
-        .forEach((method) => allowedMethodsSet.add(method));
+      sdkMethods.filter((method) => method.httpMethod === 'get').forEach(
+        (method) => allowedMethodsSet.add(method)
+      );
     }
 
     if (options.codeAllowedMethods) {
@@ -666,15 +560,13 @@ function allowedMethodsForCodeTool(options: McpOptions | undefined): SdkMethod[]
         try {
           return new RegExp(pattern);
         } catch (e) {
-          throw new Error(
-            `Invalid regex pattern for allowed method: "${pattern}": ${e instanceof Error ? e.message : e}`,
-          );
+          throw new Error(`Invalid regex pattern for allowed method: "${pattern}": ${e instanceof Error ? e.message : e}`);
         }
       });
 
-      sdkMethods
-        .filter((method) => allowedRegexps.some((regexp) => regexp.test(method.fullyQualifiedName)))
-        .forEach((method) => allowedMethodsSet.add(method));
+      sdkMethods.filter((method) =>
+          allowedRegexps.some((regexp) => regexp.test(method.fullyQualifiedName))
+        ).forEach((method) => allowedMethodsSet.add(method));
     }
 
     allowedMethods = Array.from(allowedMethodsSet);
@@ -689,14 +581,12 @@ function allowedMethodsForCodeTool(options: McpOptions | undefined): SdkMethod[]
       try {
         return new RegExp(pattern);
       } catch (e) {
-        throw new Error(
-          `Invalid regex pattern for blocked method: "${pattern}": ${e instanceof Error ? e.message : e}`,
-        );
+        throw new Error(`Invalid regex pattern for blocked method: "${pattern}": ${e instanceof Error ? e.message : e}`);
       }
     });
 
-    allowedMethods = allowedMethods.filter(
-      (method) => !blockedRegexps.some((regexp) => regexp.test(method.fullyQualifiedName)),
+    allowedMethods = allowedMethods.filter((method) =>
+      !blockedRegexps.some((regexp) => regexp.test(method.fullyQualifiedName))
     );
   }
 

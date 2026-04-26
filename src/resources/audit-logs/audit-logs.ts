@@ -11,10 +11,7 @@ export class AuditLogs extends APIResource {
   /**
    * List Audit Log entries for an organization
    */
-  list(
-    query: AuditLogListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): PagePromise<AuditLogsCursor, AuditLog> {
+  list(query: AuditLogListParams | null | undefined = {}, options?: RequestOptions): PagePromise<AuditLogsCursor, AuditLog> {
     return this._client.getAPIList('/v1/audit_logs', Cursor<AuditLog>, { query, ...options });
   }
 
@@ -26,7 +23,7 @@ export class AuditLogs extends APIResource {
   }
 }
 
-export type AuditLogsCursor = Cursor<AuditLog>;
+export type AuditLogsCursor = Cursor<AuditLog>
 
 /**
  * Audit log entry.
@@ -130,9 +127,10 @@ export interface AuditLogTarget {
 /**
  * Type of actor.
  */
-export type AuditLogType = 'user' | 'api_key';
+export type AuditLogType = 'user' | 'api_key'
 
-export interface AuditLogListParams extends CursorParams {}
+export interface AuditLogListParams extends CursorParams {
+}
 
 export declare namespace AuditLogs {
   export {
@@ -142,6 +140,6 @@ export declare namespace AuditLogs {
     type AuditLogTarget as AuditLogTarget,
     type AuditLogType as AuditLogType,
     type AuditLogsCursor as AuditLogsCursor,
-    type AuditLogListParams as AuditLogListParams,
+    type AuditLogListParams as AuditLogListParams
   };
 }

@@ -2,39 +2,11 @@
 
 import { APIResource } from '../../core/resource';
 import * as FirewallRulesAPI from './firewall-rules';
-import {
-  FirewallRule,
-  FirewallRuleCreateParams,
-  FirewallRuleDeleteParams,
-  FirewallRuleGetParams,
-  FirewallRuleList,
-  FirewallRuleListParams,
-  FirewallRuleUpdateParams,
-  FirewallRules,
-  FirewallRulesCursor,
-} from './firewall-rules';
+import { FirewallRule, FirewallRuleCreateParams, FirewallRuleDeleteParams, FirewallRuleGetParams, FirewallRuleList, FirewallRuleListParams, FirewallRuleUpdateParams, FirewallRules, FirewallRulesCursor } from './firewall-rules';
 import * as ConnectAPI from './connect/connect';
-import {
-  Connect,
-  ConnectBandwidthMbps,
-  ConnectConnection,
-  ConnectConnectionAWSConfig,
-  ConnectConnectionAWSConfigRequest,
-  ConnectConnectionList,
-  ConnectRoute,
-  ConnectRouteList,
-} from './connect/connect';
+import { Connect, ConnectBandwidthMbps, ConnectConnection, ConnectConnectionAWSConfig, ConnectConnectionAWSConfigRequest, ConnectConnectionList, ConnectRoute, ConnectRouteList } from './connect/connect';
 import * as VPCsAPI from './vpcs/vpcs';
-import {
-  Subnet,
-  VPC,
-  VPCCreateParams,
-  VPCList,
-  VPCListParams,
-  VPCUpdateParams,
-  VPCs,
-  VPCsCursor,
-} from './vpcs/vpcs';
+import { Subnet, VPC, VPCCreateParams, VPCList, VPCListParams, VPCUpdateParams, VPCs, VPCsCursor } from './vpcs/vpcs';
 
 export class Networking extends APIResource {
   vpcs: VPCsAPI.VPCs = new VPCsAPI.VPCs(this._client);
@@ -55,7 +27,7 @@ export declare namespace Networking {
     type VPCsCursor as VPCsCursor,
     type VPCCreateParams as VPCCreateParams,
     type VPCUpdateParams as VPCUpdateParams,
-    type VPCListParams as VPCListParams,
+    type VPCListParams as VPCListParams
   };
 
   export {
@@ -67,7 +39,7 @@ export declare namespace Networking {
     type FirewallRuleUpdateParams as FirewallRuleUpdateParams,
     type FirewallRuleListParams as FirewallRuleListParams,
     type FirewallRuleDeleteParams as FirewallRuleDeleteParams,
-    type FirewallRuleGetParams as FirewallRuleGetParams,
+    type FirewallRuleGetParams as FirewallRuleGetParams
   };
 
   export {
@@ -78,6 +50,6 @@ export declare namespace Networking {
     type ConnectConnectionAWSConfigRequest as ConnectConnectionAWSConfigRequest,
     type ConnectConnectionList as ConnectConnectionList,
     type ConnectRoute as ConnectRoute,
-    type ConnectRouteList as ConnectRouteList,
+    type ConnectRouteList as ConnectRouteList
   };
 }

@@ -49,5 +49,8 @@ export interface SecurityUpdateParams {
 }
 
 export declare namespace Security {
-  export { type UserSecurity as UserSecurity, type SecurityUpdateParams as SecurityUpdateParams };
+  export {
+    type UserSecurity as UserSecurity,
+    type SecurityUpdateParams as SecurityUpdateParams
+  };
 }

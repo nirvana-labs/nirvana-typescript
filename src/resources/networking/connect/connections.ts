@@ -42,11 +42,7 @@ export class Connections extends APIResource {
    *   );
    * ```
    */
-  update(
-    connectionID: string,
-    body: ConnectionUpdateParams,
-    options?: RequestOptions,
-  ): APIPromise<OperationsAPI.Operation> {
+  update(connectionID: string, body: ConnectionUpdateParams, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
     return this._client.patch(path`/v1/networking/connect/connections/${connectionID}`, { body, ...options });
   }
 
@@ -63,15 +59,8 @@ export class Connections extends APIResource {
    * }
    * ```
    */
-  list(
-    query: ConnectionListParams,
-    options?: RequestOptions,
-  ): PagePromise<ConnectConnectionsCursor, ConnectAPI.ConnectConnection> {
-    return this._client.getAPIList(
-      '/v1/networking/connect/connections',
-      Cursor<ConnectAPI.ConnectConnection>,
-      { query, ...options },
-    );
+  list(query: ConnectionListParams, options?: RequestOptions): PagePromise<ConnectConnectionsCursor, ConnectAPI.ConnectConnection> {
+    return this._client.getAPIList('/v1/networking/connect/connections', Cursor<ConnectAPI.ConnectConnection>, { query, ...options });
   }
 
   /**
@@ -170,8 +159,8 @@ export declare namespace Connections {
   export {
     type ConnectionCreateParams as ConnectionCreateParams,
     type ConnectionUpdateParams as ConnectionUpdateParams,
-    type ConnectionListParams as ConnectionListParams,
+    type ConnectionListParams as ConnectionListParams
   };
 }
 
-export { type ConnectConnectionsCursor };
+export { type ConnectConnectionsCursor }

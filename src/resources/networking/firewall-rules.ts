@@ -24,11 +24,7 @@ export class FirewallRules extends APIResource {
    *   });
    * ```
    */
-  create(
-    vpcID: string,
-    body: FirewallRuleCreateParams,
-    options?: RequestOptions,
-  ): APIPromise<OperationsAPI.Operation> {
+  create(vpcID: string, body: FirewallRuleCreateParams, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
     return this._client.post(path`/v1/networking/vpcs/${vpcID}/firewall_rules`, { body, ...options });
   }
 
@@ -44,16 +40,9 @@ export class FirewallRules extends APIResource {
    *   );
    * ```
    */
-  update(
-    firewallRuleID: string,
-    params: FirewallRuleUpdateParams,
-    options?: RequestOptions,
-  ): APIPromise<OperationsAPI.Operation> {
-    const { vpc_id, ...body } = params;
-    return this._client.patch(path`/v1/networking/vpcs/${vpc_id}/firewall_rules/${firewallRuleID}`, {
-      body,
-      ...options,
-    });
+  update(firewallRuleID: string, params: FirewallRuleUpdateParams, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
+    const { vpc_id, ...body } = params
+    return this._client.patch(path`/v1/networking/vpcs/${vpc_id}/firewall_rules/${firewallRuleID}`, { body, ...options });
   }
 
   /**
@@ -69,15 +58,8 @@ export class FirewallRules extends APIResource {
    * }
    * ```
    */
-  list(
-    vpcID: string,
-    query: FirewallRuleListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): PagePromise<FirewallRulesCursor, FirewallRule> {
-    return this._client.getAPIList(path`/v1/networking/vpcs/${vpcID}/firewall_rules`, Cursor<FirewallRule>, {
-      query,
-      ...options,
-    });
+  list(vpcID: string, query: FirewallRuleListParams | null | undefined = {}, options?: RequestOptions): PagePromise<FirewallRulesCursor, FirewallRule> {
+    return this._client.getAPIList(path`/v1/networking/vpcs/${vpcID}/firewall_rules`, Cursor<FirewallRule>, { query, ...options });
   }
 
   /**
@@ -92,12 +74,8 @@ export class FirewallRules extends APIResource {
    *   );
    * ```
    */
-  delete(
-    firewallRuleID: string,
-    params: FirewallRuleDeleteParams,
-    options?: RequestOptions,
-  ): APIPromise<OperationsAPI.Operation> {
-    const { vpc_id } = params;
+  delete(firewallRuleID: string, params: FirewallRuleDeleteParams, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
+    const { vpc_id } = params
     return this._client.delete(path`/v1/networking/vpcs/${vpc_id}/firewall_rules/${firewallRuleID}`, options);
   }
 
@@ -113,17 +91,13 @@ export class FirewallRules extends APIResource {
    *   );
    * ```
    */
-  get(
-    firewallRuleID: string,
-    params: FirewallRuleGetParams,
-    options?: RequestOptions,
-  ): APIPromise<FirewallRule> {
-    const { vpc_id } = params;
+  get(firewallRuleID: string, params: FirewallRuleGetParams, options?: RequestOptions): APIPromise<FirewallRule> {
+    const { vpc_id } = params
     return this._client.get(path`/v1/networking/vpcs/${vpc_id}/firewall_rules/${firewallRuleID}`, options);
   }
 }
 
-export type FirewallRulesCursor = Cursor<FirewallRule>;
+export type FirewallRulesCursor = Cursor<FirewallRule>
 
 /**
  * Firewall rule details.
@@ -268,7 +242,8 @@ export interface FirewallRuleUpdateParams {
   tags?: Array<string>;
 }
 
-export interface FirewallRuleListParams extends CursorParams {}
+export interface FirewallRuleListParams extends CursorParams {
+}
 
 export interface FirewallRuleDeleteParams {
   /**
@@ -293,6 +268,6 @@ export declare namespace FirewallRules {
     type FirewallRuleUpdateParams as FirewallRuleUpdateParams,
     type FirewallRuleListParams as FirewallRuleListParams,
     type FirewallRuleDeleteParams as FirewallRuleDeleteParams,
-    type FirewallRuleGetParams as FirewallRuleGetParams,
+    type FirewallRuleGetParams as FirewallRuleGetParams
   };
 }

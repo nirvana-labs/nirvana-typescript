@@ -2,27 +2,9 @@
 
 import { APIResource } from '../../core/resource';
 import * as DedicatedAPI from './dedicated/dedicated';
-import {
-  Dedicated,
-  DedicatedBlockchain,
-  DedicatedBlockchainList,
-  DedicatedList,
-  DedicatedListParams,
-  DedicatedResource,
-  DedicatedsCursor,
-} from './dedicated/dedicated';
+import { Dedicated, DedicatedBlockchain, DedicatedBlockchainList, DedicatedList, DedicatedListParams, DedicatedResource, DedicatedsCursor } from './dedicated/dedicated';
 import * as FlexAPI from './flex/flex';
-import {
-  Flex,
-  FlexBlockchain,
-  FlexBlockchainList,
-  FlexCreateParams,
-  FlexList,
-  FlexListParams,
-  FlexResource,
-  FlexUpdateParams,
-  FlexesCursor,
-} from './flex/flex';
+import { Flex, FlexBlockchain, FlexBlockchainList, FlexCreateParams, FlexList, FlexListParams, FlexResource, FlexUpdateParams, FlexesCursor } from './flex/flex';
 
 export class RPCNodes extends APIResource {
   flex: FlexAPI.FlexResource = new FlexAPI.FlexResource(this._client);
@@ -42,7 +24,7 @@ export declare namespace RPCNodes {
     type FlexesCursor as FlexesCursor,
     type FlexCreateParams as FlexCreateParams,
     type FlexUpdateParams as FlexUpdateParams,
-    type FlexListParams as FlexListParams,
+    type FlexListParams as FlexListParams
   };
 
   export {
@@ -52,6 +34,6 @@ export declare namespace RPCNodes {
     type DedicatedBlockchainList as DedicatedBlockchainList,
     type DedicatedList as DedicatedList,
     type DedicatedsCursor as DedicatedsCursor,
-    type DedicatedListParams as DedicatedListParams,
+    type DedicatedListParams as DedicatedListParams
   };
 }
