@@ -21,8 +21,16 @@ export class Memberships extends APIResource {
    * }
    * ```
    */
-  list(organizationID: string, query: MembershipListParams | null | undefined = {}, options?: RequestOptions): PagePromise<OrganizationMembershipsCursor, OrganizationMembership> {
-    return this._client.getAPIList(path`/v1/organizations/${organizationID}/memberships`, Cursor<OrganizationMembership>, { query, ...options });
+  list(
+    organizationID: string,
+    query: MembershipListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<OrganizationMembershipsCursor, OrganizationMembership> {
+    return this._client.getAPIList(
+      path`/v1/organizations/${organizationID}/memberships`,
+      Cursor<OrganizationMembership>,
+      { query, ...options },
+    );
   }
 
   /**
@@ -37,13 +45,17 @@ export class Memberships extends APIResource {
    *   );
    * ```
    */
-  get(membershipID: string, params: MembershipGetParams, options?: RequestOptions): APIPromise<OrganizationMembership> {
-    const { organization_id } = params
+  get(
+    membershipID: string,
+    params: MembershipGetParams,
+    options?: RequestOptions,
+  ): APIPromise<OrganizationMembership> {
+    const { organization_id } = params;
     return this._client.get(path`/v1/organizations/${organization_id}/memberships/${membershipID}`, options);
   }
 }
 
-export type OrganizationMembershipsCursor = Cursor<OrganizationMembership>
+export type OrganizationMembershipsCursor = Cursor<OrganizationMembership>;
 
 /**
  * Organization membership details.
@@ -89,8 +101,7 @@ export interface OrganizationMembershipList {
   pagination: Shared.Pagination;
 }
 
-export interface MembershipListParams extends CursorParams {
-}
+export interface MembershipListParams extends CursorParams {}
 
 export interface MembershipGetParams {
   /**
@@ -105,6 +116,6 @@ export declare namespace Memberships {
     type OrganizationMembershipList as OrganizationMembershipList,
     type OrganizationMembershipsCursor as OrganizationMembershipsCursor,
     type MembershipListParams as MembershipListParams,
-    type MembershipGetParams as MembershipGetParams
+    type MembershipGetParams as MembershipGetParams,
   };
 }

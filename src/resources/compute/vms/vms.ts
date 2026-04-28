@@ -110,9 +110,9 @@ export class VMs extends APIResource {
   }
 }
 
-export type VMsCursor = Cursor<VM>
+export type VMsCursor = Cursor<VM>;
 
-export type OSImagesCursor = Cursor<OSImage>
+export type OSImagesCursor = Cursor<OSImage>;
 
 /**
  * CPU configuration for the VM.
@@ -463,22 +463,16 @@ export declare namespace VMs {
     type VMsCursor as VMsCursor,
     type VMCreateParams as VMCreateParams,
     type VMUpdateParams as VMUpdateParams,
-    type VMListParams as VMListParams
+    type VMListParams as VMListParams,
   };
 
   export {
     Availability as Availability,
     type AvailabilityCreateParams as AvailabilityCreateParams,
-    type AvailabilityUpdateParams as AvailabilityUpdateParams
+    type AvailabilityUpdateParams as AvailabilityUpdateParams,
   };
 
-  export {
-    Volumes as Volumes,
-    type VolumeListParams as VolumeListParams
-  };
+  export { Volumes as Volumes, type VolumeListParams as VolumeListParams };
 
-  export {
-    OSImages as OSImages,
-    type OSImageListParams as OSImageListParams
-  };
+  export { OSImages as OSImages, type OSImageListParams as OSImageListParams };
 }

@@ -2,9 +2,34 @@
 
 import { APIResource } from '../../core/resource';
 import * as VMsAPI from './vms/vms';
-import { CPUConfig, CPUConfigRequest, MemoryConfig, MemoryConfigRequest, OSImage, SSHKeyRequest, VM, VMCreateParams, VMList, VMListParams, VMUpdateParams, VMs, VMsCursor } from './vms/vms';
+import {
+  CPUConfig,
+  CPUConfigRequest,
+  MemoryConfig,
+  MemoryConfigRequest,
+  OSImage,
+  SSHKeyRequest,
+  VM,
+  VMCreateParams,
+  VMList,
+  VMListParams,
+  VMUpdateParams,
+  VMs,
+  VMsCursor,
+} from './vms/vms';
 import * as VolumesAPI from './volumes/volumes';
-import { Volume, VolumeAttachParams, VolumeCreateParams, VolumeKind, VolumeList, VolumeListParams, VolumeType, VolumeUpdateParams, Volumes, VolumesCursor } from './volumes/volumes';
+import {
+  Volume,
+  VolumeAttachParams,
+  VolumeCreateParams,
+  VolumeKind,
+  VolumeList,
+  VolumeListParams,
+  VolumeType,
+  VolumeUpdateParams,
+  Volumes,
+  VolumesCursor,
+} from './volumes/volumes';
 
 export class Compute extends APIResource {
   vms: VMsAPI.VMs = new VMsAPI.VMs(this._client);
@@ -28,7 +53,7 @@ export declare namespace Compute {
     type VMsCursor as VMsCursor,
     type VMCreateParams as VMCreateParams,
     type VMUpdateParams as VMUpdateParams,
-    type VMListParams as VMListParams
+    type VMListParams as VMListParams,
   };
 
   export {
@@ -41,6 +66,6 @@ export declare namespace Compute {
     type VolumeCreateParams as VolumeCreateParams,
     type VolumeUpdateParams as VolumeUpdateParams,
     type VolumeListParams as VolumeListParams,
-    type VolumeAttachParams as VolumeAttachParams
+    type VolumeAttachParams as VolumeAttachParams,
   };
 }

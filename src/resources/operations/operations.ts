@@ -23,7 +23,7 @@ export class Operations extends APIResource {
   }
 }
 
-export type OperationsCursor = Cursor<Operation>
+export type OperationsCursor = Cursor<Operation>;
 
 /**
  * Operation details.
@@ -73,7 +73,7 @@ export interface Operation {
 /**
  * Kind of Operation.
  */
-export type OperationKind = 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'
+export type OperationKind = 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool';
 
 export interface OperationList {
   items: Array<Operation>;
@@ -87,12 +87,12 @@ export interface OperationList {
 /**
  * Status of the Operation.
  */
-export type OperationStatus = 'pending' | 'running' | 'done' | 'failed' | 'unknown'
+export type OperationStatus = 'pending' | 'running' | 'done' | 'failed' | 'unknown';
 
 /**
  * Type of Operation.
  */
-export type OperationType = 'create' | 'update' | 'delete' | 'restart'
+export type OperationType = 'create' | 'update' | 'delete' | 'restart';
 
 export interface OperationListParams extends CursorParams {
   /**
@@ -109,6 +109,6 @@ export declare namespace Operations {
     type OperationStatus as OperationStatus,
     type OperationType as OperationType,
     type OperationsCursor as OperationsCursor,
-    type OperationListParams as OperationListParams
+    type OperationListParams as OperationListParams,
   };
 }

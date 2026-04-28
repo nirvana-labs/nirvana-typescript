@@ -23,9 +23,17 @@ export class Volumes extends APIResource {
    * }
    * ```
    */
-  list(controllerID: string, params: VolumeListParams, options?: RequestOptions): PagePromise<NKSControllerVolumesCursor, NKSControllerVolume> {
-    const { cluster_id, ...query } = params
-    return this._client.getAPIList(path`/v1/nks/clusters/${cluster_id}/controllers/${controllerID}/volumes`, Cursor<NKSControllerVolume>, { query, ...options });
+  list(
+    controllerID: string,
+    params: VolumeListParams,
+    options?: RequestOptions,
+  ): PagePromise<NKSControllerVolumesCursor, NKSControllerVolume> {
+    const { cluster_id, ...query } = params;
+    return this._client.getAPIList(
+      path`/v1/nks/clusters/${cluster_id}/controllers/${controllerID}/volumes`,
+      Cursor<NKSControllerVolume>,
+      { query, ...options },
+    );
   }
 
   /**
@@ -44,12 +52,15 @@ export class Volumes extends APIResource {
    * ```
    */
   get(volumeID: string, params: VolumeGetParams, options?: RequestOptions): APIPromise<NKSControllerVolume> {
-    const { cluster_id, controller_id } = params
-    return this._client.get(path`/v1/nks/clusters/${cluster_id}/controllers/${controller_id}/volumes/${volumeID}`, options);
+    const { cluster_id, controller_id } = params;
+    return this._client.get(
+      path`/v1/nks/clusters/${cluster_id}/controllers/${controller_id}/volumes/${volumeID}`,
+      options,
+    );
   }
 }
 
-export type NKSControllerVolumesCursor = Cursor<NKSControllerVolume>
+export type NKSControllerVolumesCursor = Cursor<NKSControllerVolume>;
 
 /**
  * NKS controller volume details.
@@ -130,6 +141,6 @@ export declare namespace Volumes {
     type NKSControllerVolumeList as NKSControllerVolumeList,
     type NKSControllerVolumesCursor as NKSControllerVolumesCursor,
     type VolumeListParams as VolumeListParams,
-    type VolumeGetParams as VolumeGetParams
+    type VolumeGetParams as VolumeGetParams,
   };
 }

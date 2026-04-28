@@ -45,13 +45,11 @@ export interface User {
 UserResource.Security = Security;
 
 export declare namespace UserResource {
-  export {
-    type User as User
-  };
+  export { type User as User };
 
   export {
     Security as Security,
     type UserSecurity as UserSecurity,
-    type SecurityUpdateParams as SecurityUpdateParams
+    type SecurityUpdateParams as SecurityUpdateParams,
   };
 }

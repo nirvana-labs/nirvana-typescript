@@ -41,7 +41,11 @@ export class Volumes extends APIResource {
    * );
    * ```
    */
-  update(volumeID: string, body: VolumeUpdateParams, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
+  update(
+    volumeID: string,
+    body: VolumeUpdateParams,
+    options?: RequestOptions,
+  ): APIPromise<OperationsAPI.Operation> {
     return this._client.patch(path`/v1/compute/volumes/${volumeID}`, { body, ...options });
   }
 
@@ -87,7 +91,11 @@ export class Volumes extends APIResource {
    * );
    * ```
    */
-  attach(volumeID: string, body: VolumeAttachParams, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
+  attach(
+    volumeID: string,
+    body: VolumeAttachParams,
+    options?: RequestOptions,
+  ): APIPromise<OperationsAPI.Operation> {
     return this._client.post(path`/v1/compute/volumes/${volumeID}/attach`, { body, ...options });
   }
 
@@ -120,7 +128,7 @@ export class Volumes extends APIResource {
   }
 }
 
-export type VolumesCursor = Cursor<Volume>
+export type VolumesCursor = Cursor<Volume>;
 
 /**
  * Volume details.
@@ -195,7 +203,7 @@ export interface Volume {
 /**
  * Volume kind.
  */
-export type VolumeKind = 'boot' | 'data'
+export type VolumeKind = 'boot' | 'data';
 
 export interface VolumeList {
   items: Array<Volume>;
@@ -209,7 +217,7 @@ export interface VolumeList {
 /**
  * Type of the Volume.
  */
-export type VolumeType = 'nvme' | 'abs'
+export type VolumeType = 'nvme' | 'abs';
 
 export interface VolumeCreateParams {
   /**
@@ -291,12 +299,12 @@ export declare namespace Volumes {
     type VolumeCreateParams as VolumeCreateParams,
     type VolumeUpdateParams as VolumeUpdateParams,
     type VolumeListParams as VolumeListParams,
-    type VolumeAttachParams as VolumeAttachParams
+    type VolumeAttachParams as VolumeAttachParams,
   };
 
   export {
     Availability as Availability,
     type AvailabilityCreateParams as AvailabilityCreateParams,
-    type AvailabilityUpdateParams as AvailabilityUpdateParams
+    type AvailabilityUpdateParams as AvailabilityUpdateParams,
   };
 }

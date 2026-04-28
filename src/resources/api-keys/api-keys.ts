@@ -55,7 +55,10 @@ export class APIKeys extends APIResource {
    * }
    * ```
    */
-  list(query: APIKeyListParams | null | undefined = {}, options?: RequestOptions): PagePromise<APIKeysCursor, APIKey> {
+  list(
+    query: APIKeyListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<APIKeysCursor, APIKey> {
     return this._client.getAPIList('/v1/api_keys', Cursor<APIKey>, { query, ...options });
   }
 
@@ -68,7 +71,10 @@ export class APIKeys extends APIResource {
    * ```
    */
   delete(apiKeyID: string, options?: RequestOptions): APIPromise<void> {
-    return this._client.delete(path`/v1/api_keys/${apiKeyID}`, { ...options, headers: buildHeaders([{Accept: '*/*'}, options?.headers]) });
+    return this._client.delete(path`/v1/api_keys/${apiKeyID}`, {
+      ...options,
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+    });
   }
 
   /**
@@ -84,7 +90,7 @@ export class APIKeys extends APIResource {
   }
 }
 
-export type APIKeysCursor = Cursor<APIKey>
+export type APIKeysCursor = Cursor<APIKey>;
 
 /**
  * API Key response.
@@ -178,12 +184,22 @@ export interface APIKeyPermission {
 /**
  * Permission level: "read" or "edit".
  */
-export type APIPermissionLevel = 'read' | 'edit'
+export type APIPermissionLevel = 'read' | 'edit';
 
 /**
  * Resource type this permission applies to.
  */
-export type APIPermissionResourceType = 'vm' | 'vpc' | 'volume' | 'connect_connection' | 'rpc_node_dedicated' | 'rpc_node_flex' | 'nks_cluster' | 'nks_node_pool' | 'project' | 'api_key'
+export type APIPermissionResourceType =
+  | 'vm'
+  | 'vpc'
+  | 'volume'
+  | 'connect_connection'
+  | 'rpc_node_dedicated'
+  | 'rpc_node_flex'
+  | 'nks_cluster'
+  | 'nks_node_pool'
+  | 'project'
+  | 'api_key';
 
 export interface APIKeyCreateParams {
   /**
@@ -285,8 +301,7 @@ export namespace APIKeyUpdateParams {
   }
 }
 
-export interface APIKeyListParams extends CursorParams {
-}
+export interface APIKeyListParams extends CursorParams {}
 
 export declare namespace APIKeys {
   export {
@@ -298,6 +313,6 @@ export declare namespace APIKeys {
     type APIKeysCursor as APIKeysCursor,
     type APIKeyCreateParams as APIKeyCreateParams,
     type APIKeyUpdateParams as APIKeyUpdateParams,
-    type APIKeyListParams as APIKeyListParams
+    type APIKeyListParams as APIKeyListParams,
   };
 }

@@ -2,19 +2,22 @@
 
 import NirvanaLabs from '@nirvana-labs/nirvana';
 
-const client = new NirvanaLabs({ apiKey: 'My API Key', baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010' });
+const client = new NirvanaLabs({
+  apiKey: 'My API Key',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+});
 
 describe('resource availability', () => {
   // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.nks.clusters.pools.availability.create('cluster_id', {
-    name: 'my-node-pool',
-    node_config: {
-    boot_volume: { size: 100, type: 'abs' },
-    instance_type: 'n1-standard-8',
-  },
-    node_count: 3,
-  });
+      name: 'my-node-pool',
+      node_config: {
+        boot_volume: { size: 100, type: 'abs' },
+        instance_type: 'n1-standard-8',
+      },
+      node_count: 3,
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -27,20 +30,22 @@ describe('resource availability', () => {
   // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.nks.clusters.pools.availability.create('cluster_id', {
-    name: 'my-node-pool',
-    node_config: {
-    boot_volume: { size: 100, type: 'abs' },
-    instance_type: 'n1-standard-8',
-    labels: ['env=prod', 'team=platform'],
-  },
-    node_count: 3,
-    tags: ['production', 'ethereum'],
-  });
+      name: 'my-node-pool',
+      node_config: {
+        boot_volume: { size: 100, type: 'abs' },
+        instance_type: 'n1-standard-8',
+        labels: ['env=prod', 'team=platform'],
+      },
+      node_count: 3,
+      tags: ['production', 'ethereum'],
+    });
   });
 
   // Mock server tests are disabled
   test.skip('update: only required params', async () => {
-    const responsePromise = client.nks.clusters.pools.availability.update('pool_id', { cluster_id: 'cluster_id' });
+    const responsePromise = client.nks.clusters.pools.availability.update('pool_id', {
+      cluster_id: 'cluster_id',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -53,11 +58,11 @@ describe('resource availability', () => {
   // Mock server tests are disabled
   test.skip('update: required and optional params', async () => {
     const response = await client.nks.clusters.pools.availability.update('pool_id', {
-    cluster_id: 'cluster_id',
-    name: 'my-node-pool',
-    node_config: { labels: ['env=prod', 'team=platform'] },
-    node_count: 5,
-    tags: ['production', 'ethereum'],
-  });
+      cluster_id: 'cluster_id',
+      name: 'my-node-pool',
+      node_config: { labels: ['env=prod', 'team=platform'] },
+      node_count: 5,
+      tags: ['production', 'ethereum'],
+    });
   });
 });

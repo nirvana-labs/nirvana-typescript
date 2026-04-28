@@ -1,6 +1,5 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-
 /**
  * Pagination response details.
  */
@@ -15,12 +14,12 @@ export interface Pagination {
 /**
  * Region the resource is in.
  */
-export type RegionName = 'us-sva-1' | 'us-sva-2' | 'us-chi-1'
+export type RegionName = 'us-sva-1' | 'us-sva-2' | 'us-chi-1';
 
 /**
  * Status of the resource.
  */
-export type ResourceStatus = 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'
+export type ResourceStatus = 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error';
 
 /**
  * IP filter rules.
