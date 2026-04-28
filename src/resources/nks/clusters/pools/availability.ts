@@ -27,7 +27,11 @@ export class Availability extends APIResource {
    * ```
    */
   create(clusterID: string, body: AvailabilityCreateParams, options?: RequestOptions): APIPromise<void> {
-    return this._client.post(path`/v1/nks/clusters/${clusterID}/pools/availability`, { body, ...options, headers: buildHeaders([{Accept: '*/*'}, options?.headers]) });
+    return this._client.post(path`/v1/nks/clusters/${clusterID}/pools/availability`, {
+      body,
+      ...options,
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+    });
   }
 
   /**
@@ -42,8 +46,12 @@ export class Availability extends APIResource {
    * ```
    */
   update(poolID: string, params: AvailabilityUpdateParams, options?: RequestOptions): APIPromise<void> {
-    const { cluster_id, ...body } = params
-    return this._client.patch(path`/v1/nks/clusters/${cluster_id}/pools/${poolID}/availability`, { body, ...options, headers: buildHeaders([{Accept: '*/*'}, options?.headers]) });
+    const { cluster_id, ...body } = params;
+    return this._client.patch(path`/v1/nks/clusters/${cluster_id}/pools/${poolID}/availability`, {
+      body,
+      ...options,
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+    });
   }
 }
 
@@ -113,6 +121,6 @@ export namespace AvailabilityUpdateParams {
 export declare namespace Availability {
   export {
     type AvailabilityCreateParams as AvailabilityCreateParams,
-    type AvailabilityUpdateParams as AvailabilityUpdateParams
+    type AvailabilityUpdateParams as AvailabilityUpdateParams,
   };
 }

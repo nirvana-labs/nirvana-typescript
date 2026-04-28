@@ -21,9 +21,16 @@ export class LoadBalancers extends APIResource {
    *   );
    * ```
    */
-  update(loadBalancerID: string, params: LoadBalancerUpdateParams, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
-    const { cluster_id, ...body } = params
-    return this._client.patch(path`/v1/nks/clusters/${cluster_id}/load_balancers/${loadBalancerID}`, { body, ...options });
+  update(
+    loadBalancerID: string,
+    params: LoadBalancerUpdateParams,
+    options?: RequestOptions,
+  ): APIPromise<OperationsAPI.Operation> {
+    const { cluster_id, ...body } = params;
+    return this._client.patch(path`/v1/nks/clusters/${cluster_id}/load_balancers/${loadBalancerID}`, {
+      body,
+      ...options,
+    });
   }
 
   /**
@@ -39,8 +46,16 @@ export class LoadBalancers extends APIResource {
    * }
    * ```
    */
-  list(clusterID: string, query: LoadBalancerListParams | null | undefined = {}, options?: RequestOptions): PagePromise<NKSLoadBalancersCursor, NKSLoadBalancer> {
-    return this._client.getAPIList(path`/v1/nks/clusters/${clusterID}/load_balancers`, Cursor<NKSLoadBalancer>, { query, ...options });
+  list(
+    clusterID: string,
+    query: LoadBalancerListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<NKSLoadBalancersCursor, NKSLoadBalancer> {
+    return this._client.getAPIList(
+      path`/v1/nks/clusters/${clusterID}/load_balancers`,
+      Cursor<NKSLoadBalancer>,
+      { query, ...options },
+    );
   }
 
   /**
@@ -55,13 +70,17 @@ export class LoadBalancers extends APIResource {
    *   );
    * ```
    */
-  get(loadBalancerID: string, params: LoadBalancerGetParams, options?: RequestOptions): APIPromise<NKSLoadBalancer> {
-    const { cluster_id } = params
+  get(
+    loadBalancerID: string,
+    params: LoadBalancerGetParams,
+    options?: RequestOptions,
+  ): APIPromise<NKSLoadBalancer> {
+    const { cluster_id } = params;
     return this._client.get(path`/v1/nks/clusters/${cluster_id}/load_balancers/${loadBalancerID}`, options);
   }
 }
 
-export type NKSLoadBalancersCursor = Cursor<NKSLoadBalancer>
+export type NKSLoadBalancersCursor = Cursor<NKSLoadBalancer>;
 
 /**
  * NKS load balancer details.
@@ -139,8 +158,7 @@ export interface LoadBalancerUpdateParams {
   public_ip_enabled: boolean;
 }
 
-export interface LoadBalancerListParams extends CursorParams {
-}
+export interface LoadBalancerListParams extends CursorParams {}
 
 export interface LoadBalancerGetParams {
   /**
@@ -156,6 +174,6 @@ export declare namespace LoadBalancers {
     type NKSLoadBalancersCursor as NKSLoadBalancersCursor,
     type LoadBalancerUpdateParams as LoadBalancerUpdateParams,
     type LoadBalancerListParams as LoadBalancerListParams,
-    type LoadBalancerGetParams as LoadBalancerGetParams
+    type LoadBalancerGetParams as LoadBalancerGetParams,
   };
 }

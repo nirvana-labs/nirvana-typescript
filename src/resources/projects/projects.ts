@@ -46,7 +46,10 @@ export class Projects extends APIResource {
    * }
    * ```
    */
-  list(query: ProjectListParams | null | undefined = {}, options?: RequestOptions): PagePromise<ProjectsCursor, Project> {
+  list(
+    query: ProjectListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<ProjectsCursor, Project> {
     return this._client.getAPIList('/v1/projects', Cursor<Project>, { query, ...options });
   }
 
@@ -59,7 +62,10 @@ export class Projects extends APIResource {
    * ```
    */
   delete(projectID: string, options?: RequestOptions): APIPromise<void> {
-    return this._client.delete(path`/v1/projects/${projectID}`, { ...options, headers: buildHeaders([{Accept: '*/*'}, options?.headers]) });
+    return this._client.delete(path`/v1/projects/${projectID}`, {
+      ...options,
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+    });
   }
 
   /**
@@ -75,7 +81,7 @@ export class Projects extends APIResource {
   }
 }
 
-export type ProjectsCursor = Cursor<Project>
+export type ProjectsCursor = Cursor<Project>;
 
 /**
  * Project response.
@@ -210,8 +216,7 @@ export interface ProjectUpdateParams {
   tags?: Array<string>;
 }
 
-export interface ProjectListParams extends CursorParams {
-}
+export interface ProjectListParams extends CursorParams {}
 
 export declare namespace Projects {
   export {
@@ -223,6 +228,6 @@ export declare namespace Projects {
     type ProjectsCursor as ProjectsCursor,
     type ProjectCreateParams as ProjectCreateParams,
     type ProjectUpdateParams as ProjectUpdateParams,
-    type ProjectListParams as ProjectListParams
+    type ProjectListParams as ProjectListParams,
   };
 }

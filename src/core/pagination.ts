@@ -87,7 +87,8 @@ export class PagePromise<
     super(
       client,
       request,
-      async (client, props) => new Page(client, props.response, await defaultParseResponse(client, props), props.options)
+      async (client, props) =>
+        new Page(client, props.response, await defaultParseResponse(client, props), props.options),
     );
   }
 
@@ -133,7 +134,12 @@ export class Cursor<Item> extends AbstractPage<Item> implements CursorResponse<I
 
   pagination: CursorResponse.Pagination | null;
 
-  constructor(client: NirvanaLabs, response: Response, body: CursorResponse<Item>, options: FinalRequestOptions) {
+  constructor(
+    client: NirvanaLabs,
+    response: Response,
+    body: CursorResponse<Item>,
+    options: FinalRequestOptions,
+  ) {
     super(client, response, body, options);
 
     this.items = body.items || [];
@@ -145,7 +151,7 @@ export class Cursor<Item> extends AbstractPage<Item> implements CursorResponse<I
   }
 
   nextPageRequestOptions(): PageRequestOptions | null {
-    const cursor = this.pagination?.next_cursor
+    const cursor = this.pagination?.next_cursor;
     if (!cursor) {
       return null;
     }

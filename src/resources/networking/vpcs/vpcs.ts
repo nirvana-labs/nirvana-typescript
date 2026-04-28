@@ -40,7 +40,11 @@ export class VPCs extends APIResource {
    * );
    * ```
    */
-  update(vpcID: string, body: VPCUpdateParams, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
+  update(
+    vpcID: string,
+    body: VPCUpdateParams,
+    options?: RequestOptions,
+  ): APIPromise<OperationsAPI.Operation> {
     return this._client.patch(path`/v1/networking/vpcs/${vpcID}`, { body, ...options });
   }
 
@@ -88,7 +92,7 @@ export class VPCs extends APIResource {
   }
 }
 
-export type VPCsCursor = Cursor<VPC>
+export type VPCsCursor = Cursor<VPC>;
 
 /**
  * Subnet of the VPC.
@@ -245,12 +249,12 @@ export declare namespace VPCs {
     type VPCsCursor as VPCsCursor,
     type VPCCreateParams as VPCCreateParams,
     type VPCUpdateParams as VPCUpdateParams,
-    type VPCListParams as VPCListParams
+    type VPCListParams as VPCListParams,
   };
 
   export {
     Availability as Availability,
     type AvailabilityCreateParams as AvailabilityCreateParams,
-    type AvailabilityUpdateParams as AvailabilityUpdateParams
+    type AvailabilityUpdateParams as AvailabilityUpdateParams,
   };
 }

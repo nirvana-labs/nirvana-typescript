@@ -18,18 +18,22 @@ export class Blockchains extends APIResource {
    * }
    * ```
    */
-  list(query: BlockchainListParams | null | undefined = {}, options?: RequestOptions): PagePromise<DedicatedBlockchainsCursor, DedicatedAPI.DedicatedBlockchain> {
-    return this._client.getAPIList('/v1/rpc_nodes/dedicated/blockchains', Cursor<DedicatedAPI.DedicatedBlockchain>, { query, ...options });
+  list(
+    query: BlockchainListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<DedicatedBlockchainsCursor, DedicatedAPI.DedicatedBlockchain> {
+    return this._client.getAPIList(
+      '/v1/rpc_nodes/dedicated/blockchains',
+      Cursor<DedicatedAPI.DedicatedBlockchain>,
+      { query, ...options },
+    );
   }
 }
 
-export interface BlockchainListParams extends CursorParams {
-}
+export interface BlockchainListParams extends CursorParams {}
 
 export declare namespace Blockchains {
-  export {
-    type BlockchainListParams as BlockchainListParams
-  };
+  export { type BlockchainListParams as BlockchainListParams };
 }
 
-export { type DedicatedBlockchainsCursor }
+export { type DedicatedBlockchainsCursor };

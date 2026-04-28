@@ -44,9 +44,9 @@ export class DedicatedResource extends APIResource {
   }
 }
 
-export type DedicatedsCursor = Cursor<Dedicated>
+export type DedicatedsCursor = Cursor<Dedicated>;
 
-export type DedicatedBlockchainsCursor = Cursor<DedicatedBlockchain>
+export type DedicatedBlockchainsCursor = Cursor<DedicatedBlockchain>;
 
 /**
  * RPC Node Dedicated details.
@@ -147,11 +147,8 @@ export declare namespace DedicatedResource {
     type DedicatedBlockchainList as DedicatedBlockchainList,
     type DedicatedList as DedicatedList,
     type DedicatedsCursor as DedicatedsCursor,
-    type DedicatedListParams as DedicatedListParams
+    type DedicatedListParams as DedicatedListParams,
   };
 
-  export {
-    Blockchains as Blockchains,
-    type BlockchainListParams as BlockchainListParams
-  };
+  export { Blockchains as Blockchains, type BlockchainListParams as BlockchainListParams };
 }

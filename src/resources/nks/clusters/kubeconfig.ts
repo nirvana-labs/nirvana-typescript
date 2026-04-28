@@ -32,7 +32,5 @@ export interface Kubeconfig {
 }
 
 export declare namespace KubeconfigResource {
-  export {
-    type Kubeconfig as Kubeconfig
-  };
+  export { type Kubeconfig as Kubeconfig };
 }

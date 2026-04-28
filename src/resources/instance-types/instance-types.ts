@@ -19,7 +19,10 @@ export class InstanceTypes extends APIResource {
    * }
    * ```
    */
-  list(query: InstanceTypeListParams | null | undefined = {}, options?: RequestOptions): PagePromise<InstanceTypesCursor, InstanceType> {
+  list(
+    query: InstanceTypeListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<InstanceTypesCursor, InstanceType> {
     return this._client.getAPIList('/v1/instance_types', Cursor<InstanceType>, { query, ...options });
   }
 
@@ -35,12 +38,12 @@ export class InstanceTypes extends APIResource {
    * ```
    */
   get(name: string, params: InstanceTypeGetParams, options?: RequestOptions): APIPromise<InstanceType> {
-    const { region } = params
+    const { region } = params;
     return this._client.get(path`/v1/instance_types/${region}/${name}`, options);
   }
 }
 
-export type InstanceTypesCursor = Cursor<InstanceType>
+export type InstanceTypesCursor = Cursor<InstanceType>;
 
 /**
  * Instance type.
@@ -88,8 +91,7 @@ export interface InstanceTypeList {
   pagination: Shared.Pagination;
 }
 
-export interface InstanceTypeListParams extends CursorParams {
-}
+export interface InstanceTypeListParams extends CursorParams {}
 
 export interface InstanceTypeGetParams {
   /**
@@ -104,6 +106,6 @@ export declare namespace InstanceTypes {
     type InstanceTypeList as InstanceTypeList,
     type InstanceTypesCursor as InstanceTypesCursor,
     type InstanceTypeListParams as InstanceTypeListParams,
-    type InstanceTypeGetParams as InstanceTypeGetParams
+    type InstanceTypeGetParams as InstanceTypeGetParams,
   };
 }

@@ -7,7 +7,15 @@ import * as VolumesAPI from '../../../compute/volumes/volumes';
 import * as AvailabilityAPI from './availability';
 import { Availability, AvailabilityCreateParams, AvailabilityUpdateParams } from './availability';
 import * as NodesAPI from './nodes/nodes';
-import { NKSNode, NKSNodeList, NKSNodesCursor, NodeDeleteParams, NodeGetParams, NodeListParams, Nodes } from './nodes/nodes';
+import {
+  NKSNode,
+  NKSNodeList,
+  NKSNodesCursor,
+  NodeDeleteParams,
+  NodeGetParams,
+  NodeListParams,
+  Nodes,
+} from './nodes/nodes';
 import { APIPromise } from '../../../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../../../core/pagination';
 import { RequestOptions } from '../../../../internal/request-options';
@@ -35,7 +43,11 @@ export class Pools extends APIResource {
    * );
    * ```
    */
-  create(clusterID: string, body: PoolCreateParams, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
+  create(
+    clusterID: string,
+    body: PoolCreateParams,
+    options?: RequestOptions,
+  ): APIPromise<OperationsAPI.Operation> {
     return this._client.post(path`/v1/nks/clusters/${clusterID}/pools`, { body, ...options });
   }
 
@@ -50,8 +62,12 @@ export class Pools extends APIResource {
    * );
    * ```
    */
-  update(poolID: string, params: PoolUpdateParams, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
-    const { cluster_id, ...body } = params
+  update(
+    poolID: string,
+    params: PoolUpdateParams,
+    options?: RequestOptions,
+  ): APIPromise<OperationsAPI.Operation> {
+    const { cluster_id, ...body } = params;
     return this._client.patch(path`/v1/nks/clusters/${cluster_id}/pools/${poolID}`, { body, ...options });
   }
 
@@ -68,8 +84,15 @@ export class Pools extends APIResource {
    * }
    * ```
    */
-  list(clusterID: string, query: PoolListParams | null | undefined = {}, options?: RequestOptions): PagePromise<NKSNodePoolsCursor, NKSNodePool> {
-    return this._client.getAPIList(path`/v1/nks/clusters/${clusterID}/pools`, Cursor<NKSNodePool>, { query, ...options });
+  list(
+    clusterID: string,
+    query: PoolListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<NKSNodePoolsCursor, NKSNodePool> {
+    return this._client.getAPIList(path`/v1/nks/clusters/${clusterID}/pools`, Cursor<NKSNodePool>, {
+      query,
+      ...options,
+    });
   }
 
   /**
@@ -83,8 +106,12 @@ export class Pools extends APIResource {
    * );
    * ```
    */
-  delete(poolID: string, params: PoolDeleteParams, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
-    const { cluster_id } = params
+  delete(
+    poolID: string,
+    params: PoolDeleteParams,
+    options?: RequestOptions,
+  ): APIPromise<OperationsAPI.Operation> {
+    const { cluster_id } = params;
     return this._client.delete(path`/v1/nks/clusters/${cluster_id}/pools/${poolID}`, options);
   }
 
@@ -100,12 +127,12 @@ export class Pools extends APIResource {
    * ```
    */
   get(poolID: string, params: PoolGetParams, options?: RequestOptions): APIPromise<NKSNodePool> {
-    const { cluster_id } = params
+    const { cluster_id } = params;
     return this._client.get(path`/v1/nks/clusters/${cluster_id}/pools/${poolID}`, options);
   }
 }
 
-export type NKSNodePoolsCursor = Cursor<NKSNodePool>
+export type NKSNodePoolsCursor = Cursor<NKSNodePool>;
 
 /**
  * NKS node pool details.
@@ -300,8 +327,7 @@ export namespace PoolUpdateParams {
   }
 }
 
-export interface PoolListParams extends CursorParams {
-}
+export interface PoolListParams extends CursorParams {}
 
 export interface PoolDeleteParams {
   /**
@@ -333,13 +359,13 @@ export declare namespace Pools {
     type PoolUpdateParams as PoolUpdateParams,
     type PoolListParams as PoolListParams,
     type PoolDeleteParams as PoolDeleteParams,
-    type PoolGetParams as PoolGetParams
+    type PoolGetParams as PoolGetParams,
   };
 
   export {
     Availability as Availability,
     type AvailabilityCreateParams as AvailabilityCreateParams,
-    type AvailabilityUpdateParams as AvailabilityUpdateParams
+    type AvailabilityUpdateParams as AvailabilityUpdateParams,
   };
 
   export {
@@ -349,6 +375,6 @@ export declare namespace Pools {
     type NKSNodesCursor as NKSNodesCursor,
     type NodeListParams as NodeListParams,
     type NodeDeleteParams as NodeDeleteParams,
-    type NodeGetParams as NodeGetParams
+    type NodeGetParams as NodeGetParams,
   };
 }

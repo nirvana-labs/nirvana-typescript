@@ -21,18 +21,22 @@ export class Volumes extends APIResource {
    * }
    * ```
    */
-  list(vmID: string, query: VolumeListParams | null | undefined = {}, options?: RequestOptions): PagePromise<VolumesCursor, ComputeVolumesAPI.Volume> {
-    return this._client.getAPIList(path`/v1/compute/vms/${vmID}/volumes`, Cursor<ComputeVolumesAPI.Volume>, { query, ...options });
+  list(
+    vmID: string,
+    query: VolumeListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<VolumesCursor, ComputeVolumesAPI.Volume> {
+    return this._client.getAPIList(path`/v1/compute/vms/${vmID}/volumes`, Cursor<ComputeVolumesAPI.Volume>, {
+      query,
+      ...options,
+    });
   }
 }
 
-export interface VolumeListParams extends CursorParams {
-}
+export interface VolumeListParams extends CursorParams {}
 
 export declare namespace Volumes {
-  export {
-    type VolumeListParams as VolumeListParams
-  };
+  export { type VolumeListParams as VolumeListParams };
 }
 
-export { type VolumesCursor }
+export { type VolumesCursor };
