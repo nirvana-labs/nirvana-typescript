@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.82.0 (2026-04-28)
+
+Full Changelog: [v1.81.2...v1.82.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.81.2...v1.82.0)
+
+### Features
+
+* support setting headers via env ([245924b](https://github.com/nirvana-labs/nirvana-typescript/commit/245924b3d7a8b7cc4adf4d0e492d9fa53887dd1b))
+
+
+### Chores
+
+* **formatter:** run prettier and eslint separately ([c20350f](https://github.com/nirvana-labs/nirvana-typescript/commit/c20350f0db4cd78c4768b8c7e266be57c65330f0))
+* **internal:** codegen related update ([cbbe1ad](https://github.com/nirvana-labs/nirvana-typescript/commit/cbbe1adb9f504ed89010caf332fe7f094992b524))
+* restructure docs search code ([056b429](https://github.com/nirvana-labs/nirvana-typescript/commit/056b4291b888454b204fe4ba5250bd94f4e75d6a))
+
 ## 1.81.2 (2026-04-23)
 
 Full Changelog: [v1.81.1...v1.81.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.81.1...v1.81.2)
