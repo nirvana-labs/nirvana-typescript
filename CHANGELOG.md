@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.82.1 (2026-05-01)
+
+Full Changelog: [v1.82.0...v1.82.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.82.0...v1.82.1)
+
+### Chores
+
+* avoid formatting file that gets changed during releases ([2ddf1e4](https://github.com/nirvana-labs/nirvana-typescript/commit/2ddf1e47460a443a5b27c3265bc0d5503d84d82e))
+* **format:** run eslint and prettier separately ([ac02d23](https://github.com/nirvana-labs/nirvana-typescript/commit/ac02d23d57bed6b982462b75a224a7567ed21d8c))
+* **internal:** fix MCP cloudflare worker builds ([da4e6d1](https://github.com/nirvana-labs/nirvana-typescript/commit/da4e6d1f521b0e6df93da1e0e9af19595785cbf5))
+
 ## 1.82.0 (2026-04-28)
 
 Full Changelog: [v1.81.2...v1.82.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.81.2...v1.82.0)
