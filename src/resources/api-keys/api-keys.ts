@@ -112,6 +112,11 @@ export interface APIKey {
   expires_at: string;
 
   /**
+   * Whether this API key is system-managed.
+   */
+  managed: boolean;
+
+  /**
    * API Key name.
    */
   name: string;
@@ -199,7 +204,9 @@ export type APIPermissionResourceType =
   | 'nks_cluster'
   | 'nks_node_pool'
   | 'project'
-  | 'api_key';
+  | 'api_key'
+  | 'organization'
+  | 'audit_log';
 
 export interface APIKeyCreateParams {
   /**
