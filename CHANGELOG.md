@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.83.0 (2026-05-05)
+
+Full Changelog: [v1.82.1...v1.83.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.82.1...v1.83.0)
+
+### Features
+
+* **api:** add managed field to API key responses ([ce3ef5a](https://github.com/nirvana-labs/nirvana-typescript/commit/ce3ef5aa687523ea59d0ea9477fee68711cee48e))
+
 ## 1.82.1 (2026-05-01)
 
 Full Changelog: [v1.82.0...v1.82.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.82.0...v1.82.1)
