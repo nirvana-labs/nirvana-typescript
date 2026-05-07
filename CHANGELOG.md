@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.83.1 (2026-05-06)
+
+Full Changelog: [v1.83.0...v1.83.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.83.0...v1.83.1)
+
+### Chores
+
+* **internal:** fix MCP cloudflare worker initialization ([bf0d42d](https://github.com/nirvana-labs/nirvana-typescript/commit/bf0d42d92547933f9c1f4e22a60f6a8c017e2033))
+
 ## 1.83.0 (2026-05-05)
 
 Full Changelog: [v1.82.1...v1.83.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.82.1...v1.83.0)
