@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.83.2 (2026-05-08)
+
+Full Changelog: [v1.83.1...v1.83.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.83.1...v1.83.2)
+
+### Chores
+
+* redact api-key headers in debug logs ([345d507](https://github.com/nirvana-labs/nirvana-typescript/commit/345d507ed857b0f65a107b018dcc534da355b5d9))
+
 ## 1.83.1 (2026-05-06)
 
 Full Changelog: [v1.83.0...v1.83.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.83.0...v1.83.1)
