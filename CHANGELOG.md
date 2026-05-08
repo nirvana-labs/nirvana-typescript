@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.83.3 (2026-05-08)
+
+Full Changelog: [v1.83.2...v1.83.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.83.2...v1.83.3)
+
+### Bug Fixes
+
+* **types:** remove us-chi-1 from region enum ([f274ccb](https://github.com/nirvana-labs/nirvana-typescript/commit/f274ccb88ce867aa7e3ac2a008e935016670508c))
+
 ## 1.83.2 (2026-05-08)
 
 Full Changelog: [v1.83.1...v1.83.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.83.1...v1.83.2)
