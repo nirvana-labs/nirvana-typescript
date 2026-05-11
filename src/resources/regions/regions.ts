@@ -107,6 +107,11 @@ export namespace Region {
    */
   export interface NKS {
     /**
+     * Autoscaling indicates if NKS node pool autoscaling is available.
+     */
+    autoscaling: boolean;
+
+    /**
      * Clusters indicates if NKS managed Kubernetes clusters are available.
      */
     clusters: boolean;
