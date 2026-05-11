@@ -22,7 +22,7 @@ describe('resource quotas', () => {
 
   // Mock server tests are disabled
   test.skip('get', async () => {
-    const responsePromise = client.quotas.get('us-sva-1');
+    const responsePromise = client.quotas.get('us-sva-2');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
