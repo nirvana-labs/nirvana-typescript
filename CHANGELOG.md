@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.85.2 (2026-05-11)
+
+Full Changelog: [v1.85.1...v1.85.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.85.1...v1.85.2)
+
+### Bug Fixes
+
+* **types:** replace shared QuotaResourceDetail with dimension-specific types in quotas ([b2f4979](https://github.com/nirvana-labs/nirvana-typescript/commit/b2f4979de71f9de38d110d871366453ecdb3cc8c))
+
 ## 1.85.1 (2026-05-11)
 
 Full Changelog: [v1.85.0...v1.85.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.85.0...v1.85.1)
