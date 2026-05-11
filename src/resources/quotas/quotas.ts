@@ -27,7 +27,7 @@ export class Quotas extends APIResource {
    * const quota = await client.quotas.get('us-sva-1');
    * ```
    */
-  get(region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1', options?: RequestOptions): APIPromise<Quota> {
+  get(region: 'us-sva-1' | 'us-sva-2', options?: RequestOptions): APIPromise<Quota> {
     return this._client.get(path`/v1/quotas/${region}`, options);
   }
 }

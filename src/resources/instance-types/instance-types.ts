@@ -97,7 +97,7 @@ export interface InstanceTypeGetParams {
   /**
    * Region name
    */
-  region: 'us-sva-1' | 'us-sva-2' | 'us-chi-1';
+  region: 'us-sva-1' | 'us-sva-2';
 }
 
 export declare namespace InstanceTypes {
