@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.84.0 (2026-05-11)
+
+Full Changelog: [v1.83.3...v1.84.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.83.3...v1.84.0)
+
+### Features
+
+* **api:** add autoscaling field to regions response ([a7d04cf](https://github.com/nirvana-labs/nirvana-typescript/commit/a7d04cf0b760dcabbd48e8567002faa9101030c3))
+
 ## 1.83.3 (2026-05-08)
 
 Full Changelog: [v1.83.2...v1.83.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.83.2...v1.83.3)
