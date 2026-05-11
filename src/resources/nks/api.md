@@ -10,7 +10,7 @@ Types:
 Methods:
 
 - <code title="post /v1/nks/clusters">client.nks.clusters.<a href="./src/resources/nks/clusters/clusters.ts">create</a>({ ...params }) -> Operation</code>
-- <code title="patch /v1/nks/clusters/{cluster_id}">client.nks.clusters.<a href="./src/resources/nks/clusters/clusters.ts">update</a>(clusterID, { ...params }) -> NKSCluster</code>
+- <code title="patch /v1/nks/clusters/{cluster_id}">client.nks.clusters.<a href="./src/resources/nks/clusters/clusters.ts">update</a>(clusterID, { ...params }) -> Operation</code>
 - <code title="get /v1/nks/clusters">client.nks.clusters.<a href="./src/resources/nks/clusters/clusters.ts">list</a>({ ...params }) -> NKSClustersCursor</code>
 - <code title="delete /v1/nks/clusters/{cluster_id}">client.nks.clusters.<a href="./src/resources/nks/clusters/clusters.ts">delete</a>(clusterID) -> Operation</code>
 - <code title="get /v1/nks/clusters/{cluster_id}">client.nks.clusters.<a href="./src/resources/nks/clusters/clusters.ts">get</a>(clusterID) -> NKSCluster</code>
