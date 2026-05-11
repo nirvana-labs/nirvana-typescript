@@ -67,14 +67,25 @@ export interface Quota {
  */
 export interface QuotaCompute {
   /**
-   * Quota resource detail.
+   * Quota dimension detail.
    */
-  memory_gb: QuotaResourceDetail;
+  memory_gb: QuotaDimensionDetail;
 
   /**
-   * Quota resource detail.
+   * Quota dimension detail.
    */
-  vcpu: QuotaResourceDetail;
+  vcpu: QuotaDimensionDetail;
+}
+
+/**
+ * Quota dimension detail.
+ */
+export interface QuotaDimensionDetail {
+  limit: number;
+
+  remaining: number;
+
+  used: number;
 }
 
 export interface QuotaList {
@@ -91,19 +102,19 @@ export interface QuotaList {
  */
 export interface QuotaNetworking {
   /**
-   * Quota resource detail.
+   * Quota dimension detail.
    */
-  connect_connections: QuotaResourceDetail;
+  connect_connections: QuotaDimensionDetail;
 
   /**
-   * Quota resource detail.
+   * Quota dimension detail.
    */
-  public_ips: QuotaResourceDetail;
+  public_ips: QuotaDimensionDetail;
 
   /**
-   * Quota resource detail.
+   * Quota dimension detail.
    */
-  vpcs: QuotaResourceDetail;
+  vpcs: QuotaDimensionDetail;
 }
 
 /**
@@ -111,35 +122,24 @@ export interface QuotaNetworking {
  */
 export interface QuotaNKS {
   /**
-   * Quota resource detail.
+   * Quota dimension detail.
    */
-  clusters: QuotaResourceDetail;
+  clusters: QuotaDimensionDetail;
 
   /**
-   * Quota resource detail.
+   * Quota dimension detail.
    */
-  node_pool_memory_gb: QuotaResourceDetail;
+  node_pool_memory_gb: QuotaDimensionDetail;
 
   /**
-   * Quota resource detail.
+   * Quota dimension detail.
    */
-  node_pool_vcpu: QuotaResourceDetail;
+  node_pool_vcpu: QuotaDimensionDetail;
 
   /**
-   * Quota resource detail.
+   * Quota dimension detail.
    */
-  public_ips: QuotaResourceDetail;
-}
-
-/**
- * Quota resource detail.
- */
-export interface QuotaResourceDetail {
-  limit: number;
-
-  remaining: number;
-
-  used: number;
+  public_ips: QuotaDimensionDetail;
 }
 
 /**
@@ -147,24 +147,24 @@ export interface QuotaResourceDetail {
  */
 export interface QuotaStorage {
   /**
-   * Quota resource detail.
+   * Quota dimension detail.
    */
-  abs: QuotaResourceDetail;
+  abs: QuotaDimensionDetail;
 
   /**
-   * Quota resource detail.
+   * Quota dimension detail.
    */
-  local_nvme: QuotaResourceDetail;
+  local_nvme: QuotaDimensionDetail;
 }
 
 export declare namespace Quotas {
   export {
     type Quota as Quota,
     type QuotaCompute as QuotaCompute,
+    type QuotaDimensionDetail as QuotaDimensionDetail,
     type QuotaList as QuotaList,
     type QuotaNetworking as QuotaNetworking,
     type QuotaNKS as QuotaNKS,
-    type QuotaResourceDetail as QuotaResourceDetail,
     type QuotaStorage as QuotaStorage,
   };
 }

@@ -4,10 +4,10 @@ Types:
 
 - <code><a href="./src/resources/quotas.ts">Quota</a></code>
 - <code><a href="./src/resources/quotas.ts">QuotaCompute</a></code>
+- <code><a href="./src/resources/quotas.ts">QuotaDimensionDetail</a></code>
 - <code><a href="./src/resources/quotas.ts">QuotaList</a></code>
 - <code><a href="./src/resources/quotas.ts">QuotaNetworking</a></code>
 - <code><a href="./src/resources/quotas.ts">QuotaNKS</a></code>
-- <code><a href="./src/resources/quotas.ts">QuotaResourceDetail</a></code>
 - <code><a href="./src/resources/quotas.ts">QuotaStorage</a></code>
 
 Methods:
