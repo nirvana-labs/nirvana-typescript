@@ -71,6 +71,7 @@ export class Clusters extends APIResource {
    * @example
    * ```ts
    * const operation = await client.nks.clusters.create({
+   *   autoscaling: true,
    *   name: 'my-cluster',
    *   project_id: '123e4567-e89b-12d3-a456-426614174000',
    *   region: 'us-sva-2',
@@ -87,12 +88,16 @@ export class Clusters extends APIResource {
    *
    * @example
    * ```ts
-   * const nksCluster = await client.nks.clusters.update(
+   * const operation = await client.nks.clusters.update(
    *   'cluster_id',
    * );
    * ```
    */
-  update(clusterID: string, body: ClusterUpdateParams, options?: RequestOptions): APIPromise<NKSCluster> {
+  update(
+    clusterID: string,
+    body: ClusterUpdateParams,
+    options?: RequestOptions,
+  ): APIPromise<OperationsAPI.Operation> {
     return this._client.patch(path`/v1/nks/clusters/${clusterID}`, { body, ...options });
   }
 
@@ -152,6 +157,11 @@ export interface NKSCluster {
    * Unique identifier for the Cluster.
    */
   id: string;
+
+  /**
+   * Whether autoscaling is enabled for the Cluster.
+   */
+  autoscaling: boolean;
 
   /**
    * When the Cluster was created.
@@ -220,6 +230,11 @@ export interface NKSClusterList {
 
 export interface ClusterCreateParams {
   /**
+   * Whether to enable autoscaling for the Cluster.
+   */
+  autoscaling: boolean;
+
+  /**
    * Name of the Cluster.
    */
   name: string;
@@ -246,6 +261,11 @@ export interface ClusterCreateParams {
 }
 
 export interface ClusterUpdateParams {
+  /**
+   * Whether to enable autoscaling for the Cluster.
+   */
+  autoscaling?: boolean;
+
   /**
    * Name of the Cluster.
    */

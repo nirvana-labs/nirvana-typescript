@@ -14,6 +14,7 @@ export class Availability extends APIResource {
    * @example
    * ```ts
    * await client.nks.clusters.availability.create({
+   *   autoscaling: true,
    *   name: 'my-cluster',
    *   project_id: '123e4567-e89b-12d3-a456-426614174000',
    *   region: 'us-sva-2',
@@ -48,6 +49,11 @@ export class Availability extends APIResource {
 
 export interface AvailabilityCreateParams {
   /**
+   * Whether to enable autoscaling for the Cluster.
+   */
+  autoscaling: boolean;
+
+  /**
    * Name of the Cluster.
    */
   name: string;
@@ -74,6 +80,11 @@ export interface AvailabilityCreateParams {
 }
 
 export interface AvailabilityUpdateParams {
+  /**
+   * Whether to enable autoscaling for the Cluster.
+   */
+  autoscaling?: boolean;
+
   /**
    * Name of the Cluster.
    */
