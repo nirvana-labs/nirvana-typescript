@@ -2761,6 +2761,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     stainlessPath: '(resource) nks.clusters > (method) create',
     qualified: 'client.nks.clusters.create',
     params: [
+      'autoscaling: boolean;',
       'name: string;',
       'project_id: string;',
       "region: 'us-sva-1' | 'us-sva-2';",
@@ -2770,26 +2771,26 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     response:
       "{ id: string; created_at: string; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }",
     markdown:
-      "## create\n\n`client.nks.clusters.create(name: string, project_id: string, region: 'us-sva-1' | 'us-sva-2', vpc_id: string, tags?: string[]): { id: string; created_at: string; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**post** `/v1/nks/clusters`\n\nCreate an NKS Cluster\n\n### Parameters\n\n- `name: string`\n  Name of the Cluster.\n\n- `project_id: string`\n  Project ID to create the Cluster in.\n\n- `region: 'us-sva-1' | 'us-sva-2'`\n  Region the resource is in.\n\n- `vpc_id: string`\n  ID of the VPC to use for the Cluster.\n\n- `tags?: string[]`\n  Tags to attach to the Cluster.\n\n### Returns\n\n- `{ id: string; created_at: string; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.nks.clusters.create({\n  name: 'my-cluster',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  vpc_id: '123e4567-e89b-12d3-a456-426614174000',\n});\n\nconsole.log(operation);\n```",
+      "## create\n\n`client.nks.clusters.create(autoscaling: boolean, name: string, project_id: string, region: 'us-sva-1' | 'us-sva-2', vpc_id: string, tags?: string[]): { id: string; created_at: string; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**post** `/v1/nks/clusters`\n\nCreate an NKS Cluster\n\n### Parameters\n\n- `autoscaling: boolean`\n  Whether to enable autoscaling for the Cluster.\n\n- `name: string`\n  Name of the Cluster.\n\n- `project_id: string`\n  Project ID to create the Cluster in.\n\n- `region: 'us-sva-1' | 'us-sva-2'`\n  Region the resource is in.\n\n- `vpc_id: string`\n  ID of the VPC to use for the Cluster.\n\n- `tags?: string[]`\n  Tags to attach to the Cluster.\n\n### Returns\n\n- `{ id: string; created_at: string; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.nks.clusters.create({\n  autoscaling: true,\n  name: 'my-cluster',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  vpc_id: '123e4567-e89b-12d3-a456-426614174000',\n});\n\nconsole.log(operation);\n```",
     perLanguage: {
       typescript: {
         method: 'client.nks.clusters.create',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.nks.clusters.create({\n  name: 'my-cluster',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  vpc_id: '123e4567-e89b-12d3-a456-426614174000',\n});\n\nconsole.log(operation.id);",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.nks.clusters.create({\n  autoscaling: true,\n  name: 'my-cluster',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  vpc_id: '123e4567-e89b-12d3-a456-426614174000',\n});\n\nconsole.log(operation.id);",
       },
       go: {
         method: 'client.NKS.Clusters.New',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.NKS.Clusters.New(context.TODO(), nks.ClusterNewParams{\n\t\tName:      "my-cluster",\n\t\tProjectID: "123e4567-e89b-12d3-a456-426614174000",\n\t\tRegion:    shared.RegionNameUsSva2,\n\t\tVPCID:     "123e4567-e89b-12d3-a456-426614174000",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.NKS.Clusters.New(context.TODO(), nks.ClusterNewParams{\n\t\tAutoscaling: true,\n\t\tName:        "my-cluster",\n\t\tProjectID:   "123e4567-e89b-12d3-a456-426614174000",\n\t\tRegion:      shared.RegionNameUsSva2,\n\t\tVPCID:       "123e4567-e89b-12d3-a456-426614174000",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
       cli: {
         method: 'clusters create',
         example:
-          "nirvana nks:clusters create \\\n  --api-key 'My API Key' \\\n  --name my-cluster \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --region us-sva-2 \\\n  --vpc-id 123e4567-e89b-12d3-a456-426614174000",
+          "nirvana nks:clusters create \\\n  --api-key 'My API Key' \\\n  --autoscaling \\\n  --name my-cluster \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --region us-sva-2 \\\n  --vpc-id 123e4567-e89b-12d3-a456-426614174000",
       },
       http: {
         example:
-          'curl https://api.nirvanalabs.io/v1/nks/clusters \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "name": "my-cluster",\n          "project_id": "123e4567-e89b-12d3-a456-426614174000",\n          "region": "us-sva-2",\n          "vpc_id": "123e4567-e89b-12d3-a456-426614174000",\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
+          'curl https://api.nirvanalabs.io/v1/nks/clusters \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "autoscaling": true,\n          "name": "my-cluster",\n          "project_id": "123e4567-e89b-12d3-a456-426614174000",\n          "region": "us-sva-2",\n          "vpc_id": "123e4567-e89b-12d3-a456-426614174000",\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
       },
     },
   },
@@ -2803,9 +2804,9 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     qualified: 'client.nks.clusters.get',
     params: ['cluster_id: string;'],
     response:
-      "{ id: string; created_at: string; name: string; pool_ids: string[]; private_ip: string; project_id: string; public_ip: string; region: 'us-sva-1' | 'us-sva-2'; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; updated_at: string; vpc_id: string; }",
+      "{ id: string; autoscaling: boolean; created_at: string; name: string; pool_ids: string[]; private_ip: string; project_id: string; public_ip: string; region: 'us-sva-1' | 'us-sva-2'; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; updated_at: string; vpc_id: string; }",
     markdown:
-      "## get\n\n`client.nks.clusters.get(cluster_id: string): { id: string; created_at: string; name: string; pool_ids: string[]; private_ip: string; project_id: string; public_ip: string; region: region_name; status: resource_status; tags: string[]; updated_at: string; vpc_id: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}`\n\nGet details about an NKS cluster\n\n### Parameters\n\n- `cluster_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; name: string; pool_ids: string[]; private_ip: string; project_id: string; public_ip: string; region: 'us-sva-1' | 'us-sva-2'; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; updated_at: string; vpc_id: string; }`\n  NKS Cluster details.\n\n  - `id: string`\n  - `created_at: string`\n  - `name: string`\n  - `pool_ids: string[]`\n  - `private_ip: string`\n  - `project_id: string`\n  - `public_ip: string`\n  - `region: 'us-sva-1' | 'us-sva-2'`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `tags: string[]`\n  - `updated_at: string`\n  - `vpc_id: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst nksCluster = await client.nks.clusters.get('cluster_id');\n\nconsole.log(nksCluster);\n```",
+      "## get\n\n`client.nks.clusters.get(cluster_id: string): { id: string; autoscaling: boolean; created_at: string; name: string; pool_ids: string[]; private_ip: string; project_id: string; public_ip: string; region: region_name; status: resource_status; tags: string[]; updated_at: string; vpc_id: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}`\n\nGet details about an NKS cluster\n\n### Parameters\n\n- `cluster_id: string`\n\n### Returns\n\n- `{ id: string; autoscaling: boolean; created_at: string; name: string; pool_ids: string[]; private_ip: string; project_id: string; public_ip: string; region: 'us-sva-1' | 'us-sva-2'; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; updated_at: string; vpc_id: string; }`\n  NKS Cluster details.\n\n  - `id: string`\n  - `autoscaling: boolean`\n  - `created_at: string`\n  - `name: string`\n  - `pool_ids: string[]`\n  - `private_ip: string`\n  - `project_id: string`\n  - `public_ip: string`\n  - `region: 'us-sva-1' | 'us-sva-2'`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `tags: string[]`\n  - `updated_at: string`\n  - `vpc_id: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst nksCluster = await client.nks.clusters.get('cluster_id');\n\nconsole.log(nksCluster);\n```",
     perLanguage: {
       typescript: {
         method: 'client.nks.clusters.get',
@@ -2835,21 +2836,21 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     description: 'Update an NKS cluster',
     stainlessPath: '(resource) nks.clusters > (method) update',
     qualified: 'client.nks.clusters.update',
-    params: ['cluster_id: string;', 'name?: string;', 'tags?: string[];'],
+    params: ['cluster_id: string;', 'autoscaling?: boolean;', 'name?: string;', 'tags?: string[];'],
     response:
-      "{ id: string; created_at: string; name: string; pool_ids: string[]; private_ip: string; project_id: string; public_ip: string; region: 'us-sva-1' | 'us-sva-2'; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; updated_at: string; vpc_id: string; }",
+      "{ id: string; created_at: string; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }",
     markdown:
-      "## update\n\n`client.nks.clusters.update(cluster_id: string, name?: string, tags?: string[]): { id: string; created_at: string; name: string; pool_ids: string[]; private_ip: string; project_id: string; public_ip: string; region: region_name; status: resource_status; tags: string[]; updated_at: string; vpc_id: string; }`\n\n**patch** `/v1/nks/clusters/{cluster_id}`\n\nUpdate an NKS cluster\n\n### Parameters\n\n- `cluster_id: string`\n\n- `name?: string`\n  Name of the Cluster.\n\n- `tags?: string[]`\n  Tags to attach to the Cluster.\n\n### Returns\n\n- `{ id: string; created_at: string; name: string; pool_ids: string[]; private_ip: string; project_id: string; public_ip: string; region: 'us-sva-1' | 'us-sva-2'; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; updated_at: string; vpc_id: string; }`\n  NKS Cluster details.\n\n  - `id: string`\n  - `created_at: string`\n  - `name: string`\n  - `pool_ids: string[]`\n  - `private_ip: string`\n  - `project_id: string`\n  - `public_ip: string`\n  - `region: 'us-sva-1' | 'us-sva-2'`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `tags: string[]`\n  - `updated_at: string`\n  - `vpc_id: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst nksCluster = await client.nks.clusters.update('cluster_id');\n\nconsole.log(nksCluster);\n```",
+      "## update\n\n`client.nks.clusters.update(cluster_id: string, autoscaling?: boolean, name?: string, tags?: string[]): { id: string; created_at: string; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**patch** `/v1/nks/clusters/{cluster_id}`\n\nUpdate an NKS cluster\n\n### Parameters\n\n- `cluster_id: string`\n\n- `autoscaling?: boolean`\n  Whether to enable autoscaling for the Cluster.\n\n- `name?: string`\n  Name of the Cluster.\n\n- `tags?: string[]`\n  Tags to attach to the Cluster.\n\n### Returns\n\n- `{ id: string; created_at: string; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.nks.clusters.update('cluster_id');\n\nconsole.log(operation);\n```",
     perLanguage: {
       typescript: {
         method: 'client.nks.clusters.update',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst nksCluster = await client.nks.clusters.update('cluster_id');\n\nconsole.log(nksCluster.id);",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.nks.clusters.update('cluster_id');\n\nconsole.log(operation.id);",
       },
       go: {
         method: 'client.NKS.Clusters.Update',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tnksCluster, err := client.NKS.Clusters.Update(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\tnks.ClusterUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", nksCluster.ID)\n}\n',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.NKS.Clusters.Update(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\tnks.ClusterUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
       cli: {
         method: 'clusters update',
@@ -2857,7 +2858,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       },
       http: {
         example:
-          'curl https://api.nirvanalabs.io/v1/nks/clusters/$CLUSTER_ID \\\n    -X PATCH \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "name": "my-cluster",\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
+          'curl https://api.nirvanalabs.io/v1/nks/clusters/$CLUSTER_ID \\\n    -X PATCH \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "autoscaling": true,\n          "name": "my-cluster",\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
       },
     },
   },
@@ -2905,9 +2906,9 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     qualified: 'client.nks.clusters.list',
     params: ['project_id: string;', 'cursor?: string;', 'limit?: number;'],
     response:
-      "{ id: string; created_at: string; name: string; pool_ids: string[]; private_ip: string; project_id: string; public_ip: string; region: 'us-sva-1' | 'us-sva-2'; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; updated_at: string; vpc_id: string; }",
+      "{ id: string; autoscaling: boolean; created_at: string; name: string; pool_ids: string[]; private_ip: string; project_id: string; public_ip: string; region: 'us-sva-1' | 'us-sva-2'; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; updated_at: string; vpc_id: string; }",
     markdown:
-      "## list\n\n`client.nks.clusters.list(project_id: string, cursor?: string, limit?: number): { id: string; created_at: string; name: string; pool_ids: string[]; private_ip: string; project_id: string; public_ip: string; region: region_name; status: resource_status; tags: string[]; updated_at: string; vpc_id: string; }`\n\n**get** `/v1/nks/clusters`\n\nList all NKS clusters\n\n### Parameters\n\n- `project_id: string`\n  Project ID of resources to request\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; created_at: string; name: string; pool_ids: string[]; private_ip: string; project_id: string; public_ip: string; region: 'us-sva-1' | 'us-sva-2'; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; updated_at: string; vpc_id: string; }`\n  NKS Cluster details.\n\n  - `id: string`\n  - `created_at: string`\n  - `name: string`\n  - `pool_ids: string[]`\n  - `private_ip: string`\n  - `project_id: string`\n  - `public_ip: string`\n  - `region: 'us-sva-1' | 'us-sva-2'`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `tags: string[]`\n  - `updated_at: string`\n  - `vpc_id: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const nksCluster of client.nks.clusters.list({ project_id: 'project_id' })) {\n  console.log(nksCluster);\n}\n```",
+      "## list\n\n`client.nks.clusters.list(project_id: string, cursor?: string, limit?: number): { id: string; autoscaling: boolean; created_at: string; name: string; pool_ids: string[]; private_ip: string; project_id: string; public_ip: string; region: region_name; status: resource_status; tags: string[]; updated_at: string; vpc_id: string; }`\n\n**get** `/v1/nks/clusters`\n\nList all NKS clusters\n\n### Parameters\n\n- `project_id: string`\n  Project ID of resources to request\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; autoscaling: boolean; created_at: string; name: string; pool_ids: string[]; private_ip: string; project_id: string; public_ip: string; region: 'us-sva-1' | 'us-sva-2'; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; updated_at: string; vpc_id: string; }`\n  NKS Cluster details.\n\n  - `id: string`\n  - `autoscaling: boolean`\n  - `created_at: string`\n  - `name: string`\n  - `pool_ids: string[]`\n  - `private_ip: string`\n  - `project_id: string`\n  - `public_ip: string`\n  - `region: 'us-sva-1' | 'us-sva-2'`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `tags: string[]`\n  - `updated_at: string`\n  - `vpc_id: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const nksCluster of client.nks.clusters.list({ project_id: 'project_id' })) {\n  console.log(nksCluster);\n}\n```",
     perLanguage: {
       typescript: {
         method: 'client.nks.clusters.list',
@@ -2938,6 +2939,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     stainlessPath: '(resource) nks.clusters.availability > (method) create',
     qualified: 'client.nks.clusters.availability.create',
     params: [
+      'autoscaling: boolean;',
       'name: string;',
       'project_id: string;',
       "region: 'us-sva-1' | 'us-sva-2';",
@@ -2945,26 +2947,26 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       'tags?: string[];',
     ],
     markdown:
-      "## create\n\n`client.nks.clusters.availability.create(name: string, project_id: string, region: 'us-sva-1' | 'us-sva-2', vpc_id: string, tags?: string[]): void`\n\n**post** `/v1/nks/clusters/availability`\n\nCheck if an NKS cluster can be created\n\n### Parameters\n\n- `name: string`\n  Name of the Cluster.\n\n- `project_id: string`\n  Project ID to create the Cluster in.\n\n- `region: 'us-sva-1' | 'us-sva-2'`\n  Region the resource is in.\n\n- `vpc_id: string`\n  ID of the VPC to use for the Cluster.\n\n- `tags?: string[]`\n  Tags to attach to the Cluster.\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nawait client.nks.clusters.availability.create({\n  name: 'my-cluster',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  vpc_id: '123e4567-e89b-12d3-a456-426614174000',\n})\n```",
+      "## create\n\n`client.nks.clusters.availability.create(autoscaling: boolean, name: string, project_id: string, region: 'us-sva-1' | 'us-sva-2', vpc_id: string, tags?: string[]): void`\n\n**post** `/v1/nks/clusters/availability`\n\nCheck if an NKS cluster can be created\n\n### Parameters\n\n- `autoscaling: boolean`\n  Whether to enable autoscaling for the Cluster.\n\n- `name: string`\n  Name of the Cluster.\n\n- `project_id: string`\n  Project ID to create the Cluster in.\n\n- `region: 'us-sva-1' | 'us-sva-2'`\n  Region the resource is in.\n\n- `vpc_id: string`\n  ID of the VPC to use for the Cluster.\n\n- `tags?: string[]`\n  Tags to attach to the Cluster.\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nawait client.nks.clusters.availability.create({\n  autoscaling: true,\n  name: 'my-cluster',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  vpc_id: '123e4567-e89b-12d3-a456-426614174000',\n})\n```",
     perLanguage: {
       typescript: {
         method: 'client.nks.clusters.availability.create',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.nks.clusters.availability.create({\n  name: 'my-cluster',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  vpc_id: '123e4567-e89b-12d3-a456-426614174000',\n});",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.nks.clusters.availability.create({\n  autoscaling: true,\n  name: 'my-cluster',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  vpc_id: '123e4567-e89b-12d3-a456-426614174000',\n});",
       },
       go: {
         method: 'client.NKS.Clusters.Availability.New',
         example:
-          'package main\n\nimport (\n\t"context"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\terr := client.NKS.Clusters.Availability.New(context.TODO(), nks.ClusterAvailabilityNewParams{\n\t\tName:      "my-cluster",\n\t\tProjectID: "123e4567-e89b-12d3-a456-426614174000",\n\t\tRegion:    shared.RegionNameUsSva2,\n\t\tVPCID:     "123e4567-e89b-12d3-a456-426614174000",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n}\n',
+          'package main\n\nimport (\n\t"context"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\terr := client.NKS.Clusters.Availability.New(context.TODO(), nks.ClusterAvailabilityNewParams{\n\t\tAutoscaling: true,\n\t\tName:        "my-cluster",\n\t\tProjectID:   "123e4567-e89b-12d3-a456-426614174000",\n\t\tRegion:      shared.RegionNameUsSva2,\n\t\tVPCID:       "123e4567-e89b-12d3-a456-426614174000",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n}\n',
       },
       cli: {
         method: 'availability create',
         example:
-          "nirvana nks:clusters:availability create \\\n  --api-key 'My API Key' \\\n  --name my-cluster \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --region us-sva-2 \\\n  --vpc-id 123e4567-e89b-12d3-a456-426614174000",
+          "nirvana nks:clusters:availability create \\\n  --api-key 'My API Key' \\\n  --autoscaling \\\n  --name my-cluster \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --region us-sva-2 \\\n  --vpc-id 123e4567-e89b-12d3-a456-426614174000",
       },
       http: {
         example:
-          'curl https://api.nirvanalabs.io/v1/nks/clusters/availability \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "name": "my-cluster",\n          "project_id": "123e4567-e89b-12d3-a456-426614174000",\n          "region": "us-sva-2",\n          "vpc_id": "123e4567-e89b-12d3-a456-426614174000",\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
+          'curl https://api.nirvanalabs.io/v1/nks/clusters/availability \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "autoscaling": true,\n          "name": "my-cluster",\n          "project_id": "123e4567-e89b-12d3-a456-426614174000",\n          "region": "us-sva-2",\n          "vpc_id": "123e4567-e89b-12d3-a456-426614174000",\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
       },
     },
   },
@@ -2976,9 +2978,9 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     description: 'Check if an NKS cluster can be updated',
     stainlessPath: '(resource) nks.clusters.availability > (method) update',
     qualified: 'client.nks.clusters.availability.update',
-    params: ['cluster_id: string;', 'name?: string;', 'tags?: string[];'],
+    params: ['cluster_id: string;', 'autoscaling?: boolean;', 'name?: string;', 'tags?: string[];'],
     markdown:
-      "## update\n\n`client.nks.clusters.availability.update(cluster_id: string, name?: string, tags?: string[]): void`\n\n**patch** `/v1/nks/clusters/{cluster_id}/availability`\n\nCheck if an NKS cluster can be updated\n\n### Parameters\n\n- `cluster_id: string`\n\n- `name?: string`\n  Name of the Cluster.\n\n- `tags?: string[]`\n  Tags to attach to the Cluster.\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nawait client.nks.clusters.availability.update('cluster_id')\n```",
+      "## update\n\n`client.nks.clusters.availability.update(cluster_id: string, autoscaling?: boolean, name?: string, tags?: string[]): void`\n\n**patch** `/v1/nks/clusters/{cluster_id}/availability`\n\nCheck if an NKS cluster can be updated\n\n### Parameters\n\n- `cluster_id: string`\n\n- `autoscaling?: boolean`\n  Whether to enable autoscaling for the Cluster.\n\n- `name?: string`\n  Name of the Cluster.\n\n- `tags?: string[]`\n  Tags to attach to the Cluster.\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nawait client.nks.clusters.availability.update('cluster_id')\n```",
     perLanguage: {
       typescript: {
         method: 'client.nks.clusters.availability.update',
@@ -2997,7 +2999,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       },
       http: {
         example:
-          'curl https://api.nirvanalabs.io/v1/nks/clusters/$CLUSTER_ID/availability \\\n    -X PATCH \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "name": "my-cluster",\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
+          'curl https://api.nirvanalabs.io/v1/nks/clusters/$CLUSTER_ID/availability \\\n    -X PATCH \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "autoscaling": true,\n          "name": "my-cluster",\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
       },
     },
   },
