@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.85.0 (2026-05-11)
+
+Full Changelog: [v1.84.0...v1.85.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.84.0...v1.85.0)
+
+### Features
+
+* **api:** add autoscaling to nks.clusters/availability, update return type ([e1dd413](https://github.com/nirvana-labs/nirvana-typescript/commit/e1dd4131ea24a6a3e3c1650b1c6b4349280da47c))
+
 ## 1.84.0 (2026-05-11)
 
 Full Changelog: [v1.83.3...v1.84.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.83.3...v1.84.0)
