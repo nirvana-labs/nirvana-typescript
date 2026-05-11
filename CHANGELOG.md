@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.85.1 (2026-05-11)
+
+Full Changelog: [v1.85.0...v1.85.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.85.0...v1.85.1)
+
+### Bug Fixes
+
+* **types:** remove us-sva-1 from region enum ([25bb578](https://github.com/nirvana-labs/nirvana-typescript/commit/25bb5785ff3d8ca1971799b50d116d3bdc3a8849))
+
 ## 1.85.0 (2026-05-11)
 
 Full Changelog: [v1.84.0...v1.85.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.84.0...v1.85.0)
