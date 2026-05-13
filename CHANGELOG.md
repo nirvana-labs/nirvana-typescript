@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.85.3 (2026-05-13)
+
+Full Changelog: [v1.85.2...v1.85.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.85.2...v1.85.3)
+
 ## 1.85.2 (2026-05-11)
 
 Full Changelog: [v1.85.1...v1.85.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.85.1...v1.85.2)
