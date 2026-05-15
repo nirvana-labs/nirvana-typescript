@@ -31,6 +31,7 @@ import { Projects } from './resources/projects/projects';
 import { Quotas } from './resources/quotas/quotas';
 import { Regions } from './resources/regions/regions';
 import { RPCNodes } from './resources/rpc-nodes/rpc-nodes';
+import { UsageResource } from './resources/usage/usage';
 import { UserResource } from './resources/user/user';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
@@ -773,6 +774,7 @@ export class NirvanaLabs {
   operations: API.Operations = new API.Operations(this);
   organizations: API.Organizations = new API.Organizations(this);
   quotas: API.Quotas = new API.Quotas(this);
+  usage: API.UsageResource = new API.UsageResource(this);
   auditLogs: API.AuditLogs = new API.AuditLogs(this);
   projects: API.Projects = new API.Projects(this);
   regions: API.Regions = new API.Regions(this);
@@ -788,6 +790,7 @@ NirvanaLabs.APIKeys = APIKeys;
 NirvanaLabs.Operations = Operations;
 NirvanaLabs.Organizations = Organizations;
 NirvanaLabs.Quotas = Quotas;
+NirvanaLabs.UsageResource = UsageResource;
 NirvanaLabs.AuditLogs = AuditLogs;
 NirvanaLabs.Projects = Projects;
 NirvanaLabs.Regions = Regions;
@@ -812,6 +815,8 @@ export declare namespace NirvanaLabs {
   export { Organizations as Organizations };
 
   export { Quotas as Quotas };
+
+  export { UsageResource as UsageResource };
 
   export { AuditLogs as AuditLogs };
 

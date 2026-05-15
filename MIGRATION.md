@@ -107,6 +107,7 @@ This affects the following methods:
 - `client.apiKeys.list()`
 - `client.organizations.list()`
 - `client.organizations.memberships.list()`
+- `client.usage.list()`
 - `client.auditLogs.list()`
 - `client.projects.list()`
 - `client.regions.list()`
