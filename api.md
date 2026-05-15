@@ -18,6 +18,8 @@ Types:
 
 # [Quotas](src/resources/quotas/api.md)
 
+# [Usage](src/resources/usage/api.md)
+
 # [AuditLogs](src/resources/audit-logs/api.md)
 
 # [Projects](src/resources/projects/api.md)

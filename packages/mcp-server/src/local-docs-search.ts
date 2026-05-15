@@ -711,6 +711,77 @@ const EMBEDDED_METHODS: MethodEntry[] = [
   },
   {
     name: 'get',
+    endpoint: '/v1/usage/{resource_id}',
+    httpMethod: 'get',
+    summary: 'Get Usage Record',
+    description:
+      'Get the usage record for a single resource (metadata plus dimension history) for the current organization.',
+    stainlessPath: '(resource) usage > (method) get',
+    qualified: 'client.usage.get',
+    params: ['resource_id: string;'],
+    response:
+      "{ dimensions: { id: string; dimension: string; ended_at: string; quantity: number; started_at: string; children?: usage_dimension_leaf[]; }[]; ended_at: string; project_id: string; region: 'us-sva-2'; resource_id: string; resource_type: string; started_at: string; }",
+    markdown:
+      "## get\n\n`client.usage.get(resource_id: string): { dimensions: usage_dimension[]; ended_at: string; project_id: string; region: region_name; resource_id: string; resource_type: usage_resource_type; started_at: string; }`\n\n**get** `/v1/usage/{resource_id}`\n\nGet the usage record for a single resource (metadata plus dimension history) for the current organization.\n\n### Parameters\n\n- `resource_id: string`\n\n### Returns\n\n- `{ dimensions: { id: string; dimension: string; ended_at: string; quantity: number; started_at: string; children?: usage_dimension_leaf[]; }[]; ended_at: string; project_id: string; region: 'us-sva-2'; resource_id: string; resource_type: string; started_at: string; }`\n  Usage record for a single metered resource.\n\n  - `dimensions: { id: string; dimension: string; ended_at: string; quantity: number; started_at: string; children?: { id: string; dimension: string; ended_at: string; quantity: number; started_at: string; }[]; }[]`\n  - `ended_at: string`\n  - `project_id: string`\n  - `region: 'us-sva-2'`\n  - `resource_id: string`\n  - `resource_type: string`\n  - `started_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst usage = await client.usage.get('123e4567-e89b-12d3-a456-426614174000');\n\nconsole.log(usage);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.usage.get',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst usage = await client.usage.get('123e4567-e89b-12d3-a456-426614174000');\n\nconsole.log(usage.project_id);",
+      },
+      go: {
+        method: 'client.Usage.Get',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tusage, err := client.Usage.Get(context.TODO(), "123e4567-e89b-12d3-a456-426614174000")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", usage.ProjectID)\n}\n',
+      },
+      cli: {
+        method: 'usage get',
+        example:
+          "nirvana usage get \\\n  --api-key 'My API Key' \\\n  --resource-id 123e4567-e89b-12d3-a456-426614174000",
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/usage/$RESOURCE_ID \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY"',
+      },
+    },
+  },
+  {
+    name: 'list',
+    endpoint: '/v1/usage',
+    httpMethod: 'get',
+    summary: 'List Usage Records',
+    description:
+      'List per-resource usage records for the current organization. Each item is one resource with its nested dimension history (active and closed segments).',
+    stainlessPath: '(resource) usage > (method) list',
+    qualified: 'client.usage.list',
+    params: ['cursor?: string;', 'limit?: number;'],
+    response:
+      "{ dimensions: { id: string; dimension: string; ended_at: string; quantity: number; started_at: string; children?: usage_dimension_leaf[]; }[]; ended_at: string; project_id: string; region: 'us-sva-2'; resource_id: string; resource_type: string; started_at: string; }",
+    markdown:
+      "## list\n\n`client.usage.list(cursor?: string, limit?: number): { dimensions: usage_dimension[]; ended_at: string; project_id: string; region: region_name; resource_id: string; resource_type: usage_resource_type; started_at: string; }`\n\n**get** `/v1/usage`\n\nList per-resource usage records for the current organization. Each item is one resource with its nested dimension history (active and closed segments).\n\n### Parameters\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ dimensions: { id: string; dimension: string; ended_at: string; quantity: number; started_at: string; children?: usage_dimension_leaf[]; }[]; ended_at: string; project_id: string; region: 'us-sva-2'; resource_id: string; resource_type: string; started_at: string; }`\n  Usage record for a single metered resource.\n\n  - `dimensions: { id: string; dimension: string; ended_at: string; quantity: number; started_at: string; children?: { id: string; dimension: string; ended_at: string; quantity: number; started_at: string; }[]; }[]`\n  - `ended_at: string`\n  - `project_id: string`\n  - `region: 'us-sva-2'`\n  - `resource_id: string`\n  - `resource_type: string`\n  - `started_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const usage of client.usage.list()) {\n  console.log(usage);\n}\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.usage.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const usage of client.usage.list()) {\n  console.log(usage.project_id);\n}",
+      },
+      go: {
+        method: 'client.Usage.List',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/usage"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.Usage.List(context.TODO(), usage.UsageListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
+      },
+      cli: {
+        method: 'usage list',
+        example: "nirvana usage list \\\n  --api-key 'My API Key'",
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/usage \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY"',
+      },
+    },
+  },
+  {
+    name: 'get',
     endpoint: '/v1/audit_logs/{audit_log_id}',
     httpMethod: 'get',
     summary: 'Get Audit Log',

@@ -125,6 +125,18 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/quotas/{region}',
   },
   {
+    clientCallName: 'client.usage.list',
+    fullyQualifiedName: 'usage.list',
+    httpMethod: 'get',
+    httpPath: '/v1/usage',
+  },
+  {
+    clientCallName: 'client.usage.get',
+    fullyQualifiedName: 'usage.get',
+    httpMethod: 'get',
+    httpPath: '/v1/usage/{resource_id}',
+  },
+  {
     clientCallName: 'client.auditLogs.list',
     fullyQualifiedName: 'auditLogs.list',
     httpMethod: 'get',
