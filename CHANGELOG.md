@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.86.0 (2026-05-15)
+
+Full Changelog: [v1.85.3...v1.86.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.85.3...v1.86.0)
+
+### Chores
+
+* **internal:** regenerate SDK with no functional changes ([f071833](https://github.com/nirvana-labs/nirvana-typescript/commit/f07183370c847dd06515894a75b35e52ed54bbf2))
+
 ## 1.85.3 (2026-05-13)
 
 Full Changelog: [v1.85.2...v1.85.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.85.2...v1.85.3)
