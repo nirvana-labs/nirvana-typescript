@@ -1,7 +1,6 @@
 import fs from 'fs';
 import type { ResponseLike } from '@nirvana-labs/nirvana/internal/to-file';
 import { toFile } from '@nirvana-labs/nirvana/core/uploads';
-import { File } from 'node:buffer';
 
 class MyClass {
   name: string = 'foo';
