@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.86.1 (2026-05-19)
+
+Full Changelog: [v1.86.0...v1.86.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.86.0...v1.86.1)
+
+### Bug Fixes
+
+* **typescript:** upgrade tsc-multi so that it works with Node 26 ([95352bc](https://github.com/nirvana-labs/nirvana-typescript/commit/95352bc2499834e493c5cb38e496253952cc0a2c))
+
+
+### Chores
+
+* **tests:** remove redundant File import ([c7fa04a](https://github.com/nirvana-labs/nirvana-typescript/commit/c7fa04a311fb8c9a05c18a98192c92e67df81133))
+
 ## 1.86.0 (2026-05-15)
 
 Full Changelog: [v1.85.3...v1.86.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.85.3...v1.86.0)
