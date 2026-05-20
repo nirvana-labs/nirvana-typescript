@@ -68,6 +68,44 @@ export interface Operation {
    * When the Operation was updated.
    */
   updated_at: string;
+
+  /**
+   * Structured details about what an operation is changing.
+   */
+  details?: OperationDetails;
+}
+
+/**
+ * Map of changed field names to their from/to diffs. Keys depend on the parent
+ * operation's kind+type.
+ */
+export type OperationChanges = { [key: string]: OperationFieldDiff };
+
+/**
+ * Structured details about what an operation is changing.
+ */
+export interface OperationDetails {
+  /**
+   * Map of changed field names to their from/to diffs. Keys depend on the parent
+   * operation's kind+type.
+   */
+  changes: OperationChanges;
+}
+
+/**
+ * A single field's before/after pair on an operation. Values are scalars (string,
+ * number, boolean) or string arrays.
+ */
+export interface OperationFieldDiff {
+  /**
+   * Previous value.
+   */
+  from: string | number | boolean | Array<string>;
+
+  /**
+   * New value.
+   */
+  to: string | number | boolean | Array<string>;
 }
 
 /**
@@ -104,6 +142,9 @@ export interface OperationListParams extends CursorParams {
 export declare namespace Operations {
   export {
     type Operation as Operation,
+    type OperationChanges as OperationChanges,
+    type OperationDetails as OperationDetails,
+    type OperationFieldDiff as OperationFieldDiff,
     type OperationKind as OperationKind,
     type OperationList as OperationList,
     type OperationStatus as OperationStatus,

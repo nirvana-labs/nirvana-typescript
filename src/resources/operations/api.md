@@ -3,6 +3,9 @@
 Types:
 
 - <code><a href="./src/resources/operations.ts">Operation</a></code>
+- <code><a href="./src/resources/operations.ts">OperationChanges</a></code>
+- <code><a href="./src/resources/operations.ts">OperationDetails</a></code>
+- <code><a href="./src/resources/operations.ts">OperationFieldDiff</a></code>
 - <code><a href="./src/resources/operations.ts">OperationKind</a></code>
 - <code><a href="./src/resources/operations.ts">OperationList</a></code>
 - <code><a href="./src/resources/operations.ts">OperationStatus</a></code>

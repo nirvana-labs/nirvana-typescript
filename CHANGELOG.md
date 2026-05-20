@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.87.0 (2026-05-20)
+
+Full Changelog: [v1.86.1...v1.87.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.86.1...v1.87.0)
+
+### Features
+
+* **api:** add details field to operations response ([06e2da3](https://github.com/nirvana-labs/nirvana-typescript/commit/06e2da3c67446bb90cf44ed1862e1de0a4a5c1d9))
+
+
+### Bug Fixes
+
+* **types:** extract nested operation detail types to top-level in operations ([16eb804](https://github.com/nirvana-labs/nirvana-typescript/commit/16eb8041452c40eb6d1fe5b2d4c846b5864445ec))
+
 ## 1.86.1 (2026-05-19)
 
 Full Changelog: [v1.86.0...v1.86.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.86.0...v1.86.1)
