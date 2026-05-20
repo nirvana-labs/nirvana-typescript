@@ -4,9 +4,7 @@ export { Compute } from './compute';
 export {
   VMs,
   type CPUConfig,
-  type CPUConfigRequest,
   type MemoryConfig,
-  type MemoryConfigRequest,
   type OSImage,
   type SSHKeyRequest,
   type VM,

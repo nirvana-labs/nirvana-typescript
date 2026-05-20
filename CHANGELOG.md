@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.87.1 (2026-05-20)
+
+Full Changelog: [v1.87.0...v1.87.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.87.0...v1.87.1)
+
+### Bug Fixes
+
+* **api:** make instance_type required, remove cpu_config/memory_config in VMs ([a2d1eec](https://github.com/nirvana-labs/nirvana-typescript/commit/a2d1eecc86f9e58eddcf84704005117351772c1d))
+
 ## 1.87.0 (2026-05-20)
 
 Full Changelog: [v1.86.1...v1.87.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.86.1...v1.87.0)
