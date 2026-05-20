@@ -68,6 +68,42 @@ export interface Operation {
    * When the Operation was updated.
    */
   updated_at: string;
+
+  /**
+   * Structured details about what an operation is changing.
+   */
+  details?: Operation.Details;
+}
+
+export namespace Operation {
+  /**
+   * Structured details about what an operation is changing.
+   */
+  export interface Details {
+    /**
+     * Map of changed field names to their from/to diffs. Keys depend on the parent
+     * operation's kind+type.
+     */
+    changes: { [key: string]: Details.Changes };
+  }
+
+  export namespace Details {
+    /**
+     * A single field's before/after pair on an operation. Values are scalars (string,
+     * number, boolean) or string arrays.
+     */
+    export interface Changes {
+      /**
+       * Previous value.
+       */
+      from: string | number | boolean | Array<string>;
+
+      /**
+       * New value.
+       */
+      to: string | number | boolean | Array<string>;
+    }
+  }
 }
 
 /**
