@@ -5,9 +5,7 @@
 Types:
 
 - <code><a href="./src/resources/compute/vms/vms.ts">CPUConfig</a></code>
-- <code><a href="./src/resources/compute/vms/vms.ts">CPUConfigRequest</a></code>
 - <code><a href="./src/resources/compute/vms/vms.ts">MemoryConfig</a></code>
-- <code><a href="./src/resources/compute/vms/vms.ts">MemoryConfigRequest</a></code>
 - <code><a href="./src/resources/compute/vms/vms.ts">OSImage</a></code>
 - <code><a href="./src/resources/compute/vms/vms.ts">SSHKeyRequest</a></code>
 - <code><a href="./src/resources/compute/vms/vms.ts">VM</a></code>

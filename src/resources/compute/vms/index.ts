@@ -5,9 +5,7 @@ export { OSImages, type OSImageListParams } from './os-images';
 export {
   VMs,
   type CPUConfig,
-  type CPUConfigRequest,
   type MemoryConfig,
-  type MemoryConfigRequest,
   type OSImage,
   type SSHKeyRequest,
   type VM,
