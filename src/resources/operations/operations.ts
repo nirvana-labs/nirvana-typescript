@@ -40,6 +40,11 @@ export interface Operation {
   created_at: string;
 
   /**
+   * Structured details about what an operation is changing.
+   */
+  details: OperationDetails | null;
+
+  /**
    * Kind of Operation.
    */
   kind: OperationKind;
@@ -68,11 +73,6 @@ export interface Operation {
    * When the Operation was updated.
    */
   updated_at: string;
-
-  /**
-   * Structured details about what an operation is changing.
-   */
-  details?: OperationDetails;
 }
 
 /**
