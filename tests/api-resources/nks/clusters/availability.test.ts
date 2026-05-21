@@ -12,6 +12,7 @@ describe('resource availability', () => {
   test.skip('create: only required params', async () => {
     const responsePromise = client.nks.clusters.availability.create({
       autoscaling: true,
+      kubernetes_version: 'v1.34.4',
       name: 'my-cluster',
       project_id: '123e4567-e89b-12d3-a456-426614174000',
       region: 'us-sva-2',
@@ -30,6 +31,7 @@ describe('resource availability', () => {
   test.skip('create: required and optional params', async () => {
     const response = await client.nks.clusters.availability.create({
       autoscaling: true,
+      kubernetes_version: 'v1.34.4',
       name: 'my-cluster',
       project_id: '123e4567-e89b-12d3-a456-426614174000',
       region: 'us-sva-2',
