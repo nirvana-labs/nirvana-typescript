@@ -72,6 +72,7 @@ export class Clusters extends APIResource {
    * ```ts
    * const operation = await client.nks.clusters.create({
    *   autoscaling: true,
+   *   kubernetes_version: 'v1.34.4',
    *   name: 'my-cluster',
    *   project_id: '123e4567-e89b-12d3-a456-426614174000',
    *   region: 'us-sva-2',
@@ -169,6 +170,11 @@ export interface NKSCluster {
   created_at: string;
 
   /**
+   * Kubernetes version of the Cluster.
+   */
+  kubernetes_version: string;
+
+  /**
    * Name of the Cluster.
    */
   name: string;
@@ -233,6 +239,11 @@ export interface ClusterCreateParams {
    * Whether to enable autoscaling for the Cluster.
    */
   autoscaling: boolean;
+
+  /**
+   * Kubernetes version for the Cluster.
+   */
+  kubernetes_version: string;
 
   /**
    * Name of the Cluster.
