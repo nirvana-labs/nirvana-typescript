@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.88.0 (2026-05-21)
+
+Full Changelog: [v1.87.1...v1.88.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.87.1...v1.88.0)
+
+### Features
+
+* **api:** add usage to APIPermissionResourceType in api-keys ([9e82d85](https://github.com/nirvana-labs/nirvana-typescript/commit/9e82d85c143e97ff6df9649cb8aa63be25b6cf0a))
+
 ## 1.87.1 (2026-05-20)
 
 Full Changelog: [v1.87.0...v1.87.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.87.0...v1.87.1)
