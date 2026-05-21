@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.89.0 (2026-05-21)
+
+Full Changelog: [v1.88.0...v1.89.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.88.0...v1.89.0)
+
+### Features
+
+* **api:** add kubernetes_version parameter and field to nks.clusters ([8c1fa04](https://github.com/nirvana-labs/nirvana-typescript/commit/8c1fa04f2a7297091f5f8e09b23d4c849bcbbb5c))
+
+
+### Chores
+
+* **internal:** regenerate SDK with no functional changes ([b8d17ba](https://github.com/nirvana-labs/nirvana-typescript/commit/b8d17ba74a7bf4c032dbbc62ca4d85aa4bd48c1b))
+
 ## 1.88.0 (2026-05-21)
 
 Full Changelog: [v1.87.1...v1.88.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.87.1...v1.88.0)

@@ -7,6 +7,13 @@ import * as AvailabilityAPI from './availability';
 import { Availability, AvailabilityCreateParams, AvailabilityUpdateParams } from './availability';
 import * as KubeconfigAPI from './kubeconfig';
 import { Kubeconfig, KubeconfigResource } from './kubeconfig';
+import * as KubernetesVersionsAPI from './kubernetes-versions';
+import {
+  KubernetesVersion,
+  KubernetesVersionListParams,
+  KubernetesVersions,
+  KubernetesVersionsCursor,
+} from './kubernetes-versions';
 import * as LoadBalancersAPI from './load-balancers';
 import {
   LoadBalancerGetParams,
@@ -58,6 +65,9 @@ import { path } from '../../../internal/utils/path';
 
 export class Clusters extends APIResource {
   availability: AvailabilityAPI.Availability = new AvailabilityAPI.Availability(this._client);
+  kubernetesVersions: KubernetesVersionsAPI.KubernetesVersions = new KubernetesVersionsAPI.KubernetesVersions(
+    this._client,
+  );
   persistentVolumeClaims: PersistentVolumeClaimsAPI.PersistentVolumeClaims =
     new PersistentVolumeClaimsAPI.PersistentVolumeClaims(this._client);
   kubeconfig: KubeconfigAPI.KubeconfigResource = new KubeconfigAPI.KubeconfigResource(this._client);
@@ -72,6 +82,7 @@ export class Clusters extends APIResource {
    * ```ts
    * const operation = await client.nks.clusters.create({
    *   autoscaling: true,
+   *   kubernetes_version: 'v1.34.4',
    *   name: 'my-cluster',
    *   project_id: '123e4567-e89b-12d3-a456-426614174000',
    *   region: 'us-sva-2',
@@ -169,6 +180,11 @@ export interface NKSCluster {
   created_at: string;
 
   /**
+   * Kubernetes version of the Cluster.
+   */
+  kubernetes_version: string;
+
+  /**
    * Name of the Cluster.
    */
   name: string;
@@ -235,6 +251,11 @@ export interface ClusterCreateParams {
   autoscaling: boolean;
 
   /**
+   * Kubernetes version for the Cluster.
+   */
+  kubernetes_version: string;
+
+  /**
    * Name of the Cluster.
    */
   name: string;
@@ -285,6 +306,7 @@ export interface ClusterListParams extends CursorParams {
 }
 
 Clusters.Availability = Availability;
+Clusters.KubernetesVersions = KubernetesVersions;
 Clusters.PersistentVolumeClaims = PersistentVolumeClaims;
 Clusters.KubeconfigResource = KubeconfigResource;
 Clusters.Controllers = Controllers;
@@ -305,6 +327,13 @@ export declare namespace Clusters {
     Availability as Availability,
     type AvailabilityCreateParams as AvailabilityCreateParams,
     type AvailabilityUpdateParams as AvailabilityUpdateParams,
+  };
+
+  export {
+    KubernetesVersions as KubernetesVersions,
+    type KubernetesVersion as KubernetesVersion,
+    type KubernetesVersionsCursor as KubernetesVersionsCursor,
+    type KubernetesVersionListParams as KubernetesVersionListParams,
   };
 
   export {

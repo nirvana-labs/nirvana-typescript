@@ -20,6 +20,12 @@ export {
 } from './controllers/index';
 export { KubeconfigResource, type Kubeconfig } from './kubeconfig';
 export {
+  KubernetesVersions,
+  type KubernetesVersion,
+  type KubernetesVersionListParams,
+  type KubernetesVersionsCursor,
+} from './kubernetes-versions';
+export {
   LoadBalancers,
   type NKSLoadBalancer,
   type NKSLoadBalancerList,
