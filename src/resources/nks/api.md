@@ -22,6 +22,16 @@ Methods:
 - <code title="post /v1/nks/clusters/availability">client.nks.clusters.availability.<a href="./src/resources/nks/clusters/availability.ts">create</a>({ ...params }) -> void</code>
 - <code title="patch /v1/nks/clusters/{cluster_id}/availability">client.nks.clusters.availability.<a href="./src/resources/nks/clusters/availability.ts">update</a>(clusterID, { ...params }) -> void</code>
 
+### KubernetesVersions
+
+Types:
+
+- <code><a href="./src/resources/nks/clusters/kubernetes-versions.ts">KubernetesVersion</a></code>
+
+Methods:
+
+- <code title="get /v1/nks/kubernetes_versions">client.nks.clusters.kubernetesVersions.<a href="./src/resources/nks/clusters/kubernetes-versions.ts">list</a>({ ...params }) -> KubernetesVersionsCursor</code>
+
 ### PersistentVolumeClaims
 
 Types:

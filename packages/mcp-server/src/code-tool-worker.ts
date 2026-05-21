@@ -193,6 +193,7 @@ const fuse = new Fuse(
     'client.nks.clusters.update',
     'client.nks.clusters.availability.create',
     'client.nks.clusters.availability.update',
+    'client.nks.clusters.kubernetesVersions.list',
     'client.nks.clusters.persistentVolumeClaims.get',
     'client.nks.clusters.persistentVolumeClaims.list',
     'client.nks.clusters.kubeconfig.get',

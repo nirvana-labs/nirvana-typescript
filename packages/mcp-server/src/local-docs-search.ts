@@ -3069,6 +3069,39 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     },
   },
   {
+    name: 'list',
+    endpoint: '/v1/nks/kubernetes_versions',
+    httpMethod: 'get',
+    summary: 'List NKS Kubernetes Versions',
+    description: 'List all supported Kubernetes versions for NKS clusters',
+    stainlessPath: '(resource) nks.clusters.kubernetes_versions > (method) list',
+    qualified: 'client.nks.clusters.kubernetesVersions.list',
+    params: ['cursor?: string;', 'limit?: number;'],
+    response: '{ created_at: string; display_name: string; name: string; }',
+    markdown:
+      "## list\n\n`client.nks.clusters.kubernetesVersions.list(cursor?: string, limit?: number): { created_at: string; display_name: string; name: string; }`\n\n**get** `/v1/nks/kubernetes_versions`\n\nList all supported Kubernetes versions for NKS clusters\n\n### Parameters\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ created_at: string; display_name: string; name: string; }`\n  NKS Kubernetes version details.\n\n  - `created_at: string`\n  - `display_name: string`\n  - `name: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const kubernetesVersion of client.nks.clusters.kubernetesVersions.list()) {\n  console.log(kubernetesVersion);\n}\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.nks.clusters.kubernetesVersions.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const kubernetesVersion of client.nks.clusters.kubernetesVersions.list()) {\n  console.log(kubernetesVersion.created_at);\n}",
+      },
+      go: {
+        method: 'client.NKS.Clusters.KubernetesVersions.List',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.NKS.Clusters.KubernetesVersions.List(context.TODO(), nks.ClusterKubernetesVersionListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
+      },
+      cli: {
+        method: 'kubernetes_versions list',
+        example: "nirvana nks:clusters:kubernetes-versions list \\\n  --api-key 'My API Key'",
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/nks/kubernetes_versions \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY"',
+      },
+    },
+  },
+  {
     name: 'get',
     endpoint: '/v1/nks/clusters/{cluster_id}/persistent_volume_claims/{persistent_volume_claim_id}',
     httpMethod: 'get',

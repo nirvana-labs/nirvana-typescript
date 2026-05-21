@@ -7,6 +7,13 @@ import * as AvailabilityAPI from './availability';
 import { Availability, AvailabilityCreateParams, AvailabilityUpdateParams } from './availability';
 import * as KubeconfigAPI from './kubeconfig';
 import { Kubeconfig, KubeconfigResource } from './kubeconfig';
+import * as KubernetesVersionsAPI from './kubernetes-versions';
+import {
+  KubernetesVersion,
+  KubernetesVersionListParams,
+  KubernetesVersions,
+  KubernetesVersionsCursor,
+} from './kubernetes-versions';
 import * as LoadBalancersAPI from './load-balancers';
 import {
   LoadBalancerGetParams,
@@ -58,6 +65,9 @@ import { path } from '../../../internal/utils/path';
 
 export class Clusters extends APIResource {
   availability: AvailabilityAPI.Availability = new AvailabilityAPI.Availability(this._client);
+  kubernetesVersions: KubernetesVersionsAPI.KubernetesVersions = new KubernetesVersionsAPI.KubernetesVersions(
+    this._client,
+  );
   persistentVolumeClaims: PersistentVolumeClaimsAPI.PersistentVolumeClaims =
     new PersistentVolumeClaimsAPI.PersistentVolumeClaims(this._client);
   kubeconfig: KubeconfigAPI.KubeconfigResource = new KubeconfigAPI.KubeconfigResource(this._client);
@@ -296,6 +306,7 @@ export interface ClusterListParams extends CursorParams {
 }
 
 Clusters.Availability = Availability;
+Clusters.KubernetesVersions = KubernetesVersions;
 Clusters.PersistentVolumeClaims = PersistentVolumeClaims;
 Clusters.KubeconfigResource = KubeconfigResource;
 Clusters.Controllers = Controllers;
@@ -316,6 +327,13 @@ export declare namespace Clusters {
     Availability as Availability,
     type AvailabilityCreateParams as AvailabilityCreateParams,
     type AvailabilityUpdateParams as AvailabilityUpdateParams,
+  };
+
+  export {
+    KubernetesVersions as KubernetesVersions,
+    type KubernetesVersion as KubernetesVersion,
+    type KubernetesVersionsCursor as KubernetesVersionsCursor,
+    type KubernetesVersionListParams as KubernetesVersionListParams,
   };
 
   export {

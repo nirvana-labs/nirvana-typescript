@@ -521,6 +521,12 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/nks/clusters/{cluster_id}/availability',
   },
   {
+    clientCallName: 'client.nks.clusters.kubernetesVersions.list',
+    fullyQualifiedName: 'nks.clusters.kubernetesVersions.list',
+    httpMethod: 'get',
+    httpPath: '/v1/nks/kubernetes_versions',
+  },
+  {
     clientCallName: 'client.nks.clusters.persistentVolumeClaims.list',
     fullyQualifiedName: 'nks.clusters.persistentVolumeClaims.list',
     httpMethod: 'get',
