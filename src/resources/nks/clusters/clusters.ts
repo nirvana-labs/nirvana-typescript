@@ -9,10 +9,10 @@ import * as KubeconfigAPI from './kubeconfig';
 import { Kubeconfig, KubeconfigResource } from './kubeconfig';
 import * as KubernetesVersionsAPI from './kubernetes-versions';
 import {
-  KubernetesVersion,
   KubernetesVersionListParams,
+  KubernetesVersionListResponse,
+  KubernetesVersionListResponsesCursor,
   KubernetesVersions,
-  KubernetesVersionsCursor,
 } from './kubernetes-versions';
 import * as LoadBalancersAPI from './load-balancers';
 import {
@@ -331,8 +331,8 @@ export declare namespace Clusters {
 
   export {
     KubernetesVersions as KubernetesVersions,
-    type KubernetesVersion as KubernetesVersion,
-    type KubernetesVersionsCursor as KubernetesVersionsCursor,
+    type KubernetesVersionListResponse as KubernetesVersionListResponse,
+    type KubernetesVersionListResponsesCursor as KubernetesVersionListResponsesCursor,
     type KubernetesVersionListParams as KubernetesVersionListParams,
   };
 
