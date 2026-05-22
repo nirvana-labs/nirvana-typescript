@@ -26,11 +26,11 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/nks/clusters/kubernetes-versions.ts">KubernetesVersion</a></code>
+- <code><a href="./src/resources/nks/clusters/kubernetes-versions.ts">KubernetesVersionListResponse</a></code>
 
 Methods:
 
-- <code title="get /v1/nks/kubernetes_versions">client.nks.clusters.kubernetesVersions.<a href="./src/resources/nks/clusters/kubernetes-versions.ts">list</a>({ ...params }) -> KubernetesVersionsCursor</code>
+- <code title="get /v1/nks/kubernetes_versions">client.nks.clusters.kubernetesVersions.<a href="./src/resources/nks/clusters/kubernetes-versions.ts">list</a>({ ...params }) -> KubernetesVersionListResponsesCursor</code>
 
 ### PersistentVolumeClaims
 
