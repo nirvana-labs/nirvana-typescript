@@ -21,9 +21,9 @@ export {
 export { KubeconfigResource, type Kubeconfig } from './kubeconfig';
 export {
   KubernetesVersions,
-  type KubernetesVersionListResponse,
+  type KubernetesVersion,
   type KubernetesVersionListParams,
-  type KubernetesVersionListResponsesCursor,
+  type KubernetesVersionsCursor,
 } from './kubernetes-versions';
 export {
   LoadBalancers,

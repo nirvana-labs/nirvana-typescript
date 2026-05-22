@@ -11,7 +11,7 @@ export class KubernetesVersions extends APIResource {
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const kubernetesVersionListResponse of client.nks.clusters.kubernetesVersions.list()) {
+   * for await (const kubernetesVersion of client.nks.clusters.kubernetesVersions.list()) {
    *   // ...
    * }
    * ```
@@ -19,20 +19,20 @@ export class KubernetesVersions extends APIResource {
   list(
     query: KubernetesVersionListParams | null | undefined = {},
     options?: RequestOptions,
-  ): PagePromise<KubernetesVersionListResponsesCursor, KubernetesVersionListResponse> {
-    return this._client.getAPIList('/v1/nks/kubernetes_versions', Cursor<KubernetesVersionListResponse>, {
+  ): PagePromise<KubernetesVersionsCursor, KubernetesVersion> {
+    return this._client.getAPIList('/v1/nks/kubernetes_versions', Cursor<KubernetesVersion>, {
       query,
       ...options,
     });
   }
 }
 
-export type KubernetesVersionListResponsesCursor = Cursor<KubernetesVersionListResponse>;
+export type KubernetesVersionsCursor = Cursor<KubernetesVersion>;
 
 /**
  * NKS Kubernetes version details.
  */
-export interface KubernetesVersionListResponse {
+export interface KubernetesVersion {
   /**
    * When the Kubernetes version was created.
    */
@@ -53,8 +53,8 @@ export interface KubernetesVersionListParams extends CursorParams {}
 
 export declare namespace KubernetesVersions {
   export {
-    type KubernetesVersionListResponse as KubernetesVersionListResponse,
-    type KubernetesVersionListResponsesCursor as KubernetesVersionListResponsesCursor,
+    type KubernetesVersion as KubernetesVersion,
+    type KubernetesVersionsCursor as KubernetesVersionsCursor,
     type KubernetesVersionListParams as KubernetesVersionListParams,
   };
 }
