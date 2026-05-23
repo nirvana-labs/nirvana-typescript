@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../core/resource';
-import { Cursor, type CursorParams, PagePromise } from '../../../core/pagination';
-import { RequestOptions } from '../../../internal/request-options';
+import { APIResource } from '../../core/resource';
+import { Cursor, type CursorParams, PagePromise } from '../../core/pagination';
+import { RequestOptions } from '../../internal/request-options';
 
 export class KubernetesVersions extends APIResource {
   /**
@@ -11,7 +11,7 @@ export class KubernetesVersions extends APIResource {
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const kubernetesVersion of client.nks.clusters.kubernetesVersions.list()) {
+   * for await (const kubernetesVersion of client.nks.kubernetesVersions.list()) {
    *   // ...
    * }
    * ```

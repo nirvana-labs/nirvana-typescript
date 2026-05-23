@@ -9,4 +9,10 @@ export {
   type ClusterListParams,
   type NKSClustersCursor,
 } from './clusters/index';
+export {
+  KubernetesVersions,
+  type KubernetesVersion,
+  type KubernetesVersionListParams,
+  type KubernetesVersionsCursor,
+} from './kubernetes-versions';
 export { NKS } from './nks';

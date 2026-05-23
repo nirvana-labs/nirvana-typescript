@@ -479,6 +479,12 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/rpc_nodes/dedicated/blockchains',
   },
   {
+    clientCallName: 'client.nks.kubernetesVersions.list',
+    fullyQualifiedName: 'nks.kubernetesVersions.list',
+    httpMethod: 'get',
+    httpPath: '/v1/nks/kubernetes_versions',
+  },
+  {
     clientCallName: 'client.nks.clusters.create',
     fullyQualifiedName: 'nks.clusters.create',
     httpMethod: 'post',
@@ -519,12 +525,6 @@ export const sdkMethods: SdkMethod[] = [
     fullyQualifiedName: 'nks.clusters.availability.update',
     httpMethod: 'patch',
     httpPath: '/v1/nks/clusters/{cluster_id}/availability',
-  },
-  {
-    clientCallName: 'client.nks.clusters.kubernetesVersions.list',
-    fullyQualifiedName: 'nks.clusters.kubernetesVersions.list',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/kubernetes_versions',
   },
   {
     clientCallName: 'client.nks.clusters.persistentVolumeClaims.list',
