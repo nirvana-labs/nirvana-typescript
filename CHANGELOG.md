@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.90.1 (2026-05-27)
+
+Full Changelog: [v1.90.0...v1.90.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.90.0...v1.90.1)
+
+### Chores
+
+* **nirvana-api:** add Billing IDs to Organization ([f40c89e](https://github.com/nirvana-labs/nirvana-typescript/commit/f40c89e46804354c22eba8669516e3500be38f2f))
+
 ## 1.90.0 (2026-05-23)
 
 Full Changelog: [v1.89.0...v1.90.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.89.0...v1.90.0)

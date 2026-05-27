@@ -122,6 +122,11 @@ export interface Organization {
   domains: Array<OrganizationDomain>;
 
   /**
+   * Metronome customer ID.
+   */
+  metronome_customer_id: string | null;
+
+  /**
    * Organization name.
    */
   name: string;
@@ -135,6 +140,11 @@ export interface Organization {
    * Services that the Organization has access to.
    */
   services: OrganizationServices;
+
+  /**
+   * Stripe customer ID.
+   */
+  stripe_customer_id: string | null;
 
   /**
    * Organization type.
