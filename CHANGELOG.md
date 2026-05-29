@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.91.0 (2026-05-29)
+
+Full Changelog: [v1.90.1...v1.91.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.90.1...v1.91.0)
+
+### Features
+
+* **api:** add billing_email parameter and response field to organizations ([7fd6562](https://github.com/nirvana-labs/nirvana-typescript/commit/7fd65621bdfb6da37d153efdfbf8754fbb397fc2))
+
+
+### Chores
+
+* **nirvana-api:** update OpenAPI spec ([49feef6](https://github.com/nirvana-labs/nirvana-typescript/commit/49feef6ff7cc332ea7675bc9bab50ab547d3f416))
+
 ## 1.90.1 (2026-05-27)
 
 Full Changelog: [v1.90.0...v1.90.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.90.0...v1.90.1)
