@@ -112,7 +112,7 @@ export interface Organization {
   id: string;
 
   /**
-   * Billing email. Null when no custom billing email is set (Stripe uses the oldest
+   * Billing email. Null when no custom billing email is set (reverts to the oldest
    * owner's email).
    */
   billing_email: string | null;
