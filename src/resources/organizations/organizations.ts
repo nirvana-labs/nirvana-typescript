@@ -112,6 +112,12 @@ export interface Organization {
   id: string;
 
   /**
+   * Billing email. Null when no custom billing email is set (Stripe uses the oldest
+   * owner's email).
+   */
+  billing_email: string | null;
+
+  /**
    * When the Organization was created.
    */
   created_at: string;
@@ -231,9 +237,20 @@ export interface OrganizationCreateParams {
    * Organization name.
    */
   name: string;
+
+  /**
+   * Optional billing email. When omitted, the oldest owner's email is used.
+   */
+  billing_email?: string;
 }
 
 export interface OrganizationUpdateParams {
+  /**
+   * Billing email. Omit to leave unchanged, send null to clear (reverts to the
+   * oldest owner's email), or send a value to set it.
+   */
+  billing_email?: string | null;
+
   /**
    * Organization name.
    */
