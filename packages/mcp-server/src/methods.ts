@@ -113,6 +113,24 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/organizations/{organization_id}/memberships/{membership_id}',
   },
   {
+    clientCallName: 'client.organizations.address.create',
+    fullyQualifiedName: 'organizations.address.create',
+    httpMethod: 'post',
+    httpPath: '/v1/organizations/{organization_id}/address',
+  },
+  {
+    clientCallName: 'client.organizations.address.update',
+    fullyQualifiedName: 'organizations.address.update',
+    httpMethod: 'patch',
+    httpPath: '/v1/organizations/{organization_id}/address',
+  },
+  {
+    clientCallName: 'client.organizations.address.get',
+    fullyQualifiedName: 'organizations.address.get',
+    httpMethod: 'get',
+    httpPath: '/v1/organizations/{organization_id}/address',
+  },
+  {
     clientCallName: 'client.quotas.list',
     fullyQualifiedName: 'quotas.list',
     httpMethod: 'get',

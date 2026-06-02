@@ -2,6 +2,8 @@
 
 import { APIResource } from '../../core/resource';
 import * as Shared from '../shared';
+import * as AddressAPI from './address';
+import { Address, AddressCreateParams, AddressUpdateParams, OrganizationAddress } from './address';
 import * as MembershipsAPI from './memberships';
 import {
   MembershipGetParams,
@@ -19,6 +21,7 @@ import { path } from '../../internal/utils/path';
 
 export class Organizations extends APIResource {
   memberships: MembershipsAPI.Memberships = new MembershipsAPI.Memberships(this._client);
+  address: AddressAPI.Address = new AddressAPI.Address(this._client);
 
   /**
    * Create a new organization
@@ -260,6 +263,7 @@ export interface OrganizationUpdateParams {
 export interface OrganizationListParams extends CursorParams {}
 
 Organizations.Memberships = Memberships;
+Organizations.Address = Address;
 
 export declare namespace Organizations {
   export {
@@ -281,5 +285,12 @@ export declare namespace Organizations {
     type OrganizationMembershipsCursor as OrganizationMembershipsCursor,
     type MembershipListParams as MembershipListParams,
     type MembershipGetParams as MembershipGetParams,
+  };
+
+  export {
+    Address as Address,
+    type OrganizationAddress as OrganizationAddress,
+    type AddressCreateParams as AddressCreateParams,
+    type AddressUpdateParams as AddressUpdateParams,
   };
 }
