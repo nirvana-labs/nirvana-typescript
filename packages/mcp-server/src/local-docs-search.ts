@@ -643,6 +643,131 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     },
   },
   {
+    name: 'create',
+    endpoint: '/v1/organizations/{organization_id}/address',
+    httpMethod: 'post',
+    summary: 'Create Organization Address',
+    description: 'Create the address for an organization',
+    stainlessPath: '(resource) organizations.address > (method) create',
+    qualified: 'client.organizations.address.create',
+    params: [
+      'organization_id: string;',
+      'city: string;',
+      'country: string;',
+      'line1: string;',
+      'postal_code: string;',
+      'line2?: string;',
+      'state?: string;',
+      'tax_id?: string;',
+      'tax_id_type?: string;',
+    ],
+    response:
+      '{ id: string; city: string; country: string; created_at: string; line1: string; line2: string; organization_id: string; postal_code: string; state: string; tax_id: string; tax_id_type: string; updated_at: string; }',
+    markdown:
+      "## create\n\n`client.organizations.address.create(organization_id: string, city: string, country: string, line1: string, postal_code: string, line2?: string, state?: string, tax_id?: string, tax_id_type?: string): { id: string; city: string; country: string; created_at: string; line1: string; line2: string; organization_id: string; postal_code: string; state: string; tax_id: string; tax_id_type: string; updated_at: string; }`\n\n**post** `/v1/organizations/{organization_id}/address`\n\nCreate the address for an organization\n\n### Parameters\n\n- `organization_id: string`\n\n- `city: string`\n  City or locality.\n\n- `country: string`\n  Two-letter ISO 3166-1 alpha-2 country code.\n\n- `line1: string`\n  First line of the street address.\n\n- `postal_code: string`\n  Postal or ZIP code.\n\n- `line2?: string`\n  Second line of the street address (suite, unit, building).\n\n- `state?: string`\n  State, province, or region. Required by some tax jurisdictions (e.g. US, CA).\n\n- `tax_id?: string`\n  Tax identification number (e.g. VAT, EIN, ABN). Optional.\n\n- `tax_id_type?: string`\n  Type of the tax identification number (e.g. eu_vat, us_ein, gb_vat, au_abn). Optional.\n\n### Returns\n\n- `{ id: string; city: string; country: string; created_at: string; line1: string; line2: string; organization_id: string; postal_code: string; state: string; tax_id: string; tax_id_type: string; updated_at: string; }`\n  Organization address details.\n\n  - `id: string`\n  - `city: string`\n  - `country: string`\n  - `created_at: string`\n  - `line1: string`\n  - `line2: string`\n  - `organization_id: string`\n  - `postal_code: string`\n  - `state: string`\n  - `tax_id: string`\n  - `tax_id_type: string`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst organizationAddress = await client.organizations.address.create('organization_id', {\n  city: 'San Francisco',\n  country: 'US',\n  line1: '123 Main St',\n  postal_code: '94105',\n});\n\nconsole.log(organizationAddress);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.organizations.address.create',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst organizationAddress = await client.organizations.address.create('organization_id', {\n  city: 'San Francisco',\n  country: 'US',\n  line1: '123 Main St',\n  postal_code: '94105',\n});\n\nconsole.log(organizationAddress.id);",
+      },
+      go: {
+        method: 'client.Organizations.Address.New',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/organizations"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\torganizationAddress, err := client.Organizations.Address.New(\n\t\tcontext.TODO(),\n\t\t"organization_id",\n\t\torganizations.AddressNewParams{\n\t\t\tCity:       "San Francisco",\n\t\t\tCountry:    "US",\n\t\t\tLine1:      "123 Main St",\n\t\t\tPostalCode: "94105",\n\t\t},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", organizationAddress.ID)\n}\n',
+      },
+      cli: {
+        method: 'address create',
+        example:
+          "nirvana organizations:address create \\\n  --api-key 'My API Key' \\\n  --organization-id organization_id \\\n  --city 'San Francisco' \\\n  --country US \\\n  --line1 '123 Main St' \\\n  --postal-code 94105",
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/organizations/$ORGANIZATION_ID/address \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "city": "San Francisco",\n          "country": "US",\n          "line1": "123 Main St",\n          "postal_code": "94105",\n          "line2": "Suite 400",\n          "state": "CA",\n          "tax_id": "EU372000000",\n          "tax_id_type": "eu_vat"\n        }\'',
+      },
+    },
+  },
+  {
+    name: 'get',
+    endpoint: '/v1/organizations/{organization_id}/address',
+    httpMethod: 'get',
+    summary: 'Get Organization Address',
+    description: 'Get the address for an organization',
+    stainlessPath: '(resource) organizations.address > (method) get',
+    qualified: 'client.organizations.address.get',
+    params: ['organization_id: string;'],
+    response:
+      '{ id: string; city: string; country: string; created_at: string; line1: string; line2: string; organization_id: string; postal_code: string; state: string; tax_id: string; tax_id_type: string; updated_at: string; }',
+    markdown:
+      "## get\n\n`client.organizations.address.get(organization_id: string): { id: string; city: string; country: string; created_at: string; line1: string; line2: string; organization_id: string; postal_code: string; state: string; tax_id: string; tax_id_type: string; updated_at: string; }`\n\n**get** `/v1/organizations/{organization_id}/address`\n\nGet the address for an organization\n\n### Parameters\n\n- `organization_id: string`\n\n### Returns\n\n- `{ id: string; city: string; country: string; created_at: string; line1: string; line2: string; organization_id: string; postal_code: string; state: string; tax_id: string; tax_id_type: string; updated_at: string; }`\n  Organization address details.\n\n  - `id: string`\n  - `city: string`\n  - `country: string`\n  - `created_at: string`\n  - `line1: string`\n  - `line2: string`\n  - `organization_id: string`\n  - `postal_code: string`\n  - `state: string`\n  - `tax_id: string`\n  - `tax_id_type: string`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst organizationAddress = await client.organizations.address.get('organization_id');\n\nconsole.log(organizationAddress);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.organizations.address.get',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst organizationAddress = await client.organizations.address.get('organization_id');\n\nconsole.log(organizationAddress.id);",
+      },
+      go: {
+        method: 'client.Organizations.Address.Get',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\torganizationAddress, err := client.Organizations.Address.Get(context.TODO(), "organization_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", organizationAddress.ID)\n}\n',
+      },
+      cli: {
+        method: 'address get',
+        example:
+          "nirvana organizations:address get \\\n  --api-key 'My API Key' \\\n  --organization-id organization_id",
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/organizations/$ORGANIZATION_ID/address \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY"',
+      },
+    },
+  },
+  {
+    name: 'update',
+    endpoint: '/v1/organizations/{organization_id}/address',
+    httpMethod: 'patch',
+    summary: 'Update Organization Address',
+    description: 'Update the address for an organization',
+    stainlessPath: '(resource) organizations.address > (method) update',
+    qualified: 'client.organizations.address.update',
+    params: [
+      'organization_id: string;',
+      'city?: string;',
+      'country?: string;',
+      'line1?: string;',
+      'line2?: string;',
+      'postal_code?: string;',
+      'state?: string;',
+      'tax_id?: string;',
+      'tax_id_type?: string;',
+    ],
+    response:
+      '{ id: string; city: string; country: string; created_at: string; line1: string; line2: string; organization_id: string; postal_code: string; state: string; tax_id: string; tax_id_type: string; updated_at: string; }',
+    markdown:
+      "## update\n\n`client.organizations.address.update(organization_id: string, city?: string, country?: string, line1?: string, line2?: string, postal_code?: string, state?: string, tax_id?: string, tax_id_type?: string): { id: string; city: string; country: string; created_at: string; line1: string; line2: string; organization_id: string; postal_code: string; state: string; tax_id: string; tax_id_type: string; updated_at: string; }`\n\n**patch** `/v1/organizations/{organization_id}/address`\n\nUpdate the address for an organization\n\n### Parameters\n\n- `organization_id: string`\n\n- `city?: string`\n  City or locality.\n\n- `country?: string`\n  Two-letter ISO 3166-1 alpha-2 country code.\n\n- `line1?: string`\n  First line of the street address.\n\n- `line2?: string`\n  Second line of the street address (suite, unit, building). Omit to leave\nunchanged, send null to clear, or send a value to set it.\n\n- `postal_code?: string`\n  Postal or ZIP code.\n\n- `state?: string`\n  State, province, or region. Omit to leave unchanged, send null to clear,\nor send a value to set it.\n\n- `tax_id?: string`\n  Tax identification number (e.g. VAT, EIN, ABN). Omit to leave unchanged,\nsend null to clear, or send a value to set it.\n\n- `tax_id_type?: string`\n  Type of the tax identification number (e.g. eu_vat, us_ein, gb_vat, au_abn).\nOmit to leave unchanged, send null to clear, or send a value to set it.\n\n### Returns\n\n- `{ id: string; city: string; country: string; created_at: string; line1: string; line2: string; organization_id: string; postal_code: string; state: string; tax_id: string; tax_id_type: string; updated_at: string; }`\n  Organization address details.\n\n  - `id: string`\n  - `city: string`\n  - `country: string`\n  - `created_at: string`\n  - `line1: string`\n  - `line2: string`\n  - `organization_id: string`\n  - `postal_code: string`\n  - `state: string`\n  - `tax_id: string`\n  - `tax_id_type: string`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst organizationAddress = await client.organizations.address.update('organization_id');\n\nconsole.log(organizationAddress);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.organizations.address.update',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst organizationAddress = await client.organizations.address.update('organization_id');\n\nconsole.log(organizationAddress.id);",
+      },
+      go: {
+        method: 'client.Organizations.Address.Update',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/organizations"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\torganizationAddress, err := client.Organizations.Address.Update(\n\t\tcontext.TODO(),\n\t\t"organization_id",\n\t\torganizations.AddressUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", organizationAddress.ID)\n}\n',
+      },
+      cli: {
+        method: 'address update',
+        example:
+          "nirvana organizations:address update \\\n  --api-key 'My API Key' \\\n  --organization-id organization_id",
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/organizations/$ORGANIZATION_ID/address \\\n    -X PATCH \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "city": "San Francisco",\n          "country": "US",\n          "line1": "123 Main St",\n          "line2": "Suite 400",\n          "postal_code": "94105",\n          "state": "CA",\n          "tax_id": "EU372000000",\n          "tax_id_type": "eu_vat"\n        }\'',
+      },
+    },
+  },
+  {
     name: 'get',
     endpoint: '/v1/quotas/{region}',
     httpMethod: 'get',

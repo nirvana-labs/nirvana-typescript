@@ -27,3 +27,15 @@ Methods:
 
 - <code title="get /v1/organizations/{organization_id}/memberships">client.organizations.memberships.<a href="./src/resources/organizations/memberships.ts">list</a>(organizationID, { ...params }) -> OrganizationMembershipsCursor</code>
 - <code title="get /v1/organizations/{organization_id}/memberships/{membership_id}">client.organizations.memberships.<a href="./src/resources/organizations/memberships.ts">get</a>(membershipID, { ...params }) -> OrganizationMembership</code>
+
+## Address
+
+Types:
+
+- <code><a href="./src/resources/organizations/address.ts">OrganizationAddress</a></code>
+
+Methods:
+
+- <code title="post /v1/organizations/{organization_id}/address">client.organizations.address.<a href="./src/resources/organizations/address.ts">create</a>(organizationID, { ...params }) -> OrganizationAddress</code>
+- <code title="patch /v1/organizations/{organization_id}/address">client.organizations.address.<a href="./src/resources/organizations/address.ts">update</a>(organizationID, { ...params }) -> OrganizationAddress</code>
+- <code title="get /v1/organizations/{organization_id}/address">client.organizations.address.<a href="./src/resources/organizations/address.ts">get</a>(organizationID) -> OrganizationAddress</code>
