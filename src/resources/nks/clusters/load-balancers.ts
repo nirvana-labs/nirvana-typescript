@@ -10,6 +10,27 @@ import { path } from '../../../internal/utils/path';
 
 export class LoadBalancers extends APIResource {
   /**
+   * Get details about an NKS load balancer
+   *
+   * @example
+   * ```ts
+   * const nksLoadBalancer =
+   *   await client.nks.clusters.loadBalancers.get(
+   *     'load_balancer_id',
+   *     { cluster_id: 'cluster_id' },
+   *   );
+   * ```
+   */
+  get(
+    loadBalancerID: string,
+    params: LoadBalancerGetParams,
+    options?: RequestOptions,
+  ): APIPromise<NKSLoadBalancer> {
+    const { cluster_id } = params;
+    return this._client.get(path`/v1/nks/clusters/${cluster_id}/load_balancers/${loadBalancerID}`, options);
+  }
+
+  /**
    * Update an NKS load balancer
    *
    * @example
@@ -56,27 +77,6 @@ export class LoadBalancers extends APIResource {
       Cursor<NKSLoadBalancer>,
       { query, ...options },
     );
-  }
-
-  /**
-   * Get details about an NKS load balancer
-   *
-   * @example
-   * ```ts
-   * const nksLoadBalancer =
-   *   await client.nks.clusters.loadBalancers.get(
-   *     'load_balancer_id',
-   *     { cluster_id: 'cluster_id' },
-   *   );
-   * ```
-   */
-  get(
-    loadBalancerID: string,
-    params: LoadBalancerGetParams,
-    options?: RequestOptions,
-  ): APIPromise<NKSLoadBalancer> {
-    const { cluster_id } = params;
-    return this._client.get(path`/v1/nks/clusters/${cluster_id}/load_balancers/${loadBalancerID}`, options);
   }
 }
 
@@ -146,6 +146,13 @@ export interface NKSLoadBalancerList {
   pagination: Shared.Pagination;
 }
 
+export interface LoadBalancerGetParams {
+  /**
+   * Cluster ID
+   */
+  cluster_id: string;
+}
+
 export interface LoadBalancerUpdateParams {
   /**
    * Path param: Cluster ID
@@ -160,20 +167,13 @@ export interface LoadBalancerUpdateParams {
 
 export interface LoadBalancerListParams extends CursorParams {}
 
-export interface LoadBalancerGetParams {
-  /**
-   * Cluster ID
-   */
-  cluster_id: string;
-}
-
 export declare namespace LoadBalancers {
   export {
     type NKSLoadBalancer as NKSLoadBalancer,
     type NKSLoadBalancerList as NKSLoadBalancerList,
     type NKSLoadBalancersCursor as NKSLoadBalancersCursor,
+    type LoadBalancerGetParams as LoadBalancerGetParams,
     type LoadBalancerUpdateParams as LoadBalancerUpdateParams,
     type LoadBalancerListParams as LoadBalancerListParams,
-    type LoadBalancerGetParams as LoadBalancerGetParams,
   };
 }

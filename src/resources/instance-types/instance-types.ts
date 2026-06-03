@@ -9,6 +9,22 @@ import { path } from '../../internal/utils/path';
 
 export class InstanceTypes extends APIResource {
   /**
+   * Get an instance type by region and name
+   *
+   * @example
+   * ```ts
+   * const instanceType = await client.instanceTypes.get(
+   *   'n1-standard-8',
+   *   { region: 'us-sva-2' },
+   * );
+   * ```
+   */
+  get(name: string, params: InstanceTypeGetParams, options?: RequestOptions): APIPromise<InstanceType> {
+    const { region } = params;
+    return this._client.get(path`/v1/instance_types/${region}/${name}`, options);
+  }
+
+  /**
    * List instance types
    *
    * @example
@@ -24,22 +40,6 @@ export class InstanceTypes extends APIResource {
     options?: RequestOptions,
   ): PagePromise<InstanceTypesCursor, InstanceType> {
     return this._client.getAPIList('/v1/instance_types', Cursor<InstanceType>, { query, ...options });
-  }
-
-  /**
-   * Get an instance type by region and name
-   *
-   * @example
-   * ```ts
-   * const instanceType = await client.instanceTypes.get(
-   *   'n1-standard-8',
-   *   { region: 'us-sva-2' },
-   * );
-   * ```
-   */
-  get(name: string, params: InstanceTypeGetParams, options?: RequestOptions): APIPromise<InstanceType> {
-    const { region } = params;
-    return this._client.get(path`/v1/instance_types/${region}/${name}`, options);
   }
 }
 
@@ -91,8 +91,6 @@ export interface InstanceTypeList {
   pagination: Shared.Pagination;
 }
 
-export interface InstanceTypeListParams extends CursorParams {}
-
 export interface InstanceTypeGetParams {
   /**
    * Region name
@@ -100,12 +98,14 @@ export interface InstanceTypeGetParams {
   region: 'us-sva-2';
 }
 
+export interface InstanceTypeListParams extends CursorParams {}
+
 export declare namespace InstanceTypes {
   export {
     type InstanceType as InstanceType,
     type InstanceTypeList as InstanceTypeList,
     type InstanceTypesCursor as InstanceTypesCursor,
-    type InstanceTypeListParams as InstanceTypeListParams,
     type InstanceTypeGetParams as InstanceTypeGetParams,
+    type InstanceTypeListParams as InstanceTypeListParams,
   };
 }

@@ -20,6 +20,27 @@ export class Controllers extends APIResource {
   volumes: VolumesAPI.Volumes = new VolumesAPI.Volumes(this._client);
 
   /**
+   * Get details about an NKS controller
+   *
+   * @example
+   * ```ts
+   * const nksController =
+   *   await client.nks.clusters.controllers.get(
+   *     'controller_id',
+   *     { cluster_id: 'cluster_id' },
+   *   );
+   * ```
+   */
+  get(
+    controllerID: string,
+    params: ControllerGetParams,
+    options?: RequestOptions,
+  ): APIPromise<NKSController> {
+    const { cluster_id } = params;
+    return this._client.get(path`/v1/nks/clusters/${cluster_id}/controllers/${controllerID}`, options);
+  }
+
+  /**
    * List all controllers in an NKS cluster
    *
    * @example
@@ -41,27 +62,6 @@ export class Controllers extends APIResource {
       query,
       ...options,
     });
-  }
-
-  /**
-   * Get details about an NKS controller
-   *
-   * @example
-   * ```ts
-   * const nksController =
-   *   await client.nks.clusters.controllers.get(
-   *     'controller_id',
-   *     { cluster_id: 'cluster_id' },
-   *   );
-   * ```
-   */
-  get(
-    controllerID: string,
-    params: ControllerGetParams,
-    options?: RequestOptions,
-  ): APIPromise<NKSController> {
-    const { cluster_id } = params;
-    return this._client.get(path`/v1/nks/clusters/${cluster_id}/controllers/${controllerID}`, options);
   }
 }
 
@@ -116,14 +116,14 @@ export interface NKSControllerList {
   pagination: Shared.Pagination;
 }
 
-export interface ControllerListParams extends CursorParams {}
-
 export interface ControllerGetParams {
   /**
    * Cluster ID
    */
   cluster_id: string;
 }
+
+export interface ControllerListParams extends CursorParams {}
 
 Controllers.Volumes = Volumes;
 
@@ -132,8 +132,8 @@ export declare namespace Controllers {
     type NKSController as NKSController,
     type NKSControllerList as NKSControllerList,
     type NKSControllersCursor as NKSControllersCursor,
-    type ControllerListParams as ControllerListParams,
     type ControllerGetParams as ControllerGetParams,
+    type ControllerListParams as ControllerListParams,
   };
 
   export {
@@ -141,7 +141,7 @@ export declare namespace Controllers {
     type NKSControllerVolume as NKSControllerVolume,
     type NKSControllerVolumeList as NKSControllerVolumeList,
     type NKSControllerVolumesCursor as NKSControllerVolumesCursor,
-    type VolumeListParams as VolumeListParams,
     type VolumeGetParams as VolumeGetParams,
+    type VolumeListParams as VolumeListParams,
   };
 }

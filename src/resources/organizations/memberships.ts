@@ -9,6 +9,27 @@ import { path } from '../../internal/utils/path';
 
 export class Memberships extends APIResource {
   /**
+   * Get details about an organization membership
+   *
+   * @example
+   * ```ts
+   * const organizationMembership =
+   *   await client.organizations.memberships.get(
+   *     'membership_id',
+   *     { organization_id: 'organization_id' },
+   *   );
+   * ```
+   */
+  get(
+    membershipID: string,
+    params: MembershipGetParams,
+    options?: RequestOptions,
+  ): APIPromise<OrganizationMembership> {
+    const { organization_id } = params;
+    return this._client.get(path`/v1/organizations/${organization_id}/memberships/${membershipID}`, options);
+  }
+
+  /**
    * List all memberships for an organization
    *
    * @example
@@ -31,27 +52,6 @@ export class Memberships extends APIResource {
       Cursor<OrganizationMembership>,
       { query, ...options },
     );
-  }
-
-  /**
-   * Get details about an organization membership
-   *
-   * @example
-   * ```ts
-   * const organizationMembership =
-   *   await client.organizations.memberships.get(
-   *     'membership_id',
-   *     { organization_id: 'organization_id' },
-   *   );
-   * ```
-   */
-  get(
-    membershipID: string,
-    params: MembershipGetParams,
-    options?: RequestOptions,
-  ): APIPromise<OrganizationMembership> {
-    const { organization_id } = params;
-    return this._client.get(path`/v1/organizations/${organization_id}/memberships/${membershipID}`, options);
   }
 }
 
@@ -101,8 +101,6 @@ export interface OrganizationMembershipList {
   pagination: Shared.Pagination;
 }
 
-export interface MembershipListParams extends CursorParams {}
-
 export interface MembershipGetParams {
   /**
    * Organization ID
@@ -110,12 +108,14 @@ export interface MembershipGetParams {
   organization_id: string;
 }
 
+export interface MembershipListParams extends CursorParams {}
+
 export declare namespace Memberships {
   export {
     type OrganizationMembership as OrganizationMembership,
     type OrganizationMembershipList as OrganizationMembershipList,
     type OrganizationMembershipsCursor as OrganizationMembershipsCursor,
-    type MembershipListParams as MembershipListParams,
     type MembershipGetParams as MembershipGetParams,
+    type MembershipListParams as MembershipListParams,
   };
 }

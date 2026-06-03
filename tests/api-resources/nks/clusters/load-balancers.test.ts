@@ -9,6 +9,27 @@ const client = new NirvanaLabs({
 
 describe('resource loadBalancers', () => {
   // Mock server tests are disabled
+  test.skip('get: only required params', async () => {
+    const responsePromise = client.nks.clusters.loadBalancers.get('load_balancer_id', {
+      cluster_id: 'cluster_id',
+    });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Mock server tests are disabled
+  test.skip('get: required and optional params', async () => {
+    const response = await client.nks.clusters.loadBalancers.get('load_balancer_id', {
+      cluster_id: 'cluster_id',
+    });
+  });
+
+  // Mock server tests are disabled
   test.skip('update: only required params', async () => {
     const responsePromise = client.nks.clusters.loadBalancers.update('load_balancer_id', {
       cluster_id: 'cluster_id',
@@ -53,26 +74,5 @@ describe('resource loadBalancers', () => {
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
-  });
-
-  // Mock server tests are disabled
-  test.skip('get: only required params', async () => {
-    const responsePromise = client.nks.clusters.loadBalancers.get('load_balancer_id', {
-      cluster_id: 'cluster_id',
-    });
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // Mock server tests are disabled
-  test.skip('get: required and optional params', async () => {
-    const response = await client.nks.clusters.loadBalancers.get('load_balancer_id', {
-      cluster_id: 'cluster_id',
-    });
   });
 });

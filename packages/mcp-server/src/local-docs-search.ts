@@ -62,19 +62,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.user.get(): { id: string; email: string; first_name: string; last_name: string; }`\n\n**get** `/v1/user`\n\nGet details about an authenticated user\n\n### Returns\n\n- `{ id: string; email: string; first_name: string; last_name: string; }`\n  User details.\n\n  - `id: string`\n  - `email: string`\n  - `first_name: string`\n  - `last_name: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst user = await client.user.get();\n\nconsole.log(user);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.user.get',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst user = await client.user.get();\n\nconsole.log(user.id);",
+      cli: {
+        method: 'user get',
+        example: "nirvana user get \\\n  --api-key 'My API Key'",
       },
       go: {
         method: 'client.User.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tuser, err := client.User.Get(context.TODO())\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", user.ID)\n}\n',
       },
-      cli: {
-        method: 'user get',
-        example: "nirvana user get \\\n  --api-key 'My API Key'",
+      typescript: {
+        method: 'client.user.get',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst user = await client.user.get();\n\nconsole.log(user.id);",
       },
       http: {
         example:
@@ -95,19 +95,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.user.security.get(): { source_ip_rule: source_ip_rule_response; created_at?: string; updated_at?: string; }`\n\n**get** `/v1/user/security`\n\nGet the current user's security settings\n\n### Returns\n\n- `{ source_ip_rule: { allowed: string[]; blocked: string[]; }; created_at?: string; updated_at?: string; }`\n  User security settings response.\n\n  - `source_ip_rule: { allowed: string[]; blocked: string[]; }`\n  - `created_at?: string`\n  - `updated_at?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst userSecurity = await client.user.security.get();\n\nconsole.log(userSecurity);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.user.security.get',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst userSecurity = await client.user.security.get();\n\nconsole.log(userSecurity.source_ip_rule);",
+      cli: {
+        method: 'security get',
+        example: "nirvana user:security get \\\n  --api-key 'My API Key'",
       },
       go: {
         method: 'client.User.Security.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tuserSecurity, err := client.User.Security.Get(context.TODO())\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", userSecurity.SourceIPRule)\n}\n',
       },
-      cli: {
-        method: 'security get',
-        example: "nirvana user:security get \\\n  --api-key 'My API Key'",
+      typescript: {
+        method: 'client.user.security.get',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst userSecurity = await client.user.security.get();\n\nconsole.log(userSecurity.source_ip_rule);",
       },
       http: {
         example:
@@ -129,19 +129,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.user.security.update(source_ip_rule?: { allowed?: string[]; blocked?: string[]; }): { source_ip_rule: source_ip_rule_response; created_at?: string; updated_at?: string; }`\n\n**patch** `/v1/user/security`\n\nUpdate the current user's security settings\n\n### Parameters\n\n- `source_ip_rule?: { allowed?: string[]; blocked?: string[]; }`\n  IP filter rules.\n  - `allowed?: string[]`\n    List of IPv4 CIDR addresses to allow.\n  - `blocked?: string[]`\n    List of IPv4 CIDR addresses to deny.\n\n### Returns\n\n- `{ source_ip_rule: { allowed: string[]; blocked: string[]; }; created_at?: string; updated_at?: string; }`\n  User security settings response.\n\n  - `source_ip_rule: { allowed: string[]; blocked: string[]; }`\n  - `created_at?: string`\n  - `updated_at?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst userSecurity = await client.user.security.update();\n\nconsole.log(userSecurity);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.user.security.update',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst userSecurity = await client.user.security.update();\n\nconsole.log(userSecurity.source_ip_rule);",
+      cli: {
+        method: 'security update',
+        example: "nirvana user:security update \\\n  --api-key 'My API Key'",
       },
       go: {
         method: 'client.User.Security.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/user"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tuserSecurity, err := client.User.Security.Update(context.TODO(), user.SecurityUpdateParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", userSecurity.SourceIPRule)\n}\n',
       },
-      cli: {
-        method: 'security update',
-        example: "nirvana user:security update \\\n  --api-key 'My API Key'",
+      typescript: {
+        method: 'client.user.security.update',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst userSecurity = await client.user.security.update();\n\nconsole.log(userSecurity.source_ip_rule);",
       },
       http: {
         example:
@@ -171,20 +171,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.apiKeys.create(expires_at: string, name: string, permissions: { permission: 'read' | 'edit'; resource_type: string; }[], project_ids: string[], source_ip_rule?: { allowed?: string[]; blocked?: string[]; }, starts_at?: string, tags?: string[]): { id: string; created_at: string; expires_at: string; managed: boolean; name: string; permissions: api_key_permission[]; project_ids: string[]; source_ip_rule: source_ip_rule_response; status: 'active' | 'inactive' | 'expired'; tags: string[]; updated_at: string; key?: string; starts_at?: string; }`\n\n**post** `/v1/api_keys`\n\nCreate a new API key\n\n### Parameters\n\n- `expires_at: string`\n  When the API Key expires and is no longer valid.\n\n- `name: string`\n  API Key name.\n\n- `permissions: { permission: 'read' | 'edit'; resource_type: string; }[]`\n  Scoped permissions for this API key. At least one is required.\n\n- `project_ids: string[]`\n  Project IDs this API key is scoped to. At least one is required.\n\n- `source_ip_rule?: { allowed?: string[]; blocked?: string[]; }`\n  IP filter rules.\n  - `allowed?: string[]`\n    List of IPv4 CIDR addresses to allow.\n  - `blocked?: string[]`\n    List of IPv4 CIDR addresses to deny.\n\n- `starts_at?: string`\n  When the API Key starts to be valid.\n\n- `tags?: string[]`\n  Tags to attach to the API Key.\n\n### Returns\n\n- `{ id: string; created_at: string; expires_at: string; managed: boolean; name: string; permissions: { permission: api_permission_level; resource_type: api_permission_resource_type; }[]; project_ids: string[]; source_ip_rule: { allowed: string[]; blocked: string[]; }; status: 'active' | 'inactive' | 'expired'; tags: string[]; updated_at: string; key?: string; starts_at?: string; }`\n  API Key response.\n\n  - `id: string`\n  - `created_at: string`\n  - `expires_at: string`\n  - `managed: boolean`\n  - `name: string`\n  - `permissions: { permission: 'read' | 'edit'; resource_type: string; }[]`\n  - `project_ids: string[]`\n  - `source_ip_rule: { allowed: string[]; blocked: string[]; }`\n  - `status: 'active' | 'inactive' | 'expired'`\n  - `tags: string[]`\n  - `updated_at: string`\n  - `key?: string`\n  - `starts_at?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst apiKey = await client.apiKeys.create({\n  expires_at: '2025-12-31T23:59:59Z',\n  name: 'My API Key',\n  permissions: [{ permission: 'edit', resource_type: 'vm' }],\n  project_ids: ['123e4567-e89b-12d3-a456-426614174000', '123e4567-e89b-12d3-a456-426614174001'],\n});\n\nconsole.log(apiKey);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.apiKeys.create',
+      cli: {
+        method: 'api_keys create',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst apiKey = await client.apiKeys.create({\n  expires_at: '2025-12-31T23:59:59Z',\n  name: 'My API Key',\n  permissions: [{ permission: 'edit', resource_type: 'vm' }],\n  project_ids: ['123e4567-e89b-12d3-a456-426614174000', '123e4567-e89b-12d3-a456-426614174001'],\n});\n\nconsole.log(apiKey.id);",
+          "nirvana api-keys create \\\n  --api-key 'My API Key' \\\n  --expires-at \"'2025-12-31T23:59:59Z'\" \\\n  --name 'My API Key' \\\n  --permission '{permission: edit, resource_type: vm}' \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --project-id 123e4567-e89b-12d3-a456-426614174001",
       },
       go: {
         method: 'client.APIKeys.New',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\t"time"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/api_keys"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tapiKey, err := client.APIKeys.New(context.TODO(), api_keys.APIKeyNewParams{\n\t\tExpiresAt: time.Now(),\n\t\tName:      "My API Key",\n\t\tPermissions: []api_keys.APIKeyNewParamsPermission{{\n\t\t\tPermission:   api_keys.APIPermissionLevelEdit,\n\t\t\tResourceType: api_keys.APIPermissionResourceTypeVM,\n\t\t}},\n\t\tProjectIDs: []string{"123e4567-e89b-12d3-a456-426614174000", "123e4567-e89b-12d3-a456-426614174001"},\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", apiKey.ID)\n}\n',
       },
-      cli: {
-        method: 'api_keys create',
+      typescript: {
+        method: 'client.apiKeys.create',
         example:
-          "nirvana api-keys create \\\n  --api-key 'My API Key' \\\n  --expires-at \"'2025-12-31T23:59:59Z'\" \\\n  --name 'My API Key' \\\n  --permission '{permission: edit, resource_type: vm}' \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --project-id 123e4567-e89b-12d3-a456-426614174001",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst apiKey = await client.apiKeys.create({\n  expires_at: '2025-12-31T23:59:59Z',\n  name: 'My API Key',\n  permissions: [{ permission: 'edit', resource_type: 'vm' }],\n  project_ids: ['123e4567-e89b-12d3-a456-426614174000', '123e4567-e89b-12d3-a456-426614174001'],\n});\n\nconsole.log(apiKey.id);",
       },
       http: {
         example:
@@ -206,19 +206,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.apiKeys.get(api_key_id: string): { id: string; created_at: string; expires_at: string; managed: boolean; name: string; permissions: api_key_permission[]; project_ids: string[]; source_ip_rule: source_ip_rule_response; status: 'active' | 'inactive' | 'expired'; tags: string[]; updated_at: string; key?: string; starts_at?: string; }`\n\n**get** `/v1/api_keys/{api_key_id}`\n\nGet details about an API key\n\n### Parameters\n\n- `api_key_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; expires_at: string; managed: boolean; name: string; permissions: { permission: api_permission_level; resource_type: api_permission_resource_type; }[]; project_ids: string[]; source_ip_rule: { allowed: string[]; blocked: string[]; }; status: 'active' | 'inactive' | 'expired'; tags: string[]; updated_at: string; key?: string; starts_at?: string; }`\n  API Key response.\n\n  - `id: string`\n  - `created_at: string`\n  - `expires_at: string`\n  - `managed: boolean`\n  - `name: string`\n  - `permissions: { permission: 'read' | 'edit'; resource_type: string; }[]`\n  - `project_ids: string[]`\n  - `source_ip_rule: { allowed: string[]; blocked: string[]; }`\n  - `status: 'active' | 'inactive' | 'expired'`\n  - `tags: string[]`\n  - `updated_at: string`\n  - `key?: string`\n  - `starts_at?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst apiKey = await client.apiKeys.get('api_key_id');\n\nconsole.log(apiKey);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.apiKeys.get',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst apiKey = await client.apiKeys.get('api_key_id');\n\nconsole.log(apiKey.id);",
+      cli: {
+        method: 'api_keys get',
+        example: "nirvana api-keys get \\\n  --api-key 'My API Key' \\\n  --api-key-id api_key_id",
       },
       go: {
         method: 'client.APIKeys.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tapiKey, err := client.APIKeys.Get(context.TODO(), "api_key_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", apiKey.ID)\n}\n',
       },
-      cli: {
-        method: 'api_keys get',
-        example: "nirvana api-keys get \\\n  --api-key 'My API Key' \\\n  --api-key-id api_key_id",
+      typescript: {
+        method: 'client.apiKeys.get',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst apiKey = await client.apiKeys.get('api_key_id');\n\nconsole.log(apiKey.id);",
       },
       http: {
         example:
@@ -247,19 +247,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.apiKeys.update(api_key_id: string, name?: string, permissions?: { permission: 'read' | 'edit'; resource_type: string; }[], project_ids?: string[], source_ip_rule?: { allowed?: string[]; blocked?: string[]; }, tags?: string[]): { id: string; created_at: string; expires_at: string; managed: boolean; name: string; permissions: api_key_permission[]; project_ids: string[]; source_ip_rule: source_ip_rule_response; status: 'active' | 'inactive' | 'expired'; tags: string[]; updated_at: string; key?: string; starts_at?: string; }`\n\n**patch** `/v1/api_keys/{api_key_id}`\n\nUpdate an existing API key\n\n### Parameters\n\n- `api_key_id: string`\n\n- `name?: string`\n  API Key name.\n\n- `permissions?: { permission: 'read' | 'edit'; resource_type: string; }[]`\n  Scoped permissions for this API key. When provided, replaces the entire set. At least one is required.\n\n- `project_ids?: string[]`\n  Project IDs this API key is scoped to. When provided, replaces the entire set. At least one is required.\n\n- `source_ip_rule?: { allowed?: string[]; blocked?: string[]; }`\n  IP filter rules.\n  - `allowed?: string[]`\n    List of IPv4 CIDR addresses to allow.\n  - `blocked?: string[]`\n    List of IPv4 CIDR addresses to deny.\n\n- `tags?: string[]`\n  Tags to attach to the API Key.\n\n### Returns\n\n- `{ id: string; created_at: string; expires_at: string; managed: boolean; name: string; permissions: { permission: api_permission_level; resource_type: api_permission_resource_type; }[]; project_ids: string[]; source_ip_rule: { allowed: string[]; blocked: string[]; }; status: 'active' | 'inactive' | 'expired'; tags: string[]; updated_at: string; key?: string; starts_at?: string; }`\n  API Key response.\n\n  - `id: string`\n  - `created_at: string`\n  - `expires_at: string`\n  - `managed: boolean`\n  - `name: string`\n  - `permissions: { permission: 'read' | 'edit'; resource_type: string; }[]`\n  - `project_ids: string[]`\n  - `source_ip_rule: { allowed: string[]; blocked: string[]; }`\n  - `status: 'active' | 'inactive' | 'expired'`\n  - `tags: string[]`\n  - `updated_at: string`\n  - `key?: string`\n  - `starts_at?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst apiKey = await client.apiKeys.update('api_key_id');\n\nconsole.log(apiKey);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.apiKeys.update',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst apiKey = await client.apiKeys.update('api_key_id');\n\nconsole.log(apiKey.id);",
+      cli: {
+        method: 'api_keys update',
+        example: "nirvana api-keys update \\\n  --api-key 'My API Key' \\\n  --api-key-id api_key_id",
       },
       go: {
         method: 'client.APIKeys.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/api_keys"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tapiKey, err := client.APIKeys.Update(\n\t\tcontext.TODO(),\n\t\t"api_key_id",\n\t\tapi_keys.APIKeyUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", apiKey.ID)\n}\n',
       },
-      cli: {
-        method: 'api_keys update',
-        example: "nirvana api-keys update \\\n  --api-key 'My API Key' \\\n  --api-key-id api_key_id",
+      typescript: {
+        method: 'client.apiKeys.update',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst apiKey = await client.apiKeys.update('api_key_id');\n\nconsole.log(apiKey.id);",
       },
       http: {
         example:
@@ -279,19 +279,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## delete\n\n`client.apiKeys.delete(api_key_id: string): void`\n\n**delete** `/v1/api_keys/{api_key_id}`\n\nDelete an API key\n\n### Parameters\n\n- `api_key_id: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nawait client.apiKeys.delete('api_key_id')\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.apiKeys.delete',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.apiKeys.delete('api_key_id');",
+      cli: {
+        method: 'api_keys delete',
+        example: "nirvana api-keys delete \\\n  --api-key 'My API Key' \\\n  --api-key-id api_key_id",
       },
       go: {
         method: 'client.APIKeys.Delete',
         example:
           'package main\n\nimport (\n\t"context"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\terr := client.APIKeys.Delete(context.TODO(), "api_key_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n}\n',
       },
-      cli: {
-        method: 'api_keys delete',
-        example: "nirvana api-keys delete \\\n  --api-key 'My API Key' \\\n  --api-key-id api_key_id",
+      typescript: {
+        method: 'client.apiKeys.delete',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.apiKeys.delete('api_key_id');",
       },
       http: {
         example:
@@ -313,19 +313,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.apiKeys.list(cursor?: string, limit?: number): { id: string; created_at: string; expires_at: string; managed: boolean; name: string; permissions: api_key_permission[]; project_ids: string[]; source_ip_rule: source_ip_rule_response; status: 'active' | 'inactive' | 'expired'; tags: string[]; updated_at: string; key?: string; starts_at?: string; }`\n\n**get** `/v1/api_keys`\n\nList all API keys\n\n### Parameters\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; created_at: string; expires_at: string; managed: boolean; name: string; permissions: { permission: api_permission_level; resource_type: api_permission_resource_type; }[]; project_ids: string[]; source_ip_rule: { allowed: string[]; blocked: string[]; }; status: 'active' | 'inactive' | 'expired'; tags: string[]; updated_at: string; key?: string; starts_at?: string; }`\n  API Key response.\n\n  - `id: string`\n  - `created_at: string`\n  - `expires_at: string`\n  - `managed: boolean`\n  - `name: string`\n  - `permissions: { permission: 'read' | 'edit'; resource_type: string; }[]`\n  - `project_ids: string[]`\n  - `source_ip_rule: { allowed: string[]; blocked: string[]; }`\n  - `status: 'active' | 'inactive' | 'expired'`\n  - `tags: string[]`\n  - `updated_at: string`\n  - `key?: string`\n  - `starts_at?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const apiKey of client.apiKeys.list()) {\n  console.log(apiKey);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.apiKeys.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const apiKey of client.apiKeys.list()) {\n  console.log(apiKey.id);\n}",
+      cli: {
+        method: 'api_keys list',
+        example: "nirvana api-keys list \\\n  --api-key 'My API Key'",
       },
       go: {
         method: 'client.APIKeys.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/api_keys"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.APIKeys.List(context.TODO(), api_keys.APIKeyListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'api_keys list',
-        example: "nirvana api-keys list \\\n  --api-key 'My API Key'",
+      typescript: {
+        method: 'client.apiKeys.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const apiKey of client.apiKeys.list()) {\n  console.log(apiKey.id);\n}",
       },
       http: {
         example:
@@ -347,19 +347,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.operations.get(operation_id: string): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**get** `/v1/operations/{operation_id}`\n\nGet details about a specific operation\n\n### Parameters\n\n- `operation_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.operations.get('operation_id');\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.operations.get',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.operations.get('operation_id');\n\nconsole.log(operation.id);",
+      cli: {
+        method: 'operations get',
+        example: "nirvana operations get \\\n  --api-key 'My API Key' \\\n  --operation-id operation_id",
       },
       go: {
         method: 'client.Operations.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.Operations.Get(context.TODO(), "operation_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'operations get',
-        example: "nirvana operations get \\\n  --api-key 'My API Key' \\\n  --operation-id operation_id",
+      typescript: {
+        method: 'client.operations.get',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.operations.get('operation_id');\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -381,19 +381,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.operations.list(project_id: string, cursor?: string, limit?: number): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**get** `/v1/operations`\n\nList all operations\n\n### Parameters\n\n- `project_id: string`\n  Project ID of resources to request\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const operation of client.operations.list({ project_id: 'project_id' })) {\n  console.log(operation);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.operations.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const operation of client.operations.list({ project_id: 'project_id' })) {\n  console.log(operation.id);\n}",
+      cli: {
+        method: 'operations list',
+        example: "nirvana operations list \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
       },
       go: {
         method: 'client.Operations.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/operations"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.Operations.List(context.TODO(), operations.OperationListParams{\n\t\tProjectID: "project_id",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'operations list',
-        example: "nirvana operations list \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
+      typescript: {
+        method: 'client.operations.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const operation of client.operations.list({ project_id: 'project_id' })) {\n  console.log(operation.id);\n}",
       },
       http: {
         example:
@@ -415,19 +415,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.organizations.create(name: string, billing_email?: string): { id: string; billing_email: string; created_at: string; domains: organization_domain[]; metronome_customer_id: string; name: string; personal: boolean; services: organization_services; stripe_customer_id: string; type: organization_type; updated_at: string; auth_id?: string; }`\n\n**post** `/v1/organizations`\n\nCreate a new organization\n\n### Parameters\n\n- `name: string`\n  Organization name.\n\n- `billing_email?: string`\n  Optional billing email. When omitted, the oldest owner's email is used.\n\n### Returns\n\n- `{ id: string; billing_email: string; created_at: string; domains: { id: string; domain: string; verified: boolean; }[]; metronome_customer_id: string; name: string; personal: boolean; services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }; stripe_customer_id: string; type: 'personal' | 'company'; updated_at: string; auth_id?: string; }`\n  Organization response.\n\n  - `id: string`\n  - `billing_email: string`\n  - `created_at: string`\n  - `domains: { id: string; domain: string; verified: boolean; }[]`\n  - `metronome_customer_id: string`\n  - `name: string`\n  - `personal: boolean`\n  - `services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }`\n  - `stripe_customer_id: string`\n  - `type: 'personal' | 'company'`\n  - `updated_at: string`\n  - `auth_id?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst organization = await client.organizations.create({ name: 'My Organization' });\n\nconsole.log(organization);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.organizations.create',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst organization = await client.organizations.create({ name: 'My Organization' });\n\nconsole.log(organization.id);",
+      cli: {
+        method: 'organizations create',
+        example: "nirvana organizations create \\\n  --api-key 'My API Key' \\\n  --name 'My Organization'",
       },
       go: {
         method: 'client.Organizations.New',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/organizations"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\torganization, err := client.Organizations.New(context.TODO(), organizations.OrganizationNewParams{\n\t\tName: "My Organization",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", organization.ID)\n}\n',
       },
-      cli: {
-        method: 'organizations create',
-        example: "nirvana organizations create \\\n  --api-key 'My API Key' \\\n  --name 'My Organization'",
+      typescript: {
+        method: 'client.organizations.create',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst organization = await client.organizations.create({ name: 'My Organization' });\n\nconsole.log(organization.id);",
       },
       http: {
         example:
@@ -449,20 +449,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.organizations.get(organization_id: string): { id: string; billing_email: string; created_at: string; domains: organization_domain[]; metronome_customer_id: string; name: string; personal: boolean; services: organization_services; stripe_customer_id: string; type: organization_type; updated_at: string; auth_id?: string; }`\n\n**get** `/v1/organizations/{organization_id}`\n\nGet details about an Organization\n\n### Parameters\n\n- `organization_id: string`\n\n### Returns\n\n- `{ id: string; billing_email: string; created_at: string; domains: { id: string; domain: string; verified: boolean; }[]; metronome_customer_id: string; name: string; personal: boolean; services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }; stripe_customer_id: string; type: 'personal' | 'company'; updated_at: string; auth_id?: string; }`\n  Organization response.\n\n  - `id: string`\n  - `billing_email: string`\n  - `created_at: string`\n  - `domains: { id: string; domain: string; verified: boolean; }[]`\n  - `metronome_customer_id: string`\n  - `name: string`\n  - `personal: boolean`\n  - `services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }`\n  - `stripe_customer_id: string`\n  - `type: 'personal' | 'company'`\n  - `updated_at: string`\n  - `auth_id?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst organization = await client.organizations.get('organization_id');\n\nconsole.log(organization);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.organizations.get',
+      cli: {
+        method: 'organizations get',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst organization = await client.organizations.get('organization_id');\n\nconsole.log(organization.id);",
+          "nirvana organizations get \\\n  --api-key 'My API Key' \\\n  --organization-id organization_id",
       },
       go: {
         method: 'client.Organizations.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\torganization, err := client.Organizations.Get(context.TODO(), "organization_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", organization.ID)\n}\n',
       },
-      cli: {
-        method: 'organizations get',
+      typescript: {
+        method: 'client.organizations.get',
         example:
-          "nirvana organizations get \\\n  --api-key 'My API Key' \\\n  --organization-id organization_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst organization = await client.organizations.get('organization_id');\n\nconsole.log(organization.id);",
       },
       http: {
         example:
@@ -484,20 +484,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.organizations.update(organization_id: string, billing_email?: string, name?: string): { id: string; billing_email: string; created_at: string; domains: organization_domain[]; metronome_customer_id: string; name: string; personal: boolean; services: organization_services; stripe_customer_id: string; type: organization_type; updated_at: string; auth_id?: string; }`\n\n**patch** `/v1/organizations/{organization_id}`\n\nUpdate an existing organization\n\n### Parameters\n\n- `organization_id: string`\n\n- `billing_email?: string`\n  Billing email. Omit to leave unchanged, send null to clear (reverts to the\noldest owner's email), or send a value to set it.\n\n- `name?: string`\n  Organization name.\n\n### Returns\n\n- `{ id: string; billing_email: string; created_at: string; domains: { id: string; domain: string; verified: boolean; }[]; metronome_customer_id: string; name: string; personal: boolean; services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }; stripe_customer_id: string; type: 'personal' | 'company'; updated_at: string; auth_id?: string; }`\n  Organization response.\n\n  - `id: string`\n  - `billing_email: string`\n  - `created_at: string`\n  - `domains: { id: string; domain: string; verified: boolean; }[]`\n  - `metronome_customer_id: string`\n  - `name: string`\n  - `personal: boolean`\n  - `services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }`\n  - `stripe_customer_id: string`\n  - `type: 'personal' | 'company'`\n  - `updated_at: string`\n  - `auth_id?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst organization = await client.organizations.update('organization_id');\n\nconsole.log(organization);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.organizations.update',
+      cli: {
+        method: 'organizations update',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst organization = await client.organizations.update('organization_id');\n\nconsole.log(organization.id);",
+          "nirvana organizations update \\\n  --api-key 'My API Key' \\\n  --organization-id organization_id",
       },
       go: {
         method: 'client.Organizations.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/organizations"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\torganization, err := client.Organizations.Update(\n\t\tcontext.TODO(),\n\t\t"organization_id",\n\t\torganizations.OrganizationUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", organization.ID)\n}\n',
       },
-      cli: {
-        method: 'organizations update',
+      typescript: {
+        method: 'client.organizations.update',
         example:
-          "nirvana organizations update \\\n  --api-key 'My API Key' \\\n  --organization-id organization_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst organization = await client.organizations.update('organization_id');\n\nconsole.log(organization.id);",
       },
       http: {
         example:
@@ -519,19 +519,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.organizations.list(cursor?: string, limit?: number): { id: string; billing_email: string; created_at: string; domains: organization_domain[]; metronome_customer_id: string; name: string; personal: boolean; services: organization_services; stripe_customer_id: string; type: organization_type; updated_at: string; auth_id?: string; }`\n\n**get** `/v1/organizations`\n\nList organizations\n\n### Parameters\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; billing_email: string; created_at: string; domains: { id: string; domain: string; verified: boolean; }[]; metronome_customer_id: string; name: string; personal: boolean; services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }; stripe_customer_id: string; type: 'personal' | 'company'; updated_at: string; auth_id?: string; }`\n  Organization response.\n\n  - `id: string`\n  - `billing_email: string`\n  - `created_at: string`\n  - `domains: { id: string; domain: string; verified: boolean; }[]`\n  - `metronome_customer_id: string`\n  - `name: string`\n  - `personal: boolean`\n  - `services: { cloud: boolean; jit_provisioning: boolean; scim: boolean; siem: boolean; sso: boolean; }`\n  - `stripe_customer_id: string`\n  - `type: 'personal' | 'company'`\n  - `updated_at: string`\n  - `auth_id?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const organization of client.organizations.list()) {\n  console.log(organization);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.organizations.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const organization of client.organizations.list()) {\n  console.log(organization.id);\n}",
+      cli: {
+        method: 'organizations list',
+        example: "nirvana organizations list \\\n  --api-key 'My API Key'",
       },
       go: {
         method: 'client.Organizations.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/organizations"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.Organizations.List(context.TODO(), organizations.OrganizationListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'organizations list',
-        example: "nirvana organizations list \\\n  --api-key 'My API Key'",
+      typescript: {
+        method: 'client.organizations.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const organization of client.organizations.list()) {\n  console.log(organization.id);\n}",
       },
       http: {
         example:
@@ -551,20 +551,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## leave\n\n`client.organizations.leave(organization_id: string): void`\n\n**post** `/v1/organizations/{organization_id}/leave`\n\nLeave an Organization\n\n### Parameters\n\n- `organization_id: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nawait client.organizations.leave('organization_id')\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.organizations.leave',
+      cli: {
+        method: 'organizations leave',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.organizations.leave('organization_id');",
+          "nirvana organizations leave \\\n  --api-key 'My API Key' \\\n  --organization-id organization_id",
       },
       go: {
         method: 'client.Organizations.Leave',
         example:
           'package main\n\nimport (\n\t"context"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\terr := client.Organizations.Leave(context.TODO(), "organization_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n}\n',
       },
-      cli: {
-        method: 'organizations leave',
+      typescript: {
+        method: 'client.organizations.leave',
         example:
-          "nirvana organizations leave \\\n  --api-key 'My API Key' \\\n  --organization-id organization_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.organizations.leave('organization_id');",
       },
       http: {
         example:
@@ -586,20 +586,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.organizations.memberships.get(organization_id: string, membership_id: string): { id: string; created_at: string; organization_id: string; role: 'owner' | 'member'; updated_at: string; user_id: string; }`\n\n**get** `/v1/organizations/{organization_id}/memberships/{membership_id}`\n\nGet details about an organization membership\n\n### Parameters\n\n- `organization_id: string`\n\n- `membership_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; organization_id: string; role: 'owner' | 'member'; updated_at: string; user_id: string; }`\n  Organization membership details.\n\n  - `id: string`\n  - `created_at: string`\n  - `organization_id: string`\n  - `role: 'owner' | 'member'`\n  - `updated_at: string`\n  - `user_id: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst organizationMembership = await client.organizations.memberships.get('membership_id', { organization_id: 'organization_id' });\n\nconsole.log(organizationMembership);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.organizations.memberships.get',
+      cli: {
+        method: 'memberships get',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst organizationMembership = await client.organizations.memberships.get('membership_id', {\n  organization_id: 'organization_id',\n});\n\nconsole.log(organizationMembership.id);",
+          "nirvana organizations:memberships get \\\n  --api-key 'My API Key' \\\n  --organization-id organization_id \\\n  --membership-id membership_id",
       },
       go: {
         method: 'client.Organizations.Memberships.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\torganizationMembership, err := client.Organizations.Memberships.Get(\n\t\tcontext.TODO(),\n\t\t"organization_id",\n\t\t"membership_id",\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", organizationMembership.ID)\n}\n',
       },
-      cli: {
-        method: 'memberships get',
+      typescript: {
+        method: 'client.organizations.memberships.get',
         example:
-          "nirvana organizations:memberships get \\\n  --api-key 'My API Key' \\\n  --organization-id organization_id \\\n  --membership-id membership_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst organizationMembership = await client.organizations.memberships.get('membership_id', {\n  organization_id: 'organization_id',\n});\n\nconsole.log(organizationMembership.id);",
       },
       http: {
         example:
@@ -621,20 +621,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.organizations.memberships.list(organization_id: string, cursor?: string, limit?: number): { id: string; created_at: string; organization_id: string; role: 'owner' | 'member'; updated_at: string; user_id: string; }`\n\n**get** `/v1/organizations/{organization_id}/memberships`\n\nList all memberships for an organization\n\n### Parameters\n\n- `organization_id: string`\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; created_at: string; organization_id: string; role: 'owner' | 'member'; updated_at: string; user_id: string; }`\n  Organization membership details.\n\n  - `id: string`\n  - `created_at: string`\n  - `organization_id: string`\n  - `role: 'owner' | 'member'`\n  - `updated_at: string`\n  - `user_id: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const organizationMembership of client.organizations.memberships.list('organization_id')) {\n  console.log(organizationMembership);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.organizations.memberships.list',
+      cli: {
+        method: 'memberships list',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const organizationMembership of client.organizations.memberships.list(\n  'organization_id',\n)) {\n  console.log(organizationMembership.id);\n}",
+          "nirvana organizations:memberships list \\\n  --api-key 'My API Key' \\\n  --organization-id organization_id",
       },
       go: {
         method: 'client.Organizations.Memberships.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/organizations"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.Organizations.Memberships.List(\n\t\tcontext.TODO(),\n\t\t"organization_id",\n\t\torganizations.MembershipListParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'memberships list',
+      typescript: {
+        method: 'client.organizations.memberships.list',
         example:
-          "nirvana organizations:memberships list \\\n  --api-key 'My API Key' \\\n  --organization-id organization_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const organizationMembership of client.organizations.memberships.list(\n  'organization_id',\n)) {\n  console.log(organizationMembership.id);\n}",
       },
       http: {
         example:
@@ -666,20 +666,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.organizations.address.create(organization_id: string, city: string, country: string, line1: string, postal_code: string, line2?: string, state?: string, tax_id?: string, tax_id_type?: string): { id: string; city: string; country: string; created_at: string; line1: string; line2: string; organization_id: string; postal_code: string; state: string; tax_id: string; tax_id_type: string; updated_at: string; }`\n\n**post** `/v1/organizations/{organization_id}/address`\n\nCreate the address for an organization\n\n### Parameters\n\n- `organization_id: string`\n\n- `city: string`\n  City or locality.\n\n- `country: string`\n  Two-letter ISO 3166-1 alpha-2 country code.\n\n- `line1: string`\n  First line of the street address.\n\n- `postal_code: string`\n  Postal or ZIP code.\n\n- `line2?: string`\n  Second line of the street address (suite, unit, building).\n\n- `state?: string`\n  State, province, or region. Required by some tax jurisdictions (e.g. US, CA).\n\n- `tax_id?: string`\n  Tax identification number (e.g. VAT, EIN, ABN). Optional.\n\n- `tax_id_type?: string`\n  Type of the tax identification number (e.g. eu_vat, us_ein, gb_vat, au_abn). Optional.\n\n### Returns\n\n- `{ id: string; city: string; country: string; created_at: string; line1: string; line2: string; organization_id: string; postal_code: string; state: string; tax_id: string; tax_id_type: string; updated_at: string; }`\n  Organization address details.\n\n  - `id: string`\n  - `city: string`\n  - `country: string`\n  - `created_at: string`\n  - `line1: string`\n  - `line2: string`\n  - `organization_id: string`\n  - `postal_code: string`\n  - `state: string`\n  - `tax_id: string`\n  - `tax_id_type: string`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst organizationAddress = await client.organizations.address.create('organization_id', {\n  city: 'San Francisco',\n  country: 'US',\n  line1: '123 Main St',\n  postal_code: '94105',\n});\n\nconsole.log(organizationAddress);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.organizations.address.create',
+      cli: {
+        method: 'address create',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst organizationAddress = await client.organizations.address.create('organization_id', {\n  city: 'San Francisco',\n  country: 'US',\n  line1: '123 Main St',\n  postal_code: '94105',\n});\n\nconsole.log(organizationAddress.id);",
+          "nirvana organizations:address create \\\n  --api-key 'My API Key' \\\n  --organization-id organization_id \\\n  --city 'San Francisco' \\\n  --country US \\\n  --line1 '123 Main St' \\\n  --postal-code 94105",
       },
       go: {
         method: 'client.Organizations.Address.New',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/organizations"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\torganizationAddress, err := client.Organizations.Address.New(\n\t\tcontext.TODO(),\n\t\t"organization_id",\n\t\torganizations.AddressNewParams{\n\t\t\tCity:       "San Francisco",\n\t\t\tCountry:    "US",\n\t\t\tLine1:      "123 Main St",\n\t\t\tPostalCode: "94105",\n\t\t},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", organizationAddress.ID)\n}\n',
       },
-      cli: {
-        method: 'address create',
+      typescript: {
+        method: 'client.organizations.address.create',
         example:
-          "nirvana organizations:address create \\\n  --api-key 'My API Key' \\\n  --organization-id organization_id \\\n  --city 'San Francisco' \\\n  --country US \\\n  --line1 '123 Main St' \\\n  --postal-code 94105",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst organizationAddress = await client.organizations.address.create('organization_id', {\n  city: 'San Francisco',\n  country: 'US',\n  line1: '123 Main St',\n  postal_code: '94105',\n});\n\nconsole.log(organizationAddress.id);",
       },
       http: {
         example:
@@ -701,20 +701,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.organizations.address.get(organization_id: string): { id: string; city: string; country: string; created_at: string; line1: string; line2: string; organization_id: string; postal_code: string; state: string; tax_id: string; tax_id_type: string; updated_at: string; }`\n\n**get** `/v1/organizations/{organization_id}/address`\n\nGet the address for an organization\n\n### Parameters\n\n- `organization_id: string`\n\n### Returns\n\n- `{ id: string; city: string; country: string; created_at: string; line1: string; line2: string; organization_id: string; postal_code: string; state: string; tax_id: string; tax_id_type: string; updated_at: string; }`\n  Organization address details.\n\n  - `id: string`\n  - `city: string`\n  - `country: string`\n  - `created_at: string`\n  - `line1: string`\n  - `line2: string`\n  - `organization_id: string`\n  - `postal_code: string`\n  - `state: string`\n  - `tax_id: string`\n  - `tax_id_type: string`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst organizationAddress = await client.organizations.address.get('organization_id');\n\nconsole.log(organizationAddress);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.organizations.address.get',
+      cli: {
+        method: 'address get',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst organizationAddress = await client.organizations.address.get('organization_id');\n\nconsole.log(organizationAddress.id);",
+          "nirvana organizations:address get \\\n  --api-key 'My API Key' \\\n  --organization-id organization_id",
       },
       go: {
         method: 'client.Organizations.Address.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\torganizationAddress, err := client.Organizations.Address.Get(context.TODO(), "organization_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", organizationAddress.ID)\n}\n',
       },
-      cli: {
-        method: 'address get',
+      typescript: {
+        method: 'client.organizations.address.get',
         example:
-          "nirvana organizations:address get \\\n  --api-key 'My API Key' \\\n  --organization-id organization_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst organizationAddress = await client.organizations.address.get('organization_id');\n\nconsole.log(organizationAddress.id);",
       },
       http: {
         example:
@@ -746,20 +746,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.organizations.address.update(organization_id: string, city?: string, country?: string, line1?: string, line2?: string, postal_code?: string, state?: string, tax_id?: string, tax_id_type?: string): { id: string; city: string; country: string; created_at: string; line1: string; line2: string; organization_id: string; postal_code: string; state: string; tax_id: string; tax_id_type: string; updated_at: string; }`\n\n**patch** `/v1/organizations/{organization_id}/address`\n\nUpdate the address for an organization\n\n### Parameters\n\n- `organization_id: string`\n\n- `city?: string`\n  City or locality.\n\n- `country?: string`\n  Two-letter ISO 3166-1 alpha-2 country code.\n\n- `line1?: string`\n  First line of the street address.\n\n- `line2?: string`\n  Second line of the street address (suite, unit, building). Omit to leave\nunchanged, send null to clear, or send a value to set it.\n\n- `postal_code?: string`\n  Postal or ZIP code.\n\n- `state?: string`\n  State, province, or region. Omit to leave unchanged, send null to clear,\nor send a value to set it.\n\n- `tax_id?: string`\n  Tax identification number (e.g. VAT, EIN, ABN). Omit to leave unchanged,\nsend null to clear, or send a value to set it.\n\n- `tax_id_type?: string`\n  Type of the tax identification number (e.g. eu_vat, us_ein, gb_vat, au_abn).\nOmit to leave unchanged, send null to clear, or send a value to set it.\n\n### Returns\n\n- `{ id: string; city: string; country: string; created_at: string; line1: string; line2: string; organization_id: string; postal_code: string; state: string; tax_id: string; tax_id_type: string; updated_at: string; }`\n  Organization address details.\n\n  - `id: string`\n  - `city: string`\n  - `country: string`\n  - `created_at: string`\n  - `line1: string`\n  - `line2: string`\n  - `organization_id: string`\n  - `postal_code: string`\n  - `state: string`\n  - `tax_id: string`\n  - `tax_id_type: string`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst organizationAddress = await client.organizations.address.update('organization_id');\n\nconsole.log(organizationAddress);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.organizations.address.update',
+      cli: {
+        method: 'address update',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst organizationAddress = await client.organizations.address.update('organization_id');\n\nconsole.log(organizationAddress.id);",
+          "nirvana organizations:address update \\\n  --api-key 'My API Key' \\\n  --organization-id organization_id",
       },
       go: {
         method: 'client.Organizations.Address.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/organizations"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\torganizationAddress, err := client.Organizations.Address.Update(\n\t\tcontext.TODO(),\n\t\t"organization_id",\n\t\torganizations.AddressUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", organizationAddress.ID)\n}\n',
       },
-      cli: {
-        method: 'address update',
+      typescript: {
+        method: 'client.organizations.address.update',
         example:
-          "nirvana organizations:address update \\\n  --api-key 'My API Key' \\\n  --organization-id organization_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst organizationAddress = await client.organizations.address.update('organization_id');\n\nconsole.log(organizationAddress.id);",
       },
       http: {
         example:
@@ -781,19 +781,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.quotas.get(region: 'us-sva-2'): { compute: quota_compute; networking: quota_networking; nks: quota_nks; region: region_name; storage: quota_storage; }`\n\n**get** `/v1/quotas/{region}`\n\nGet quota usage and limits for the current organization in a single region\n\n### Parameters\n\n- `region: 'us-sva-2'`\n\n### Returns\n\n- `{ compute: { memory_gb: quota_dimension_detail; vcpu: quota_dimension_detail; }; networking: { connect_connections: quota_dimension_detail; public_ips: quota_dimension_detail; vpcs: quota_dimension_detail; }; nks: { clusters: quota_dimension_detail; node_pool_memory_gb: quota_dimension_detail; node_pool_vcpu: quota_dimension_detail; public_ips: quota_dimension_detail; }; region: 'us-sva-2'; storage: { abs: quota_dimension_detail; local_nvme: quota_dimension_detail; }; }`\n  Quota response.\n\n  - `compute: { memory_gb: { limit: number; remaining: number; used: number; }; vcpu: { limit: number; remaining: number; used: number; }; }`\n  - `networking: { connect_connections: { limit: number; remaining: number; used: number; }; public_ips: { limit: number; remaining: number; used: number; }; vpcs: { limit: number; remaining: number; used: number; }; }`\n  - `nks: { clusters: { limit: number; remaining: number; used: number; }; node_pool_memory_gb: { limit: number; remaining: number; used: number; }; node_pool_vcpu: { limit: number; remaining: number; used: number; }; public_ips: { limit: number; remaining: number; used: number; }; }`\n  - `region: 'us-sva-2'`\n  - `storage: { abs: { limit: number; remaining: number; used: number; }; local_nvme: { limit: number; remaining: number; used: number; }; }`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst quota = await client.quotas.get('us-sva-2');\n\nconsole.log(quota);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.quotas.get',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst quota = await client.quotas.get('us-sva-2');\n\nconsole.log(quota.compute);",
+      cli: {
+        method: 'quotas get',
+        example: "nirvana quotas get \\\n  --api-key 'My API Key' \\\n  --region us-sva-2",
       },
       go: {
         method: 'client.Quotas.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/quotas"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tquota, err := client.Quotas.Get(context.TODO(), quotas.QuotaGetParamsRegionUsSva2)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", quota.Compute)\n}\n',
       },
-      cli: {
-        method: 'quotas get',
-        example: "nirvana quotas get \\\n  --api-key 'My API Key' \\\n  --region us-sva-2",
+      typescript: {
+        method: 'client.quotas.get',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst quota = await client.quotas.get('us-sva-2');\n\nconsole.log(quota.compute);",
       },
       http: {
         example:
@@ -814,19 +814,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.quotas.list(): { items: quota[]; pagination: pagination; }`\n\n**get** `/v1/quotas`\n\nList quota usage and limits for the current organization across all regions\n\n### Returns\n\n- `{ items: { compute: quota_compute; networking: quota_networking; nks: quota_nks; region: region_name; storage: quota_storage; }[]; pagination: { next_cursor: string; previous_cursor: string; total_count: number; }; }`\n\n  - `items: { compute: { memory_gb: quota_dimension_detail; vcpu: quota_dimension_detail; }; networking: { connect_connections: quota_dimension_detail; public_ips: quota_dimension_detail; vpcs: quota_dimension_detail; }; nks: { clusters: quota_dimension_detail; node_pool_memory_gb: quota_dimension_detail; node_pool_vcpu: quota_dimension_detail; public_ips: quota_dimension_detail; }; region: 'us-sva-2'; storage: { abs: quota_dimension_detail; local_nvme: quota_dimension_detail; }; }[]`\n  - `pagination: { next_cursor: string; previous_cursor: string; total_count: number; }`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst quotaList = await client.quotas.list();\n\nconsole.log(quotaList);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.quotas.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst quotaList = await client.quotas.list();\n\nconsole.log(quotaList.items);",
+      cli: {
+        method: 'quotas list',
+        example: "nirvana quotas list \\\n  --api-key 'My API Key'",
       },
       go: {
         method: 'client.Quotas.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tquotaList, err := client.Quotas.List(context.TODO())\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", quotaList.Items)\n}\n',
       },
-      cli: {
-        method: 'quotas list',
-        example: "nirvana quotas list \\\n  --api-key 'My API Key'",
+      typescript: {
+        method: 'client.quotas.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst quotaList = await client.quotas.list();\n\nconsole.log(quotaList.items);",
       },
       http: {
         example:
@@ -849,20 +849,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.usage.get(resource_id: string): { dimensions: usage_dimension[]; ended_at: string; project_id: string; region: region_name; resource_id: string; resource_type: usage_resource_type; started_at: string; }`\n\n**get** `/v1/usage/{resource_id}`\n\nGet the usage record for a single resource (metadata plus dimension history) for the current organization.\n\n### Parameters\n\n- `resource_id: string`\n\n### Returns\n\n- `{ dimensions: { id: string; dimension: string; ended_at: string; quantity: number; started_at: string; children?: usage_dimension_leaf[]; }[]; ended_at: string; project_id: string; region: 'us-sva-2'; resource_id: string; resource_type: string; started_at: string; }`\n  Usage record for a single metered resource.\n\n  - `dimensions: { id: string; dimension: string; ended_at: string; quantity: number; started_at: string; children?: { id: string; dimension: string; ended_at: string; quantity: number; started_at: string; }[]; }[]`\n  - `ended_at: string`\n  - `project_id: string`\n  - `region: 'us-sva-2'`\n  - `resource_id: string`\n  - `resource_type: string`\n  - `started_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst usage = await client.usage.get('123e4567-e89b-12d3-a456-426614174000');\n\nconsole.log(usage);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.usage.get',
+      cli: {
+        method: 'usage get',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst usage = await client.usage.get('123e4567-e89b-12d3-a456-426614174000');\n\nconsole.log(usage.project_id);",
+          "nirvana usage get \\\n  --api-key 'My API Key' \\\n  --resource-id 123e4567-e89b-12d3-a456-426614174000",
       },
       go: {
         method: 'client.Usage.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tusage, err := client.Usage.Get(context.TODO(), "123e4567-e89b-12d3-a456-426614174000")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", usage.ProjectID)\n}\n',
       },
-      cli: {
-        method: 'usage get',
+      typescript: {
+        method: 'client.usage.get',
         example:
-          "nirvana usage get \\\n  --api-key 'My API Key' \\\n  --resource-id 123e4567-e89b-12d3-a456-426614174000",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst usage = await client.usage.get('123e4567-e89b-12d3-a456-426614174000');\n\nconsole.log(usage.project_id);",
       },
       http: {
         example:
@@ -885,19 +885,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.usage.list(cursor?: string, limit?: number): { dimensions: usage_dimension[]; ended_at: string; project_id: string; region: region_name; resource_id: string; resource_type: usage_resource_type; started_at: string; }`\n\n**get** `/v1/usage`\n\nList per-resource usage records for the current organization. Each item is one resource with its nested dimension history (active and closed segments).\n\n### Parameters\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ dimensions: { id: string; dimension: string; ended_at: string; quantity: number; started_at: string; children?: usage_dimension_leaf[]; }[]; ended_at: string; project_id: string; region: 'us-sva-2'; resource_id: string; resource_type: string; started_at: string; }`\n  Usage record for a single metered resource.\n\n  - `dimensions: { id: string; dimension: string; ended_at: string; quantity: number; started_at: string; children?: { id: string; dimension: string; ended_at: string; quantity: number; started_at: string; }[]; }[]`\n  - `ended_at: string`\n  - `project_id: string`\n  - `region: 'us-sva-2'`\n  - `resource_id: string`\n  - `resource_type: string`\n  - `started_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const usage of client.usage.list()) {\n  console.log(usage);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.usage.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const usage of client.usage.list()) {\n  console.log(usage.project_id);\n}",
+      cli: {
+        method: 'usage list',
+        example: "nirvana usage list \\\n  --api-key 'My API Key'",
       },
       go: {
         method: 'client.Usage.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/usage"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.Usage.List(context.TODO(), usage.UsageListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'usage list',
-        example: "nirvana usage list \\\n  --api-key 'My API Key'",
+      typescript: {
+        method: 'client.usage.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const usage of client.usage.list()) {\n  console.log(usage.project_id);\n}",
       },
       http: {
         example:
@@ -919,19 +919,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.auditLogs.get(audit_log_id: string): { id: string; action: string; actor: audit_log_actor; client_ip: string; created_at: string; method: string; path: string; status_code: number; user_agent: string; target?: audit_log_target; }`\n\n**get** `/v1/audit_logs/{audit_log_id}`\n\nGet an Audit Log entry\n\n### Parameters\n\n- `audit_log_id: string`\n\n### Returns\n\n- `{ id: string; action: string; actor: { id: string; name: string; type: audit_log_type; }; client_ip: string; created_at: string; method: string; path: string; status_code: number; user_agent: string; target?: { id: string; type: string; }; }`\n  Audit log entry.\n\n  - `id: string`\n  - `action: string`\n  - `actor: { id: string; name: string; type: 'user' | 'api_key'; }`\n  - `client_ip: string`\n  - `created_at: string`\n  - `method: string`\n  - `path: string`\n  - `status_code: number`\n  - `user_agent: string`\n  - `target?: { id: string; type: string; }`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst auditLog = await client.auditLogs.get('audit_log_id');\n\nconsole.log(auditLog);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.auditLogs.get',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst auditLog = await client.auditLogs.get('audit_log_id');\n\nconsole.log(auditLog.id);",
+      cli: {
+        method: 'audit_logs get',
+        example: "nirvana audit-logs get \\\n  --api-key 'My API Key' \\\n  --audit-log-id audit_log_id",
       },
       go: {
         method: 'client.AuditLogs.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tauditLog, err := client.AuditLogs.Get(context.TODO(), "audit_log_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", auditLog.ID)\n}\n',
       },
-      cli: {
-        method: 'audit_logs get',
-        example: "nirvana audit-logs get \\\n  --api-key 'My API Key' \\\n  --audit-log-id audit_log_id",
+      typescript: {
+        method: 'client.auditLogs.get',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst auditLog = await client.auditLogs.get('audit_log_id');\n\nconsole.log(auditLog.id);",
       },
       http: {
         example:
@@ -953,19 +953,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.auditLogs.list(cursor?: string, limit?: number): { id: string; action: string; actor: audit_log_actor; client_ip: string; created_at: string; method: string; path: string; status_code: number; user_agent: string; target?: audit_log_target; }`\n\n**get** `/v1/audit_logs`\n\nList Audit Log entries for an organization\n\n### Parameters\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; action: string; actor: { id: string; name: string; type: audit_log_type; }; client_ip: string; created_at: string; method: string; path: string; status_code: number; user_agent: string; target?: { id: string; type: string; }; }`\n  Audit log entry.\n\n  - `id: string`\n  - `action: string`\n  - `actor: { id: string; name: string; type: 'user' | 'api_key'; }`\n  - `client_ip: string`\n  - `created_at: string`\n  - `method: string`\n  - `path: string`\n  - `status_code: number`\n  - `user_agent: string`\n  - `target?: { id: string; type: string; }`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const auditLog of client.auditLogs.list()) {\n  console.log(auditLog);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.auditLogs.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const auditLog of client.auditLogs.list()) {\n  console.log(auditLog.id);\n}",
+      cli: {
+        method: 'audit_logs list',
+        example: "nirvana audit-logs list \\\n  --api-key 'My API Key'",
       },
       go: {
         method: 'client.AuditLogs.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/audit_logs"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.AuditLogs.List(context.TODO(), audit_logs.AuditLogListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'audit_logs list',
-        example: "nirvana audit-logs list \\\n  --api-key 'My API Key'",
+      typescript: {
+        method: 'client.auditLogs.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const auditLog of client.auditLogs.list()) {\n  console.log(auditLog.id);\n}",
       },
       http: {
         example:
@@ -987,19 +987,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.projects.create(name: string, tags?: string[]): { id: string; created_at: string; name: string; resources: project_resources; tags: string[]; updated_at: string; }`\n\n**post** `/v1/projects`\n\nCreate a new project\n\n### Parameters\n\n- `name: string`\n  Project name.\n\n- `tags?: string[]`\n  Tags to attach to the Project.\n\n### Returns\n\n- `{ id: string; created_at: string; name: string; resources: { blockchain: project_blockchain_resources; cloud: project_cloud_resources; }; tags: string[]; updated_at: string; }`\n  Project response.\n\n  - `id: string`\n  - `created_at: string`\n  - `name: string`\n  - `resources: { blockchain: { rpc_nodes_dedicated: number; rpc_nodes_flex: number; }; cloud: { connect_connections: number; nks_clusters: number; nks_node_pools: number; vms: number; volumes: number; vpcs: number; }; }`\n  - `tags: string[]`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst project = await client.projects.create({ name: 'My Project' });\n\nconsole.log(project);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.projects.create',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst project = await client.projects.create({ name: 'My Project' });\n\nconsole.log(project.id);",
+      cli: {
+        method: 'projects create',
+        example: "nirvana projects create \\\n  --api-key 'My API Key' \\\n  --name 'My Project'",
       },
       go: {
         method: 'client.Projects.New',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/projects"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tproject, err := client.Projects.New(context.TODO(), projects.ProjectNewParams{\n\t\tName: "My Project",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", project.ID)\n}\n',
       },
-      cli: {
-        method: 'projects create',
-        example: "nirvana projects create \\\n  --api-key 'My API Key' \\\n  --name 'My Project'",
+      typescript: {
+        method: 'client.projects.create',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst project = await client.projects.create({ name: 'My Project' });\n\nconsole.log(project.id);",
       },
       http: {
         example:
@@ -1021,19 +1021,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.projects.get(project_id: string): { id: string; created_at: string; name: string; resources: project_resources; tags: string[]; updated_at: string; }`\n\n**get** `/v1/projects/{project_id}`\n\nGet details about a project\n\n### Parameters\n\n- `project_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; name: string; resources: { blockchain: project_blockchain_resources; cloud: project_cloud_resources; }; tags: string[]; updated_at: string; }`\n  Project response.\n\n  - `id: string`\n  - `created_at: string`\n  - `name: string`\n  - `resources: { blockchain: { rpc_nodes_dedicated: number; rpc_nodes_flex: number; }; cloud: { connect_connections: number; nks_clusters: number; nks_node_pools: number; vms: number; volumes: number; vpcs: number; }; }`\n  - `tags: string[]`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst project = await client.projects.get('project_id');\n\nconsole.log(project);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.projects.get',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst project = await client.projects.get('project_id');\n\nconsole.log(project.id);",
+      cli: {
+        method: 'projects get',
+        example: "nirvana projects get \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
       },
       go: {
         method: 'client.Projects.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tproject, err := client.Projects.Get(context.TODO(), "project_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", project.ID)\n}\n',
       },
-      cli: {
-        method: 'projects get',
-        example: "nirvana projects get \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
+      typescript: {
+        method: 'client.projects.get',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst project = await client.projects.get('project_id');\n\nconsole.log(project.id);",
       },
       http: {
         example:
@@ -1055,19 +1055,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.projects.update(project_id: string, name?: string, tags?: string[]): { id: string; created_at: string; name: string; resources: project_resources; tags: string[]; updated_at: string; }`\n\n**patch** `/v1/projects/{project_id}`\n\nUpdate an existing project\n\n### Parameters\n\n- `project_id: string`\n\n- `name?: string`\n  Project name.\n\n- `tags?: string[]`\n  Tags to attach to the Project.\n\n### Returns\n\n- `{ id: string; created_at: string; name: string; resources: { blockchain: project_blockchain_resources; cloud: project_cloud_resources; }; tags: string[]; updated_at: string; }`\n  Project response.\n\n  - `id: string`\n  - `created_at: string`\n  - `name: string`\n  - `resources: { blockchain: { rpc_nodes_dedicated: number; rpc_nodes_flex: number; }; cloud: { connect_connections: number; nks_clusters: number; nks_node_pools: number; vms: number; volumes: number; vpcs: number; }; }`\n  - `tags: string[]`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst project = await client.projects.update('project_id');\n\nconsole.log(project);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.projects.update',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst project = await client.projects.update('project_id');\n\nconsole.log(project.id);",
+      cli: {
+        method: 'projects update',
+        example: "nirvana projects update \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
       },
       go: {
         method: 'client.Projects.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/projects"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tproject, err := client.Projects.Update(\n\t\tcontext.TODO(),\n\t\t"project_id",\n\t\tprojects.ProjectUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", project.ID)\n}\n',
       },
-      cli: {
-        method: 'projects update',
-        example: "nirvana projects update \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
+      typescript: {
+        method: 'client.projects.update',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst project = await client.projects.update('project_id');\n\nconsole.log(project.id);",
       },
       http: {
         example:
@@ -1087,19 +1087,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## delete\n\n`client.projects.delete(project_id: string): void`\n\n**delete** `/v1/projects/{project_id}`\n\nDelete a project\n\n### Parameters\n\n- `project_id: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nawait client.projects.delete('project_id')\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.projects.delete',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.projects.delete('project_id');",
+      cli: {
+        method: 'projects delete',
+        example: "nirvana projects delete \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
       },
       go: {
         method: 'client.Projects.Delete',
         example:
           'package main\n\nimport (\n\t"context"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\terr := client.Projects.Delete(context.TODO(), "project_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n}\n',
       },
-      cli: {
-        method: 'projects delete',
-        example: "nirvana projects delete \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
+      typescript: {
+        method: 'client.projects.delete',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.projects.delete('project_id');",
       },
       http: {
         example:
@@ -1121,19 +1121,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.projects.list(cursor?: string, limit?: number): { id: string; created_at: string; name: string; resources: project_resources; tags: string[]; updated_at: string; }`\n\n**get** `/v1/projects`\n\nList all projects\n\n### Parameters\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; created_at: string; name: string; resources: { blockchain: project_blockchain_resources; cloud: project_cloud_resources; }; tags: string[]; updated_at: string; }`\n  Project response.\n\n  - `id: string`\n  - `created_at: string`\n  - `name: string`\n  - `resources: { blockchain: { rpc_nodes_dedicated: number; rpc_nodes_flex: number; }; cloud: { connect_connections: number; nks_clusters: number; nks_node_pools: number; vms: number; volumes: number; vpcs: number; }; }`\n  - `tags: string[]`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const project of client.projects.list()) {\n  console.log(project);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.projects.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const project of client.projects.list()) {\n  console.log(project.id);\n}",
+      cli: {
+        method: 'projects list',
+        example: "nirvana projects list \\\n  --api-key 'My API Key'",
       },
       go: {
         method: 'client.Projects.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/projects"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.Projects.List(context.TODO(), projects.ProjectListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'projects list',
-        example: "nirvana projects list \\\n  --api-key 'My API Key'",
+      typescript: {
+        method: 'client.projects.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const project of client.projects.list()) {\n  console.log(project.id);\n}",
       },
       http: {
         example:
@@ -1155,19 +1155,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.regions.get(name: string): { availability: region_availability; compute: object; name: string; networking: object; nks: object; storage: object; }`\n\n**get** `/v1/regions/{name}`\n\nGet a region by name\n\n### Parameters\n\n- `name: string`\n\n### Returns\n\n- `{ availability: 'live' | 'preview' | 'maintenance' | 'sunset'; compute: { vms: boolean; }; name: string; networking: { connect: boolean; vpcs: boolean; }; nks: { autoscaling: boolean; clusters: boolean; }; storage: { abs: boolean; local_nvme: boolean; }; }`\n  Region response with product availability.\n\n  - `availability: 'live' | 'preview' | 'maintenance' | 'sunset'`\n  - `compute: { vms: boolean; }`\n  - `name: string`\n  - `networking: { connect: boolean; vpcs: boolean; }`\n  - `nks: { autoscaling: boolean; clusters: boolean; }`\n  - `storage: { abs: boolean; local_nvme: boolean; }`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst region = await client.regions.get('us-sva-2');\n\nconsole.log(region);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.regions.get',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst region = await client.regions.get('us-sva-2');\n\nconsole.log(region.availability);",
+      cli: {
+        method: 'regions get',
+        example: "nirvana regions get \\\n  --api-key 'My API Key' \\\n  --name us-sva-2",
       },
       go: {
         method: 'client.Regions.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tregion, err := client.Regions.Get(context.TODO(), "us-sva-2")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", region.Availability)\n}\n',
       },
-      cli: {
-        method: 'regions get',
-        example: "nirvana regions get \\\n  --api-key 'My API Key' \\\n  --name us-sva-2",
+      typescript: {
+        method: 'client.regions.get',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst region = await client.regions.get('us-sva-2');\n\nconsole.log(region.availability);",
       },
       http: {
         example:
@@ -1189,19 +1189,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.regions.list(cursor?: string, limit?: number): { availability: region_availability; compute: object; name: string; networking: object; nks: object; storage: object; }`\n\n**get** `/v1/regions`\n\nList all regions\n\n### Parameters\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ availability: 'live' | 'preview' | 'maintenance' | 'sunset'; compute: { vms: boolean; }; name: string; networking: { connect: boolean; vpcs: boolean; }; nks: { autoscaling: boolean; clusters: boolean; }; storage: { abs: boolean; local_nvme: boolean; }; }`\n  Region response with product availability.\n\n  - `availability: 'live' | 'preview' | 'maintenance' | 'sunset'`\n  - `compute: { vms: boolean; }`\n  - `name: string`\n  - `networking: { connect: boolean; vpcs: boolean; }`\n  - `nks: { autoscaling: boolean; clusters: boolean; }`\n  - `storage: { abs: boolean; local_nvme: boolean; }`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const region of client.regions.list()) {\n  console.log(region);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.regions.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const region of client.regions.list()) {\n  console.log(region.availability);\n}",
+      cli: {
+        method: 'regions list',
+        example: "nirvana regions list \\\n  --api-key 'My API Key'",
       },
       go: {
         method: 'client.Regions.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/regions"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.Regions.List(context.TODO(), regions.RegionListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'regions list',
-        example: "nirvana regions list \\\n  --api-key 'My API Key'",
+      typescript: {
+        method: 'client.regions.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const region of client.regions.list()) {\n  console.log(region.availability);\n}",
       },
       http: {
         example:
@@ -1223,20 +1223,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.instanceTypes.get(region: 'us-sva-2', name: string): { chipset: string; created_at: string; family: string; memory_gb: number; name: string; network_bandwidth_gbps: number; region: region_name; series: string; updated_at: string; vcpu: number; }`\n\n**get** `/v1/instance_types/{region}/{name}`\n\nGet an instance type by region and name\n\n### Parameters\n\n- `region: 'us-sva-2'`\n\n- `name: string`\n\n### Returns\n\n- `{ chipset: string; created_at: string; family: string; memory_gb: number; name: string; network_bandwidth_gbps: number; region: 'us-sva-2'; series: string; updated_at: string; vcpu: number; }`\n  Instance type.\n\n  - `chipset: string`\n  - `created_at: string`\n  - `family: string`\n  - `memory_gb: number`\n  - `name: string`\n  - `network_bandwidth_gbps: number`\n  - `region: 'us-sva-2'`\n  - `series: string`\n  - `updated_at: string`\n  - `vcpu: number`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst instanceType = await client.instanceTypes.get('n1-standard-8', { region: 'us-sva-2' });\n\nconsole.log(instanceType);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.instanceTypes.get',
+      cli: {
+        method: 'instance_types get',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst instanceType = await client.instanceTypes.get('n1-standard-8', { region: 'us-sva-2' });\n\nconsole.log(instanceType.network_bandwidth_gbps);",
+          "nirvana instance-types get \\\n  --api-key 'My API Key' \\\n  --region us-sva-2 \\\n  --name n1-standard-8",
       },
       go: {
         method: 'client.InstanceTypes.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/instance_types"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tinstanceType, err := client.InstanceTypes.Get(\n\t\tcontext.TODO(),\n\t\tinstance_types.InstanceTypeGetParamsRegionUsSva2,\n\t\t"n1-standard-8",\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", instanceType.NetworkBandwidthGbps)\n}\n',
       },
-      cli: {
-        method: 'instance_types get',
+      typescript: {
+        method: 'client.instanceTypes.get',
         example:
-          "nirvana instance-types get \\\n  --api-key 'My API Key' \\\n  --region us-sva-2 \\\n  --name n1-standard-8",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst instanceType = await client.instanceTypes.get('n1-standard-8', { region: 'us-sva-2' });\n\nconsole.log(instanceType.network_bandwidth_gbps);",
       },
       http: {
         example:
@@ -1258,19 +1258,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.instanceTypes.list(cursor?: string, limit?: number): { chipset: string; created_at: string; family: string; memory_gb: number; name: string; network_bandwidth_gbps: number; region: region_name; series: string; updated_at: string; vcpu: number; }`\n\n**get** `/v1/instance_types`\n\nList instance types\n\n### Parameters\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ chipset: string; created_at: string; family: string; memory_gb: number; name: string; network_bandwidth_gbps: number; region: 'us-sva-2'; series: string; updated_at: string; vcpu: number; }`\n  Instance type.\n\n  - `chipset: string`\n  - `created_at: string`\n  - `family: string`\n  - `memory_gb: number`\n  - `name: string`\n  - `network_bandwidth_gbps: number`\n  - `region: 'us-sva-2'`\n  - `series: string`\n  - `updated_at: string`\n  - `vcpu: number`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const instanceType of client.instanceTypes.list()) {\n  console.log(instanceType);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.instanceTypes.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const instanceType of client.instanceTypes.list()) {\n  console.log(instanceType.network_bandwidth_gbps);\n}",
+      cli: {
+        method: 'instance_types list',
+        example: "nirvana instance-types list \\\n  --api-key 'My API Key'",
       },
       go: {
         method: 'client.InstanceTypes.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/instance_types"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.InstanceTypes.List(context.TODO(), instance_types.InstanceTypeListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'instance_types list',
-        example: "nirvana instance-types list \\\n  --api-key 'My API Key'",
+      typescript: {
+        method: 'client.instanceTypes.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const instanceType of client.instanceTypes.list()) {\n  console.log(instanceType.network_bandwidth_gbps);\n}",
       },
       http: {
         example:
@@ -1304,20 +1304,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.compute.vms.create(boot_volume: { size: number; type: 'nvme' | 'abs'; tags?: string[]; }, instance_type: string, name: string, os_image_name: string, project_id: string, public_ip_enabled: boolean, region: 'us-sva-2', ssh_key: { public_key: string; }, subnet_id: string, data_volumes?: { name: string; size: number; type: 'nvme' | 'abs'; tags?: string[]; }[], tags?: string[]): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**post** `/v1/compute/vms`\n\nCreate a VM\n\n### Parameters\n\n- `boot_volume: { size: number; type: 'nvme' | 'abs'; tags?: string[]; }`\n  Boot volume for the VM.\n  - `size: number`\n    Size of the Volume in GB.\n  - `type: 'nvme' | 'abs'`\n    Type of the Volume.\n  - `tags?: string[]`\n    Tags to attach to the Volume.\n\n- `instance_type: string`\n  Instance type name.\n\n- `name: string`\n  Name of the VM.\n\n- `os_image_name: string`\n  Name of the OS Image to use for the VM.\n\n- `project_id: string`\n  Project ID to create the VM in.\n\n- `public_ip_enabled: boolean`\n  Whether to enable public IP for the VM.\n\n- `region: 'us-sva-2'`\n  Region the resource is in.\n\n- `ssh_key: { public_key: string; }`\n  Public SSH key configuration for the VM.\n  - `public_key: string`\n    Public key to and use to access the VM.\n\n- `subnet_id: string`\n  ID of the subnet to use for the VM.\n\n- `data_volumes?: { name: string; size: number; type: 'nvme' | 'abs'; tags?: string[]; }[]`\n  Data volumes for the VM.\n\n- `tags?: string[]`\n  Tags to attach to the VM.\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.compute.vms.create({\n  boot_volume: { size: 100, type: 'abs' },\n  instance_type: 'n1-standard-8',\n  name: 'my-vm',\n  os_image_name: 'ubuntu-noble-2025-10-01',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  public_ip_enabled: true,\n  region: 'us-sva-2',\n  ssh_key: { public_key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2' },\n  subnet_id: '123e4567-e89b-12d3-a456-426614174000',\n});\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.compute.vms.create',
+      cli: {
+        method: 'vms create',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.compute.vms.create({\n  boot_volume: { size: 100, type: 'abs' },\n  instance_type: 'n1-standard-8',\n  name: 'my-vm',\n  os_image_name: 'ubuntu-noble-2025-10-01',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  public_ip_enabled: true,\n  region: 'us-sva-2',\n  ssh_key: {\n    public_key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2',\n  },\n  subnet_id: '123e4567-e89b-12d3-a456-426614174000',\n});\n\nconsole.log(operation.id);",
+          "nirvana compute:vms create \\\n  --api-key 'My API Key' \\\n  --boot-volume '{size: 100, type: abs}' \\\n  --instance-type n1-standard-8 \\\n  --name my-vm \\\n  --os-image-name ubuntu-noble-2025-10-01 \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --public-ip-enabled \\\n  --region us-sva-2 \\\n  --ssh-key '{public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2}' \\\n  --subnet-id 123e4567-e89b-12d3-a456-426614174000",
       },
       go: {
         method: 'client.Compute.VMs.New',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.Compute.VMs.New(context.TODO(), compute.VMNewParams{\n\t\tBootVolume: compute.VMNewParamsBootVolume{\n\t\t\tSize: 100,\n\t\t\tType: compute.VolumeTypeABS,\n\t\t},\n\t\tInstanceType:    "n1-standard-8",\n\t\tName:            "my-vm",\n\t\tOSImageName:     "ubuntu-noble-2025-10-01",\n\t\tProjectID:       "123e4567-e89b-12d3-a456-426614174000",\n\t\tPublicIPEnabled: true,\n\t\tRegion:          shared.RegionNameUsSva2,\n\t\tSSHKey: compute.SSHKeyRequestParam{\n\t\t\tPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2",\n\t\t},\n\t\tSubnetID: "123e4567-e89b-12d3-a456-426614174000",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'vms create',
+      typescript: {
+        method: 'client.compute.vms.create',
         example:
-          "nirvana compute:vms create \\\n  --api-key 'My API Key' \\\n  --boot-volume '{size: 100, type: abs}' \\\n  --instance-type n1-standard-8 \\\n  --name my-vm \\\n  --os-image-name ubuntu-noble-2025-10-01 \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --public-ip-enabled \\\n  --region us-sva-2 \\\n  --ssh-key '{public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2}' \\\n  --subnet-id 123e4567-e89b-12d3-a456-426614174000",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.compute.vms.create({\n  boot_volume: { size: 100, type: 'abs' },\n  instance_type: 'n1-standard-8',\n  name: 'my-vm',\n  os_image_name: 'ubuntu-noble-2025-10-01',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  public_ip_enabled: true,\n  region: 'us-sva-2',\n  ssh_key: {\n    public_key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2',\n  },\n  subnet_id: '123e4567-e89b-12d3-a456-426614174000',\n});\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -1339,19 +1339,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.compute.vms.get(vm_id: string): { id: string; boot_volume_id: string; cpu_config: cpu_config; created_at: string; data_volume_ids: string[]; memory_config: memory_config; name: string; private_ip: string; project_id: string; public_ip: string; public_ip_enabled: boolean; region: region_name; status: resource_status; subnet_id: string; tags: string[]; updated_at: string; vpc_id: string; vpc_name: string; instance_type?: string; }`\n\n**get** `/v1/compute/vms/{vm_id}`\n\nGet details about a VM\n\n### Parameters\n\n- `vm_id: string`\n\n### Returns\n\n- `{ id: string; boot_volume_id: string; cpu_config: { vcpu: number; }; created_at: string; data_volume_ids: string[]; memory_config: { size: number; }; name: string; private_ip: string; project_id: string; public_ip: string; public_ip_enabled: boolean; region: 'us-sva-2'; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; subnet_id: string; tags: string[]; updated_at: string; vpc_id: string; vpc_name: string; instance_type?: string; }`\n  VM details.\n\n  - `id: string`\n  - `boot_volume_id: string`\n  - `cpu_config: { vcpu: number; }`\n  - `created_at: string`\n  - `data_volume_ids: string[]`\n  - `memory_config: { size: number; }`\n  - `name: string`\n  - `private_ip: string`\n  - `project_id: string`\n  - `public_ip: string`\n  - `public_ip_enabled: boolean`\n  - `region: 'us-sva-2'`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `subnet_id: string`\n  - `tags: string[]`\n  - `updated_at: string`\n  - `vpc_id: string`\n  - `vpc_name: string`\n  - `instance_type?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst vm = await client.compute.vms.get('vm_id');\n\nconsole.log(vm);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.compute.vms.get',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst vm = await client.compute.vms.get('vm_id');\n\nconsole.log(vm.id);",
+      cli: {
+        method: 'vms get',
+        example: "nirvana compute:vms get \\\n  --api-key 'My API Key' \\\n  --vm-id vm_id",
       },
       go: {
         method: 'client.Compute.VMs.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tvm, err := client.Compute.VMs.Get(context.TODO(), "vm_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", vm.ID)\n}\n',
       },
-      cli: {
-        method: 'vms get',
-        example: "nirvana compute:vms get \\\n  --api-key 'My API Key' \\\n  --vm-id vm_id",
+      typescript: {
+        method: 'client.compute.vms.get',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst vm = await client.compute.vms.get('vm_id');\n\nconsole.log(vm.id);",
       },
       http: {
         example:
@@ -1379,19 +1379,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.compute.vms.update(vm_id: string, instance_type?: string, name?: string, public_ip_enabled?: boolean, tags?: string[]): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**patch** `/v1/compute/vms/{vm_id}`\n\nUpdate a VM\n\n### Parameters\n\n- `vm_id: string`\n\n- `instance_type?: string`\n  Instance type name.\n\n- `name?: string`\n  Name of the VM.\n\n- `public_ip_enabled?: boolean`\n  Whether to enable public IP for the VM.\n\n- `tags?: string[]`\n  Tags to attach to the VM.\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.compute.vms.update('vm_id');\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.compute.vms.update',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.compute.vms.update('vm_id');\n\nconsole.log(operation.id);",
+      cli: {
+        method: 'vms update',
+        example: "nirvana compute:vms update \\\n  --api-key 'My API Key' \\\n  --vm-id vm_id",
       },
       go: {
         method: 'client.Compute.VMs.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.Compute.VMs.Update(\n\t\tcontext.TODO(),\n\t\t"vm_id",\n\t\tcompute.VMUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'vms update',
-        example: "nirvana compute:vms update \\\n  --api-key 'My API Key' \\\n  --vm-id vm_id",
+      typescript: {
+        method: 'client.compute.vms.update',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.compute.vms.update('vm_id');\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -1413,19 +1413,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## delete\n\n`client.compute.vms.delete(vm_id: string): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**delete** `/v1/compute/vms/{vm_id}`\n\nDelete a VM\n\n### Parameters\n\n- `vm_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.compute.vms.delete('vm_id');\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.compute.vms.delete',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.compute.vms.delete('vm_id');\n\nconsole.log(operation.id);",
+      cli: {
+        method: 'vms delete',
+        example: "nirvana compute:vms delete \\\n  --api-key 'My API Key' \\\n  --vm-id vm_id",
       },
       go: {
         method: 'client.Compute.VMs.Delete',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.Compute.VMs.Delete(context.TODO(), "vm_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'vms delete',
-        example: "nirvana compute:vms delete \\\n  --api-key 'My API Key' \\\n  --vm-id vm_id",
+      typescript: {
+        method: 'client.compute.vms.delete',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.compute.vms.delete('vm_id');\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -1447,19 +1447,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.compute.vms.list(project_id: string, cursor?: string, limit?: number): { id: string; boot_volume_id: string; cpu_config: cpu_config; created_at: string; data_volume_ids: string[]; memory_config: memory_config; name: string; private_ip: string; project_id: string; public_ip: string; public_ip_enabled: boolean; region: region_name; status: resource_status; subnet_id: string; tags: string[]; updated_at: string; vpc_id: string; vpc_name: string; instance_type?: string; }`\n\n**get** `/v1/compute/vms`\n\nList all VMs\n\n### Parameters\n\n- `project_id: string`\n  Project ID of resources to request\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; boot_volume_id: string; cpu_config: { vcpu: number; }; created_at: string; data_volume_ids: string[]; memory_config: { size: number; }; name: string; private_ip: string; project_id: string; public_ip: string; public_ip_enabled: boolean; region: 'us-sva-2'; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; subnet_id: string; tags: string[]; updated_at: string; vpc_id: string; vpc_name: string; instance_type?: string; }`\n  VM details.\n\n  - `id: string`\n  - `boot_volume_id: string`\n  - `cpu_config: { vcpu: number; }`\n  - `created_at: string`\n  - `data_volume_ids: string[]`\n  - `memory_config: { size: number; }`\n  - `name: string`\n  - `private_ip: string`\n  - `project_id: string`\n  - `public_ip: string`\n  - `public_ip_enabled: boolean`\n  - `region: 'us-sva-2'`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `subnet_id: string`\n  - `tags: string[]`\n  - `updated_at: string`\n  - `vpc_id: string`\n  - `vpc_name: string`\n  - `instance_type?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const vm of client.compute.vms.list({ project_id: 'project_id' })) {\n  console.log(vm);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.compute.vms.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const vm of client.compute.vms.list({ project_id: 'project_id' })) {\n  console.log(vm.id);\n}",
+      cli: {
+        method: 'vms list',
+        example: "nirvana compute:vms list \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
       },
       go: {
         method: 'client.Compute.VMs.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.Compute.VMs.List(context.TODO(), compute.VMListParams{\n\t\tProjectID: "project_id",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'vms list',
-        example: "nirvana compute:vms list \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
+      typescript: {
+        method: 'client.compute.vms.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const vm of client.compute.vms.list({ project_id: 'project_id' })) {\n  console.log(vm.id);\n}",
       },
       http: {
         example:
@@ -1481,19 +1481,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## restart\n\n`client.compute.vms.restart(vm_id: string): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**post** `/v1/compute/vms/{vm_id}/restart`\n\nRestart a VM\n\n### Parameters\n\n- `vm_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.compute.vms.restart('vm_id');\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.compute.vms.restart',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.compute.vms.restart('vm_id');\n\nconsole.log(operation.id);",
+      cli: {
+        method: 'vms restart',
+        example: "nirvana compute:vms restart \\\n  --api-key 'My API Key' \\\n  --vm-id vm_id",
       },
       go: {
         method: 'client.Compute.VMs.Restart',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.Compute.VMs.Restart(context.TODO(), "vm_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'vms restart',
-        example: "nirvana compute:vms restart \\\n  --api-key 'My API Key' \\\n  --vm-id vm_id",
+      typescript: {
+        method: 'client.compute.vms.restart',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.compute.vms.restart('vm_id');\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -1525,20 +1525,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.compute.vms.availability.create(boot_volume: { size: number; type: 'nvme' | 'abs'; tags?: string[]; }, instance_type: string, name: string, os_image_name: string, project_id: string, public_ip_enabled: boolean, region: 'us-sva-2', ssh_key: { public_key: string; }, subnet_id: string, data_volumes?: { name: string; size: number; type: 'nvme' | 'abs'; tags?: string[]; }[], tags?: string[]): void`\n\n**post** `/v1/compute/vms/availability`\n\nCheck VM Create Availability\n\n### Parameters\n\n- `boot_volume: { size: number; type: 'nvme' | 'abs'; tags?: string[]; }`\n  Boot volume for the VM.\n  - `size: number`\n    Size of the Volume in GB.\n  - `type: 'nvme' | 'abs'`\n    Type of the Volume.\n  - `tags?: string[]`\n    Tags to attach to the Volume.\n\n- `instance_type: string`\n  Instance type name.\n\n- `name: string`\n  Name of the VM.\n\n- `os_image_name: string`\n  Name of the OS Image to use for the VM.\n\n- `project_id: string`\n  Project ID to create the VM in.\n\n- `public_ip_enabled: boolean`\n  Whether to enable public IP for the VM.\n\n- `region: 'us-sva-2'`\n  Region the resource is in.\n\n- `ssh_key: { public_key: string; }`\n  Public SSH key configuration for the VM.\n  - `public_key: string`\n    Public key to and use to access the VM.\n\n- `subnet_id: string`\n  ID of the subnet to use for the VM.\n\n- `data_volumes?: { name: string; size: number; type: 'nvme' | 'abs'; tags?: string[]; }[]`\n  Data volumes for the VM.\n\n- `tags?: string[]`\n  Tags to attach to the VM.\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nawait client.compute.vms.availability.create({\n  boot_volume: { size: 100, type: 'abs' },\n  instance_type: 'n1-standard-8',\n  name: 'my-vm',\n  os_image_name: 'ubuntu-noble-2025-10-01',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  public_ip_enabled: true,\n  region: 'us-sva-2',\n  ssh_key: { public_key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2' },\n  subnet_id: '123e4567-e89b-12d3-a456-426614174000',\n})\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.compute.vms.availability.create',
+      cli: {
+        method: 'availability create',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.compute.vms.availability.create({\n  boot_volume: { size: 100, type: 'abs' },\n  instance_type: 'n1-standard-8',\n  name: 'my-vm',\n  os_image_name: 'ubuntu-noble-2025-10-01',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  public_ip_enabled: true,\n  region: 'us-sva-2',\n  ssh_key: {\n    public_key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2',\n  },\n  subnet_id: '123e4567-e89b-12d3-a456-426614174000',\n});",
+          "nirvana compute:vms:availability create \\\n  --api-key 'My API Key' \\\n  --boot-volume '{size: 100, type: abs}' \\\n  --instance-type n1-standard-8 \\\n  --name my-vm \\\n  --os-image-name ubuntu-noble-2025-10-01 \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --public-ip-enabled \\\n  --region us-sva-2 \\\n  --ssh-key '{public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2}' \\\n  --subnet-id 123e4567-e89b-12d3-a456-426614174000",
       },
       go: {
         method: 'client.Compute.VMs.Availability.New',
         example:
           'package main\n\nimport (\n\t"context"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\terr := client.Compute.VMs.Availability.New(context.TODO(), compute.VMAvailabilityNewParams{\n\t\tBootVolume: compute.VMAvailabilityNewParamsBootVolume{\n\t\t\tSize: 100,\n\t\t\tType: compute.VolumeTypeABS,\n\t\t},\n\t\tInstanceType:    "n1-standard-8",\n\t\tName:            "my-vm",\n\t\tOSImageName:     "ubuntu-noble-2025-10-01",\n\t\tProjectID:       "123e4567-e89b-12d3-a456-426614174000",\n\t\tPublicIPEnabled: true,\n\t\tRegion:          shared.RegionNameUsSva2,\n\t\tSSHKey: compute.SSHKeyRequestParam{\n\t\t\tPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2",\n\t\t},\n\t\tSubnetID: "123e4567-e89b-12d3-a456-426614174000",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n}\n',
       },
-      cli: {
-        method: 'availability create',
+      typescript: {
+        method: 'client.compute.vms.availability.create',
         example:
-          "nirvana compute:vms:availability create \\\n  --api-key 'My API Key' \\\n  --boot-volume '{size: 100, type: abs}' \\\n  --instance-type n1-standard-8 \\\n  --name my-vm \\\n  --os-image-name ubuntu-noble-2025-10-01 \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --public-ip-enabled \\\n  --region us-sva-2 \\\n  --ssh-key '{public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2}' \\\n  --subnet-id 123e4567-e89b-12d3-a456-426614174000",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.compute.vms.availability.create({\n  boot_volume: { size: 100, type: 'abs' },\n  instance_type: 'n1-standard-8',\n  name: 'my-vm',\n  os_image_name: 'ubuntu-noble-2025-10-01',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  public_ip_enabled: true,\n  region: 'us-sva-2',\n  ssh_key: {\n    public_key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2',\n  },\n  subnet_id: '123e4567-e89b-12d3-a456-426614174000',\n});",
       },
       http: {
         example:
@@ -1564,19 +1564,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.compute.vms.availability.update(vm_id: string, instance_type?: string, name?: string, public_ip_enabled?: boolean, tags?: string[]): void`\n\n**patch** `/v1/compute/vms/{vm_id}/availability`\n\nCheck VM Update Availability\n\n### Parameters\n\n- `vm_id: string`\n\n- `instance_type?: string`\n  Instance type name.\n\n- `name?: string`\n  Name of the VM.\n\n- `public_ip_enabled?: boolean`\n  Whether to enable public IP for the VM.\n\n- `tags?: string[]`\n  Tags to attach to the VM.\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nawait client.compute.vms.availability.update('vm_id')\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.compute.vms.availability.update',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.compute.vms.availability.update('vm_id');",
+      cli: {
+        method: 'availability update',
+        example: "nirvana compute:vms:availability update \\\n  --api-key 'My API Key' \\\n  --vm-id vm_id",
       },
       go: {
         method: 'client.Compute.VMs.Availability.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\terr := client.Compute.VMs.Availability.Update(\n\t\tcontext.TODO(),\n\t\t"vm_id",\n\t\tcompute.VMAvailabilityUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n}\n',
       },
-      cli: {
-        method: 'availability update',
-        example: "nirvana compute:vms:availability update \\\n  --api-key 'My API Key' \\\n  --vm-id vm_id",
+      typescript: {
+        method: 'client.compute.vms.availability.update',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.compute.vms.availability.update('vm_id');",
       },
       http: {
         example:
@@ -1598,19 +1598,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.compute.vms.volumes.list(vm_id: string, cursor?: string, limit?: number): { id: string; created_at: string; kind: volume_kind; name: string; project_id: string; region: region_name; size: number; status: resource_status; tags: string[]; type: volume_type; updated_at: string; vm_id: string; vm_name: string; }`\n\n**get** `/v1/compute/vms/{vm_id}/volumes`\n\nList VM's Volumes\n\n### Parameters\n\n- `vm_id: string`\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; created_at: string; kind: 'boot' | 'data'; name: string; project_id: string; region: 'us-sva-2'; size: number; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; type: 'nvme' | 'abs'; updated_at: string; vm_id: string; vm_name: string; }`\n  Volume details.\n\n  - `id: string`\n  - `created_at: string`\n  - `kind: 'boot' | 'data'`\n  - `name: string`\n  - `project_id: string`\n  - `region: 'us-sva-2'`\n  - `size: number`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `tags: string[]`\n  - `type: 'nvme' | 'abs'`\n  - `updated_at: string`\n  - `vm_id: string`\n  - `vm_name: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const volume of client.compute.vms.volumes.list('vm_id')) {\n  console.log(volume);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.compute.vms.volumes.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const volume of client.compute.vms.volumes.list('vm_id')) {\n  console.log(volume.id);\n}",
+      cli: {
+        method: 'volumes list',
+        example: "nirvana compute:vms:volumes list \\\n  --api-key 'My API Key' \\\n  --vm-id vm_id",
       },
       go: {
         method: 'client.Compute.VMs.Volumes.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.Compute.VMs.Volumes.List(\n\t\tcontext.TODO(),\n\t\t"vm_id",\n\t\tcompute.VMVolumeListParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'volumes list',
-        example: "nirvana compute:vms:volumes list \\\n  --api-key 'My API Key' \\\n  --vm-id vm_id",
+      typescript: {
+        method: 'client.compute.vms.volumes.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const volume of client.compute.vms.volumes.list('vm_id')) {\n  console.log(volume.id);\n}",
       },
       http: {
         example:
@@ -1631,19 +1631,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.compute.vms.osImages.list(cursor?: string, limit?: number): { created_at: string; display_name: string; name: string; }`\n\n**get** `/v1/compute/vms/os_images`\n\nList all OS Images\n\n### Parameters\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ created_at: string; display_name: string; name: string; }`\n  OS Image details.\n\n  - `created_at: string`\n  - `display_name: string`\n  - `name: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const osImage of client.compute.vms.osImages.list()) {\n  console.log(osImage);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.compute.vms.osImages.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const osImage of client.compute.vms.osImages.list()) {\n  console.log(osImage.created_at);\n}",
+      cli: {
+        method: 'os_images list',
+        example: "nirvana compute:vms:os-images list \\\n  --api-key 'My API Key'",
       },
       go: {
         method: 'client.Compute.VMs.OSImages.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.Compute.VMs.OSImages.List(context.TODO(), compute.VMOSImageListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'os_images list',
-        example: "nirvana compute:vms:os-images list \\\n  --api-key 'My API Key'",
+      typescript: {
+        method: 'client.compute.vms.osImages.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const osImage of client.compute.vms.osImages.list()) {\n  console.log(osImage.created_at);\n}",
       },
       http: {
         example:
@@ -1673,20 +1673,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.compute.volumes.create(name: string, project_id: string, region: 'us-sva-2', size: number, type: 'nvme' | 'abs', tags?: string[], vm_id?: string): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**post** `/v1/compute/volumes`\n\nCreate a Volume. Only data volumes can be created.\n\n### Parameters\n\n- `name: string`\n  Name of the Volume.\n\n- `project_id: string`\n  Project ID the Volume belongs to.\n\n- `region: 'us-sva-2'`\n  Region the resource is in.\n\n- `size: number`\n  Size of the Volume in GB.\n\n- `type: 'nvme' | 'abs'`\n  Type of the Volume.\n\n- `tags?: string[]`\n  Tags to attach to the Volume.\n\n- `vm_id?: string`\n  ID of the VM the Volume is attached to.\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.compute.volumes.create({\n  name: 'my-data-volume',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  size: 100,\n  type: 'abs',\n});\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.compute.volumes.create',
+      cli: {
+        method: 'volumes create',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.compute.volumes.create({\n  name: 'my-data-volume',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  size: 100,\n  type: 'abs',\n});\n\nconsole.log(operation.id);",
+          "nirvana compute:volumes create \\\n  --api-key 'My API Key' \\\n  --name my-data-volume \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --region us-sva-2 \\\n  --size 100 \\\n  --type abs",
       },
       go: {
         method: 'client.Compute.Volumes.New',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.Compute.Volumes.New(context.TODO(), compute.VolumeNewParams{\n\t\tName:      "my-data-volume",\n\t\tProjectID: "123e4567-e89b-12d3-a456-426614174000",\n\t\tRegion:    shared.RegionNameUsSva2,\n\t\tSize:      100,\n\t\tType:      compute.VolumeTypeABS,\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'volumes create',
+      typescript: {
+        method: 'client.compute.volumes.create',
         example:
-          "nirvana compute:volumes create \\\n  --api-key 'My API Key' \\\n  --name my-data-volume \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --region us-sva-2 \\\n  --size 100 \\\n  --type abs",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.compute.volumes.create({\n  name: 'my-data-volume',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  size: 100,\n  type: 'abs',\n});\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -1708,19 +1708,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.compute.volumes.get(volume_id: string): { id: string; created_at: string; kind: volume_kind; name: string; project_id: string; region: region_name; size: number; status: resource_status; tags: string[]; type: volume_type; updated_at: string; vm_id: string; vm_name: string; }`\n\n**get** `/v1/compute/volumes/{volume_id}`\n\nGet a Volume.\n\n### Parameters\n\n- `volume_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; kind: 'boot' | 'data'; name: string; project_id: string; region: 'us-sva-2'; size: number; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; type: 'nvme' | 'abs'; updated_at: string; vm_id: string; vm_name: string; }`\n  Volume details.\n\n  - `id: string`\n  - `created_at: string`\n  - `kind: 'boot' | 'data'`\n  - `name: string`\n  - `project_id: string`\n  - `region: 'us-sva-2'`\n  - `size: number`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `tags: string[]`\n  - `type: 'nvme' | 'abs'`\n  - `updated_at: string`\n  - `vm_id: string`\n  - `vm_name: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst volume = await client.compute.volumes.get('volume_id');\n\nconsole.log(volume);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.compute.volumes.get',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst volume = await client.compute.volumes.get('volume_id');\n\nconsole.log(volume.id);",
+      cli: {
+        method: 'volumes get',
+        example: "nirvana compute:volumes get \\\n  --api-key 'My API Key' \\\n  --volume-id volume_id",
       },
       go: {
         method: 'client.Compute.Volumes.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tvolume, err := client.Compute.Volumes.Get(context.TODO(), "volume_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", volume.ID)\n}\n',
       },
-      cli: {
-        method: 'volumes get',
-        example: "nirvana compute:volumes get \\\n  --api-key 'My API Key' \\\n  --volume-id volume_id",
+      typescript: {
+        method: 'client.compute.volumes.get',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst volume = await client.compute.volumes.get('volume_id');\n\nconsole.log(volume.id);",
       },
       http: {
         example:
@@ -1742,19 +1742,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.compute.volumes.update(volume_id: string, name?: string, size?: number, tags?: string[]): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**patch** `/v1/compute/volumes/{volume_id}`\n\nUpdate a Volume. Boot or data volumes can be updated.\n\n### Parameters\n\n- `volume_id: string`\n\n- `name?: string`\n  Name of the Volume.\n\n- `size?: number`\n  Size of the Volume in GB.\n\n- `tags?: string[]`\n  Tags to attach to the Volume.\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.compute.volumes.update('volume_id');\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.compute.volumes.update',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.compute.volumes.update('volume_id');\n\nconsole.log(operation.id);",
+      cli: {
+        method: 'volumes update',
+        example: "nirvana compute:volumes update \\\n  --api-key 'My API Key' \\\n  --volume-id volume_id",
       },
       go: {
         method: 'client.Compute.Volumes.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.Compute.Volumes.Update(\n\t\tcontext.TODO(),\n\t\t"volume_id",\n\t\tcompute.VolumeUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'volumes update',
-        example: "nirvana compute:volumes update \\\n  --api-key 'My API Key' \\\n  --volume-id volume_id",
+      typescript: {
+        method: 'client.compute.volumes.update',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.compute.volumes.update('volume_id');\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -1776,19 +1776,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## delete\n\n`client.compute.volumes.delete(volume_id: string): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**delete** `/v1/compute/volumes/{volume_id}`\n\nDelete a Volume. Boot or data volumes can be deleted.\n\n### Parameters\n\n- `volume_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.compute.volumes.delete('volume_id');\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.compute.volumes.delete',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.compute.volumes.delete('volume_id');\n\nconsole.log(operation.id);",
+      cli: {
+        method: 'volumes delete',
+        example: "nirvana compute:volumes delete \\\n  --api-key 'My API Key' \\\n  --volume-id volume_id",
       },
       go: {
         method: 'client.Compute.Volumes.Delete',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.Compute.Volumes.Delete(context.TODO(), "volume_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'volumes delete',
-        example: "nirvana compute:volumes delete \\\n  --api-key 'My API Key' \\\n  --volume-id volume_id",
+      typescript: {
+        method: 'client.compute.volumes.delete',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.compute.volumes.delete('volume_id');\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -1810,19 +1810,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.compute.volumes.list(project_id: string, cursor?: string, limit?: number): { id: string; created_at: string; kind: volume_kind; name: string; project_id: string; region: region_name; size: number; status: resource_status; tags: string[]; type: volume_type; updated_at: string; vm_id: string; vm_name: string; }`\n\n**get** `/v1/compute/volumes`\n\nList all volumes\n\n### Parameters\n\n- `project_id: string`\n  Project ID of resources to request\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; created_at: string; kind: 'boot' | 'data'; name: string; project_id: string; region: 'us-sva-2'; size: number; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; type: 'nvme' | 'abs'; updated_at: string; vm_id: string; vm_name: string; }`\n  Volume details.\n\n  - `id: string`\n  - `created_at: string`\n  - `kind: 'boot' | 'data'`\n  - `name: string`\n  - `project_id: string`\n  - `region: 'us-sva-2'`\n  - `size: number`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `tags: string[]`\n  - `type: 'nvme' | 'abs'`\n  - `updated_at: string`\n  - `vm_id: string`\n  - `vm_name: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const volume of client.compute.volumes.list({ project_id: 'project_id' })) {\n  console.log(volume);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.compute.volumes.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const volume of client.compute.volumes.list({ project_id: 'project_id' })) {\n  console.log(volume.id);\n}",
+      cli: {
+        method: 'volumes list',
+        example: "nirvana compute:volumes list \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
       },
       go: {
         method: 'client.Compute.Volumes.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.Compute.Volumes.List(context.TODO(), compute.VolumeListParams{\n\t\tProjectID: "project_id",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'volumes list',
-        example: "nirvana compute:volumes list \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
+      typescript: {
+        method: 'client.compute.volumes.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const volume of client.compute.volumes.list({ project_id: 'project_id' })) {\n  console.log(volume.id);\n}",
       },
       http: {
         example:
@@ -1844,20 +1844,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## attach\n\n`client.compute.volumes.attach(volume_id: string, vm_id: string): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**post** `/v1/compute/volumes/{volume_id}/attach`\n\nAttach a volume to a VM\n\n### Parameters\n\n- `volume_id: string`\n\n- `vm_id: string`\n  ID of the VM to attach the Volume to.\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.compute.volumes.attach('volume_id', { vm_id: '123e4567-e89b-12d3-a456-426614174000' });\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.compute.volumes.attach',
+      cli: {
+        method: 'volumes attach',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.compute.volumes.attach('volume_id', {\n  vm_id: '123e4567-e89b-12d3-a456-426614174000',\n});\n\nconsole.log(operation.id);",
+          "nirvana compute:volumes attach \\\n  --api-key 'My API Key' \\\n  --volume-id volume_id \\\n  --vm-id 123e4567-e89b-12d3-a456-426614174000",
       },
       go: {
         method: 'client.Compute.Volumes.Attach',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.Compute.Volumes.Attach(\n\t\tcontext.TODO(),\n\t\t"volume_id",\n\t\tcompute.VolumeAttachParams{\n\t\t\tVMID: "123e4567-e89b-12d3-a456-426614174000",\n\t\t},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'volumes attach',
+      typescript: {
+        method: 'client.compute.volumes.attach',
         example:
-          "nirvana compute:volumes attach \\\n  --api-key 'My API Key' \\\n  --volume-id volume_id \\\n  --vm-id 123e4567-e89b-12d3-a456-426614174000",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.compute.volumes.attach('volume_id', {\n  vm_id: '123e4567-e89b-12d3-a456-426614174000',\n});\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -1879,19 +1879,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## detach\n\n`client.compute.volumes.detach(volume_id: string): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**post** `/v1/compute/volumes/{volume_id}/detach`\n\nDetach a volume from a VM\n\n### Parameters\n\n- `volume_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.compute.volumes.detach('volume_id');\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.compute.volumes.detach',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.compute.volumes.detach('volume_id');\n\nconsole.log(operation.id);",
+      cli: {
+        method: 'volumes detach',
+        example: "nirvana compute:volumes detach \\\n  --api-key 'My API Key' \\\n  --volume-id volume_id",
       },
       go: {
         method: 'client.Compute.Volumes.Detach',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.Compute.Volumes.Detach(context.TODO(), "volume_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'volumes detach',
-        example: "nirvana compute:volumes detach \\\n  --api-key 'My API Key' \\\n  --volume-id volume_id",
+      typescript: {
+        method: 'client.compute.volumes.detach',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.compute.volumes.detach('volume_id');\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -1919,20 +1919,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.compute.volumes.availability.create(name: string, project_id: string, region: 'us-sva-2', size: number, type: 'nvme' | 'abs', tags?: string[], vm_id?: string): void`\n\n**post** `/v1/compute/volumes/availability`\n\nCheck Volume Create Availability\n\n### Parameters\n\n- `name: string`\n  Name of the Volume.\n\n- `project_id: string`\n  Project ID the Volume belongs to.\n\n- `region: 'us-sva-2'`\n  Region the resource is in.\n\n- `size: number`\n  Size of the Volume in GB.\n\n- `type: 'nvme' | 'abs'`\n  Type of the Volume.\n\n- `tags?: string[]`\n  Tags to attach to the Volume.\n\n- `vm_id?: string`\n  ID of the VM the Volume is attached to.\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nawait client.compute.volumes.availability.create({\n  name: 'my-data-volume',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  size: 100,\n  type: 'abs',\n})\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.compute.volumes.availability.create',
+      cli: {
+        method: 'availability create',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.compute.volumes.availability.create({\n  name: 'my-data-volume',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  size: 100,\n  type: 'abs',\n});",
+          "nirvana compute:volumes:availability create \\\n  --api-key 'My API Key' \\\n  --name my-data-volume \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --region us-sva-2 \\\n  --size 100 \\\n  --type abs",
       },
       go: {
         method: 'client.Compute.Volumes.Availability.New',
         example:
           'package main\n\nimport (\n\t"context"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\terr := client.Compute.Volumes.Availability.New(context.TODO(), compute.VolumeAvailabilityNewParams{\n\t\tName:      "my-data-volume",\n\t\tProjectID: "123e4567-e89b-12d3-a456-426614174000",\n\t\tRegion:    shared.RegionNameUsSva2,\n\t\tSize:      100,\n\t\tType:      compute.VolumeTypeABS,\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n}\n',
       },
-      cli: {
-        method: 'availability create',
+      typescript: {
+        method: 'client.compute.volumes.availability.create',
         example:
-          "nirvana compute:volumes:availability create \\\n  --api-key 'My API Key' \\\n  --name my-data-volume \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --region us-sva-2 \\\n  --size 100 \\\n  --type abs",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.compute.volumes.availability.create({\n  name: 'my-data-volume',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  size: 100,\n  type: 'abs',\n});",
       },
       http: {
         example:
@@ -1952,20 +1952,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.compute.volumes.availability.update(volume_id: string, name?: string, size?: number, tags?: string[]): void`\n\n**patch** `/v1/compute/volumes/{volume_id}/availability`\n\nCheck Volume Update Availability\n\n### Parameters\n\n- `volume_id: string`\n\n- `name?: string`\n  Name of the Volume.\n\n- `size?: number`\n  Size of the Volume in GB.\n\n- `tags?: string[]`\n  Tags to attach to the Volume.\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nawait client.compute.volumes.availability.update('volume_id')\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.compute.volumes.availability.update',
+      cli: {
+        method: 'availability update',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.compute.volumes.availability.update('volume_id');",
+          "nirvana compute:volumes:availability update \\\n  --api-key 'My API Key' \\\n  --volume-id volume_id",
       },
       go: {
         method: 'client.Compute.Volumes.Availability.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\terr := client.Compute.Volumes.Availability.Update(\n\t\tcontext.TODO(),\n\t\t"volume_id",\n\t\tcompute.VolumeAvailabilityUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n}\n',
       },
-      cli: {
-        method: 'availability update',
+      typescript: {
+        method: 'client.compute.volumes.availability.update',
         example:
-          "nirvana compute:volumes:availability update \\\n  --api-key 'My API Key' \\\n  --volume-id volume_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.compute.volumes.availability.update('volume_id');",
       },
       http: {
         example:
@@ -1993,20 +1993,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.networking.vpcs.create(name: string, project_id: string, region: 'us-sva-2', subnet_name: string, tags?: string[]): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**post** `/v1/networking/vpcs`\n\nCreate a VPC\n\n### Parameters\n\n- `name: string`\n  Name of the VPC.\n\n- `project_id: string`\n  Project ID the VPC belongs to.\n\n- `region: 'us-sva-2'`\n  Region the resource is in.\n\n- `subnet_name: string`\n  Name of the subnet to create.\n\n- `tags?: string[]`\n  Tags to attach to the VPC.\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.networking.vpcs.create({\n  name: 'my-vpc',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  subnet_name: 'my-subnet',\n});\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.networking.vpcs.create',
+      cli: {
+        method: 'vpcs create',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.networking.vpcs.create({\n  name: 'my-vpc',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  subnet_name: 'my-subnet',\n});\n\nconsole.log(operation.id);",
+          "nirvana networking:vpcs create \\\n  --api-key 'My API Key' \\\n  --name my-vpc \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --region us-sva-2 \\\n  --subnet-name my-subnet",
       },
       go: {
         method: 'client.Networking.VPCs.New',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/networking"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.Networking.VPCs.New(context.TODO(), networking.VPCNewParams{\n\t\tName:       "my-vpc",\n\t\tProjectID:  "123e4567-e89b-12d3-a456-426614174000",\n\t\tRegion:     shared.RegionNameUsSva2,\n\t\tSubnetName: "my-subnet",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'vpcs create',
+      typescript: {
+        method: 'client.networking.vpcs.create',
         example:
-          "nirvana networking:vpcs create \\\n  --api-key 'My API Key' \\\n  --name my-vpc \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --region us-sva-2 \\\n  --subnet-name my-subnet",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.networking.vpcs.create({\n  name: 'my-vpc',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  subnet_name: 'my-subnet',\n});\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -2028,19 +2028,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.networking.vpcs.get(vpc_id: string): { id: string; created_at: string; firewall_rule_ids: string[]; name: string; project_id: string; region: region_name; status: resource_status; subnet: subnet; tags: string[]; updated_at: string; }`\n\n**get** `/v1/networking/vpcs/{vpc_id}`\n\nGet details about a VPC\n\n### Parameters\n\n- `vpc_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; firewall_rule_ids: string[]; name: string; project_id: string; region: 'us-sva-2'; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; subnet: { id: string; cidr: string; created_at: string; name: string; updated_at: string; }; tags: string[]; updated_at: string; }`\n  VPC details.\n\n  - `id: string`\n  - `created_at: string`\n  - `firewall_rule_ids: string[]`\n  - `name: string`\n  - `project_id: string`\n  - `region: 'us-sva-2'`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `subnet: { id: string; cidr: string; created_at: string; name: string; updated_at: string; }`\n  - `tags: string[]`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst vpc = await client.networking.vpcs.get('vpc_id');\n\nconsole.log(vpc);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.networking.vpcs.get',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst vpc = await client.networking.vpcs.get('vpc_id');\n\nconsole.log(vpc.id);",
+      cli: {
+        method: 'vpcs get',
+        example: "nirvana networking:vpcs get \\\n  --api-key 'My API Key' \\\n  --vpc-id vpc_id",
       },
       go: {
         method: 'client.Networking.VPCs.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tvpc, err := client.Networking.VPCs.Get(context.TODO(), "vpc_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", vpc.ID)\n}\n',
       },
-      cli: {
-        method: 'vpcs get',
-        example: "nirvana networking:vpcs get \\\n  --api-key 'My API Key' \\\n  --vpc-id vpc_id",
+      typescript: {
+        method: 'client.networking.vpcs.get',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst vpc = await client.networking.vpcs.get('vpc_id');\n\nconsole.log(vpc.id);",
       },
       http: {
         example:
@@ -2062,19 +2062,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.networking.vpcs.update(vpc_id: string, name?: string, subnet_name?: string, tags?: string[]): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**patch** `/v1/networking/vpcs/{vpc_id}`\n\nUpdate a VPC\n\n### Parameters\n\n- `vpc_id: string`\n\n- `name?: string`\n  Name of the VPC.\n\n- `subnet_name?: string`\n  Name of the subnet to create.\n\n- `tags?: string[]`\n  Tags to attach to the VPC.\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.networking.vpcs.update('vpc_id');\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.networking.vpcs.update',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.networking.vpcs.update('vpc_id');\n\nconsole.log(operation.id);",
+      cli: {
+        method: 'vpcs update',
+        example: "nirvana networking:vpcs update \\\n  --api-key 'My API Key' \\\n  --vpc-id vpc_id",
       },
       go: {
         method: 'client.Networking.VPCs.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/networking"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.Networking.VPCs.Update(\n\t\tcontext.TODO(),\n\t\t"vpc_id",\n\t\tnetworking.VPCUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'vpcs update',
-        example: "nirvana networking:vpcs update \\\n  --api-key 'My API Key' \\\n  --vpc-id vpc_id",
+      typescript: {
+        method: 'client.networking.vpcs.update',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.networking.vpcs.update('vpc_id');\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -2096,19 +2096,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## delete\n\n`client.networking.vpcs.delete(vpc_id: string): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**delete** `/v1/networking/vpcs/{vpc_id}`\n\nDelete a VPC\n\n### Parameters\n\n- `vpc_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.networking.vpcs.delete('vpc_id');\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.networking.vpcs.delete',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.networking.vpcs.delete('vpc_id');\n\nconsole.log(operation.id);",
+      cli: {
+        method: 'vpcs delete',
+        example: "nirvana networking:vpcs delete \\\n  --api-key 'My API Key' \\\n  --vpc-id vpc_id",
       },
       go: {
         method: 'client.Networking.VPCs.Delete',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.Networking.VPCs.Delete(context.TODO(), "vpc_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'vpcs delete',
-        example: "nirvana networking:vpcs delete \\\n  --api-key 'My API Key' \\\n  --vpc-id vpc_id",
+      typescript: {
+        method: 'client.networking.vpcs.delete',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.networking.vpcs.delete('vpc_id');\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -2130,19 +2130,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.networking.vpcs.list(project_id: string, cursor?: string, limit?: number): { id: string; created_at: string; firewall_rule_ids: string[]; name: string; project_id: string; region: region_name; status: resource_status; subnet: subnet; tags: string[]; updated_at: string; }`\n\n**get** `/v1/networking/vpcs`\n\nList all VPCs\n\n### Parameters\n\n- `project_id: string`\n  Project ID of resources to request\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; created_at: string; firewall_rule_ids: string[]; name: string; project_id: string; region: 'us-sva-2'; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; subnet: { id: string; cidr: string; created_at: string; name: string; updated_at: string; }; tags: string[]; updated_at: string; }`\n  VPC details.\n\n  - `id: string`\n  - `created_at: string`\n  - `firewall_rule_ids: string[]`\n  - `name: string`\n  - `project_id: string`\n  - `region: 'us-sva-2'`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `subnet: { id: string; cidr: string; created_at: string; name: string; updated_at: string; }`\n  - `tags: string[]`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const vpc of client.networking.vpcs.list({ project_id: 'project_id' })) {\n  console.log(vpc);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.networking.vpcs.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const vpc of client.networking.vpcs.list({ project_id: 'project_id' })) {\n  console.log(vpc.id);\n}",
+      cli: {
+        method: 'vpcs list',
+        example: "nirvana networking:vpcs list \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
       },
       go: {
         method: 'client.Networking.VPCs.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/networking"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.Networking.VPCs.List(context.TODO(), networking.VPCListParams{\n\t\tProjectID: "project_id",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'vpcs list',
-        example: "nirvana networking:vpcs list \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
+      typescript: {
+        method: 'client.networking.vpcs.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const vpc of client.networking.vpcs.list({ project_id: 'project_id' })) {\n  console.log(vpc.id);\n}",
       },
       http: {
         example:
@@ -2168,20 +2168,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.networking.vpcs.availability.create(name: string, project_id: string, region: 'us-sva-2', subnet_name: string, tags?: string[]): void`\n\n**post** `/v1/networking/vpcs/availability`\n\nCheck if a VPC can be created\n\n### Parameters\n\n- `name: string`\n  Name of the VPC.\n\n- `project_id: string`\n  Project ID the VPC belongs to.\n\n- `region: 'us-sva-2'`\n  Region the resource is in.\n\n- `subnet_name: string`\n  Name of the subnet to create.\n\n- `tags?: string[]`\n  Tags to attach to the VPC.\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nawait client.networking.vpcs.availability.create({\n  name: 'my-vpc',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  subnet_name: 'my-subnet',\n})\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.networking.vpcs.availability.create',
+      cli: {
+        method: 'availability create',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.networking.vpcs.availability.create({\n  name: 'my-vpc',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  subnet_name: 'my-subnet',\n});",
+          "nirvana networking:vpcs:availability create \\\n  --api-key 'My API Key' \\\n  --name my-vpc \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --region us-sva-2 \\\n  --subnet-name my-subnet",
       },
       go: {
         method: 'client.Networking.VPCs.Availability.New',
         example:
           'package main\n\nimport (\n\t"context"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/networking"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\terr := client.Networking.VPCs.Availability.New(context.TODO(), networking.VPCAvailabilityNewParams{\n\t\tName:       "my-vpc",\n\t\tProjectID:  "123e4567-e89b-12d3-a456-426614174000",\n\t\tRegion:     shared.RegionNameUsSva2,\n\t\tSubnetName: "my-subnet",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n}\n',
       },
-      cli: {
-        method: 'availability create',
+      typescript: {
+        method: 'client.networking.vpcs.availability.create',
         example:
-          "nirvana networking:vpcs:availability create \\\n  --api-key 'My API Key' \\\n  --name my-vpc \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --region us-sva-2 \\\n  --subnet-name my-subnet",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.networking.vpcs.availability.create({\n  name: 'my-vpc',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  subnet_name: 'my-subnet',\n});",
       },
       http: {
         example:
@@ -2201,20 +2201,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.networking.vpcs.availability.update(vpc_id: string, name?: string, subnet_name?: string, tags?: string[]): void`\n\n**patch** `/v1/networking/vpcs/{vpc_id}/availability`\n\nCheck if a VPC can be updated\n\n### Parameters\n\n- `vpc_id: string`\n\n- `name?: string`\n  Name of the VPC.\n\n- `subnet_name?: string`\n  Name of the subnet to create.\n\n- `tags?: string[]`\n  Tags to attach to the VPC.\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nawait client.networking.vpcs.availability.update('vpc_id')\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.networking.vpcs.availability.update',
+      cli: {
+        method: 'availability update',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.networking.vpcs.availability.update('vpc_id');",
+          "nirvana networking:vpcs:availability update \\\n  --api-key 'My API Key' \\\n  --vpc-id vpc_id",
       },
       go: {
         method: 'client.Networking.VPCs.Availability.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/networking"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\terr := client.Networking.VPCs.Availability.Update(\n\t\tcontext.TODO(),\n\t\t"vpc_id",\n\t\tnetworking.VPCAvailabilityUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n}\n',
       },
-      cli: {
-        method: 'availability update',
+      typescript: {
+        method: 'client.networking.vpcs.availability.update',
         example:
-          "nirvana networking:vpcs:availability update \\\n  --api-key 'My API Key' \\\n  --vpc-id vpc_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.networking.vpcs.availability.update('vpc_id');",
       },
       http: {
         example:
@@ -2244,20 +2244,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.networking.firewallRules.create(vpc_id: string, destination_address: string, destination_ports: string[], name: string, protocol: 'tcp' | 'udp', source_address: string, tags?: string[]): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**post** `/v1/networking/vpcs/{vpc_id}/firewall_rules`\n\nCreate a firewall rule\n\n### Parameters\n\n- `vpc_id: string`\n\n- `destination_address: string`\n  Destination address of the Firewall Rule. Either VPC CIDR or VM in VPC. Must be in network-aligned/canonical form.\n\n- `destination_ports: string[]`\n  Destination ports of the Firewall Rule.\n\n- `name: string`\n  Name of the Firewall Rule.\n\n- `protocol: 'tcp' | 'udp'`\n  Protocol of the Firewall Rule.\n\n- `source_address: string`\n  Source address of the Firewall Rule. Address of 0.0.0.0 requires a CIDR mask of 0. Must be in network-aligned/canonical form.\n\n- `tags?: string[]`\n  Tags to attach to the Firewall Rule.\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.networking.firewallRules.create('vpc_id', {\n  destination_address: '10.0.0.0/25',\n  destination_ports: ['22', '80', '443'],\n  name: 'my-firewall-rule',\n  protocol: 'tcp',\n  source_address: '0.0.0.0/0',\n});\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.networking.firewallRules.create',
+      cli: {
+        method: 'firewall_rules create',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.networking.firewallRules.create('vpc_id', {\n  destination_address: '10.0.0.0/25',\n  destination_ports: ['22', '80', '443'],\n  name: 'my-firewall-rule',\n  protocol: 'tcp',\n  source_address: '0.0.0.0/0',\n});\n\nconsole.log(operation.id);",
+          "nirvana networking:firewall-rules create \\\n  --api-key 'My API Key' \\\n  --vpc-id vpc_id \\\n  --destination-address 10.0.0.0/25 \\\n  --destination-port \"'22'\" \\\n  --destination-port \"'80'\" \\\n  --destination-port \"'443'\" \\\n  --name my-firewall-rule \\\n  --protocol tcp \\\n  --source-address 0.0.0.0/0",
       },
       go: {
         method: 'client.Networking.FirewallRules.New',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/networking"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.Networking.FirewallRules.New(\n\t\tcontext.TODO(),\n\t\t"vpc_id",\n\t\tnetworking.FirewallRuleNewParams{\n\t\t\tDestinationAddress: "10.0.0.0/25",\n\t\t\tDestinationPorts:   []string{"22", "80", "443"},\n\t\t\tName:               "my-firewall-rule",\n\t\t\tProtocol:           networking.FirewallRuleNewParamsProtocolTcp,\n\t\t\tSourceAddress:      "0.0.0.0/0",\n\t\t},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'firewall_rules create',
+      typescript: {
+        method: 'client.networking.firewallRules.create',
         example:
-          "nirvana networking:firewall-rules create \\\n  --api-key 'My API Key' \\\n  --vpc-id vpc_id \\\n  --destination-address 10.0.0.0/25 \\\n  --destination-port \"'22'\" \\\n  --destination-port \"'80'\" \\\n  --destination-port \"'443'\" \\\n  --name my-firewall-rule \\\n  --protocol tcp \\\n  --source-address 0.0.0.0/0",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.networking.firewallRules.create('vpc_id', {\n  destination_address: '10.0.0.0/25',\n  destination_ports: ['22', '80', '443'],\n  name: 'my-firewall-rule',\n  protocol: 'tcp',\n  source_address: '0.0.0.0/0',\n});\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -2279,20 +2279,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.networking.firewallRules.get(vpc_id: string, firewall_rule_id: string): { id: string; created_at: string; destination_address: string; destination_ports: string[]; name: string; protocol: 'tcp' | 'udp'; source_address: string; status: resource_status; tags: string[]; updated_at: string; vpc_id: string; }`\n\n**get** `/v1/networking/vpcs/{vpc_id}/firewall_rules/{firewall_rule_id}`\n\nGet details about a firewall rule\n\n### Parameters\n\n- `vpc_id: string`\n\n- `firewall_rule_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; destination_address: string; destination_ports: string[]; name: string; protocol: 'tcp' | 'udp'; source_address: string; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; updated_at: string; vpc_id: string; }`\n  Firewall rule details.\n\n  - `id: string`\n  - `created_at: string`\n  - `destination_address: string`\n  - `destination_ports: string[]`\n  - `name: string`\n  - `protocol: 'tcp' | 'udp'`\n  - `source_address: string`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `tags: string[]`\n  - `updated_at: string`\n  - `vpc_id: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst firewallRule = await client.networking.firewallRules.get('firewall_rule_id', { vpc_id: 'vpc_id' });\n\nconsole.log(firewallRule);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.networking.firewallRules.get',
+      cli: {
+        method: 'firewall_rules get',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst firewallRule = await client.networking.firewallRules.get('firewall_rule_id', {\n  vpc_id: 'vpc_id',\n});\n\nconsole.log(firewallRule.id);",
+          "nirvana networking:firewall-rules get \\\n  --api-key 'My API Key' \\\n  --vpc-id vpc_id \\\n  --firewall-rule-id firewall_rule_id",
       },
       go: {
         method: 'client.Networking.FirewallRules.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tfirewallRule, err := client.Networking.FirewallRules.Get(\n\t\tcontext.TODO(),\n\t\t"vpc_id",\n\t\t"firewall_rule_id",\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", firewallRule.ID)\n}\n',
       },
-      cli: {
-        method: 'firewall_rules get',
+      typescript: {
+        method: 'client.networking.firewallRules.get',
         example:
-          "nirvana networking:firewall-rules get \\\n  --api-key 'My API Key' \\\n  --vpc-id vpc_id \\\n  --firewall-rule-id firewall_rule_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst firewallRule = await client.networking.firewallRules.get('firewall_rule_id', {\n  vpc_id: 'vpc_id',\n});\n\nconsole.log(firewallRule.id);",
       },
       http: {
         example:
@@ -2323,20 +2323,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.networking.firewallRules.update(vpc_id: string, firewall_rule_id: string, destination_address?: string, destination_ports?: string[], name?: string, protocol?: 'tcp' | 'udp', source_address?: string, tags?: string[]): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**patch** `/v1/networking/vpcs/{vpc_id}/firewall_rules/{firewall_rule_id}`\n\nUpdate a firewall rule\n\n### Parameters\n\n- `vpc_id: string`\n\n- `firewall_rule_id: string`\n\n- `destination_address?: string`\n  Destination address of the Firewall Rule. Either VPC CIDR or VM in VPC. Must be in network-aligned/canonical form.\n\n- `destination_ports?: string[]`\n  Destination ports of the Firewall Rule.\n\n- `name?: string`\n  Name of the Firewall Rule.\n\n- `protocol?: 'tcp' | 'udp'`\n  Protocol of the Firewall Rule.\n\n- `source_address?: string`\n  Source address of the Firewall Rule. Address of 0.0.0.0 requires a CIDR mask of 0. Must be in network-aligned/canonical form.\n\n- `tags?: string[]`\n  Tags to attach to the Firewall Rule.\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.networking.firewallRules.update('firewall_rule_id', { vpc_id: 'vpc_id' });\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.networking.firewallRules.update',
+      cli: {
+        method: 'firewall_rules update',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.networking.firewallRules.update('firewall_rule_id', {\n  vpc_id: 'vpc_id',\n});\n\nconsole.log(operation.id);",
+          "nirvana networking:firewall-rules update \\\n  --api-key 'My API Key' \\\n  --vpc-id vpc_id \\\n  --firewall-rule-id firewall_rule_id",
       },
       go: {
         method: 'client.Networking.FirewallRules.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/networking"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.Networking.FirewallRules.Update(\n\t\tcontext.TODO(),\n\t\t"vpc_id",\n\t\t"firewall_rule_id",\n\t\tnetworking.FirewallRuleUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'firewall_rules update',
+      typescript: {
+        method: 'client.networking.firewallRules.update',
         example:
-          "nirvana networking:firewall-rules update \\\n  --api-key 'My API Key' \\\n  --vpc-id vpc_id \\\n  --firewall-rule-id firewall_rule_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.networking.firewallRules.update('firewall_rule_id', {\n  vpc_id: 'vpc_id',\n});\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -2358,20 +2358,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## delete\n\n`client.networking.firewallRules.delete(vpc_id: string, firewall_rule_id: string): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**delete** `/v1/networking/vpcs/{vpc_id}/firewall_rules/{firewall_rule_id}`\n\nDelete a firewall rule\n\n### Parameters\n\n- `vpc_id: string`\n\n- `firewall_rule_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.networking.firewallRules.delete('firewall_rule_id', { vpc_id: 'vpc_id' });\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.networking.firewallRules.delete',
+      cli: {
+        method: 'firewall_rules delete',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.networking.firewallRules.delete('firewall_rule_id', {\n  vpc_id: 'vpc_id',\n});\n\nconsole.log(operation.id);",
+          "nirvana networking:firewall-rules delete \\\n  --api-key 'My API Key' \\\n  --vpc-id vpc_id \\\n  --firewall-rule-id firewall_rule_id",
       },
       go: {
         method: 'client.Networking.FirewallRules.Delete',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.Networking.FirewallRules.Delete(\n\t\tcontext.TODO(),\n\t\t"vpc_id",\n\t\t"firewall_rule_id",\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'firewall_rules delete',
+      typescript: {
+        method: 'client.networking.firewallRules.delete',
         example:
-          "nirvana networking:firewall-rules delete \\\n  --api-key 'My API Key' \\\n  --vpc-id vpc_id \\\n  --firewall-rule-id firewall_rule_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.networking.firewallRules.delete('firewall_rule_id', {\n  vpc_id: 'vpc_id',\n});\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -2393,19 +2393,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.networking.firewallRules.list(vpc_id: string, cursor?: string, limit?: number): { id: string; created_at: string; destination_address: string; destination_ports: string[]; name: string; protocol: 'tcp' | 'udp'; source_address: string; status: resource_status; tags: string[]; updated_at: string; vpc_id: string; }`\n\n**get** `/v1/networking/vpcs/{vpc_id}/firewall_rules`\n\nList all firewall rules\n\n### Parameters\n\n- `vpc_id: string`\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; created_at: string; destination_address: string; destination_ports: string[]; name: string; protocol: 'tcp' | 'udp'; source_address: string; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; updated_at: string; vpc_id: string; }`\n  Firewall rule details.\n\n  - `id: string`\n  - `created_at: string`\n  - `destination_address: string`\n  - `destination_ports: string[]`\n  - `name: string`\n  - `protocol: 'tcp' | 'udp'`\n  - `source_address: string`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `tags: string[]`\n  - `updated_at: string`\n  - `vpc_id: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const firewallRule of client.networking.firewallRules.list('vpc_id')) {\n  console.log(firewallRule);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.networking.firewallRules.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const firewallRule of client.networking.firewallRules.list('vpc_id')) {\n  console.log(firewallRule.id);\n}",
+      cli: {
+        method: 'firewall_rules list',
+        example: "nirvana networking:firewall-rules list \\\n  --api-key 'My API Key' \\\n  --vpc-id vpc_id",
       },
       go: {
         method: 'client.Networking.FirewallRules.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/networking"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.Networking.FirewallRules.List(\n\t\tcontext.TODO(),\n\t\t"vpc_id",\n\t\tnetworking.FirewallRuleListParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'firewall_rules list',
-        example: "nirvana networking:firewall-rules list \\\n  --api-key 'My API Key' \\\n  --vpc-id vpc_id",
+      typescript: {
+        method: 'client.networking.firewallRules.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const firewallRule of client.networking.firewallRules.list('vpc_id')) {\n  console.log(firewallRule.id);\n}",
       },
       http: {
         example:
@@ -2436,20 +2436,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.networking.connect.connections.create(bandwidth_mbps: 50 | 200 | 500 | 1000 | 2000, cidrs: string[], name: string, project_id: string, provider_cidrs: string[], region: 'us-sva-2', aws?: { account_id: string; region: string; }, tags?: string[]): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**post** `/v1/networking/connect/connections`\n\nCreate a Connect Connection\n\n### Parameters\n\n- `bandwidth_mbps: 50 | 200 | 500 | 1000 | 2000`\n  Connect Connection speed in Mbps\n\n- `cidrs: string[]`\n  CIDRs for the Connect Connection. Must be in network-aligned/canonical form.\n\n- `name: string`\n  Name of the Connect Connection\n\n- `project_id: string`\n  Project ID the Connect Connection belongs to\n\n- `provider_cidrs: string[]`\n  Provider CIDRs. Must be in network-aligned/canonical form.\n\n- `region: 'us-sva-2'`\n  Region the resource is in.\n\n- `aws?: { account_id: string; region: string; }`\n  AWS provider configuration\n  - `account_id: string`\n    AWS account id\n  - `region: string`\n    AWS region where the connection will be established\n\n- `tags?: string[]`\n  Tags to attach to the Connect Connection\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.networking.connect.connections.create({\n  bandwidth_mbps: 50,\n  cidrs: ['10.0.0.0/16'],\n  name: 'my-connect-connection',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  provider_cidrs: ['172.16.0.0/16'],\n  region: 'us-sva-2',\n});\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.networking.connect.connections.create',
+      cli: {
+        method: 'connections create',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.networking.connect.connections.create({\n  bandwidth_mbps: 50,\n  cidrs: ['10.0.0.0/16'],\n  name: 'my-connect-connection',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  provider_cidrs: ['172.16.0.0/16'],\n  region: 'us-sva-2',\n});\n\nconsole.log(operation.id);",
+          "nirvana networking:connect:connections create \\\n  --api-key 'My API Key' \\\n  --bandwidth-mbps 50 \\\n  --cidr 10.0.0.0/16 \\\n  --name my-connect-connection \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --provider-cidr 172.16.0.0/16 \\\n  --region us-sva-2",
       },
       go: {
         method: 'client.Networking.Connect.Connections.New',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/networking"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.Networking.Connect.Connections.New(context.TODO(), networking.ConnectConnectionNewParams{\n\t\tBandwidthMbps: 50,\n\t\tCIDRs:         []string{"10.0.0.0/16"},\n\t\tName:          "my-connect-connection",\n\t\tProjectID:     "123e4567-e89b-12d3-a456-426614174000",\n\t\tProviderCIDRs: []string{"172.16.0.0/16"},\n\t\tRegion:        shared.RegionNameUsSva2,\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'connections create',
+      typescript: {
+        method: 'client.networking.connect.connections.create',
         example:
-          "nirvana networking:connect:connections create \\\n  --api-key 'My API Key' \\\n  --bandwidth-mbps 50 \\\n  --cidr 10.0.0.0/16 \\\n  --name my-connect-connection \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --provider-cidr 172.16.0.0/16 \\\n  --region us-sva-2",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.networking.connect.connections.create({\n  bandwidth_mbps: 50,\n  cidrs: ['10.0.0.0/16'],\n  name: 'my-connect-connection',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  provider_cidrs: ['172.16.0.0/16'],\n  region: 'us-sva-2',\n});\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -2471,20 +2471,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.networking.connect.connections.get(connection_id: string): { id: string; asn: number; aws: connect_connection_aws_config; bandwidth_mbps: connect_bandwidth_mbps; cidrs: string[]; created_at: string; name: string; project_id: string; provider_asn: number; provider_cidrs: string[]; provider_router_ip: string; region: region_name; router_ip: string; status: resource_status; tags: string[]; updated_at: string; }`\n\n**get** `/v1/networking/connect/connections/{connection_id}`\n\nGet Connect Connection details\n\n### Parameters\n\n- `connection_id: string`\n\n### Returns\n\n- `{ id: string; asn: number; aws: { region: string; }; bandwidth_mbps: 50 | 200 | 500 | 1000 | 2000; cidrs: string[]; created_at: string; name: string; project_id: string; provider_asn: number; provider_cidrs: string[]; provider_router_ip: string; region: 'us-sva-2'; router_ip: string; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; updated_at: string; }`\n  Connect Connection details.\n\n  - `id: string`\n  - `asn: number`\n  - `aws: { region: string; }`\n  - `bandwidth_mbps: 50 | 200 | 500 | 1000 | 2000`\n  - `cidrs: string[]`\n  - `created_at: string`\n  - `name: string`\n  - `project_id: string`\n  - `provider_asn: number`\n  - `provider_cidrs: string[]`\n  - `provider_router_ip: string`\n  - `region: 'us-sva-2'`\n  - `router_ip: string`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `tags: string[]`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst connectConnection = await client.networking.connect.connections.get('connection_id');\n\nconsole.log(connectConnection);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.networking.connect.connections.get',
+      cli: {
+        method: 'connections get',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst connectConnection = await client.networking.connect.connections.get('connection_id');\n\nconsole.log(connectConnection.id);",
+          "nirvana networking:connect:connections get \\\n  --api-key 'My API Key' \\\n  --connection-id connection_id",
       },
       go: {
         method: 'client.Networking.Connect.Connections.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tconnectConnection, err := client.Networking.Connect.Connections.Get(context.TODO(), "connection_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", connectConnection.ID)\n}\n',
       },
-      cli: {
-        method: 'connections get',
+      typescript: {
+        method: 'client.networking.connect.connections.get',
         example:
-          "nirvana networking:connect:connections get \\\n  --api-key 'My API Key' \\\n  --connection-id connection_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst connectConnection = await client.networking.connect.connections.get('connection_id');\n\nconsole.log(connectConnection.id);",
       },
       http: {
         example:
@@ -2506,20 +2506,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.networking.connect.connections.update(connection_id: string, name?: string, tags?: string[]): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**patch** `/v1/networking/connect/connections/{connection_id}`\n\nUpdate Connect Connection details\n\n### Parameters\n\n- `connection_id: string`\n\n- `name?: string`\n  Name of the Connect Connection.\n\n- `tags?: string[]`\n  Tags to attach to the Connect Connection\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.networking.connect.connections.update('connection_id');\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.networking.connect.connections.update',
+      cli: {
+        method: 'connections update',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.networking.connect.connections.update('connection_id');\n\nconsole.log(operation.id);",
+          "nirvana networking:connect:connections update \\\n  --api-key 'My API Key' \\\n  --connection-id connection_id",
       },
       go: {
         method: 'client.Networking.Connect.Connections.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/networking"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.Networking.Connect.Connections.Update(\n\t\tcontext.TODO(),\n\t\t"connection_id",\n\t\tnetworking.ConnectConnectionUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'connections update',
+      typescript: {
+        method: 'client.networking.connect.connections.update',
         example:
-          "nirvana networking:connect:connections update \\\n  --api-key 'My API Key' \\\n  --connection-id connection_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.networking.connect.connections.update('connection_id');\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -2541,20 +2541,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## delete\n\n`client.networking.connect.connections.delete(connection_id: string): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**delete** `/v1/networking/connect/connections/{connection_id}`\n\nDelete Connect Connection\n\n### Parameters\n\n- `connection_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.networking.connect.connections.delete('connection_id');\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.networking.connect.connections.delete',
+      cli: {
+        method: 'connections delete',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.networking.connect.connections.delete('connection_id');\n\nconsole.log(operation.id);",
+          "nirvana networking:connect:connections delete \\\n  --api-key 'My API Key' \\\n  --connection-id connection_id",
       },
       go: {
         method: 'client.Networking.Connect.Connections.Delete',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.Networking.Connect.Connections.Delete(context.TODO(), "connection_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'connections delete',
+      typescript: {
+        method: 'client.networking.connect.connections.delete',
         example:
-          "nirvana networking:connect:connections delete \\\n  --api-key 'My API Key' \\\n  --connection-id connection_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.networking.connect.connections.delete('connection_id');\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -2576,20 +2576,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.networking.connect.connections.list(project_id: string, cursor?: string, limit?: number): { id: string; asn: number; aws: connect_connection_aws_config; bandwidth_mbps: connect_bandwidth_mbps; cidrs: string[]; created_at: string; name: string; project_id: string; provider_asn: number; provider_cidrs: string[]; provider_router_ip: string; region: region_name; router_ip: string; status: resource_status; tags: string[]; updated_at: string; }`\n\n**get** `/v1/networking/connect/connections`\n\nList all Connect Connections\n\n### Parameters\n\n- `project_id: string`\n  Project ID of resources to request\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; asn: number; aws: { region: string; }; bandwidth_mbps: 50 | 200 | 500 | 1000 | 2000; cidrs: string[]; created_at: string; name: string; project_id: string; provider_asn: number; provider_cidrs: string[]; provider_router_ip: string; region: 'us-sva-2'; router_ip: string; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; updated_at: string; }`\n  Connect Connection details.\n\n  - `id: string`\n  - `asn: number`\n  - `aws: { region: string; }`\n  - `bandwidth_mbps: 50 | 200 | 500 | 1000 | 2000`\n  - `cidrs: string[]`\n  - `created_at: string`\n  - `name: string`\n  - `project_id: string`\n  - `provider_asn: number`\n  - `provider_cidrs: string[]`\n  - `provider_router_ip: string`\n  - `region: 'us-sva-2'`\n  - `router_ip: string`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `tags: string[]`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const connectConnection of client.networking.connect.connections.list({ project_id: 'project_id' })) {\n  console.log(connectConnection);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.networking.connect.connections.list',
+      cli: {
+        method: 'connections list',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const connectConnection of client.networking.connect.connections.list({\n  project_id: 'project_id',\n})) {\n  console.log(connectConnection.id);\n}",
+          "nirvana networking:connect:connections list \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
       },
       go: {
         method: 'client.Networking.Connect.Connections.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/networking"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.Networking.Connect.Connections.List(context.TODO(), networking.ConnectConnectionListParams{\n\t\tProjectID: "project_id",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'connections list',
+      typescript: {
+        method: 'client.networking.connect.connections.list',
         example:
-          "nirvana networking:connect:connections list \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const connectConnection of client.networking.connect.connections.list({\n  project_id: 'project_id',\n})) {\n  console.log(connectConnection.id);\n}",
       },
       http: {
         example:
@@ -2610,19 +2610,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.networking.connect.routes.list(cursor?: string, limit?: number): { nirvana_region: region_name; provider: string; provider_region: string; }`\n\n**get** `/v1/networking/connect/routes`\n\nList all supported routes with regions for Connect.\n\n### Parameters\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ nirvana_region: 'us-sva-2'; provider: string; provider_region: string; }`\n  Routes supported for Connect.\n\n  - `nirvana_region: 'us-sva-2'`\n  - `provider: string`\n  - `provider_region: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const connectRoute of client.networking.connect.routes.list()) {\n  console.log(connectRoute);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.networking.connect.routes.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const connectRoute of client.networking.connect.routes.list()) {\n  console.log(connectRoute.provider);\n}",
+      cli: {
+        method: 'routes list',
+        example: "nirvana networking:connect:routes list \\\n  --api-key 'My API Key'",
       },
       go: {
         method: 'client.Networking.Connect.Routes.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/networking"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.Networking.Connect.Routes.List(context.TODO(), networking.ConnectRouteListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'routes list',
-        example: "nirvana networking:connect:routes list \\\n  --api-key 'My API Key'",
+      typescript: {
+        method: 'client.networking.connect.routes.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const connectRoute of client.networking.connect.routes.list()) {\n  console.log(connectRoute.provider);\n}",
       },
       http: {
         example:
@@ -2650,20 +2650,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.rpcNodes.flex.create(blockchain: string, name: string, network: string, project_id: string, tags?: string[]): { id: string; blockchain: string; created_at: string; endpoint: string; name: string; network: string; project_id: string; tags: string[]; updated_at: string; }`\n\n**post** `/v1/rpc_nodes/flex`\n\nCreate a new RPC Node Flex\n\n### Parameters\n\n- `blockchain: string`\n  Blockchain.\n\n- `name: string`\n  Name of the RPC Node Flex.\n\n- `network: string`\n  Network type (e.g., mainnet, testnet).\n\n- `project_id: string`\n  Project ID to associate with the RPC Node Flex.\n\n- `tags?: string[]`\n  Tags to attach to the RPC Node Flex (optional, max 50).\n\n### Returns\n\n- `{ id: string; blockchain: string; created_at: string; endpoint: string; name: string; network: string; project_id: string; tags: string[]; updated_at: string; }`\n  RPC Node Flex details.\n\n  - `id: string`\n  - `blockchain: string`\n  - `created_at: string`\n  - `endpoint: string`\n  - `name: string`\n  - `network: string`\n  - `project_id: string`\n  - `tags: string[]`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst flex = await client.rpcNodes.flex.create({\n  blockchain: 'ethereum',\n  name: 'my-ethereum-node',\n  network: 'mainnet',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n});\n\nconsole.log(flex);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.rpcNodes.flex.create',
+      cli: {
+        method: 'flex create',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst flex = await client.rpcNodes.flex.create({\n  blockchain: 'ethereum',\n  name: 'my-ethereum-node',\n  network: 'mainnet',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n});\n\nconsole.log(flex.id);",
+          "nirvana rpc-nodes:flex create \\\n  --api-key 'My API Key' \\\n  --blockchain ethereum \\\n  --name my-ethereum-node \\\n  --network mainnet \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000",
       },
       go: {
         method: 'client.RPCNodes.Flex.New',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/rpc_nodes"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tflex, err := client.RPCNodes.Flex.New(context.TODO(), rpc_nodes.FlexNewParams{\n\t\tBlockchain: "ethereum",\n\t\tName:       "my-ethereum-node",\n\t\tNetwork:    "mainnet",\n\t\tProjectID:  "123e4567-e89b-12d3-a456-426614174000",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", flex.ID)\n}\n',
       },
-      cli: {
-        method: 'flex create',
+      typescript: {
+        method: 'client.rpcNodes.flex.create',
         example:
-          "nirvana rpc-nodes:flex create \\\n  --api-key 'My API Key' \\\n  --blockchain ethereum \\\n  --name my-ethereum-node \\\n  --network mainnet \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst flex = await client.rpcNodes.flex.create({\n  blockchain: 'ethereum',\n  name: 'my-ethereum-node',\n  network: 'mainnet',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n});\n\nconsole.log(flex.id);",
       },
       http: {
         example:
@@ -2685,19 +2685,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.rpcNodes.flex.get(node_id: string): { id: string; blockchain: string; created_at: string; endpoint: string; name: string; network: string; project_id: string; tags: string[]; updated_at: string; }`\n\n**get** `/v1/rpc_nodes/flex/{node_id}`\n\nGet details about an RPC Node Flex\n\n### Parameters\n\n- `node_id: string`\n\n### Returns\n\n- `{ id: string; blockchain: string; created_at: string; endpoint: string; name: string; network: string; project_id: string; tags: string[]; updated_at: string; }`\n  RPC Node Flex details.\n\n  - `id: string`\n  - `blockchain: string`\n  - `created_at: string`\n  - `endpoint: string`\n  - `name: string`\n  - `network: string`\n  - `project_id: string`\n  - `tags: string[]`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst flex = await client.rpcNodes.flex.get('node_id');\n\nconsole.log(flex);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.rpcNodes.flex.get',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst flex = await client.rpcNodes.flex.get('node_id');\n\nconsole.log(flex.id);",
+      cli: {
+        method: 'flex get',
+        example: "nirvana rpc-nodes:flex get \\\n  --api-key 'My API Key' \\\n  --node-id node_id",
       },
       go: {
         method: 'client.RPCNodes.Flex.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tflex, err := client.RPCNodes.Flex.Get(context.TODO(), "node_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", flex.ID)\n}\n',
       },
-      cli: {
-        method: 'flex get',
-        example: "nirvana rpc-nodes:flex get \\\n  --api-key 'My API Key' \\\n  --node-id node_id",
+      typescript: {
+        method: 'client.rpcNodes.flex.get',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst flex = await client.rpcNodes.flex.get('node_id');\n\nconsole.log(flex.id);",
       },
       http: {
         example:
@@ -2719,19 +2719,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.rpcNodes.flex.update(node_id: string, name?: string, tags?: string[]): { id: string; blockchain: string; created_at: string; endpoint: string; name: string; network: string; project_id: string; tags: string[]; updated_at: string; }`\n\n**patch** `/v1/rpc_nodes/flex/{node_id}`\n\nUpdate an existing RPC Node Flex\n\n### Parameters\n\n- `node_id: string`\n\n- `name?: string`\n  Name of the RPC Node Flex.\n\n- `tags?: string[]`\n  Tags to attach to the RPC Node Flex (optional, max 50).\n\n### Returns\n\n- `{ id: string; blockchain: string; created_at: string; endpoint: string; name: string; network: string; project_id: string; tags: string[]; updated_at: string; }`\n  RPC Node Flex details.\n\n  - `id: string`\n  - `blockchain: string`\n  - `created_at: string`\n  - `endpoint: string`\n  - `name: string`\n  - `network: string`\n  - `project_id: string`\n  - `tags: string[]`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst flex = await client.rpcNodes.flex.update('node_id');\n\nconsole.log(flex);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.rpcNodes.flex.update',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst flex = await client.rpcNodes.flex.update('node_id');\n\nconsole.log(flex.id);",
+      cli: {
+        method: 'flex update',
+        example: "nirvana rpc-nodes:flex update \\\n  --api-key 'My API Key' \\\n  --node-id node_id",
       },
       go: {
         method: 'client.RPCNodes.Flex.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/rpc_nodes"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tflex, err := client.RPCNodes.Flex.Update(\n\t\tcontext.TODO(),\n\t\t"node_id",\n\t\trpc_nodes.FlexUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", flex.ID)\n}\n',
       },
-      cli: {
-        method: 'flex update',
-        example: "nirvana rpc-nodes:flex update \\\n  --api-key 'My API Key' \\\n  --node-id node_id",
+      typescript: {
+        method: 'client.rpcNodes.flex.update',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst flex = await client.rpcNodes.flex.update('node_id');\n\nconsole.log(flex.id);",
       },
       http: {
         example:
@@ -2751,19 +2751,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## delete\n\n`client.rpcNodes.flex.delete(node_id: string): void`\n\n**delete** `/v1/rpc_nodes/flex/{node_id}`\n\nDelete an RPC Node Flex\n\n### Parameters\n\n- `node_id: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nawait client.rpcNodes.flex.delete('node_id')\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.rpcNodes.flex.delete',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.rpcNodes.flex.delete('node_id');",
+      cli: {
+        method: 'flex delete',
+        example: "nirvana rpc-nodes:flex delete \\\n  --api-key 'My API Key' \\\n  --node-id node_id",
       },
       go: {
         method: 'client.RPCNodes.Flex.Delete',
         example:
           'package main\n\nimport (\n\t"context"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\terr := client.RPCNodes.Flex.Delete(context.TODO(), "node_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n}\n',
       },
-      cli: {
-        method: 'flex delete',
-        example: "nirvana rpc-nodes:flex delete \\\n  --api-key 'My API Key' \\\n  --node-id node_id",
+      typescript: {
+        method: 'client.rpcNodes.flex.delete',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.rpcNodes.flex.delete('node_id');",
       },
       http: {
         example:
@@ -2785,19 +2785,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.rpcNodes.flex.list(project_id: string, cursor?: string, limit?: number): { id: string; blockchain: string; created_at: string; endpoint: string; name: string; network: string; project_id: string; tags: string[]; updated_at: string; }`\n\n**get** `/v1/rpc_nodes/flex`\n\nList all RPC Node Flex you created\n\n### Parameters\n\n- `project_id: string`\n  Project ID of resources to request\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; blockchain: string; created_at: string; endpoint: string; name: string; network: string; project_id: string; tags: string[]; updated_at: string; }`\n  RPC Node Flex details.\n\n  - `id: string`\n  - `blockchain: string`\n  - `created_at: string`\n  - `endpoint: string`\n  - `name: string`\n  - `network: string`\n  - `project_id: string`\n  - `tags: string[]`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const flex of client.rpcNodes.flex.list({ project_id: 'project_id' })) {\n  console.log(flex);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.rpcNodes.flex.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const flex of client.rpcNodes.flex.list({ project_id: 'project_id' })) {\n  console.log(flex.id);\n}",
+      cli: {
+        method: 'flex list',
+        example: "nirvana rpc-nodes:flex list \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
       },
       go: {
         method: 'client.RPCNodes.Flex.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/rpc_nodes"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.RPCNodes.Flex.List(context.TODO(), rpc_nodes.FlexListParams{\n\t\tProjectID: "project_id",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'flex list',
-        example: "nirvana rpc-nodes:flex list \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
+      typescript: {
+        method: 'client.rpcNodes.flex.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const flex of client.rpcNodes.flex.list({ project_id: 'project_id' })) {\n  console.log(flex.id);\n}",
       },
       http: {
         example:
@@ -2818,19 +2818,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.rpcNodes.flex.blockchains.list(cursor?: string, limit?: number): { blockchain: string; network: string; }`\n\n**get** `/v1/rpc_nodes/flex/blockchains`\n\nList all Flex Blockchains\n\n### Parameters\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ blockchain: string; network: string; }`\n  Blockchain supported by the RPC Node Flex.\n\n  - `blockchain: string`\n  - `network: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const flexBlockchain of client.rpcNodes.flex.blockchains.list()) {\n  console.log(flexBlockchain);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.rpcNodes.flex.blockchains.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const flexBlockchain of client.rpcNodes.flex.blockchains.list()) {\n  console.log(flexBlockchain.blockchain);\n}",
+      cli: {
+        method: 'blockchains list',
+        example: "nirvana rpc-nodes:flex:blockchains list \\\n  --api-key 'My API Key'",
       },
       go: {
         method: 'client.RPCNodes.Flex.Blockchains.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/rpc_nodes"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.RPCNodes.Flex.Blockchains.List(context.TODO(), rpc_nodes.FlexBlockchainListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'blockchains list',
-        example: "nirvana rpc-nodes:flex:blockchains list \\\n  --api-key 'My API Key'",
+      typescript: {
+        method: 'client.rpcNodes.flex.blockchains.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const flexBlockchain of client.rpcNodes.flex.blockchains.list()) {\n  console.log(flexBlockchain.blockchain);\n}",
       },
       http: {
         example:
@@ -2852,19 +2852,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.rpcNodes.dedicated.get(node_id: string): { id: string; blockchain: string; created_at: string; endpoint: string; name: string; network: string; project_id: string; tags: string[]; updated_at: string; }`\n\n**get** `/v1/rpc_nodes/dedicated/{node_id}`\n\nGet details about an RPC Node Dedicated\n\n### Parameters\n\n- `node_id: string`\n\n### Returns\n\n- `{ id: string; blockchain: string; created_at: string; endpoint: string; name: string; network: string; project_id: string; tags: string[]; updated_at: string; }`\n  RPC Node Dedicated details.\n\n  - `id: string`\n  - `blockchain: string`\n  - `created_at: string`\n  - `endpoint: string`\n  - `name: string`\n  - `network: string`\n  - `project_id: string`\n  - `tags: string[]`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst dedicated = await client.rpcNodes.dedicated.get('node_id');\n\nconsole.log(dedicated);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.rpcNodes.dedicated.get',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst dedicated = await client.rpcNodes.dedicated.get('node_id');\n\nconsole.log(dedicated.id);",
+      cli: {
+        method: 'dedicated get',
+        example: "nirvana rpc-nodes:dedicated get \\\n  --api-key 'My API Key' \\\n  --node-id node_id",
       },
       go: {
         method: 'client.RPCNodes.Dedicated.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tdedicated, err := client.RPCNodes.Dedicated.Get(context.TODO(), "node_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", dedicated.ID)\n}\n',
       },
-      cli: {
-        method: 'dedicated get',
-        example: "nirvana rpc-nodes:dedicated get \\\n  --api-key 'My API Key' \\\n  --node-id node_id",
+      typescript: {
+        method: 'client.rpcNodes.dedicated.get',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst dedicated = await client.rpcNodes.dedicated.get('node_id');\n\nconsole.log(dedicated.id);",
       },
       http: {
         example:
@@ -2886,20 +2886,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.rpcNodes.dedicated.list(project_id: string, cursor?: string, limit?: number): { id: string; blockchain: string; created_at: string; endpoint: string; name: string; network: string; project_id: string; tags: string[]; updated_at: string; }`\n\n**get** `/v1/rpc_nodes/dedicated`\n\nList all RPC Node Dedicated you created\n\n### Parameters\n\n- `project_id: string`\n  Project ID of resources to request\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; blockchain: string; created_at: string; endpoint: string; name: string; network: string; project_id: string; tags: string[]; updated_at: string; }`\n  RPC Node Dedicated details.\n\n  - `id: string`\n  - `blockchain: string`\n  - `created_at: string`\n  - `endpoint: string`\n  - `name: string`\n  - `network: string`\n  - `project_id: string`\n  - `tags: string[]`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const dedicated of client.rpcNodes.dedicated.list({ project_id: 'project_id' })) {\n  console.log(dedicated);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.rpcNodes.dedicated.list',
+      cli: {
+        method: 'dedicated list',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const dedicated of client.rpcNodes.dedicated.list({ project_id: 'project_id' })) {\n  console.log(dedicated.id);\n}",
+          "nirvana rpc-nodes:dedicated list \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
       },
       go: {
         method: 'client.RPCNodes.Dedicated.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/rpc_nodes"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.RPCNodes.Dedicated.List(context.TODO(), rpc_nodes.DedicatedListParams{\n\t\tProjectID: "project_id",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'dedicated list',
+      typescript: {
+        method: 'client.rpcNodes.dedicated.list',
         example:
-          "nirvana rpc-nodes:dedicated list \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const dedicated of client.rpcNodes.dedicated.list({ project_id: 'project_id' })) {\n  console.log(dedicated.id);\n}",
       },
       http: {
         example:
@@ -2920,19 +2920,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.rpcNodes.dedicated.blockchains.list(cursor?: string, limit?: number): { blockchain: string; network: string; }`\n\n**get** `/v1/rpc_nodes/dedicated/blockchains`\n\nList all Dedicated Blockchains\n\n### Parameters\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ blockchain: string; network: string; }`\n  Blockchain supported by the RPC Node Dedicated.\n\n  - `blockchain: string`\n  - `network: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const dedicatedBlockchain of client.rpcNodes.dedicated.blockchains.list()) {\n  console.log(dedicatedBlockchain);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.rpcNodes.dedicated.blockchains.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const dedicatedBlockchain of client.rpcNodes.dedicated.blockchains.list()) {\n  console.log(dedicatedBlockchain.blockchain);\n}",
+      cli: {
+        method: 'blockchains list',
+        example: "nirvana rpc-nodes:dedicated:blockchains list \\\n  --api-key 'My API Key'",
       },
       go: {
         method: 'client.RPCNodes.Dedicated.Blockchains.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/rpc_nodes"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.RPCNodes.Dedicated.Blockchains.List(context.TODO(), rpc_nodes.DedicatedBlockchainListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'blockchains list',
-        example: "nirvana rpc-nodes:dedicated:blockchains list \\\n  --api-key 'My API Key'",
+      typescript: {
+        method: 'client.rpcNodes.dedicated.blockchains.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const dedicatedBlockchain of client.rpcNodes.dedicated.blockchains.list()) {\n  console.log(dedicatedBlockchain.blockchain);\n}",
       },
       http: {
         example:
@@ -2953,19 +2953,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.nks.kubernetesVersions.list(cursor?: string, limit?: number): { created_at: string; display_name: string; name: string; }`\n\n**get** `/v1/nks/kubernetes_versions`\n\nList all supported Kubernetes versions for NKS clusters\n\n### Parameters\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ created_at: string; display_name: string; name: string; }`\n  NKS Kubernetes version details.\n\n  - `created_at: string`\n  - `display_name: string`\n  - `name: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const kubernetesVersion of client.nks.kubernetesVersions.list()) {\n  console.log(kubernetesVersion);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.kubernetesVersions.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const kubernetesVersion of client.nks.kubernetesVersions.list()) {\n  console.log(kubernetesVersion.created_at);\n}",
+      cli: {
+        method: 'kubernetes_versions list',
+        example: "nirvana nks:kubernetes-versions list \\\n  --api-key 'My API Key'",
       },
       go: {
         method: 'client.NKS.KubernetesVersions.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.NKS.KubernetesVersions.List(context.TODO(), nks.KubernetesVersionListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'kubernetes_versions list',
-        example: "nirvana nks:kubernetes-versions list \\\n  --api-key 'My API Key'",
+      typescript: {
+        method: 'client.nks.kubernetesVersions.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const kubernetesVersion of client.nks.kubernetesVersions.list()) {\n  console.log(kubernetesVersion.created_at);\n}",
       },
       http: {
         example:
@@ -2995,20 +2995,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.nks.clusters.create(autoscaling: boolean, kubernetes_version: string, name: string, project_id: string, region: 'us-sva-2', vpc_id: string, tags?: string[]): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**post** `/v1/nks/clusters`\n\nCreate an NKS Cluster\n\n### Parameters\n\n- `autoscaling: boolean`\n  Whether to enable autoscaling for the Cluster.\n\n- `kubernetes_version: string`\n  Kubernetes version for the Cluster.\n\n- `name: string`\n  Name of the Cluster.\n\n- `project_id: string`\n  Project ID to create the Cluster in.\n\n- `region: 'us-sva-2'`\n  Region the resource is in.\n\n- `vpc_id: string`\n  ID of the VPC to use for the Cluster.\n\n- `tags?: string[]`\n  Tags to attach to the Cluster.\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.nks.clusters.create({\n  autoscaling: true,\n  kubernetes_version: 'v1.34.4',\n  name: 'my-cluster',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  vpc_id: '123e4567-e89b-12d3-a456-426614174000',\n});\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.create',
+      cli: {
+        method: 'clusters create',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.nks.clusters.create({\n  autoscaling: true,\n  kubernetes_version: 'v1.34.4',\n  name: 'my-cluster',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  vpc_id: '123e4567-e89b-12d3-a456-426614174000',\n});\n\nconsole.log(operation.id);",
+          "nirvana nks:clusters create \\\n  --api-key 'My API Key' \\\n  --autoscaling \\\n  --kubernetes-version v1.34.4 \\\n  --name my-cluster \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --region us-sva-2 \\\n  --vpc-id 123e4567-e89b-12d3-a456-426614174000",
       },
       go: {
         method: 'client.NKS.Clusters.New',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.NKS.Clusters.New(context.TODO(), nks.ClusterNewParams{\n\t\tAutoscaling:       true,\n\t\tKubernetesVersion: "v1.34.4",\n\t\tName:              "my-cluster",\n\t\tProjectID:         "123e4567-e89b-12d3-a456-426614174000",\n\t\tRegion:            shared.RegionNameUsSva2,\n\t\tVPCID:             "123e4567-e89b-12d3-a456-426614174000",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'clusters create',
+      typescript: {
+        method: 'client.nks.clusters.create',
         example:
-          "nirvana nks:clusters create \\\n  --api-key 'My API Key' \\\n  --autoscaling \\\n  --kubernetes-version v1.34.4 \\\n  --name my-cluster \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --region us-sva-2 \\\n  --vpc-id 123e4567-e89b-12d3-a456-426614174000",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.nks.clusters.create({\n  autoscaling: true,\n  kubernetes_version: 'v1.34.4',\n  name: 'my-cluster',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  vpc_id: '123e4567-e89b-12d3-a456-426614174000',\n});\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -3030,19 +3030,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.nks.clusters.get(cluster_id: string): { id: string; autoscaling: boolean; created_at: string; kubernetes_version: string; name: string; pool_ids: string[]; private_ip: string; project_id: string; public_ip: string; region: region_name; status: resource_status; tags: string[]; updated_at: string; vpc_id: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}`\n\nGet details about an NKS cluster\n\n### Parameters\n\n- `cluster_id: string`\n\n### Returns\n\n- `{ id: string; autoscaling: boolean; created_at: string; kubernetes_version: string; name: string; pool_ids: string[]; private_ip: string; project_id: string; public_ip: string; region: 'us-sva-2'; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; updated_at: string; vpc_id: string; }`\n  NKS Cluster details.\n\n  - `id: string`\n  - `autoscaling: boolean`\n  - `created_at: string`\n  - `kubernetes_version: string`\n  - `name: string`\n  - `pool_ids: string[]`\n  - `private_ip: string`\n  - `project_id: string`\n  - `public_ip: string`\n  - `region: 'us-sva-2'`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `tags: string[]`\n  - `updated_at: string`\n  - `vpc_id: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst nksCluster = await client.nks.clusters.get('cluster_id');\n\nconsole.log(nksCluster);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.get',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst nksCluster = await client.nks.clusters.get('cluster_id');\n\nconsole.log(nksCluster.id);",
+      cli: {
+        method: 'clusters get',
+        example: "nirvana nks:clusters get \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id",
       },
       go: {
         method: 'client.NKS.Clusters.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tnksCluster, err := client.NKS.Clusters.Get(context.TODO(), "cluster_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", nksCluster.ID)\n}\n',
       },
-      cli: {
-        method: 'clusters get',
-        example: "nirvana nks:clusters get \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id",
+      typescript: {
+        method: 'client.nks.clusters.get',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst nksCluster = await client.nks.clusters.get('cluster_id');\n\nconsole.log(nksCluster.id);",
       },
       http: {
         example:
@@ -3064,19 +3064,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.nks.clusters.update(cluster_id: string, autoscaling?: boolean, name?: string, tags?: string[]): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**patch** `/v1/nks/clusters/{cluster_id}`\n\nUpdate an NKS cluster\n\n### Parameters\n\n- `cluster_id: string`\n\n- `autoscaling?: boolean`\n  Whether to enable autoscaling for the Cluster.\n\n- `name?: string`\n  Name of the Cluster.\n\n- `tags?: string[]`\n  Tags to attach to the Cluster.\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.nks.clusters.update('cluster_id');\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.update',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.nks.clusters.update('cluster_id');\n\nconsole.log(operation.id);",
+      cli: {
+        method: 'clusters update',
+        example: "nirvana nks:clusters update \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id",
       },
       go: {
         method: 'client.NKS.Clusters.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.NKS.Clusters.Update(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\tnks.ClusterUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'clusters update',
-        example: "nirvana nks:clusters update \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id",
+      typescript: {
+        method: 'client.nks.clusters.update',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.nks.clusters.update('cluster_id');\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -3098,19 +3098,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## delete\n\n`client.nks.clusters.delete(cluster_id: string): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**delete** `/v1/nks/clusters/{cluster_id}`\n\nDelete an NKS cluster\n\n### Parameters\n\n- `cluster_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.nks.clusters.delete('cluster_id');\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.delete',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.nks.clusters.delete('cluster_id');\n\nconsole.log(operation.id);",
+      cli: {
+        method: 'clusters delete',
+        example: "nirvana nks:clusters delete \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id",
       },
       go: {
         method: 'client.NKS.Clusters.Delete',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.NKS.Clusters.Delete(context.TODO(), "cluster_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'clusters delete',
-        example: "nirvana nks:clusters delete \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id",
+      typescript: {
+        method: 'client.nks.clusters.delete',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.nks.clusters.delete('cluster_id');\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -3132,19 +3132,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.nks.clusters.list(project_id: string, cursor?: string, limit?: number): { id: string; autoscaling: boolean; created_at: string; kubernetes_version: string; name: string; pool_ids: string[]; private_ip: string; project_id: string; public_ip: string; region: region_name; status: resource_status; tags: string[]; updated_at: string; vpc_id: string; }`\n\n**get** `/v1/nks/clusters`\n\nList all NKS clusters\n\n### Parameters\n\n- `project_id: string`\n  Project ID of resources to request\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; autoscaling: boolean; created_at: string; kubernetes_version: string; name: string; pool_ids: string[]; private_ip: string; project_id: string; public_ip: string; region: 'us-sva-2'; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; updated_at: string; vpc_id: string; }`\n  NKS Cluster details.\n\n  - `id: string`\n  - `autoscaling: boolean`\n  - `created_at: string`\n  - `kubernetes_version: string`\n  - `name: string`\n  - `pool_ids: string[]`\n  - `private_ip: string`\n  - `project_id: string`\n  - `public_ip: string`\n  - `region: 'us-sva-2'`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `tags: string[]`\n  - `updated_at: string`\n  - `vpc_id: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const nksCluster of client.nks.clusters.list({ project_id: 'project_id' })) {\n  console.log(nksCluster);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const nksCluster of client.nks.clusters.list({ project_id: 'project_id' })) {\n  console.log(nksCluster.id);\n}",
+      cli: {
+        method: 'clusters list',
+        example: "nirvana nks:clusters list \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
       },
       go: {
         method: 'client.NKS.Clusters.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.NKS.Clusters.List(context.TODO(), nks.ClusterListParams{\n\t\tProjectID: "project_id",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'clusters list',
-        example: "nirvana nks:clusters list \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
+      typescript: {
+        method: 'client.nks.clusters.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const nksCluster of client.nks.clusters.list({ project_id: 'project_id' })) {\n  console.log(nksCluster.id);\n}",
       },
       http: {
         example:
@@ -3172,20 +3172,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.nks.clusters.availability.create(autoscaling: boolean, kubernetes_version: string, name: string, project_id: string, region: 'us-sva-2', vpc_id: string, tags?: string[]): void`\n\n**post** `/v1/nks/clusters/availability`\n\nCheck if an NKS cluster can be created\n\n### Parameters\n\n- `autoscaling: boolean`\n  Whether to enable autoscaling for the Cluster.\n\n- `kubernetes_version: string`\n  Kubernetes version for the Cluster.\n\n- `name: string`\n  Name of the Cluster.\n\n- `project_id: string`\n  Project ID to create the Cluster in.\n\n- `region: 'us-sva-2'`\n  Region the resource is in.\n\n- `vpc_id: string`\n  ID of the VPC to use for the Cluster.\n\n- `tags?: string[]`\n  Tags to attach to the Cluster.\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nawait client.nks.clusters.availability.create({\n  autoscaling: true,\n  kubernetes_version: 'v1.34.4',\n  name: 'my-cluster',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  vpc_id: '123e4567-e89b-12d3-a456-426614174000',\n})\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.availability.create',
+      cli: {
+        method: 'availability create',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.nks.clusters.availability.create({\n  autoscaling: true,\n  kubernetes_version: 'v1.34.4',\n  name: 'my-cluster',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  vpc_id: '123e4567-e89b-12d3-a456-426614174000',\n});",
+          "nirvana nks:clusters:availability create \\\n  --api-key 'My API Key' \\\n  --autoscaling \\\n  --kubernetes-version v1.34.4 \\\n  --name my-cluster \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --region us-sva-2 \\\n  --vpc-id 123e4567-e89b-12d3-a456-426614174000",
       },
       go: {
         method: 'client.NKS.Clusters.Availability.New',
         example:
           'package main\n\nimport (\n\t"context"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\terr := client.NKS.Clusters.Availability.New(context.TODO(), nks.ClusterAvailabilityNewParams{\n\t\tAutoscaling:       true,\n\t\tKubernetesVersion: "v1.34.4",\n\t\tName:              "my-cluster",\n\t\tProjectID:         "123e4567-e89b-12d3-a456-426614174000",\n\t\tRegion:            shared.RegionNameUsSva2,\n\t\tVPCID:             "123e4567-e89b-12d3-a456-426614174000",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n}\n',
       },
-      cli: {
-        method: 'availability create',
+      typescript: {
+        method: 'client.nks.clusters.availability.create',
         example:
-          "nirvana nks:clusters:availability create \\\n  --api-key 'My API Key' \\\n  --autoscaling \\\n  --kubernetes-version v1.34.4 \\\n  --name my-cluster \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --region us-sva-2 \\\n  --vpc-id 123e4567-e89b-12d3-a456-426614174000",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.nks.clusters.availability.create({\n  autoscaling: true,\n  kubernetes_version: 'v1.34.4',\n  name: 'my-cluster',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  vpc_id: '123e4567-e89b-12d3-a456-426614174000',\n});",
       },
       http: {
         example:
@@ -3205,20 +3205,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.nks.clusters.availability.update(cluster_id: string, autoscaling?: boolean, name?: string, tags?: string[]): void`\n\n**patch** `/v1/nks/clusters/{cluster_id}/availability`\n\nCheck if an NKS cluster can be updated\n\n### Parameters\n\n- `cluster_id: string`\n\n- `autoscaling?: boolean`\n  Whether to enable autoscaling for the Cluster.\n\n- `name?: string`\n  Name of the Cluster.\n\n- `tags?: string[]`\n  Tags to attach to the Cluster.\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nawait client.nks.clusters.availability.update('cluster_id')\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.availability.update',
+      cli: {
+        method: 'availability update',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.nks.clusters.availability.update('cluster_id');",
+          "nirvana nks:clusters:availability update \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id",
       },
       go: {
         method: 'client.NKS.Clusters.Availability.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\terr := client.NKS.Clusters.Availability.Update(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\tnks.ClusterAvailabilityUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n}\n',
       },
-      cli: {
-        method: 'availability update',
+      typescript: {
+        method: 'client.nks.clusters.availability.update',
         example:
-          "nirvana nks:clusters:availability update \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.nks.clusters.availability.update('cluster_id');",
       },
       http: {
         example:
@@ -3240,20 +3240,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.nks.clusters.persistentVolumeClaims.get(cluster_id: string, persistent_volume_claim_id: string): { id: string; cluster_id: string; created_at: string; name: string; size: number; status: resource_status; type: volume_type; updated_at: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}/persistent_volume_claims/{persistent_volume_claim_id}`\n\nGet details about an NKS persistent volume claim\n\n### Parameters\n\n- `cluster_id: string`\n\n- `persistent_volume_claim_id: string`\n\n### Returns\n\n- `{ id: string; cluster_id: string; created_at: string; name: string; size: number; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; type: 'nvme' | 'abs'; updated_at: string; }`\n  NKS persistent volume claim details.\n\n  - `id: string`\n  - `cluster_id: string`\n  - `created_at: string`\n  - `name: string`\n  - `size: number`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `type: 'nvme' | 'abs'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst persistentVolumeClaim = await client.nks.clusters.persistentVolumeClaims.get('persistent_volume_claim_id', { cluster_id: 'cluster_id' });\n\nconsole.log(persistentVolumeClaim);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.persistentVolumeClaims.get',
+      cli: {
+        method: 'persistent_volume_claims get',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst persistentVolumeClaim = await client.nks.clusters.persistentVolumeClaims.get(\n  'persistent_volume_claim_id',\n  { cluster_id: 'cluster_id' },\n);\n\nconsole.log(persistentVolumeClaim.id);",
+          "nirvana nks:clusters:persistent-volume-claims get \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --persistent-volume-claim-id persistent_volume_claim_id",
       },
       go: {
         method: 'client.NKS.Clusters.PersistentVolumeClaims.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpersistentVolumeClaim, err := client.NKS.Clusters.PersistentVolumeClaims.Get(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\t"persistent_volume_claim_id",\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", persistentVolumeClaim.ID)\n}\n',
       },
-      cli: {
-        method: 'persistent_volume_claims get',
+      typescript: {
+        method: 'client.nks.clusters.persistentVolumeClaims.get',
         example:
-          "nirvana nks:clusters:persistent-volume-claims get \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --persistent-volume-claim-id persistent_volume_claim_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst persistentVolumeClaim = await client.nks.clusters.persistentVolumeClaims.get(\n  'persistent_volume_claim_id',\n  { cluster_id: 'cluster_id' },\n);\n\nconsole.log(persistentVolumeClaim.id);",
       },
       http: {
         example:
@@ -3275,20 +3275,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.nks.clusters.persistentVolumeClaims.list(cluster_id: string, cursor?: string, limit?: number): { id: string; cluster_id: string; created_at: string; name: string; size: number; status: resource_status; type: volume_type; updated_at: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}/persistent_volume_claims`\n\nList all persistent volume claims in an NKS cluster\n\n### Parameters\n\n- `cluster_id: string`\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; cluster_id: string; created_at: string; name: string; size: number; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; type: 'nvme' | 'abs'; updated_at: string; }`\n  NKS persistent volume claim details.\n\n  - `id: string`\n  - `cluster_id: string`\n  - `created_at: string`\n  - `name: string`\n  - `size: number`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `type: 'nvme' | 'abs'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const persistentVolumeClaim of client.nks.clusters.persistentVolumeClaims.list('cluster_id')) {\n  console.log(persistentVolumeClaim);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.persistentVolumeClaims.list',
+      cli: {
+        method: 'persistent_volume_claims list',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const persistentVolumeClaim of client.nks.clusters.persistentVolumeClaims.list(\n  'cluster_id',\n)) {\n  console.log(persistentVolumeClaim.id);\n}",
+          "nirvana nks:clusters:persistent-volume-claims list \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id",
       },
       go: {
         method: 'client.NKS.Clusters.PersistentVolumeClaims.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.NKS.Clusters.PersistentVolumeClaims.List(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\tnks.ClusterPersistentVolumeClaimListParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'persistent_volume_claims list',
+      typescript: {
+        method: 'client.nks.clusters.persistentVolumeClaims.list',
         example:
-          "nirvana nks:clusters:persistent-volume-claims list \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const persistentVolumeClaim of client.nks.clusters.persistentVolumeClaims.list(\n  'cluster_id',\n)) {\n  console.log(persistentVolumeClaim.id);\n}",
       },
       http: {
         example:
@@ -3309,20 +3309,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.nks.clusters.kubeconfig.get(cluster_id: string): { kubeconfig: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}/kubeconfig`\n\nGet the kubeconfig for an NKS cluster\n\n### Parameters\n\n- `cluster_id: string`\n\n### Returns\n\n- `{ kubeconfig: string; }`\n  Kubeconfig for an NKS Cluster.\n\n  - `kubeconfig: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst kubeconfig = await client.nks.clusters.kubeconfig.get('cluster_id');\n\nconsole.log(kubeconfig);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.kubeconfig.get',
+      cli: {
+        method: 'kubeconfig get',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst kubeconfig = await client.nks.clusters.kubeconfig.get('cluster_id');\n\nconsole.log(kubeconfig.kubeconfig);",
+          "nirvana nks:clusters:kubeconfig get \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id",
       },
       go: {
         method: 'client.NKS.Clusters.Kubeconfig.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tkubeconfig, err := client.NKS.Clusters.Kubeconfig.Get(context.TODO(), "cluster_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", kubeconfig.Kubeconfig)\n}\n',
       },
-      cli: {
-        method: 'kubeconfig get',
+      typescript: {
+        method: 'client.nks.clusters.kubeconfig.get',
         example:
-          "nirvana nks:clusters:kubeconfig get \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst kubeconfig = await client.nks.clusters.kubeconfig.get('cluster_id');\n\nconsole.log(kubeconfig.kubeconfig);",
       },
       http: {
         example:
@@ -3344,20 +3344,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.nks.clusters.controllers.get(cluster_id: string, controller_id: string): { id: string; created_at: string; instance_type: string; name: string; private_ip: string; status: resource_status; updated_at: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}/controllers/{controller_id}`\n\nGet details about an NKS controller\n\n### Parameters\n\n- `cluster_id: string`\n\n- `controller_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; instance_type: string; name: string; private_ip: string; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; updated_at: string; }`\n  NKS controller details.\n\n  - `id: string`\n  - `created_at: string`\n  - `instance_type: string`\n  - `name: string`\n  - `private_ip: string`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst nksController = await client.nks.clusters.controllers.get('controller_id', { cluster_id: 'cluster_id' });\n\nconsole.log(nksController);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.controllers.get',
+      cli: {
+        method: 'controllers get',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst nksController = await client.nks.clusters.controllers.get('controller_id', {\n  cluster_id: 'cluster_id',\n});\n\nconsole.log(nksController.id);",
+          "nirvana nks:clusters:controllers get \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --controller-id controller_id",
       },
       go: {
         method: 'client.NKS.Clusters.Controllers.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tnksController, err := client.NKS.Clusters.Controllers.Get(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\t"controller_id",\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", nksController.ID)\n}\n',
       },
-      cli: {
-        method: 'controllers get',
+      typescript: {
+        method: 'client.nks.clusters.controllers.get',
         example:
-          "nirvana nks:clusters:controllers get \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --controller-id controller_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst nksController = await client.nks.clusters.controllers.get('controller_id', {\n  cluster_id: 'cluster_id',\n});\n\nconsole.log(nksController.id);",
       },
       http: {
         example:
@@ -3379,20 +3379,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.nks.clusters.controllers.list(cluster_id: string, cursor?: string, limit?: number): { id: string; created_at: string; instance_type: string; name: string; private_ip: string; status: resource_status; updated_at: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}/controllers`\n\nList all controllers in an NKS cluster\n\n### Parameters\n\n- `cluster_id: string`\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; created_at: string; instance_type: string; name: string; private_ip: string; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; updated_at: string; }`\n  NKS controller details.\n\n  - `id: string`\n  - `created_at: string`\n  - `instance_type: string`\n  - `name: string`\n  - `private_ip: string`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const nksController of client.nks.clusters.controllers.list('cluster_id')) {\n  console.log(nksController);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.controllers.list',
+      cli: {
+        method: 'controllers list',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const nksController of client.nks.clusters.controllers.list('cluster_id')) {\n  console.log(nksController.id);\n}",
+          "nirvana nks:clusters:controllers list \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id",
       },
       go: {
         method: 'client.NKS.Clusters.Controllers.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.NKS.Clusters.Controllers.List(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\tnks.ClusterControllerListParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'controllers list',
+      typescript: {
+        method: 'client.nks.clusters.controllers.list',
         example:
-          "nirvana nks:clusters:controllers list \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const nksController of client.nks.clusters.controllers.list('cluster_id')) {\n  console.log(nksController.id);\n}",
       },
       http: {
         example:
@@ -3414,20 +3414,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.nks.clusters.controllers.volumes.get(cluster_id: string, controller_id: string, volume_id: string): { id: string; created_at: string; kind: volume_kind; name: string; size: number; status: resource_status; type: volume_type; updated_at: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes/{volume_id}`\n\nGet details about a volume attached to an NKS controller\n\n### Parameters\n\n- `cluster_id: string`\n\n- `controller_id: string`\n\n- `volume_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; kind: 'boot' | 'data'; name: string; size: number; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; type: 'nvme' | 'abs'; updated_at: string; }`\n  NKS controller volume details.\n\n  - `id: string`\n  - `created_at: string`\n  - `kind: 'boot' | 'data'`\n  - `name: string`\n  - `size: number`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `type: 'nvme' | 'abs'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst nksControllerVolume = await client.nks.clusters.controllers.volumes.get('volume_id', { cluster_id: 'cluster_id', controller_id: 'controller_id' });\n\nconsole.log(nksControllerVolume);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.controllers.volumes.get',
+      cli: {
+        method: 'volumes get',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst nksControllerVolume = await client.nks.clusters.controllers.volumes.get('volume_id', {\n  cluster_id: 'cluster_id',\n  controller_id: 'controller_id',\n});\n\nconsole.log(nksControllerVolume.id);",
+          "nirvana nks:clusters:controllers:volumes get \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --controller-id controller_id \\\n  --volume-id volume_id",
       },
       go: {
         method: 'client.NKS.Clusters.Controllers.Volumes.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tnksControllerVolume, err := client.NKS.Clusters.Controllers.Volumes.Get(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\t"controller_id",\n\t\t"volume_id",\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", nksControllerVolume.ID)\n}\n',
       },
-      cli: {
-        method: 'volumes get',
+      typescript: {
+        method: 'client.nks.clusters.controllers.volumes.get',
         example:
-          "nirvana nks:clusters:controllers:volumes get \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --controller-id controller_id \\\n  --volume-id volume_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst nksControllerVolume = await client.nks.clusters.controllers.volumes.get('volume_id', {\n  cluster_id: 'cluster_id',\n  controller_id: 'controller_id',\n});\n\nconsole.log(nksControllerVolume.id);",
       },
       http: {
         example:
@@ -3449,20 +3449,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.nks.clusters.controllers.volumes.list(cluster_id: string, controller_id: string, cursor?: string, limit?: number): { id: string; created_at: string; kind: volume_kind; name: string; size: number; status: resource_status; type: volume_type; updated_at: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes`\n\nList all volumes attached to an NKS controller\n\n### Parameters\n\n- `cluster_id: string`\n\n- `controller_id: string`\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; created_at: string; kind: 'boot' | 'data'; name: string; size: number; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; type: 'nvme' | 'abs'; updated_at: string; }`\n  NKS controller volume details.\n\n  - `id: string`\n  - `created_at: string`\n  - `kind: 'boot' | 'data'`\n  - `name: string`\n  - `size: number`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `type: 'nvme' | 'abs'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const nksControllerVolume of client.nks.clusters.controllers.volumes.list('controller_id', { cluster_id: 'cluster_id' })) {\n  console.log(nksControllerVolume);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.controllers.volumes.list',
+      cli: {
+        method: 'volumes list',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const nksControllerVolume of client.nks.clusters.controllers.volumes.list(\n  'controller_id',\n  { cluster_id: 'cluster_id' },\n)) {\n  console.log(nksControllerVolume.id);\n}",
+          "nirvana nks:clusters:controllers:volumes list \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --controller-id controller_id",
       },
       go: {
         method: 'client.NKS.Clusters.Controllers.Volumes.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.NKS.Clusters.Controllers.Volumes.List(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\t"controller_id",\n\t\tnks.ClusterControllerVolumeListParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'volumes list',
+      typescript: {
+        method: 'client.nks.clusters.controllers.volumes.list',
         example:
-          "nirvana nks:clusters:controllers:volumes list \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --controller-id controller_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const nksControllerVolume of client.nks.clusters.controllers.volumes.list(\n  'controller_id',\n  { cluster_id: 'cluster_id' },\n)) {\n  console.log(nksControllerVolume.id);\n}",
       },
       http: {
         example:
@@ -3484,20 +3484,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.nks.clusters.loadBalancers.get(cluster_id: string, load_balancer_id: string): { id: string; cluster_id: string; created_at: string; namespace: string; private_ip: string; public_ip: string; public_ip_enabled: boolean; service_name: string; status: resource_status; updated_at: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}/load_balancers/{load_balancer_id}`\n\nGet details about an NKS load balancer\n\n### Parameters\n\n- `cluster_id: string`\n\n- `load_balancer_id: string`\n\n### Returns\n\n- `{ id: string; cluster_id: string; created_at: string; namespace: string; private_ip: string; public_ip: string; public_ip_enabled: boolean; service_name: string; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; updated_at: string; }`\n  NKS load balancer details.\n\n  - `id: string`\n  - `cluster_id: string`\n  - `created_at: string`\n  - `namespace: string`\n  - `private_ip: string`\n  - `public_ip: string`\n  - `public_ip_enabled: boolean`\n  - `service_name: string`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst nksLoadBalancer = await client.nks.clusters.loadBalancers.get('load_balancer_id', { cluster_id: 'cluster_id' });\n\nconsole.log(nksLoadBalancer);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.loadBalancers.get',
+      cli: {
+        method: 'load_balancers get',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst nksLoadBalancer = await client.nks.clusters.loadBalancers.get('load_balancer_id', {\n  cluster_id: 'cluster_id',\n});\n\nconsole.log(nksLoadBalancer.id);",
+          "nirvana nks:clusters:load-balancers get \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --load-balancer-id load_balancer_id",
       },
       go: {
         method: 'client.NKS.Clusters.LoadBalancers.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tnksLoadBalancer, err := client.NKS.Clusters.LoadBalancers.Get(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\t"load_balancer_id",\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", nksLoadBalancer.ID)\n}\n',
       },
-      cli: {
-        method: 'load_balancers get',
+      typescript: {
+        method: 'client.nks.clusters.loadBalancers.get',
         example:
-          "nirvana nks:clusters:load-balancers get \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --load-balancer-id load_balancer_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst nksLoadBalancer = await client.nks.clusters.loadBalancers.get('load_balancer_id', {\n  cluster_id: 'cluster_id',\n});\n\nconsole.log(nksLoadBalancer.id);",
       },
       http: {
         example:
@@ -3519,20 +3519,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.nks.clusters.loadBalancers.update(cluster_id: string, load_balancer_id: string, public_ip_enabled: boolean): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**patch** `/v1/nks/clusters/{cluster_id}/load_balancers/{load_balancer_id}`\n\nUpdate an NKS load balancer\n\n### Parameters\n\n- `cluster_id: string`\n\n- `load_balancer_id: string`\n\n- `public_ip_enabled: boolean`\n  Whether to enable a public IP for this load balancer.\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.nks.clusters.loadBalancers.update('load_balancer_id', { cluster_id: 'cluster_id', public_ip_enabled: true });\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.loadBalancers.update',
+      cli: {
+        method: 'load_balancers update',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.nks.clusters.loadBalancers.update('load_balancer_id', {\n  cluster_id: 'cluster_id',\n  public_ip_enabled: true,\n});\n\nconsole.log(operation.id);",
+          "nirvana nks:clusters:load-balancers update \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --load-balancer-id load_balancer_id \\\n  --public-ip-enabled",
       },
       go: {
         method: 'client.NKS.Clusters.LoadBalancers.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.NKS.Clusters.LoadBalancers.Update(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\t"load_balancer_id",\n\t\tnks.ClusterLoadBalancerUpdateParams{\n\t\t\tPublicIPEnabled: true,\n\t\t},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'load_balancers update',
+      typescript: {
+        method: 'client.nks.clusters.loadBalancers.update',
         example:
-          "nirvana nks:clusters:load-balancers update \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --load-balancer-id load_balancer_id \\\n  --public-ip-enabled",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.nks.clusters.loadBalancers.update('load_balancer_id', {\n  cluster_id: 'cluster_id',\n  public_ip_enabled: true,\n});\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -3554,20 +3554,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.nks.clusters.loadBalancers.list(cluster_id: string, cursor?: string, limit?: number): { id: string; cluster_id: string; created_at: string; namespace: string; private_ip: string; public_ip: string; public_ip_enabled: boolean; service_name: string; status: resource_status; updated_at: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}/load_balancers`\n\nList all load balancers in an NKS cluster\n\n### Parameters\n\n- `cluster_id: string`\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; cluster_id: string; created_at: string; namespace: string; private_ip: string; public_ip: string; public_ip_enabled: boolean; service_name: string; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; updated_at: string; }`\n  NKS load balancer details.\n\n  - `id: string`\n  - `cluster_id: string`\n  - `created_at: string`\n  - `namespace: string`\n  - `private_ip: string`\n  - `public_ip: string`\n  - `public_ip_enabled: boolean`\n  - `service_name: string`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const nksLoadBalancer of client.nks.clusters.loadBalancers.list('cluster_id')) {\n  console.log(nksLoadBalancer);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.loadBalancers.list',
+      cli: {
+        method: 'load_balancers list',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const nksLoadBalancer of client.nks.clusters.loadBalancers.list('cluster_id')) {\n  console.log(nksLoadBalancer.id);\n}",
+          "nirvana nks:clusters:load-balancers list \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id",
       },
       go: {
         method: 'client.NKS.Clusters.LoadBalancers.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.NKS.Clusters.LoadBalancers.List(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\tnks.ClusterLoadBalancerListParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'load_balancers list',
+      typescript: {
+        method: 'client.nks.clusters.loadBalancers.list',
         example:
-          "nirvana nks:clusters:load-balancers list \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const nksLoadBalancer of client.nks.clusters.loadBalancers.list('cluster_id')) {\n  console.log(nksLoadBalancer.id);\n}",
       },
       http: {
         example:
@@ -3595,20 +3595,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.nks.clusters.pools.create(cluster_id: string, name: string, node_config: { boot_volume: nks_node_pool_boot_volume; instance_type: string; labels?: string[]; }, node_count: number, tags?: string[]): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**post** `/v1/nks/clusters/{cluster_id}/pools`\n\nCreate a node pool in an NKS cluster\n\n### Parameters\n\n- `cluster_id: string`\n\n- `name: string`\n  Name of the node pool.\n\n- `node_config: { boot_volume: { size: number; type: volume_type; }; instance_type: string; labels?: string[]; }`\n  Node configuration.\n  - `boot_volume: { size: number; type: 'nvme' | 'abs'; }`\n    Boot volume configuration.\n  - `instance_type: string`\n    Instance type name used for worker nodes.\n  - `labels?: string[]`\n    Kubernetes labels to apply to each node in the pool. Each entry is \"key=value\".\nKeys under kubernetes.io, k8s.io, and nirvanalabs.io prefixes are reserved.\n\n- `node_count: number`\n  Number of nodes. Must be between 1 and 100.\n\n- `tags?: string[]`\n  Tags to attach to the node pool.\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.nks.clusters.pools.create('cluster_id', {\n  name: 'my-node-pool',\n  node_config: {\n  boot_volume: { size: 100, type: 'abs' },\n  instance_type: 'n1-standard-8',\n},\n  node_count: 3,\n});\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.pools.create',
+      cli: {
+        method: 'pools create',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.nks.clusters.pools.create('cluster_id', {\n  name: 'my-node-pool',\n  node_config: {\n    boot_volume: { size: 100, type: 'abs' },\n    instance_type: 'n1-standard-8',\n  },\n  node_count: 3,\n});\n\nconsole.log(operation.id);",
+          "nirvana nks:clusters:pools create \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --name my-node-pool \\\n  --node-config '{boot_volume: {size: 100, type: abs}, instance_type: n1-standard-8}' \\\n  --node-count 3",
       },
       go: {
         method: 'client.NKS.Clusters.Pools.New',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.NKS.Clusters.Pools.New(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\tnks.ClusterPoolNewParams{\n\t\t\tName: "my-node-pool",\n\t\t\tNodeConfig: nks.NKSNodePoolNodeConfigParam{\n\t\t\t\tBootVolume: nks.NKSNodePoolBootVolumeParam{\n\t\t\t\t\tSize: 100,\n\t\t\t\t\tType: compute.VolumeTypeABS,\n\t\t\t\t},\n\t\t\t\tInstanceType: "n1-standard-8",\n\t\t\t},\n\t\t\tNodeCount: 3,\n\t\t},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'pools create',
+      typescript: {
+        method: 'client.nks.clusters.pools.create',
         example:
-          "nirvana nks:clusters:pools create \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --name my-node-pool \\\n  --node-config '{boot_volume: {size: 100, type: abs}, instance_type: n1-standard-8}' \\\n  --node-count 3",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.nks.clusters.pools.create('cluster_id', {\n  name: 'my-node-pool',\n  node_config: {\n    boot_volume: { size: 100, type: 'abs' },\n    instance_type: 'n1-standard-8',\n  },\n  node_count: 3,\n});\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -3630,20 +3630,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.nks.clusters.pools.get(cluster_id: string, pool_id: string): { id: string; cluster_id: string; created_at: string; name: string; node_config: nks_node_pool_node_config_response; node_count: number; status: resource_status; tags: string[]; updated_at: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}/pools/{pool_id}`\n\nGet details about an NKS node pool\n\n### Parameters\n\n- `cluster_id: string`\n\n- `pool_id: string`\n\n### Returns\n\n- `{ id: string; cluster_id: string; created_at: string; name: string; node_config: { boot_volume: nks_node_pool_boot_volume_response; instance_type: string; labels: string[]; }; node_count: number; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; updated_at: string; }`\n  NKS node pool details.\n\n  - `id: string`\n  - `cluster_id: string`\n  - `created_at: string`\n  - `name: string`\n  - `node_config: { boot_volume: { size: number; type: volume_type; }; instance_type: string; labels: string[]; }`\n  - `node_count: number`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `tags: string[]`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst nksNodePool = await client.nks.clusters.pools.get('pool_id', { cluster_id: 'cluster_id' });\n\nconsole.log(nksNodePool);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.pools.get',
+      cli: {
+        method: 'pools get',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst nksNodePool = await client.nks.clusters.pools.get('pool_id', { cluster_id: 'cluster_id' });\n\nconsole.log(nksNodePool.id);",
+          "nirvana nks:clusters:pools get \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --pool-id pool_id",
       },
       go: {
         method: 'client.NKS.Clusters.Pools.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tnksNodePool, err := client.NKS.Clusters.Pools.Get(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\t"pool_id",\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", nksNodePool.ID)\n}\n',
       },
-      cli: {
-        method: 'pools get',
+      typescript: {
+        method: 'client.nks.clusters.pools.get',
         example:
-          "nirvana nks:clusters:pools get \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --pool-id pool_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst nksNodePool = await client.nks.clusters.pools.get('pool_id', { cluster_id: 'cluster_id' });\n\nconsole.log(nksNodePool.id);",
       },
       http: {
         example:
@@ -3672,20 +3672,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.nks.clusters.pools.update(cluster_id: string, pool_id: string, name?: string, node_config?: { labels?: string[]; }, node_count?: number, tags?: string[]): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**patch** `/v1/nks/clusters/{cluster_id}/pools/{pool_id}`\n\nUpdate an NKS node pool\n\n### Parameters\n\n- `cluster_id: string`\n\n- `pool_id: string`\n\n- `name?: string`\n  Name of the node pool.\n\n- `node_config?: { labels?: string[]; }`\n  Partial node configuration update.\n  - `labels?: string[]`\n    Kubernetes labels to apply to each node in the pool. Each entry is \"key=value\".\nWhen provided, the list fully replaces the current labels on the pool and on live nodes.\n\n- `node_count?: number`\n  Number of nodes.\n\n- `tags?: string[]`\n  Tags to attach to the node pool.\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.nks.clusters.pools.update('pool_id', { cluster_id: 'cluster_id' });\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.pools.update',
+      cli: {
+        method: 'pools update',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.nks.clusters.pools.update('pool_id', { cluster_id: 'cluster_id' });\n\nconsole.log(operation.id);",
+          "nirvana nks:clusters:pools update \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --pool-id pool_id",
       },
       go: {
         method: 'client.NKS.Clusters.Pools.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.NKS.Clusters.Pools.Update(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\t"pool_id",\n\t\tnks.ClusterPoolUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'pools update',
+      typescript: {
+        method: 'client.nks.clusters.pools.update',
         example:
-          "nirvana nks:clusters:pools update \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --pool-id pool_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.nks.clusters.pools.update('pool_id', { cluster_id: 'cluster_id' });\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -3707,20 +3707,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## delete\n\n`client.nks.clusters.pools.delete(cluster_id: string, pool_id: string): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**delete** `/v1/nks/clusters/{cluster_id}/pools/{pool_id}`\n\nDelete an NKS node pool\n\n### Parameters\n\n- `cluster_id: string`\n\n- `pool_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.nks.clusters.pools.delete('pool_id', { cluster_id: 'cluster_id' });\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.pools.delete',
+      cli: {
+        method: 'pools delete',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.nks.clusters.pools.delete('pool_id', { cluster_id: 'cluster_id' });\n\nconsole.log(operation.id);",
+          "nirvana nks:clusters:pools delete \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --pool-id pool_id",
       },
       go: {
         method: 'client.NKS.Clusters.Pools.Delete',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.NKS.Clusters.Pools.Delete(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\t"pool_id",\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'pools delete',
+      typescript: {
+        method: 'client.nks.clusters.pools.delete',
         example:
-          "nirvana nks:clusters:pools delete \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --pool-id pool_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.nks.clusters.pools.delete('pool_id', { cluster_id: 'cluster_id' });\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -3742,19 +3742,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.nks.clusters.pools.list(cluster_id: string, cursor?: string, limit?: number): { id: string; cluster_id: string; created_at: string; name: string; node_config: nks_node_pool_node_config_response; node_count: number; status: resource_status; tags: string[]; updated_at: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}/pools`\n\nList all node pools in an NKS cluster\n\n### Parameters\n\n- `cluster_id: string`\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; cluster_id: string; created_at: string; name: string; node_config: { boot_volume: nks_node_pool_boot_volume_response; instance_type: string; labels: string[]; }; node_count: number; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; tags: string[]; updated_at: string; }`\n  NKS node pool details.\n\n  - `id: string`\n  - `cluster_id: string`\n  - `created_at: string`\n  - `name: string`\n  - `node_config: { boot_volume: { size: number; type: volume_type; }; instance_type: string; labels: string[]; }`\n  - `node_count: number`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `tags: string[]`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const nksNodePool of client.nks.clusters.pools.list('cluster_id')) {\n  console.log(nksNodePool);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.pools.list',
-        example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const nksNodePool of client.nks.clusters.pools.list('cluster_id')) {\n  console.log(nksNodePool.id);\n}",
+      cli: {
+        method: 'pools list',
+        example: "nirvana nks:clusters:pools list \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id",
       },
       go: {
         method: 'client.NKS.Clusters.Pools.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.NKS.Clusters.Pools.List(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\tnks.ClusterPoolListParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'pools list',
-        example: "nirvana nks:clusters:pools list \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id",
+      typescript: {
+        method: 'client.nks.clusters.pools.list',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const nksNodePool of client.nks.clusters.pools.list('cluster_id')) {\n  console.log(nksNodePool.id);\n}",
       },
       http: {
         example:
@@ -3780,20 +3780,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.nks.clusters.pools.availability.create(cluster_id: string, name: string, node_config: { boot_volume: nks_node_pool_boot_volume; instance_type: string; labels?: string[]; }, node_count: number, tags?: string[]): void`\n\n**post** `/v1/nks/clusters/{cluster_id}/pools/availability`\n\nCheck if a node pool can be created in an NKS cluster\n\n### Parameters\n\n- `cluster_id: string`\n\n- `name: string`\n  Name of the node pool.\n\n- `node_config: { boot_volume: { size: number; type: volume_type; }; instance_type: string; labels?: string[]; }`\n  Node configuration.\n  - `boot_volume: { size: number; type: 'nvme' | 'abs'; }`\n    Boot volume configuration.\n  - `instance_type: string`\n    Instance type name used for worker nodes.\n  - `labels?: string[]`\n    Kubernetes labels to apply to each node in the pool. Each entry is \"key=value\".\nKeys under kubernetes.io, k8s.io, and nirvanalabs.io prefixes are reserved.\n\n- `node_count: number`\n  Number of nodes. Must be between 1 and 100.\n\n- `tags?: string[]`\n  Tags to attach to the node pool.\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nawait client.nks.clusters.pools.availability.create('cluster_id', {\n  name: 'my-node-pool',\n  node_config: {\n  boot_volume: { size: 100, type: 'abs' },\n  instance_type: 'n1-standard-8',\n},\n  node_count: 3,\n})\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.pools.availability.create',
+      cli: {
+        method: 'availability create',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.nks.clusters.pools.availability.create('cluster_id', {\n  name: 'my-node-pool',\n  node_config: {\n    boot_volume: { size: 100, type: 'abs' },\n    instance_type: 'n1-standard-8',\n  },\n  node_count: 3,\n});",
+          "nirvana nks:clusters:pools:availability create \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --name my-node-pool \\\n  --node-config '{boot_volume: {size: 100, type: abs}, instance_type: n1-standard-8}' \\\n  --node-count 3",
       },
       go: {
         method: 'client.NKS.Clusters.Pools.Availability.New',
         example:
           'package main\n\nimport (\n\t"context"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\terr := client.NKS.Clusters.Pools.Availability.New(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\tnks.ClusterPoolAvailabilityNewParams{\n\t\t\tName: "my-node-pool",\n\t\t\tNodeConfig: nks.NKSNodePoolNodeConfigParam{\n\t\t\t\tBootVolume: nks.NKSNodePoolBootVolumeParam{\n\t\t\t\t\tSize: 100,\n\t\t\t\t\tType: compute.VolumeTypeABS,\n\t\t\t\t},\n\t\t\t\tInstanceType: "n1-standard-8",\n\t\t\t},\n\t\t\tNodeCount: 3,\n\t\t},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n}\n',
       },
-      cli: {
-        method: 'availability create',
+      typescript: {
+        method: 'client.nks.clusters.pools.availability.create',
         example:
-          "nirvana nks:clusters:pools:availability create \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --name my-node-pool \\\n  --node-config '{boot_volume: {size: 100, type: abs}, instance_type: n1-standard-8}' \\\n  --node-count 3",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.nks.clusters.pools.availability.create('cluster_id', {\n  name: 'my-node-pool',\n  node_config: {\n    boot_volume: { size: 100, type: 'abs' },\n    instance_type: 'n1-standard-8',\n  },\n  node_count: 3,\n});",
       },
       http: {
         example:
@@ -3820,20 +3820,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.nks.clusters.pools.availability.update(cluster_id: string, pool_id: string, name?: string, node_config?: { labels?: string[]; }, node_count?: number, tags?: string[]): void`\n\n**patch** `/v1/nks/clusters/{cluster_id}/pools/{pool_id}/availability`\n\nCheck if an NKS node pool can be updated\n\n### Parameters\n\n- `cluster_id: string`\n\n- `pool_id: string`\n\n- `name?: string`\n  Name of the node pool.\n\n- `node_config?: { labels?: string[]; }`\n  Partial node configuration update.\n  - `labels?: string[]`\n    Kubernetes labels to apply to each node in the pool. Each entry is \"key=value\".\nWhen provided, the list fully replaces the current labels on the pool and on live nodes.\n\n- `node_count?: number`\n  Number of nodes.\n\n- `tags?: string[]`\n  Tags to attach to the node pool.\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nawait client.nks.clusters.pools.availability.update('pool_id', { cluster_id: 'cluster_id' })\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.pools.availability.update',
+      cli: {
+        method: 'availability update',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.nks.clusters.pools.availability.update('pool_id', { cluster_id: 'cluster_id' });",
+          "nirvana nks:clusters:pools:availability update \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --pool-id pool_id",
       },
       go: {
         method: 'client.NKS.Clusters.Pools.Availability.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\terr := client.NKS.Clusters.Pools.Availability.Update(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\t"pool_id",\n\t\tnks.ClusterPoolAvailabilityUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n}\n',
       },
-      cli: {
-        method: 'availability update',
+      typescript: {
+        method: 'client.nks.clusters.pools.availability.update',
         example:
-          "nirvana nks:clusters:pools:availability update \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --pool-id pool_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.nks.clusters.pools.availability.update('pool_id', { cluster_id: 'cluster_id' });",
       },
       http: {
         example:
@@ -3855,20 +3855,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.nks.clusters.pools.nodes.get(cluster_id: string, pool_id: string, node_id: string): { id: string; created_at: string; name: string; private_ip: string; status: resource_status; updated_at: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}`\n\nGet details about an NKS node\n\n### Parameters\n\n- `cluster_id: string`\n\n- `pool_id: string`\n\n- `node_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; name: string; private_ip: string; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; updated_at: string; }`\n  NKS node details.\n\n  - `id: string`\n  - `created_at: string`\n  - `name: string`\n  - `private_ip: string`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst nksNode = await client.nks.clusters.pools.nodes.get('node_id', { cluster_id: 'cluster_id', pool_id: 'pool_id' });\n\nconsole.log(nksNode);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.pools.nodes.get',
+      cli: {
+        method: 'nodes get',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst nksNode = await client.nks.clusters.pools.nodes.get('node_id', {\n  cluster_id: 'cluster_id',\n  pool_id: 'pool_id',\n});\n\nconsole.log(nksNode.id);",
+          "nirvana nks:clusters:pools:nodes get \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --pool-id pool_id \\\n  --node-id node_id",
       },
       go: {
         method: 'client.NKS.Clusters.Pools.Nodes.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tnksNode, err := client.NKS.Clusters.Pools.Nodes.Get(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\t"pool_id",\n\t\t"node_id",\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", nksNode.ID)\n}\n',
       },
-      cli: {
-        method: 'nodes get',
+      typescript: {
+        method: 'client.nks.clusters.pools.nodes.get',
         example:
-          "nirvana nks:clusters:pools:nodes get \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --pool-id pool_id \\\n  --node-id node_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst nksNode = await client.nks.clusters.pools.nodes.get('node_id', {\n  cluster_id: 'cluster_id',\n  pool_id: 'pool_id',\n});\n\nconsole.log(nksNode.id);",
       },
       http: {
         example:
@@ -3890,20 +3890,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## delete\n\n`client.nks.clusters.pools.nodes.delete(cluster_id: string, pool_id: string, node_id: string): { id: string; created_at: string; details: operation_details; kind: operation_kind; project_id: string; resource_id: string; status: operation_status; type: operation_type; updated_at: string; }`\n\n**delete** `/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}`\n\nDelete a single node from an NKS node pool\n\n### Parameters\n\n- `cluster_id: string`\n\n- `pool_id: string`\n\n- `node_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; details: { changes: operation_changes; }; kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'; project_id: string; resource_id: string; status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'; type: 'create' | 'update' | 'delete' | 'restart'; updated_at: string; }`\n  Operation details.\n\n  - `id: string`\n  - `created_at: string`\n  - `details: { changes: object; }`\n  - `kind: 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool'`\n  - `project_id: string`\n  - `resource_id: string`\n  - `status: 'pending' | 'running' | 'done' | 'failed' | 'unknown'`\n  - `type: 'create' | 'update' | 'delete' | 'restart'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst operation = await client.nks.clusters.pools.nodes.delete('node_id', { cluster_id: 'cluster_id', pool_id: 'pool_id' });\n\nconsole.log(operation);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.pools.nodes.delete',
+      cli: {
+        method: 'nodes delete',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.nks.clusters.pools.nodes.delete('node_id', {\n  cluster_id: 'cluster_id',\n  pool_id: 'pool_id',\n});\n\nconsole.log(operation.id);",
+          "nirvana nks:clusters:pools:nodes delete \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --pool-id pool_id \\\n  --node-id node_id",
       },
       go: {
         method: 'client.NKS.Clusters.Pools.Nodes.Delete',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\toperation, err := client.NKS.Clusters.Pools.Nodes.Delete(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\t"pool_id",\n\t\t"node_id",\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", operation.ID)\n}\n',
       },
-      cli: {
-        method: 'nodes delete',
+      typescript: {
+        method: 'client.nks.clusters.pools.nodes.delete',
         example:
-          "nirvana nks:clusters:pools:nodes delete \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --pool-id pool_id \\\n  --node-id node_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst operation = await client.nks.clusters.pools.nodes.delete('node_id', {\n  cluster_id: 'cluster_id',\n  pool_id: 'pool_id',\n});\n\nconsole.log(operation.id);",
       },
       http: {
         example:
@@ -3925,20 +3925,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.nks.clusters.pools.nodes.list(cluster_id: string, pool_id: string, cursor?: string, limit?: number): { id: string; created_at: string; name: string; private_ip: string; status: resource_status; updated_at: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes`\n\nList all nodes in an NKS node pool\n\n### Parameters\n\n- `cluster_id: string`\n\n- `pool_id: string`\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; created_at: string; name: string; private_ip: string; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; updated_at: string; }`\n  NKS node details.\n\n  - `id: string`\n  - `created_at: string`\n  - `name: string`\n  - `private_ip: string`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const nksNode of client.nks.clusters.pools.nodes.list('pool_id', { cluster_id: 'cluster_id' })) {\n  console.log(nksNode);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.pools.nodes.list',
+      cli: {
+        method: 'nodes list',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const nksNode of client.nks.clusters.pools.nodes.list('pool_id', {\n  cluster_id: 'cluster_id',\n})) {\n  console.log(nksNode.id);\n}",
+          "nirvana nks:clusters:pools:nodes list \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --pool-id pool_id",
       },
       go: {
         method: 'client.NKS.Clusters.Pools.Nodes.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.NKS.Clusters.Pools.Nodes.List(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\t"pool_id",\n\t\tnks.ClusterPoolNodeListParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'nodes list',
+      typescript: {
+        method: 'client.nks.clusters.pools.nodes.list',
         example:
-          "nirvana nks:clusters:pools:nodes list \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --pool-id pool_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const nksNode of client.nks.clusters.pools.nodes.list('pool_id', {\n  cluster_id: 'cluster_id',\n})) {\n  console.log(nksNode.id);\n}",
       },
       http: {
         example:
@@ -3960,20 +3960,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get\n\n`client.nks.clusters.pools.nodes.volumes.get(cluster_id: string, pool_id: string, node_id: string, volume_id: string): { id: string; created_at: string; kind: volume_kind; name: string; size: number; status: resource_status; type: volume_type; updated_at: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}/volumes/{volume_id}`\n\nGet details about a volume attached to an NKS node\n\n### Parameters\n\n- `cluster_id: string`\n\n- `pool_id: string`\n\n- `node_id: string`\n\n- `volume_id: string`\n\n### Returns\n\n- `{ id: string; created_at: string; kind: 'boot' | 'data'; name: string; size: number; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; type: 'nvme' | 'abs'; updated_at: string; }`\n  NKS node volume details.\n\n  - `id: string`\n  - `created_at: string`\n  - `kind: 'boot' | 'data'`\n  - `name: string`\n  - `size: number`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `type: 'nvme' | 'abs'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst nksNodeVolume = await client.nks.clusters.pools.nodes.volumes.get('volume_id', {\n  cluster_id: 'cluster_id',\n  pool_id: 'pool_id',\n  node_id: 'node_id',\n});\n\nconsole.log(nksNodeVolume);\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.pools.nodes.volumes.get',
+      cli: {
+        method: 'volumes get',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst nksNodeVolume = await client.nks.clusters.pools.nodes.volumes.get('volume_id', {\n  cluster_id: 'cluster_id',\n  pool_id: 'pool_id',\n  node_id: 'node_id',\n});\n\nconsole.log(nksNodeVolume.id);",
+          "nirvana nks:clusters:pools:nodes:volumes get \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --pool-id pool_id \\\n  --node-id node_id \\\n  --volume-id volume_id",
       },
       go: {
         method: 'client.NKS.Clusters.Pools.Nodes.Volumes.Get',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tnksNodeVolume, err := client.NKS.Clusters.Pools.Nodes.Volumes.Get(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\t"pool_id",\n\t\t"node_id",\n\t\t"volume_id",\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", nksNodeVolume.ID)\n}\n',
       },
-      cli: {
-        method: 'volumes get',
+      typescript: {
+        method: 'client.nks.clusters.pools.nodes.volumes.get',
         example:
-          "nirvana nks:clusters:pools:nodes:volumes get \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --pool-id pool_id \\\n  --node-id node_id \\\n  --volume-id volume_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst nksNodeVolume = await client.nks.clusters.pools.nodes.volumes.get('volume_id', {\n  cluster_id: 'cluster_id',\n  pool_id: 'pool_id',\n  node_id: 'node_id',\n});\n\nconsole.log(nksNodeVolume.id);",
       },
       http: {
         example:
@@ -4001,20 +4001,20 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.nks.clusters.pools.nodes.volumes.list(cluster_id: string, pool_id: string, node_id: string, cursor?: string, limit?: number): { id: string; created_at: string; kind: volume_kind; name: string; size: number; status: resource_status; type: volume_type; updated_at: string; }`\n\n**get** `/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}/volumes`\n\nList all volumes attached to an NKS node\n\n### Parameters\n\n- `cluster_id: string`\n\n- `pool_id: string`\n\n- `node_id: string`\n\n- `cursor?: string`\n  Pagination cursor returned by a previous request\n\n- `limit?: number`\n  Maximum number of items to return\n\n### Returns\n\n- `{ id: string; created_at: string; kind: 'boot' | 'data'; name: string; size: number; status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'; type: 'nvme' | 'abs'; updated_at: string; }`\n  NKS node volume details.\n\n  - `id: string`\n  - `created_at: string`\n  - `kind: 'boot' | 'data'`\n  - `name: string`\n  - `size: number`\n  - `status: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error'`\n  - `type: 'nvme' | 'abs'`\n  - `updated_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\n// Automatically fetches more pages as needed.\nfor await (const nksNodeVolume of client.nks.clusters.pools.nodes.volumes.list('node_id', { cluster_id: 'cluster_id', pool_id: 'pool_id' })) {\n  console.log(nksNodeVolume);\n}\n```",
     perLanguage: {
-      typescript: {
-        method: 'client.nks.clusters.pools.nodes.volumes.list',
+      cli: {
+        method: 'volumes list',
         example:
-          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const nksNodeVolume of client.nks.clusters.pools.nodes.volumes.list('node_id', {\n  cluster_id: 'cluster_id',\n  pool_id: 'pool_id',\n})) {\n  console.log(nksNodeVolume.id);\n}",
+          "nirvana nks:clusters:pools:nodes:volumes list \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --pool-id pool_id \\\n  --node-id node_id",
       },
       go: {
         method: 'client.NKS.Clusters.Pools.Nodes.Volumes.List',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tpage, err := client.NKS.Clusters.Pools.Nodes.Volumes.List(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\t"pool_id",\n\t\t"node_id",\n\t\tnks.ClusterPoolNodeVolumeListParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
-      cli: {
-        method: 'volumes list',
+      typescript: {
+        method: 'client.nks.clusters.pools.nodes.volumes.list',
         example:
-          "nirvana nks:clusters:pools:nodes:volumes list \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --pool-id pool_id \\\n  --node-id node_id",
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\n// Automatically fetches more pages as needed.\nfor await (const nksNodeVolume of client.nks.clusters.pools.nodes.volumes.list('node_id', {\n  cluster_id: 'cluster_id',\n  pool_id: 'pool_id',\n})) {\n  console.log(nksNodeVolume.id);\n}",
       },
       http: {
         example:

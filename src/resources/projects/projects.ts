@@ -24,6 +24,18 @@ export class Projects extends APIResource {
   }
 
   /**
+   * Get details about a project
+   *
+   * @example
+   * ```ts
+   * const project = await client.projects.get('project_id');
+   * ```
+   */
+  get(projectID: string, options?: RequestOptions): APIPromise<Project> {
+    return this._client.get(path`/v1/projects/${projectID}`, options);
+  }
+
+  /**
    * Update an existing project
    *
    * @example
@@ -33,24 +45,6 @@ export class Projects extends APIResource {
    */
   update(projectID: string, body: ProjectUpdateParams, options?: RequestOptions): APIPromise<Project> {
     return this._client.patch(path`/v1/projects/${projectID}`, { body, ...options });
-  }
-
-  /**
-   * List all projects
-   *
-   * @example
-   * ```ts
-   * // Automatically fetches more pages as needed.
-   * for await (const project of client.projects.list()) {
-   *   // ...
-   * }
-   * ```
-   */
-  list(
-    query: ProjectListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): PagePromise<ProjectsCursor, Project> {
-    return this._client.getAPIList('/v1/projects', Cursor<Project>, { query, ...options });
   }
 
   /**
@@ -69,15 +63,21 @@ export class Projects extends APIResource {
   }
 
   /**
-   * Get details about a project
+   * List all projects
    *
    * @example
    * ```ts
-   * const project = await client.projects.get('project_id');
+   * // Automatically fetches more pages as needed.
+   * for await (const project of client.projects.list()) {
+   *   // ...
+   * }
    * ```
    */
-  get(projectID: string, options?: RequestOptions): APIPromise<Project> {
-    return this._client.get(path`/v1/projects/${projectID}`, options);
+  list(
+    query: ProjectListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<ProjectsCursor, Project> {
+    return this._client.getAPIList('/v1/projects', Cursor<Project>, { query, ...options });
   }
 }
 

@@ -9,6 +9,25 @@ const client = new NirvanaLabs({
 
 describe('resource controllers', () => {
   // Mock server tests are disabled
+  test.skip('get: only required params', async () => {
+    const responsePromise = client.nks.clusters.controllers.get('controller_id', {
+      cluster_id: 'cluster_id',
+    });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Mock server tests are disabled
+  test.skip('get: required and optional params', async () => {
+    const response = await client.nks.clusters.controllers.get('controller_id', { cluster_id: 'cluster_id' });
+  });
+
+  // Mock server tests are disabled
   test.skip('list', async () => {
     const responsePromise = client.nks.clusters.controllers.list('cluster_id');
     const rawResponse = await responsePromise.asResponse();
@@ -30,24 +49,5 @@ describe('resource controllers', () => {
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
-  });
-
-  // Mock server tests are disabled
-  test.skip('get: only required params', async () => {
-    const responsePromise = client.nks.clusters.controllers.get('controller_id', {
-      cluster_id: 'cluster_id',
-    });
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // Mock server tests are disabled
-  test.skip('get: required and optional params', async () => {
-    const response = await client.nks.clusters.controllers.get('controller_id', { cluster_id: 'cluster_id' });
   });
 });

@@ -13,6 +13,20 @@ export class DedicatedResource extends APIResource {
   blockchains: BlockchainsAPI.Blockchains = new BlockchainsAPI.Blockchains(this._client);
 
   /**
+   * Get details about an RPC Node Dedicated
+   *
+   * @example
+   * ```ts
+   * const dedicated = await client.rpcNodes.dedicated.get(
+   *   'node_id',
+   * );
+   * ```
+   */
+  get(nodeID: string, options?: RequestOptions): APIPromise<Dedicated> {
+    return this._client.get(path`/v1/rpc_nodes/dedicated/${nodeID}`, options);
+  }
+
+  /**
    * List all RPC Node Dedicated you created
    *
    * @example
@@ -27,20 +41,6 @@ export class DedicatedResource extends APIResource {
    */
   list(query: DedicatedListParams, options?: RequestOptions): PagePromise<DedicatedsCursor, Dedicated> {
     return this._client.getAPIList('/v1/rpc_nodes/dedicated', Cursor<Dedicated>, { query, ...options });
-  }
-
-  /**
-   * Get details about an RPC Node Dedicated
-   *
-   * @example
-   * ```ts
-   * const dedicated = await client.rpcNodes.dedicated.get(
-   *   'node_id',
-   * );
-   * ```
-   */
-  get(nodeID: string, options?: RequestOptions): APIPromise<Dedicated> {
-    return this._client.get(path`/v1/rpc_nodes/dedicated/${nodeID}`, options);
   }
 }
 

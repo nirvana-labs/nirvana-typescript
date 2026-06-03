@@ -64,10 +64,10 @@ export declare namespace Networking {
     type FirewallRuleList as FirewallRuleList,
     type FirewallRulesCursor as FirewallRulesCursor,
     type FirewallRuleCreateParams as FirewallRuleCreateParams,
-    type FirewallRuleUpdateParams as FirewallRuleUpdateParams,
-    type FirewallRuleListParams as FirewallRuleListParams,
-    type FirewallRuleDeleteParams as FirewallRuleDeleteParams,
     type FirewallRuleGetParams as FirewallRuleGetParams,
+    type FirewallRuleUpdateParams as FirewallRuleUpdateParams,
+    type FirewallRuleDeleteParams as FirewallRuleDeleteParams,
+    type FirewallRuleListParams as FirewallRuleListParams,
   };
 
   export {

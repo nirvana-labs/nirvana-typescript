@@ -85,6 +85,20 @@ export class Clusters extends APIResource {
   }
 
   /**
+   * Get details about an NKS cluster
+   *
+   * @example
+   * ```ts
+   * const nksCluster = await client.nks.clusters.get(
+   *   'cluster_id',
+   * );
+   * ```
+   */
+  get(clusterID: string, options?: RequestOptions): APIPromise<NKSCluster> {
+    return this._client.get(path`/v1/nks/clusters/${clusterID}`, options);
+  }
+
+  /**
    * Update an NKS cluster
    *
    * @example
@@ -103,23 +117,6 @@ export class Clusters extends APIResource {
   }
 
   /**
-   * List all NKS clusters
-   *
-   * @example
-   * ```ts
-   * // Automatically fetches more pages as needed.
-   * for await (const nksCluster of client.nks.clusters.list({
-   *   project_id: 'project_id',
-   * })) {
-   *   // ...
-   * }
-   * ```
-   */
-  list(query: ClusterListParams, options?: RequestOptions): PagePromise<NKSClustersCursor, NKSCluster> {
-    return this._client.getAPIList('/v1/nks/clusters', Cursor<NKSCluster>, { query, ...options });
-  }
-
-  /**
    * Delete an NKS cluster
    *
    * @example
@@ -134,17 +131,20 @@ export class Clusters extends APIResource {
   }
 
   /**
-   * Get details about an NKS cluster
+   * List all NKS clusters
    *
    * @example
    * ```ts
-   * const nksCluster = await client.nks.clusters.get(
-   *   'cluster_id',
-   * );
+   * // Automatically fetches more pages as needed.
+   * for await (const nksCluster of client.nks.clusters.list({
+   *   project_id: 'project_id',
+   * })) {
+   *   // ...
+   * }
    * ```
    */
-  get(clusterID: string, options?: RequestOptions): APIPromise<NKSCluster> {
-    return this._client.get(path`/v1/nks/clusters/${clusterID}`, options);
+  list(query: ClusterListParams, options?: RequestOptions): PagePromise<NKSClustersCursor, NKSCluster> {
+    return this._client.getAPIList('/v1/nks/clusters', Cursor<NKSCluster>, { query, ...options });
   }
 }
 
@@ -323,8 +323,8 @@ export declare namespace Clusters {
     type PersistentVolumeClaim as PersistentVolumeClaim,
     type PersistentVolumeClaimList as PersistentVolumeClaimList,
     type PersistentVolumeClaimsCursor as PersistentVolumeClaimsCursor,
-    type PersistentVolumeClaimListParams as PersistentVolumeClaimListParams,
     type PersistentVolumeClaimGetParams as PersistentVolumeClaimGetParams,
+    type PersistentVolumeClaimListParams as PersistentVolumeClaimListParams,
   };
 
   export { KubeconfigResource as KubeconfigResource, type Kubeconfig as Kubeconfig };
@@ -334,8 +334,8 @@ export declare namespace Clusters {
     type NKSController as NKSController,
     type NKSControllerList as NKSControllerList,
     type NKSControllersCursor as NKSControllersCursor,
-    type ControllerListParams as ControllerListParams,
     type ControllerGetParams as ControllerGetParams,
+    type ControllerListParams as ControllerListParams,
   };
 
   export {
@@ -343,9 +343,9 @@ export declare namespace Clusters {
     type NKSLoadBalancer as NKSLoadBalancer,
     type NKSLoadBalancerList as NKSLoadBalancerList,
     type NKSLoadBalancersCursor as NKSLoadBalancersCursor,
+    type LoadBalancerGetParams as LoadBalancerGetParams,
     type LoadBalancerUpdateParams as LoadBalancerUpdateParams,
     type LoadBalancerListParams as LoadBalancerListParams,
-    type LoadBalancerGetParams as LoadBalancerGetParams,
   };
 
   export {
@@ -358,9 +358,9 @@ export declare namespace Clusters {
     type NKSNodePoolNodeConfigResponse as NKSNodePoolNodeConfigResponse,
     type NKSNodePoolsCursor as NKSNodePoolsCursor,
     type PoolCreateParams as PoolCreateParams,
-    type PoolUpdateParams as PoolUpdateParams,
-    type PoolListParams as PoolListParams,
-    type PoolDeleteParams as PoolDeleteParams,
     type PoolGetParams as PoolGetParams,
+    type PoolUpdateParams as PoolUpdateParams,
+    type PoolDeleteParams as PoolDeleteParams,
+    type PoolListParams as PoolListParams,
   };
 }

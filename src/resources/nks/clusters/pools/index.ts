@@ -5,9 +5,9 @@ export {
   Nodes,
   type NKSNode,
   type NKSNodeList,
-  type NodeListParams,
-  type NodeDeleteParams,
   type NodeGetParams,
+  type NodeDeleteParams,
+  type NodeListParams,
   type NKSNodesCursor,
 } from './nodes/index';
 export {
@@ -19,9 +19,9 @@ export {
   type NKSNodePoolNodeConfig,
   type NKSNodePoolNodeConfigResponse,
   type PoolCreateParams,
-  type PoolUpdateParams,
-  type PoolListParams,
-  type PoolDeleteParams,
   type PoolGetParams,
+  type PoolUpdateParams,
+  type PoolDeleteParams,
+  type PoolListParams,
   type NKSNodePoolsCursor,
 } from './pools';

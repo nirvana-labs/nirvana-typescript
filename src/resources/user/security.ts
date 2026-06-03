@@ -7,17 +7,17 @@ import { RequestOptions } from '../../internal/request-options';
 
 export class Security extends APIResource {
   /**
-   * Update the current user's security settings
-   */
-  update(body: SecurityUpdateParams, options?: RequestOptions): APIPromise<UserSecurity> {
-    return this._client.patch('/v1/user/security', { body, ...options });
-  }
-
-  /**
    * Get the current user's security settings
    */
   get(options?: RequestOptions): APIPromise<UserSecurity> {
     return this._client.get('/v1/user/security', options);
+  }
+
+  /**
+   * Update the current user's security settings
+   */
+  update(body: SecurityUpdateParams, options?: RequestOptions): APIPromise<UserSecurity> {
+    return this._client.patch('/v1/user/security', { body, ...options });
   }
 }
 

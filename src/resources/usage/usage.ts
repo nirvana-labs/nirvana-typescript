@@ -9,6 +9,21 @@ import { path } from '../../internal/utils/path';
 
 export class UsageResource extends APIResource {
   /**
+   * Get the usage record for a single resource (metadata plus dimension history) for
+   * the current organization.
+   *
+   * @example
+   * ```ts
+   * const usage = await client.usage.get(
+   *   '123e4567-e89b-12d3-a456-426614174000',
+   * );
+   * ```
+   */
+  get(resourceID: string, options?: RequestOptions): APIPromise<Usage> {
+    return this._client.get(path`/v1/usage/${resourceID}`, options);
+  }
+
+  /**
    * List per-resource usage records for the current organization. Each item is one
    * resource with its nested dimension history (active and closed segments).
    *
@@ -25,21 +40,6 @@ export class UsageResource extends APIResource {
     options?: RequestOptions,
   ): PagePromise<UsagesCursor, Usage> {
     return this._client.getAPIList('/v1/usage', Cursor<Usage>, { query, ...options });
-  }
-
-  /**
-   * Get the usage record for a single resource (metadata plus dimension history) for
-   * the current organization.
-   *
-   * @example
-   * ```ts
-   * const usage = await client.usage.get(
-   *   '123e4567-e89b-12d3-a456-426614174000',
-   * );
-   * ```
-   */
-  get(resourceID: string, options?: RequestOptions): APIPromise<Usage> {
-    return this._client.get(path`/v1/usage/${resourceID}`, options);
   }
 }
 

@@ -10,6 +10,30 @@ import { path } from '../../../internal/utils/path';
 
 export class PersistentVolumeClaims extends APIResource {
   /**
+   * Get details about an NKS persistent volume claim
+   *
+   * @example
+   * ```ts
+   * const persistentVolumeClaim =
+   *   await client.nks.clusters.persistentVolumeClaims.get(
+   *     'persistent_volume_claim_id',
+   *     { cluster_id: 'cluster_id' },
+   *   );
+   * ```
+   */
+  get(
+    persistentVolumeClaimID: string,
+    params: PersistentVolumeClaimGetParams,
+    options?: RequestOptions,
+  ): APIPromise<PersistentVolumeClaim> {
+    const { cluster_id } = params;
+    return this._client.get(
+      path`/v1/nks/clusters/${cluster_id}/persistent_volume_claims/${persistentVolumeClaimID}`,
+      options,
+    );
+  }
+
+  /**
    * List all persistent volume claims in an NKS cluster
    *
    * @example
@@ -31,30 +55,6 @@ export class PersistentVolumeClaims extends APIResource {
       path`/v1/nks/clusters/${clusterID}/persistent_volume_claims`,
       Cursor<PersistentVolumeClaim>,
       { query, ...options },
-    );
-  }
-
-  /**
-   * Get details about an NKS persistent volume claim
-   *
-   * @example
-   * ```ts
-   * const persistentVolumeClaim =
-   *   await client.nks.clusters.persistentVolumeClaims.get(
-   *     'persistent_volume_claim_id',
-   *     { cluster_id: 'cluster_id' },
-   *   );
-   * ```
-   */
-  get(
-    persistentVolumeClaimID: string,
-    params: PersistentVolumeClaimGetParams,
-    options?: RequestOptions,
-  ): APIPromise<PersistentVolumeClaim> {
-    const { cluster_id } = params;
-    return this._client.get(
-      path`/v1/nks/clusters/${cluster_id}/persistent_volume_claims/${persistentVolumeClaimID}`,
-      options,
     );
   }
 }
@@ -115,8 +115,6 @@ export interface PersistentVolumeClaimList {
   pagination: Shared.Pagination;
 }
 
-export interface PersistentVolumeClaimListParams extends CursorParams {}
-
 export interface PersistentVolumeClaimGetParams {
   /**
    * Cluster ID
@@ -124,12 +122,14 @@ export interface PersistentVolumeClaimGetParams {
   cluster_id: string;
 }
 
+export interface PersistentVolumeClaimListParams extends CursorParams {}
+
 export declare namespace PersistentVolumeClaims {
   export {
     type PersistentVolumeClaim as PersistentVolumeClaim,
     type PersistentVolumeClaimList as PersistentVolumeClaimList,
     type PersistentVolumeClaimsCursor as PersistentVolumeClaimsCursor,
-    type PersistentVolumeClaimListParams as PersistentVolumeClaimListParams,
     type PersistentVolumeClaimGetParams as PersistentVolumeClaimGetParams,
+    type PersistentVolumeClaimListParams as PersistentVolumeClaimListParams,
   };
 }

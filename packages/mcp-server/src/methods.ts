@@ -17,15 +17,15 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/user',
   },
   {
-    clientCallName: 'client.user.security.update',
-    fullyQualifiedName: 'user.security.update',
-    httpMethod: 'patch',
-    httpPath: '/v1/user/security',
-  },
-  {
     clientCallName: 'client.user.security.get',
     fullyQualifiedName: 'user.security.get',
     httpMethod: 'get',
+    httpPath: '/v1/user/security',
+  },
+  {
+    clientCallName: 'client.user.security.update',
+    fullyQualifiedName: 'user.security.update',
+    httpMethod: 'patch',
     httpPath: '/v1/user/security',
   },
   {
@@ -35,9 +35,21 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/api_keys',
   },
   {
+    clientCallName: 'client.apiKeys.get',
+    fullyQualifiedName: 'apiKeys.get',
+    httpMethod: 'get',
+    httpPath: '/v1/api_keys/{api_key_id}',
+  },
+  {
     clientCallName: 'client.apiKeys.update',
     fullyQualifiedName: 'apiKeys.update',
     httpMethod: 'patch',
+    httpPath: '/v1/api_keys/{api_key_id}',
+  },
+  {
+    clientCallName: 'client.apiKeys.delete',
+    fullyQualifiedName: 'apiKeys.delete',
+    httpMethod: 'delete',
     httpPath: '/v1/api_keys/{api_key_id}',
   },
   {
@@ -47,16 +59,10 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/api_keys',
   },
   {
-    clientCallName: 'client.apiKeys.delete',
-    fullyQualifiedName: 'apiKeys.delete',
-    httpMethod: 'delete',
-    httpPath: '/v1/api_keys/{api_key_id}',
-  },
-  {
-    clientCallName: 'client.apiKeys.get',
-    fullyQualifiedName: 'apiKeys.get',
+    clientCallName: 'client.operations.get',
+    fullyQualifiedName: 'operations.get',
     httpMethod: 'get',
-    httpPath: '/v1/api_keys/{api_key_id}',
+    httpPath: '/v1/operations/{operation_id}',
   },
   {
     clientCallName: 'client.operations.list',
@@ -65,16 +71,16 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/operations',
   },
   {
-    clientCallName: 'client.operations.get',
-    fullyQualifiedName: 'operations.get',
-    httpMethod: 'get',
-    httpPath: '/v1/operations/{operation_id}',
-  },
-  {
     clientCallName: 'client.organizations.create',
     fullyQualifiedName: 'organizations.create',
     httpMethod: 'post',
     httpPath: '/v1/organizations',
+  },
+  {
+    clientCallName: 'client.organizations.get',
+    fullyQualifiedName: 'organizations.get',
+    httpMethod: 'get',
+    httpPath: '/v1/organizations/{organization_id}',
   },
   {
     clientCallName: 'client.organizations.update',
@@ -89,22 +95,10 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/organizations',
   },
   {
-    clientCallName: 'client.organizations.get',
-    fullyQualifiedName: 'organizations.get',
-    httpMethod: 'get',
-    httpPath: '/v1/organizations/{organization_id}',
-  },
-  {
     clientCallName: 'client.organizations.leave',
     fullyQualifiedName: 'organizations.leave',
     httpMethod: 'post',
     httpPath: '/v1/organizations/{organization_id}/leave',
-  },
-  {
-    clientCallName: 'client.organizations.memberships.list',
-    fullyQualifiedName: 'organizations.memberships.list',
-    httpMethod: 'get',
-    httpPath: '/v1/organizations/{organization_id}/memberships',
   },
   {
     clientCallName: 'client.organizations.memberships.get',
@@ -113,15 +107,15 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/organizations/{organization_id}/memberships/{membership_id}',
   },
   {
+    clientCallName: 'client.organizations.memberships.list',
+    fullyQualifiedName: 'organizations.memberships.list',
+    httpMethod: 'get',
+    httpPath: '/v1/organizations/{organization_id}/memberships',
+  },
+  {
     clientCallName: 'client.organizations.address.create',
     fullyQualifiedName: 'organizations.address.create',
     httpMethod: 'post',
-    httpPath: '/v1/organizations/{organization_id}/address',
-  },
-  {
-    clientCallName: 'client.organizations.address.update',
-    fullyQualifiedName: 'organizations.address.update',
-    httpMethod: 'patch',
     httpPath: '/v1/organizations/{organization_id}/address',
   },
   {
@@ -131,10 +125,10 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/organizations/{organization_id}/address',
   },
   {
-    clientCallName: 'client.quotas.list',
-    fullyQualifiedName: 'quotas.list',
-    httpMethod: 'get',
-    httpPath: '/v1/quotas',
+    clientCallName: 'client.organizations.address.update',
+    fullyQualifiedName: 'organizations.address.update',
+    httpMethod: 'patch',
+    httpPath: '/v1/organizations/{organization_id}/address',
   },
   {
     clientCallName: 'client.quotas.get',
@@ -143,10 +137,10 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/quotas/{region}',
   },
   {
-    clientCallName: 'client.usage.list',
-    fullyQualifiedName: 'usage.list',
+    clientCallName: 'client.quotas.list',
+    fullyQualifiedName: 'quotas.list',
     httpMethod: 'get',
-    httpPath: '/v1/usage',
+    httpPath: '/v1/quotas',
   },
   {
     clientCallName: 'client.usage.get',
@@ -155,10 +149,10 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/usage/{resource_id}',
   },
   {
-    clientCallName: 'client.auditLogs.list',
-    fullyQualifiedName: 'auditLogs.list',
+    clientCallName: 'client.usage.list',
+    fullyQualifiedName: 'usage.list',
     httpMethod: 'get',
-    httpPath: '/v1/audit_logs',
+    httpPath: '/v1/usage',
   },
   {
     clientCallName: 'client.auditLogs.get',
@@ -167,15 +161,33 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/audit_logs/{audit_log_id}',
   },
   {
+    clientCallName: 'client.auditLogs.list',
+    fullyQualifiedName: 'auditLogs.list',
+    httpMethod: 'get',
+    httpPath: '/v1/audit_logs',
+  },
+  {
     clientCallName: 'client.projects.create',
     fullyQualifiedName: 'projects.create',
     httpMethod: 'post',
     httpPath: '/v1/projects',
   },
   {
+    clientCallName: 'client.projects.get',
+    fullyQualifiedName: 'projects.get',
+    httpMethod: 'get',
+    httpPath: '/v1/projects/{project_id}',
+  },
+  {
     clientCallName: 'client.projects.update',
     fullyQualifiedName: 'projects.update',
     httpMethod: 'patch',
+    httpPath: '/v1/projects/{project_id}',
+  },
+  {
+    clientCallName: 'client.projects.delete',
+    fullyQualifiedName: 'projects.delete',
+    httpMethod: 'delete',
     httpPath: '/v1/projects/{project_id}',
   },
   {
@@ -185,16 +197,10 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/projects',
   },
   {
-    clientCallName: 'client.projects.delete',
-    fullyQualifiedName: 'projects.delete',
-    httpMethod: 'delete',
-    httpPath: '/v1/projects/{project_id}',
-  },
-  {
-    clientCallName: 'client.projects.get',
-    fullyQualifiedName: 'projects.get',
+    clientCallName: 'client.regions.get',
+    fullyQualifiedName: 'regions.get',
     httpMethod: 'get',
-    httpPath: '/v1/projects/{project_id}',
+    httpPath: '/v1/regions/{name}',
   },
   {
     clientCallName: 'client.regions.list',
@@ -203,10 +209,10 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/regions',
   },
   {
-    clientCallName: 'client.regions.get',
-    fullyQualifiedName: 'regions.get',
+    clientCallName: 'client.instanceTypes.get',
+    fullyQualifiedName: 'instanceTypes.get',
     httpMethod: 'get',
-    httpPath: '/v1/regions/{name}',
+    httpPath: '/v1/instance_types/{region}/{name}',
   },
   {
     clientCallName: 'client.instanceTypes.list',
@@ -215,16 +221,16 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/instance_types',
   },
   {
-    clientCallName: 'client.instanceTypes.get',
-    fullyQualifiedName: 'instanceTypes.get',
-    httpMethod: 'get',
-    httpPath: '/v1/instance_types/{region}/{name}',
-  },
-  {
     clientCallName: 'client.compute.vms.create',
     fullyQualifiedName: 'compute.vms.create',
     httpMethod: 'post',
     httpPath: '/v1/compute/vms',
+  },
+  {
+    clientCallName: 'client.compute.vms.get',
+    fullyQualifiedName: 'compute.vms.get',
+    httpMethod: 'get',
+    httpPath: '/v1/compute/vms/{vm_id}',
   },
   {
     clientCallName: 'client.compute.vms.update',
@@ -233,22 +239,16 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/compute/vms/{vm_id}',
   },
   {
-    clientCallName: 'client.compute.vms.list',
-    fullyQualifiedName: 'compute.vms.list',
-    httpMethod: 'get',
-    httpPath: '/v1/compute/vms',
-  },
-  {
     clientCallName: 'client.compute.vms.delete',
     fullyQualifiedName: 'compute.vms.delete',
     httpMethod: 'delete',
     httpPath: '/v1/compute/vms/{vm_id}',
   },
   {
-    clientCallName: 'client.compute.vms.get',
-    fullyQualifiedName: 'compute.vms.get',
+    clientCallName: 'client.compute.vms.list',
+    fullyQualifiedName: 'compute.vms.list',
     httpMethod: 'get',
-    httpPath: '/v1/compute/vms/{vm_id}',
+    httpPath: '/v1/compute/vms',
   },
   {
     clientCallName: 'client.compute.vms.restart',
@@ -287,9 +287,21 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/compute/volumes',
   },
   {
+    clientCallName: 'client.compute.volumes.get',
+    fullyQualifiedName: 'compute.volumes.get',
+    httpMethod: 'get',
+    httpPath: '/v1/compute/volumes/{volume_id}',
+  },
+  {
     clientCallName: 'client.compute.volumes.update',
     fullyQualifiedName: 'compute.volumes.update',
     httpMethod: 'patch',
+    httpPath: '/v1/compute/volumes/{volume_id}',
+  },
+  {
+    clientCallName: 'client.compute.volumes.delete',
+    fullyQualifiedName: 'compute.volumes.delete',
+    httpMethod: 'delete',
     httpPath: '/v1/compute/volumes/{volume_id}',
   },
   {
@@ -297,12 +309,6 @@ export const sdkMethods: SdkMethod[] = [
     fullyQualifiedName: 'compute.volumes.list',
     httpMethod: 'get',
     httpPath: '/v1/compute/volumes',
-  },
-  {
-    clientCallName: 'client.compute.volumes.delete',
-    fullyQualifiedName: 'compute.volumes.delete',
-    httpMethod: 'delete',
-    httpPath: '/v1/compute/volumes/{volume_id}',
   },
   {
     clientCallName: 'client.compute.volumes.attach',
@@ -315,12 +321,6 @@ export const sdkMethods: SdkMethod[] = [
     fullyQualifiedName: 'compute.volumes.detach',
     httpMethod: 'post',
     httpPath: '/v1/compute/volumes/{volume_id}/detach',
-  },
-  {
-    clientCallName: 'client.compute.volumes.get',
-    fullyQualifiedName: 'compute.volumes.get',
-    httpMethod: 'get',
-    httpPath: '/v1/compute/volumes/{volume_id}',
   },
   {
     clientCallName: 'client.compute.volumes.availability.create',
@@ -341,16 +341,16 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/networking/vpcs',
   },
   {
+    clientCallName: 'client.networking.vpcs.get',
+    fullyQualifiedName: 'networking.vpcs.get',
+    httpMethod: 'get',
+    httpPath: '/v1/networking/vpcs/{vpc_id}',
+  },
+  {
     clientCallName: 'client.networking.vpcs.update',
     fullyQualifiedName: 'networking.vpcs.update',
     httpMethod: 'patch',
     httpPath: '/v1/networking/vpcs/{vpc_id}',
-  },
-  {
-    clientCallName: 'client.networking.vpcs.list',
-    fullyQualifiedName: 'networking.vpcs.list',
-    httpMethod: 'get',
-    httpPath: '/v1/networking/vpcs',
   },
   {
     clientCallName: 'client.networking.vpcs.delete',
@@ -359,10 +359,10 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/networking/vpcs/{vpc_id}',
   },
   {
-    clientCallName: 'client.networking.vpcs.get',
-    fullyQualifiedName: 'networking.vpcs.get',
+    clientCallName: 'client.networking.vpcs.list',
+    fullyQualifiedName: 'networking.vpcs.list',
     httpMethod: 'get',
-    httpPath: '/v1/networking/vpcs/{vpc_id}',
+    httpPath: '/v1/networking/vpcs',
   },
   {
     clientCallName: 'client.networking.vpcs.availability.create',
@@ -383,9 +383,21 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/networking/vpcs/{vpc_id}/firewall_rules',
   },
   {
+    clientCallName: 'client.networking.firewallRules.get',
+    fullyQualifiedName: 'networking.firewallRules.get',
+    httpMethod: 'get',
+    httpPath: '/v1/networking/vpcs/{vpc_id}/firewall_rules/{firewall_rule_id}',
+  },
+  {
     clientCallName: 'client.networking.firewallRules.update',
     fullyQualifiedName: 'networking.firewallRules.update',
     httpMethod: 'patch',
+    httpPath: '/v1/networking/vpcs/{vpc_id}/firewall_rules/{firewall_rule_id}',
+  },
+  {
+    clientCallName: 'client.networking.firewallRules.delete',
+    fullyQualifiedName: 'networking.firewallRules.delete',
+    httpMethod: 'delete',
     httpPath: '/v1/networking/vpcs/{vpc_id}/firewall_rules/{firewall_rule_id}',
   },
   {
@@ -395,22 +407,16 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/networking/vpcs/{vpc_id}/firewall_rules',
   },
   {
-    clientCallName: 'client.networking.firewallRules.delete',
-    fullyQualifiedName: 'networking.firewallRules.delete',
-    httpMethod: 'delete',
-    httpPath: '/v1/networking/vpcs/{vpc_id}/firewall_rules/{firewall_rule_id}',
-  },
-  {
-    clientCallName: 'client.networking.firewallRules.get',
-    fullyQualifiedName: 'networking.firewallRules.get',
-    httpMethod: 'get',
-    httpPath: '/v1/networking/vpcs/{vpc_id}/firewall_rules/{firewall_rule_id}',
-  },
-  {
     clientCallName: 'client.networking.connect.connections.create',
     fullyQualifiedName: 'networking.connect.connections.create',
     httpMethod: 'post',
     httpPath: '/v1/networking/connect/connections',
+  },
+  {
+    clientCallName: 'client.networking.connect.connections.get',
+    fullyQualifiedName: 'networking.connect.connections.get',
+    httpMethod: 'get',
+    httpPath: '/v1/networking/connect/connections/{connection_id}',
   },
   {
     clientCallName: 'client.networking.connect.connections.update',
@@ -419,22 +425,16 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/networking/connect/connections/{connection_id}',
   },
   {
-    clientCallName: 'client.networking.connect.connections.list',
-    fullyQualifiedName: 'networking.connect.connections.list',
-    httpMethod: 'get',
-    httpPath: '/v1/networking/connect/connections',
-  },
-  {
     clientCallName: 'client.networking.connect.connections.delete',
     fullyQualifiedName: 'networking.connect.connections.delete',
     httpMethod: 'delete',
     httpPath: '/v1/networking/connect/connections/{connection_id}',
   },
   {
-    clientCallName: 'client.networking.connect.connections.get',
-    fullyQualifiedName: 'networking.connect.connections.get',
+    clientCallName: 'client.networking.connect.connections.list',
+    fullyQualifiedName: 'networking.connect.connections.list',
     httpMethod: 'get',
-    httpPath: '/v1/networking/connect/connections/{connection_id}',
+    httpPath: '/v1/networking/connect/connections',
   },
   {
     clientCallName: 'client.networking.connect.routes.list',
@@ -449,9 +449,21 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/rpc_nodes/flex',
   },
   {
+    clientCallName: 'client.rpcNodes.flex.get',
+    fullyQualifiedName: 'rpcNodes.flex.get',
+    httpMethod: 'get',
+    httpPath: '/v1/rpc_nodes/flex/{node_id}',
+  },
+  {
     clientCallName: 'client.rpcNodes.flex.update',
     fullyQualifiedName: 'rpcNodes.flex.update',
     httpMethod: 'patch',
+    httpPath: '/v1/rpc_nodes/flex/{node_id}',
+  },
+  {
+    clientCallName: 'client.rpcNodes.flex.delete',
+    fullyQualifiedName: 'rpcNodes.flex.delete',
+    httpMethod: 'delete',
     httpPath: '/v1/rpc_nodes/flex/{node_id}',
   },
   {
@@ -461,34 +473,22 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/rpc_nodes/flex',
   },
   {
-    clientCallName: 'client.rpcNodes.flex.delete',
-    fullyQualifiedName: 'rpcNodes.flex.delete',
-    httpMethod: 'delete',
-    httpPath: '/v1/rpc_nodes/flex/{node_id}',
-  },
-  {
-    clientCallName: 'client.rpcNodes.flex.get',
-    fullyQualifiedName: 'rpcNodes.flex.get',
-    httpMethod: 'get',
-    httpPath: '/v1/rpc_nodes/flex/{node_id}',
-  },
-  {
     clientCallName: 'client.rpcNodes.flex.blockchains.list',
     fullyQualifiedName: 'rpcNodes.flex.blockchains.list',
     httpMethod: 'get',
     httpPath: '/v1/rpc_nodes/flex/blockchains',
   },
   {
-    clientCallName: 'client.rpcNodes.dedicated.list',
-    fullyQualifiedName: 'rpcNodes.dedicated.list',
-    httpMethod: 'get',
-    httpPath: '/v1/rpc_nodes/dedicated',
-  },
-  {
     clientCallName: 'client.rpcNodes.dedicated.get',
     fullyQualifiedName: 'rpcNodes.dedicated.get',
     httpMethod: 'get',
     httpPath: '/v1/rpc_nodes/dedicated/{node_id}',
+  },
+  {
+    clientCallName: 'client.rpcNodes.dedicated.list',
+    fullyQualifiedName: 'rpcNodes.dedicated.list',
+    httpMethod: 'get',
+    httpPath: '/v1/rpc_nodes/dedicated',
   },
   {
     clientCallName: 'client.rpcNodes.dedicated.blockchains.list',
@@ -509,16 +509,16 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/nks/clusters',
   },
   {
+    clientCallName: 'client.nks.clusters.get',
+    fullyQualifiedName: 'nks.clusters.get',
+    httpMethod: 'get',
+    httpPath: '/v1/nks/clusters/{cluster_id}',
+  },
+  {
     clientCallName: 'client.nks.clusters.update',
     fullyQualifiedName: 'nks.clusters.update',
     httpMethod: 'patch',
     httpPath: '/v1/nks/clusters/{cluster_id}',
-  },
-  {
-    clientCallName: 'client.nks.clusters.list',
-    fullyQualifiedName: 'nks.clusters.list',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters',
   },
   {
     clientCallName: 'client.nks.clusters.delete',
@@ -527,10 +527,10 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/nks/clusters/{cluster_id}',
   },
   {
-    clientCallName: 'client.nks.clusters.get',
-    fullyQualifiedName: 'nks.clusters.get',
+    clientCallName: 'client.nks.clusters.list',
+    fullyQualifiedName: 'nks.clusters.list',
     httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}',
+    httpPath: '/v1/nks/clusters',
   },
   {
     clientCallName: 'client.nks.clusters.availability.create',
@@ -545,16 +545,16 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/nks/clusters/{cluster_id}/availability',
   },
   {
-    clientCallName: 'client.nks.clusters.persistentVolumeClaims.list',
-    fullyQualifiedName: 'nks.clusters.persistentVolumeClaims.list',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/persistent_volume_claims',
-  },
-  {
     clientCallName: 'client.nks.clusters.persistentVolumeClaims.get',
     fullyQualifiedName: 'nks.clusters.persistentVolumeClaims.get',
     httpMethod: 'get',
     httpPath: '/v1/nks/clusters/{cluster_id}/persistent_volume_claims/{persistent_volume_claim_id}',
+  },
+  {
+    clientCallName: 'client.nks.clusters.persistentVolumeClaims.list',
+    fullyQualifiedName: 'nks.clusters.persistentVolumeClaims.list',
+    httpMethod: 'get',
+    httpPath: '/v1/nks/clusters/{cluster_id}/persistent_volume_claims',
   },
   {
     clientCallName: 'client.nks.clusters.kubeconfig.get',
@@ -563,16 +563,22 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/nks/clusters/{cluster_id}/kubeconfig',
   },
   {
+    clientCallName: 'client.nks.clusters.controllers.get',
+    fullyQualifiedName: 'nks.clusters.controllers.get',
+    httpMethod: 'get',
+    httpPath: '/v1/nks/clusters/{cluster_id}/controllers/{controller_id}',
+  },
+  {
     clientCallName: 'client.nks.clusters.controllers.list',
     fullyQualifiedName: 'nks.clusters.controllers.list',
     httpMethod: 'get',
     httpPath: '/v1/nks/clusters/{cluster_id}/controllers',
   },
   {
-    clientCallName: 'client.nks.clusters.controllers.get',
-    fullyQualifiedName: 'nks.clusters.controllers.get',
+    clientCallName: 'client.nks.clusters.controllers.volumes.get',
+    fullyQualifiedName: 'nks.clusters.controllers.volumes.get',
     httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/controllers/{controller_id}',
+    httpPath: '/v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes/{volume_id}',
   },
   {
     clientCallName: 'client.nks.clusters.controllers.volumes.list',
@@ -581,10 +587,10 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes',
   },
   {
-    clientCallName: 'client.nks.clusters.controllers.volumes.get',
-    fullyQualifiedName: 'nks.clusters.controllers.volumes.get',
+    clientCallName: 'client.nks.clusters.loadBalancers.get',
+    fullyQualifiedName: 'nks.clusters.loadBalancers.get',
     httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes/{volume_id}',
+    httpPath: '/v1/nks/clusters/{cluster_id}/load_balancers/{load_balancer_id}',
   },
   {
     clientCallName: 'client.nks.clusters.loadBalancers.update',
@@ -599,16 +605,16 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/nks/clusters/{cluster_id}/load_balancers',
   },
   {
-    clientCallName: 'client.nks.clusters.loadBalancers.get',
-    fullyQualifiedName: 'nks.clusters.loadBalancers.get',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/load_balancers/{load_balancer_id}',
-  },
-  {
     clientCallName: 'client.nks.clusters.pools.create',
     fullyQualifiedName: 'nks.clusters.pools.create',
     httpMethod: 'post',
     httpPath: '/v1/nks/clusters/{cluster_id}/pools',
+  },
+  {
+    clientCallName: 'client.nks.clusters.pools.get',
+    fullyQualifiedName: 'nks.clusters.pools.get',
+    httpMethod: 'get',
+    httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}',
   },
   {
     clientCallName: 'client.nks.clusters.pools.update',
@@ -617,22 +623,16 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}',
   },
   {
-    clientCallName: 'client.nks.clusters.pools.list',
-    fullyQualifiedName: 'nks.clusters.pools.list',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/pools',
-  },
-  {
     clientCallName: 'client.nks.clusters.pools.delete',
     fullyQualifiedName: 'nks.clusters.pools.delete',
     httpMethod: 'delete',
     httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}',
   },
   {
-    clientCallName: 'client.nks.clusters.pools.get',
-    fullyQualifiedName: 'nks.clusters.pools.get',
+    clientCallName: 'client.nks.clusters.pools.list',
+    fullyQualifiedName: 'nks.clusters.pools.list',
     httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}',
+    httpPath: '/v1/nks/clusters/{cluster_id}/pools',
   },
   {
     clientCallName: 'client.nks.clusters.pools.availability.create',
@@ -647,10 +647,10 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/availability',
   },
   {
-    clientCallName: 'client.nks.clusters.pools.nodes.list',
-    fullyQualifiedName: 'nks.clusters.pools.nodes.list',
+    clientCallName: 'client.nks.clusters.pools.nodes.get',
+    fullyQualifiedName: 'nks.clusters.pools.nodes.get',
     httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes',
+    httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}',
   },
   {
     clientCallName: 'client.nks.clusters.pools.nodes.delete',
@@ -659,22 +659,22 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}',
   },
   {
-    clientCallName: 'client.nks.clusters.pools.nodes.get',
-    fullyQualifiedName: 'nks.clusters.pools.nodes.get',
+    clientCallName: 'client.nks.clusters.pools.nodes.list',
+    fullyQualifiedName: 'nks.clusters.pools.nodes.list',
     httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}',
-  },
-  {
-    clientCallName: 'client.nks.clusters.pools.nodes.volumes.list',
-    fullyQualifiedName: 'nks.clusters.pools.nodes.volumes.list',
-    httpMethod: 'get',
-    httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}/volumes',
+    httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes',
   },
   {
     clientCallName: 'client.nks.clusters.pools.nodes.volumes.get',
     fullyQualifiedName: 'nks.clusters.pools.nodes.volumes.get',
     httpMethod: 'get',
     httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}/volumes/{volume_id}',
+  },
+  {
+    clientCallName: 'client.nks.clusters.pools.nodes.volumes.list',
+    fullyQualifiedName: 'nks.clusters.pools.nodes.volumes.list',
+    httpMethod: 'get',
+    httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}/volumes',
   },
 ];
 

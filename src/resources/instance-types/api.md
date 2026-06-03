@@ -7,5 +7,5 @@ Types:
 
 Methods:
 
-- <code title="get /v1/instance_types">client.instanceTypes.<a href="./src/resources/instance-types.ts">list</a>({ ...params }) -> InstanceTypesCursor</code>
 - <code title="get /v1/instance_types/{region}/{name}">client.instanceTypes.<a href="./src/resources/instance-types.ts">get</a>(name, { ...params }) -> InstanceType</code>
+- <code title="get /v1/instance_types">client.instanceTypes.<a href="./src/resources/instance-types.ts">list</a>({ ...params }) -> InstanceTypesCursor</code>

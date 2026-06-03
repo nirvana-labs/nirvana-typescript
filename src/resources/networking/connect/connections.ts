@@ -32,6 +32,21 @@ export class Connections extends APIResource {
   }
 
   /**
+   * Get Connect Connection details
+   *
+   * @example
+   * ```ts
+   * const connectConnection =
+   *   await client.networking.connect.connections.get(
+   *     'connection_id',
+   *   );
+   * ```
+   */
+  get(connectionID: string, options?: RequestOptions): APIPromise<ConnectAPI.ConnectConnection> {
+    return this._client.get(path`/v1/networking/connect/connections/${connectionID}`, options);
+  }
+
+  /**
    * Update Connect Connection details
    *
    * @example
@@ -48,6 +63,21 @@ export class Connections extends APIResource {
     options?: RequestOptions,
   ): APIPromise<OperationsAPI.Operation> {
     return this._client.patch(path`/v1/networking/connect/connections/${connectionID}`, { body, ...options });
+  }
+
+  /**
+   * Delete Connect Connection
+   *
+   * @example
+   * ```ts
+   * const operation =
+   *   await client.networking.connect.connections.delete(
+   *     'connection_id',
+   *   );
+   * ```
+   */
+  delete(connectionID: string, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
+    return this._client.delete(path`/v1/networking/connect/connections/${connectionID}`, options);
   }
 
   /**
@@ -72,36 +102,6 @@ export class Connections extends APIResource {
       Cursor<ConnectAPI.ConnectConnection>,
       { query, ...options },
     );
-  }
-
-  /**
-   * Delete Connect Connection
-   *
-   * @example
-   * ```ts
-   * const operation =
-   *   await client.networking.connect.connections.delete(
-   *     'connection_id',
-   *   );
-   * ```
-   */
-  delete(connectionID: string, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
-    return this._client.delete(path`/v1/networking/connect/connections/${connectionID}`, options);
-  }
-
-  /**
-   * Get Connect Connection details
-   *
-   * @example
-   * ```ts
-   * const connectConnection =
-   *   await client.networking.connect.connections.get(
-   *     'connection_id',
-   *   );
-   * ```
-   */
-  get(connectionID: string, options?: RequestOptions): APIPromise<ConnectAPI.ConnectConnection> {
-    return this._client.get(path`/v1/networking/connect/connections/${connectionID}`, options);
   }
 }
 

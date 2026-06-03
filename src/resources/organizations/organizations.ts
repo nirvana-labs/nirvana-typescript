@@ -38,6 +38,20 @@ export class Organizations extends APIResource {
   }
 
   /**
+   * Get details about an Organization
+   *
+   * @example
+   * ```ts
+   * const organization = await client.organizations.get(
+   *   'organization_id',
+   * );
+   * ```
+   */
+  get(organizationID: string, options?: RequestOptions): APIPromise<Organization> {
+    return this._client.get(path`/v1/organizations/${organizationID}`, options);
+  }
+
+  /**
    * Update an existing organization
    *
    * @example
@@ -71,20 +85,6 @@ export class Organizations extends APIResource {
     options?: RequestOptions,
   ): PagePromise<OrganizationsCursor, Organization> {
     return this._client.getAPIList('/v1/organizations', Cursor<Organization>, { query, ...options });
-  }
-
-  /**
-   * Get details about an Organization
-   *
-   * @example
-   * ```ts
-   * const organization = await client.organizations.get(
-   *   'organization_id',
-   * );
-   * ```
-   */
-  get(organizationID: string, options?: RequestOptions): APIPromise<Organization> {
-    return this._client.get(path`/v1/organizations/${organizationID}`, options);
   }
 
   /**
@@ -283,8 +283,8 @@ export declare namespace Organizations {
     type OrganizationMembership as OrganizationMembership,
     type OrganizationMembershipList as OrganizationMembershipList,
     type OrganizationMembershipsCursor as OrganizationMembershipsCursor,
-    type MembershipListParams as MembershipListParams,
     type MembershipGetParams as MembershipGetParams,
+    type MembershipListParams as MembershipListParams,
   };
 
   export {

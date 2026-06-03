@@ -52,6 +52,22 @@ export class Pools extends APIResource {
   }
 
   /**
+   * Get details about an NKS node pool
+   *
+   * @example
+   * ```ts
+   * const nksNodePool = await client.nks.clusters.pools.get(
+   *   'pool_id',
+   *   { cluster_id: 'cluster_id' },
+   * );
+   * ```
+   */
+  get(poolID: string, params: PoolGetParams, options?: RequestOptions): APIPromise<NKSNodePool> {
+    const { cluster_id } = params;
+    return this._client.get(path`/v1/nks/clusters/${cluster_id}/pools/${poolID}`, options);
+  }
+
+  /**
    * Update an NKS node pool
    *
    * @example
@@ -69,6 +85,26 @@ export class Pools extends APIResource {
   ): APIPromise<OperationsAPI.Operation> {
     const { cluster_id, ...body } = params;
     return this._client.patch(path`/v1/nks/clusters/${cluster_id}/pools/${poolID}`, { body, ...options });
+  }
+
+  /**
+   * Delete an NKS node pool
+   *
+   * @example
+   * ```ts
+   * const operation = await client.nks.clusters.pools.delete(
+   *   'pool_id',
+   *   { cluster_id: 'cluster_id' },
+   * );
+   * ```
+   */
+  delete(
+    poolID: string,
+    params: PoolDeleteParams,
+    options?: RequestOptions,
+  ): APIPromise<OperationsAPI.Operation> {
+    const { cluster_id } = params;
+    return this._client.delete(path`/v1/nks/clusters/${cluster_id}/pools/${poolID}`, options);
   }
 
   /**
@@ -93,42 +129,6 @@ export class Pools extends APIResource {
       query,
       ...options,
     });
-  }
-
-  /**
-   * Delete an NKS node pool
-   *
-   * @example
-   * ```ts
-   * const operation = await client.nks.clusters.pools.delete(
-   *   'pool_id',
-   *   { cluster_id: 'cluster_id' },
-   * );
-   * ```
-   */
-  delete(
-    poolID: string,
-    params: PoolDeleteParams,
-    options?: RequestOptions,
-  ): APIPromise<OperationsAPI.Operation> {
-    const { cluster_id } = params;
-    return this._client.delete(path`/v1/nks/clusters/${cluster_id}/pools/${poolID}`, options);
-  }
-
-  /**
-   * Get details about an NKS node pool
-   *
-   * @example
-   * ```ts
-   * const nksNodePool = await client.nks.clusters.pools.get(
-   *   'pool_id',
-   *   { cluster_id: 'cluster_id' },
-   * );
-   * ```
-   */
-  get(poolID: string, params: PoolGetParams, options?: RequestOptions): APIPromise<NKSNodePool> {
-    const { cluster_id } = params;
-    return this._client.get(path`/v1/nks/clusters/${cluster_id}/pools/${poolID}`, options);
   }
 }
 
@@ -286,6 +286,13 @@ export interface PoolCreateParams {
   tags?: Array<string>;
 }
 
+export interface PoolGetParams {
+  /**
+   * Cluster ID
+   */
+  cluster_id: string;
+}
+
 export interface PoolUpdateParams {
   /**
    * Path param: Cluster ID
@@ -327,8 +334,6 @@ export namespace PoolUpdateParams {
   }
 }
 
-export interface PoolListParams extends CursorParams {}
-
 export interface PoolDeleteParams {
   /**
    * Cluster ID
@@ -336,12 +341,7 @@ export interface PoolDeleteParams {
   cluster_id: string;
 }
 
-export interface PoolGetParams {
-  /**
-   * Cluster ID
-   */
-  cluster_id: string;
-}
+export interface PoolListParams extends CursorParams {}
 
 Pools.Availability = Availability;
 Pools.Nodes = Nodes;
@@ -356,10 +356,10 @@ export declare namespace Pools {
     type NKSNodePoolNodeConfigResponse as NKSNodePoolNodeConfigResponse,
     type NKSNodePoolsCursor as NKSNodePoolsCursor,
     type PoolCreateParams as PoolCreateParams,
-    type PoolUpdateParams as PoolUpdateParams,
-    type PoolListParams as PoolListParams,
-    type PoolDeleteParams as PoolDeleteParams,
     type PoolGetParams as PoolGetParams,
+    type PoolUpdateParams as PoolUpdateParams,
+    type PoolDeleteParams as PoolDeleteParams,
+    type PoolListParams as PoolListParams,
   };
 
   export {
@@ -373,8 +373,8 @@ export declare namespace Pools {
     type NKSNode as NKSNode,
     type NKSNodeList as NKSNodeList,
     type NKSNodesCursor as NKSNodesCursor,
-    type NodeListParams as NodeListParams,
-    type NodeDeleteParams as NodeDeleteParams,
     type NodeGetParams as NodeGetParams,
+    type NodeDeleteParams as NodeDeleteParams,
+    type NodeListParams as NodeListParams,
   };
 }

@@ -8,18 +8,6 @@ import { path } from '../../internal/utils/path';
 
 export class Quotas extends APIResource {
   /**
-   * List quota usage and limits for the current organization across all regions
-   *
-   * @example
-   * ```ts
-   * const quotaList = await client.quotas.list();
-   * ```
-   */
-  list(options?: RequestOptions): APIPromise<QuotaList> {
-    return this._client.get('/v1/quotas', options);
-  }
-
-  /**
    * Get quota usage and limits for the current organization in a single region
    *
    * @example
@@ -29,6 +17,18 @@ export class Quotas extends APIResource {
    */
   get(region: 'us-sva-2', options?: RequestOptions): APIPromise<Quota> {
     return this._client.get(path`/v1/quotas/${region}`, options);
+  }
+
+  /**
+   * List quota usage and limits for the current organization across all regions
+   *
+   * @example
+   * ```ts
+   * const quotaList = await client.quotas.list();
+   * ```
+   */
+  list(options?: RequestOptions): APIPromise<QuotaList> {
+    return this._client.get('/v1/quotas', options);
   }
 }
 

@@ -13,5 +13,5 @@ Types:
 
 Methods:
 
-- <code title="get /v1/operations">client.operations.<a href="./src/resources/operations.ts">list</a>({ ...params }) -> OperationsCursor</code>
 - <code title="get /v1/operations/{operation_id}">client.operations.<a href="./src/resources/operations.ts">get</a>(operationID) -> Operation</code>
+- <code title="get /v1/operations">client.operations.<a href="./src/resources/operations.ts">list</a>({ ...params }) -> OperationsCursor</code>

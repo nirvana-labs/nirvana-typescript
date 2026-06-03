@@ -12,10 +12,10 @@ Types:
 Methods:
 
 - <code title="post /v1/rpc_nodes/flex">client.rpcNodes.flex.<a href="./src/resources/rpc-nodes/flex/flex.ts">create</a>({ ...params }) -> Flex</code>
-- <code title="patch /v1/rpc_nodes/flex/{node_id}">client.rpcNodes.flex.<a href="./src/resources/rpc-nodes/flex/flex.ts">update</a>(nodeID, { ...params }) -> Flex</code>
-- <code title="get /v1/rpc_nodes/flex">client.rpcNodes.flex.<a href="./src/resources/rpc-nodes/flex/flex.ts">list</a>({ ...params }) -> FlexesCursor</code>
-- <code title="delete /v1/rpc_nodes/flex/{node_id}">client.rpcNodes.flex.<a href="./src/resources/rpc-nodes/flex/flex.ts">delete</a>(nodeID) -> void</code>
 - <code title="get /v1/rpc_nodes/flex/{node_id}">client.rpcNodes.flex.<a href="./src/resources/rpc-nodes/flex/flex.ts">get</a>(nodeID) -> Flex</code>
+- <code title="patch /v1/rpc_nodes/flex/{node_id}">client.rpcNodes.flex.<a href="./src/resources/rpc-nodes/flex/flex.ts">update</a>(nodeID, { ...params }) -> Flex</code>
+- <code title="delete /v1/rpc_nodes/flex/{node_id}">client.rpcNodes.flex.<a href="./src/resources/rpc-nodes/flex/flex.ts">delete</a>(nodeID) -> void</code>
+- <code title="get /v1/rpc_nodes/flex">client.rpcNodes.flex.<a href="./src/resources/rpc-nodes/flex/flex.ts">list</a>({ ...params }) -> FlexesCursor</code>
 
 ### Blockchains
 
@@ -34,8 +34,8 @@ Types:
 
 Methods:
 
-- <code title="get /v1/rpc_nodes/dedicated">client.rpcNodes.dedicated.<a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">list</a>({ ...params }) -> DedicatedsCursor</code>
 - <code title="get /v1/rpc_nodes/dedicated/{node_id}">client.rpcNodes.dedicated.<a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">get</a>(nodeID) -> Dedicated</code>
+- <code title="get /v1/rpc_nodes/dedicated">client.rpcNodes.dedicated.<a href="./src/resources/rpc-nodes/dedicated/dedicated.ts">list</a>({ ...params }) -> DedicatedsCursor</code>
 
 ### Blockchains
 

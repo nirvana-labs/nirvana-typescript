@@ -9,8 +9,8 @@ const client = new NirvanaLabs({
 
 describe('resource security', () => {
   // Mock server tests are disabled
-  test.skip('update', async () => {
-    const responsePromise = client.user.security.update({});
+  test.skip('get', async () => {
+    const responsePromise = client.user.security.get();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,8 +21,8 @@ describe('resource security', () => {
   });
 
   // Mock server tests are disabled
-  test.skip('get', async () => {
-    const responsePromise = client.user.security.get();
+  test.skip('update', async () => {
+    const responsePromise = client.user.security.update({});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;

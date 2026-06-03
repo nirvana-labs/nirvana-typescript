@@ -40,8 +40,8 @@ describe('resource address', () => {
   });
 
   // Mock server tests are disabled
-  test.skip('update', async () => {
-    const responsePromise = client.organizations.address.update('organization_id', {});
+  test.skip('get', async () => {
+    const responsePromise = client.organizations.address.get('organization_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -52,8 +52,8 @@ describe('resource address', () => {
   });
 
   // Mock server tests are disabled
-  test.skip('get', async () => {
-    const responsePromise = client.organizations.address.get('organization_id');
+  test.skip('update', async () => {
+    const responsePromise = client.organizations.address.update('organization_id', {});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;

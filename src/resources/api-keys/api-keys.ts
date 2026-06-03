@@ -33,6 +33,18 @@ export class APIKeys extends APIResource {
   }
 
   /**
+   * Get details about an API key
+   *
+   * @example
+   * ```ts
+   * const apiKey = await client.apiKeys.get('api_key_id');
+   * ```
+   */
+  get(apiKeyID: string, options?: RequestOptions): APIPromise<APIKey> {
+    return this._client.get(path`/v1/api_keys/${apiKeyID}`, options);
+  }
+
+  /**
    * Update an existing API key
    *
    * @example
@@ -42,24 +54,6 @@ export class APIKeys extends APIResource {
    */
   update(apiKeyID: string, body: APIKeyUpdateParams, options?: RequestOptions): APIPromise<APIKey> {
     return this._client.patch(path`/v1/api_keys/${apiKeyID}`, { body, ...options });
-  }
-
-  /**
-   * List all API keys
-   *
-   * @example
-   * ```ts
-   * // Automatically fetches more pages as needed.
-   * for await (const apiKey of client.apiKeys.list()) {
-   *   // ...
-   * }
-   * ```
-   */
-  list(
-    query: APIKeyListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): PagePromise<APIKeysCursor, APIKey> {
-    return this._client.getAPIList('/v1/api_keys', Cursor<APIKey>, { query, ...options });
   }
 
   /**
@@ -78,15 +72,21 @@ export class APIKeys extends APIResource {
   }
 
   /**
-   * Get details about an API key
+   * List all API keys
    *
    * @example
    * ```ts
-   * const apiKey = await client.apiKeys.get('api_key_id');
+   * // Automatically fetches more pages as needed.
+   * for await (const apiKey of client.apiKeys.list()) {
+   *   // ...
+   * }
    * ```
    */
-  get(apiKeyID: string, options?: RequestOptions): APIPromise<APIKey> {
-    return this._client.get(path`/v1/api_keys/${apiKeyID}`, options);
+  list(
+    query: APIKeyListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<APIKeysCursor, APIKey> {
+    return this._client.getAPIList('/v1/api_keys', Cursor<APIKey>, { query, ...options });
   }
 }
 

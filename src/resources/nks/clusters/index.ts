@@ -14,8 +14,8 @@ export {
   Controllers,
   type NKSController,
   type NKSControllerList,
-  type ControllerListParams,
   type ControllerGetParams,
+  type ControllerListParams,
   type NKSControllersCursor,
 } from './controllers/index';
 export { KubeconfigResource, type Kubeconfig } from './kubeconfig';
@@ -23,17 +23,17 @@ export {
   LoadBalancers,
   type NKSLoadBalancer,
   type NKSLoadBalancerList,
+  type LoadBalancerGetParams,
   type LoadBalancerUpdateParams,
   type LoadBalancerListParams,
-  type LoadBalancerGetParams,
   type NKSLoadBalancersCursor,
 } from './load-balancers';
 export {
   PersistentVolumeClaims,
   type PersistentVolumeClaim,
   type PersistentVolumeClaimList,
-  type PersistentVolumeClaimListParams,
   type PersistentVolumeClaimGetParams,
+  type PersistentVolumeClaimListParams,
   type PersistentVolumeClaimsCursor,
 } from './persistent-volume-claims';
 export {
@@ -45,9 +45,9 @@ export {
   type NKSNodePoolNodeConfig,
   type NKSNodePoolNodeConfigResponse,
   type PoolCreateParams,
-  type PoolUpdateParams,
-  type PoolListParams,
-  type PoolDeleteParams,
   type PoolGetParams,
+  type PoolUpdateParams,
+  type PoolDeleteParams,
+  type PoolListParams,
   type NKSNodePoolsCursor,
 } from './pools/index';
