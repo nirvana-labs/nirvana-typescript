@@ -10,6 +10,30 @@ import { path } from '../../../../../internal/utils/path';
 
 export class Volumes extends APIResource {
   /**
+   * Get details about a volume attached to an NKS node
+   *
+   * @example
+   * ```ts
+   * const nksNodeVolume =
+   *   await client.nks.clusters.pools.nodes.volumes.get(
+   *     'volume_id',
+   *     {
+   *       cluster_id: 'cluster_id',
+   *       pool_id: 'pool_id',
+   *       node_id: 'node_id',
+   *     },
+   *   );
+   * ```
+   */
+  get(volumeID: string, params: VolumeGetParams, options?: RequestOptions): APIPromise<NKSNodeVolume> {
+    const { cluster_id, pool_id, node_id } = params;
+    return this._client.get(
+      path`/v1/nks/clusters/${cluster_id}/pools/${pool_id}/nodes/${node_id}/volumes/${volumeID}`,
+      options,
+    );
+  }
+
+  /**
    * List all volumes attached to an NKS node
    *
    * @example
@@ -33,30 +57,6 @@ export class Volumes extends APIResource {
       path`/v1/nks/clusters/${cluster_id}/pools/${pool_id}/nodes/${nodeID}/volumes`,
       Cursor<NKSNodeVolume>,
       { query, ...options },
-    );
-  }
-
-  /**
-   * Get details about a volume attached to an NKS node
-   *
-   * @example
-   * ```ts
-   * const nksNodeVolume =
-   *   await client.nks.clusters.pools.nodes.volumes.get(
-   *     'volume_id',
-   *     {
-   *       cluster_id: 'cluster_id',
-   *       pool_id: 'pool_id',
-   *       node_id: 'node_id',
-   *     },
-   *   );
-   * ```
-   */
-  get(volumeID: string, params: VolumeGetParams, options?: RequestOptions): APIPromise<NKSNodeVolume> {
-    const { cluster_id, pool_id, node_id } = params;
-    return this._client.get(
-      path`/v1/nks/clusters/${cluster_id}/pools/${pool_id}/nodes/${node_id}/volumes/${volumeID}`,
-      options,
     );
   }
 }
@@ -117,18 +117,6 @@ export interface NKSNodeVolumeList {
   pagination: Shared.Pagination;
 }
 
-export interface VolumeListParams extends CursorParams {
-  /**
-   * Path param: Cluster ID
-   */
-  cluster_id: string;
-
-  /**
-   * Path param: Node Pool ID
-   */
-  pool_id: string;
-}
-
 export interface VolumeGetParams {
   /**
    * Cluster ID
@@ -146,12 +134,24 @@ export interface VolumeGetParams {
   node_id: string;
 }
 
+export interface VolumeListParams extends CursorParams {
+  /**
+   * Path param: Cluster ID
+   */
+  cluster_id: string;
+
+  /**
+   * Path param: Node Pool ID
+   */
+  pool_id: string;
+}
+
 export declare namespace Volumes {
   export {
     type NKSNodeVolume as NKSNodeVolume,
     type NKSNodeVolumeList as NKSNodeVolumeList,
     type NKSNodeVolumesCursor as NKSNodeVolumesCursor,
-    type VolumeListParams as VolumeListParams,
     type VolumeGetParams as VolumeGetParams,
+    type VolumeListParams as VolumeListParams,
   };
 }

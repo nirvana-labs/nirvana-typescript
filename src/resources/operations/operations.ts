@@ -9,17 +9,17 @@ import { path } from '../../internal/utils/path';
 
 export class Operations extends APIResource {
   /**
-   * List all operations
-   */
-  list(query: OperationListParams, options?: RequestOptions): PagePromise<OperationsCursor, Operation> {
-    return this._client.getAPIList('/v1/operations', Cursor<Operation>, { query, ...options });
-  }
-
-  /**
    * Get details about a specific operation
    */
   get(operationID: string, options?: RequestOptions): APIPromise<Operation> {
     return this._client.get(path`/v1/operations/${operationID}`, options);
+  }
+
+  /**
+   * List all operations
+   */
+  list(query: OperationListParams, options?: RequestOptions): PagePromise<OperationsCursor, Operation> {
+    return this._client.getAPIList('/v1/operations', Cursor<Operation>, { query, ...options });
   }
 }
 

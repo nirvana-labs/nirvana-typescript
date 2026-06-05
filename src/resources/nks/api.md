@@ -20,10 +20,10 @@ Types:
 Methods:
 
 - <code title="post /v1/nks/clusters">client.nks.clusters.<a href="./src/resources/nks/clusters/clusters.ts">create</a>({ ...params }) -> Operation</code>
-- <code title="patch /v1/nks/clusters/{cluster_id}">client.nks.clusters.<a href="./src/resources/nks/clusters/clusters.ts">update</a>(clusterID, { ...params }) -> Operation</code>
-- <code title="get /v1/nks/clusters">client.nks.clusters.<a href="./src/resources/nks/clusters/clusters.ts">list</a>({ ...params }) -> NKSClustersCursor</code>
-- <code title="delete /v1/nks/clusters/{cluster_id}">client.nks.clusters.<a href="./src/resources/nks/clusters/clusters.ts">delete</a>(clusterID) -> Operation</code>
 - <code title="get /v1/nks/clusters/{cluster_id}">client.nks.clusters.<a href="./src/resources/nks/clusters/clusters.ts">get</a>(clusterID) -> NKSCluster</code>
+- <code title="patch /v1/nks/clusters/{cluster_id}">client.nks.clusters.<a href="./src/resources/nks/clusters/clusters.ts">update</a>(clusterID, { ...params }) -> Operation</code>
+- <code title="delete /v1/nks/clusters/{cluster_id}">client.nks.clusters.<a href="./src/resources/nks/clusters/clusters.ts">delete</a>(clusterID) -> Operation</code>
+- <code title="get /v1/nks/clusters">client.nks.clusters.<a href="./src/resources/nks/clusters/clusters.ts">list</a>({ ...params }) -> NKSClustersCursor</code>
 
 ### Availability
 
@@ -41,8 +41,8 @@ Types:
 
 Methods:
 
-- <code title="get /v1/nks/clusters/{cluster_id}/persistent_volume_claims">client.nks.clusters.persistentVolumeClaims.<a href="./src/resources/nks/clusters/persistent-volume-claims.ts">list</a>(clusterID, { ...params }) -> PersistentVolumeClaimsCursor</code>
 - <code title="get /v1/nks/clusters/{cluster_id}/persistent_volume_claims/{persistent_volume_claim_id}">client.nks.clusters.persistentVolumeClaims.<a href="./src/resources/nks/clusters/persistent-volume-claims.ts">get</a>(persistentVolumeClaimID, { ...params }) -> PersistentVolumeClaim</code>
+- <code title="get /v1/nks/clusters/{cluster_id}/persistent_volume_claims">client.nks.clusters.persistentVolumeClaims.<a href="./src/resources/nks/clusters/persistent-volume-claims.ts">list</a>(clusterID, { ...params }) -> PersistentVolumeClaimsCursor</code>
 
 ### Kubeconfig
 
@@ -63,8 +63,8 @@ Types:
 
 Methods:
 
-- <code title="get /v1/nks/clusters/{cluster_id}/controllers">client.nks.clusters.controllers.<a href="./src/resources/nks/clusters/controllers/controllers.ts">list</a>(clusterID, { ...params }) -> NKSControllersCursor</code>
 - <code title="get /v1/nks/clusters/{cluster_id}/controllers/{controller_id}">client.nks.clusters.controllers.<a href="./src/resources/nks/clusters/controllers/controllers.ts">get</a>(controllerID, { ...params }) -> NKSController</code>
+- <code title="get /v1/nks/clusters/{cluster_id}/controllers">client.nks.clusters.controllers.<a href="./src/resources/nks/clusters/controllers/controllers.ts">list</a>(clusterID, { ...params }) -> NKSControllersCursor</code>
 
 #### Volumes
 
@@ -75,8 +75,8 @@ Types:
 
 Methods:
 
-- <code title="get /v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes">client.nks.clusters.controllers.volumes.<a href="./src/resources/nks/clusters/controllers/volumes.ts">list</a>(controllerID, { ...params }) -> NKSControllerVolumesCursor</code>
 - <code title="get /v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes/{volume_id}">client.nks.clusters.controllers.volumes.<a href="./src/resources/nks/clusters/controllers/volumes.ts">get</a>(volumeID, { ...params }) -> NKSControllerVolume</code>
+- <code title="get /v1/nks/clusters/{cluster_id}/controllers/{controller_id}/volumes">client.nks.clusters.controllers.volumes.<a href="./src/resources/nks/clusters/controllers/volumes.ts">list</a>(controllerID, { ...params }) -> NKSControllerVolumesCursor</code>
 
 ### LoadBalancers
 
@@ -87,9 +87,9 @@ Types:
 
 Methods:
 
+- <code title="get /v1/nks/clusters/{cluster_id}/load_balancers/{load_balancer_id}">client.nks.clusters.loadBalancers.<a href="./src/resources/nks/clusters/load-balancers.ts">get</a>(loadBalancerID, { ...params }) -> NKSLoadBalancer</code>
 - <code title="patch /v1/nks/clusters/{cluster_id}/load_balancers/{load_balancer_id}">client.nks.clusters.loadBalancers.<a href="./src/resources/nks/clusters/load-balancers.ts">update</a>(loadBalancerID, { ...params }) -> Operation</code>
 - <code title="get /v1/nks/clusters/{cluster_id}/load_balancers">client.nks.clusters.loadBalancers.<a href="./src/resources/nks/clusters/load-balancers.ts">list</a>(clusterID, { ...params }) -> NKSLoadBalancersCursor</code>
-- <code title="get /v1/nks/clusters/{cluster_id}/load_balancers/{load_balancer_id}">client.nks.clusters.loadBalancers.<a href="./src/resources/nks/clusters/load-balancers.ts">get</a>(loadBalancerID, { ...params }) -> NKSLoadBalancer</code>
 
 ### Pools
 
@@ -105,10 +105,10 @@ Types:
 Methods:
 
 - <code title="post /v1/nks/clusters/{cluster_id}/pools">client.nks.clusters.pools.<a href="./src/resources/nks/clusters/pools/pools.ts">create</a>(clusterID, { ...params }) -> Operation</code>
-- <code title="patch /v1/nks/clusters/{cluster_id}/pools/{pool_id}">client.nks.clusters.pools.<a href="./src/resources/nks/clusters/pools/pools.ts">update</a>(poolID, { ...params }) -> Operation</code>
-- <code title="get /v1/nks/clusters/{cluster_id}/pools">client.nks.clusters.pools.<a href="./src/resources/nks/clusters/pools/pools.ts">list</a>(clusterID, { ...params }) -> NKSNodePoolsCursor</code>
-- <code title="delete /v1/nks/clusters/{cluster_id}/pools/{pool_id}">client.nks.clusters.pools.<a href="./src/resources/nks/clusters/pools/pools.ts">delete</a>(poolID, { ...params }) -> Operation</code>
 - <code title="get /v1/nks/clusters/{cluster_id}/pools/{pool_id}">client.nks.clusters.pools.<a href="./src/resources/nks/clusters/pools/pools.ts">get</a>(poolID, { ...params }) -> NKSNodePool</code>
+- <code title="patch /v1/nks/clusters/{cluster_id}/pools/{pool_id}">client.nks.clusters.pools.<a href="./src/resources/nks/clusters/pools/pools.ts">update</a>(poolID, { ...params }) -> Operation</code>
+- <code title="delete /v1/nks/clusters/{cluster_id}/pools/{pool_id}">client.nks.clusters.pools.<a href="./src/resources/nks/clusters/pools/pools.ts">delete</a>(poolID, { ...params }) -> Operation</code>
+- <code title="get /v1/nks/clusters/{cluster_id}/pools">client.nks.clusters.pools.<a href="./src/resources/nks/clusters/pools/pools.ts">list</a>(clusterID, { ...params }) -> NKSNodePoolsCursor</code>
 
 #### Availability
 
@@ -126,9 +126,9 @@ Types:
 
 Methods:
 
-- <code title="get /v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes">client.nks.clusters.pools.nodes.<a href="./src/resources/nks/clusters/pools/nodes/nodes.ts">list</a>(poolID, { ...params }) -> NKSNodesCursor</code>
-- <code title="delete /v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}">client.nks.clusters.pools.nodes.<a href="./src/resources/nks/clusters/pools/nodes/nodes.ts">delete</a>(nodeID, { ...params }) -> Operation</code>
 - <code title="get /v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}">client.nks.clusters.pools.nodes.<a href="./src/resources/nks/clusters/pools/nodes/nodes.ts">get</a>(nodeID, { ...params }) -> NKSNode</code>
+- <code title="delete /v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}">client.nks.clusters.pools.nodes.<a href="./src/resources/nks/clusters/pools/nodes/nodes.ts">delete</a>(nodeID, { ...params }) -> Operation</code>
+- <code title="get /v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes">client.nks.clusters.pools.nodes.<a href="./src/resources/nks/clusters/pools/nodes/nodes.ts">list</a>(poolID, { ...params }) -> NKSNodesCursor</code>
 
 ##### Volumes
 
@@ -139,5 +139,5 @@ Types:
 
 Methods:
 
-- <code title="get /v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}/volumes">client.nks.clusters.pools.nodes.volumes.<a href="./src/resources/nks/clusters/pools/nodes/volumes.ts">list</a>(nodeID, { ...params }) -> NKSNodeVolumesCursor</code>
 - <code title="get /v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}/volumes/{volume_id}">client.nks.clusters.pools.nodes.volumes.<a href="./src/resources/nks/clusters/pools/nodes/volumes.ts">get</a>(volumeID, { ...params }) -> NKSNodeVolume</code>
+- <code title="get /v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}/volumes">client.nks.clusters.pools.nodes.volumes.<a href="./src/resources/nks/clusters/pools/nodes/volumes.ts">list</a>(nodeID, { ...params }) -> NKSNodeVolumesCursor</code>

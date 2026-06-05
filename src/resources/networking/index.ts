@@ -17,10 +17,10 @@ export {
   type FirewallRule,
   type FirewallRuleList,
   type FirewallRuleCreateParams,
-  type FirewallRuleUpdateParams,
-  type FirewallRuleListParams,
-  type FirewallRuleDeleteParams,
   type FirewallRuleGetParams,
+  type FirewallRuleUpdateParams,
+  type FirewallRuleDeleteParams,
+  type FirewallRuleListParams,
   type FirewallRulesCursor,
 } from './firewall-rules';
 export { Networking } from './networking';

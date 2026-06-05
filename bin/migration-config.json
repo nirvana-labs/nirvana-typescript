@@ -71,6 +71,39 @@
     },
     {
       "base": "networking.firewallRules",
+      "name": "get",
+      "params": [
+        {
+          "type": "param",
+          "key": "firewall_rule_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ],
+      "oldParams": [
+        {
+          "type": "param",
+          "key": "vpc_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "firewall_rule_id",
+          "location": "path"
+        },
+        {
+          "type": "options"
+        }
+      ]
+    },
+    {
+      "base": "networking.firewallRules",
       "name": "update",
       "params": [
         {
@@ -109,39 +142,6 @@
     {
       "base": "networking.firewallRules",
       "name": "delete",
-      "params": [
-        {
-          "type": "param",
-          "key": "firewall_rule_id",
-          "location": "path"
-        },
-        {
-          "type": "params",
-          "maybeOverload": false
-        },
-        {
-          "type": "options"
-        }
-      ],
-      "oldParams": [
-        {
-          "type": "param",
-          "key": "vpc_id",
-          "location": "path"
-        },
-        {
-          "type": "param",
-          "key": "firewall_rule_id",
-          "location": "path"
-        },
-        {
-          "type": "options"
-        }
-      ]
-    },
-    {
-      "base": "networking.firewallRules",
-      "name": "get",
       "params": [
         {
           "type": "param",
@@ -240,6 +240,44 @@
     },
     {
       "base": "nks.clusters.controllers.volumes",
+      "name": "get",
+      "params": [
+        {
+          "type": "param",
+          "key": "volume_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ],
+      "oldParams": [
+        {
+          "type": "param",
+          "key": "cluster_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "controller_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "volume_id",
+          "location": "path"
+        },
+        {
+          "type": "options"
+        }
+      ]
+    },
+    {
+      "base": "nks.clusters.controllers.volumes",
       "name": "list",
       "params": [
         {
@@ -276,12 +314,12 @@
       ]
     },
     {
-      "base": "nks.clusters.controllers.volumes",
+      "base": "nks.clusters.loadBalancers",
       "name": "get",
       "params": [
         {
           "type": "param",
-          "key": "volume_id",
+          "key": "load_balancer_id",
           "location": "path"
         },
         {
@@ -300,12 +338,7 @@
         },
         {
           "type": "param",
-          "key": "controller_id",
-          "location": "path"
-        },
-        {
-          "type": "param",
-          "key": "volume_id",
+          "key": "load_balancer_id",
           "location": "path"
         },
         {
@@ -351,12 +384,12 @@
       ]
     },
     {
-      "base": "nks.clusters.loadBalancers",
+      "base": "nks.clusters.pools",
       "name": "get",
       "params": [
         {
           "type": "param",
-          "key": "load_balancer_id",
+          "key": "pool_id",
           "location": "path"
         },
         {
@@ -375,7 +408,7 @@
         },
         {
           "type": "param",
-          "key": "load_balancer_id",
+          "key": "pool_id",
           "location": "path"
         },
         {
@@ -423,39 +456,6 @@
     {
       "base": "nks.clusters.pools",
       "name": "delete",
-      "params": [
-        {
-          "type": "param",
-          "key": "pool_id",
-          "location": "path"
-        },
-        {
-          "type": "params",
-          "maybeOverload": false
-        },
-        {
-          "type": "options"
-        }
-      ],
-      "oldParams": [
-        {
-          "type": "param",
-          "key": "cluster_id",
-          "location": "path"
-        },
-        {
-          "type": "param",
-          "key": "pool_id",
-          "location": "path"
-        },
-        {
-          "type": "options"
-        }
-      ]
-    },
-    {
-      "base": "nks.clusters.pools",
-      "name": "get",
       "params": [
         {
           "type": "param",
@@ -525,11 +525,11 @@
     },
     {
       "base": "nks.clusters.pools.nodes",
-      "name": "list",
+      "name": "get",
       "params": [
         {
           "type": "param",
-          "key": "pool_id",
+          "key": "node_id",
           "location": "path"
         },
         {
@@ -552,8 +552,9 @@
           "location": "path"
         },
         {
-          "type": "params",
-          "maybeOverload": true
+          "type": "param",
+          "key": "node_id",
+          "location": "path"
         },
         {
           "type": "options"
@@ -600,49 +601,11 @@
     },
     {
       "base": "nks.clusters.pools.nodes",
-      "name": "get",
-      "params": [
-        {
-          "type": "param",
-          "key": "node_id",
-          "location": "path"
-        },
-        {
-          "type": "params",
-          "maybeOverload": false
-        },
-        {
-          "type": "options"
-        }
-      ],
-      "oldParams": [
-        {
-          "type": "param",
-          "key": "cluster_id",
-          "location": "path"
-        },
-        {
-          "type": "param",
-          "key": "pool_id",
-          "location": "path"
-        },
-        {
-          "type": "param",
-          "key": "node_id",
-          "location": "path"
-        },
-        {
-          "type": "options"
-        }
-      ]
-    },
-    {
-      "base": "nks.clusters.pools.nodes.volumes",
       "name": "list",
       "params": [
         {
           "type": "param",
-          "key": "node_id",
+          "key": "pool_id",
           "location": "path"
         },
         {
@@ -662,11 +625,6 @@
         {
           "type": "param",
           "key": "pool_id",
-          "location": "path"
-        },
-        {
-          "type": "param",
-          "key": "node_id",
           "location": "path"
         },
         {
@@ -715,6 +673,48 @@
           "type": "param",
           "key": "volume_id",
           "location": "path"
+        },
+        {
+          "type": "options"
+        }
+      ]
+    },
+    {
+      "base": "nks.clusters.pools.nodes.volumes",
+      "name": "list",
+      "params": [
+        {
+          "type": "param",
+          "key": "node_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ],
+      "oldParams": [
+        {
+          "type": "param",
+          "key": "cluster_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "pool_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "node_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": true
         },
         {
           "type": "options"

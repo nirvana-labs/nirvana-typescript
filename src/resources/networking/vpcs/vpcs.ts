@@ -31,6 +31,18 @@ export class VPCs extends APIResource {
   }
 
   /**
+   * Get details about a VPC
+   *
+   * @example
+   * ```ts
+   * const vpc = await client.networking.vpcs.get('vpc_id');
+   * ```
+   */
+  get(vpcID: string, options?: RequestOptions): APIPromise<VPC> {
+    return this._client.get(path`/v1/networking/vpcs/${vpcID}`, options);
+  }
+
+  /**
    * Update a VPC
    *
    * @example
@@ -49,23 +61,6 @@ export class VPCs extends APIResource {
   }
 
   /**
-   * List all VPCs
-   *
-   * @example
-   * ```ts
-   * // Automatically fetches more pages as needed.
-   * for await (const vpc of client.networking.vpcs.list({
-   *   project_id: 'project_id',
-   * })) {
-   *   // ...
-   * }
-   * ```
-   */
-  list(query: VPCListParams, options?: RequestOptions): PagePromise<VPCsCursor, VPC> {
-    return this._client.getAPIList('/v1/networking/vpcs', Cursor<VPC>, { query, ...options });
-  }
-
-  /**
    * Delete a VPC
    *
    * @example
@@ -80,15 +75,20 @@ export class VPCs extends APIResource {
   }
 
   /**
-   * Get details about a VPC
+   * List all VPCs
    *
    * @example
    * ```ts
-   * const vpc = await client.networking.vpcs.get('vpc_id');
+   * // Automatically fetches more pages as needed.
+   * for await (const vpc of client.networking.vpcs.list({
+   *   project_id: 'project_id',
+   * })) {
+   *   // ...
+   * }
    * ```
    */
-  get(vpcID: string, options?: RequestOptions): APIPromise<VPC> {
-    return this._client.get(path`/v1/networking/vpcs/${vpcID}`, options);
+  list(query: VPCListParams, options?: RequestOptions): PagePromise<VPCsCursor, VPC> {
+    return this._client.getAPIList('/v1/networking/vpcs', Cursor<VPC>, { query, ...options });
   }
 }
 

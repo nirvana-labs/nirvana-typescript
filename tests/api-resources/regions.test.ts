@@ -9,6 +9,18 @@ const client = new NirvanaLabs({
 
 describe('resource regions', () => {
   // Mock server tests are disabled
+  test.skip('get', async () => {
+    const responsePromise = client.regions.get('us-sva-2');
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Mock server tests are disabled
   test.skip('list', async () => {
     const responsePromise = client.regions.list();
     const rawResponse = await responsePromise.asResponse();
@@ -26,17 +38,5 @@ describe('resource regions', () => {
     await expect(
       client.regions.list({ cursor: 'cursor', limit: 10 }, { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
-  });
-
-  // Mock server tests are disabled
-  test.skip('get', async () => {
-    const responsePromise = client.regions.get('us-sva-2');
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
   });
 });

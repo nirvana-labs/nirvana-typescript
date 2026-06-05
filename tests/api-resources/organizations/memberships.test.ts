@@ -9,6 +9,27 @@ const client = new NirvanaLabs({
 
 describe('resource memberships', () => {
   // Mock server tests are disabled
+  test.skip('get: only required params', async () => {
+    const responsePromise = client.organizations.memberships.get('membership_id', {
+      organization_id: 'organization_id',
+    });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Mock server tests are disabled
+  test.skip('get: required and optional params', async () => {
+    const response = await client.organizations.memberships.get('membership_id', {
+      organization_id: 'organization_id',
+    });
+  });
+
+  // Mock server tests are disabled
   test.skip('list', async () => {
     const responsePromise = client.organizations.memberships.list('organization_id');
     const rawResponse = await responsePromise.asResponse();
@@ -30,26 +51,5 @@ describe('resource memberships', () => {
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
-  });
-
-  // Mock server tests are disabled
-  test.skip('get: only required params', async () => {
-    const responsePromise = client.organizations.memberships.get('membership_id', {
-      organization_id: 'organization_id',
-    });
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // Mock server tests are disabled
-  test.skip('get: required and optional params', async () => {
-    const response = await client.organizations.memberships.get('membership_id', {
-      organization_id: 'organization_id',
-    });
   });
 });

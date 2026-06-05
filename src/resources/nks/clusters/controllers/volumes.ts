@@ -10,6 +10,29 @@ import { path } from '../../../../internal/utils/path';
 
 export class Volumes extends APIResource {
   /**
+   * Get details about a volume attached to an NKS controller
+   *
+   * @example
+   * ```ts
+   * const nksControllerVolume =
+   *   await client.nks.clusters.controllers.volumes.get(
+   *     'volume_id',
+   *     {
+   *       cluster_id: 'cluster_id',
+   *       controller_id: 'controller_id',
+   *     },
+   *   );
+   * ```
+   */
+  get(volumeID: string, params: VolumeGetParams, options?: RequestOptions): APIPromise<NKSControllerVolume> {
+    const { cluster_id, controller_id } = params;
+    return this._client.get(
+      path`/v1/nks/clusters/${cluster_id}/controllers/${controller_id}/volumes/${volumeID}`,
+      options,
+    );
+  }
+
+  /**
    * List all volumes attached to an NKS controller
    *
    * @example
@@ -33,29 +56,6 @@ export class Volumes extends APIResource {
       path`/v1/nks/clusters/${cluster_id}/controllers/${controllerID}/volumes`,
       Cursor<NKSControllerVolume>,
       { query, ...options },
-    );
-  }
-
-  /**
-   * Get details about a volume attached to an NKS controller
-   *
-   * @example
-   * ```ts
-   * const nksControllerVolume =
-   *   await client.nks.clusters.controllers.volumes.get(
-   *     'volume_id',
-   *     {
-   *       cluster_id: 'cluster_id',
-   *       controller_id: 'controller_id',
-   *     },
-   *   );
-   * ```
-   */
-  get(volumeID: string, params: VolumeGetParams, options?: RequestOptions): APIPromise<NKSControllerVolume> {
-    const { cluster_id, controller_id } = params;
-    return this._client.get(
-      path`/v1/nks/clusters/${cluster_id}/controllers/${controller_id}/volumes/${volumeID}`,
-      options,
     );
   }
 }
@@ -116,13 +116,6 @@ export interface NKSControllerVolumeList {
   pagination: Shared.Pagination;
 }
 
-export interface VolumeListParams extends CursorParams {
-  /**
-   * Path param: Cluster ID
-   */
-  cluster_id: string;
-}
-
 export interface VolumeGetParams {
   /**
    * Cluster ID
@@ -135,12 +128,19 @@ export interface VolumeGetParams {
   controller_id: string;
 }
 
+export interface VolumeListParams extends CursorParams {
+  /**
+   * Path param: Cluster ID
+   */
+  cluster_id: string;
+}
+
 export declare namespace Volumes {
   export {
     type NKSControllerVolume as NKSControllerVolume,
     type NKSControllerVolumeList as NKSControllerVolumeList,
     type NKSControllerVolumesCursor as NKSControllerVolumesCursor,
-    type VolumeListParams as VolumeListParams,
     type VolumeGetParams as VolumeGetParams,
+    type VolumeListParams as VolumeListParams,
   };
 }

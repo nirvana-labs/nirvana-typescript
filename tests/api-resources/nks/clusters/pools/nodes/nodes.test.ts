@@ -9,8 +9,11 @@ const client = new NirvanaLabs({
 
 describe('resource nodes', () => {
   // Mock server tests are disabled
-  test.skip('list: only required params', async () => {
-    const responsePromise = client.nks.clusters.pools.nodes.list('pool_id', { cluster_id: 'cluster_id' });
+  test.skip('get: only required params', async () => {
+    const responsePromise = client.nks.clusters.pools.nodes.get('node_id', {
+      cluster_id: 'cluster_id',
+      pool_id: 'pool_id',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,11 +24,10 @@ describe('resource nodes', () => {
   });
 
   // Mock server tests are disabled
-  test.skip('list: required and optional params', async () => {
-    const response = await client.nks.clusters.pools.nodes.list('pool_id', {
+  test.skip('get: required and optional params', async () => {
+    const response = await client.nks.clusters.pools.nodes.get('node_id', {
       cluster_id: 'cluster_id',
-      cursor: 'cursor',
-      limit: 10,
+      pool_id: 'pool_id',
     });
   });
 
@@ -53,11 +55,8 @@ describe('resource nodes', () => {
   });
 
   // Mock server tests are disabled
-  test.skip('get: only required params', async () => {
-    const responsePromise = client.nks.clusters.pools.nodes.get('node_id', {
-      cluster_id: 'cluster_id',
-      pool_id: 'pool_id',
-    });
+  test.skip('list: only required params', async () => {
+    const responsePromise = client.nks.clusters.pools.nodes.list('pool_id', { cluster_id: 'cluster_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -68,10 +67,11 @@ describe('resource nodes', () => {
   });
 
   // Mock server tests are disabled
-  test.skip('get: required and optional params', async () => {
-    const response = await client.nks.clusters.pools.nodes.get('node_id', {
+  test.skip('list: required and optional params', async () => {
+    const response = await client.nks.clusters.pools.nodes.list('pool_id', {
       cluster_id: 'cluster_id',
-      pool_id: 'pool_id',
+      cursor: 'cursor',
+      limit: 10,
     });
   });
 });

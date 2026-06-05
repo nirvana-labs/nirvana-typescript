@@ -32,6 +32,19 @@ export class Address extends APIResource {
   }
 
   /**
+   * Get the address for an organization
+   *
+   * @example
+   * ```ts
+   * const organizationAddress =
+   *   await client.organizations.address.get('organization_id');
+   * ```
+   */
+  get(organizationID: string, options?: RequestOptions): APIPromise<OrganizationAddress> {
+    return this._client.get(path`/v1/organizations/${organizationID}/address`, options);
+  }
+
+  /**
    * Update the address for an organization
    *
    * @example
@@ -48,19 +61,6 @@ export class Address extends APIResource {
     options?: RequestOptions,
   ): APIPromise<OrganizationAddress> {
     return this._client.patch(path`/v1/organizations/${organizationID}/address`, { body, ...options });
-  }
-
-  /**
-   * Get the address for an organization
-   *
-   * @example
-   * ```ts
-   * const organizationAddress =
-   *   await client.organizations.address.get('organization_id');
-   * ```
-   */
-  get(organizationID: string, options?: RequestOptions): APIPromise<OrganizationAddress> {
-    return this._client.get(path`/v1/organizations/${organizationID}/address`, options);
   }
 }
 

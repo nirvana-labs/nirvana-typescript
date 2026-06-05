@@ -32,6 +32,20 @@ export class Volumes extends APIResource {
   }
 
   /**
+   * Get a Volume.
+   *
+   * @example
+   * ```ts
+   * const volume = await client.compute.volumes.get(
+   *   'volume_id',
+   * );
+   * ```
+   */
+  get(volumeID: string, options?: RequestOptions): APIPromise<Volume> {
+    return this._client.get(path`/v1/compute/volumes/${volumeID}`, options);
+  }
+
+  /**
    * Update a Volume. Boot or data volumes can be updated.
    *
    * @example
@@ -50,6 +64,20 @@ export class Volumes extends APIResource {
   }
 
   /**
+   * Delete a Volume. Boot or data volumes can be deleted.
+   *
+   * @example
+   * ```ts
+   * const operation = await client.compute.volumes.delete(
+   *   'volume_id',
+   * );
+   * ```
+   */
+  delete(volumeID: string, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
+    return this._client.delete(path`/v1/compute/volumes/${volumeID}`, options);
+  }
+
+  /**
    * List all volumes
    *
    * @example
@@ -64,20 +92,6 @@ export class Volumes extends APIResource {
    */
   list(query: VolumeListParams, options?: RequestOptions): PagePromise<VolumesCursor, Volume> {
     return this._client.getAPIList('/v1/compute/volumes', Cursor<Volume>, { query, ...options });
-  }
-
-  /**
-   * Delete a Volume. Boot or data volumes can be deleted.
-   *
-   * @example
-   * ```ts
-   * const operation = await client.compute.volumes.delete(
-   *   'volume_id',
-   * );
-   * ```
-   */
-  delete(volumeID: string, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
-    return this._client.delete(path`/v1/compute/volumes/${volumeID}`, options);
   }
 
   /**
@@ -111,20 +125,6 @@ export class Volumes extends APIResource {
    */
   detach(volumeID: string, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
     return this._client.post(path`/v1/compute/volumes/${volumeID}/detach`, options);
-  }
-
-  /**
-   * Get a Volume.
-   *
-   * @example
-   * ```ts
-   * const volume = await client.compute.volumes.get(
-   *   'volume_id',
-   * );
-   * ```
-   */
-  get(volumeID: string, options?: RequestOptions): APIPromise<Volume> {
-    return this._client.get(path`/v1/compute/volumes/${volumeID}`, options);
   }
 }
 

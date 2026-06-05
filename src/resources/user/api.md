@@ -16,5 +16,5 @@ Types:
 
 Methods:
 
-- <code title="patch /v1/user/security">client.user.security.<a href="./src/resources/user/security.ts">update</a>({ ...params }) -> UserSecurity</code>
 - <code title="get /v1/user/security">client.user.security.<a href="./src/resources/user/security.ts">get</a>() -> UserSecurity</code>
+- <code title="patch /v1/user/security">client.user.security.<a href="./src/resources/user/security.ts">update</a>({ ...params }) -> UserSecurity</code>

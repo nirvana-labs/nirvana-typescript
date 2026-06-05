@@ -31,6 +31,18 @@ export class FlexResource extends APIResource {
   }
 
   /**
+   * Get details about an RPC Node Flex
+   *
+   * @example
+   * ```ts
+   * const flex = await client.rpcNodes.flex.get('node_id');
+   * ```
+   */
+  get(nodeID: string, options?: RequestOptions): APIPromise<Flex> {
+    return this._client.get(path`/v1/rpc_nodes/flex/${nodeID}`, options);
+  }
+
+  /**
    * Update an existing RPC Node Flex
    *
    * @example
@@ -40,23 +52,6 @@ export class FlexResource extends APIResource {
    */
   update(nodeID: string, body: FlexUpdateParams, options?: RequestOptions): APIPromise<Flex> {
     return this._client.patch(path`/v1/rpc_nodes/flex/${nodeID}`, { body, ...options });
-  }
-
-  /**
-   * List all RPC Node Flex you created
-   *
-   * @example
-   * ```ts
-   * // Automatically fetches more pages as needed.
-   * for await (const flex of client.rpcNodes.flex.list({
-   *   project_id: 'project_id',
-   * })) {
-   *   // ...
-   * }
-   * ```
-   */
-  list(query: FlexListParams, options?: RequestOptions): PagePromise<FlexesCursor, Flex> {
-    return this._client.getAPIList('/v1/rpc_nodes/flex', Cursor<Flex>, { query, ...options });
   }
 
   /**
@@ -75,15 +70,20 @@ export class FlexResource extends APIResource {
   }
 
   /**
-   * Get details about an RPC Node Flex
+   * List all RPC Node Flex you created
    *
    * @example
    * ```ts
-   * const flex = await client.rpcNodes.flex.get('node_id');
+   * // Automatically fetches more pages as needed.
+   * for await (const flex of client.rpcNodes.flex.list({
+   *   project_id: 'project_id',
+   * })) {
+   *   // ...
+   * }
    * ```
    */
-  get(nodeID: string, options?: RequestOptions): APIPromise<Flex> {
-    return this._client.get(path`/v1/rpc_nodes/flex/${nodeID}`, options);
+  list(query: FlexListParams, options?: RequestOptions): PagePromise<FlexesCursor, Flex> {
+    return this._client.getAPIList('/v1/rpc_nodes/flex', Cursor<Flex>, { query, ...options });
   }
 }
 

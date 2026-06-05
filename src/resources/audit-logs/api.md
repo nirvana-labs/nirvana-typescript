@@ -10,5 +10,5 @@ Types:
 
 Methods:
 
-- <code title="get /v1/audit_logs">client.auditLogs.<a href="./src/resources/audit-logs.ts">list</a>({ ...params }) -> AuditLogsCursor</code>
 - <code title="get /v1/audit_logs/{audit_log_id}">client.auditLogs.<a href="./src/resources/audit-logs.ts">get</a>(auditLogID) -> AuditLog</code>
+- <code title="get /v1/audit_logs">client.auditLogs.<a href="./src/resources/audit-logs.ts">list</a>({ ...params }) -> AuditLogsCursor</code>

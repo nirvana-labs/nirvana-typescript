@@ -10,5 +10,5 @@ Types:
 
 Methods:
 
-- <code title="get /v1/usage">client.usage.<a href="./src/resources/usage.ts">list</a>({ ...params }) -> UsagesCursor</code>
 - <code title="get /v1/usage/{resource_id}">client.usage.<a href="./src/resources/usage.ts">get</a>(resourceID) -> Usage</code>
+- <code title="get /v1/usage">client.usage.<a href="./src/resources/usage.ts">list</a>({ ...params }) -> UsagesCursor</code>

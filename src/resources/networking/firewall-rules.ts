@@ -33,6 +33,27 @@ export class FirewallRules extends APIResource {
   }
 
   /**
+   * Get details about a firewall rule
+   *
+   * @example
+   * ```ts
+   * const firewallRule =
+   *   await client.networking.firewallRules.get(
+   *     'firewall_rule_id',
+   *     { vpc_id: 'vpc_id' },
+   *   );
+   * ```
+   */
+  get(
+    firewallRuleID: string,
+    params: FirewallRuleGetParams,
+    options?: RequestOptions,
+  ): APIPromise<FirewallRule> {
+    const { vpc_id } = params;
+    return this._client.get(path`/v1/networking/vpcs/${vpc_id}/firewall_rules/${firewallRuleID}`, options);
+  }
+
+  /**
    * Update a firewall rule
    *
    * @example
@@ -52,30 +73,6 @@ export class FirewallRules extends APIResource {
     const { vpc_id, ...body } = params;
     return this._client.patch(path`/v1/networking/vpcs/${vpc_id}/firewall_rules/${firewallRuleID}`, {
       body,
-      ...options,
-    });
-  }
-
-  /**
-   * List all firewall rules
-   *
-   * @example
-   * ```ts
-   * // Automatically fetches more pages as needed.
-   * for await (const firewallRule of client.networking.firewallRules.list(
-   *   'vpc_id',
-   * )) {
-   *   // ...
-   * }
-   * ```
-   */
-  list(
-    vpcID: string,
-    query: FirewallRuleListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): PagePromise<FirewallRulesCursor, FirewallRule> {
-    return this._client.getAPIList(path`/v1/networking/vpcs/${vpcID}/firewall_rules`, Cursor<FirewallRule>, {
-      query,
       ...options,
     });
   }
@@ -102,24 +99,27 @@ export class FirewallRules extends APIResource {
   }
 
   /**
-   * Get details about a firewall rule
+   * List all firewall rules
    *
    * @example
    * ```ts
-   * const firewallRule =
-   *   await client.networking.firewallRules.get(
-   *     'firewall_rule_id',
-   *     { vpc_id: 'vpc_id' },
-   *   );
+   * // Automatically fetches more pages as needed.
+   * for await (const firewallRule of client.networking.firewallRules.list(
+   *   'vpc_id',
+   * )) {
+   *   // ...
+   * }
    * ```
    */
-  get(
-    firewallRuleID: string,
-    params: FirewallRuleGetParams,
+  list(
+    vpcID: string,
+    query: FirewallRuleListParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<FirewallRule> {
-    const { vpc_id } = params;
-    return this._client.get(path`/v1/networking/vpcs/${vpc_id}/firewall_rules/${firewallRuleID}`, options);
+  ): PagePromise<FirewallRulesCursor, FirewallRule> {
+    return this._client.getAPIList(path`/v1/networking/vpcs/${vpcID}/firewall_rules`, Cursor<FirewallRule>, {
+      query,
+      ...options,
+    });
   }
 }
 
@@ -229,6 +229,13 @@ export interface FirewallRuleCreateParams {
   tags?: Array<string>;
 }
 
+export interface FirewallRuleGetParams {
+  /**
+   * VPC ID
+   */
+  vpc_id: string;
+}
+
 export interface FirewallRuleUpdateParams {
   /**
    * Path param: VPC ID
@@ -268,8 +275,6 @@ export interface FirewallRuleUpdateParams {
   tags?: Array<string>;
 }
 
-export interface FirewallRuleListParams extends CursorParams {}
-
 export interface FirewallRuleDeleteParams {
   /**
    * VPC ID
@@ -277,12 +282,7 @@ export interface FirewallRuleDeleteParams {
   vpc_id: string;
 }
 
-export interface FirewallRuleGetParams {
-  /**
-   * VPC ID
-   */
-  vpc_id: string;
-}
+export interface FirewallRuleListParams extends CursorParams {}
 
 export declare namespace FirewallRules {
   export {
@@ -290,9 +290,9 @@ export declare namespace FirewallRules {
     type FirewallRuleList as FirewallRuleList,
     type FirewallRulesCursor as FirewallRulesCursor,
     type FirewallRuleCreateParams as FirewallRuleCreateParams,
-    type FirewallRuleUpdateParams as FirewallRuleUpdateParams,
-    type FirewallRuleListParams as FirewallRuleListParams,
-    type FirewallRuleDeleteParams as FirewallRuleDeleteParams,
     type FirewallRuleGetParams as FirewallRuleGetParams,
+    type FirewallRuleUpdateParams as FirewallRuleUpdateParams,
+    type FirewallRuleDeleteParams as FirewallRuleDeleteParams,
+    type FirewallRuleListParams as FirewallRuleListParams,
   };
 }

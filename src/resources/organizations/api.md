@@ -11,9 +11,9 @@ Types:
 Methods:
 
 - <code title="post /v1/organizations">client.organizations.<a href="./src/resources/organizations/organizations.ts">create</a>({ ...params }) -> Organization</code>
+- <code title="get /v1/organizations/{organization_id}">client.organizations.<a href="./src/resources/organizations/organizations.ts">get</a>(organizationID) -> Organization</code>
 - <code title="patch /v1/organizations/{organization_id}">client.organizations.<a href="./src/resources/organizations/organizations.ts">update</a>(organizationID, { ...params }) -> Organization</code>
 - <code title="get /v1/organizations">client.organizations.<a href="./src/resources/organizations/organizations.ts">list</a>({ ...params }) -> OrganizationsCursor</code>
-- <code title="get /v1/organizations/{organization_id}">client.organizations.<a href="./src/resources/organizations/organizations.ts">get</a>(organizationID) -> Organization</code>
 - <code title="post /v1/organizations/{organization_id}/leave">client.organizations.<a href="./src/resources/organizations/organizations.ts">leave</a>(organizationID) -> void</code>
 
 ## Memberships
@@ -25,8 +25,8 @@ Types:
 
 Methods:
 
-- <code title="get /v1/organizations/{organization_id}/memberships">client.organizations.memberships.<a href="./src/resources/organizations/memberships.ts">list</a>(organizationID, { ...params }) -> OrganizationMembershipsCursor</code>
 - <code title="get /v1/organizations/{organization_id}/memberships/{membership_id}">client.organizations.memberships.<a href="./src/resources/organizations/memberships.ts">get</a>(membershipID, { ...params }) -> OrganizationMembership</code>
+- <code title="get /v1/organizations/{organization_id}/memberships">client.organizations.memberships.<a href="./src/resources/organizations/memberships.ts">list</a>(organizationID, { ...params }) -> OrganizationMembershipsCursor</code>
 
 ## Address
 
@@ -37,5 +37,5 @@ Types:
 Methods:
 
 - <code title="post /v1/organizations/{organization_id}/address">client.organizations.address.<a href="./src/resources/organizations/address.ts">create</a>(organizationID, { ...params }) -> OrganizationAddress</code>
-- <code title="patch /v1/organizations/{organization_id}/address">client.organizations.address.<a href="./src/resources/organizations/address.ts">update</a>(organizationID, { ...params }) -> OrganizationAddress</code>
 - <code title="get /v1/organizations/{organization_id}/address">client.organizations.address.<a href="./src/resources/organizations/address.ts">get</a>(organizationID) -> OrganizationAddress</code>
+- <code title="patch /v1/organizations/{organization_id}/address">client.organizations.address.<a href="./src/resources/organizations/address.ts">update</a>(organizationID, { ...params }) -> OrganizationAddress</code>

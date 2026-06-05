@@ -29,6 +29,18 @@ describe('resource organizations', () => {
   });
 
   // Mock server tests are disabled
+  test.skip('get', async () => {
+    const responsePromise = client.organizations.get('organization_id');
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Mock server tests are disabled
   test.skip('update', async () => {
     const responsePromise = client.organizations.update('organization_id', {});
     const rawResponse = await responsePromise.asResponse();
@@ -58,18 +70,6 @@ describe('resource organizations', () => {
     await expect(
       client.organizations.list({ cursor: 'cursor', limit: 10 }, { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
-  });
-
-  // Mock server tests are disabled
-  test.skip('get', async () => {
-    const responsePromise = client.organizations.get('organization_id');
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
   });
 
   // Mock server tests are disabled

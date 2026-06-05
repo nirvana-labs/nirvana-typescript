@@ -9,6 +9,18 @@ import { path } from '../../internal/utils/path';
 
 export class Regions extends APIResource {
   /**
+   * Get a region by name
+   *
+   * @example
+   * ```ts
+   * const region = await client.regions.get('us-sva-2');
+   * ```
+   */
+  get(name: string, options?: RequestOptions): APIPromise<Region> {
+    return this._client.get(path`/v1/regions/${name}`, options);
+  }
+
+  /**
    * List all regions
    *
    * @example
@@ -24,18 +36,6 @@ export class Regions extends APIResource {
     options?: RequestOptions,
   ): PagePromise<RegionsCursor, Region> {
     return this._client.getAPIList('/v1/regions', Cursor<Region>, { query, ...options });
-  }
-
-  /**
-   * Get a region by name
-   *
-   * @example
-   * ```ts
-   * const region = await client.regions.get('us-sva-2');
-   * ```
-   */
-  get(name: string, options?: RequestOptions): APIPromise<Region> {
-    return this._client.get(path`/v1/regions/${name}`, options);
   }
 }
 

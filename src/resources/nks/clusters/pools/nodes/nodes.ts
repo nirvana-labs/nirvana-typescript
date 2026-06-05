@@ -21,30 +21,19 @@ export class Nodes extends APIResource {
   volumes: VolumesAPI.Volumes = new VolumesAPI.Volumes(this._client);
 
   /**
-   * List all nodes in an NKS node pool
+   * Get details about an NKS node
    *
    * @example
    * ```ts
-   * // Automatically fetches more pages as needed.
-   * for await (const nksNode of client.nks.clusters.pools.nodes.list(
-   *   'pool_id',
-   *   { cluster_id: 'cluster_id' },
-   * )) {
-   *   // ...
-   * }
+   * const nksNode = await client.nks.clusters.pools.nodes.get(
+   *   'node_id',
+   *   { cluster_id: 'cluster_id', pool_id: 'pool_id' },
+   * );
    * ```
    */
-  list(
-    poolID: string,
-    params: NodeListParams,
-    options?: RequestOptions,
-  ): PagePromise<NKSNodesCursor, NKSNode> {
-    const { cluster_id, ...query } = params;
-    return this._client.getAPIList(
-      path`/v1/nks/clusters/${cluster_id}/pools/${poolID}/nodes`,
-      Cursor<NKSNode>,
-      { query, ...options },
-    );
+  get(nodeID: string, params: NodeGetParams, options?: RequestOptions): APIPromise<NKSNode> {
+    const { cluster_id, pool_id } = params;
+    return this._client.get(path`/v1/nks/clusters/${cluster_id}/pools/${pool_id}/nodes/${nodeID}`, options);
   }
 
   /**
@@ -72,19 +61,30 @@ export class Nodes extends APIResource {
   }
 
   /**
-   * Get details about an NKS node
+   * List all nodes in an NKS node pool
    *
    * @example
    * ```ts
-   * const nksNode = await client.nks.clusters.pools.nodes.get(
-   *   'node_id',
-   *   { cluster_id: 'cluster_id', pool_id: 'pool_id' },
-   * );
+   * // Automatically fetches more pages as needed.
+   * for await (const nksNode of client.nks.clusters.pools.nodes.list(
+   *   'pool_id',
+   *   { cluster_id: 'cluster_id' },
+   * )) {
+   *   // ...
+   * }
    * ```
    */
-  get(nodeID: string, params: NodeGetParams, options?: RequestOptions): APIPromise<NKSNode> {
-    const { cluster_id, pool_id } = params;
-    return this._client.get(path`/v1/nks/clusters/${cluster_id}/pools/${pool_id}/nodes/${nodeID}`, options);
+  list(
+    poolID: string,
+    params: NodeListParams,
+    options?: RequestOptions,
+  ): PagePromise<NKSNodesCursor, NKSNode> {
+    const { cluster_id, ...query } = params;
+    return this._client.getAPIList(
+      path`/v1/nks/clusters/${cluster_id}/pools/${poolID}/nodes`,
+      Cursor<NKSNode>,
+      { query, ...options },
+    );
   }
 }
 
@@ -134,11 +134,16 @@ export interface NKSNodeList {
   pagination: Shared.Pagination;
 }
 
-export interface NodeListParams extends CursorParams {
+export interface NodeGetParams {
   /**
-   * Path param: Cluster ID
+   * Cluster ID
    */
   cluster_id: string;
+
+  /**
+   * Node Pool ID
+   */
+  pool_id: string;
 }
 
 export interface NodeDeleteParams {
@@ -153,16 +158,11 @@ export interface NodeDeleteParams {
   pool_id: string;
 }
 
-export interface NodeGetParams {
+export interface NodeListParams extends CursorParams {
   /**
-   * Cluster ID
+   * Path param: Cluster ID
    */
   cluster_id: string;
-
-  /**
-   * Node Pool ID
-   */
-  pool_id: string;
 }
 
 Nodes.Volumes = Volumes;
@@ -172,9 +172,9 @@ export declare namespace Nodes {
     type NKSNode as NKSNode,
     type NKSNodeList as NKSNodeList,
     type NKSNodesCursor as NKSNodesCursor,
-    type NodeListParams as NodeListParams,
-    type NodeDeleteParams as NodeDeleteParams,
     type NodeGetParams as NodeGetParams,
+    type NodeDeleteParams as NodeDeleteParams,
+    type NodeListParams as NodeListParams,
   };
 
   export {
@@ -182,7 +182,7 @@ export declare namespace Nodes {
     type NKSNodeVolume as NKSNodeVolume,
     type NKSNodeVolumeList as NKSNodeVolumeList,
     type NKSNodeVolumesCursor as NKSNodeVolumesCursor,
-    type VolumeListParams as VolumeListParams,
     type VolumeGetParams as VolumeGetParams,
+    type VolumeListParams as VolumeListParams,
   };
 }

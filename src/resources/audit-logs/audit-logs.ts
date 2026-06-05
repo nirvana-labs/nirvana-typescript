@@ -9,6 +9,13 @@ import { path } from '../../internal/utils/path';
 
 export class AuditLogs extends APIResource {
   /**
+   * Get an Audit Log entry
+   */
+  get(auditLogID: string, options?: RequestOptions): APIPromise<AuditLog> {
+    return this._client.get(path`/v1/audit_logs/${auditLogID}`, options);
+  }
+
+  /**
    * List Audit Log entries for an organization
    */
   list(
@@ -16,13 +23,6 @@ export class AuditLogs extends APIResource {
     options?: RequestOptions,
   ): PagePromise<AuditLogsCursor, AuditLog> {
     return this._client.getAPIList('/v1/audit_logs', Cursor<AuditLog>, { query, ...options });
-  }
-
-  /**
-   * Get an Audit Log entry
-   */
-  get(auditLogID: string, options?: RequestOptions): APIPromise<AuditLog> {
-    return this._client.get(path`/v1/audit_logs/${auditLogID}`, options);
   }
 }
 

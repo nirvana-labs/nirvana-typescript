@@ -56,24 +56,24 @@ This affects the following methods:
 
 - `client.organizations.memberships.get()`
 - `client.instanceTypes.get()`
+- `client.networking.firewallRules.get()`
 - `client.networking.firewallRules.update()`
 - `client.networking.firewallRules.delete()`
-- `client.networking.firewallRules.get()`
 - `client.nks.clusters.persistentVolumeClaims.get()`
 - `client.nks.clusters.controllers.get()`
-- `client.nks.clusters.controllers.volumes.list()`
 - `client.nks.clusters.controllers.volumes.get()`
-- `client.nks.clusters.loadBalancers.update()`
+- `client.nks.clusters.controllers.volumes.list()`
 - `client.nks.clusters.loadBalancers.get()`
+- `client.nks.clusters.loadBalancers.update()`
+- `client.nks.clusters.pools.get()`
 - `client.nks.clusters.pools.update()`
 - `client.nks.clusters.pools.delete()`
-- `client.nks.clusters.pools.get()`
 - `client.nks.clusters.pools.availability.update()`
-- `client.nks.clusters.pools.nodes.list()`
-- `client.nks.clusters.pools.nodes.delete()`
 - `client.nks.clusters.pools.nodes.get()`
-- `client.nks.clusters.pools.nodes.volumes.list()`
+- `client.nks.clusters.pools.nodes.delete()`
+- `client.nks.clusters.pools.nodes.list()`
 - `client.nks.clusters.pools.nodes.volumes.get()`
+- `client.nks.clusters.pools.nodes.volumes.list()`
 
 ### URI encoded path parameters
 

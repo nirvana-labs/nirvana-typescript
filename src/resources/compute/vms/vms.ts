@@ -46,6 +46,18 @@ export class VMs extends APIResource {
   }
 
   /**
+   * Get details about a VM
+   *
+   * @example
+   * ```ts
+   * const vm = await client.compute.vms.get('vm_id');
+   * ```
+   */
+  get(vmID: string, options?: RequestOptions): APIPromise<VM> {
+    return this._client.get(path`/v1/compute/vms/${vmID}`, options);
+  }
+
+  /**
    * Update a VM
    *
    * @example
@@ -55,6 +67,18 @@ export class VMs extends APIResource {
    */
   update(vmID: string, body: VMUpdateParams, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
     return this._client.patch(path`/v1/compute/vms/${vmID}`, { body, ...options });
+  }
+
+  /**
+   * Delete a VM
+   *
+   * @example
+   * ```ts
+   * const operation = await client.compute.vms.delete('vm_id');
+   * ```
+   */
+  delete(vmID: string, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
+    return this._client.delete(path`/v1/compute/vms/${vmID}`, options);
   }
 
   /**
@@ -72,30 +96,6 @@ export class VMs extends APIResource {
    */
   list(query: VMListParams, options?: RequestOptions): PagePromise<VMsCursor, VM> {
     return this._client.getAPIList('/v1/compute/vms', Cursor<VM>, { query, ...options });
-  }
-
-  /**
-   * Delete a VM
-   *
-   * @example
-   * ```ts
-   * const operation = await client.compute.vms.delete('vm_id');
-   * ```
-   */
-  delete(vmID: string, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
-    return this._client.delete(path`/v1/compute/vms/${vmID}`, options);
-  }
-
-  /**
-   * Get details about a VM
-   *
-   * @example
-   * ```ts
-   * const vm = await client.compute.vms.get('vm_id');
-   * ```
-   */
-  get(vmID: string, options?: RequestOptions): APIPromise<VM> {
-    return this._client.get(path`/v1/compute/vms/${vmID}`, options);
   }
 
   /**

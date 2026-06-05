@@ -9,6 +9,18 @@ const client = new NirvanaLabs({
 
 describe('resource auditLogs', () => {
   // Mock server tests are disabled
+  test.skip('get', async () => {
+    const responsePromise = client.auditLogs.get('audit_log_id');
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Mock server tests are disabled
   test.skip('list', async () => {
     const responsePromise = client.auditLogs.list();
     const rawResponse = await responsePromise.asResponse();
@@ -26,17 +38,5 @@ describe('resource auditLogs', () => {
     await expect(
       client.auditLogs.list({ cursor: 'cursor', limit: 10 }, { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
-  });
-
-  // Mock server tests are disabled
-  test.skip('get', async () => {
-    const responsePromise = client.auditLogs.get('audit_log_id');
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
   });
 });

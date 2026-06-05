@@ -9,8 +9,8 @@ const client = new NirvanaLabs({
 
 describe('resource quotas', () => {
   // Mock server tests are disabled
-  test.skip('list', async () => {
-    const responsePromise = client.quotas.list();
+  test.skip('get', async () => {
+    const responsePromise = client.quotas.get('us-sva-2');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,8 +21,8 @@ describe('resource quotas', () => {
   });
 
   // Mock server tests are disabled
-  test.skip('get', async () => {
-    const responsePromise = client.quotas.get('us-sva-2');
+  test.skip('list', async () => {
+    const responsePromise = client.quotas.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
