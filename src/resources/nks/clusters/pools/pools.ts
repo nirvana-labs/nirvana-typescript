@@ -242,6 +242,13 @@ export interface NKSNodePoolNodeConfig {
    * Keys under kubernetes.io, k8s.io, and nirvanalabs.io prefixes are reserved.
    */
   labels?: Array<string>;
+
+  /**
+   * Kubernetes taints to apply to each node in the pool at creation time. Each entry
+   * is "key=value:Effect" where Effect is NoSchedule, PreferNoSchedule, or
+   * NoExecute. Taints are immutable after pool creation.
+   */
+  taints?: Array<string>;
 }
 
 /**
@@ -262,6 +269,12 @@ export interface NKSNodePoolNodeConfigResponse {
    * Kubernetes labels applied to each node in the pool. Each entry is "key=value".
    */
   labels: Array<string>;
+
+  /**
+   * Kubernetes taints applied to each node in the pool. Each entry is
+   * "key=value:Effect".
+   */
+  taints: Array<string>;
 }
 
 export interface PoolCreateParams {
