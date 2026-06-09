@@ -1313,10 +1313,6 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'curl https://api.nirvanalabs.io/v1/compute/vms \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "boot_volume": {\n            "size": 100,\n            "type": "abs"\n          },\n          "instance_type": "n1-standard-8",\n          "name": "my-vm",\n          "os_image_name": "ubuntu-noble-2026-05-18",\n          "project_id": "123e4567-e89b-12d3-a456-426614174000",\n          "public_ip_enabled": true,\n          "region": "us-sva-2",\n          "ssh_key": {\n            "public_key": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2"\n          },\n          "subnet_id": "123e4567-e89b-12d3-a456-426614174000",\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
       },
-      http: {
-        example:
-          'curl https://api.nirvanalabs.io/v1/compute/vms \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "boot_volume": {\n            "size": 100,\n            "type": "abs"\n          },\n          "instance_type": "n1-standard-8",\n          "name": "my-vm",\n          "os_image_name": "ubuntu-noble-2025-10-01",\n          "project_id": "123e4567-e89b-12d3-a456-426614174000",\n          "public_ip_enabled": true,\n          "region": "us-sva-2",\n          "ssh_key": {\n            "public_key": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2"\n          },\n          "subnet_id": "123e4567-e89b-12d3-a456-426614174000",\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
-      },
       go: {
         method: 'client.Compute.VMs.New',
         example:
@@ -1537,10 +1533,6 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       http: {
         example:
           'curl https://api.nirvanalabs.io/v1/compute/vms/availability \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "boot_volume": {\n            "size": 100,\n            "type": "abs"\n          },\n          "instance_type": "n1-standard-8",\n          "name": "my-vm",\n          "os_image_name": "ubuntu-noble-2026-05-18",\n          "project_id": "123e4567-e89b-12d3-a456-426614174000",\n          "public_ip_enabled": true,\n          "region": "us-sva-2",\n          "ssh_key": {\n            "public_key": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2"\n          },\n          "subnet_id": "123e4567-e89b-12d3-a456-426614174000",\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
-      },
-      http: {
-        example:
-          'curl https://api.nirvanalabs.io/v1/compute/vms/availability \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "boot_volume": {\n            "size": 100,\n            "type": "abs"\n          },\n          "instance_type": "n1-standard-8",\n          "name": "my-vm",\n          "os_image_name": "ubuntu-noble-2025-10-01",\n          "project_id": "123e4567-e89b-12d3-a456-426614174000",\n          "public_ip_enabled": true,\n          "region": "us-sva-2",\n          "ssh_key": {\n            "public_key": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2"\n          },\n          "subnet_id": "123e4567-e89b-12d3-a456-426614174000",\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
       },
       go: {
         method: 'client.Compute.VMs.Availability.New',
