@@ -18,6 +18,7 @@ export {
   type ControllerListParams,
   type NKSControllersCursor,
 } from './controllers/index';
+export { Cost, type CostCreateParams, type CostUpdateParams } from './cost';
 export { KubeconfigResource, type Kubeconfig } from './kubeconfig';
 export {
   LoadBalancers,

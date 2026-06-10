@@ -52,7 +52,9 @@ client.parents.children.retrieve('p_123', 'c_456');
 client.parents.children.retrieve('c_456', { parent_id: 'p_123' });
 ```
 
-This affects the following methods:
+<details>
+
+<summary>This affects the following methods</summary>
 
 - `client.organizations.memberships.get()`
 - `client.instanceTypes.get()`
@@ -69,11 +71,14 @@ This affects the following methods:
 - `client.nks.clusters.pools.update()`
 - `client.nks.clusters.pools.delete()`
 - `client.nks.clusters.pools.availability.update()`
+- `client.nks.clusters.pools.cost.update()`
 - `client.nks.clusters.pools.nodes.get()`
 - `client.nks.clusters.pools.nodes.delete()`
 - `client.nks.clusters.pools.nodes.list()`
 - `client.nks.clusters.pools.nodes.volumes.get()`
 - `client.nks.clusters.pools.nodes.volumes.list()`
+
+</details>
 
 ### URI encoded path parameters
 

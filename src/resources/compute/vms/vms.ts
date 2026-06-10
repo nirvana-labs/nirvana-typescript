@@ -5,6 +5,8 @@ import * as Shared from '../../shared';
 import * as OperationsAPI from '../../operations/operations';
 import * as AvailabilityAPI from './availability';
 import { Availability, AvailabilityCreateParams, AvailabilityUpdateParams } from './availability';
+import * as CostAPI from './cost';
+import { Cost, CostCreateParams, CostUpdateParams } from './cost';
 import * as OSImagesAPI from './os-images';
 import { OSImageListParams, OSImages } from './os-images';
 import * as VolumesAPI from './volumes';
@@ -17,6 +19,7 @@ import { path } from '../../../internal/utils/path';
 
 export class VMs extends APIResource {
   availability: AvailabilityAPI.Availability = new AvailabilityAPI.Availability(this._client);
+  cost: CostAPI.Cost = new CostAPI.Cost(this._client);
   volumes: VolumesAPI.Volumes = new VolumesAPI.Volumes(this._client);
   osImages: OSImagesAPI.OSImages = new OSImagesAPI.OSImages(this._client);
 
@@ -408,6 +411,7 @@ export interface VMListParams extends CursorParams {
 }
 
 VMs.Availability = Availability;
+VMs.Cost = Cost;
 VMs.Volumes = Volumes;
 VMs.OSImages = OSImages;
 
@@ -429,6 +433,12 @@ export declare namespace VMs {
     Availability as Availability,
     type AvailabilityCreateParams as AvailabilityCreateParams,
     type AvailabilityUpdateParams as AvailabilityUpdateParams,
+  };
+
+  export {
+    Cost as Cost,
+    type CostCreateParams as CostCreateParams,
+    type CostUpdateParams as CostUpdateParams,
   };
 
   export { Volumes as Volumes, type VolumeListParams as VolumeListParams };
