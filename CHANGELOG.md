@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.91.5](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.91.4...v1.91.5) (2026-06-10)
+
+
+### Chores
+
+* **release:** update SDK ([#433](https://github.com/nirvana-labs/nirvana-typescript/issues/433)) ([002dfba](https://github.com/nirvana-labs/nirvana-typescript/commit/002dfbaf9dfe8e2193128349fdd83f1a3750a836))
+
 ## [1.91.4](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.91.3...v1.91.4) (2026-06-10)
 
 
