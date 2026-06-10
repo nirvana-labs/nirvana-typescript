@@ -1585,6 +1585,85 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     },
   },
   {
+    name: 'create',
+    endpoint: '/v1/compute/vms/cost',
+    httpMethod: 'post',
+    summary: 'Estimate VM Create Cost',
+    description: 'Return a priced cost quote for the proposed VM.',
+    stainlessPath: '(resource) compute.vms.cost > (method) create',
+    qualified: 'client.compute.vms.cost.create',
+    params: [
+      "boot_volume: { size: number; type: 'nvme' | 'abs'; tags?: string[]; };",
+      'instance_type: string;',
+      'name: string;',
+      'os_image_name: string;',
+      'project_id: string;',
+      'public_ip_enabled: boolean;',
+      "region: 'us-sva-2';",
+      'ssh_key: { public_key: string; };',
+      'subnet_id: string;',
+      "data_volumes?: { name: string; size: number; type: 'nvme' | 'abs'; tags?: string[]; }[];",
+      'tags?: string[];',
+    ],
+    response:
+      '{ currency: string; monthly_total: string; priced_at: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }',
+    markdown:
+      "## create\n\n`client.compute.vms.cost.create(boot_volume: { size: number; type: 'nvme' | 'abs'; tags?: string[]; }, instance_type: string, name: string, os_image_name: string, project_id: string, public_ip_enabled: boolean, region: 'us-sva-2', ssh_key: { public_key: string; }, subnet_id: string, data_volumes?: { name: string; size: number; type: 'nvme' | 'abs'; tags?: string[]; }[], tags?: string[]): { currency: string; monthly_total: string; priced_at: string; usage_dimensions: object[]; }`\n\n**post** `/v1/compute/vms/cost`\n\nReturn a priced cost quote for the proposed VM.\n\n### Parameters\n\n- `boot_volume: { size: number; type: 'nvme' | 'abs'; tags?: string[]; }`\n  Boot volume for the VM.\n  - `size: number`\n    Size of the Volume in GB.\n  - `type: 'nvme' | 'abs'`\n    Type of the Volume.\n  - `tags?: string[]`\n    Tags to attach to the Volume.\n\n- `instance_type: string`\n  Instance type name.\n\n- `name: string`\n  Name of the VM.\n\n- `os_image_name: string`\n  Name of the OS Image to use for the VM.\n\n- `project_id: string`\n  Project ID to create the VM in.\n\n- `public_ip_enabled: boolean`\n  Whether to enable public IP for the VM.\n\n- `region: 'us-sva-2'`\n  Region the resource is in.\n\n- `ssh_key: { public_key: string; }`\n  Public SSH key configuration for the VM.\n  - `public_key: string`\n    Public key to and use to access the VM.\n\n- `subnet_id: string`\n  ID of the subnet to use for the VM.\n\n- `data_volumes?: { name: string; size: number; type: 'nvme' | 'abs'; tags?: string[]; }[]`\n  Data volumes for the VM.\n\n- `tags?: string[]`\n  Tags to attach to the VM.\n\n### Returns\n\n- `{ currency: string; monthly_total: string; priced_at: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }`\n  Cost quote returned by POST /cost.\n\n  - `currency: string`\n  - `monthly_total: string`\n  - `priced_at: string`\n  - `usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst costQuote = await client.compute.vms.cost.create({\n  boot_volume: { size: 100, type: 'abs' },\n  instance_type: 'n1-standard-8',\n  name: 'my-vm',\n  os_image_name: 'ubuntu-noble-2026-05-18',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  public_ip_enabled: true,\n  region: 'us-sva-2',\n  ssh_key: { public_key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2' },\n  subnet_id: '123e4567-e89b-12d3-a456-426614174000',\n});\n\nconsole.log(costQuote);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.compute.vms.cost.create',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst costQuote = await client.compute.vms.cost.create({\n  boot_volume: { size: 100, type: 'abs' },\n  instance_type: 'n1-standard-8',\n  name: 'my-vm',\n  os_image_name: 'ubuntu-noble-2026-05-18',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  public_ip_enabled: true,\n  region: 'us-sva-2',\n  ssh_key: {\n    public_key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2',\n  },\n  subnet_id: '123e4567-e89b-12d3-a456-426614174000',\n});\n\nconsole.log(costQuote.currency);",
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/compute/vms/cost \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "boot_volume": {\n            "size": 100,\n            "type": "abs"\n          },\n          "instance_type": "n1-standard-8",\n          "name": "my-vm",\n          "os_image_name": "ubuntu-noble-2026-05-18",\n          "project_id": "123e4567-e89b-12d3-a456-426614174000",\n          "public_ip_enabled": true,\n          "region": "us-sva-2",\n          "ssh_key": {\n            "public_key": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2"\n          },\n          "subnet_id": "123e4567-e89b-12d3-a456-426614174000",\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
+      },
+      go: {
+        method: 'client.Compute.VMs.Cost.New',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuote, err := client.Compute.VMs.Cost.New(context.TODO(), compute.VMCostNewParams{\n\t\tBootVolume: compute.VMCostNewParamsBootVolume{\n\t\t\tSize: 100,\n\t\t\tType: compute.VolumeTypeABS,\n\t\t},\n\t\tInstanceType:    "n1-standard-8",\n\t\tName:            "my-vm",\n\t\tOSImageName:     "ubuntu-noble-2026-05-18",\n\t\tProjectID:       "123e4567-e89b-12d3-a456-426614174000",\n\t\tPublicIPEnabled: true,\n\t\tRegion:          shared.RegionNameUsSva2,\n\t\tSSHKey: compute.SSHKeyRequestParam{\n\t\t\tPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2",\n\t\t},\n\t\tSubnetID: "123e4567-e89b-12d3-a456-426614174000",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuote.Currency)\n}\n',
+      },
+    },
+  },
+  {
+    name: 'update',
+    endpoint: '/v1/compute/vms/{vm_id}/cost',
+    httpMethod: 'patch',
+    summary: 'Estimate VM Update Cost',
+    description:
+      'Return a priced cost quote for the proposed VM update plus a diff against the current state.',
+    stainlessPath: '(resource) compute.vms.cost > (method) update',
+    qualified: 'client.compute.vms.cost.update',
+    params: [
+      'vm_id: string;',
+      'instance_type?: string;',
+      'name?: string;',
+      'public_ip_enabled?: boolean;',
+      'tags?: string[];',
+    ],
+    response:
+      '{ after: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; before: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; currency: string; diff: { monthly_total_delta: string; usage_dimensions: { after: object; before: object; dimension: string; dimension_display_name: string; monthly_amount_delta: string; }[]; }; priced_at: string; }',
+    markdown:
+      "## update\n\n`client.compute.vms.cost.update(vm_id: string, instance_type?: string, name?: string, public_ip_enabled?: boolean, tags?: string[]): { after: object; before: object; currency: string; diff: object; priced_at: string; }`\n\n**patch** `/v1/compute/vms/{vm_id}/cost`\n\nReturn a priced cost quote for the proposed VM update plus a diff against the current state.\n\n### Parameters\n\n- `vm_id: string`\n\n- `instance_type?: string`\n  Instance type name.\n\n- `name?: string`\n  Name of the VM.\n\n- `public_ip_enabled?: boolean`\n  Whether to enable public IP for the VM.\n\n- `tags?: string[]`\n  Tags to attach to the VM.\n\n### Returns\n\n- `{ after: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; before: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; currency: string; diff: { monthly_total_delta: string; usage_dimensions: { after: object; before: object; dimension: string; dimension_display_name: string; monthly_amount_delta: string; }[]; }; priced_at: string; }`\n  Cost quote returned by PATCH /:id/cost: the current-state quote, the post-update quote, and the signed diff.\n\n  - `after: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }`\n  - `before: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }`\n  - `currency: string`\n  - `diff: { monthly_total_delta: string; usage_dimensions: { after: { monthly_amount: string; quantity: number; unit_price: string; }; before: { monthly_amount: string; quantity: number; unit_price: string; }; dimension: string; dimension_display_name: string; monthly_amount_delta: string; }[]; }`\n  - `priced_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst costQuoteUpdate = await client.compute.vms.cost.update('vm_id');\n\nconsole.log(costQuoteUpdate);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.compute.vms.cost.update',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst costQuoteUpdate = await client.compute.vms.cost.update('vm_id');\n\nconsole.log(costQuoteUpdate.after);",
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/compute/vms/$VM_ID/cost \\\n    -X PATCH \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "instance_type": "n1-standard-8",\n          "name": "my-vm",\n          "public_ip_enabled": true,\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
+      },
+      go: {
+        method: 'client.Compute.VMs.Cost.Update',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuoteUpdate, err := client.Compute.VMs.Cost.Update(\n\t\tcontext.TODO(),\n\t\t"vm_id",\n\t\tcompute.VMCostUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuoteUpdate.After)\n}\n',
+      },
+    },
+  },
+  {
     name: 'list',
     endpoint: '/v1/compute/vms/{vm_id}/volumes',
     httpMethod: 'get',
@@ -1975,6 +2054,75 @@ const EMBEDDED_METHODS: MethodEntry[] = [
   },
   {
     name: 'create',
+    endpoint: '/v1/compute/volumes/cost',
+    httpMethod: 'post',
+    summary: 'Estimate Volume Create Cost',
+    description: 'Return a priced cost quote for the proposed Volume.',
+    stainlessPath: '(resource) compute.volumes.cost > (method) create',
+    qualified: 'client.compute.volumes.cost.create',
+    params: [
+      'name: string;',
+      'project_id: string;',
+      "region: 'us-sva-2';",
+      'size: number;',
+      "type: 'nvme' | 'abs';",
+      'tags?: string[];',
+      'vm_id?: string;',
+    ],
+    response:
+      '{ currency: string; monthly_total: string; priced_at: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }',
+    markdown:
+      "## create\n\n`client.compute.volumes.cost.create(name: string, project_id: string, region: 'us-sva-2', size: number, type: 'nvme' | 'abs', tags?: string[], vm_id?: string): { currency: string; monthly_total: string; priced_at: string; usage_dimensions: object[]; }`\n\n**post** `/v1/compute/volumes/cost`\n\nReturn a priced cost quote for the proposed Volume.\n\n### Parameters\n\n- `name: string`\n  Name of the Volume.\n\n- `project_id: string`\n  Project ID the Volume belongs to.\n\n- `region: 'us-sva-2'`\n  Region the resource is in.\n\n- `size: number`\n  Size of the Volume in GB.\n\n- `type: 'nvme' | 'abs'`\n  Type of the Volume.\n\n- `tags?: string[]`\n  Tags to attach to the Volume.\n\n- `vm_id?: string`\n  ID of the VM the Volume is attached to.\n\n### Returns\n\n- `{ currency: string; monthly_total: string; priced_at: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }`\n  Cost quote returned by POST /cost.\n\n  - `currency: string`\n  - `monthly_total: string`\n  - `priced_at: string`\n  - `usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst costQuote = await client.compute.volumes.cost.create({\n  name: 'my-data-volume',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  size: 100,\n  type: 'abs',\n});\n\nconsole.log(costQuote);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.compute.volumes.cost.create',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst costQuote = await client.compute.volumes.cost.create({\n  name: 'my-data-volume',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  size: 100,\n  type: 'abs',\n});\n\nconsole.log(costQuote.currency);",
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/compute/volumes/cost \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "name": "my-data-volume",\n          "project_id": "123e4567-e89b-12d3-a456-426614174000",\n          "region": "us-sva-2",\n          "size": 100,\n          "type": "abs",\n          "tags": [\n            "production",\n            "ethereum"\n          ],\n          "vm_id": "123e4567-e89b-12d3-a456-426614174000"\n        }\'',
+      },
+      go: {
+        method: 'client.Compute.Volumes.Cost.New',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuote, err := client.Compute.Volumes.Cost.New(context.TODO(), compute.VolumeCostNewParams{\n\t\tName:      "my-data-volume",\n\t\tProjectID: "123e4567-e89b-12d3-a456-426614174000",\n\t\tRegion:    shared.RegionNameUsSva2,\n\t\tSize:      100,\n\t\tType:      compute.VolumeTypeABS,\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuote.Currency)\n}\n',
+      },
+    },
+  },
+  {
+    name: 'update',
+    endpoint: '/v1/compute/volumes/{volume_id}/cost',
+    httpMethod: 'patch',
+    summary: 'Estimate Volume Update Cost',
+    description:
+      'Return a priced cost quote for the proposed Volume update plus a diff against the current state.',
+    stainlessPath: '(resource) compute.volumes.cost > (method) update',
+    qualified: 'client.compute.volumes.cost.update',
+    params: ['volume_id: string;', 'name?: string;', 'size?: number;', 'tags?: string[];'],
+    response:
+      '{ after: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; before: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; currency: string; diff: { monthly_total_delta: string; usage_dimensions: { after: object; before: object; dimension: string; dimension_display_name: string; monthly_amount_delta: string; }[]; }; priced_at: string; }',
+    markdown:
+      "## update\n\n`client.compute.volumes.cost.update(volume_id: string, name?: string, size?: number, tags?: string[]): { after: object; before: object; currency: string; diff: object; priced_at: string; }`\n\n**patch** `/v1/compute/volumes/{volume_id}/cost`\n\nReturn a priced cost quote for the proposed Volume update plus a diff against the current state.\n\n### Parameters\n\n- `volume_id: string`\n\n- `name?: string`\n  Name of the Volume.\n\n- `size?: number`\n  Size of the Volume in GB.\n\n- `tags?: string[]`\n  Tags to attach to the Volume.\n\n### Returns\n\n- `{ after: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; before: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; currency: string; diff: { monthly_total_delta: string; usage_dimensions: { after: object; before: object; dimension: string; dimension_display_name: string; monthly_amount_delta: string; }[]; }; priced_at: string; }`\n  Cost quote returned by PATCH /:id/cost: the current-state quote, the post-update quote, and the signed diff.\n\n  - `after: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }`\n  - `before: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }`\n  - `currency: string`\n  - `diff: { monthly_total_delta: string; usage_dimensions: { after: { monthly_amount: string; quantity: number; unit_price: string; }; before: { monthly_amount: string; quantity: number; unit_price: string; }; dimension: string; dimension_display_name: string; monthly_amount_delta: string; }[]; }`\n  - `priced_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst costQuoteUpdate = await client.compute.volumes.cost.update('volume_id');\n\nconsole.log(costQuoteUpdate);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.compute.volumes.cost.update',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst costQuoteUpdate = await client.compute.volumes.cost.update('volume_id');\n\nconsole.log(costQuoteUpdate.after);",
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/compute/volumes/$VOLUME_ID/cost \\\n    -X PATCH \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "name": "my-data-volume",\n          "size": 100,\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
+      },
+      go: {
+        method: 'client.Compute.Volumes.Cost.Update',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuoteUpdate, err := client.Compute.Volumes.Cost.Update(\n\t\tcontext.TODO(),\n\t\t"volume_id",\n\t\tcompute.VolumeCostUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuoteUpdate.After)\n}\n',
+      },
+    },
+  },
+  {
+    name: 'create',
     endpoint: '/v1/networking/vpcs',
     httpMethod: 'post',
     summary: 'Create VPC',
@@ -2219,6 +2367,73 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         method: 'availability update',
         example:
           "nirvana networking:vpcs:availability update \\\n  --api-key 'My API Key' \\\n  --vpc-id vpc_id",
+      },
+    },
+  },
+  {
+    name: 'create',
+    endpoint: '/v1/networking/vpcs/cost',
+    httpMethod: 'post',
+    summary: 'Estimate VPC Create Cost',
+    description: 'Return a priced cost quote for the proposed VPC.',
+    stainlessPath: '(resource) networking.vpcs.cost > (method) create',
+    qualified: 'client.networking.vpcs.cost.create',
+    params: [
+      'name: string;',
+      'project_id: string;',
+      "region: 'us-sva-2';",
+      'subnet_name: string;',
+      'tags?: string[];',
+    ],
+    response:
+      '{ currency: string; monthly_total: string; priced_at: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }',
+    markdown:
+      "## create\n\n`client.networking.vpcs.cost.create(name: string, project_id: string, region: 'us-sva-2', subnet_name: string, tags?: string[]): { currency: string; monthly_total: string; priced_at: string; usage_dimensions: object[]; }`\n\n**post** `/v1/networking/vpcs/cost`\n\nReturn a priced cost quote for the proposed VPC.\n\n### Parameters\n\n- `name: string`\n  Name of the VPC.\n\n- `project_id: string`\n  Project ID the VPC belongs to.\n\n- `region: 'us-sva-2'`\n  Region the resource is in.\n\n- `subnet_name: string`\n  Name of the subnet to create.\n\n- `tags?: string[]`\n  Tags to attach to the VPC.\n\n### Returns\n\n- `{ currency: string; monthly_total: string; priced_at: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }`\n  Cost quote returned by POST /cost.\n\n  - `currency: string`\n  - `monthly_total: string`\n  - `priced_at: string`\n  - `usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst costQuote = await client.networking.vpcs.cost.create({\n  name: 'my-vpc',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  subnet_name: 'my-subnet',\n});\n\nconsole.log(costQuote);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.networking.vpcs.cost.create',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst costQuote = await client.networking.vpcs.cost.create({\n  name: 'my-vpc',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  subnet_name: 'my-subnet',\n});\n\nconsole.log(costQuote.currency);",
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/networking/vpcs/cost \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "name": "my-vpc",\n          "project_id": "123e4567-e89b-12d3-a456-426614174000",\n          "region": "us-sva-2",\n          "subnet_name": "my-subnet",\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
+      },
+      go: {
+        method: 'client.Networking.VPCs.Cost.New',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/networking"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuote, err := client.Networking.VPCs.Cost.New(context.TODO(), networking.VPCCostNewParams{\n\t\tName:       "my-vpc",\n\t\tProjectID:  "123e4567-e89b-12d3-a456-426614174000",\n\t\tRegion:     shared.RegionNameUsSva2,\n\t\tSubnetName: "my-subnet",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuote.Currency)\n}\n',
+      },
+    },
+  },
+  {
+    name: 'update',
+    endpoint: '/v1/networking/vpcs/{vpc_id}/cost',
+    httpMethod: 'patch',
+    summary: 'Estimate VPC Update Cost',
+    description:
+      'Return a priced cost quote for the proposed VPC update plus a diff against the current state.',
+    stainlessPath: '(resource) networking.vpcs.cost > (method) update',
+    qualified: 'client.networking.vpcs.cost.update',
+    params: ['vpc_id: string;', 'name?: string;', 'subnet_name?: string;', 'tags?: string[];'],
+    response:
+      '{ after: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; before: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; currency: string; diff: { monthly_total_delta: string; usage_dimensions: { after: object; before: object; dimension: string; dimension_display_name: string; monthly_amount_delta: string; }[]; }; priced_at: string; }',
+    markdown:
+      "## update\n\n`client.networking.vpcs.cost.update(vpc_id: string, name?: string, subnet_name?: string, tags?: string[]): { after: object; before: object; currency: string; diff: object; priced_at: string; }`\n\n**patch** `/v1/networking/vpcs/{vpc_id}/cost`\n\nReturn a priced cost quote for the proposed VPC update plus a diff against the current state.\n\n### Parameters\n\n- `vpc_id: string`\n\n- `name?: string`\n  Name of the VPC.\n\n- `subnet_name?: string`\n  Name of the subnet to create.\n\n- `tags?: string[]`\n  Tags to attach to the VPC.\n\n### Returns\n\n- `{ after: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; before: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; currency: string; diff: { monthly_total_delta: string; usage_dimensions: { after: object; before: object; dimension: string; dimension_display_name: string; monthly_amount_delta: string; }[]; }; priced_at: string; }`\n  Cost quote returned by PATCH /:id/cost: the current-state quote, the post-update quote, and the signed diff.\n\n  - `after: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }`\n  - `before: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }`\n  - `currency: string`\n  - `diff: { monthly_total_delta: string; usage_dimensions: { after: { monthly_amount: string; quantity: number; unit_price: string; }; before: { monthly_amount: string; quantity: number; unit_price: string; }; dimension: string; dimension_display_name: string; monthly_amount_delta: string; }[]; }`\n  - `priced_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst costQuoteUpdate = await client.networking.vpcs.cost.update('vpc_id');\n\nconsole.log(costQuoteUpdate);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.networking.vpcs.cost.update',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst costQuoteUpdate = await client.networking.vpcs.cost.update('vpc_id');\n\nconsole.log(costQuoteUpdate.after);",
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/networking/vpcs/$VPC_ID/cost \\\n    -X PATCH \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "name": "my-vpc",\n          "subnet_name": "my-subnet",\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
+      },
+      go: {
+        method: 'client.Networking.VPCs.Cost.Update',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/networking"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuoteUpdate, err := client.Networking.VPCs.Cost.Update(\n\t\tcontext.TODO(),\n\t\t"vpc_id",\n\t\tnetworking.VPCCostUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuoteUpdate.After)\n}\n',
       },
     },
   },
@@ -2594,6 +2809,76 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         method: 'connections list',
         example:
           "nirvana networking:connect:connections list \\\n  --api-key 'My API Key' \\\n  --project-id project_id",
+      },
+    },
+  },
+  {
+    name: 'create',
+    endpoint: '/v1/networking/connect/connections/cost',
+    httpMethod: 'post',
+    summary: 'Estimate Connect Connection Create Cost',
+    description: 'Return a priced cost quote for the proposed Connect Connection.',
+    stainlessPath: '(resource) networking.connect.connections.cost > (method) create',
+    qualified: 'client.networking.connect.connections.cost.create',
+    params: [
+      'bandwidth_mbps: 50 | 200 | 500 | 1000 | 2000;',
+      'cidrs: string[];',
+      'name: string;',
+      'project_id: string;',
+      'provider_cidrs: string[];',
+      "region: 'us-sva-2';",
+      'aws?: { account_id: string; region: string; };',
+      'tags?: string[];',
+    ],
+    response:
+      '{ currency: string; monthly_total: string; priced_at: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }',
+    markdown:
+      "## create\n\n`client.networking.connect.connections.cost.create(bandwidth_mbps: 50 | 200 | 500 | 1000 | 2000, cidrs: string[], name: string, project_id: string, provider_cidrs: string[], region: 'us-sva-2', aws?: { account_id: string; region: string; }, tags?: string[]): { currency: string; monthly_total: string; priced_at: string; usage_dimensions: object[]; }`\n\n**post** `/v1/networking/connect/connections/cost`\n\nReturn a priced cost quote for the proposed Connect Connection.\n\n### Parameters\n\n- `bandwidth_mbps: 50 | 200 | 500 | 1000 | 2000`\n  Connect Connection speed in Mbps\n\n- `cidrs: string[]`\n  CIDRs for the Connect Connection. Must be in network-aligned/canonical form.\n\n- `name: string`\n  Name of the Connect Connection\n\n- `project_id: string`\n  Project ID the Connect Connection belongs to\n\n- `provider_cidrs: string[]`\n  Provider CIDRs. Must be in network-aligned/canonical form.\n\n- `region: 'us-sva-2'`\n  Region the resource is in.\n\n- `aws?: { account_id: string; region: string; }`\n  AWS provider configuration\n  - `account_id: string`\n    AWS account id\n  - `region: string`\n    AWS region where the connection will be established\n\n- `tags?: string[]`\n  Tags to attach to the Connect Connection\n\n### Returns\n\n- `{ currency: string; monthly_total: string; priced_at: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }`\n  Cost quote returned by POST /cost.\n\n  - `currency: string`\n  - `monthly_total: string`\n  - `priced_at: string`\n  - `usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst costQuote = await client.networking.connect.connections.cost.create({\n  bandwidth_mbps: 50,\n  cidrs: ['10.0.0.0/16'],\n  name: 'my-connect-connection',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  provider_cidrs: ['172.16.0.0/16'],\n  region: 'us-sva-2',\n});\n\nconsole.log(costQuote);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.networking.connect.connections.cost.create',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst costQuote = await client.networking.connect.connections.cost.create({\n  bandwidth_mbps: 50,\n  cidrs: ['10.0.0.0/16'],\n  name: 'my-connect-connection',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  provider_cidrs: ['172.16.0.0/16'],\n  region: 'us-sva-2',\n});\n\nconsole.log(costQuote.currency);",
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/networking/connect/connections/cost \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "bandwidth_mbps": 50,\n          "cidrs": [\n            "10.0.0.0/16"\n          ],\n          "name": "my-connect-connection",\n          "project_id": "123e4567-e89b-12d3-a456-426614174000",\n          "provider_cidrs": [\n            "172.16.0.0/16"\n          ],\n          "region": "us-sva-2",\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
+      },
+      go: {
+        method: 'client.Networking.Connect.Connections.Cost.New',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/networking"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuote, err := client.Networking.Connect.Connections.Cost.New(context.TODO(), networking.ConnectConnectionCostNewParams{\n\t\tBandwidthMbps: 50,\n\t\tCIDRs:         []string{"10.0.0.0/16"},\n\t\tName:          "my-connect-connection",\n\t\tProjectID:     "123e4567-e89b-12d3-a456-426614174000",\n\t\tProviderCIDRs: []string{"172.16.0.0/16"},\n\t\tRegion:        shared.RegionNameUsSva2,\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuote.Currency)\n}\n',
+      },
+    },
+  },
+  {
+    name: 'update',
+    endpoint: '/v1/networking/connect/connections/{connection_id}/cost',
+    httpMethod: 'patch',
+    summary: 'Estimate Connect Connection Update Cost',
+    description:
+      'Return a priced cost quote for the proposed Connect Connection update plus a diff against the current state.',
+    stainlessPath: '(resource) networking.connect.connections.cost > (method) update',
+    qualified: 'client.networking.connect.connections.cost.update',
+    params: ['connection_id: string;', 'name?: string;', 'tags?: string[];'],
+    response:
+      '{ after: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; before: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; currency: string; diff: { monthly_total_delta: string; usage_dimensions: { after: object; before: object; dimension: string; dimension_display_name: string; monthly_amount_delta: string; }[]; }; priced_at: string; }',
+    markdown:
+      "## update\n\n`client.networking.connect.connections.cost.update(connection_id: string, name?: string, tags?: string[]): { after: object; before: object; currency: string; diff: object; priced_at: string; }`\n\n**patch** `/v1/networking/connect/connections/{connection_id}/cost`\n\nReturn a priced cost quote for the proposed Connect Connection update plus a diff against the current state.\n\n### Parameters\n\n- `connection_id: string`\n\n- `name?: string`\n  Name of the Connect Connection.\n\n- `tags?: string[]`\n  Tags to attach to the Connect Connection\n\n### Returns\n\n- `{ after: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; before: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; currency: string; diff: { monthly_total_delta: string; usage_dimensions: { after: object; before: object; dimension: string; dimension_display_name: string; monthly_amount_delta: string; }[]; }; priced_at: string; }`\n  Cost quote returned by PATCH /:id/cost: the current-state quote, the post-update quote, and the signed diff.\n\n  - `after: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }`\n  - `before: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }`\n  - `currency: string`\n  - `diff: { monthly_total_delta: string; usage_dimensions: { after: { monthly_amount: string; quantity: number; unit_price: string; }; before: { monthly_amount: string; quantity: number; unit_price: string; }; dimension: string; dimension_display_name: string; monthly_amount_delta: string; }[]; }`\n  - `priced_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst costQuoteUpdate = await client.networking.connect.connections.cost.update('connection_id');\n\nconsole.log(costQuoteUpdate);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.networking.connect.connections.cost.update',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst costQuoteUpdate = await client.networking.connect.connections.cost.update('connection_id');\n\nconsole.log(costQuoteUpdate.after);",
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/networking/connect/connections/$CONNECTION_ID/cost \\\n    -X PATCH \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "name": "my-connect-connection",\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
+      },
+      go: {
+        method: 'client.Networking.Connect.Connections.Cost.Update',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/networking"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuoteUpdate, err := client.Networking.Connect.Connections.Cost.Update(\n\t\tcontext.TODO(),\n\t\t"connection_id",\n\t\tnetworking.ConnectConnectionCostUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuoteUpdate.After)\n}\n',
       },
     },
   },
@@ -3227,6 +3512,75 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     },
   },
   {
+    name: 'create',
+    endpoint: '/v1/nks/clusters/cost',
+    httpMethod: 'post',
+    summary: 'Estimate NKS Cluster Create Cost',
+    description: 'Return a priced cost quote for the proposed NKS cluster.',
+    stainlessPath: '(resource) nks.clusters.cost > (method) create',
+    qualified: 'client.nks.clusters.cost.create',
+    params: [
+      'autoscaling: boolean;',
+      'kubernetes_version: string;',
+      'name: string;',
+      'project_id: string;',
+      "region: 'us-sva-2';",
+      'vpc_id: string;',
+      'tags?: string[];',
+    ],
+    response:
+      '{ currency: string; monthly_total: string; priced_at: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }',
+    markdown:
+      "## create\n\n`client.nks.clusters.cost.create(autoscaling: boolean, kubernetes_version: string, name: string, project_id: string, region: 'us-sva-2', vpc_id: string, tags?: string[]): { currency: string; monthly_total: string; priced_at: string; usage_dimensions: object[]; }`\n\n**post** `/v1/nks/clusters/cost`\n\nReturn a priced cost quote for the proposed NKS cluster.\n\n### Parameters\n\n- `autoscaling: boolean`\n  Whether to enable autoscaling for the Cluster.\n\n- `kubernetes_version: string`\n  Kubernetes version for the Cluster.\n\n- `name: string`\n  Name of the Cluster.\n\n- `project_id: string`\n  Project ID to create the Cluster in.\n\n- `region: 'us-sva-2'`\n  Region the resource is in.\n\n- `vpc_id: string`\n  ID of the VPC to use for the Cluster.\n\n- `tags?: string[]`\n  Tags to attach to the Cluster.\n\n### Returns\n\n- `{ currency: string; monthly_total: string; priced_at: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }`\n  Cost quote returned by POST /cost.\n\n  - `currency: string`\n  - `monthly_total: string`\n  - `priced_at: string`\n  - `usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst costQuote = await client.nks.clusters.cost.create({\n  autoscaling: true,\n  kubernetes_version: 'v1.34.4',\n  name: 'my-cluster',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  vpc_id: '123e4567-e89b-12d3-a456-426614174000',\n});\n\nconsole.log(costQuote);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.nks.clusters.cost.create',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst costQuote = await client.nks.clusters.cost.create({\n  autoscaling: true,\n  kubernetes_version: 'v1.34.4',\n  name: 'my-cluster',\n  project_id: '123e4567-e89b-12d3-a456-426614174000',\n  region: 'us-sva-2',\n  vpc_id: '123e4567-e89b-12d3-a456-426614174000',\n});\n\nconsole.log(costQuote.currency);",
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/nks/clusters/cost \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "autoscaling": true,\n          "kubernetes_version": "v1.34.4",\n          "name": "my-cluster",\n          "project_id": "123e4567-e89b-12d3-a456-426614174000",\n          "region": "us-sva-2",\n          "vpc_id": "123e4567-e89b-12d3-a456-426614174000",\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
+      },
+      go: {
+        method: 'client.NKS.Clusters.Cost.New',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuote, err := client.NKS.Clusters.Cost.New(context.TODO(), nks.ClusterCostNewParams{\n\t\tAutoscaling:       true,\n\t\tKubernetesVersion: "v1.34.4",\n\t\tName:              "my-cluster",\n\t\tProjectID:         "123e4567-e89b-12d3-a456-426614174000",\n\t\tRegion:            shared.RegionNameUsSva2,\n\t\tVPCID:             "123e4567-e89b-12d3-a456-426614174000",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuote.Currency)\n}\n',
+      },
+    },
+  },
+  {
+    name: 'update',
+    endpoint: '/v1/nks/clusters/{cluster_id}/cost',
+    httpMethod: 'patch',
+    summary: 'Estimate NKS Cluster Update Cost',
+    description:
+      'Return a priced cost quote for the proposed NKS cluster update plus a diff against the current state.',
+    stainlessPath: '(resource) nks.clusters.cost > (method) update',
+    qualified: 'client.nks.clusters.cost.update',
+    params: ['cluster_id: string;', 'autoscaling?: boolean;', 'name?: string;', 'tags?: string[];'],
+    response:
+      '{ after: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; before: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; currency: string; diff: { monthly_total_delta: string; usage_dimensions: { after: object; before: object; dimension: string; dimension_display_name: string; monthly_amount_delta: string; }[]; }; priced_at: string; }',
+    markdown:
+      "## update\n\n`client.nks.clusters.cost.update(cluster_id: string, autoscaling?: boolean, name?: string, tags?: string[]): { after: object; before: object; currency: string; diff: object; priced_at: string; }`\n\n**patch** `/v1/nks/clusters/{cluster_id}/cost`\n\nReturn a priced cost quote for the proposed NKS cluster update plus a diff against the current state.\n\n### Parameters\n\n- `cluster_id: string`\n\n- `autoscaling?: boolean`\n  Whether to enable autoscaling for the Cluster.\n\n- `name?: string`\n  Name of the Cluster.\n\n- `tags?: string[]`\n  Tags to attach to the Cluster.\n\n### Returns\n\n- `{ after: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; before: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; currency: string; diff: { monthly_total_delta: string; usage_dimensions: { after: object; before: object; dimension: string; dimension_display_name: string; monthly_amount_delta: string; }[]; }; priced_at: string; }`\n  Cost quote returned by PATCH /:id/cost: the current-state quote, the post-update quote, and the signed diff.\n\n  - `after: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }`\n  - `before: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }`\n  - `currency: string`\n  - `diff: { monthly_total_delta: string; usage_dimensions: { after: { monthly_amount: string; quantity: number; unit_price: string; }; before: { monthly_amount: string; quantity: number; unit_price: string; }; dimension: string; dimension_display_name: string; monthly_amount_delta: string; }[]; }`\n  - `priced_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst costQuoteUpdate = await client.nks.clusters.cost.update('cluster_id');\n\nconsole.log(costQuoteUpdate);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.nks.clusters.cost.update',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst costQuoteUpdate = await client.nks.clusters.cost.update('cluster_id');\n\nconsole.log(costQuoteUpdate.after);",
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/nks/clusters/$CLUSTER_ID/cost \\\n    -X PATCH \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "autoscaling": true,\n          "name": "my-cluster",\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
+      },
+      go: {
+        method: 'client.NKS.Clusters.Cost.Update',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuoteUpdate, err := client.NKS.Clusters.Cost.Update(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\tnks.ClusterCostUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuoteUpdate.After)\n}\n',
+      },
+    },
+  },
+  {
     name: 'get',
     endpoint: '/v1/nks/clusters/{cluster_id}/persistent_volume_claims/{persistent_volume_claim_id}',
     httpMethod: 'get',
@@ -3838,6 +4192,80 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         method: 'availability update',
         example:
           "nirvana nks:clusters:pools:availability update \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --pool-id pool_id",
+      },
+    },
+  },
+  {
+    name: 'create',
+    endpoint: '/v1/nks/clusters/{cluster_id}/pools/cost',
+    httpMethod: 'post',
+    summary: 'Estimate NKS Node Pool Create Cost',
+    description: 'Return a priced cost quote for the proposed NKS node pool.',
+    stainlessPath: '(resource) nks.clusters.pools.cost > (method) create',
+    qualified: 'client.nks.clusters.pools.cost.create',
+    params: [
+      'cluster_id: string;',
+      'name: string;',
+      'node_config: { boot_volume: { size: number; type: volume_type; }; instance_type: string; labels?: string[]; taints?: string[]; };',
+      'node_count: number;',
+      'tags?: string[];',
+    ],
+    response:
+      '{ currency: string; monthly_total: string; priced_at: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }',
+    markdown:
+      "## create\n\n`client.nks.clusters.pools.cost.create(cluster_id: string, name: string, node_config: { boot_volume: nks_node_pool_boot_volume; instance_type: string; labels?: string[]; taints?: string[]; }, node_count: number, tags?: string[]): { currency: string; monthly_total: string; priced_at: string; usage_dimensions: object[]; }`\n\n**post** `/v1/nks/clusters/{cluster_id}/pools/cost`\n\nReturn a priced cost quote for the proposed NKS node pool.\n\n### Parameters\n\n- `cluster_id: string`\n\n- `name: string`\n  Name of the node pool.\n\n- `node_config: { boot_volume: { size: number; type: volume_type; }; instance_type: string; labels?: string[]; taints?: string[]; }`\n  Node configuration.\n  - `boot_volume: { size: number; type: 'nvme' | 'abs'; }`\n    Boot volume configuration.\n  - `instance_type: string`\n    Instance type name used for worker nodes.\n  - `labels?: string[]`\n    Kubernetes labels to apply to each node in the pool. Each entry is \"key=value\".\nKeys under kubernetes.io, k8s.io, and nirvanalabs.io prefixes are reserved.\n  - `taints?: string[]`\n    Kubernetes taints to apply to each node in the pool at creation time.\nEach entry is \"key=value:Effect\" where Effect is NoSchedule, PreferNoSchedule, or NoExecute.\nTaints are immutable after pool creation.\n\n- `node_count: number`\n  Number of nodes. Must be between 1 and 100.\n\n- `tags?: string[]`\n  Tags to attach to the node pool.\n\n### Returns\n\n- `{ currency: string; monthly_total: string; priced_at: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }`\n  Cost quote returned by POST /cost.\n\n  - `currency: string`\n  - `monthly_total: string`\n  - `priced_at: string`\n  - `usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst costQuote = await client.nks.clusters.pools.cost.create('cluster_id', {\n  name: 'my-node-pool',\n  node_config: {\n  boot_volume: { size: 100, type: 'abs' },\n  instance_type: 'n1-standard-8',\n},\n  node_count: 3,\n});\n\nconsole.log(costQuote);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.nks.clusters.pools.cost.create',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst costQuote = await client.nks.clusters.pools.cost.create('cluster_id', {\n  name: 'my-node-pool',\n  node_config: {\n    boot_volume: { size: 100, type: 'abs' },\n    instance_type: 'n1-standard-8',\n  },\n  node_count: 3,\n});\n\nconsole.log(costQuote.currency);",
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/nks/clusters/$CLUSTER_ID/pools/cost \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "name": "my-node-pool",\n          "node_config": {\n            "boot_volume": {\n              "size": 100,\n              "type": "abs"\n            },\n            "instance_type": "n1-standard-8"\n          },\n          "node_count": 3,\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
+      },
+      go: {
+        method: 'client.NKS.Clusters.Pools.Cost.New',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuote, err := client.NKS.Clusters.Pools.Cost.New(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\tnks.ClusterPoolCostNewParams{\n\t\t\tName: "my-node-pool",\n\t\t\tNodeConfig: nks.NKSNodePoolNodeConfigParam{\n\t\t\t\tBootVolume: nks.NKSNodePoolBootVolumeParam{\n\t\t\t\t\tSize: 100,\n\t\t\t\t\tType: compute.VolumeTypeABS,\n\t\t\t\t},\n\t\t\t\tInstanceType: "n1-standard-8",\n\t\t\t},\n\t\t\tNodeCount: 3,\n\t\t},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuote.Currency)\n}\n',
+      },
+    },
+  },
+  {
+    name: 'update',
+    endpoint: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/cost',
+    httpMethod: 'patch',
+    summary: 'Estimate NKS Node Pool Update Cost',
+    description:
+      'Return a priced cost quote for the proposed NKS node pool update plus a diff against the current state.',
+    stainlessPath: '(resource) nks.clusters.pools.cost > (method) update',
+    qualified: 'client.nks.clusters.pools.cost.update',
+    params: [
+      'cluster_id: string;',
+      'pool_id: string;',
+      'name?: string;',
+      'node_config?: { labels?: string[]; };',
+      'node_count?: number;',
+      'tags?: string[];',
+    ],
+    response:
+      '{ after: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; before: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; currency: string; diff: { monthly_total_delta: string; usage_dimensions: { after: object; before: object; dimension: string; dimension_display_name: string; monthly_amount_delta: string; }[]; }; priced_at: string; }',
+    markdown:
+      "## update\n\n`client.nks.clusters.pools.cost.update(cluster_id: string, pool_id: string, name?: string, node_config?: { labels?: string[]; }, node_count?: number, tags?: string[]): { after: object; before: object; currency: string; diff: object; priced_at: string; }`\n\n**patch** `/v1/nks/clusters/{cluster_id}/pools/{pool_id}/cost`\n\nReturn a priced cost quote for the proposed NKS node pool update plus a diff against the current state.\n\n### Parameters\n\n- `cluster_id: string`\n\n- `pool_id: string`\n\n- `name?: string`\n  Name of the node pool.\n\n- `node_config?: { labels?: string[]; }`\n  Partial node configuration update.\n  - `labels?: string[]`\n    Kubernetes labels to apply to each node in the pool. Each entry is \"key=value\".\nWhen provided, the list fully replaces the current labels on the pool and on live nodes.\n\n- `node_count?: number`\n  Number of nodes.\n\n- `tags?: string[]`\n  Tags to attach to the node pool.\n\n### Returns\n\n- `{ after: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; before: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }; currency: string; diff: { monthly_total_delta: string; usage_dimensions: { after: object; before: object; dimension: string; dimension_display_name: string; monthly_amount_delta: string; }[]; }; priced_at: string; }`\n  Cost quote returned by PATCH /:id/cost: the current-state quote, the post-update quote, and the signed diff.\n\n  - `after: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }`\n  - `before: { monthly_total: string; usage_dimensions: { dimension: string; dimension_display_name: string; monthly_amount: string; quantity: number; unit_price: string; }[]; }`\n  - `currency: string`\n  - `diff: { monthly_total_delta: string; usage_dimensions: { after: { monthly_amount: string; quantity: number; unit_price: string; }; before: { monthly_amount: string; quantity: number; unit_price: string; }; dimension: string; dimension_display_name: string; monthly_amount_delta: string; }[]; }`\n  - `priced_at: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst costQuoteUpdate = await client.nks.clusters.pools.cost.update('pool_id', { cluster_id: 'cluster_id' });\n\nconsole.log(costQuoteUpdate);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.nks.clusters.pools.cost.update',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst costQuoteUpdate = await client.nks.clusters.pools.cost.update('pool_id', {\n  cluster_id: 'cluster_id',\n});\n\nconsole.log(costQuoteUpdate.after);",
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/nks/clusters/$CLUSTER_ID/pools/$POOL_ID/cost \\\n    -X PATCH \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY" \\\n    -d \'{\n          "name": "my-node-pool",\n          "node_count": 5,\n          "tags": [\n            "production",\n            "ethereum"\n          ]\n        }\'',
+      },
+      go: {
+        method: 'client.NKS.Clusters.Pools.Cost.Update',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuoteUpdate, err := client.NKS.Clusters.Pools.Cost.Update(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\t"pool_id",\n\t\tnks.ClusterPoolCostUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuoteUpdate.After)\n}\n',
       },
     },
   },

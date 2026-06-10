@@ -23,6 +23,13 @@ Methods:
 - <code title="post /v1/networking/vpcs/availability">client.networking.vpcs.availability.<a href="./src/resources/networking/vpcs/availability.ts">create</a>({ ...params }) -> void</code>
 - <code title="patch /v1/networking/vpcs/{vpc_id}/availability">client.networking.vpcs.availability.<a href="./src/resources/networking/vpcs/availability.ts">update</a>(vpcID, { ...params }) -> void</code>
 
+### Cost
+
+Methods:
+
+- <code title="post /v1/networking/vpcs/cost">client.networking.vpcs.cost.<a href="./src/resources/networking/vpcs/cost.ts">create</a>({ ...params }) -> CostQuote</code>
+- <code title="patch /v1/networking/vpcs/{vpc_id}/cost">client.networking.vpcs.cost.<a href="./src/resources/networking/vpcs/cost.ts">update</a>(vpcID, { ...params }) -> CostQuoteUpdate</code>
+
 ## FirewallRules
 
 Types:
@@ -54,11 +61,18 @@ Types:
 
 Methods:
 
-- <code title="post /v1/networking/connect/connections">client.networking.connect.connections.<a href="./src/resources/networking/connect/connections.ts">create</a>({ ...params }) -> Operation</code>
-- <code title="get /v1/networking/connect/connections/{connection_id}">client.networking.connect.connections.<a href="./src/resources/networking/connect/connections.ts">get</a>(connectionID) -> ConnectConnection</code>
-- <code title="patch /v1/networking/connect/connections/{connection_id}">client.networking.connect.connections.<a href="./src/resources/networking/connect/connections.ts">update</a>(connectionID, { ...params }) -> Operation</code>
-- <code title="delete /v1/networking/connect/connections/{connection_id}">client.networking.connect.connections.<a href="./src/resources/networking/connect/connections.ts">delete</a>(connectionID) -> Operation</code>
-- <code title="get /v1/networking/connect/connections">client.networking.connect.connections.<a href="./src/resources/networking/connect/connections.ts">list</a>({ ...params }) -> ConnectConnectionsCursor</code>
+- <code title="post /v1/networking/connect/connections">client.networking.connect.connections.<a href="./src/resources/networking/connect/connections/connections.ts">create</a>({ ...params }) -> Operation</code>
+- <code title="get /v1/networking/connect/connections/{connection_id}">client.networking.connect.connections.<a href="./src/resources/networking/connect/connections/connections.ts">get</a>(connectionID) -> ConnectConnection</code>
+- <code title="patch /v1/networking/connect/connections/{connection_id}">client.networking.connect.connections.<a href="./src/resources/networking/connect/connections/connections.ts">update</a>(connectionID, { ...params }) -> Operation</code>
+- <code title="delete /v1/networking/connect/connections/{connection_id}">client.networking.connect.connections.<a href="./src/resources/networking/connect/connections/connections.ts">delete</a>(connectionID) -> Operation</code>
+- <code title="get /v1/networking/connect/connections">client.networking.connect.connections.<a href="./src/resources/networking/connect/connections/connections.ts">list</a>({ ...params }) -> ConnectConnectionsCursor</code>
+
+#### Cost
+
+Methods:
+
+- <code title="post /v1/networking/connect/connections/cost">client.networking.connect.connections.cost.<a href="./src/resources/networking/connect/connections/cost.ts">create</a>({ ...params }) -> CostQuote</code>
+- <code title="patch /v1/networking/connect/connections/{connection_id}/cost">client.networking.connect.connections.cost.<a href="./src/resources/networking/connect/connections/cost.ts">update</a>(connectionID, { ...params }) -> CostQuoteUpdate</code>
 
 ### Routes
 

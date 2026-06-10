@@ -5,6 +5,8 @@ import * as Shared from '../../shared';
 import * as OperationsAPI from '../../operations/operations';
 import * as AvailabilityAPI from './availability';
 import { Availability, AvailabilityCreateParams, AvailabilityUpdateParams } from './availability';
+import * as CostAPI from './cost';
+import { Cost, CostCreateParams, CostUpdateParams } from './cost';
 import * as KubeconfigAPI from './kubeconfig';
 import { Kubeconfig, KubeconfigResource } from './kubeconfig';
 import * as LoadBalancersAPI from './load-balancers';
@@ -58,6 +60,7 @@ import { path } from '../../../internal/utils/path';
 
 export class Clusters extends APIResource {
   availability: AvailabilityAPI.Availability = new AvailabilityAPI.Availability(this._client);
+  cost: CostAPI.Cost = new CostAPI.Cost(this._client);
   persistentVolumeClaims: PersistentVolumeClaimsAPI.PersistentVolumeClaims =
     new PersistentVolumeClaimsAPI.PersistentVolumeClaims(this._client);
   kubeconfig: KubeconfigAPI.KubeconfigResource = new KubeconfigAPI.KubeconfigResource(this._client);
@@ -296,6 +299,7 @@ export interface ClusterListParams extends CursorParams {
 }
 
 Clusters.Availability = Availability;
+Clusters.Cost = Cost;
 Clusters.PersistentVolumeClaims = PersistentVolumeClaims;
 Clusters.KubeconfigResource = KubeconfigResource;
 Clusters.Controllers = Controllers;
@@ -316,6 +320,12 @@ export declare namespace Clusters {
     Availability as Availability,
     type AvailabilityCreateParams as AvailabilityCreateParams,
     type AvailabilityUpdateParams as AvailabilityUpdateParams,
+  };
+
+  export {
+    Cost as Cost,
+    type CostCreateParams as CostCreateParams,
+    type CostUpdateParams as CostUpdateParams,
   };
 
   export {

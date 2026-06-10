@@ -17,5 +17,5 @@ export {
   type ConnectionCreateParams,
   type ConnectionUpdateParams,
   type ConnectionListParams,
-} from './connections';
+} from './connections/index';
 export { Routes, type RouteListParams } from './routes';

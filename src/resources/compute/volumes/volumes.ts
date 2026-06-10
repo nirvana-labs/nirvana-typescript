@@ -5,6 +5,8 @@ import * as Shared from '../../shared';
 import * as OperationsAPI from '../../operations/operations';
 import * as AvailabilityAPI from './availability';
 import { Availability, AvailabilityCreateParams, AvailabilityUpdateParams } from './availability';
+import * as CostAPI from './cost';
+import { Cost, CostCreateParams, CostUpdateParams } from './cost';
 import { APIPromise } from '../../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
@@ -12,6 +14,7 @@ import { path } from '../../../internal/utils/path';
 
 export class Volumes extends APIResource {
   availability: AvailabilityAPI.Availability = new AvailabilityAPI.Availability(this._client);
+  cost: CostAPI.Cost = new CostAPI.Cost(this._client);
 
   /**
    * Create a Volume. Only data volumes can be created.
@@ -288,6 +291,7 @@ export interface VolumeAttachParams {
 }
 
 Volumes.Availability = Availability;
+Volumes.Cost = Cost;
 
 export declare namespace Volumes {
   export {
@@ -306,5 +310,11 @@ export declare namespace Volumes {
     Availability as Availability,
     type AvailabilityCreateParams as AvailabilityCreateParams,
     type AvailabilityUpdateParams as AvailabilityUpdateParams,
+  };
+
+  export {
+    Cost as Cost,
+    type CostCreateParams as CostCreateParams,
+    type CostUpdateParams as CostUpdateParams,
   };
 }

@@ -32,6 +32,13 @@ Methods:
 - <code title="post /v1/nks/clusters/availability">client.nks.clusters.availability.<a href="./src/resources/nks/clusters/availability.ts">create</a>({ ...params }) -> void</code>
 - <code title="patch /v1/nks/clusters/{cluster_id}/availability">client.nks.clusters.availability.<a href="./src/resources/nks/clusters/availability.ts">update</a>(clusterID, { ...params }) -> void</code>
 
+### Cost
+
+Methods:
+
+- <code title="post /v1/nks/clusters/cost">client.nks.clusters.cost.<a href="./src/resources/nks/clusters/cost.ts">create</a>({ ...params }) -> CostQuote</code>
+- <code title="patch /v1/nks/clusters/{cluster_id}/cost">client.nks.clusters.cost.<a href="./src/resources/nks/clusters/cost.ts">update</a>(clusterID, { ...params }) -> CostQuoteUpdate</code>
+
 ### PersistentVolumeClaims
 
 Types:
@@ -116,6 +123,13 @@ Methods:
 
 - <code title="post /v1/nks/clusters/{cluster_id}/pools/availability">client.nks.clusters.pools.availability.<a href="./src/resources/nks/clusters/pools/availability.ts">create</a>(clusterID, { ...params }) -> void</code>
 - <code title="patch /v1/nks/clusters/{cluster_id}/pools/{pool_id}/availability">client.nks.clusters.pools.availability.<a href="./src/resources/nks/clusters/pools/availability.ts">update</a>(poolID, { ...params }) -> void</code>
+
+#### Cost
+
+Methods:
+
+- <code title="post /v1/nks/clusters/{cluster_id}/pools/cost">client.nks.clusters.pools.cost.<a href="./src/resources/nks/clusters/pools/cost.ts">create</a>(clusterID, { ...params }) -> CostQuote</code>
+- <code title="patch /v1/nks/clusters/{cluster_id}/pools/{pool_id}/cost">client.nks.clusters.pools.cost.<a href="./src/resources/nks/clusters/pools/cost.ts">update</a>(poolID, { ...params }) -> CostQuoteUpdate</code>
 
 #### Nodes
 

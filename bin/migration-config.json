@@ -524,6 +524,43 @@
       ]
     },
     {
+      "base": "nks.clusters.pools.cost",
+      "name": "update",
+      "params": [
+        {
+          "type": "param",
+          "key": "pool_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ],
+      "oldParams": [
+        {
+          "type": "param",
+          "key": "cluster_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "pool_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ]
+    },
+    {
       "base": "nks.clusters.pools.nodes",
       "name": "get",
       "params": [

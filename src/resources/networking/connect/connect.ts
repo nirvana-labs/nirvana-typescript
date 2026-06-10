@@ -2,15 +2,15 @@
 
 import { APIResource } from '../../../core/resource';
 import * as Shared from '../../shared';
-import * as ConnectionsAPI from './connections';
+import * as RoutesAPI from './routes';
+import { RouteListParams, Routes } from './routes';
+import * as ConnectionsAPI from './connections/connections';
 import {
   ConnectionCreateParams,
   ConnectionListParams,
   ConnectionUpdateParams,
   Connections,
-} from './connections';
-import * as RoutesAPI from './routes';
-import { RouteListParams, Routes } from './routes';
+} from './connections/connections';
 import { Cursor } from '../../../core/pagination';
 
 export class Connect extends APIResource {

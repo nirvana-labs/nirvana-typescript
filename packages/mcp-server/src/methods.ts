@@ -269,6 +269,18 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/compute/vms/{vm_id}/availability',
   },
   {
+    clientCallName: 'client.compute.vms.cost.create',
+    fullyQualifiedName: 'compute.vms.cost.create',
+    httpMethod: 'post',
+    httpPath: '/v1/compute/vms/cost',
+  },
+  {
+    clientCallName: 'client.compute.vms.cost.update',
+    fullyQualifiedName: 'compute.vms.cost.update',
+    httpMethod: 'patch',
+    httpPath: '/v1/compute/vms/{vm_id}/cost',
+  },
+  {
     clientCallName: 'client.compute.vms.volumes.list',
     fullyQualifiedName: 'compute.vms.volumes.list',
     httpMethod: 'get',
@@ -335,6 +347,18 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/compute/volumes/{volume_id}/availability',
   },
   {
+    clientCallName: 'client.compute.volumes.cost.create',
+    fullyQualifiedName: 'compute.volumes.cost.create',
+    httpMethod: 'post',
+    httpPath: '/v1/compute/volumes/cost',
+  },
+  {
+    clientCallName: 'client.compute.volumes.cost.update',
+    fullyQualifiedName: 'compute.volumes.cost.update',
+    httpMethod: 'patch',
+    httpPath: '/v1/compute/volumes/{volume_id}/cost',
+  },
+  {
     clientCallName: 'client.networking.vpcs.create',
     fullyQualifiedName: 'networking.vpcs.create',
     httpMethod: 'post',
@@ -375,6 +399,18 @@ export const sdkMethods: SdkMethod[] = [
     fullyQualifiedName: 'networking.vpcs.availability.update',
     httpMethod: 'patch',
     httpPath: '/v1/networking/vpcs/{vpc_id}/availability',
+  },
+  {
+    clientCallName: 'client.networking.vpcs.cost.create',
+    fullyQualifiedName: 'networking.vpcs.cost.create',
+    httpMethod: 'post',
+    httpPath: '/v1/networking/vpcs/cost',
+  },
+  {
+    clientCallName: 'client.networking.vpcs.cost.update',
+    fullyQualifiedName: 'networking.vpcs.cost.update',
+    httpMethod: 'patch',
+    httpPath: '/v1/networking/vpcs/{vpc_id}/cost',
   },
   {
     clientCallName: 'client.networking.firewallRules.create',
@@ -435,6 +471,18 @@ export const sdkMethods: SdkMethod[] = [
     fullyQualifiedName: 'networking.connect.connections.list',
     httpMethod: 'get',
     httpPath: '/v1/networking/connect/connections',
+  },
+  {
+    clientCallName: 'client.networking.connect.connections.cost.create',
+    fullyQualifiedName: 'networking.connect.connections.cost.create',
+    httpMethod: 'post',
+    httpPath: '/v1/networking/connect/connections/cost',
+  },
+  {
+    clientCallName: 'client.networking.connect.connections.cost.update',
+    fullyQualifiedName: 'networking.connect.connections.cost.update',
+    httpMethod: 'patch',
+    httpPath: '/v1/networking/connect/connections/{connection_id}/cost',
   },
   {
     clientCallName: 'client.networking.connect.routes.list',
@@ -545,6 +593,18 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/nks/clusters/{cluster_id}/availability',
   },
   {
+    clientCallName: 'client.nks.clusters.cost.create',
+    fullyQualifiedName: 'nks.clusters.cost.create',
+    httpMethod: 'post',
+    httpPath: '/v1/nks/clusters/cost',
+  },
+  {
+    clientCallName: 'client.nks.clusters.cost.update',
+    fullyQualifiedName: 'nks.clusters.cost.update',
+    httpMethod: 'patch',
+    httpPath: '/v1/nks/clusters/{cluster_id}/cost',
+  },
+  {
     clientCallName: 'client.nks.clusters.persistentVolumeClaims.get',
     fullyQualifiedName: 'nks.clusters.persistentVolumeClaims.get',
     httpMethod: 'get',
@@ -645,6 +705,18 @@ export const sdkMethods: SdkMethod[] = [
     fullyQualifiedName: 'nks.clusters.pools.availability.update',
     httpMethod: 'patch',
     httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/availability',
+  },
+  {
+    clientCallName: 'client.nks.clusters.pools.cost.create',
+    fullyQualifiedName: 'nks.clusters.pools.cost.create',
+    httpMethod: 'post',
+    httpPath: '/v1/nks/clusters/{cluster_id}/pools/cost',
+  },
+  {
+    clientCallName: 'client.nks.clusters.pools.cost.update',
+    fullyQualifiedName: 'nks.clusters.pools.cost.update',
+    httpMethod: 'patch',
+    httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/cost',
   },
   {
     clientCallName: 'client.nks.clusters.pools.nodes.get',

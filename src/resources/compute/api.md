@@ -27,6 +27,13 @@ Methods:
 - <code title="post /v1/compute/vms/availability">client.compute.vms.availability.<a href="./src/resources/compute/vms/availability.ts">create</a>({ ...params }) -> void</code>
 - <code title="patch /v1/compute/vms/{vm_id}/availability">client.compute.vms.availability.<a href="./src/resources/compute/vms/availability.ts">update</a>(vmID, { ...params }) -> void</code>
 
+### Cost
+
+Methods:
+
+- <code title="post /v1/compute/vms/cost">client.compute.vms.cost.<a href="./src/resources/compute/vms/cost.ts">create</a>({ ...params }) -> CostQuote</code>
+- <code title="patch /v1/compute/vms/{vm_id}/cost">client.compute.vms.cost.<a href="./src/resources/compute/vms/cost.ts">update</a>(vmID, { ...params }) -> CostQuoteUpdate</code>
+
 ### Volumes
 
 Methods:
@@ -64,3 +71,10 @@ Methods:
 
 - <code title="post /v1/compute/volumes/availability">client.compute.volumes.availability.<a href="./src/resources/compute/volumes/availability.ts">create</a>({ ...params }) -> void</code>
 - <code title="patch /v1/compute/volumes/{volume_id}/availability">client.compute.volumes.availability.<a href="./src/resources/compute/volumes/availability.ts">update</a>(volumeID, { ...params }) -> void</code>
+
+### Cost
+
+Methods:
+
+- <code title="post /v1/compute/volumes/cost">client.compute.volumes.cost.<a href="./src/resources/compute/volumes/cost.ts">create</a>({ ...params }) -> CostQuote</code>
+- <code title="patch /v1/compute/volumes/{volume_id}/cost">client.compute.volumes.cost.<a href="./src/resources/compute/volumes/cost.ts">update</a>(volumeID, { ...params }) -> CostQuoteUpdate</code>

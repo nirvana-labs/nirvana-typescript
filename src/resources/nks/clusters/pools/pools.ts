@@ -6,6 +6,8 @@ import * as OperationsAPI from '../../../operations/operations';
 import * as VolumesAPI from '../../../compute/volumes/volumes';
 import * as AvailabilityAPI from './availability';
 import { Availability, AvailabilityCreateParams, AvailabilityUpdateParams } from './availability';
+import * as CostAPI from './cost';
+import { Cost, CostCreateParams, CostUpdateParams } from './cost';
 import * as NodesAPI from './nodes/nodes';
 import {
   NKSNode,
@@ -23,6 +25,7 @@ import { path } from '../../../../internal/utils/path';
 
 export class Pools extends APIResource {
   availability: AvailabilityAPI.Availability = new AvailabilityAPI.Availability(this._client);
+  cost: CostAPI.Cost = new CostAPI.Cost(this._client);
   nodes: NodesAPI.Nodes = new NodesAPI.Nodes(this._client);
 
   /**
@@ -357,6 +360,7 @@ export interface PoolDeleteParams {
 export interface PoolListParams extends CursorParams {}
 
 Pools.Availability = Availability;
+Pools.Cost = Cost;
 Pools.Nodes = Nodes;
 
 export declare namespace Pools {
@@ -379,6 +383,12 @@ export declare namespace Pools {
     Availability as Availability,
     type AvailabilityCreateParams as AvailabilityCreateParams,
     type AvailabilityUpdateParams as AvailabilityUpdateParams,
+  };
+
+  export {
+    Cost as Cost,
+    type CostCreateParams as CostCreateParams,
+    type CostUpdateParams as CostUpdateParams,
   };
 
   export {
