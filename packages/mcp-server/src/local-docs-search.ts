@@ -1624,6 +1624,11 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuote, err := client.Compute.VMs.Cost.New(context.TODO(), compute.VMCostNewParams{\n\t\tBootVolume: compute.VMCostNewParamsBootVolume{\n\t\t\tSize: 100,\n\t\t\tType: compute.VolumeTypeABS,\n\t\t},\n\t\tInstanceType:    "n1-standard-8",\n\t\tName:            "my-vm",\n\t\tOSImageName:     "ubuntu-noble-2026-05-18",\n\t\tProjectID:       "123e4567-e89b-12d3-a456-426614174000",\n\t\tPublicIPEnabled: true,\n\t\tRegion:          shared.RegionNameUsSva2,\n\t\tSSHKey: compute.SSHKeyRequestParam{\n\t\t\tPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2",\n\t\t},\n\t\tSubnetID: "123e4567-e89b-12d3-a456-426614174000",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuote.Currency)\n}\n',
       },
+      cli: {
+        method: 'cost create',
+        example:
+          "nirvana compute:vms:cost create \\\n  --api-key 'My API Key' \\\n  --boot-volume '{size: 100, type: abs}' \\\n  --instance-type n1-standard-8 \\\n  --name my-vm \\\n  --os-image-name ubuntu-noble-2026-05-18 \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --public-ip-enabled \\\n  --region us-sva-2 \\\n  --ssh-key '{public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBIASkmwNiLcdlW6927Zjt1Hf7Kw/PpEZ4Zm+wU9wn2}' \\\n  --subnet-id 123e4567-e89b-12d3-a456-426614174000",
+      },
     },
   },
   {
@@ -1660,6 +1665,10 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         method: 'client.Compute.VMs.Cost.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuoteUpdate, err := client.Compute.VMs.Cost.Update(\n\t\tcontext.TODO(),\n\t\t"vm_id",\n\t\tcompute.VMCostUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuoteUpdate.After)\n}\n',
+      },
+      cli: {
+        method: 'cost update',
+        example: "nirvana compute:vms:cost update \\\n  --api-key 'My API Key' \\\n  --vm-id vm_id",
       },
     },
   },
@@ -2088,6 +2097,11 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuote, err := client.Compute.Volumes.Cost.New(context.TODO(), compute.VolumeCostNewParams{\n\t\tName:      "my-data-volume",\n\t\tProjectID: "123e4567-e89b-12d3-a456-426614174000",\n\t\tRegion:    shared.RegionNameUsSva2,\n\t\tSize:      100,\n\t\tType:      compute.VolumeTypeABS,\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuote.Currency)\n}\n',
       },
+      cli: {
+        method: 'cost create',
+        example:
+          "nirvana compute:volumes:cost create \\\n  --api-key 'My API Key' \\\n  --name my-data-volume \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --region us-sva-2 \\\n  --size 100 \\\n  --type abs",
+      },
     },
   },
   {
@@ -2118,6 +2132,11 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         method: 'client.Compute.Volumes.Cost.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuoteUpdate, err := client.Compute.Volumes.Cost.Update(\n\t\tcontext.TODO(),\n\t\t"volume_id",\n\t\tcompute.VolumeCostUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuoteUpdate.After)\n}\n',
+      },
+      cli: {
+        method: 'cost update',
+        example:
+          "nirvana compute:volumes:cost update \\\n  --api-key 'My API Key' \\\n  --volume-id volume_id",
       },
     },
   },
@@ -2404,6 +2423,11 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/networking"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuote, err := client.Networking.VPCs.Cost.New(context.TODO(), networking.VPCCostNewParams{\n\t\tName:       "my-vpc",\n\t\tProjectID:  "123e4567-e89b-12d3-a456-426614174000",\n\t\tRegion:     shared.RegionNameUsSva2,\n\t\tSubnetName: "my-subnet",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuote.Currency)\n}\n',
       },
+      cli: {
+        method: 'cost create',
+        example:
+          "nirvana networking:vpcs:cost create \\\n  --api-key 'My API Key' \\\n  --name my-vpc \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --region us-sva-2 \\\n  --subnet-name my-subnet",
+      },
     },
   },
   {
@@ -2434,6 +2458,10 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         method: 'client.Networking.VPCs.Cost.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/networking"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuoteUpdate, err := client.Networking.VPCs.Cost.Update(\n\t\tcontext.TODO(),\n\t\t"vpc_id",\n\t\tnetworking.VPCCostUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuoteUpdate.After)\n}\n',
+      },
+      cli: {
+        method: 'cost update',
+        example: "nirvana networking:vpcs:cost update \\\n  --api-key 'My API Key' \\\n  --vpc-id vpc_id",
       },
     },
   },
@@ -2849,6 +2877,11 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/networking"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuote, err := client.Networking.Connect.Connections.Cost.New(context.TODO(), networking.ConnectConnectionCostNewParams{\n\t\tBandwidthMbps: 50,\n\t\tCIDRs:         []string{"10.0.0.0/16"},\n\t\tName:          "my-connect-connection",\n\t\tProjectID:     "123e4567-e89b-12d3-a456-426614174000",\n\t\tProviderCIDRs: []string{"172.16.0.0/16"},\n\t\tRegion:        shared.RegionNameUsSva2,\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuote.Currency)\n}\n',
       },
+      cli: {
+        method: 'cost create',
+        example:
+          "nirvana networking:connect:connections:cost create \\\n  --api-key 'My API Key' \\\n  --bandwidth-mbps 50 \\\n  --cidr 10.0.0.0/16 \\\n  --name my-connect-connection \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --provider-cidr 172.16.0.0/16 \\\n  --region us-sva-2",
+      },
     },
   },
   {
@@ -2879,6 +2912,11 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         method: 'client.Networking.Connect.Connections.Cost.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/networking"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuoteUpdate, err := client.Networking.Connect.Connections.Cost.Update(\n\t\tcontext.TODO(),\n\t\t"connection_id",\n\t\tnetworking.ConnectConnectionCostUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuoteUpdate.After)\n}\n',
+      },
+      cli: {
+        method: 'cost update',
+        example:
+          "nirvana networking:connect:connections:cost update \\\n  --api-key 'My API Key' \\\n  --connection-id connection_id",
       },
     },
   },
@@ -3547,6 +3585,11 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n\t"github.com/nirvana-labs/nirvana-go/shared"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuote, err := client.NKS.Clusters.Cost.New(context.TODO(), nks.ClusterCostNewParams{\n\t\tAutoscaling:       true,\n\t\tKubernetesVersion: "v1.34.4",\n\t\tName:              "my-cluster",\n\t\tProjectID:         "123e4567-e89b-12d3-a456-426614174000",\n\t\tRegion:            shared.RegionNameUsSva2,\n\t\tVPCID:             "123e4567-e89b-12d3-a456-426614174000",\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuote.Currency)\n}\n',
       },
+      cli: {
+        method: 'cost create',
+        example:
+          "nirvana nks:clusters:cost create \\\n  --api-key 'My API Key' \\\n  --autoscaling \\\n  --kubernetes-version v1.34.4 \\\n  --name my-cluster \\\n  --project-id 123e4567-e89b-12d3-a456-426614174000 \\\n  --region us-sva-2 \\\n  --vpc-id 123e4567-e89b-12d3-a456-426614174000",
+      },
     },
   },
   {
@@ -3577,6 +3620,11 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         method: 'client.NKS.Clusters.Cost.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuoteUpdate, err := client.NKS.Clusters.Cost.Update(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\tnks.ClusterCostUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuoteUpdate.After)\n}\n',
+      },
+      cli: {
+        method: 'cost update',
+        example:
+          "nirvana nks:clusters:cost update \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id",
       },
     },
   },
@@ -4229,6 +4277,11 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/compute"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuote, err := client.NKS.Clusters.Pools.Cost.New(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\tnks.ClusterPoolCostNewParams{\n\t\t\tName: "my-node-pool",\n\t\t\tNodeConfig: nks.NKSNodePoolNodeConfigParam{\n\t\t\t\tBootVolume: nks.NKSNodePoolBootVolumeParam{\n\t\t\t\t\tSize: 100,\n\t\t\t\t\tType: compute.VolumeTypeABS,\n\t\t\t\t},\n\t\t\t\tInstanceType: "n1-standard-8",\n\t\t\t},\n\t\t\tNodeCount: 3,\n\t\t},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuote.Currency)\n}\n',
       },
+      cli: {
+        method: 'cost create',
+        example:
+          "nirvana nks:clusters:pools:cost create \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --name my-node-pool \\\n  --node-config '{boot_volume: {size: 100, type: abs}, instance_type: n1-standard-8}' \\\n  --node-count 3",
+      },
     },
   },
   {
@@ -4266,6 +4319,11 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         method: 'client.NKS.Clusters.Pools.Cost.Update',
         example:
           'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/nks"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\tcostQuoteUpdate, err := client.NKS.Clusters.Pools.Cost.Update(\n\t\tcontext.TODO(),\n\t\t"cluster_id",\n\t\t"pool_id",\n\t\tnks.ClusterPoolCostUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", costQuoteUpdate.After)\n}\n',
+      },
+      cli: {
+        method: 'cost update',
+        example:
+          "nirvana nks:clusters:pools:cost update \\\n  --api-key 'My API Key' \\\n  --cluster-id cluster_id \\\n  --pool-id pool_id",
       },
     },
   },
