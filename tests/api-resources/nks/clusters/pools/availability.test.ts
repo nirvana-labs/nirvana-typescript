@@ -16,7 +16,6 @@ describe('resource availability', () => {
         boot_volume: { size: 100, type: 'abs' },
         instance_type: 'n1-standard-8',
       },
-      node_count: 3,
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
