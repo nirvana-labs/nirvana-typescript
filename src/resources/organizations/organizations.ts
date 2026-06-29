@@ -131,11 +131,6 @@ export interface Organization {
   domains: Array<OrganizationDomain>;
 
   /**
-   * Metronome customer ID.
-   */
-  metronome_customer_id: string | null;
-
-  /**
    * Organization name.
    */
   name: string;
