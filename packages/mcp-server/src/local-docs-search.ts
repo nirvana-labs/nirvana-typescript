@@ -768,6 +768,37 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     },
   },
   {
+    name: 'summary',
+    endpoint: '/v1/organizations/{organization_id}/billing/summary',
+    httpMethod: 'get',
+    summary: 'Get Organization Billing Summary',
+    description:
+      "Get the organization's billing summary: effective balance, monthly and daily run-rate cost, runway, and the projected next-recharge date. Costs are run-rate projections.",
+    stainlessPath: '(resource) organizations.billing > (method) summary',
+    qualified: 'client.organizations.billing.summary',
+    params: ['organization_id: string;'],
+    response:
+      '{ daily_cost: string; effective_balance: string; monthly_cost: string; recharge_threshold_fraction: string; estimated_next_charge_at?: string; runway_months?: string; }',
+    markdown:
+      "## summary\n\n`client.organizations.billing.summary(organization_id: string): { daily_cost: string; effective_balance: string; monthly_cost: string; recharge_threshold_fraction: string; estimated_next_charge_at?: string; runway_months?: string; }`\n\n**get** `/v1/organizations/{organization_id}/billing/summary`\n\nGet the organization's billing summary: effective balance, monthly and daily run-rate cost, runway, and the projected next-recharge date. Costs are run-rate projections.\n\n### Parameters\n\n- `organization_id: string`\n\n### Returns\n\n- `{ daily_cost: string; effective_balance: string; monthly_cost: string; recharge_threshold_fraction: string; estimated_next_charge_at?: string; runway_months?: string; }`\n  Forward-looking billing summary for an organization. All costs are run-rate projections from the organization's current active usage (\"≈ $X/mo at current usage\").\n\n  - `daily_cost: string`\n  - `effective_balance: string`\n  - `monthly_cost: string`\n  - `recharge_threshold_fraction: string`\n  - `estimated_next_charge_at?: string`\n  - `runway_months?: string`\n\n### Example\n\n```typescript\nimport NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs();\n\nconst organizationBillingSummary = await client.organizations.billing.summary('organization_id');\n\nconsole.log(organizationBillingSummary);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.organizations.billing.summary',
+        example:
+          "import NirvanaLabs from '@nirvana-labs/nirvana';\n\nconst client = new NirvanaLabs({\n  apiKey: process.env['NIRVANA_LABS_API_KEY'], // This is the default and can be omitted\n});\n\nconst organizationBillingSummary = await client.organizations.billing.summary('organization_id');\n\nconsole.log(organizationBillingSummary.daily_cost);",
+      },
+      http: {
+        example:
+          'curl https://api.nirvanalabs.io/v1/organizations/$ORGANIZATION_ID/billing/summary \\\n    -H "Authorization: Bearer $NIRVANA_LABS_API_KEY"',
+      },
+      go: {
+        method: 'client.Organizations.Billing.Summary',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/nirvana-labs/nirvana-go"\n\t"github.com/nirvana-labs/nirvana-go/option"\n)\n\nfunc main() {\n\tclient := nirvana.NewClient(\n\t\toption.WithAPIKey("My API Key"),\n\t)\n\torganizationBillingSummary, err := client.Organizations.Billing.Summary(context.TODO(), "organization_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", organizationBillingSummary.DailyCost)\n}\n',
+      },
+    },
+  },
+  {
     name: 'get',
     endpoint: '/v1/quotas/{region}',
     httpMethod: 'get',
