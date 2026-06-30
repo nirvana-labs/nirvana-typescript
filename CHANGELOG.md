@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.92.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.91.11...v1.92.0) (2026-06-30)
+
+
+### Features
+
+* **stainless:** wire organizations.billing.summary into SDK config ([ec0e036](https://github.com/nirvana-labs/nirvana-typescript/commit/ec0e03667b43de76489fece7c8191bb65ca474eb))
+
+
+### Chores
+
+* update SDK ([e02dd0a](https://github.com/nirvana-labs/nirvana-typescript/commit/e02dd0a0995de8f87959bfb5b80b6422b437157a))
+
 ## [1.91.11](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.91.10...v1.91.11) (2026-06-29)
 
 
