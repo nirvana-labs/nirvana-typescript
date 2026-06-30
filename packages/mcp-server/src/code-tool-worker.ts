@@ -128,6 +128,7 @@ const fuse = new Fuse(
     'client.organizations.address.create',
     'client.organizations.address.get',
     'client.organizations.address.update',
+    'client.organizations.billing.summary',
     'client.quotas.get',
     'client.quotas.list',
     'client.usage.get',

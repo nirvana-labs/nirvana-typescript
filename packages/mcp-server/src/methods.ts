@@ -131,6 +131,12 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/organizations/{organization_id}/address',
   },
   {
+    clientCallName: 'client.organizations.billing.summary',
+    fullyQualifiedName: 'organizations.billing.summary',
+    httpMethod: 'get',
+    httpPath: '/v1/organizations/{organization_id}/billing/summary',
+  },
+  {
     clientCallName: 'client.quotas.get',
     fullyQualifiedName: 'quotas.get',
     httpMethod: 'get',
