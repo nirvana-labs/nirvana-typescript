@@ -5,7 +5,7 @@ import * as Shared from '../shared';
 import * as AddressAPI from './address';
 import { Address, AddressCreateParams, AddressUpdateParams, OrganizationAddress } from './address';
 import * as BillingAPI from './billing';
-import { Billing, OrganizationBillingSummary } from './billing';
+import { Billing } from './billing';
 import * as MembershipsAPI from './memberships';
 import {
   MembershipGetParams,
@@ -122,6 +122,21 @@ export interface Organization {
    * owner's email).
    */
   billing_email: string | null;
+
+  /**
+   * Organization billing lifecycle state.
+   */
+  billing_state: 'unfunded' | 'active' | 'requires_action' | 'suspended' | 'closed';
+
+  /**
+   * When the organization entered its current billing state.
+   */
+  billing_state_since: string;
+
+  /**
+   * How the organization is charged for resource usage.
+   */
+  charging_model: 'manual' | 'prepaid';
 
   /**
    * When the Organization was created.
@@ -293,5 +308,5 @@ export declare namespace Organizations {
     type AddressUpdateParams as AddressUpdateParams,
   };
 
-  export { Billing as Billing, type OrganizationBillingSummary as OrganizationBillingSummary };
+  export { Billing as Billing };
 }

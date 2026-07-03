@@ -836,6 +836,7 @@ export declare namespace NirvanaLabs {
 
   export type CostQuote = API.CostQuote;
   export type CostQuoteUpdate = API.CostQuoteUpdate;
+  export type OrganizationBillingSummary = API.OrganizationBillingSummary;
   export type Pagination = API.Pagination;
   export type RegionName = API.RegionName;
   export type ResourceStatus = API.ResourceStatus;

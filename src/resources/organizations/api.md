@@ -42,10 +42,6 @@ Methods:
 
 ## Billing
 
-Types:
-
-- <code><a href="./src/resources/organizations/billing.ts">OrganizationBillingSummary</a></code>
-
 Methods:
 
 - <code title="get /v1/organizations/{organization_id}/billing/summary">client.organizations.billing.<a href="./src/resources/organizations/billing.ts">summary</a>(organizationID) -> OrganizationBillingSummary</code>

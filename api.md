@@ -4,6 +4,7 @@ Types:
 
 - <code><a href="./src/resources/shared.ts">CostQuote</a></code>
 - <code><a href="./src/resources/shared.ts">CostQuoteUpdate</a></code>
+- <code><a href="./src/resources/shared.ts">OrganizationBillingSummary</a></code>
 - <code><a href="./src/resources/shared.ts">Pagination</a></code>
 - <code><a href="./src/resources/shared.ts">RegionName</a></code>
 - <code><a href="./src/resources/shared.ts">ResourceStatus</a></code>

@@ -1,7 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 /**
- * Cost quote returned by POST /cost.
+ * Cost quote returned by POST /cost. current_summary and updated_summary hold the
+ * org billing summary now and with this resource; omitted when the caller cannot
+ * view billing.
  */
 export interface CostQuote {
   /**
@@ -23,6 +25,20 @@ export interface CostQuote {
    * Priced rows, one per usage dimension emitted by the resource.
    */
   usage_dimensions: Array<CostQuote.UsageDimension>;
+
+  /**
+   * Forward-looking billing summary for an organization. All costs are run-rate
+   * projections from the organization's current active usage ("≈ $X/mo at current
+   * usage").
+   */
+  current_summary?: OrganizationBillingSummary;
+
+  /**
+   * Forward-looking billing summary for an organization. All costs are run-rate
+   * projections from the organization's current active usage ("≈ $X/mo at current
+   * usage").
+   */
+  updated_summary?: OrganizationBillingSummary;
 }
 
 export namespace CostQuote {
@@ -58,8 +74,9 @@ export namespace CostQuote {
 }
 
 /**
- * Cost quote returned by PATCH /:id/cost: the current-state quote, the post-update
- * quote, and the signed diff.
+ * Cost quote returned by PATCH /:id/cost: current-state quote, post-update quote,
+ * and signed diff. current_summary and updated_summary omitted when the caller
+ * cannot view billing.
  */
 export interface CostQuoteUpdate {
   /**
@@ -86,6 +103,20 @@ export interface CostQuoteUpdate {
    * Timestamp the quote was priced at.
    */
   priced_at: string;
+
+  /**
+   * Forward-looking billing summary for an organization. All costs are run-rate
+   * projections from the organization's current active usage ("≈ $X/mo at current
+   * usage").
+   */
+  current_summary?: OrganizationBillingSummary;
+
+  /**
+   * Forward-looking billing summary for an organization. All costs are run-rate
+   * projections from the organization's current active usage ("≈ $X/mo at current
+   * usage").
+   */
+  updated_summary?: OrganizationBillingSummary;
 }
 
 export namespace CostQuoteUpdate {
@@ -265,6 +296,44 @@ export namespace CostQuoteUpdate {
       }
     }
   }
+}
+
+/**
+ * Forward-looking billing summary for an organization. All costs are run-rate
+ * projections from the organization's current active usage ("≈ $X/mo at current
+ * usage").
+ */
+export interface OrganizationBillingSummary {
+  /**
+   * Arbitrary-precision decimal serialized as a string (e.g. "58.40").
+   */
+  daily_cost: string;
+
+  /**
+   * Arbitrary-precision decimal serialized as a string (e.g. "58.40").
+   */
+  effective_balance: string;
+
+  /**
+   * Arbitrary-precision decimal serialized as a string (e.g. "58.40").
+   */
+  monthly_cost: string;
+
+  /**
+   * Arbitrary-precision decimal serialized as a string (e.g. "58.40").
+   */
+  recharge_threshold_fraction: string;
+
+  /**
+   * Projected date the balance reaches the recharge threshold at the current
+   * run-rate. Null when there is no active usage (never charges).
+   */
+  estimated_next_charge_at?: string | null;
+
+  /**
+   * Arbitrary-precision decimal serialized as a string (e.g. "58.40").
+   */
+  runway_months?: string | null;
 }
 
 /**
