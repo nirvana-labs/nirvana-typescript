@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.93.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.92.1...v1.93.0) (2026-06-30)
+
+
+### Features
+
+* **cli:** enable organizations.billing.summary on the CLI target ([3e6d52e](https://github.com/nirvana-labs/nirvana-typescript/commit/3e6d52e15116a05dfc9e4e0db544999afedd008a))
+
 ## [1.92.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.92.0...v1.92.1) (2026-06-30)
 
 
