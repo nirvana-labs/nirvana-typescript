@@ -60,7 +60,6 @@ describe('resource availability', () => {
     const response = await client.nks.clusters.pools.availability.update('pool_id', {
       cluster_id: 'cluster_id',
       name: 'my-node-pool',
-      node_config: { labels: ['env=prod', 'team=platform'] },
       node_count: 5,
       tags: ['production', 'ethereum'],
     });

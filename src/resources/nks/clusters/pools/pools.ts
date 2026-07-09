@@ -235,20 +235,21 @@ export interface NKSNodePoolNodeConfig {
   boot_volume: NKSNodePoolBootVolume;
 
   /**
-   * Instance type name used for worker nodes.
+   * Instance type name used for worker nodes. Immutable after pool creation.
    */
   instance_type: string;
 
   /**
    * Kubernetes labels to apply to each node in the pool. Each entry is "key=value".
    * Keys under kubernetes.io, k8s.io, and nirvanalabs.io prefixes are reserved.
+   * Immutable after pool creation.
    */
   labels?: Array<string>;
 
   /**
    * Kubernetes taints to apply to each node in the pool at creation time. Each entry
    * is "key=value:Effect" where Effect is NoSchedule, PreferNoSchedule, or
-   * NoExecute. Taints are immutable after pool creation.
+   * NoExecute. Immutable after pool creation.
    */
   taints?: Array<string>;
 }
@@ -320,11 +321,6 @@ export interface PoolUpdateParams {
   name?: string;
 
   /**
-   * Body param: Partial node configuration update.
-   */
-  node_config?: PoolUpdateParams.NodeConfig;
-
-  /**
    * Body param: Number of nodes.
    */
   node_count?: number;
@@ -333,20 +329,6 @@ export interface PoolUpdateParams {
    * Body param: Tags to attach to the node pool.
    */
   tags?: Array<string>;
-}
-
-export namespace PoolUpdateParams {
-  /**
-   * Partial node configuration update.
-   */
-  export interface NodeConfig {
-    /**
-     * Kubernetes labels to apply to each node in the pool. Each entry is "key=value".
-     * When provided, the list fully replaces the current labels on the pool and on
-     * live nodes.
-     */
-    labels?: Array<string>;
-  }
 }
 
 export interface PoolDeleteParams {
