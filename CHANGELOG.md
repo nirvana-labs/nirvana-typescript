@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.94.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.93.3...v1.94.0) (2026-07-10)
+
+
+### Features
+
+* **stainless:** wire billing cost, history, and top-up into SDK config ([6b8ea81](https://github.com/nirvana-labs/nirvana-typescript/commit/6b8ea815ae3dc3bb4d2c6509ffc5901f8309918c))
+
 ## [1.93.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.93.2...v1.93.3) (2026-07-09)
 
 
