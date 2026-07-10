@@ -5,7 +5,17 @@ import * as Shared from '../shared';
 import * as AddressAPI from './address';
 import { Address, AddressCreateParams, AddressUpdateParams, OrganizationAddress } from './address';
 import * as BillingAPI from './billing';
-import { Billing } from './billing';
+import {
+  Billing,
+  BillingCostParams,
+  BillingHistoryEntry,
+  BillingHistoryEntryList,
+  BillingHistoryEntryType,
+  BillingHistoryParams,
+  BillingTopUpParams,
+  DailyCostPoint,
+  OrganizationDailyCost,
+} from './billing';
 import * as MembershipsAPI from './memberships';
 import {
   MembershipGetParams,
@@ -308,5 +318,15 @@ export declare namespace Organizations {
     type AddressUpdateParams as AddressUpdateParams,
   };
 
-  export { Billing as Billing };
+  export {
+    Billing as Billing,
+    type BillingHistoryEntry as BillingHistoryEntry,
+    type BillingHistoryEntryList as BillingHistoryEntryList,
+    type BillingHistoryEntryType as BillingHistoryEntryType,
+    type DailyCostPoint as DailyCostPoint,
+    type OrganizationDailyCost as OrganizationDailyCost,
+    type BillingCostParams as BillingCostParams,
+    type BillingHistoryParams as BillingHistoryParams,
+    type BillingTopUpParams as BillingTopUpParams,
+  };
 }

@@ -107,11 +107,15 @@ client.example.list(undefined, { headers: { ... } });
 + client.example.list({}, { headers: { ... } });
 ```
 
-This affects the following methods:
+<details>
+
+<summary>This affects the following methods</summary>
 
 - `client.apiKeys.list()`
 - `client.organizations.list()`
 - `client.organizations.memberships.list()`
+- `client.organizations.billing.cost()`
+- `client.organizations.billing.history()`
 - `client.usage.list()`
 - `client.auditLogs.list()`
 - `client.projects.list()`
@@ -128,6 +132,8 @@ This affects the following methods:
 - `client.nks.clusters.controllers.list()`
 - `client.nks.clusters.loadBalancers.list()`
 - `client.nks.clusters.pools.list()`
+
+</details>
 
 ### Removed `httpAgent` in favor of `fetchOptions`
 

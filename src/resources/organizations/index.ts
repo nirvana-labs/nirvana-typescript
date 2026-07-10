@@ -6,7 +6,17 @@ export {
   type AddressCreateParams,
   type AddressUpdateParams,
 } from './address';
-export { Billing } from './billing';
+export {
+  Billing,
+  type BillingHistoryEntry,
+  type BillingHistoryEntryList,
+  type BillingHistoryEntryType,
+  type DailyCostPoint,
+  type OrganizationDailyCost,
+  type BillingCostParams,
+  type BillingHistoryParams,
+  type BillingTopUpParams,
+} from './billing';
 export {
   Memberships,
   type OrganizationMembership,

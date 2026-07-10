@@ -42,6 +42,17 @@ Methods:
 
 ## Billing
 
+Types:
+
+- <code><a href="./src/resources/organizations/billing.ts">BillingHistoryEntry</a></code>
+- <code><a href="./src/resources/organizations/billing.ts">BillingHistoryEntryList</a></code>
+- <code><a href="./src/resources/organizations/billing.ts">BillingHistoryEntryType</a></code>
+- <code><a href="./src/resources/organizations/billing.ts">DailyCostPoint</a></code>
+- <code><a href="./src/resources/organizations/billing.ts">OrganizationDailyCost</a></code>
+
 Methods:
 
 - <code title="get /v1/organizations/{organization_id}/billing/summary">client.organizations.billing.<a href="./src/resources/organizations/billing.ts">summary</a>(organizationID) -> OrganizationBillingSummary</code>
+- <code title="get /v1/organizations/{organization_id}/billing/cost">client.organizations.billing.<a href="./src/resources/organizations/billing.ts">cost</a>(organizationID, { ...params }) -> OrganizationDailyCost</code>
+- <code title="get /v1/organizations/{organization_id}/billing/history">client.organizations.billing.<a href="./src/resources/organizations/billing.ts">history</a>(organizationID, { ...params }) -> BillingHistoryEntryList</code>
+- <code title="post /v1/organizations/{organization_id}/billing/topup">client.organizations.billing.<a href="./src/resources/organizations/billing.ts">topUp</a>(organizationID, { ...params }) -> OrganizationBillingSummary</code>
