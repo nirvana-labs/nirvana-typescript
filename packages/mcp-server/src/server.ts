@@ -28,7 +28,7 @@ export const newMcpServer = async ({
   new McpServer(
     {
       name: 'nirvana_labs_nirvana_api',
-      version: '1.93.3',
+      version: '1.94.0',
     },
     {
       instructions: await getInstructions({ stainlessApiKey, customInstructionsPath }),
