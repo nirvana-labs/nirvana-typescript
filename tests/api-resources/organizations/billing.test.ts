@@ -38,7 +38,7 @@ describe('resource billing', () => {
     await expect(
       client.organizations.billing.cost(
         'organization_id',
-        { from: 'from', to: 'to' },
+        { from: '2019-12-27', to: '2019-12-27' },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
@@ -70,7 +70,10 @@ describe('resource billing', () => {
 
   // Mock server tests are disabled
   test.skip('topUp: only required params', async () => {
-    const responsePromise = client.organizations.billing.topUp('organization_id', { amount: '-69125' });
+    const responsePromise = client.organizations.billing.topUp('organization_id', {
+      amount: '50.00',
+      'Idempotency-Key': 'Idempotency-Key',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -83,7 +86,7 @@ describe('resource billing', () => {
   // Mock server tests are disabled
   test.skip('topUp: required and optional params', async () => {
     const response = await client.organizations.billing.topUp('organization_id', {
-      amount: '-69125',
+      amount: '50.00',
       'Idempotency-Key': 'Idempotency-Key',
     });
   });

@@ -67,16 +67,19 @@ export class Billing extends APIResource {
   }
 
   /**
-   * Charge the organization's card on file and credit its prepaid balance. Send an
-   * Idempotency-Key header to make retries safe; responds 402 when the card cannot
-   * be charged.
+   * Charge the card on file and credit the prepaid balance. A unique Idempotency-Key
+   * header is required; reuse it across retries so a timed-out top-up is not charged
+   * twice.
    *
    * @example
    * ```ts
    * const organizationBillingSummary =
    *   await client.organizations.billing.topUp(
    *     'organization_id',
-   *     { amount: '-69125' },
+   *     {
+   *       amount: '50.00',
+   *       'Idempotency-Key': 'Idempotency-Key',
+   *     },
    *   );
    * ```
    */
@@ -89,10 +92,7 @@ export class Billing extends APIResource {
     return this._client.post(path`/v1/organizations/${organizationID}/billing/topup`, {
       body,
       ...options,
-      headers: buildHeaders([
-        { ...(idempotencyKey != null ? { 'Idempotency-Key': idempotencyKey } : undefined) },
-        options?.headers,
-      ]),
+      headers: buildHeaders([{ 'Idempotency-Key': idempotencyKey }, options?.headers]),
     });
   }
 }
@@ -213,14 +213,16 @@ export interface BillingHistoryParams {
 
 export interface BillingTopUpParams {
   /**
-   * Body param: Arbitrary-precision decimal serialized as a string (e.g. "58.40").
+   * Body param: Amount to charge and credit, in USD. Must be greater than 0, at most
+   * two decimal places, and at most 10000.
    */
   amount: string;
 
   /**
-   * Header param: Idempotency key scoping the charge so retries do not charge twice
+   * Header param: Unique idempotency key scoping the charge; reuse the same value
+   * across retries so a timed-out top-up is not charged twice
    */
-  'Idempotency-Key'?: string;
+  'Idempotency-Key': string;
 }
 
 export declare namespace Billing {
