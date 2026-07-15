@@ -130,6 +130,13 @@ export interface BillingHistoryEntry {
    * Human-readable note describing the entry, when available.
    */
   description?: string | null;
+
+  /**
+   * Link to the hosted receipt for the payment behind this entry, when one is
+   * available. Present for prepaid credits funded by a card charge; absent for
+   * manual adjustments and while a payment's receipt is still being finalized.
+   */
+  receipt_url?: string | null;
 }
 
 export interface BillingHistoryEntryList {
