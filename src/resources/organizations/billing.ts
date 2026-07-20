@@ -95,6 +95,32 @@ export class Billing extends APIResource {
       headers: buildHeaders([{ 'Idempotency-Key': idempotencyKey }, options?.headers]),
     });
   }
+
+  /**
+   * Charge the card on file up to the recharge target now instead of waiting for the
+   * scheduled retry. Automatic-policy prepaid organizations only. Idempotency-Key
+   * header required.
+   *
+   * @example
+   * ```ts
+   * const organizationBillingSummary =
+   *   await client.organizations.billing.recharge(
+   *     'organization_id',
+   *     { 'Idempotency-Key': 'Idempotency-Key' },
+   *   );
+   * ```
+   */
+  recharge(
+    organizationID: string,
+    params: BillingRechargeParams,
+    options?: RequestOptions,
+  ): APIPromise<Shared.OrganizationBillingSummary> {
+    const { 'Idempotency-Key': idempotencyKey } = params;
+    return this._client.post(path`/v1/organizations/${organizationID}/billing/recharge`, {
+      ...options,
+      headers: buildHeaders([{ 'Idempotency-Key': idempotencyKey }, options?.headers]),
+    });
+  }
 }
 
 /**
@@ -232,6 +258,14 @@ export interface BillingTopUpParams {
   'Idempotency-Key': string;
 }
 
+export interface BillingRechargeParams {
+  /**
+   * Idempotency key scoping one charge attempt; reuse to retry it, but use a fresh
+   * key for a new attempt (e.g. after updating a declined card)
+   */
+  'Idempotency-Key': string;
+}
+
 export declare namespace Billing {
   export {
     type BillingHistoryEntry as BillingHistoryEntry,
@@ -242,5 +276,6 @@ export declare namespace Billing {
     type BillingCostParams as BillingCostParams,
     type BillingHistoryParams as BillingHistoryParams,
     type BillingTopUpParams as BillingTopUpParams,
+    type BillingRechargeParams as BillingRechargeParams,
   };
 }
