@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.95.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.94.4...v1.95.0) (2026-07-20)
+
+
+### Features
+
+* **stainless:** add billing recharge endpoint and wire into SDK config ([1a866a7](https://github.com/nirvana-labs/nirvana-typescript/commit/1a866a7d1a6edb4f7c0199cfc56b760d2cc9b410))
+
 ## [1.94.4](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.94.3...v1.94.4) (2026-07-15)
 
 
