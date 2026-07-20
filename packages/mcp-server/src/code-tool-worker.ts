@@ -130,6 +130,7 @@ const fuse = new Fuse(
     'client.organizations.address.update',
     'client.organizations.billing.cost',
     'client.organizations.billing.history',
+    'client.organizations.billing.recharge',
     'client.organizations.billing.summary',
     'client.organizations.billing.topUp',
     'client.quotas.get',

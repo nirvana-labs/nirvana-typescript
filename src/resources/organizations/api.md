@@ -56,3 +56,4 @@ Methods:
 - <code title="get /v1/organizations/{organization_id}/billing/cost">client.organizations.billing.<a href="./src/resources/organizations/billing.ts">cost</a>(organizationID, { ...params }) -> OrganizationDailyCost</code>
 - <code title="get /v1/organizations/{organization_id}/billing/history">client.organizations.billing.<a href="./src/resources/organizations/billing.ts">history</a>(organizationID, { ...params }) -> BillingHistoryEntryList</code>
 - <code title="post /v1/organizations/{organization_id}/billing/topup">client.organizations.billing.<a href="./src/resources/organizations/billing.ts">topUp</a>(organizationID, { ...params }) -> OrganizationBillingSummary</code>
+- <code title="post /v1/organizations/{organization_id}/billing/recharge">client.organizations.billing.<a href="./src/resources/organizations/billing.ts">recharge</a>(organizationID, { ...params }) -> OrganizationBillingSummary</code>

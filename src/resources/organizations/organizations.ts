@@ -12,6 +12,7 @@ import {
   BillingHistoryEntryList,
   BillingHistoryEntryType,
   BillingHistoryParams,
+  BillingRechargeParams,
   BillingTopUpParams,
   DailyCostPoint,
   OrganizationDailyCost,
@@ -328,5 +329,6 @@ export declare namespace Organizations {
     type BillingCostParams as BillingCostParams,
     type BillingHistoryParams as BillingHistoryParams,
     type BillingTopUpParams as BillingTopUpParams,
+    type BillingRechargeParams as BillingRechargeParams,
   };
 }

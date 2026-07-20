@@ -155,6 +155,12 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/organizations/{organization_id}/billing/topup',
   },
   {
+    clientCallName: 'client.organizations.billing.recharge',
+    fullyQualifiedName: 'organizations.billing.recharge',
+    httpMethod: 'post',
+    httpPath: '/v1/organizations/{organization_id}/billing/recharge',
+  },
+  {
     clientCallName: 'client.quotas.get',
     fullyQualifiedName: 'quotas.get',
     httpMethod: 'get',
