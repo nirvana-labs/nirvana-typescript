@@ -17,7 +17,7 @@ export {
   type BillingHistoryParams,
   type BillingTopUpParams,
   type BillingRechargeParams,
-} from './billing';
+} from './billing/index';
 export {
   Memberships,
   type OrganizationMembership,
