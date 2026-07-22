@@ -4,7 +4,16 @@ import { APIResource } from '../../core/resource';
 import * as Shared from '../shared';
 import * as AddressAPI from './address';
 import { Address, AddressCreateParams, AddressUpdateParams, OrganizationAddress } from './address';
-import * as BillingAPI from './billing';
+import * as MembershipsAPI from './memberships';
+import {
+  MembershipGetParams,
+  MembershipListParams,
+  Memberships,
+  OrganizationMembership,
+  OrganizationMembershipList,
+  OrganizationMembershipsCursor,
+} from './memberships';
+import * as BillingAPI from './billing/billing';
 import {
   Billing,
   BillingCostParams,
@@ -16,16 +25,7 @@ import {
   BillingTopUpParams,
   DailyCostPoint,
   OrganizationDailyCost,
-} from './billing';
-import * as MembershipsAPI from './memberships';
-import {
-  MembershipGetParams,
-  MembershipListParams,
-  Memberships,
-  OrganizationMembership,
-  OrganizationMembershipList,
-  OrganizationMembershipsCursor,
-} from './memberships';
+} from './billing/billing';
 import { APIPromise } from '../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../core/pagination';
 import { buildHeaders } from '../../internal/headers';

@@ -44,16 +44,29 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/organizations/billing.ts">BillingHistoryEntry</a></code>
-- <code><a href="./src/resources/organizations/billing.ts">BillingHistoryEntryList</a></code>
-- <code><a href="./src/resources/organizations/billing.ts">BillingHistoryEntryType</a></code>
-- <code><a href="./src/resources/organizations/billing.ts">DailyCostPoint</a></code>
-- <code><a href="./src/resources/organizations/billing.ts">OrganizationDailyCost</a></code>
+- <code><a href="./src/resources/organizations/billing/billing.ts">BillingHistoryEntry</a></code>
+- <code><a href="./src/resources/organizations/billing/billing.ts">BillingHistoryEntryList</a></code>
+- <code><a href="./src/resources/organizations/billing/billing.ts">BillingHistoryEntryType</a></code>
+- <code><a href="./src/resources/organizations/billing/billing.ts">DailyCostPoint</a></code>
+- <code><a href="./src/resources/organizations/billing/billing.ts">OrganizationDailyCost</a></code>
 
 Methods:
 
-- <code title="get /v1/organizations/{organization_id}/billing/summary">client.organizations.billing.<a href="./src/resources/organizations/billing.ts">summary</a>(organizationID) -> OrganizationBillingSummary</code>
-- <code title="get /v1/organizations/{organization_id}/billing/cost">client.organizations.billing.<a href="./src/resources/organizations/billing.ts">cost</a>(organizationID, { ...params }) -> OrganizationDailyCost</code>
-- <code title="get /v1/organizations/{organization_id}/billing/history">client.organizations.billing.<a href="./src/resources/organizations/billing.ts">history</a>(organizationID, { ...params }) -> BillingHistoryEntryList</code>
-- <code title="post /v1/organizations/{organization_id}/billing/topup">client.organizations.billing.<a href="./src/resources/organizations/billing.ts">topUp</a>(organizationID, { ...params }) -> OrganizationBillingSummary</code>
-- <code title="post /v1/organizations/{organization_id}/billing/recharge">client.organizations.billing.<a href="./src/resources/organizations/billing.ts">recharge</a>(organizationID, { ...params }) -> OrganizationBillingSummary</code>
+- <code title="get /v1/organizations/{organization_id}/billing/summary">client.organizations.billing.<a href="./src/resources/organizations/billing/billing.ts">summary</a>(organizationID) -> OrganizationBillingSummary</code>
+- <code title="get /v1/organizations/{organization_id}/billing/cost">client.organizations.billing.<a href="./src/resources/organizations/billing/billing.ts">cost</a>(organizationID, { ...params }) -> OrganizationDailyCost</code>
+- <code title="get /v1/organizations/{organization_id}/billing/history">client.organizations.billing.<a href="./src/resources/organizations/billing/billing.ts">history</a>(organizationID, { ...params }) -> BillingHistoryEntryList</code>
+- <code title="post /v1/organizations/{organization_id}/billing/topup">client.organizations.billing.<a href="./src/resources/organizations/billing/billing.ts">topUp</a>(organizationID, { ...params }) -> OrganizationBillingSummary</code>
+- <code title="post /v1/organizations/{organization_id}/billing/recharge">client.organizations.billing.<a href="./src/resources/organizations/billing/billing.ts">recharge</a>(organizationID, { ...params }) -> OrganizationBillingSummary</code>
+
+### RechargePolicy
+
+Types:
+
+- <code><a href="./src/resources/organizations/billing/recharge-policy.ts">AutomaticPolicyArgs</a></code>
+- <code><a href="./src/resources/organizations/billing/recharge-policy.ts">OrganizationRechargePolicy</a></code>
+- <code><a href="./src/resources/organizations/billing/recharge-policy.ts">RechargePolicyMode</a></code>
+
+Methods:
+
+- <code title="get /v1/organizations/{organization_id}/billing/recharge_policy">client.organizations.billing.rechargePolicy.<a href="./src/resources/organizations/billing/recharge-policy.ts">get</a>(organizationID) -> OrganizationRechargePolicy</code>
+- <code title="patch /v1/organizations/{organization_id}/billing/recharge_policy">client.organizations.billing.rechargePolicy.<a href="./src/resources/organizations/billing/recharge-policy.ts">update</a>(organizationID, { ...params }) -> OrganizationRechargePolicy</code>
