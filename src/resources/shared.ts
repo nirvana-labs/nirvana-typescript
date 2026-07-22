@@ -322,7 +322,7 @@ export interface OrganizationBillingSummary {
   /**
    * Arbitrary-precision decimal serialized as a string (e.g. "58.40").
    */
-  recharge_threshold_fraction: string;
+  recharge_threshold_days: string;
 
   /**
    * Projected date the balance reaches the recharge threshold at the current
