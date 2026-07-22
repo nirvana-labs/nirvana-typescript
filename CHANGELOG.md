@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.96.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.95.3...v1.96.0) (2026-07-22)
+
+
+### Features
+
+* **stainless:** add recharge_policy group to SDK config ([6f980be](https://github.com/nirvana-labs/nirvana-typescript/commit/6f980be1346829f1830b36100a6d20f2a4cb9f33))
+
 ## [1.95.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.95.2...v1.95.3) (2026-07-22)
 
 
