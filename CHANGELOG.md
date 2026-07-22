@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.95.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.95.2...v1.95.3) (2026-07-22)
+
+
+### Chores
+
+* update SDK ([9f909e4](https://github.com/nirvana-labs/nirvana-typescript/commit/9f909e4ddeffcf205b1f06e29a33725a9dec0e88))
+
 ## [1.95.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.95.1...v1.95.2) (2026-07-22)
 
 
