@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.97.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.96.1...v1.97.0) (2026-07-23)
+
+
+### Features
+
+* **stainless:** wire billing statements route into SDK config ([1ce3501](https://github.com/nirvana-labs/nirvana-typescript/commit/1ce3501a43d3a89b114cfc8c915927fb2dc23e33))
+
+
+### Chores
+
+* **nirvana-api:** update OpenAPI spec ([1ce3501](https://github.com/nirvana-labs/nirvana-typescript/commit/1ce3501a43d3a89b114cfc8c915927fb2dc23e33))
+
 ## [1.96.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.96.0...v1.96.1) (2026-07-22)
 
 
