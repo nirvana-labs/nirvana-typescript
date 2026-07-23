@@ -49,6 +49,11 @@ Types:
 - <code><a href="./src/resources/organizations/billing/billing.ts">BillingHistoryEntryType</a></code>
 - <code><a href="./src/resources/organizations/billing/billing.ts">DailyCostPoint</a></code>
 - <code><a href="./src/resources/organizations/billing/billing.ts">OrganizationDailyCost</a></code>
+- <code><a href="./src/resources/organizations/billing/billing.ts">OrganizationUsageStatement</a></code>
+- <code><a href="./src/resources/organizations/billing/billing.ts">StatementLineItem</a></code>
+- <code><a href="./src/resources/organizations/billing/billing.ts">StatementLineItemLeaf</a></code>
+- <code><a href="./src/resources/organizations/billing/billing.ts">StatementProject</a></code>
+- <code><a href="./src/resources/organizations/billing/billing.ts">StatementResourceType</a></code>
 
 Methods:
 
@@ -57,6 +62,7 @@ Methods:
 - <code title="get /v1/organizations/{organization_id}/billing/history">client.organizations.billing.<a href="./src/resources/organizations/billing/billing.ts">history</a>(organizationID, { ...params }) -> BillingHistoryEntryList</code>
 - <code title="post /v1/organizations/{organization_id}/billing/topup">client.organizations.billing.<a href="./src/resources/organizations/billing/billing.ts">topUp</a>(organizationID, { ...params }) -> OrganizationBillingSummary</code>
 - <code title="post /v1/organizations/{organization_id}/billing/recharge">client.organizations.billing.<a href="./src/resources/organizations/billing/billing.ts">recharge</a>(organizationID, { ...params }) -> OrganizationBillingSummary</code>
+- <code title="get /v1/organizations/{organization_id}/billing/statements">client.organizations.billing.<a href="./src/resources/organizations/billing/billing.ts">statements</a>(organizationID, { ...params }) -> OrganizationUsageStatement</code>
 
 ### RechargePolicy
 

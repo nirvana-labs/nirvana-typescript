@@ -116,6 +116,7 @@ client.example.list(undefined, { headers: { ... } });
 - `client.organizations.memberships.list()`
 - `client.organizations.billing.cost()`
 - `client.organizations.billing.history()`
+- `client.organizations.billing.statements()`
 - `client.usage.list()`
 - `client.auditLogs.list()`
 - `client.projects.list()`

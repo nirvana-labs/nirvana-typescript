@@ -131,6 +131,30 @@ export class Billing extends APIResource {
       headers: buildHeaders([{ 'Idempotency-Key': idempotencyKey }, options?.headers]),
     });
   }
+
+  /**
+   * Get the itemized monthly usage statement: consumption grouped by project,
+   * resource type, and dimension, priced from recorded usage. Defaults to the
+   * current month.
+   *
+   * @example
+   * ```ts
+   * const organizationUsageStatement =
+   *   await client.organizations.billing.statements(
+   *     'organization_id',
+   *   );
+   * ```
+   */
+  statements(
+    organizationID: string,
+    query: BillingStatementsParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<OrganizationUsageStatement> {
+    return this._client.get(path`/v1/organizations/${organizationID}/billing/statements`, {
+      query,
+      ...options,
+    });
+  }
 }
 
 /**
@@ -230,6 +254,149 @@ export interface OrganizationDailyCost {
   to: string;
 }
 
+/**
+ * Itemized usage statement for a billing month: consumption grouped by project,
+ * resource type, and dimension. Costs are recorded at consumption time, not
+ * re-priced.
+ */
+export interface OrganizationUsageStatement {
+  /**
+   * ISO 4217 currency code.
+   */
+  currency: string;
+
+  /**
+   * Billing month the statement covers, as YYYY-MM (UTC).
+   */
+  month: string;
+
+  /**
+   * One entry per project with consumption in the month, ordered by name.
+   */
+  projects: Array<StatementProject>;
+
+  /**
+   * Arbitrary-precision decimal serialized as a string (e.g. "58.40").
+   */
+  total: string;
+}
+
+/**
+ * A top-level metered dimension. Heads nest components as children (cost is the
+ * subtotal, unit_price null); standalone dimensions carry a unit price and an
+ * empty children array.
+ */
+export interface StatementLineItem {
+  /**
+   * Component dimensions nested under this one (e.g. vCPU and memory under an
+   * instance type). Empty for a leaf.
+   */
+  children: Array<StatementLineItemLeaf>;
+
+  /**
+   * Arbitrary-precision decimal serialized as a string (e.g. "58.40").
+   */
+  cost: string;
+
+  /**
+   * Metered dimension identifier (e.g. "compute_n1_standard_8", "storage_abs_gb").
+   */
+  dimension: string;
+
+  /**
+   * Human-readable label for the dimension.
+   */
+  display_name: string;
+
+  /**
+   * Arbitrary-precision decimal serialized as a string (e.g. "58.40").
+   */
+  quantity_hours: string;
+
+  /**
+   * Arbitrary-precision decimal serialized as a string (e.g. "58.40").
+   */
+  unit_price?: string | null;
+}
+
+/**
+ * A priced dimension line: a component nested under a head, or one rate segment of
+ * a dimension whose price changed mid-period.
+ */
+export interface StatementLineItemLeaf {
+  /**
+   * Arbitrary-precision decimal serialized as a string (e.g. "58.40").
+   */
+  cost: string;
+
+  /**
+   * Metered dimension identifier (e.g. "compute_vcpu", "compute_memory_gb").
+   */
+  dimension: string;
+
+  /**
+   * Human-readable label for the dimension.
+   */
+  display_name: string;
+
+  /**
+   * Arbitrary-precision decimal serialized as a string (e.g. "58.40").
+   */
+  quantity_hours: string;
+
+  /**
+   * Arbitrary-precision decimal serialized as a string (e.g. "58.40").
+   */
+  unit_price: string;
+}
+
+/**
+ * A single project's consumption within a usage statement.
+ */
+export interface StatementProject {
+  /**
+   * Project identifier.
+   */
+  project_id: string;
+
+  /**
+   * Human-readable project name.
+   */
+  project_name: string;
+
+  /**
+   * Consumption grouped by resource type.
+   */
+  resource_types: Array<StatementResourceType>;
+
+  /**
+   * Arbitrary-precision decimal serialized as a string (e.g. "58.40").
+   */
+  subtotal: string;
+}
+
+/**
+ * Consumption for one resource type within a project (e.g. every VM, every
+ * volume).
+ */
+export interface StatementResourceType {
+  /**
+   * Top-level metered dimensions; a dimension expanded into components carries them
+   * in children.
+   */
+  items: Array<StatementLineItem>;
+
+  /**
+   * Resource type the line items belong to (e.g. "vm", "volume", "nks_node_pool").
+   */
+  resource_type: string;
+
+  /**
+   * Arbitrary-precision decimal serialized as a string (e.g. "58.40").
+   */
+  subtotal: string;
+}
+
 export interface BillingCostParams {
   /**
    * Inclusive start day, YYYY-MM-DD (UTC). Defaults to 30 days before to.
@@ -276,6 +443,13 @@ export interface BillingRechargeParams {
   'Idempotency-Key': string;
 }
 
+export interface BillingStatementsParams {
+  /**
+   * Billing month, YYYY-MM (UTC). Defaults to the current month.
+   */
+  month?: string;
+}
+
 Billing.RechargePolicy = RechargePolicy;
 
 export declare namespace Billing {
@@ -285,10 +459,16 @@ export declare namespace Billing {
     type BillingHistoryEntryType as BillingHistoryEntryType,
     type DailyCostPoint as DailyCostPoint,
     type OrganizationDailyCost as OrganizationDailyCost,
+    type OrganizationUsageStatement as OrganizationUsageStatement,
+    type StatementLineItem as StatementLineItem,
+    type StatementLineItemLeaf as StatementLineItemLeaf,
+    type StatementProject as StatementProject,
+    type StatementResourceType as StatementResourceType,
     type BillingCostParams as BillingCostParams,
     type BillingHistoryParams as BillingHistoryParams,
     type BillingTopUpParams as BillingTopUpParams,
     type BillingRechargeParams as BillingRechargeParams,
+    type BillingStatementsParams as BillingStatementsParams,
   };
 
   export {
