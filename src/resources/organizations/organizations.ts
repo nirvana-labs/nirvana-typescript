@@ -22,9 +22,15 @@ import {
   BillingHistoryEntryType,
   BillingHistoryParams,
   BillingRechargeParams,
+  BillingStatementsParams,
   BillingTopUpParams,
   DailyCostPoint,
   OrganizationDailyCost,
+  OrganizationUsageStatement,
+  StatementLineItem,
+  StatementLineItemLeaf,
+  StatementProject,
+  StatementResourceType,
 } from './billing/billing';
 import { APIPromise } from '../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../core/pagination';
@@ -326,9 +332,15 @@ export declare namespace Organizations {
     type BillingHistoryEntryType as BillingHistoryEntryType,
     type DailyCostPoint as DailyCostPoint,
     type OrganizationDailyCost as OrganizationDailyCost,
+    type OrganizationUsageStatement as OrganizationUsageStatement,
+    type StatementLineItem as StatementLineItem,
+    type StatementLineItemLeaf as StatementLineItemLeaf,
+    type StatementProject as StatementProject,
+    type StatementResourceType as StatementResourceType,
     type BillingCostParams as BillingCostParams,
     type BillingHistoryParams as BillingHistoryParams,
     type BillingTopUpParams as BillingTopUpParams,
     type BillingRechargeParams as BillingRechargeParams,
+    type BillingStatementsParams as BillingStatementsParams,
   };
 }

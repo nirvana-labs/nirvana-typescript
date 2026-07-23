@@ -13,10 +13,16 @@ export {
   type BillingHistoryEntryType,
   type DailyCostPoint,
   type OrganizationDailyCost,
+  type OrganizationUsageStatement,
+  type StatementLineItem,
+  type StatementLineItemLeaf,
+  type StatementProject,
+  type StatementResourceType,
   type BillingCostParams,
   type BillingHistoryParams,
   type BillingTopUpParams,
   type BillingRechargeParams,
+  type BillingStatementsParams,
 } from './billing/index';
 export {
   Memberships,
