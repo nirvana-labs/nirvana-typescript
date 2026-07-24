@@ -62,6 +62,11 @@ export interface AutomaticPolicyArgs {
    * Arbitrary-precision decimal serialized as a string (e.g. "58.40").
    */
   runway_days: string;
+
+  /**
+   * Arbitrary-precision decimal serialized as a string (e.g. "58.40").
+   */
+  monthly_cap?: string | null;
 }
 
 /**
