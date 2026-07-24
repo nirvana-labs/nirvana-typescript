@@ -192,6 +192,12 @@ export interface BillingHistoryEntry {
   description?: string | null;
 
   /**
+   * Funding flow that produced this entry, for a grant: "first_charge",
+   * "auto_recharge", "manual_top_up", or "manual_recharge". Null for adjustments.
+   */
+  funding_purpose?: 'first_charge' | 'auto_recharge' | 'manual_top_up' | 'manual_recharge' | null;
+
+  /**
    * Link to the hosted receipt for the payment behind this entry, when one is
    * available. Present for prepaid credits funded by a card charge; absent for
    * manual adjustments and while a payment's receipt is still being finalized.

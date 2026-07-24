@@ -38,7 +38,11 @@ describe('resource rechargePolicy', () => {
   test.skip('update: required and optional params', async () => {
     const response = await client.organizations.billing.rechargePolicy.update('organization_id', {
       policy: 'automatic',
-      policy_args: { fixed: '-69125', runway_days: '-69125' },
+      policy_args: {
+        fixed: '-69125',
+        runway_days: '-69125',
+        monthly_cap: '-69125',
+      },
     });
   });
 });
