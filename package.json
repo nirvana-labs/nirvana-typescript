@@ -53,15 +53,36 @@
     "nirvana-labs-nirvana": "bin/cli"
   },
   "overrides": {
-    "minimatch": "^9.0.5"
+    "fast-uri": "^3.1.2",
+    "flatted": "^3.4.3",
+    "handlebars": "^4.7.9",
+    "minimatch": "^9.0.7",
+    "node-forge": "^1.4.0",
+    "path-to-regexp": "^8.4.0",
+    "picomatch": "^2.3.2",
+    "tmp": "^0.2.6"
   },
   "pnpm": {
     "overrides": {
-      "minimatch": "^9.0.5"
+      "fast-uri": "^3.1.2",
+      "flatted": "^3.4.3",
+      "handlebars": "^4.7.9",
+      "minimatch": "^9.0.7",
+      "node-forge": "^1.4.0",
+      "path-to-regexp": "^8.4.0",
+      "picomatch": "^2.3.2",
+      "tmp": "^0.2.6"
     }
   },
   "resolutions": {
-    "minimatch": "^9.0.5"
+    "fast-uri": "^3.1.2",
+    "flatted": "^3.4.3",
+    "handlebars": "^4.7.9",
+    "minimatch": "^9.0.7",
+    "node-forge": "^1.4.0",
+    "path-to-regexp": "^8.4.0",
+    "picomatch": "^2.3.2",
+    "tmp": "^0.2.6"
   },
   "exports": {
     ".": {
