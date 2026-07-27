@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.97.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.97.2...v1.97.3) (2026-07-27)
+
+
+### Bug Fixes
+
+* **deps:** bump handlebars (TS) + x/crypto (terraform) for VANTA CVEs ([8649e83](https://github.com/nirvana-labs/nirvana-typescript/commit/8649e83ea5b3063366f53d5c35a82ba769f4360e))
+
 ## [1.97.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.97.1...v1.97.2) (2026-07-24)
 
 
