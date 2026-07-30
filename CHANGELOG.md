@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.97.4](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.97.3...v1.97.4) (2026-07-30)
+
+
+### Bug Fixes
+
+* **deps:** reseal terraform + TS dep bumps for VANTA CVEs ([45db465](https://github.com/nirvana-labs/nirvana-typescript/commit/45db4651223c1d62623ee78263c2b4b262606b5a))
+
 ## [1.97.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.97.2...v1.97.3) (2026-07-27)
 
 
