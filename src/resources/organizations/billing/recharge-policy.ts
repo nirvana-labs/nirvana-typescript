@@ -7,8 +7,8 @@ import { path } from '../../../internal/utils/path';
 
 export class RechargePolicy extends APIResource {
   /**
-   * Get the organization's recharge configuration: the top-up mode and the fixed and
-   * proportional threshold components.
+   * Get the organization's recharge configuration: the top-up mode, the fixed and
+   * proportional threshold components, and when the current mode took effect.
    *
    * @example
    * ```ts
@@ -77,13 +77,19 @@ export interface OrganizationRechargePolicy {
   /**
    * Policy is the top-up mode.
    */
-  policy?: RechargePolicyMode;
+  policy: RechargePolicyMode;
 
   /**
    * PolicyArgs carries the threshold parameters. Required when policy is
    * "automatic"; must be omitted when policy is "manual".
    */
-  policy_args?: AutomaticPolicyArgs | null;
+  policy_args: AutomaticPolicyArgs | null;
+
+  /**
+   * PolicySince is when the policy currently in force took effect. Any change moves
+   * it, including an edit to the threshold parameters of an automatic policy.
+   */
+  policy_since: string;
 }
 
 /**
