@@ -192,10 +192,20 @@ export interface BillingHistoryEntry {
   description?: string | null;
 
   /**
-   * Funding flow that produced this entry, for a grant: "first_charge",
-   * "auto_recharge", "manual_top_up", or "manual_recharge". Null for adjustments.
+   * Why this entry exists: for a grant, the funding flow ("first_charge",
+   * "auto_recharge", "manual_top_up", "manual_recharge") or "bonus_grant" for credit
+   * issued with no payment behind it; for an adjustment, the claw-back reason
+   * ("refund", "dispute"). Null for adjustments with no recorded reason.
    */
-  funding_purpose?: 'first_charge' | 'auto_recharge' | 'manual_top_up' | 'manual_recharge' | null;
+  purpose?:
+    | 'first_charge'
+    | 'auto_recharge'
+    | 'manual_top_up'
+    | 'manual_recharge'
+    | 'bonus_grant'
+    | 'refund'
+    | 'dispute'
+    | null;
 
   /**
    * Link to the hosted receipt for the payment behind this entry, when one is
