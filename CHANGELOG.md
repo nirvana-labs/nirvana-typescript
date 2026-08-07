@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.98.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.97.10...v1.98.0) (2026-08-07)
+
+
+### Features
+
+* **stainless:** wire NKS pool-level volumes list into SDK config ([7ba8b7f](https://github.com/nirvana-labs/nirvana-typescript/commit/7ba8b7f026fb7a0f725cbacf2fb354b5520936d1))
+
 ## [1.97.10](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.97.9...v1.97.10) (2026-08-07)
 
 
