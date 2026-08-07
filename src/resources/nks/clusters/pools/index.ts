@@ -26,3 +26,4 @@ export {
   type PoolListParams,
   type NKSNodePoolsCursor,
 } from './pools';
+export { Volumes, type VolumeListParams } from './volumes';

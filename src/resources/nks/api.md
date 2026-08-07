@@ -155,3 +155,9 @@ Methods:
 
 - <code title="get /v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}/volumes/{volume_id}">client.nks.clusters.pools.nodes.volumes.<a href="./src/resources/nks/clusters/pools/nodes/volumes.ts">get</a>(volumeID, { ...params }) -> NKSNodeVolume</code>
 - <code title="get /v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}/volumes">client.nks.clusters.pools.nodes.volumes.<a href="./src/resources/nks/clusters/pools/nodes/volumes.ts">list</a>(nodeID, { ...params }) -> NKSNodeVolumesCursor</code>
+
+#### Volumes
+
+Methods:
+
+- <code title="get /v1/nks/clusters/{cluster_id}/pools/{pool_id}/volumes">client.nks.clusters.pools.volumes.<a href="./src/resources/nks/clusters/pools/volumes.ts">list</a>(poolID, { ...params }) -> NKSNodeVolumesCursor</code>

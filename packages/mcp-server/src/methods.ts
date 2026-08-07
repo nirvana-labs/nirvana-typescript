@@ -796,6 +796,12 @@ export const sdkMethods: SdkMethod[] = [
     httpMethod: 'get',
     httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/nodes/{node_id}/volumes',
   },
+  {
+    clientCallName: 'client.nks.clusters.pools.volumes.list',
+    fullyQualifiedName: 'nks.clusters.pools.volumes.list',
+    httpMethod: 'get',
+    httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/volumes',
+  },
 ];
 
 function allowedMethodsForCodeTool(options: McpOptions | undefined): SdkMethod[] | undefined {
