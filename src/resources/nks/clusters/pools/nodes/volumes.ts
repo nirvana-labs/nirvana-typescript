@@ -88,6 +88,11 @@ export interface NKSNodeVolume {
   name: string;
 
   /**
+   * Unique identifier of the node the volume is attached to.
+   */
+  node_id: string;
+
+  /**
    * Size of the volume in GB.
    */
   size: number;
