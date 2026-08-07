@@ -77,6 +77,7 @@ client.parents.children.retrieve('c_456', { parent_id: 'p_123' });
 - `client.nks.clusters.pools.nodes.list()`
 - `client.nks.clusters.pools.nodes.volumes.get()`
 - `client.nks.clusters.pools.nodes.volumes.list()`
+- `client.nks.clusters.pools.volumes.list()`
 
 </details>
 
