@@ -240,6 +240,33 @@ export interface VPCListParams extends CursorParams {
    * Project ID of resources to request
    */
   project_id: string;
+
+  /**
+   * Filter by a case-insensitive substring of the VPC name
+   */
+  name?: string;
+
+  /**
+   * Filter by region
+   */
+  region?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, updated_at, name, status
+   */
+  sort?: string;
+
+  /**
+   * Filter by VPC status
+   */
+  status?: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'error';
+
+  /**
+   * Filter by tags. Repeat the parameter to require several tags; a VPC must carry
+   * all of them.
+   */
+  tags?: Array<string>;
 }
 
 VPCs.Availability = Availability;

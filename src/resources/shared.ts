@@ -386,3 +386,8 @@ export interface SourceIPRuleResponse {
    */
   blocked: Array<string>;
 }
+
+/**
+ * Unit the values are expressed in.
+ */
+export type VMMetricUnit = 'ratio' | 'bytes' | 'cores';

@@ -41,7 +41,25 @@ describe('resource instanceTypes', () => {
   test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.instanceTypes.list({ cursor: 'cursor', limit: 10 }, { path: '/_stainless_unknown_path' }),
+      client.instanceTypes.list(
+        {
+          chipset: 'chipset',
+          cursor: 'cursor',
+          family: 'family',
+          limit: 10,
+          memory_gb_max: 0,
+          memory_gb_min: 0,
+          name: 'name',
+          network_bandwidth_gbps_max: 0,
+          network_bandwidth_gbps_min: 0,
+          region: 'region',
+          series: 'series',
+          sort: 'sort',
+          vcpu_max: 0,
+          vcpu_min: 0,
+        },
+        { path: '/_stainless_unknown_path' },
+      ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
   });
 });

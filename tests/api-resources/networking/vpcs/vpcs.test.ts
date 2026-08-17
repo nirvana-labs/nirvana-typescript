@@ -90,6 +90,11 @@ describe('resource vpcs', () => {
       project_id: 'project_id',
       cursor: 'cursor',
       limit: 10,
+      name: 'name',
+      region: 'region',
+      sort: 'sort',
+      status: 'pending',
+      tags: ['string'],
     });
   });
 });

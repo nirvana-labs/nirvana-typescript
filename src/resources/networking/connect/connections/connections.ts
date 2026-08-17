@@ -168,6 +168,48 @@ export interface ConnectionListParams extends CursorParams {
    * Project ID of resources to request
    */
   project_id: string;
+
+  /**
+   * Filter by provisioned bandwidth in Mbps
+   */
+  bandwidth_mbps?: 50 | 200 | 500 | 1000 | 2000;
+
+  /**
+   * Filter by a case-insensitive substring of the Connect Connection name
+   */
+  name?: string;
+
+  /**
+   * Filter by provider
+   */
+  provider?: string;
+
+  /**
+   * Filter by the provider's own region
+   */
+  provider_region?: string;
+
+  /**
+   * Filter by Nirvana region
+   */
+  region?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, updated_at, name, status, bandwidth_mbps
+   */
+  sort?: string;
+
+  /**
+   * Filter by Connect Connection status
+   */
+  status?: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'error';
+
+  /**
+   * Filter by tags. Repeat the parameter to require several tags; a Connect
+   * Connection must carry all of them.
+   */
+  tags?: Array<string>;
 }
 
 Connections.Cost = Cost;

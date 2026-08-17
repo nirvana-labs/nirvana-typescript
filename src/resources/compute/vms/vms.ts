@@ -7,6 +7,10 @@ import * as AvailabilityAPI from './availability';
 import { Availability, AvailabilityCreateParams, AvailabilityUpdateParams } from './availability';
 import * as CostAPI from './cost';
 import { Cost, CostCreateParams, CostUpdateParams } from './cost';
+import * as MetricDescriptorsAPI from './metric-descriptors';
+import { MetricDescriptors, VMMetricDescriptor, VMMetricDescriptorList } from './metric-descriptors';
+import * as MetricsAPI from './metrics';
+import { MetricListParams, Metrics, VMMetricPoint, VMMetricSeries, VMMetrics } from './metrics';
 import * as OSImagesAPI from './os-images';
 import { OSImageListParams, OSImages } from './os-images';
 import * as VolumesAPI from './volumes';
@@ -22,6 +26,10 @@ export class VMs extends APIResource {
   cost: CostAPI.Cost = new CostAPI.Cost(this._client);
   volumes: VolumesAPI.Volumes = new VolumesAPI.Volumes(this._client);
   osImages: OSImagesAPI.OSImages = new OSImagesAPI.OSImages(this._client);
+  metrics: MetricsAPI.Metrics = new MetricsAPI.Metrics(this._client);
+  metricDescriptors: MetricDescriptorsAPI.MetricDescriptors = new MetricDescriptorsAPI.MetricDescriptors(
+    this._client,
+  );
 
   /**
    * Create a VM
@@ -408,12 +416,56 @@ export interface VMListParams extends CursorParams {
    * Project ID of resources to request
    */
   project_id: string;
+
+  /**
+   * Filter by a case-insensitive substring of the VM name
+   */
+  name?: string;
+
+  /**
+   * Filter by whether a public IP is enabled
+   */
+  public_ip_enabled?: boolean;
+
+  /**
+   * Filter by region
+   */
+  region?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, updated_at, name, status, vcpu, memory
+   */
+  sort?: string;
+
+  /**
+   * Filter by VM status
+   */
+  status?: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'error';
+
+  /**
+   * Filter by the subnet the VM is attached to
+   */
+  subnet_id?: string;
+
+  /**
+   * Filter by tags. Repeat the parameter to require several tags; a VM must carry
+   * all of them.
+   */
+  tags?: Array<string>;
+
+  /**
+   * Filter by the VPC the VM is attached to
+   */
+  vpc_id?: string;
 }
 
 VMs.Availability = Availability;
 VMs.Cost = Cost;
 VMs.Volumes = Volumes;
 VMs.OSImages = OSImages;
+VMs.Metrics = Metrics;
+VMs.MetricDescriptors = MetricDescriptors;
 
 export declare namespace VMs {
   export {
@@ -444,4 +496,18 @@ export declare namespace VMs {
   export { Volumes as Volumes, type VolumeListParams as VolumeListParams };
 
   export { OSImages as OSImages, type OSImageListParams as OSImageListParams };
+
+  export {
+    Metrics as Metrics,
+    type VMMetricPoint as VMMetricPoint,
+    type VMMetricSeries as VMMetricSeries,
+    type VMMetrics as VMMetrics,
+    type MetricListParams as MetricListParams,
+  };
+
+  export {
+    MetricDescriptors as MetricDescriptors,
+    type VMMetricDescriptor as VMMetricDescriptor,
+    type VMMetricDescriptorList as VMMetricDescriptorList,
+  };
 }

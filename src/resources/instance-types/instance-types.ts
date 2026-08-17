@@ -98,7 +98,68 @@ export interface InstanceTypeGetParams {
   region: 'us-sva-2';
 }
 
-export interface InstanceTypeListParams extends CursorParams {}
+export interface InstanceTypeListParams extends CursorParams {
+  /**
+   * Filter by chipset
+   */
+  chipset?: string;
+
+  /**
+   * Filter by family
+   */
+  family?: string;
+
+  /**
+   * Only Instance Types with at most this much memory, in GB
+   */
+  memory_gb_max?: number;
+
+  /**
+   * Only Instance Types with at least this much memory, in GB
+   */
+  memory_gb_min?: number;
+
+  /**
+   * Filter by a case-insensitive substring of the Instance Type name
+   */
+  name?: string;
+
+  /**
+   * Only Instance Types with at most this much network bandwidth, in Gbps
+   */
+  network_bandwidth_gbps_max?: number;
+
+  /**
+   * Only Instance Types with at least this much network bandwidth, in Gbps
+   */
+  network_bandwidth_gbps_min?: number;
+
+  /**
+   * Filter by region
+   */
+  region?: string;
+
+  /**
+   * Filter by series
+   */
+  series?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: series, family, name, vcpu, memory_gb, network_bandwidth_gbps
+   */
+  sort?: string;
+
+  /**
+   * Only Instance Types with at most this many vCPUs
+   */
+  vcpu_max?: number;
+
+  /**
+   * Only Instance Types with at least this many vCPUs
+   */
+  vcpu_min?: number;
+}
 
 export declare namespace InstanceTypes {
   export {

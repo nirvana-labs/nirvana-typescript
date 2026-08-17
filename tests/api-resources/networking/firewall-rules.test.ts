@@ -115,7 +115,15 @@ describe('resource firewallRules', () => {
     await expect(
       client.networking.firewallRules.list(
         'vpc_id',
-        { cursor: 'cursor', limit: 10 },
+        {
+          cursor: 'cursor',
+          limit: 10,
+          name: 'name',
+          protocol: 'tcp',
+          sort: 'sort',
+          status: 'pending',
+          tags: ['string'],
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);

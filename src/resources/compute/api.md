@@ -46,6 +46,29 @@ Methods:
 
 - <code title="get /v1/compute/vms/os_images">client.compute.vms.osImages.<a href="./src/resources/compute/vms/os-images.ts">list</a>({ ...params }) -> OSImagesCursor</code>
 
+### Metrics
+
+Types:
+
+- <code><a href="./src/resources/compute/vms/metrics.ts">VMMetricPoint</a></code>
+- <code><a href="./src/resources/compute/vms/metrics.ts">VMMetricSeries</a></code>
+- <code><a href="./src/resources/compute/vms/metrics.ts">VMMetrics</a></code>
+
+Methods:
+
+- <code title="get /v1/compute/vms/{vm_id}/metrics">client.compute.vms.metrics.<a href="./src/resources/compute/vms/metrics.ts">list</a>(vmID, { ...params }) -> VMMetrics</code>
+
+### MetricDescriptors
+
+Types:
+
+- <code><a href="./src/resources/compute/vms/metric-descriptors.ts">VMMetricDescriptor</a></code>
+- <code><a href="./src/resources/compute/vms/metric-descriptors.ts">VMMetricDescriptorList</a></code>
+
+Methods:
+
+- <code title="get /v1/compute/metric_descriptors">client.compute.vms.metricDescriptors.<a href="./src/resources/compute/vms/metric-descriptors.ts">list</a>() -> VMMetricDescriptorList</code>
+
 ## Volumes
 
 Types:

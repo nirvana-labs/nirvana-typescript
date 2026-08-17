@@ -33,7 +33,39 @@ export class Volumes extends APIResource {
   }
 }
 
-export interface VolumeListParams extends CursorParams {}
+export interface VolumeListParams extends CursorParams {
+  /**
+   * Filter by Volume kind
+   */
+  kind?: 'boot' | 'data';
+
+  /**
+   * Filter by a case-insensitive substring of the Volume name
+   */
+  name?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, updated_at, name, status, size
+   */
+  sort?: string;
+
+  /**
+   * Filter by Volume status
+   */
+  status?: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'error';
+
+  /**
+   * Filter by tags. Repeat the parameter to require several tags; a Volume must
+   * carry all of them.
+   */
+  tags?: Array<string>;
+
+  /**
+   * Filter by storage type
+   */
+  type?: 'nvme' | 'abs';
+}
 
 export declare namespace Volumes {
   export { type VolumeListParams as VolumeListParams };

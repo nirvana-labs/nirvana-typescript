@@ -7,10 +7,10 @@ const client = new NirvanaLabs({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource volumes', () => {
+describe('resource metrics', () => {
   // Mock server tests are disabled
   test.skip('list', async () => {
-    const responsePromise = client.compute.vms.volumes.list('vm_id');
+    const responsePromise = client.compute.vms.metrics.list('vm_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -24,17 +24,14 @@ describe('resource volumes', () => {
   test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.compute.vms.volumes.list(
+      client.compute.vms.metrics.list(
         'vm_id',
         {
-          cursor: 'cursor',
-          kind: 'boot',
-          limit: 10,
-          name: 'name',
-          sort: 'sort',
-          status: 'pending',
-          tags: ['string'],
-          type: 'nvme',
+          aggregation: 'mean',
+          end_time: '2019-12-27T18:11:19.117Z',
+          metric: ['compute.nirvanalabs.io/vm/cpu/used_cores'],
+          period: '5m',
+          start_time: '2019-12-27T18:11:19.117Z',
         },
         { path: '/_stainless_unknown_path' },
       ),

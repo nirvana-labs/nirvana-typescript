@@ -125,6 +125,7 @@ client.example.list(undefined, { headers: { ... } });
 - `client.instanceTypes.list()`
 - `client.compute.vms.volumes.list()`
 - `client.compute.vms.osImages.list()`
+- `client.compute.vms.metrics.list()`
 - `client.networking.firewallRules.list()`
 - `client.networking.connect.routes.list()`
 - `client.rpcNodes.flex.blockchains.list()`

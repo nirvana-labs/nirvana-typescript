@@ -91,8 +91,17 @@ describe('resource volumes', () => {
   test.skip('list: required and optional params', async () => {
     const response = await client.compute.volumes.list({
       project_id: 'project_id',
+      attached: true,
       cursor: 'cursor',
+      kind: 'boot',
       limit: 10,
+      name: 'name',
+      region: 'region',
+      sort: 'sort',
+      status: 'pending',
+      tags: ['string'],
+      type: 'nvme',
+      vm_id: 'vm_id',
     });
   });
 

@@ -93,8 +93,16 @@ describe('resource connections', () => {
   test.skip('list: required and optional params', async () => {
     const response = await client.networking.connect.connections.list({
       project_id: 'project_id',
+      bandwidth_mbps: 50,
       cursor: 'cursor',
       limit: 10,
+      name: 'name',
+      provider: 'provider',
+      provider_region: 'provider_region',
+      region: 'region',
+      sort: 'sort',
+      status: 'pending',
+      tags: ['string'],
     });
   });
 });
