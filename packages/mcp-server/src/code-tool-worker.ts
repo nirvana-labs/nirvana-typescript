@@ -163,6 +163,8 @@ const fuse = new Fuse(
     'client.compute.vms.cost.update',
     'client.compute.vms.volumes.list',
     'client.compute.vms.osImages.list',
+    'client.compute.vms.metrics.list',
+    'client.compute.vms.metricDescriptors.list',
     'client.compute.volumes.attach',
     'client.compute.volumes.create',
     'client.compute.volumes.delete',

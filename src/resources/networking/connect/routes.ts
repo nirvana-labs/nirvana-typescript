@@ -29,7 +29,28 @@ export class Routes extends APIResource {
   }
 }
 
-export interface RouteListParams extends CursorParams {}
+export interface RouteListParams extends CursorParams {
+  /**
+   * Filter by provider
+   */
+  provider?: string;
+
+  /**
+   * Filter by the provider's own region
+   */
+  provider_region?: string;
+
+  /**
+   * Filter by the Nirvana region the route reaches
+   */
+  region?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, provider_region, region
+   */
+  sort?: string;
+}
 
 export declare namespace Routes {
   export { type RouteListParams as RouteListParams };

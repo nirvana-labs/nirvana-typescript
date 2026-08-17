@@ -2,6 +2,18 @@
 
 export { Availability, type AvailabilityCreateParams, type AvailabilityUpdateParams } from './availability';
 export { Cost, type CostCreateParams, type CostUpdateParams } from './cost';
+export {
+  MetricDescriptors,
+  type VMMetricDescriptor,
+  type VMMetricDescriptorList,
+} from './metric-descriptors';
+export {
+  Metrics,
+  type VMMetricPoint,
+  type VMMetricSeries,
+  type VMMetrics,
+  type MetricListParams,
+} from './metrics';
 export { OSImages, type OSImageListParams } from './os-images';
 export {
   VMs,

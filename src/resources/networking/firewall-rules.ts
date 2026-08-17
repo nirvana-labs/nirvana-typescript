@@ -282,7 +282,34 @@ export interface FirewallRuleDeleteParams {
   vpc_id: string;
 }
 
-export interface FirewallRuleListParams extends CursorParams {}
+export interface FirewallRuleListParams extends CursorParams {
+  /**
+   * Filter by a case-insensitive substring of the Firewall Rule name
+   */
+  name?: string;
+
+  /**
+   * Filter by protocol
+   */
+  protocol?: 'tcp' | 'udp';
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, updated_at, name, status, protocol
+   */
+  sort?: string;
+
+  /**
+   * Filter by Firewall Rule status
+   */
+  status?: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'error';
+
+  /**
+   * Filter by tags. Repeat the parameter to require several tags; a Firewall Rule
+   * must carry all of them.
+   */
+  tags?: Array<string>;
+}
 
 export declare namespace FirewallRules {
   export {

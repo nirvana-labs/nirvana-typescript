@@ -341,6 +341,18 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/compute/vms/os_images',
   },
   {
+    clientCallName: 'client.compute.vms.metrics.list',
+    fullyQualifiedName: 'compute.vms.metrics.list',
+    httpMethod: 'get',
+    httpPath: '/v1/compute/vms/{vm_id}/metrics',
+  },
+  {
+    clientCallName: 'client.compute.vms.metricDescriptors.list',
+    fullyQualifiedName: 'compute.vms.metricDescriptors.list',
+    httpMethod: 'get',
+    httpPath: '/v1/compute/metric_descriptors',
+  },
+  {
     clientCallName: 'client.compute.volumes.create',
     fullyQualifiedName: 'compute.volumes.create',
     httpMethod: 'post',

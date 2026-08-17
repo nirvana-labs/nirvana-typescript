@@ -7,10 +7,10 @@ const client = new NirvanaLabs({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource routes', () => {
+describe('resource metricDescriptors', () => {
   // Mock server tests are disabled
   test.skip('list', async () => {
-    const responsePromise = client.networking.connect.routes.list();
+    const responsePromise = client.compute.vms.metricDescriptors.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -18,23 +18,5 @@ describe('resource routes', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // Mock server tests are disabled
-  test.skip('list: request options and params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.networking.connect.routes.list(
-        {
-          cursor: 'cursor',
-          limit: 10,
-          provider: 'provider',
-          provider_region: 'provider_region',
-          region: 'region',
-          sort: 'sort',
-        },
-        { path: '/_stainless_unknown_path' },
-      ),
-    ).rejects.toThrow(NirvanaLabs.NotFoundError);
   });
 });

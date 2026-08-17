@@ -218,6 +218,33 @@ export interface FlexListParams extends CursorParams {
    * Project ID of resources to request
    */
   project_id: string;
+
+  /**
+   * Filter by blockchain
+   */
+  blockchain?: string;
+
+  /**
+   * Filter by a case-insensitive substring of the RPC Node Flex name
+   */
+  name?: string;
+
+  /**
+   * Filter by network
+   */
+  network?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, name, blockchain, network
+   */
+  sort?: string;
+
+  /**
+   * Filter by tags. Repeat the parameter to require several tags; an RPC Node Flex
+   * must carry all of them.
+   */
+  tags?: Array<string>;
 }
 
 FlexResource.Blockchains = Blockchains;

@@ -36,8 +36,13 @@ describe('resource dedicated', () => {
   test.skip('list: required and optional params', async () => {
     const response = await client.rpcNodes.dedicated.list({
       project_id: 'project_id',
+      blockchain: 'blockchain',
       cursor: 'cursor',
       limit: 10,
+      name: 'name',
+      network: 'network',
+      sort: 'sort',
+      tags: ['string'],
     });
   });
 });

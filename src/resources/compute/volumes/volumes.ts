@@ -281,6 +281,54 @@ export interface VolumeListParams extends CursorParams {
    * Project ID of resources to request
    */
   project_id: string;
+
+  /**
+   * Filter by whether the Volume is attached to a VM. Combine with vm_id and both
+   * must hold.
+   */
+  attached?: boolean;
+
+  /**
+   * Filter by Volume kind
+   */
+  kind?: 'boot' | 'data';
+
+  /**
+   * Filter by a case-insensitive substring of the Volume name
+   */
+  name?: string;
+
+  /**
+   * Filter by region
+   */
+  region?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, updated_at, name, status, size
+   */
+  sort?: string;
+
+  /**
+   * Filter by Volume status
+   */
+  status?: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'error';
+
+  /**
+   * Filter by tags. Repeat the parameter to require several tags; a Volume must
+   * carry all of them.
+   */
+  tags?: Array<string>;
+
+  /**
+   * Filter by storage type
+   */
+  type?: 'nvme' | 'abs';
+
+  /**
+   * Filter by the VM the Volume is attached to
+   */
+  vm_id?: string;
 }
 
 export interface VolumeAttachParams {

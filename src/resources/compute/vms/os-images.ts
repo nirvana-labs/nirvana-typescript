@@ -29,7 +29,25 @@ export class OSImages extends APIResource {
   }
 }
 
-export interface OSImageListParams extends CursorParams {}
+export interface OSImageListParams extends CursorParams {
+  /**
+   * Filter by a case-insensitive substring of the OS Image display name
+   */
+  display_name?: string;
+
+  /**
+   * Filter by a case-insensitive substring of the OS Image name
+   */
+  name?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, name, display_name, position. An image name embeds its
+   * version, so name:asc is lexicographic rather than newest-first; position is the
+   * catalog's intended display order.
+   */
+  sort?: string;
+}
 
 export declare namespace OSImages {
   export { type OSImageListParams as OSImageListParams };

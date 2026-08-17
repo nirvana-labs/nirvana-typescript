@@ -116,6 +116,14 @@ describe('resource vms', () => {
       project_id: 'project_id',
       cursor: 'cursor',
       limit: 10,
+      name: 'name',
+      public_ip_enabled: true,
+      region: 'region',
+      sort: 'sort',
+      status: 'pending',
+      subnet_id: 'subnet_id',
+      tags: ['string'],
+      vpc_id: 'vpc_id',
     });
   });
 

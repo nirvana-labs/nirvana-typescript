@@ -10,6 +10,7 @@ Types:
 - <code><a href="./src/resources/shared.ts">ResourceStatus</a></code>
 - <code><a href="./src/resources/shared.ts">SourceIPRule</a></code>
 - <code><a href="./src/resources/shared.ts">SourceIPRuleResponse</a></code>
+- <code><a href="./src/resources/shared.ts">VMMetricUnit</a></code>
 
 # [User](src/resources/user/api.md)
 
