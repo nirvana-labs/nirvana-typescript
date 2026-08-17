@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.98.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.98.1...v1.98.2) (2026-08-17)
+
+
+### Chores
+
+* **nirvana-api:** update OpenAPI spec ([1d84aa0](https://github.com/nirvana-labs/nirvana-typescript/commit/1d84aa01df14f868d82d5516b45841a2750879ae))
+
 ## [1.98.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.98.0...v1.98.1) (2026-08-07)
 
 
