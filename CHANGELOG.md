@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.98.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.98.2...v1.98.3) (2026-08-18)
+
+
+### Chores
+
+* **stlc:** restore terraform target and drop the cli metrics skips ([98096be](https://github.com/nirvana-labs/nirvana-typescript/commit/98096be591601e9433df4647ada1618581c5bab5))
+
 ## [1.98.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.98.1...v1.98.2) (2026-08-17)
 
 
