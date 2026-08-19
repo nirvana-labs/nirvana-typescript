@@ -290,7 +290,23 @@ export interface OrganizationUpdateParams {
   name?: string;
 }
 
-export interface OrganizationListParams extends CursorParams {}
+export interface OrganizationListParams extends CursorParams {
+  /**
+   * Filter by a case-insensitive substring of the organization name
+   */
+  name?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, updated_at, name
+   */
+  sort?: string;
+
+  /**
+   * Filter by organization type
+   */
+  type?: 'personal' | 'company';
+}
 
 Organizations.Memberships = Memberships;
 Organizations.Address = Address;

@@ -62,7 +62,16 @@ describe('resource billing', () => {
     await expect(
       client.organizations.billing.history(
         'organization_id',
-        { cursor: 'cursor', limit: 10 },
+        {
+          created_at_max: '2019-12-27T18:11:19.117Z',
+          created_at_min: '2019-12-27T18:11:19.117Z',
+          currency: 'currency',
+          cursor: 'cursor',
+          limit: 10,
+          purpose: 'purpose',
+          sort: 'sort',
+          type: 'type',
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);

@@ -123,6 +123,12 @@ export interface MetricListParams {
     | 'compute.nirvanalabs.io/vm/cpu/utilization'
     | 'compute.nirvanalabs.io/vm/memory/used_bytes'
     | 'compute.nirvanalabs.io/vm/memory/utilization'
+    | 'compute.nirvanalabs.io/vm/disk/read_bytes'
+    | 'compute.nirvanalabs.io/vm/disk/write_bytes'
+    | 'compute.nirvanalabs.io/vm/disk/read_ops'
+    | 'compute.nirvanalabs.io/vm/disk/write_ops'
+    | 'compute.nirvanalabs.io/vm/network/rx_bytes'
+    | 'compute.nirvanalabs.io/vm/network/tx_bytes'
   >;
 
   /**

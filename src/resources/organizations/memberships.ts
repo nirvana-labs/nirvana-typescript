@@ -108,7 +108,23 @@ export interface MembershipGetParams {
   organization_id: string;
 }
 
-export interface MembershipListParams extends CursorParams {}
+export interface MembershipListParams extends CursorParams {
+  /**
+   * Filter by membership role
+   */
+  role?: 'owner' | 'member';
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, updated_at, role
+   */
+  sort?: string;
+
+  /**
+   * Filter by the member's user ID
+   */
+  user_id?: string;
+}
 
 export declare namespace Memberships {
   export {
