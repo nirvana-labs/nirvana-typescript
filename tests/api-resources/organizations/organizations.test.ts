@@ -68,7 +68,16 @@ describe('resource organizations', () => {
   test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.organizations.list({ cursor: 'cursor', limit: 10 }, { path: '/_stainless_unknown_path' }),
+      client.organizations.list(
+        {
+          cursor: 'cursor',
+          limit: 10,
+          name: 'name',
+          sort: 'sort',
+          type: 'personal',
+        },
+        { path: '/_stainless_unknown_path' },
+      ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
   });
 

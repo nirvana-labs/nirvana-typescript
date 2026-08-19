@@ -309,7 +309,29 @@ export namespace APIKeyUpdateParams {
   }
 }
 
-export interface APIKeyListParams extends CursorParams {}
+export interface APIKeyListParams extends CursorParams {
+  /**
+   * Filter by a case-insensitive substring of the API key name
+   */
+  name?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, updated_at, name, expires_at
+   */
+  sort?: string;
+
+  /**
+   * Filter by API key status, read against the current instant
+   */
+  status?: 'active' | 'inactive' | 'expired';
+
+  /**
+   * Filter by tags. Repeat the parameter to require several tags; an API key must
+   * carry all of them.
+   */
+  tags?: Array<string>;
+}
 
 export declare namespace APIKeys {
   export {

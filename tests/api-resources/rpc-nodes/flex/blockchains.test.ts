@@ -25,7 +25,13 @@ describe('resource blockchains', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.rpcNodes.flex.blockchains.list(
-        { cursor: 'cursor', limit: 10 },
+        {
+          blockchain: 'blockchain',
+          cursor: 'cursor',
+          limit: 10,
+          network: 'network',
+          sort: 'sort',
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);

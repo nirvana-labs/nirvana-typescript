@@ -390,4 +390,4 @@ export interface SourceIPRuleResponse {
 /**
  * Unit the values are expressed in.
  */
-export type VMMetricUnit = 'ratio' | 'bytes' | 'cores';
+export type VMMetricUnit = 'ratio' | 'bytes' | 'cores' | 'bytes_per_second' | 'operations_per_second';

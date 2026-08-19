@@ -137,6 +137,51 @@ export interface OperationListParams extends CursorParams {
    * Project ID of resources to request
    */
   project_id: string;
+
+  /**
+   * Only operations started at or before this RFC 3339 instant
+   */
+  created_at_max?: string;
+
+  /**
+   * Only operations started at or after this RFC 3339 instant
+   */
+  created_at_min?: string;
+
+  /**
+   * Filter by the kind of resource the operation acts on
+   */
+  kind?:
+    | 'vm'
+    | 'volume'
+    | 'vpc'
+    | 'firewall_rule'
+    | 'connect_connection'
+    | 'nks_cluster'
+    | 'nks_node_pool'
+    | 'nks_load_balancer'
+    | 'nks_node';
+
+  /**
+   * Filter by the resource the operation acts on
+   */
+  resource_id?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, updated_at
+   */
+  sort?: string;
+
+  /**
+   * Filter by operation status
+   */
+  status?: 'pending' | 'running' | 'done' | 'failed' | 'unknown';
+
+  /**
+   * Filter by operation type
+   */
+  type?: 'create' | 'update' | 'delete' | 'restart';
 }
 
 export declare namespace Operations {

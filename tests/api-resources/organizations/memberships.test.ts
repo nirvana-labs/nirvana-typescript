@@ -47,7 +47,13 @@ describe('resource memberships', () => {
     await expect(
       client.organizations.memberships.list(
         'organization_id',
-        { cursor: 'cursor', limit: 10 },
+        {
+          cursor: 'cursor',
+          limit: 10,
+          role: 'owner',
+          sort: 'sort',
+          user_id: 'user_id',
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);

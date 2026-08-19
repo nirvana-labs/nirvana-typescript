@@ -216,7 +216,24 @@ export interface ProjectUpdateParams {
   tags?: Array<string>;
 }
 
-export interface ProjectListParams extends CursorParams {}
+export interface ProjectListParams extends CursorParams {
+  /**
+   * Filter by a case-insensitive substring of the Project name
+   */
+  name?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, updated_at, name
+   */
+  sort?: string;
+
+  /**
+   * Filter by tags. Repeat the parameter to require several tags; a Project must
+   * carry all of them.
+   */
+  tags?: Array<string>;
+}
 
 export declare namespace Projects {
   export {

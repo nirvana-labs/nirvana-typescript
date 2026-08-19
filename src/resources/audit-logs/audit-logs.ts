@@ -132,7 +132,73 @@ export interface AuditLogTarget {
  */
 export type AuditLogType = 'user' | 'api_key';
 
-export interface AuditLogListParams extends CursorParams {}
+export interface AuditLogListParams extends CursorParams {
+  /**
+   * Filter by recorded action
+   */
+  action?: string;
+
+  /**
+   * Filter by the acting user or API key
+   */
+  actor_id?: string;
+
+  /**
+   * Filter by the kind of actor that acted
+   */
+  actor_type?: 'user' | 'api_key';
+
+  /**
+   * Filter by client IP address, matched exactly
+   */
+  client_ip?: string;
+
+  /**
+   * Only entries at or before this RFC 3339 instant
+   */
+  created_at_max?: string;
+
+  /**
+   * Only entries at or after this RFC 3339 instant
+   */
+  created_at_min?: string;
+
+  /**
+   * Filter by HTTP method
+   */
+  method?: string;
+
+  /**
+   * Filter by a case-insensitive substring of the request path
+   */
+  path?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, status_code
+   */
+  sort?: string;
+
+  /**
+   * Only entries with a status code at or below this
+   */
+  status_code_max?: number;
+
+  /**
+   * Only entries with a status code at or above this, e.g. 400 for failures only
+   */
+  status_code_min?: number;
+
+  /**
+   * Filter by the resource acted on
+   */
+  target_id?: string;
+
+  /**
+   * Filter by the kind of resource acted on
+   */
+  target_type?: string;
+}
 
 export declare namespace AuditLogs {
   export {

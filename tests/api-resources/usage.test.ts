@@ -36,7 +36,20 @@ describe('resource usage', () => {
   test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.usage.list({ cursor: 'cursor', limit: 10 }, { path: '/_stainless_unknown_path' }),
+      client.usage.list(
+        {
+          active_at_max: '2019-12-27T18:11:19.117Z',
+          active_at_min: '2019-12-27T18:11:19.117Z',
+          cursor: 'cursor',
+          dimension: 'dimension',
+          limit: 10,
+          region: 'region',
+          resource_id: 'resource_id',
+          resource_type: 'vm',
+          sort: 'sort',
+        },
+        { path: '/_stainless_unknown_path' },
+      ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
   });
 });

@@ -431,7 +431,23 @@ export interface BillingCostParams {
 
 export interface BillingHistoryParams {
   /**
-   * Pagination cursor returned by a previous request
+   * Only entries at or before this RFC 3339 instant
+   */
+  created_at_max?: string;
+
+  /**
+   * Only entries at or after this RFC 3339 instant
+   */
+  created_at_min?: string;
+
+  /**
+   * Filter by currency, as an ISO 4217 code. Case-insensitive.
+   */
+  currency?: string;
+
+  /**
+   * Pagination cursor returned by a previous request. Only valid for the same
+   * filters and sort order.
    */
   cursor?: string;
 
@@ -439,6 +455,22 @@ export interface BillingHistoryParams {
    * Maximum number of items to return
    */
   limit?: number;
+
+  /**
+   * Filter by the funding flow a credit came from
+   */
+  purpose?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, amount
+   */
+  sort?: string;
+
+  /**
+   * Filter by entry type
+   */
+  type?: string;
 }
 
 export interface BillingTopUpParams {

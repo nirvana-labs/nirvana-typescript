@@ -36,7 +36,26 @@ describe('resource auditLogs', () => {
   test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.auditLogs.list({ cursor: 'cursor', limit: 10 }, { path: '/_stainless_unknown_path' }),
+      client.auditLogs.list(
+        {
+          action: 'action',
+          actor_id: 'actor_id',
+          actor_type: 'user',
+          client_ip: 'client_ip',
+          created_at_max: '2019-12-27T18:11:19.117Z',
+          created_at_min: '2019-12-27T18:11:19.117Z',
+          cursor: 'cursor',
+          limit: 10,
+          method: 'method',
+          path: 'path',
+          sort: 'sort',
+          status_code_max: 0,
+          status_code_min: 0,
+          target_id: 'target_id',
+          target_type: 'target_type',
+        },
+        { path: '/_stainless_unknown_path' },
+      ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
   });
 });

@@ -29,7 +29,23 @@ export class Blockchains extends APIResource {
   }
 }
 
-export interface BlockchainListParams extends CursorParams {}
+export interface BlockchainListParams extends CursorParams {
+  /**
+   * Filter by blockchain
+   */
+  blockchain?: string;
+
+  /**
+   * Filter by network
+   */
+  network?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, blockchain, network
+   */
+  sort?: string;
+}
 
 export declare namespace Blockchains {
   export { type BlockchainListParams as BlockchainListParams };

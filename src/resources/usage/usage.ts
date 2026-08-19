@@ -123,7 +123,51 @@ export type UsageResourceType =
   | 'nks_node_pool'
   | 'nks_load_balancer';
 
-export interface UsageListParams extends CursorParams {}
+export interface UsageListParams extends CursorParams {
+  /**
+   * Only resources metered at or before this RFC 3339 instant
+   */
+  active_at_max?: string;
+
+  /**
+   * Only resources metered at or after this RFC 3339 instant; a window a usage row
+   * must overlap
+   */
+  active_at_min?: string;
+
+  /**
+   * Only resources with usage in this dimension
+   */
+  dimension?: string;
+
+  /**
+   * Filter by region
+   */
+  region?: string;
+
+  /**
+   * Filter by a single resource
+   */
+  resource_id?: string;
+
+  /**
+   * Filter by the kind of resource metered
+   */
+  resource_type?:
+    | 'vm'
+    | 'volume'
+    | 'vpc'
+    | 'connect_connection'
+    | 'nks_cluster'
+    | 'nks_node_pool'
+    | 'nks_load_balancer';
+
+  /**
+   * Sort term as field:asc or field:desc. Field: created_at, the resource's earliest
+   * usage row matching the filters
+   */
+  sort?: string;
+}
 
 export declare namespace UsageResource {
   export {
