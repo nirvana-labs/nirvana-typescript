@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.98.5](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.98.4...v1.98.5) (2026-08-19)
+
+
+### Chores
+
+* **stlc:** restore terraform and drop the remaining cli skips ([43f6d6a](https://github.com/nirvana-labs/nirvana-typescript/commit/43f6d6a4ca8738feb682dea29faf96b837ab9542))
+
 ## [1.98.4](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.98.3...v1.98.4) (2026-08-19)
 
 
