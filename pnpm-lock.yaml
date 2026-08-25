@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  fast-uri: ^3.1.2
+  fast-uri: ^3.1.5
   flatted: ^3.4.3
   handlebars: ^4.7.9
   minimatch: ^9.0.7
@@ -17,13 +17,13 @@ overrides:
   '@hono/node-server': ^2.0.12
   ajv@6: ^6.14.0
   body-parser: ^2.3.0
-  brace-expansion@2: ^2.1.2
+  brace-expansion@2: ^2.1.4
   brace-expansion@5: ^5.0.9
   diff@4: ^4.0.4
-  hono: ^4.12.32
+  hono: ^4.12.34
   ip-address: ^10.1.1
-  js-yaml@3: ^3.15.0
-  js-yaml@4: ^4.3.0
+  js-yaml@3: ^3.15.1
+  js-yaml@4: ^4.3.1
   qs: ^6.15.3
 
 importers:
@@ -97,7 +97,7 @@ importers:
         version: 0.2.4
       '@hono/node-server':
         specifier: ^2.0.12
-        version: 2.0.12(hono@4.12.32)
+        version: 2.0.12(hono@4.13.4)
       '@modelcontextprotocol/sdk':
         specifier: ^1.27.1
         version: 1.27.1(zod@3.25.76)
@@ -123,8 +123,8 @@ importers:
         specifier: ^7.1.0
         version: 7.1.0
       hono:
-        specifier: ^4.12.32
-        version: 4.12.32
+        specifier: ^4.12.34
+        version: 4.13.4
       jq-web:
         specifier: https://github.com/stainless-api/jq-web/releases/download/v0.8.8/jq-web.tar.gz
         version: https://github.com/stainless-api/jq-web/releases/download/v0.8.8/jq-web.tar.gz
@@ -681,7 +681,7 @@ packages:
       }
     engines: { node: '>=20' }
     peerDependencies:
-      hono: ^4.12.32
+      hono: ^4.12.34
 
   '@humanfs/core@0.19.1':
     resolution:
@@ -1678,10 +1678,10 @@ packages:
       }
     engines: { node: '>=18' }
 
-  brace-expansion@2.1.3:
+  brace-expansion@2.1.4:
     resolution:
       {
-        integrity: sha512-DRdx5neNsG/QXbniLFWi2YmC/68oeOOmKz6zOjVk6ZS1ZLXgLIKqVEc6hWsmkjBbgii0SwaBTcJ5XKj5gzY/4A==,
+        integrity: sha512-hGfVzPxthbf3+2yjg/RBs60cB0FhqBS/zvdV/4wn4/BmN0bNMMHPc4V/BbFieqf1TKAGGAHnY4eSjajCl0f2Xg==,
       }
 
   braces@3.0.3:
@@ -2404,10 +2404,10 @@ packages:
         integrity: sha512-W+KJc2dmILlPplD/H4K9l9LcAHAfPtP6BY84uVLXQ6Evcz9Lcg33Y2z1IVblT6xdY54PXYVHEv+0Wpq8Io6zkA==,
       }
 
-  fast-uri@3.1.4:
+  fast-uri@3.1.6:
     resolution:
       {
-        integrity: sha512-8JnbkQ4juDyvYs4mgFGQqg4yCYtFDtUtmp2QIQq11ZZe5CFQ5wcqm1rqDgAh/QdMySuBnPzMUiJUNZG5N/AiQw==,
+        integrity: sha512-7Ical1vFEMr0onbVzEDIreM22I4khW+fzyQPwvAFWBp1iwdshSZRsL4jjRvPG9JP1uiqMHRto+YU6R2/CzDz5Q==,
       }
 
   fastq@1.17.1:
@@ -2683,10 +2683,10 @@ packages:
         integrity: sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==,
       }
 
-  hono@4.12.32:
+  hono@4.13.4:
     resolution:
       {
-        integrity: sha512-XcuyW9qE2kJn07PkecMOBd5Vq/hMy7mmGw+idz1yblbg9N17ijJODrvPkn7/dwL3Kulj8LcRJ69DLOWf91dRUg==,
+        integrity: sha512-AGEwKIyRMHRv1t8Wjwa3LHxQ61X5CqrdFT+4BRNTpqS5aJNnpl5WLjADb7vFlJzI/8uK7T5QLVApCMQKNa3LgQ==,
       }
     engines: { node: '>=16.9.0' }
 
@@ -3164,17 +3164,17 @@ packages:
         integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==,
       }
 
-  js-yaml@3.15.0:
+  js-yaml@3.15.1:
     resolution:
       {
-        integrity: sha512-ttBQIIQPDeLjpPOohtUdXuXUVoA2uIB6fEH9HyJ7234s5mBJ5wTx20njxplLZQgLaOfpmPQA7X2t5AX6tIPbog==,
+        integrity: sha512-S99WuO3HlhO3XN41EtYUNl9zzXjoJx7QvmipxsJVxtCBT0YHEFy+iOJhjSvrmV12nYhWpZaM8lPHkJm0yUMbag==,
       }
     hasBin: true
 
-  js-yaml@4.3.0:
+  js-yaml@4.3.1:
     resolution:
       {
-        integrity: sha512-1td788aAnnZ5qs7V2QIRl1owjtYpbKt749Y3xauqQgwIIGF/xXWz1wMTEBx5O3LK3lXLVuqXPdPxj2BoFHaW9Q==,
+        integrity: sha512-CY6crGq313MX8GkwvB7tzgp99vjQxY1++5y10/BKN/GUfHqWaOGQMNZkBvqSzsZKWk/ijwHlWzzkLulsGHhjWQ==,
       }
     hasBin: true
 
@@ -5066,7 +5066,7 @@ snapshots:
       globals: 14.0.0
       ignore: 5.3.2
       import-fresh: 3.3.1
-      js-yaml: 4.3.0
+      js-yaml: 4.3.1
       minimatch: 9.0.9
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
@@ -5081,9 +5081,9 @@ snapshots:
       '@eslint/core': 0.17.0
       levn: 0.4.1
 
-  '@hono/node-server@2.0.12(hono@4.12.32)':
+  '@hono/node-server@2.0.12(hono@4.13.4)':
     dependencies:
-      hono: 4.12.32
+      hono: 4.13.4
 
   '@humanfs/core@0.19.1': {}
 
@@ -5197,7 +5197,7 @@ snapshots:
       camelcase: 5.3.1
       find-up: 4.1.0
       get-package-type: 0.1.0
-      js-yaml: 3.15.0
+      js-yaml: 3.15.1
       resolve-from: 5.0.0
 
   '@istanbuljs/schema@0.1.3': {}
@@ -5431,7 +5431,7 @@ snapshots:
 
   '@modelcontextprotocol/sdk@1.27.1(zod@3.25.76)':
     dependencies:
-      '@hono/node-server': 2.0.12(hono@4.12.32)
+      '@hono/node-server': 2.0.12(hono@4.13.4)
       ajv: 8.18.0
       ajv-formats: 3.0.1(ajv@8.18.0)
       content-type: 1.0.5
@@ -5441,7 +5441,7 @@ snapshots:
       eventsource-parser: 3.0.6
       express: 5.2.1
       express-rate-limit: 8.3.1(express@5.2.1)
-      hono: 4.12.32
+      hono: 4.13.4
       jose: 6.1.3
       json-schema-typed: 8.0.2
       pkce-challenge: 5.0.0
@@ -5781,7 +5781,7 @@ snapshots:
   ajv@8.18.0:
     dependencies:
       fast-deep-equal: 3.1.3
-      fast-uri: 3.1.4
+      fast-uri: 3.1.6
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
 
@@ -5893,7 +5893,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  brace-expansion@2.1.3:
+  brace-expansion@2.1.4:
     dependencies:
       balanced-match: 1.0.2
 
@@ -6314,7 +6314,7 @@ snapshots:
 
   fast-safe-stringify@2.1.1: {}
 
-  fast-uri@3.1.4: {}
+  fast-uri@3.1.6: {}
 
   fastq@1.17.1:
     dependencies:
@@ -6478,7 +6478,7 @@ snapshots:
 
   highlight.js@10.7.3: {}
 
-  hono@4.12.32: {}
+  hono@4.13.4: {}
 
   html-escaper@2.0.2: {}
 
@@ -7024,12 +7024,12 @@ snapshots:
 
   js-tokens@4.0.0: {}
 
-  js-yaml@3.15.0:
+  js-yaml@3.15.1:
     dependencies:
       argparse: 1.0.10
       esprima: 4.0.1
 
-  js-yaml@4.3.0:
+  js-yaml@4.3.1:
     dependencies:
       argparse: 2.0.1
 
@@ -7138,7 +7138,7 @@ snapshots:
 
   minimatch@9.0.9:
     dependencies:
-      brace-expansion: 2.1.3
+      brace-expansion: 2.1.4
 
   minimist@1.2.6: {}
 
