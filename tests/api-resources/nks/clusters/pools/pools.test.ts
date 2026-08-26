@@ -115,7 +115,17 @@ describe('resource pools', () => {
     await expect(
       client.nks.clusters.pools.list(
         'cluster_id',
-        { cursor: 'cursor', limit: 10 },
+        {
+          cursor: 'cursor',
+          instance_type: 'instance_type',
+          limit: 10,
+          name: 'name',
+          node_count_max: 0,
+          node_count_min: 0,
+          sort: 'sort',
+          status: 'ready',
+          tags: ['string'],
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);

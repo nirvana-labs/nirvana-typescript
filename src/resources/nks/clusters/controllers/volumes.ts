@@ -133,6 +133,42 @@ export interface VolumeListParams extends CursorParams {
    * Path param: Cluster ID
    */
   cluster_id: string;
+
+  /**
+   * Query param: Filter by volume kind
+   */
+  kind?: 'boot' | 'data';
+
+  /**
+   * Query param: Filter by a case-insensitive substring of the volume name
+   */
+  name?: string;
+
+  /**
+   * Query param: Only volumes of at most this size
+   */
+  size_gb_max?: number;
+
+  /**
+   * Query param: Only volumes of at least this size
+   */
+  size_gb_min?: number;
+
+  /**
+   * Query param: Comma-separated sort terms in precedence order, each field:asc or
+   * field:desc. Fields: created_at, updated_at, name, status, size_gb
+   */
+  sort?: string;
+
+  /**
+   * Query param: Filter by volume status
+   */
+  status?: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'error';
+
+  /**
+   * Query param: Filter by storage type
+   */
+  type?: 'abs';
 }
 
 export declare namespace Volumes {

@@ -92,8 +92,16 @@ describe('resource clusters', () => {
   test.skip('list: required and optional params', async () => {
     const response = await client.nks.clusters.list({
       project_id: 'project_id',
+      autoscaling: true,
       cursor: 'cursor',
+      kubernetes_version: 'kubernetes_version',
       limit: 10,
+      name: 'name',
+      region: 'region',
+      sort: 'sort',
+      status: 'ready',
+      tags: ['string'],
+      vpc_id: 'vpc_id',
     });
   });
 });

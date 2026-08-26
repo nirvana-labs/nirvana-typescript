@@ -296,6 +296,48 @@ export interface ClusterListParams extends CursorParams {
    * Project ID of resources to request
    */
   project_id: string;
+
+  /**
+   * Filter by whether autoscaling is enabled
+   */
+  autoscaling?: boolean;
+
+  /**
+   * Filter by Kubernetes version, matched exactly
+   */
+  kubernetes_version?: string;
+
+  /**
+   * Filter by a case-insensitive substring of the Cluster name
+   */
+  name?: string;
+
+  /**
+   * Filter by region
+   */
+  region?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, updated_at, name, status
+   */
+  sort?: string;
+
+  /**
+   * Filter by Cluster status
+   */
+  status?: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'error';
+
+  /**
+   * Filter by tags. Repeat the parameter to require several tags; a Cluster must
+   * carry all of them.
+   */
+  tags?: Array<string>;
+
+  /**
+   * Filter by the VPC the Cluster is in
+   */
+  vpc_id?: string;
 }
 
 Clusters.Availability = Availability;

@@ -101,7 +101,7 @@ describe('resource connections', () => {
       provider_region: 'provider_region',
       region: 'region',
       sort: 'sort',
-      status: 'pending',
+      status: 'ready',
       tags: ['string'],
     });
   });

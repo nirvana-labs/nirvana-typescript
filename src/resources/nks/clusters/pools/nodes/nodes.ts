@@ -163,6 +163,32 @@ export interface NodeListParams extends CursorParams {
    * Path param: Cluster ID
    */
   cluster_id: string;
+
+  /**
+   * Query param: Filter by whether a private address has been assigned yet
+   */
+  has_private_ip?: boolean;
+
+  /**
+   * Query param: Filter by a case-insensitive substring of the node name
+   */
+  name?: string;
+
+  /**
+   * Query param: Filter by the node's private address
+   */
+  private_ip?: string;
+
+  /**
+   * Query param: Comma-separated sort terms in precedence order, each field:asc or
+   * field:desc. Fields: created_at, updated_at, name, status
+   */
+  sort?: string;
+
+  /**
+   * Query param: Filter by node status
+   */
+  status?: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'error';
 }
 
 Nodes.Volumes = Volumes;

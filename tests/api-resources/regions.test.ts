@@ -36,7 +36,22 @@ describe('resource regions', () => {
   test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.regions.list({ cursor: 'cursor', limit: 10 }, { path: '/_stainless_unknown_path' }),
+      client.regions.list(
+        {
+          availability: 'live',
+          compute_vms: true,
+          cursor: 'cursor',
+          limit: 10,
+          networking_connect: true,
+          networking_vpcs: true,
+          nks_autoscaling: true,
+          nks_clusters: true,
+          sort: 'sort',
+          storage_abs: true,
+          storage_local_nvme: true,
+        },
+        { path: '/_stainless_unknown_path' },
+      ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
   });
 });

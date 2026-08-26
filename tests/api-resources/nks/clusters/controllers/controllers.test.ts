@@ -45,7 +45,16 @@ describe('resource controllers', () => {
     await expect(
       client.nks.clusters.controllers.list(
         'cluster_id',
-        { cursor: 'cursor', limit: 10 },
+        {
+          cursor: 'cursor',
+          has_private_ip: true,
+          instance_type: 'instance_type',
+          limit: 10,
+          name: 'name',
+          private_ip: 'private_ip',
+          sort: 'sort',
+          status: 'ready',
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);

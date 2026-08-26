@@ -120,7 +120,7 @@ describe('resource vms', () => {
       public_ip_enabled: true,
       region: 'region',
       sort: 'sort',
-      status: 'pending',
+      status: 'ready',
       subnet_id: 'subnet_id',
       tags: ['string'],
       vpc_id: 'vpc_id',

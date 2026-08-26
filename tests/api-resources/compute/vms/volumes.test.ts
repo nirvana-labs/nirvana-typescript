@@ -32,7 +32,7 @@ describe('resource volumes', () => {
           limit: 10,
           name: 'name',
           sort: 'sort',
-          status: 'pending',
+          status: 'ready',
           tags: ['string'],
           type: 'nvme',
         },

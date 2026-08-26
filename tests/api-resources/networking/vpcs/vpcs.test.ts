@@ -93,7 +93,7 @@ describe('resource vpcs', () => {
       name: 'name',
       region: 'region',
       sort: 'sort',
-      status: 'pending',
+      status: 'ready',
       tags: ['string'],
     });
   });

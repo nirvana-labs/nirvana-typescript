@@ -31,4 +31,20 @@ describe('resource quotas', () => {
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
   });
+
+  // Mock server tests are disabled
+  test.skip('list: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.quotas.list(
+        {
+          cursor: 'cursor',
+          limit: 10,
+          region: 'region',
+          sort: 'sort',
+        },
+        { path: '/_stainless_unknown_path' },
+      ),
+    ).rejects.toThrow(NirvanaLabs.NotFoundError);
+  });
 });
