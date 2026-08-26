@@ -71,7 +71,12 @@ describe('resource nodes', () => {
     const response = await client.nks.clusters.pools.nodes.list('pool_id', {
       cluster_id: 'cluster_id',
       cursor: 'cursor',
+      has_private_ip: true,
       limit: 10,
+      name: 'name',
+      private_ip: 'private_ip',
+      sort: 'sort',
+      status: 'ready',
     });
   });
 });

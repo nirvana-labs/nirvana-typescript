@@ -147,7 +147,53 @@ export interface RegionList {
   pagination: Shared.Pagination;
 }
 
-export interface RegionListParams extends CursorParams {}
+export interface RegionListParams extends CursorParams {
+  /**
+   * Filter by region availability
+   */
+  availability?: 'live' | 'preview' | 'maintenance' | 'sunset';
+
+  /**
+   * Only regions where Virtual Machines are available
+   */
+  compute_vms?: boolean;
+
+  /**
+   * Only regions where Nirvana Connect is available
+   */
+  networking_connect?: boolean;
+
+  /**
+   * Only regions where VPCs are available
+   */
+  networking_vpcs?: boolean;
+
+  /**
+   * Only regions where NKS node pool autoscaling is available
+   */
+  nks_autoscaling?: boolean;
+
+  /**
+   * Only regions where NKS clusters are available
+   */
+  nks_clusters?: boolean;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: longitude, name, availability
+   */
+  sort?: string;
+
+  /**
+   * Only regions where Accelerated Block Storage is available
+   */
+  storage_abs?: boolean;
+
+  /**
+   * Only regions where locally-attached NVMe storage is available
+   */
+  storage_local_nvme?: boolean;
+}
 
 export declare namespace Regions {
   export {

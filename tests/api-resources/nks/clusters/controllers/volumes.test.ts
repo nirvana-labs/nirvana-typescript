@@ -50,7 +50,14 @@ describe('resource volumes', () => {
     const response = await client.nks.clusters.controllers.volumes.list('controller_id', {
       cluster_id: 'cluster_id',
       cursor: 'cursor',
+      kind: 'boot',
       limit: 10,
+      name: 'name',
+      size_gb_max: 0,
+      size_gb_min: 0,
+      sort: 'sort',
+      status: 'ready',
+      type: 'abs',
     });
   });
 });

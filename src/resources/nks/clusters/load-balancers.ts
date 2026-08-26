@@ -165,7 +165,33 @@ export interface LoadBalancerUpdateParams {
   public_ip_enabled: boolean;
 }
 
-export interface LoadBalancerListParams extends CursorParams {}
+export interface LoadBalancerListParams extends CursorParams {
+  /**
+   * Filter by Kubernetes namespace
+   */
+  namespace?: string;
+
+  /**
+   * Filter by whether the load balancer is exposed publicly
+   */
+  public_ip_enabled?: boolean;
+
+  /**
+   * Filter by a case-insensitive substring of the Kubernetes service name
+   */
+  service_name?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, updated_at, namespace, service_name, status
+   */
+  sort?: string;
+
+  /**
+   * Filter by load balancer status
+   */
+  status?: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'error';
+}
 
 export declare namespace LoadBalancers {
   export {

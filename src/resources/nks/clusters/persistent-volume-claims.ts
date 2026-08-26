@@ -122,7 +122,38 @@ export interface PersistentVolumeClaimGetParams {
   cluster_id: string;
 }
 
-export interface PersistentVolumeClaimListParams extends CursorParams {}
+export interface PersistentVolumeClaimListParams extends CursorParams {
+  /**
+   * Filter by a case-insensitive substring of the claim name
+   */
+  name?: string;
+
+  /**
+   * Only claims of at most this size
+   */
+  size_gb_max?: number;
+
+  /**
+   * Only claims of at least this size
+   */
+  size_gb_min?: number;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, updated_at, name, status, size_gb
+   */
+  sort?: string;
+
+  /**
+   * Filter by persistent volume claim status
+   */
+  status?: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'error';
+
+  /**
+   * Filter by storage type
+   */
+  type?: 'abs';
+}
 
 export declare namespace PersistentVolumeClaims {
   export {

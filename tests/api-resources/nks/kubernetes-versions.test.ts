@@ -25,7 +25,12 @@ describe('resource kubernetesVersions', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.nks.kubernetesVersions.list(
-        { cursor: 'cursor', limit: 10 },
+        {
+          cursor: 'cursor',
+          limit: 10,
+          name: 'name',
+          sort: 'sort',
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);

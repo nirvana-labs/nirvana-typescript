@@ -121,7 +121,7 @@ describe('resource firewallRules', () => {
           name: 'name',
           protocol: 'tcp',
           sort: 'sort',
-          status: 'pending',
+          status: 'ready',
           tags: ['string'],
         },
         { path: '/_stainless_unknown_path' },

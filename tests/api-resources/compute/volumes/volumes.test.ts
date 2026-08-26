@@ -98,7 +98,7 @@ describe('resource volumes', () => {
       name: 'name',
       region: 'region',
       sort: 'sort',
-      status: 'pending',
+      status: 'ready',
       tags: ['string'],
       type: 'nvme',
       vm_id: 'vm_id',

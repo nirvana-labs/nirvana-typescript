@@ -70,7 +70,15 @@ describe('resource loadBalancers', () => {
     await expect(
       client.nks.clusters.loadBalancers.list(
         'cluster_id',
-        { cursor: 'cursor', limit: 10 },
+        {
+          cursor: 'cursor',
+          limit: 10,
+          namespace: 'namespace',
+          public_ip_enabled: true,
+          service_name: 'service_name',
+          sort: 'sort',
+          status: 'ready',
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);

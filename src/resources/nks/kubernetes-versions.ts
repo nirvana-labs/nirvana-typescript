@@ -49,7 +49,18 @@ export interface KubernetesVersion {
   name: string;
 }
 
-export interface KubernetesVersionListParams extends CursorParams {}
+export interface KubernetesVersionListParams extends CursorParams {
+  /**
+   * Filter by a case-insensitive substring of the version name, e.g. 1.34
+   */
+  name?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, version
+   */
+  sort?: string;
+}
 
 export declare namespace KubernetesVersions {
   export {

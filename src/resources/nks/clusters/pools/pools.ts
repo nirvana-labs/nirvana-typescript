@@ -341,7 +341,44 @@ export interface PoolDeleteParams {
   cluster_id: string;
 }
 
-export interface PoolListParams extends CursorParams {}
+export interface PoolListParams extends CursorParams {
+  /**
+   * Filter by the instance type the pool's nodes run
+   */
+  instance_type?: string;
+
+  /**
+   * Filter by a case-insensitive substring of the node pool name
+   */
+  name?: string;
+
+  /**
+   * Only pools with at most this many nodes
+   */
+  node_count_max?: number;
+
+  /**
+   * Only pools with at least this many nodes
+   */
+  node_count_min?: number;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, updated_at, name, status, node_count
+   */
+  sort?: string;
+
+  /**
+   * Filter by node pool status
+   */
+  status?: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'error';
+
+  /**
+   * Filter by tags. Repeat the parameter to require several tags; a node pool must
+   * carry all of them.
+   */
+  tags?: Array<string>;
+}
 
 Pools.Availability = Availability;
 Pools.Cost = Cost;

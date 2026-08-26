@@ -47,7 +47,16 @@ describe('resource persistentVolumeClaims', () => {
     await expect(
       client.nks.clusters.persistentVolumeClaims.list(
         'cluster_id',
-        { cursor: 'cursor', limit: 10 },
+        {
+          cursor: 'cursor',
+          limit: 10,
+          name: 'name',
+          size_gb_max: 0,
+          size_gb_min: 0,
+          sort: 'sort',
+          status: 'ready',
+          type: 'abs',
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);

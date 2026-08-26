@@ -123,7 +123,38 @@ export interface ControllerGetParams {
   cluster_id: string;
 }
 
-export interface ControllerListParams extends CursorParams {}
+export interface ControllerListParams extends CursorParams {
+  /**
+   * Filter by whether a private address has been assigned yet
+   */
+  has_private_ip?: boolean;
+
+  /**
+   * Filter by the controller's instance type
+   */
+  instance_type?: string;
+
+  /**
+   * Filter by a case-insensitive substring of the controller name
+   */
+  name?: string;
+
+  /**
+   * Filter by the controller's private address
+   */
+  private_ip?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, updated_at, name, status
+   */
+  sort?: string;
+
+  /**
+   * Filter by controller status
+   */
+  status?: 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'error';
+}
 
 Controllers.Volumes = Volumes;
 

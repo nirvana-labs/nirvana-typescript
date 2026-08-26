@@ -3,6 +3,7 @@
 import { APIResource } from '../../core/resource';
 import * as Shared from '../shared';
 import { APIPromise } from '../../core/api-promise';
+import { Cursor, type CursorParams, PagePromise } from '../../core/pagination';
 import { RequestOptions } from '../../internal/request-options';
 import { path } from '../../internal/utils/path';
 
@@ -24,13 +25,21 @@ export class Quotas extends APIResource {
    *
    * @example
    * ```ts
-   * const quotaList = await client.quotas.list();
+   * // Automatically fetches more pages as needed.
+   * for await (const quota of client.quotas.list()) {
+   *   // ...
+   * }
    * ```
    */
-  list(options?: RequestOptions): APIPromise<QuotaList> {
-    return this._client.get('/v1/quotas', options);
+  list(
+    query: QuotaListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<QuotasCursor, Quota> {
+    return this._client.getAPIList('/v1/quotas', Cursor<Quota>, { query, ...options });
   }
 }
+
+export type QuotasCursor = Cursor<Quota>;
 
 /**
  * Quota response.
@@ -157,6 +166,19 @@ export interface QuotaStorage {
   local_nvme: QuotaDimensionDetail;
 }
 
+export interface QuotaListParams extends CursorParams {
+  /**
+   * Filter by region
+   */
+  region?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: region
+   */
+  sort?: string;
+}
+
 export declare namespace Quotas {
   export {
     type Quota as Quota,
@@ -166,5 +188,7 @@ export declare namespace Quotas {
     type QuotaNetworking as QuotaNetworking,
     type QuotaNKS as QuotaNKS,
     type QuotaStorage as QuotaStorage,
+    type QuotasCursor as QuotasCursor,
+    type QuotaListParams as QuotaListParams,
   };
 }
