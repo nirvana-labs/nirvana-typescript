@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.98.9](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.98.8...v1.98.9) (2026-09-03)
+
+
+### Bug Fixes
+
+* **deps:** Clear 9 TypeScript Dependabot alerts (qs, browserslist, @humanfs/node) ([70bdb8d](https://github.com/nirvana-labs/nirvana-typescript/commit/70bdb8d1b75d61534307565bd2899e71056fe13b))
+
 ## [1.98.8](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.98.7...v1.98.8) (2026-09-03)
 
 
