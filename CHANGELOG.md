@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.98.8](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.98.7...v1.98.8) (2026-09-03)
+
+
+### Bug Fixes
+
+* **sdk:** Restore cli + terraform targets and clear grpc GHSA-vp52-pcj8-j9qc ([7419485](https://github.com/nirvana-labs/nirvana-typescript/commit/741948508624589a0eda957acb0f97960fc1cff2))
+
 ## [1.98.7](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.98.6...v1.98.7) (2026-08-26)
 
 
