@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.0.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.98.9...v2.0.0) (2026-09-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* **api:** remove Nirvana Connect [CORE-4847]
+
+### Features
+
+* **api:** remove Nirvana Connect [CORE-4847] ([1ea8621](https://github.com/nirvana-labs/nirvana-typescript/commit/1ea8621c8460d7932604c853fb90a5304c13edae))
+
+
+### Bug Fixes
+
+* **deps:** bump @arethetypeswrong/cli to 0.18.5 for fflate 0.8.3 compat ([1ea8621](https://github.com/nirvana-labs/nirvana-typescript/commit/1ea8621c8460d7932604c853fb90a5304c13edae))
+* **deps:** reseal TS custom code with fflate 0.8.2 -&gt; 0.8.3 ([1ea8621](https://github.com/nirvana-labs/nirvana-typescript/commit/1ea8621c8460d7932604c853fb90a5304c13edae))
+
 ## [1.98.9](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.98.8...v1.98.9) (2026-09-03)
 
 
