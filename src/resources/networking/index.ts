@@ -1,18 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 export {
-  Connect,
-  type ConnectBandwidthMbps,
-  type ConnectConnection,
-  type ConnectConnectionAWSConfig,
-  type ConnectConnectionAWSConfigRequest,
-  type ConnectConnectionList,
-  type ConnectRoute,
-  type ConnectRouteList,
-  type ConnectConnectionsCursor,
-  type ConnectRoutesCursor,
-} from './connect/index';
-export {
   FirewallRules,
   type FirewallRule,
   type FirewallRuleList,

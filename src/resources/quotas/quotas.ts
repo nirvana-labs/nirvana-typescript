@@ -113,11 +113,6 @@ export interface QuotaNetworking {
   /**
    * Quota dimension detail.
    */
-  connect_connections: QuotaDimensionDetail;
-
-  /**
-   * Quota dimension detail.
-   */
   public_ips: QuotaDimensionDetail;
 
   /**

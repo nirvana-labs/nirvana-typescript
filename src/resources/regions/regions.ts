@@ -92,11 +92,6 @@ export namespace Region {
    */
   export interface Networking {
     /**
-     * Connect indicates if Nirvana Connect is available.
-     */
-    connect: boolean;
-
-    /**
      * VPCs indicates if Virtual Private Clouds are available.
      */
     vpcs: boolean;
@@ -157,11 +152,6 @@ export interface RegionListParams extends CursorParams {
    * Only regions where Virtual Machines are available
    */
   compute_vms?: boolean;
-
-  /**
-   * Only regions where Nirvana Connect is available
-   */
-  networking_connect?: boolean;
 
   /**
    * Only regions where VPCs are available
