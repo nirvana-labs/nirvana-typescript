@@ -42,7 +42,6 @@ describe('resource regions', () => {
           compute_vms: true,
           cursor: 'cursor',
           limit: 10,
-          networking_connect: true,
           networking_vpcs: true,
           nks_autoscaling: true,
           nks_clusters: true,

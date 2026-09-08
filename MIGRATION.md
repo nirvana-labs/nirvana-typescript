@@ -128,7 +128,6 @@ client.example.list(undefined, { headers: { ... } });
 - `client.compute.vms.osImages.list()`
 - `client.compute.vms.metrics.list()`
 - `client.networking.firewallRules.list()`
-- `client.networking.connect.routes.list()`
 - `client.rpcNodes.flex.blockchains.list()`
 - `client.rpcNodes.dedicated.blockchains.list()`
 - `client.nks.kubernetesVersions.list()`

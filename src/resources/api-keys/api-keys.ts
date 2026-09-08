@@ -198,7 +198,6 @@ export type APIPermissionResourceType =
   | 'vm'
   | 'vpc'
   | 'volume'
-  | 'connect_connection'
   | 'rpc_node_dedicated'
   | 'rpc_node_flex'
   | 'nks_cluster'

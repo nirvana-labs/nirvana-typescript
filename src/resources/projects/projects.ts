@@ -138,11 +138,6 @@ export interface ProjectBlockchainResources {
  */
 export interface ProjectCloudResources {
   /**
-   * Number of Connect connections in the project.
-   */
-  connect_connections: number;
-
-  /**
    * Number of NKS clusters in the project.
    */
   nks_clusters: number;
