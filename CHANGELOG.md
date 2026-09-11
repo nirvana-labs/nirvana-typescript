@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v2.0.0...v2.0.1) (2026-09-11)
+
+
+### Bug Fixes
+
+* **deps:** bump hono to 4.13.7 in the TS SDK to clear 3 GHSAs ([2a871be](https://github.com/nirvana-labs/nirvana-typescript/commit/2a871be744f878954d4c213424d0eda00a00cfd9))
+
 ## [2.0.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v1.98.9...v2.0.0) (2026-09-08)
 
 
