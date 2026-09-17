@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v2.0.1...v2.1.0) (2026-09-17)
+
+
+### Features
+
+* add admin and billing membership roles to the SDKs [CORE-4880] ([b6449c1](https://github.com/nirvana-labs/nirvana-typescript/commit/b6449c1ced4df800344a1c9761c38414c1734cfd))
+
+
+### Bug Fixes
+
+* **go:** update custom-code imports for the v2 module path ([b6449c1](https://github.com/nirvana-labs/nirvana-typescript/commit/b6449c1ced4df800344a1c9761c38414c1734cfd))
+
 ## [2.0.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v2.0.0...v2.0.1) (2026-09-11)
 
 
