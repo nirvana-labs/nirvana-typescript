@@ -79,7 +79,7 @@ export interface OrganizationMembership {
   /**
    * Role of the user in the organization.
    */
-  role: 'owner' | 'member';
+  role: 'owner' | 'admin' | 'billing' | 'member';
 
   /**
    * When the membership was updated.
@@ -112,7 +112,7 @@ export interface MembershipListParams extends CursorParams {
   /**
    * Filter by membership role
    */
-  role?: 'owner' | 'member';
+  role?: 'owner' | 'admin' | 'billing' | 'member';
 
   /**
    * Comma-separated sort terms in precedence order, each field:asc or field:desc.
