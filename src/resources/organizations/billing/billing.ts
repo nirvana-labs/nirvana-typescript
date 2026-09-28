@@ -77,9 +77,9 @@ export class Billing extends APIResource {
   }
 
   /**
-   * Charge the card on file and credit the prepaid balance. A unique Idempotency-Key
-   * header is required; reuse it across retries so a timed-out top-up is not charged
-   * twice.
+   * Charge the card on file and credit the prepaid balance. An Idempotency-Key
+   * header is required. Reuse the same key when retrying, so a top-up that timed out
+   * isn't charged twice.
    *
    * @example
    * ```ts

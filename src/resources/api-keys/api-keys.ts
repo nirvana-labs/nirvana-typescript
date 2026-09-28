@@ -206,7 +206,9 @@ export type APIPermissionResourceType =
   | 'api_key'
   | 'organization'
   | 'audit_log'
-  | 'usage';
+  | 'usage'
+  | 'billing'
+  | 'billing_x402';
 
 export interface APIKeyCreateParams {
   /**
