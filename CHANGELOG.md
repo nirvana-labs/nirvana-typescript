@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.2.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v2.1.2...v2.2.0) (2026-10-21)
+
+
+### Features
+
+* **stainless:** wire organization membership management into SDK config [CORE-4920] ([4e57055](https://github.com/nirvana-labs/nirvana-typescript/commit/4e57055ee0113cd86975763c61cb8b351f352de3))
+
+
+### Chores
+
+* update OpenAPI spec, sync tracking files and drop terraform for one cycle ([4e57055](https://github.com/nirvana-labs/nirvana-typescript/commit/4e57055ee0113cd86975763c61cb8b351f352de3))
+
 ## [2.1.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v2.1.1...v2.1.2) (2026-10-21)
 
 
