@@ -37,6 +37,142 @@
       ]
     },
     {
+      "base": "organizations.memberships",
+      "name": "update",
+      "params": [
+        {
+          "type": "param",
+          "key": "membership_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ],
+      "oldParams": [
+        {
+          "type": "param",
+          "key": "organization_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "membership_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ]
+    },
+    {
+      "base": "organizations.memberships",
+      "name": "delete",
+      "params": [
+        {
+          "type": "param",
+          "key": "membership_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ],
+      "oldParams": [
+        {
+          "type": "param",
+          "key": "organization_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "membership_id",
+          "location": "path"
+        },
+        {
+          "type": "options"
+        }
+      ]
+    },
+    {
+      "base": "organizations.memberships.invitations",
+      "name": "resend",
+      "params": [
+        {
+          "type": "param",
+          "key": "invitation_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ],
+      "oldParams": [
+        {
+          "type": "param",
+          "key": "organization_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "invitation_id",
+          "location": "path"
+        },
+        {
+          "type": "options"
+        }
+      ]
+    },
+    {
+      "base": "organizations.memberships.invitations",
+      "name": "delete",
+      "params": [
+        {
+          "type": "param",
+          "key": "invitation_id",
+          "location": "path"
+        },
+        {
+          "type": "params",
+          "maybeOverload": false
+        },
+        {
+          "type": "options"
+        }
+      ],
+      "oldParams": [
+        {
+          "type": "param",
+          "key": "organization_id",
+          "location": "path"
+        },
+        {
+          "type": "param",
+          "key": "invitation_id",
+          "location": "path"
+        },
+        {
+          "type": "options"
+        }
+      ]
+    },
+    {
       "base": "instanceTypes",
       "name": "get",
       "params": [

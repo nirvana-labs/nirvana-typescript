@@ -30,6 +30,8 @@ export {
   type OrganizationMembershipList,
   type MembershipGetParams,
   type MembershipListParams,
+  type MembershipUpdateParams,
+  type MembershipDeleteParams,
   type OrganizationMembershipsCursor,
-} from './memberships';
+} from './memberships/index';
 export { Organizations } from './organizations';

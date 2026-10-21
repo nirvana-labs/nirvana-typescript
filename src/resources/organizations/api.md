@@ -20,13 +20,29 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/organizations/memberships.ts">OrganizationMembership</a></code>
-- <code><a href="./src/resources/organizations/memberships.ts">OrganizationMembershipList</a></code>
+- <code><a href="./src/resources/organizations/memberships/memberships.ts">OrganizationMembership</a></code>
+- <code><a href="./src/resources/organizations/memberships/memberships.ts">OrganizationMembershipList</a></code>
 
 Methods:
 
-- <code title="get /v1/organizations/{organization_id}/memberships/{membership_id}">client.organizations.memberships.<a href="./src/resources/organizations/memberships.ts">get</a>(membershipID, { ...params }) -> OrganizationMembership</code>
-- <code title="get /v1/organizations/{organization_id}/memberships">client.organizations.memberships.<a href="./src/resources/organizations/memberships.ts">list</a>(organizationID, { ...params }) -> OrganizationMembershipsCursor</code>
+- <code title="get /v1/organizations/{organization_id}/memberships/{membership_id}">client.organizations.memberships.<a href="./src/resources/organizations/memberships/memberships.ts">get</a>(membershipID, { ...params }) -> OrganizationMembership</code>
+- <code title="get /v1/organizations/{organization_id}/memberships">client.organizations.memberships.<a href="./src/resources/organizations/memberships/memberships.ts">list</a>(organizationID, { ...params }) -> OrganizationMembershipsCursor</code>
+- <code title="patch /v1/organizations/{organization_id}/memberships/{membership_id}">client.organizations.memberships.<a href="./src/resources/organizations/memberships/memberships.ts">update</a>(membershipID, { ...params }) -> OrganizationMembership</code>
+- <code title="delete /v1/organizations/{organization_id}/memberships/{membership_id}">client.organizations.memberships.<a href="./src/resources/organizations/memberships/memberships.ts">delete</a>(membershipID, { ...params }) -> void</code>
+
+### Invitations
+
+Types:
+
+- <code><a href="./src/resources/organizations/memberships/invitations.ts">OrganizationInvitation</a></code>
+- <code><a href="./src/resources/organizations/memberships/invitations.ts">OrganizationInvitationList</a></code>
+
+Methods:
+
+- <code title="post /v1/organizations/{organization_id}/memberships/invitations">client.organizations.memberships.invitations.<a href="./src/resources/organizations/memberships/invitations.ts">create</a>(organizationID, { ...params }) -> OrganizationInvitation</code>
+- <code title="get /v1/organizations/{organization_id}/memberships/invitations">client.organizations.memberships.invitations.<a href="./src/resources/organizations/memberships/invitations.ts">list</a>(organizationID) -> OrganizationInvitationList</code>
+- <code title="post /v1/organizations/{organization_id}/memberships/invitations/{invitation_id}/resend">client.organizations.memberships.invitations.<a href="./src/resources/organizations/memberships/invitations.ts">resend</a>(invitationID, { ...params }) -> OrganizationInvitation</code>
+- <code title="delete /v1/organizations/{organization_id}/memberships/invitations/{invitation_id}">client.organizations.memberships.invitations.<a href="./src/resources/organizations/memberships/invitations.ts">delete</a>(invitationID, { ...params }) -> void</code>
 
 ## Address
 

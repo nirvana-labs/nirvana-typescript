@@ -48,6 +48,7 @@ describe('resource regions', () => {
           sort: 'sort',
           storage_abs: true,
           storage_local_nvme: true,
+          storage_longhorn: true,
         },
         { path: '/_stainless_unknown_path' },
       ),

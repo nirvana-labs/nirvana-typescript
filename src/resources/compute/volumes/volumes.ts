@@ -220,7 +220,7 @@ export interface VolumeList {
 /**
  * Type of the Volume.
  */
-export type VolumeType = 'nvme' | 'abs';
+export type VolumeType = 'nvme' | 'abs' | 'longhorn';
 
 export interface VolumeCreateParams {
   /**
@@ -266,7 +266,7 @@ export interface VolumeUpdateParams {
   name?: string;
 
   /**
-   * Size of the Volume in GB.
+   * Size of the Volume in GB. Longhorn volumes cannot be resized.
    */
   size?: number;
 
@@ -323,7 +323,7 @@ export interface VolumeListParams extends CursorParams {
   /**
    * Filter by storage type
    */
-  type?: 'nvme' | 'abs';
+  type?: 'nvme' | 'abs' | 'longhorn';
 
   /**
    * Filter by the VM the Volume is attached to

@@ -125,6 +125,11 @@ export namespace Region {
      * LocalNVMe indicates if locally-attached NVMe storage is available.
      */
     local_nvme: boolean;
+
+    /**
+     * Longhorn indicates if Longhorn replicated block storage is available.
+     */
+    longhorn: boolean;
   }
 }
 
@@ -183,6 +188,11 @@ export interface RegionListParams extends CursorParams {
    * Only regions where locally-attached NVMe storage is available
    */
   storage_local_nvme?: boolean;
+
+  /**
+   * Only regions where Longhorn replicated block storage is available
+   */
+  storage_longhorn?: boolean;
 }
 
 export declare namespace Regions {

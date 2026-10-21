@@ -113,6 +113,42 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/organizations/{organization_id}/memberships',
   },
   {
+    clientCallName: 'client.organizations.memberships.update',
+    fullyQualifiedName: 'organizations.memberships.update',
+    httpMethod: 'patch',
+    httpPath: '/v1/organizations/{organization_id}/memberships/{membership_id}',
+  },
+  {
+    clientCallName: 'client.organizations.memberships.delete',
+    fullyQualifiedName: 'organizations.memberships.delete',
+    httpMethod: 'delete',
+    httpPath: '/v1/organizations/{organization_id}/memberships/{membership_id}',
+  },
+  {
+    clientCallName: 'client.organizations.memberships.invitations.create',
+    fullyQualifiedName: 'organizations.memberships.invitations.create',
+    httpMethod: 'post',
+    httpPath: '/v1/organizations/{organization_id}/memberships/invitations',
+  },
+  {
+    clientCallName: 'client.organizations.memberships.invitations.list',
+    fullyQualifiedName: 'organizations.memberships.invitations.list',
+    httpMethod: 'get',
+    httpPath: '/v1/organizations/{organization_id}/memberships/invitations',
+  },
+  {
+    clientCallName: 'client.organizations.memberships.invitations.resend',
+    fullyQualifiedName: 'organizations.memberships.invitations.resend',
+    httpMethod: 'post',
+    httpPath: '/v1/organizations/{organization_id}/memberships/invitations/{invitation_id}/resend',
+  },
+  {
+    clientCallName: 'client.organizations.memberships.invitations.delete',
+    fullyQualifiedName: 'organizations.memberships.invitations.delete',
+    httpMethod: 'delete',
+    httpPath: '/v1/organizations/{organization_id}/memberships/invitations/{invitation_id}',
+  },
+  {
     clientCallName: 'client.organizations.address.create',
     fullyQualifiedName: 'organizations.address.create',
     httpMethod: 'post',

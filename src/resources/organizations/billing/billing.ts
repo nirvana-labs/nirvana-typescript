@@ -475,7 +475,7 @@ export interface BillingHistoryParams {
 
 export interface BillingTopUpParams {
   /**
-   * Body param: Amount to charge and credit, in USD. Must be greater than 0, at most
+   * Body param: Amount to charge and credit, in USD. Must be at least 1.00, at most
    * two decimal places, and at most 10000.
    */
   amount: string;
