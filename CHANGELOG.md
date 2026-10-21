@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v2.1.1...v2.1.2) (2026-10-21)
+
+
+### Bug Fixes
+
+* **deps:** clear Dependabot alerts in the TS SDK and config repo ([085cb51](https://github.com/nirvana-labs/nirvana-typescript/commit/085cb51ace9ea5fe971f4882f064c3bbb850377d))
+
 ## [2.1.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v2.1.0...v2.1.1) (2026-09-28)
 
 
