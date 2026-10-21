@@ -4,15 +4,6 @@ import { APIResource } from '../../core/resource';
 import * as Shared from '../shared';
 import * as AddressAPI from './address';
 import { Address, AddressCreateParams, AddressUpdateParams, OrganizationAddress } from './address';
-import * as MembershipsAPI from './memberships';
-import {
-  MembershipGetParams,
-  MembershipListParams,
-  Memberships,
-  OrganizationMembership,
-  OrganizationMembershipList,
-  OrganizationMembershipsCursor,
-} from './memberships';
 import * as BillingAPI from './billing/billing';
 import {
   Billing,
@@ -32,6 +23,17 @@ import {
   StatementProject,
   StatementResourceType,
 } from './billing/billing';
+import * as MembershipsAPI from './memberships/memberships';
+import {
+  MembershipDeleteParams,
+  MembershipGetParams,
+  MembershipListParams,
+  MembershipUpdateParams,
+  Memberships,
+  OrganizationMembership,
+  OrganizationMembershipList,
+  OrganizationMembershipsCursor,
+} from './memberships/memberships';
 import { APIPromise } from '../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../core/pagination';
 import { buildHeaders } from '../../internal/headers';
@@ -332,6 +334,8 @@ export declare namespace Organizations {
     type OrganizationMembershipsCursor as OrganizationMembershipsCursor,
     type MembershipGetParams as MembershipGetParams,
     type MembershipListParams as MembershipListParams,
+    type MembershipUpdateParams as MembershipUpdateParams,
+    type MembershipDeleteParams as MembershipDeleteParams,
   };
 
   export {

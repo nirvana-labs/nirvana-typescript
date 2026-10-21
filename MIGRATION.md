@@ -57,6 +57,10 @@ client.parents.children.retrieve('c_456', { parent_id: 'p_123' });
 <summary>This affects the following methods</summary>
 
 - `client.organizations.memberships.get()`
+- `client.organizations.memberships.update()`
+- `client.organizations.memberships.delete()`
+- `client.organizations.memberships.invitations.resend()`
+- `client.organizations.memberships.invitations.delete()`
 - `client.instanceTypes.get()`
 - `client.networking.firewallRules.get()`
 - `client.networking.firewallRules.update()`

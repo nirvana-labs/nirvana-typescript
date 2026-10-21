@@ -58,4 +58,48 @@ describe('resource memberships', () => {
       ),
     ).rejects.toThrow(NirvanaLabs.NotFoundError);
   });
+
+  // Mock server tests are disabled
+  test.skip('update: only required params', async () => {
+    const responsePromise = client.organizations.memberships.update('membership_id', {
+      organization_id: 'organization_id',
+      role: 'owner',
+    });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Mock server tests are disabled
+  test.skip('update: required and optional params', async () => {
+    const response = await client.organizations.memberships.update('membership_id', {
+      organization_id: 'organization_id',
+      role: 'owner',
+    });
+  });
+
+  // Mock server tests are disabled
+  test.skip('delete: only required params', async () => {
+    const responsePromise = client.organizations.memberships.delete('membership_id', {
+      organization_id: 'organization_id',
+    });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Mock server tests are disabled
+  test.skip('delete: required and optional params', async () => {
+    const response = await client.organizations.memberships.delete('membership_id', {
+      organization_id: 'organization_id',
+    });
+  });
 });

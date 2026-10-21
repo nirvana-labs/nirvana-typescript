@@ -159,6 +159,11 @@ export interface QuotaStorage {
    * Quota dimension detail.
    */
   local_nvme: QuotaDimensionDetail;
+
+  /**
+   * Quota dimension detail.
+   */
+  longhorn: QuotaDimensionDetail;
 }
 
 export interface QuotaListParams extends CursorParams {
