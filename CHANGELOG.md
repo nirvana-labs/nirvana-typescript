@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v2.2.0...v2.2.1) (2026-10-22)
+
+
+### Chores
+
+* **stlc:** move cli and terraform to the v2 Go SDK, restore terraform, drop membership cli skips [CORE-4996] ([d708c28](https://github.com/nirvana-labs/nirvana-typescript/commit/d708c28a92106b6bd360f8d5a3e3bbe2f72d8d09))
+
 ## [2.2.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v2.1.2...v2.2.0) (2026-10-21)
 
 
