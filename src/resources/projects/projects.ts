@@ -98,6 +98,12 @@ export interface Project {
   created_at: string;
 
   /**
+   * What manages the resource, or null when nothing does. A managed resource can be
+   * read but not changed.
+   */
+  managed_by: Project.ManagedBy | null;
+
+  /**
    * Project name.
    */
   name: string;
@@ -116,6 +122,24 @@ export interface Project {
    * When the Project was updated.
    */
   updated_at: string;
+}
+
+export namespace Project {
+  /**
+   * What manages the resource, or null when nothing does. A managed resource can be
+   * read but not changed.
+   */
+  export interface ManagedBy {
+    /**
+     * ID of the thing managing the resource.
+     */
+    id: string;
+
+    /**
+     * Kind of thing managing the resource.
+     */
+    type: 'sandbox_environment';
+  }
 }
 
 /**

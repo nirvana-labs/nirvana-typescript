@@ -150,6 +150,12 @@ export interface FirewallRule {
   destination_ports: Array<string>;
 
   /**
+   * What manages the resource, or null when nothing does. A managed resource can be
+   * read but not changed.
+   */
+  managed_by: FirewallRule.ManagedBy | null;
+
+  /**
    * Name of the Firewall Rule.
    */
   name: string;
@@ -184,6 +190,24 @@ export interface FirewallRule {
    * ID of the VPC the Firewall Rule belongs to.
    */
   vpc_id: string;
+}
+
+export namespace FirewallRule {
+  /**
+   * What manages the resource, or null when nothing does. A managed resource can be
+   * read but not changed.
+   */
+  export interface ManagedBy {
+    /**
+     * ID of the thing managing the resource.
+     */
+    id: string;
+
+    /**
+     * Kind of thing managing the resource.
+     */
+    type: 'sandbox_environment';
+  }
 }
 
 export interface FirewallRuleList {
