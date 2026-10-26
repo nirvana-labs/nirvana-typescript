@@ -178,6 +178,12 @@ export interface NKSCluster {
   kubernetes_version: string;
 
   /**
+   * What manages the resource, or null when nothing does. A managed resource can be
+   * read but not changed.
+   */
+  managed_by: NKSCluster.ManagedBy | null;
+
+  /**
    * Name of the Cluster.
    */
   name: string;
@@ -226,6 +232,24 @@ export interface NKSCluster {
    * ID of the VPC the Cluster is in.
    */
   vpc_id: string;
+}
+
+export namespace NKSCluster {
+  /**
+   * What manages the resource, or null when nothing does. A managed resource can be
+   * read but not changed.
+   */
+  export interface ManagedBy {
+    /**
+     * ID of the thing managing the resource.
+     */
+    id: string;
+
+    /**
+     * Kind of thing managing the resource.
+     */
+    type: 'sandbox_environment';
+  }
 }
 
 export interface NKSClusterList {

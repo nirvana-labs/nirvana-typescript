@@ -147,6 +147,12 @@ export interface VPC {
   firewall_rule_ids: Array<string>;
 
   /**
+   * What manages the resource, or null when nothing does. A managed resource can be
+   * read but not changed.
+   */
+  managed_by: VPC.ManagedBy | null;
+
+  /**
    * Name of the VPC.
    */
   name: string;
@@ -180,6 +186,24 @@ export interface VPC {
    * When the VPC was updated.
    */
   updated_at: string;
+}
+
+export namespace VPC {
+  /**
+   * What manages the resource, or null when nothing does. A managed resource can be
+   * read but not changed.
+   */
+  export interface ManagedBy {
+    /**
+     * ID of the thing managing the resource.
+     */
+    id: string;
+
+    /**
+     * Kind of thing managing the resource.
+     */
+    type: 'sandbox_environment';
+  }
 }
 
 export interface VPCList {
