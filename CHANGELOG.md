@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v2.2.1...v2.2.2) (2026-10-26)
+
+
+### Chores
+
+* **nirvana-api:** update OpenAPI spec ([0295660](https://github.com/nirvana-labs/nirvana-typescript/commit/02956606c1062c25d7ed0b1a773b12391f0d7621))
+
 ## [2.2.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v2.2.0...v2.2.1) (2026-10-22)
 
 
