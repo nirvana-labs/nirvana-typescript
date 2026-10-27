@@ -131,6 +131,21 @@ export interface OrganizationMembership {
   created_at: string;
 
   /**
+   * Email address of the user.
+   */
+  email: string;
+
+  /**
+   * First name of the user.
+   */
+  first_name: string | null;
+
+  /**
+   * Last name of the user.
+   */
+  last_name: string | null;
+
+  /**
    * Organization ID.
    */
   organization_id: string;
