@@ -42,6 +42,22 @@ export class Memberships extends APIResource {
   }
 
   /**
+   * Get the authenticated user's own membership in an organization, including their
+   * role. Available to every member of the organization, whatever their role.
+   *
+   * @example
+   * ```ts
+   * const organizationMembership =
+   *   await client.organizations.memberships.me(
+   *     'organization_id',
+   *   );
+   * ```
+   */
+  me(organizationID: string, options?: RequestOptions): APIPromise<OrganizationMembership> {
+    return this._client.get(path`/v1/organizations/${organizationID}/memberships/me`, options);
+  }
+
+  /**
    * List all memberships for an organization
    *
    * @example

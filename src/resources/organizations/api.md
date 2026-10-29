@@ -26,6 +26,7 @@ Types:
 Methods:
 
 - <code title="get /v1/organizations/{organization_id}/memberships/{membership_id}">client.organizations.memberships.<a href="./src/resources/organizations/memberships/memberships.ts">get</a>(membershipID, { ...params }) -> OrganizationMembership</code>
+- <code title="get /v1/organizations/{organization_id}/memberships/me">client.organizations.memberships.<a href="./src/resources/organizations/memberships/memberships.ts">me</a>(organizationID) -> OrganizationMembership</code>
 - <code title="get /v1/organizations/{organization_id}/memberships">client.organizations.memberships.<a href="./src/resources/organizations/memberships/memberships.ts">list</a>(organizationID, { ...params }) -> OrganizationMembershipsCursor</code>
 - <code title="patch /v1/organizations/{organization_id}/memberships/{membership_id}">client.organizations.memberships.<a href="./src/resources/organizations/memberships/memberships.ts">update</a>(membershipID, { ...params }) -> OrganizationMembership</code>
 - <code title="delete /v1/organizations/{organization_id}/memberships/{membership_id}">client.organizations.memberships.<a href="./src/resources/organizations/memberships/memberships.ts">delete</a>(membershipID, { ...params }) -> void</code>

@@ -126,6 +126,7 @@ const fuse = new Fuse(
     'client.organizations.memberships.delete',
     'client.organizations.memberships.get',
     'client.organizations.memberships.list',
+    'client.organizations.memberships.me',
     'client.organizations.memberships.update',
     'client.organizations.memberships.invitations.create',
     'client.organizations.memberships.invitations.delete',
