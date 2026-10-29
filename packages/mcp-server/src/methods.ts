@@ -107,6 +107,12 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/organizations/{organization_id}/memberships/{membership_id}',
   },
   {
+    clientCallName: 'client.organizations.memberships.me',
+    fullyQualifiedName: 'organizations.memberships.me',
+    httpMethod: 'get',
+    httpPath: '/v1/organizations/{organization_id}/memberships/me',
+  },
+  {
     clientCallName: 'client.organizations.memberships.list',
     fullyQualifiedName: 'organizations.memberships.list',
     httpMethod: 'get',
