@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v2.2.4...v2.3.0) (2026-10-29)
+
+
+### Features
+
+* add organizations.memberships.me to the SDKs [CORE-5031] ([eae7130](https://github.com/nirvana-labs/nirvana-typescript/commit/eae7130b0720b04bba8046829cc23f9f212f7ca1))
+
 ## [2.2.4](https://github.com/nirvana-labs/nirvana-typescript/compare/v2.2.3...v2.2.4) (2026-10-27)
 
 
