@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v2.3.1...v2.3.2) (2026-11-03)
+
+
+### Bug Fixes
+
+* **typescript:** reseal deps to clear open Dependabot alerts ([5fff598](https://github.com/nirvana-labs/nirvana-typescript/commit/5fff59853b6bdd5af0e635c36e604d543cc7a7b4))
+
 ## [2.3.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v2.3.0...v2.3.1) (2026-10-29)
 
 
