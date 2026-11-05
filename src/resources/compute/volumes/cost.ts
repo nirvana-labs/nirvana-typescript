@@ -89,7 +89,7 @@ export interface CostUpdateParams {
   name?: string;
 
   /**
-   * Size of the Volume in GB. Longhorn volumes cannot be resized.
+   * Size of the Volume in GB.
    */
   size?: number;
 

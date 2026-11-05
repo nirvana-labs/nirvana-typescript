@@ -241,6 +241,10 @@ const fuse = new Fuse(
     'client.nks.clusters.pools.nodes.volumes.get',
     'client.nks.clusters.pools.nodes.volumes.list',
     'client.nks.clusters.pools.volumes.list',
+    'client.sandboxClusters.disable',
+    'client.sandboxClusters.enable',
+    'client.sandboxClusters.get',
+    'client.sandboxClusters.list',
   ],
   { threshold: 1, shouldSort: true },
 );

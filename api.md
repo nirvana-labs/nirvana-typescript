@@ -39,3 +39,5 @@ Types:
 # [RPCNodes](src/resources/rpc-nodes/api.md)
 
 # [NKS](src/resources/nks/api.md)
+
+# [SandboxClusters](src/resources/sandbox-clusters/api.md)

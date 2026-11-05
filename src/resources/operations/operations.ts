@@ -111,7 +111,15 @@ export interface OperationFieldDiff {
 /**
  * Kind of Operation.
  */
-export type OperationKind = 'vm' | 'volume' | 'vpc' | 'firewall_rule' | 'nks_cluster' | 'nks_node_pool';
+export type OperationKind =
+  | 'vm'
+  | 'volume'
+  | 'vpc'
+  | 'firewall_rule'
+  | 'nks_cluster'
+  | 'nks_node_pool'
+  | 'sandbox_cluster'
+  | 'bucket';
 
 export interface OperationList {
   items: Array<Operation>;
@@ -160,7 +168,9 @@ export interface OperationListParams extends CursorParams {
     | 'nks_cluster'
     | 'nks_node_pool'
     | 'nks_load_balancer'
-    | 'nks_node';
+    | 'nks_node'
+    | 'sandbox_cluster'
+    | 'bucket';
 
   /**
    * Filter by the resource the operation acts on

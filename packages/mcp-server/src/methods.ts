@@ -808,6 +808,30 @@ export const sdkMethods: SdkMethod[] = [
     httpMethod: 'get',
     httpPath: '/v1/nks/clusters/{cluster_id}/pools/{pool_id}/volumes',
   },
+  {
+    clientCallName: 'client.sandboxClusters.list',
+    fullyQualifiedName: 'sandboxClusters.list',
+    httpMethod: 'get',
+    httpPath: '/v1/sandbox_clusters',
+  },
+  {
+    clientCallName: 'client.sandboxClusters.get',
+    fullyQualifiedName: 'sandboxClusters.get',
+    httpMethod: 'get',
+    httpPath: '/v1/sandbox_clusters/{region}',
+  },
+  {
+    clientCallName: 'client.sandboxClusters.enable',
+    fullyQualifiedName: 'sandboxClusters.enable',
+    httpMethod: 'put',
+    httpPath: '/v1/sandbox_clusters/{region}',
+  },
+  {
+    clientCallName: 'client.sandboxClusters.disable',
+    fullyQualifiedName: 'sandboxClusters.disable',
+    httpMethod: 'delete',
+    httpPath: '/v1/sandbox_clusters/{region}',
+  },
 ];
 
 function allowedMethodsForCodeTool(options: McpOptions | undefined): SdkMethod[] | undefined {
