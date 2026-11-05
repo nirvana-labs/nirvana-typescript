@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v2.3.2...v2.4.0) (2026-11-05)
+
+
+### Features
+
+* add sandbox_clusters to the SDKs and sync the OpenAPI spec ([d69b505](https://github.com/nirvana-labs/nirvana-typescript/commit/d69b505c87bf89bae20f6db16a84e24a807a91d3))
+
 ## [2.3.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v2.3.1...v2.3.2) (2026-11-03)
 
 
