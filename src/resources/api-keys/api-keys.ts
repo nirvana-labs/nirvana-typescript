@@ -198,6 +198,8 @@ export type APIPermissionResourceType =
   | 'vm'
   | 'vpc'
   | 'volume'
+  | 'bucket'
+  | 'object_storage_key'
   | 'rpc_node_dedicated'
   | 'rpc_node_flex'
   | 'nks_cluster'
@@ -208,7 +210,9 @@ export type APIPermissionResourceType =
   | 'audit_log'
   | 'usage'
   | 'billing'
-  | 'billing_x402';
+  | 'billing_x402'
+  | 'sandbox_cluster'
+  | 'sandbox';
 
 export interface APIKeyCreateParams {
   /**

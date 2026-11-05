@@ -350,7 +350,7 @@ export interface Pagination {
 /**
  * Region the resource is in.
  */
-export type RegionName = 'us-sva-2';
+export type RegionName = 'us-sva-2' | 'us-wdc-1';
 
 /**
  * Status of the resource.

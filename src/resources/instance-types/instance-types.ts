@@ -95,7 +95,7 @@ export interface InstanceTypeGetParams {
   /**
    * Region name
    */
-  region: 'us-sva-2';
+  region: 'us-sva-2' | 'us-wdc-1';
 }
 
 export interface InstanceTypeListParams extends CursorParams {

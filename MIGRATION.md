@@ -139,6 +139,7 @@ client.example.list(undefined, { headers: { ... } });
 - `client.nks.clusters.controllers.list()`
 - `client.nks.clusters.loadBalancers.list()`
 - `client.nks.clusters.pools.list()`
+- `client.sandboxClusters.list()`
 
 </details>
 
