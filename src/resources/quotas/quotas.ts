@@ -66,7 +66,11 @@ export interface Quota {
   region: Shared.RegionName;
 
   /**
-   * Storage quota.
+   * Storage quota. object_storage is the data stored in the organization's buckets
+   * in the region, in GB (10^9 bytes), rounded up per project. It is measured
+   * periodically, so it can trail recent writes by several minutes and can exceed
+   * the limit. New buckets cannot be created once used reaches the limit; a limit of
+   * 0 means object storage is not available to the organization in the region.
    */
   storage: QuotaStorage;
 }
@@ -147,7 +151,11 @@ export interface QuotaNKS {
 }
 
 /**
- * Storage quota.
+ * Storage quota. object_storage is the data stored in the organization's buckets
+ * in the region, in GB (10^9 bytes), rounded up per project. It is measured
+ * periodically, so it can trail recent writes by several minutes and can exceed
+ * the limit. New buckets cannot be created once used reaches the limit; a limit of
+ * 0 means object storage is not available to the organization in the region.
  */
 export interface QuotaStorage {
   /**
@@ -164,6 +172,11 @@ export interface QuotaStorage {
    * Quota dimension detail.
    */
   longhorn: QuotaDimensionDetail;
+
+  /**
+   * Quota dimension detail.
+   */
+  object_storage: QuotaDimensionDetail;
 }
 
 export interface QuotaListParams extends CursorParams {

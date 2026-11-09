@@ -200,11 +200,9 @@ export namespace VPC {
     id: string;
 
     /**
-     * Kind of thing managing the resource: a sandbox cluster, or managed_sandboxes for
-     * the project that holds an organization's sandbox clusters, identified by the
-     * organization ID.
+     * Kind of thing managing the resource.
      */
-    type: 'sandbox_cluster' | 'managed_sandboxes';
+    type: 'sandbox_cluster';
   }
 }
 

@@ -14,5 +14,6 @@ export { Quotas } from './quotas';
 export { RPCNodes } from './rpc-nodes/rpc-nodes';
 export { Regions } from './regions';
 export { SandboxClusters } from './sandbox-clusters';
+export { Storage } from './storage/storage';
 export { UsageResource } from './usage';
 export { UserResource } from './user/user';

@@ -41,3 +41,5 @@ Types:
 # [NKS](src/resources/nks/api.md)
 
 # [SandboxClusters](src/resources/sandbox-clusters/api.md)
+
+# [Storage](src/resources/storage/api.md)

@@ -9,8 +9,14 @@ const client = new NirvanaLabs({
 
 describe('resource sandboxClusters', () => {
   // Mock server tests are disabled
-  test.skip('list', async () => {
-    const responsePromise = client.sandboxClusters.list();
+  test.skip('create: only required params', async () => {
+    const responsePromise = client.sandboxClusters.create({
+      instance_type: 'n1-standard-8',
+      name: 'my-sandboxes',
+      node_count: 3,
+      project_id: '123e4567-e89b-12d3-a456-426614174000',
+      region: 'us-sva-2',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,23 +27,20 @@ describe('resource sandboxClusters', () => {
   });
 
   // Mock server tests are disabled
-  test.skip('list: request options and params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.sandboxClusters.list(
-        {
-          cursor: 'cursor',
-          limit: 10,
-          sort: 'sort',
-        },
-        { path: '/_stainless_unknown_path' },
-      ),
-    ).rejects.toThrow(NirvanaLabs.NotFoundError);
+  test.skip('create: required and optional params', async () => {
+    const response = await client.sandboxClusters.create({
+      instance_type: 'n1-standard-8',
+      name: 'my-sandboxes',
+      node_count: 3,
+      project_id: '123e4567-e89b-12d3-a456-426614174000',
+      region: 'us-sva-2',
+      tags: ['production', 'agents'],
+    });
   });
 
   // Mock server tests are disabled
   test.skip('get', async () => {
-    const responsePromise = client.sandboxClusters.get('us-sva-2');
+    const responsePromise = client.sandboxClusters.get('sandbox_cluster_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -48,37 +51,51 @@ describe('resource sandboxClusters', () => {
   });
 
   // Mock server tests are disabled
-  test.skip('enable: only required params', async () => {
-    const responsePromise = client.sandboxClusters.enable('us-sva-2', {
-      instance_type: 'n1-standard-8',
-      node_count: 3,
+  test.skip('update', async () => {
+    const responsePromise = client.sandboxClusters.update('sandbox_cluster_id', {});
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Mock server tests are disabled
+  test.skip('delete', async () => {
+    const responsePromise = client.sandboxClusters.delete('sandbox_cluster_id');
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Mock server tests are disabled
+  test.skip('list: only required params', async () => {
+    const responsePromise = client.sandboxClusters.list({ project_id: 'project_id' });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Mock server tests are disabled
+  test.skip('list: required and optional params', async () => {
+    const response = await client.sandboxClusters.list({
+      project_id: 'project_id',
+      cursor: 'cursor',
+      limit: 10,
+      name: 'name',
+      region: 'region',
+      sort: 'sort',
+      tags: ['string'],
     });
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // Mock server tests are disabled
-  test.skip('enable: required and optional params', async () => {
-    const response = await client.sandboxClusters.enable('us-sva-2', {
-      instance_type: 'n1-standard-8',
-      node_count: 3,
-    });
-  });
-
-  // Mock server tests are disabled
-  test.skip('disable', async () => {
-    const responsePromise = client.sandboxClusters.disable('us-sva-2');
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
   });
 });
