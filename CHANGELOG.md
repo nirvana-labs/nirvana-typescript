@@ -1,5 +1,22 @@
 # Changelog
 
+## [3.0.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v2.4.0...v3.0.0) (2026-11-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* **api:** manage sandbox clusters by ID
+
+### Features
+
+* add object storage to the SDKs ([0b1f95e](https://github.com/nirvana-labs/nirvana-typescript/commit/0b1f95e1c6ae25698c18b5b7c4f03ed747cd6c1c))
+* **api:** manage sandbox clusters by ID ([0b1f95e](https://github.com/nirvana-labs/nirvana-typescript/commit/0b1f95e1c6ae25698c18b5b7c4f03ed747cd6c1c))
+
+
+### Chores
+
+* **nirvana-api:** update OpenAPI spec ([0b1f95e](https://github.com/nirvana-labs/nirvana-typescript/commit/0b1f95e1c6ae25698c18b5b7c4f03ed747cd6c1c))
+
 ## [2.4.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v2.3.2...v2.4.0) (2026-11-05)
 
 
