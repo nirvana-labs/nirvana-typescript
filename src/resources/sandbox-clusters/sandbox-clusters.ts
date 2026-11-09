@@ -10,78 +10,95 @@ import { path } from '../../internal/utils/path';
 
 export class SandboxClusters extends APIResource {
   /**
-   * List the organization's sandbox clusters, one per region where sandboxes are
-   * enabled
+   * Create a Sandbox Cluster to run sandboxes on. The infrastructure it runs on is
+   * provisioned in a project the platform manages.
+   *
+   * @example
+   * ```ts
+   * const operation = await client.sandboxClusters.create({
+   *   instance_type: 'n1-standard-8',
+   *   name: 'my-sandboxes',
+   *   node_count: 3,
+   *   project_id: '123e4567-e89b-12d3-a456-426614174000',
+   *   region: 'us-sva-2',
+   * });
+   * ```
+   */
+  create(body: SandboxClusterCreateParams, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
+    return this._client.post('/v1/sandbox_clusters', { body, ...options });
+  }
+
+  /**
+   * Get a Sandbox Cluster
+   *
+   * @example
+   * ```ts
+   * const sandboxCluster = await client.sandboxClusters.get(
+   *   'sandbox_cluster_id',
+   * );
+   * ```
+   */
+  get(sandboxClusterID: string, options?: RequestOptions): APIPromise<SandboxCluster> {
+    return this._client.get(path`/v1/sandbox_clusters/${sandboxClusterID}`, options);
+  }
+
+  /**
+   * Update a Sandbox Cluster's name and tags
+   *
+   * @example
+   * ```ts
+   * const sandboxCluster = await client.sandboxClusters.update(
+   *   'sandbox_cluster_id',
+   * );
+   * ```
+   */
+  update(
+    sandboxClusterID: string,
+    body: SandboxClusterUpdateParams,
+    options?: RequestOptions,
+  ): APIPromise<SandboxCluster> {
+    return this._client.patch(path`/v1/sandbox_clusters/${sandboxClusterID}`, { body, ...options });
+  }
+
+  /**
+   * Delete a Sandbox Cluster, with its sandboxes and the infrastructure they run on.
+   *
+   * @example
+   * ```ts
+   * const operation = await client.sandboxClusters.delete(
+   *   'sandbox_cluster_id',
+   * );
+   * ```
+   */
+  delete(sandboxClusterID: string, options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
+    return this._client.delete(path`/v1/sandbox_clusters/${sandboxClusterID}`, options);
+  }
+
+  /**
+   * List the Sandbox Clusters in a project
    *
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const sandboxCluster of client.sandboxClusters.list()) {
+   * for await (const sandboxCluster of client.sandboxClusters.list(
+   *   { project_id: 'project_id' },
+   * )) {
    *   // ...
    * }
    * ```
    */
   list(
-    query: SandboxClusterListParams | null | undefined = {},
+    query: SandboxClusterListParams,
     options?: RequestOptions,
   ): PagePromise<SandboxClustersCursor, SandboxCluster> {
     return this._client.getAPIList('/v1/sandbox_clusters', Cursor<SandboxCluster>, { query, ...options });
-  }
-
-  /**
-   * Get the sandbox cluster in a region
-   *
-   * @example
-   * ```ts
-   * const sandboxCluster = await client.sandboxClusters.get(
-   *   'us-sva-2',
-   * );
-   * ```
-   */
-  get(region: 'us-sva-2' | 'us-wdc-1', options?: RequestOptions): APIPromise<SandboxCluster> {
-    return this._client.get(path`/v1/sandbox_clusters/${region}`, options);
-  }
-
-  /**
-   * Enable sandboxes in a region. This provisions the sandbox cluster they run on,
-   * in a project the platform manages.
-   *
-   * @example
-   * ```ts
-   * const operation = await client.sandboxClusters.enable(
-   *   'us-sva-2',
-   *   { instance_type: 'n1-standard-8', node_count: 3 },
-   * );
-   * ```
-   */
-  enable(
-    region: 'us-sva-2' | 'us-wdc-1',
-    body: SandboxClusterEnableParams,
-    options?: RequestOptions,
-  ): APIPromise<OperationsAPI.Operation> {
-    return this._client.put(path`/v1/sandbox_clusters/${region}`, { body, ...options });
-  }
-
-  /**
-   * Disable sandboxes in a region. This deletes the sandboxes and the infrastructure
-   * they run on.
-   *
-   * @example
-   * ```ts
-   * const operation = await client.sandboxClusters.disable(
-   *   'us-sva-2',
-   * );
-   * ```
-   */
-  disable(region: 'us-sva-2' | 'us-wdc-1', options?: RequestOptions): APIPromise<OperationsAPI.Operation> {
-    return this._client.delete(path`/v1/sandbox_clusters/${region}`, options);
   }
 }
 
 export type SandboxClustersCursor = Cursor<SandboxCluster>;
 
 /**
- * An organization's sandboxes in one region, and the infrastructure they run on.
+ * A cluster sandboxes run on, in one region.
  */
 export interface SandboxCluster {
   /**
@@ -90,19 +107,13 @@ export interface SandboxCluster {
   id: string;
 
   /**
-   * Hostname the Sandbox Cluster's sandbox API is served on, over HTTPS. Null until
-   * it is assigned.
-   */
-  api_hostname: string | null;
-
-  /**
    * When the Sandbox Cluster was created.
    */
   created_at: string;
 
   /**
-   * Hostname sandboxes' endpoints are served on, over HTTPS. Null until it is
-   * assigned.
+   * Hostname sandboxes' endpoints are served on over HTTPS, to allow in outbound
+   * firewalls. Null until assigned; a recreated Sandbox Cluster gets a new one.
    */
   gateway_hostname: string | null;
 
@@ -112,20 +123,19 @@ export interface SandboxCluster {
   instance_type: string;
 
   /**
+   * Name of the Sandbox Cluster.
+   */
+  name: string;
+
+  /**
    * Number of nodes the sandboxes run on.
    */
   node_count: number;
 
   /**
-   * ID of the project that holds the Sandbox Cluster's infrastructure.
+   * ID of the project the Sandbox Cluster is in.
    */
   project_id: string;
-
-  /**
-   * Public IP address sandbox traffic reaches the Sandbox Cluster on. Null until it
-   * is assigned.
-   */
-  public_ip: string | null;
 
   /**
    * Region the resource is in.
@@ -136,6 +146,11 @@ export interface SandboxCluster {
    * Status of the resource.
    */
   status: Shared.ResourceStatus;
+
+  /**
+   * Tags attached to the Sandbox Cluster.
+   */
+  tags: Array<string>;
 
   /**
    * When the Sandbox Cluster was last updated.
@@ -152,24 +167,77 @@ export interface SandboxClusterList {
   pagination: Shared.Pagination;
 }
 
-export interface SandboxClusterListParams extends CursorParams {
-  /**
-   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
-   * Fields: created_at, updated_at
-   */
-  sort?: string;
-}
-
-export interface SandboxClusterEnableParams {
+export interface SandboxClusterCreateParams {
   /**
    * Instance type of the nodes the sandboxes run on.
    */
   instance_type: string;
 
   /**
+   * Name of the Sandbox Cluster. Unique within its project.
+   */
+  name: string;
+
+  /**
    * Number of nodes the sandboxes run on.
    */
   node_count: number;
+
+  /**
+   * ID of the project to create the Sandbox Cluster in.
+   */
+  project_id: string;
+
+  /**
+   * Region the resource is in.
+   */
+  region: Shared.RegionName;
+
+  /**
+   * Tags to attach to the Sandbox Cluster.
+   */
+  tags?: Array<string>;
+}
+
+export interface SandboxClusterUpdateParams {
+  /**
+   * Name of the Sandbox Cluster. Unique within its project.
+   */
+  name?: string;
+
+  /**
+   * Tags to attach to the Sandbox Cluster.
+   */
+  tags?: Array<string>;
+}
+
+export interface SandboxClusterListParams extends CursorParams {
+  /**
+   * Project ID of resources to request
+   */
+  project_id: string;
+
+  /**
+   * Filter by a case-insensitive substring of the Sandbox Cluster name
+   */
+  name?: string;
+
+  /**
+   * Filter by region
+   */
+  region?: string;
+
+  /**
+   * Comma-separated sort terms in precedence order, each field:asc or field:desc.
+   * Fields: created_at, updated_at
+   */
+  sort?: string;
+
+  /**
+   * Filter by tags. Repeat the parameter to require several tags; a Sandbox Cluster
+   * must carry all of them.
+   */
+  tags?: Array<string>;
 }
 
 export declare namespace SandboxClusters {
@@ -177,7 +245,8 @@ export declare namespace SandboxClusters {
     type SandboxCluster as SandboxCluster,
     type SandboxClusterList as SandboxClusterList,
     type SandboxClustersCursor as SandboxClustersCursor,
+    type SandboxClusterCreateParams as SandboxClusterCreateParams,
+    type SandboxClusterUpdateParams as SandboxClusterUpdateParams,
     type SandboxClusterListParams as SandboxClusterListParams,
-    type SandboxClusterEnableParams as SandboxClusterEnableParams,
   };
 }

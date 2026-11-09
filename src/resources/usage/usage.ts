@@ -120,7 +120,8 @@ export type UsageResourceType =
   | 'vpc'
   | 'nks_cluster'
   | 'nks_node_pool'
-  | 'nks_load_balancer';
+  | 'nks_load_balancer'
+  | 'object_storage_user';
 
 export interface UsageListParams extends CursorParams {
   /**
@@ -152,7 +153,14 @@ export interface UsageListParams extends CursorParams {
   /**
    * Filter by the kind of resource metered
    */
-  resource_type?: 'vm' | 'volume' | 'vpc' | 'nks_cluster' | 'nks_node_pool' | 'nks_load_balancer';
+  resource_type?:
+    | 'vm'
+    | 'volume'
+    | 'vpc'
+    | 'nks_cluster'
+    | 'nks_node_pool'
+    | 'nks_load_balancer'
+    | 'object_storage_user';
 
   /**
    * Sort term as field:asc or field:desc. Field: created_at, the resource's earliest

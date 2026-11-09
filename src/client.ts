@@ -32,6 +32,7 @@ import { Quotas } from './resources/quotas/quotas';
 import { Regions } from './resources/regions/regions';
 import { RPCNodes } from './resources/rpc-nodes/rpc-nodes';
 import { SandboxClusters } from './resources/sandbox-clusters/sandbox-clusters';
+import { Storage } from './resources/storage/storage';
 import { UsageResource } from './resources/usage/usage';
 import { UserResource } from './resources/user/user';
 import { type Fetch } from './internal/builtin-types';
@@ -782,6 +783,7 @@ export class NirvanaLabs {
   rpcNodes: API.RPCNodes = new API.RPCNodes(this);
   nks: API.NKS = new API.NKS(this);
   sandboxClusters: API.SandboxClusters = new API.SandboxClusters(this);
+  storage: API.Storage = new API.Storage(this);
 }
 
 NirvanaLabs.UserResource = UserResource;
@@ -799,6 +801,7 @@ NirvanaLabs.Networking = Networking;
 NirvanaLabs.RPCNodes = RPCNodes;
 NirvanaLabs.NKS = NKS;
 NirvanaLabs.SandboxClusters = SandboxClusters;
+NirvanaLabs.Storage = Storage;
 
 export declare namespace NirvanaLabs {
   export type RequestOptions = Opts.RequestOptions;
@@ -835,6 +838,8 @@ export declare namespace NirvanaLabs {
   export { NKS as NKS };
 
   export { SandboxClusters as SandboxClusters };
+
+  export { Storage as Storage };
 
   export type CostQuote = API.CostQuote;
   export type CostQuoteUpdate = API.CostQuoteUpdate;
