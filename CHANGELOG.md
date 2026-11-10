@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v3.0.0...v3.0.1) (2026-11-10)
+
+
+### Bug Fixes
+
+* **go:** reseal lib/ custom code for the v3 module path ([76c1849](https://github.com/nirvana-labs/nirvana-typescript/commit/76c184964635e113f8f3e3523bc8a46e28b803ff))
+
 ## [3.0.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v2.4.0...v3.0.0) (2026-11-09)
 
 
