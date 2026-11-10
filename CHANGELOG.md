@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v3.0.2...v3.1.0) (2026-11-10)
+
+
+### Features
+
+* object storage in the CLI and Terraform provider [CORE-5047] ([22d89d8](https://github.com/nirvana-labs/nirvana-typescript/commit/22d89d8b9544009f52f3fbac3f78b7768c335234))
+
 ## [3.0.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v3.0.1...v3.0.2) (2026-11-10)
 
 
