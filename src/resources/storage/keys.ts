@@ -129,6 +129,11 @@ export interface ObjectStorageKey {
   region: Shared.RegionName;
 
   /**
+   * Status of the resource.
+   */
+  status: Shared.ResourceStatus;
+
+  /**
    * When the Object Storage Key was updated.
    */
   updated_at: string;
@@ -183,6 +188,11 @@ export interface ObjectStorageKeyWithSecret {
    * store it securely, or delete the key and create a new one if it is lost.
    */
   secret: string;
+
+  /**
+   * Status of the resource.
+   */
+  status: Shared.ResourceStatus;
 
   /**
    * When the Object Storage Key was updated.

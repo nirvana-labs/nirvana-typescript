@@ -144,6 +144,12 @@ export interface Bucket {
   region: Shared.RegionName;
 
   /**
+   * Region S3 clients must sign their requests for (the SigV4 region). Configure it
+   * as the region of any S3 client or SDK used with the Bucket.
+   */
+  signing_region: string;
+
+  /**
    * Total size of the objects in the Bucket, in bytes. Updated periodically, so it
    * can lag behind recent writes.
    */

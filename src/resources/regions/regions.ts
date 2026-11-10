@@ -130,6 +130,11 @@ export namespace Region {
      * Longhorn indicates if Longhorn replicated block storage is available.
      */
     longhorn: boolean;
+
+    /**
+     * Object storage (S3-compatible buckets) is available.
+     */
+    object: boolean;
   }
 }
 
@@ -193,6 +198,11 @@ export interface RegionListParams extends CursorParams {
    * Only regions where Longhorn replicated block storage is available
    */
   storage_longhorn?: boolean;
+
+  /**
+   * Only regions where object storage (S3-compatible buckets) is available
+   */
+  storage_object?: boolean;
 }
 
 export declare namespace Regions {
