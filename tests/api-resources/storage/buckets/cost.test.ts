@@ -30,6 +30,7 @@ describe('resource cost', () => {
       name: 'my-bucket',
       project_id: '123e4567-e89b-12d3-a456-426614174000',
       region: 'us-sva-2',
+      size_gb: 1000,
       tags: ['production', 'ethereum'],
     });
   });

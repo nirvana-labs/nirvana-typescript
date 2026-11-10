@@ -355,7 +355,15 @@ export type RegionName = 'us-sva-2' | 'us-wdc-1';
 /**
  * Status of the resource.
  */
-export type ResourceStatus = 'pending' | 'creating' | 'updating' | 'ready' | 'deleting' | 'deleted' | 'error';
+export type ResourceStatus =
+  | 'pending'
+  | 'creating'
+  | 'updating'
+  | 'ready'
+  | 'deleting'
+  | 'deleted'
+  | 'error'
+  | 'suspended';
 
 /**
  * IP filter rules.

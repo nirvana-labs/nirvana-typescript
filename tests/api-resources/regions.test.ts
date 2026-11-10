@@ -49,6 +49,7 @@ describe('resource regions', () => {
           storage_abs: true,
           storage_local_nvme: true,
           storage_longhorn: true,
+          storage_object: true,
         },
         { path: '/_stainless_unknown_path' },
       ),

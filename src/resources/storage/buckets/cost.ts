@@ -7,7 +7,8 @@ import { RequestOptions } from '../../../internal/request-options';
 
 export class Cost extends APIResource {
   /**
-   * Return a priced cost quote for the proposed Bucket.
+   * Return a priced monthly cost quote for the proposed Bucket storing size_gb of
+   * data. A Bucket is charged per GB it stores, prorated by the hour.
    *
    * @example
    * ```ts
@@ -42,6 +43,12 @@ export interface CostCreateParams {
    * Region the resource is in.
    */
   region: Shared.RegionName;
+
+  /**
+   * Amount of data to price the Bucket at storing, in GB (1 GB = 10^9 bytes). A
+   * Bucket is charged for what it stores, so a quote without it is empty.
+   */
+  size_gb?: number;
 
   /**
    * Tags to attach to the Bucket.
