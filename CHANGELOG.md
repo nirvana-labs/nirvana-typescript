@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v3.2.0...v3.3.0) (2026-11-12)
+
+
+### Features
+
+* **stlc:** ship sandbox_clusters.cost in the cli, pin nirvana-go v3.1.0 ([e40bec7](https://github.com/nirvana-labs/nirvana-typescript/commit/e40bec77f21c4a67de2d7409782d7dec18552a72))
+
 ## [3.2.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v3.1.0...v3.2.0) (2026-11-12)
 
 
