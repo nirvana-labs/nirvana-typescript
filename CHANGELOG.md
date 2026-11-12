@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.2.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v3.1.0...v3.2.0) (2026-11-12)
+
+
+### Features
+
+* **stlc:** map sandbox_clusters.cost.create ([5967b55](https://github.com/nirvana-labs/nirvana-typescript/commit/5967b5572e61296f89ac792ff71ee0a00bd35146))
+
+
+### Chores
+
+* **nirvana-api:** update OpenAPI spec ([5967b55](https://github.com/nirvana-labs/nirvana-typescript/commit/5967b5572e61296f89ac792ff71ee0a00bd35146))
+
 ## [3.1.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v3.0.2...v3.1.0) (2026-11-10)
 
 
