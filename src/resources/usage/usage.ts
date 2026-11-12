@@ -121,7 +121,8 @@ export type UsageResourceType =
   | 'nks_cluster'
   | 'nks_node_pool'
   | 'nks_load_balancer'
-  | 'object_storage_user';
+  | 'object_storage_user'
+  | 'sandbox_cluster';
 
 export interface UsageListParams extends CursorParams {
   /**
@@ -160,7 +161,8 @@ export interface UsageListParams extends CursorParams {
     | 'nks_cluster'
     | 'nks_node_pool'
     | 'nks_load_balancer'
-    | 'object_storage_user';
+    | 'object_storage_user'
+    | 'sandbox_cluster';
 
   /**
    * Sort term as field:asc or field:desc. Field: created_at, the resource's earliest

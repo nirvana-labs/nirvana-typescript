@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../core/resource';
+import * as QuotasAPI from './quotas';
 import * as Shared from '../shared';
 import { APIPromise } from '../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../core/pagination';
@@ -66,6 +67,12 @@ export interface Quota {
   region: Shared.RegionName;
 
   /**
+   * Sandbox quota. vcpu and memory_gb count the nodes of the organization's sandbox
+   * clusters in the region.
+   */
+  sandboxes: Quota.Sandboxes;
+
+  /**
    * Storage quota. object_storage is the data stored in the organization's buckets
    * in the region, in GB (10^9 bytes), rounded up per project. It is measured
    * periodically, so it can trail recent writes by several minutes and can exceed
@@ -73,6 +80,29 @@ export interface Quota {
    * 0 means object storage is not available to the organization in the region.
    */
   storage: QuotaStorage;
+}
+
+export namespace Quota {
+  /**
+   * Sandbox quota. vcpu and memory_gb count the nodes of the organization's sandbox
+   * clusters in the region.
+   */
+  export interface Sandboxes {
+    /**
+     * Quota dimension detail.
+     */
+    clusters: QuotasAPI.QuotaDimensionDetail;
+
+    /**
+     * Quota dimension detail.
+     */
+    memory_gb: QuotasAPI.QuotaDimensionDetail;
+
+    /**
+     * Quota dimension detail.
+     */
+    vcpu: QuotasAPI.QuotaDimensionDetail;
+  }
 }
 
 /**
