@@ -246,6 +246,7 @@ const fuse = new Fuse(
     'client.sandboxClusters.get',
     'client.sandboxClusters.list',
     'client.sandboxClusters.update',
+    'client.sandboxClusters.cost.create',
     'client.storage.buckets.create',
     'client.storage.buckets.delete',
     'client.storage.buckets.get',

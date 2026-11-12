@@ -3,12 +3,16 @@
 import { APIResource } from '../../core/resource';
 import * as Shared from '../shared';
 import * as OperationsAPI from '../operations/operations';
+import * as CostAPI from './cost';
+import { Cost, CostCreateParams } from './cost';
 import { APIPromise } from '../../core/api-promise';
 import { Cursor, type CursorParams, PagePromise } from '../../core/pagination';
 import { RequestOptions } from '../../internal/request-options';
 import { path } from '../../internal/utils/path';
 
 export class SandboxClusters extends APIResource {
+  cost: CostAPI.Cost = new CostAPI.Cost(this._client);
+
   /**
    * Create a Sandbox Cluster to run sandboxes on. The infrastructure it runs on is
    * provisioned in a project the platform manages.
@@ -240,6 +244,8 @@ export interface SandboxClusterListParams extends CursorParams {
   tags?: Array<string>;
 }
 
+SandboxClusters.Cost = Cost;
+
 export declare namespace SandboxClusters {
   export {
     type SandboxCluster as SandboxCluster,
@@ -249,4 +255,6 @@ export declare namespace SandboxClusters {
     type SandboxClusterUpdateParams as SandboxClusterUpdateParams,
     type SandboxClusterListParams as SandboxClusterListParams,
   };
+
+  export { Cost as Cost, type CostCreateParams as CostCreateParams };
 }

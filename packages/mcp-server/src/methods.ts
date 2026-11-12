@@ -839,6 +839,12 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/sandbox_clusters',
   },
   {
+    clientCallName: 'client.sandboxClusters.cost.create',
+    fullyQualifiedName: 'sandboxClusters.cost.create',
+    httpMethod: 'post',
+    httpPath: '/v1/sandbox_clusters/cost',
+  },
+  {
     clientCallName: 'client.storage.buckets.create',
     fullyQualifiedName: 'storage.buckets.create',
     httpMethod: 'post',
