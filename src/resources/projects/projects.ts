@@ -162,6 +162,11 @@ export interface ProjectBlockchainResources {
  */
 export interface ProjectCloudResources {
   /**
+   * Number of buckets in the project.
+   */
+  buckets: number;
+
+  /**
    * Number of NKS clusters in the project.
    */
   nks_clusters: number;
@@ -170,6 +175,21 @@ export interface ProjectCloudResources {
    * Number of NKS node pools in the project.
    */
   nks_node_pools: number;
+
+  /**
+   * Number of sandbox clusters in the project.
+   */
+  sandbox_clusters: number;
+
+  /**
+   * Number of worker nodes across the project's sandbox clusters.
+   */
+  sandbox_nodes: number;
+
+  /**
+   * Number of sandboxes in the project.
+   */
+  sandboxes: number;
 
   /**
    * Number of VMs in the project.
