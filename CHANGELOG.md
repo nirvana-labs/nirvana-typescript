@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.1](https://github.com/nirvana-labs/nirvana-typescript/compare/v3.3.0...v3.3.1) (2026-11-16)
+
+
+### Chores
+
+* **nirvana-api:** update OpenAPI spec ([8fe5c83](https://github.com/nirvana-labs/nirvana-typescript/commit/8fe5c83f3888e7a11581c3774e5a79e465ddd064))
+
 ## [3.3.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v3.2.0...v3.3.0) (2026-11-12)
 
 
