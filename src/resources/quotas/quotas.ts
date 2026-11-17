@@ -196,12 +196,12 @@ export interface QuotaStorage {
   /**
    * Quota dimension detail.
    */
-  local_nvme: QuotaDimensionDetail;
+  ceph: QuotaDimensionDetail;
 
   /**
    * Quota dimension detail.
    */
-  longhorn: QuotaDimensionDetail;
+  local_nvme: QuotaDimensionDetail;
 
   /**
    * Quota dimension detail.
