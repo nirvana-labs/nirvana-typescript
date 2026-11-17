@@ -220,7 +220,7 @@ export interface VolumeList {
 /**
  * Type of the Volume.
  */
-export type VolumeType = 'nvme' | 'abs' | 'longhorn';
+export type VolumeType = 'nvme' | 'abs' | 'ceph';
 
 export interface VolumeCreateParams {
   /**
@@ -323,7 +323,7 @@ export interface VolumeListParams extends CursorParams {
   /**
    * Filter by storage type
    */
-  type?: 'nvme' | 'abs' | 'longhorn';
+  type?: 'nvme' | 'abs' | 'ceph';
 
   /**
    * Filter by the VM the Volume is attached to

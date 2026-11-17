@@ -64,7 +64,7 @@ export interface VolumeListParams extends CursorParams {
   /**
    * Filter by storage type
    */
-  type?: 'nvme' | 'abs' | 'longhorn';
+  type?: 'nvme' | 'abs' | 'ceph';
 }
 
 export declare namespace Volumes {
