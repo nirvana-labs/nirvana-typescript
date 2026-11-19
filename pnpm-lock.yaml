@@ -9,13 +9,13 @@ overrides:
   flatted: ^3.4.3
   handlebars: ^4.7.10
   minimatch: ^9.0.7
-  node-forge: ^1.4.2
+  node-forge: ^1.4.3
   path-to-regexp: ^8.4.0
   picomatch: ^2.3.2
   tmp: ^0.2.6
   '@arethetypeswrong/cli': ^0.18.5
   '@babel/core': ^7.29.6
-  '@hono/node-server': ^2.1.3
+  '@hono/node-server': ^2.1.6
   '@humanfs/node': ^0.16.8
   '@modelcontextprotocol/sdk': ^1.32.0
   ajv@6: ^6.14.0
@@ -26,7 +26,7 @@ overrides:
   diff@4: ^4.0.4
   fast-copy: ^4.1.0
   fflate: ^0.8.3
-  hono: ^4.13.11
+  hono: ^4.13.16
   ip-address: ^10.7.4
   js-yaml@3: ^3.15.2
   js-yaml@4: ^4.3.2
@@ -104,8 +104,8 @@ importers:
         specifier: ^0.2.4
         version: 0.2.4
       '@hono/node-server':
-        specifier: ^2.1.3
-        version: 2.1.5(hono@4.13.14)
+        specifier: ^2.1.6
+        version: 2.1.9(hono@4.13.19)
       '@modelcontextprotocol/sdk':
         specifier: ^1.32.0
         version: 1.32.2(zod@4.6.7)
@@ -131,8 +131,8 @@ importers:
         specifier: ^7.1.0
         version: 7.1.0
       hono:
-        specifier: ^4.13.11
-        version: 4.13.14
+        specifier: ^4.13.16
+        version: 4.13.19
       jq-web:
         specifier: https://github.com/stainless-api/jq-web/releases/download/v0.8.8/jq-web.tar.gz
         version: https://github.com/stainless-api/jq-web/releases/download/v0.8.8/jq-web.tar.gz
@@ -688,14 +688,14 @@ packages:
       }
     engines: { node: ^18.18.0 || ^20.9.0 || >=21.1.0 }
 
-  '@hono/node-server@2.1.5':
+  '@hono/node-server@2.1.9':
     resolution:
       {
-        integrity: sha512-MgP/I06GdvsilDspMk/qmRzpk8LOUStP6jFAbSRi40W09DhoyUn+Mj7eyKICPqeYKybOjVFLVIAQzvu1bfIa7Q==,
+        integrity: sha512-Sk4NQd3GFY0WZWCzndwFMPwJhtD0y9qjsQ+pjID0/03nK9pxyBCUoUHCho8QYBLBVhi0ssL8UkNPHqbgSOFPIQ==,
       }
     engines: { node: '>=20' }
     peerDependencies:
-      hono: ^4.13.11
+      hono: ^4.13.16
 
   '@humanfs/core@0.19.2':
     resolution:
@@ -2711,10 +2711,10 @@ packages:
         integrity: sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==,
       }
 
-  hono@4.13.14:
+  hono@4.13.19:
     resolution:
       {
-        integrity: sha512-yhRLQ21U6qa9Hsu2N7Qcbh8tE+WKEcoErjIo56LeSGiGXGp9sA7UpE86Ui9uexb61KakiGwuHMn2QdV7w6i6kQ==,
+        integrity: sha512-KmXvQAXwcAHV+muzbIwoJ23niEB5nMoDVr9WcRkU8mvjUECm/1+7v4Jgp7P7a+H6MLFrh+vXrGonGrGS+RQfkA==,
       }
     engines: { node: '>=16.9.0' }
 
@@ -3518,10 +3518,10 @@ packages:
       }
     engines: { node: '>=18' }
 
-  node-forge@1.4.2:
+  node-forge@1.4.3:
     resolution:
       {
-        integrity: sha512-rRtAR5XLJ8gCKd9du4qrKAsgCG1ObGP4gLeNJMa4vYSeq4bmBMOJk5IHkrviBV0q7uoAJlVd8HEQYQSVUb4FGQ==,
+        integrity: sha512-P6wzfh6t70avmV8FrVEAd/36sOPJQ+hkaJVX1Laap9J/77m7M0eyozDvc8SwnDf4P7MP94gwbAAo0rg3YVXT+g==,
       }
     engines: { node: '>= 6.13.0' }
 
@@ -4782,7 +4782,7 @@ snapshots:
       fflate: 0.8.3
       galactus: 1.0.0
       ignore: 7.0.5
-      node-forge: 1.4.2
+      node-forge: 1.4.3
       pretty-bytes: 5.6.0
       zod: 4.6.7
       zod-to-json-schema: 3.25.0(zod@4.6.7)
@@ -5098,9 +5098,9 @@ snapshots:
       '@eslint/core': 0.17.0
       levn: 0.4.1
 
-  '@hono/node-server@2.1.5(hono@4.13.14)':
+  '@hono/node-server@2.1.9(hono@4.13.19)':
     dependencies:
-      hono: 4.13.14
+      hono: 4.13.19
 
   '@humanfs/core@0.19.2':
     dependencies:
@@ -5457,7 +5457,7 @@ snapshots:
 
   '@modelcontextprotocol/sdk@1.32.2(zod@4.6.7)':
     dependencies:
-      '@hono/node-server': 2.1.5(hono@4.13.14)
+      '@hono/node-server': 2.1.9(hono@4.13.19)
       ajv: 8.18.0
       ajv-formats: 3.0.1(ajv@8.18.0)
       content-type: 1.0.5
@@ -5467,7 +5467,7 @@ snapshots:
       eventsource-parser: 3.0.6
       express: 5.2.1
       express-rate-limit: 8.3.1(express@5.2.1)
-      hono: 4.13.14
+      hono: 4.13.19
       jose: 6.1.3
       json-schema-typed: 8.0.2
       pkce-challenge: 5.0.0
@@ -6504,7 +6504,7 @@ snapshots:
 
   highlight.js@10.7.3: {}
 
-  hono@4.13.14: {}
+  hono@4.13.19: {}
 
   html-escaper@2.0.2: {}
 
@@ -7195,7 +7195,7 @@ snapshots:
       emojilib: 2.4.0
       skin-tone: 2.0.0
 
-  node-forge@1.4.2: {}
+  node-forge@1.4.3: {}
 
   node-int64@0.4.0: {}
 
