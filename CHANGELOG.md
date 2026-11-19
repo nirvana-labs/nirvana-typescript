@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v3.3.2...v3.3.3) (2026-11-19)
+
+
+### Bug Fixes
+
+* **deps:** reseal TS, CLI and terraform to clear Dependabot alerts ([e404e3e](https://github.com/nirvana-labs/nirvana-typescript/commit/e404e3e24a3296dcfc5e0bd753283123ad73b8cb))
+
 ## [3.3.2](https://github.com/nirvana-labs/nirvana-typescript/compare/v3.3.1...v3.3.2) (2026-11-17)
 
 
