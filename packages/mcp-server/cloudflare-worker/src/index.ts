@@ -1,10 +1,17 @@
 import { makeOAuthConsent } from './app';
 // `agents` and `@modelcontextprotocol/sdk` versions must stay in sync with the
 // pins/overrides in package.json. `agents` declares an exact pin on
-// `@modelcontextprotocol/sdk`; if our resolved version drifts, npm installs a
-// second copy under `agents/node_modules/`, and `initMcpServer`'s runtime
-// `instanceof McpServer` check fails because the two `McpServer` classes are
-// distinct constructors.
+// `@modelcontextprotocol/sdk` (a peer dependency since agents 0.20.0; agents
+// 0.28.1 pins 1.32.1). If our resolved version drifts, a second SDK copy gets
+// installed, and `initMcpServer`'s runtime `instanceof McpServer` check fails
+// because the two `McpServer` classes are distinct constructors. `agents` is
+// pinned exactly as well, because an `agents` patch release can move its SDK
+// pin. To upgrade, pick an `agents` release, read its SDK pin with
+// `npm view agents@<version> peerDependencies`, and set all five values together.
+//
+// `McpAgent` is deprecated and feature-frozen upstream (agents 0.20.0) in favour
+// of an SDK v2 factory with `createMcpHandler` from `agents/mcp/server`. It is
+// still the stateful SDK v1 path that `initMcpServer` needs.
 import { McpAgent } from 'agents/mcp';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import OAuthProvider from '@cloudflare/workers-oauth-provider';
@@ -49,7 +56,7 @@ const INSTRUCTIONS_FETCH_TIMEOUT_MS = 5000;
 
 function fallbackMcpServer(): McpServer {
   return new McpServer(
-    { name: 'nirvana_labs_nirvana_api', version: '3.3.2' },
+    { name: 'nirvana_labs_nirvana_api', version: '3.3.3' },
     { capabilities: { tools: {}, logging: {} } },
   );
 }

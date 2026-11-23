@@ -123,6 +123,7 @@ export type UsageResourceType =
   | 'nks_load_balancer'
   | 'object_storage_user'
   | 'sandbox_cluster'
+  | 'sandbox_vm'
   | 'sandbox';
 
 export interface UsageListParams extends CursorParams {
