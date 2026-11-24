@@ -119,6 +119,7 @@ export type OperationKind =
   | 'nks_cluster'
   | 'nks_node_pool'
   | 'sandbox_cluster'
+  | 'sandbox_vm'
   | 'bucket';
 
 export interface OperationList {
@@ -138,7 +139,7 @@ export type OperationStatus = 'pending' | 'running' | 'done' | 'failed' | 'unkno
 /**
  * Type of Operation.
  */
-export type OperationType = 'create' | 'update' | 'delete' | 'restart';
+export type OperationType = 'create' | 'update' | 'delete' | 'restart' | 'pause' | 'resume';
 
 export interface OperationListParams extends CursorParams {
   /**

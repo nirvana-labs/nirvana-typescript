@@ -247,6 +247,11 @@ export interface OrganizationServices {
   jit_provisioning: boolean;
 
   /**
+   * Whether the organization can create sandbox VMs.
+   */
+  sandbox_vms: boolean;
+
+  /**
    * Whether SCIM provisioning is enabled for the organization.
    */
   scim: boolean;

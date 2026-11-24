@@ -18,22 +18,22 @@
   },
   "dependencies": {
     "@cloudflare/workers-oauth-provider": "^0.0.5",
-    "@modelcontextprotocol/sdk": "1.28.0",
-    "agents": "~0.8.7",
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "agents": "0.28.1",
     "hono": "^4.12.4",
     "@nirvana-labs/nirvana-mcp": "latest",
     "@nirvana-labs/nirvana": "latest"
   },
-  "// overrides": "agents pins @modelcontextprotocol/sdk exactly; the three override blocks below force npm/yarn/pnpm to dedupe to that same version. Keep all four @modelcontextprotocol/sdk values in sync. See src/index.ts for the full rationale.",
+  "// overrides": "agents pins @modelcontextprotocol/sdk exactly (as a peer dependency since agents 0.20.0); the three override blocks below force npm/yarn/pnpm to dedupe to that same version. agents is pinned exactly too, because a new agents patch can move its SDK pin. Keep agents and all four @modelcontextprotocol/sdk values in sync. See src/index.ts for the full rationale.",
   "overrides": {
-    "@modelcontextprotocol/sdk": "1.28.0"
+    "@modelcontextprotocol/sdk": "1.32.1"
   },
   "resolutions": {
-    "@modelcontextprotocol/sdk": "1.28.0"
+    "@modelcontextprotocol/sdk": "1.32.1"
   },
   "pnpm": {
     "overrides": {
-      "@modelcontextprotocol/sdk": "1.28.0"
+      "@modelcontextprotocol/sdk": "1.32.1"
     }
   }
 }

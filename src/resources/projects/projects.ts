@@ -187,6 +187,11 @@ export interface ProjectCloudResources {
   sandbox_nodes: number;
 
   /**
+   * Number of sandbox VMs in the project.
+   */
+  sandbox_vms: number;
+
+  /**
    * Number of sandboxes in the project.
    */
   sandboxes: number;

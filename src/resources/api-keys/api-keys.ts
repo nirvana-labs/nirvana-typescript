@@ -212,6 +212,7 @@ export type APIPermissionResourceType =
   | 'billing'
   | 'billing_x402'
   | 'sandbox_cluster'
+  | 'sandbox_vm'
   | 'sandbox';
 
 export interface APIKeyCreateParams {
