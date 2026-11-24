@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.3.4](https://github.com/nirvana-labs/nirvana-typescript/compare/v3.3.3...v3.3.4) (2026-11-24)
+
+
+### Bug Fixes
+
+* **deps:** bump MCP worker to agents 0.28.1 / @modelcontextprotocol/sdk 1.32.1 ([2c28c34](https://github.com/nirvana-labs/nirvana-typescript/commit/2c28c34e5b5f9a3bd8c156fc4a7c1178e4c0748d))
+
+
+### Chores
+
+* **nirvana-api:** update OpenAPI spec ([2c28c34](https://github.com/nirvana-labs/nirvana-typescript/commit/2c28c34e5b5f9a3bd8c156fc4a7c1178e4c0748d))
+
 ## [3.3.3](https://github.com/nirvana-labs/nirvana-typescript/compare/v3.3.2...v3.3.3) (2026-11-19)
 
 
