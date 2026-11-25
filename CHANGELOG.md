@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.5](https://github.com/nirvana-labs/nirvana-typescript/compare/v3.3.4...v3.3.5) (2026-11-25)
+
+
+### Bug Fixes
+
+* **ci:** sync SDK tracking files after partial generation failures ([2dfe2dc](https://github.com/nirvana-labs/nirvana-typescript/commit/2dfe2dc72ebefb4ea51a6e1190ea9c99583fe361))
+
 ## [3.3.4](https://github.com/nirvana-labs/nirvana-typescript/compare/v3.3.3...v3.3.4) (2026-11-24)
 
 
