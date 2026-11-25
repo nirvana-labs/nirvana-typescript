@@ -193,18 +193,21 @@ export interface BillingHistoryEntry {
 
   /**
    * Why this entry exists: for a grant, the funding flow ("first_charge",
-   * "auto_recharge", "manual_top_up", "manual_recharge") or "bonus_grant" for credit
-   * issued with no payment behind it; for an adjustment, the reason the balance was
-   * reduced ("refund", "dispute", "bonus_void" for issued credit withdrawn,
-   * "bonus_expiry" for credit that lapsed unspent). Null for adjustments with no
-   * recorded reason.
+   * "auto_recharge", "manual_top_up", "manual_recharge", "x402_top_up" for a top-up
+   * paid with an x402 stablecoin payment), "bonus_grant" for credit issued with no
+   * payment behind it, or "founders_grant" for credit earned through the startup
+   * credits program; for an adjustment, the reason the balance was reduced
+   * ("refund", "dispute", "bonus_void" for issued credit withdrawn, "bonus_expiry"
+   * for credit that lapsed unspent). Null for adjustments with no recorded reason.
    */
   purpose?:
     | 'first_charge'
     | 'auto_recharge'
     | 'manual_top_up'
     | 'manual_recharge'
+    | 'x402_top_up'
     | 'bonus_grant'
+    | 'founders_grant'
     | 'bonus_void'
     | 'bonus_expiry'
     | 'refund'

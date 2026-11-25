@@ -67,8 +67,9 @@ export interface Quota {
   region: Shared.RegionName;
 
   /**
-   * Sandbox quota. vcpu and memory_gb count the nodes of the organization's sandbox
-   * clusters in the region.
+   * Sandbox quota. vms counts the organization's Sandbox VMs in the region in every
+   * power state; vcpu and memory_gb count the nodes of its sandbox clusters and its
+   * running Sandbox VMs.
    */
   sandboxes: Quota.Sandboxes;
 
@@ -84,8 +85,9 @@ export interface Quota {
 
 export namespace Quota {
   /**
-   * Sandbox quota. vcpu and memory_gb count the nodes of the organization's sandbox
-   * clusters in the region.
+   * Sandbox quota. vms counts the organization's Sandbox VMs in the region in every
+   * power state; vcpu and memory_gb count the nodes of its sandbox clusters and its
+   * running Sandbox VMs.
    */
   export interface Sandboxes {
     /**
@@ -102,6 +104,11 @@ export namespace Quota {
      * Quota dimension detail.
      */
     vcpu: QuotasAPI.QuotaDimensionDetail;
+
+    /**
+     * Quota dimension detail.
+     */
+    vms: QuotasAPI.QuotaDimensionDetail;
   }
 }
 
