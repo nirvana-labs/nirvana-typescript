@@ -320,6 +320,12 @@ export interface OrganizationBillingSummary {
   monthly_cost: string;
 
   /**
+   * Credits the organization earns automatically through the startup credits
+   * program, one per step. Empty when the organization is not part of the program.
+   */
+  promotional_credits: Array<OrganizationBillingSummary.PromotionalCredit>;
+
+  /**
    * Arbitrary-precision decimal serialized as a string (e.g. "58.40").
    */
   recharge_threshold_days: string;
@@ -334,6 +340,31 @@ export interface OrganizationBillingSummary {
    * Arbitrary-precision decimal serialized as a string (e.g. "58.40").
    */
   runway_months?: string | null;
+}
+
+export namespace OrganizationBillingSummary {
+  /**
+   * Where an organization stands on one credit it can earn automatically.
+   */
+  export interface PromotionalCredit {
+    /**
+     * Arbitrary-precision decimal serialized as a string (e.g. "58.40").
+     */
+    amount: string;
+
+    /**
+     * Step that earns the credit: creating the organization, or saving a payment
+     * method on it.
+     */
+    kind: 'organization_created' | 'payment_method_added';
+
+    /**
+     * Whether the credit can still be earned ("available"), was earned and is being
+     * issued ("pending"), or was issued ("granted"). A granted credit reaches the
+     * balance shortly after it is issued.
+     */
+    status: 'available' | 'pending' | 'granted';
+  }
 }
 
 /**
