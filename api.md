@@ -42,4 +42,6 @@ Types:
 
 # [SandboxClusters](src/resources/sandbox-clusters/api.md)
 
+# [SandboxVMs](src/resources/sandbox-vms/api.md)
+
 # [Storage](src/resources/storage/api.md)

@@ -100,7 +100,7 @@ describe('resource volumes', () => {
       sort: 'sort',
       status: 'ready',
       tags: ['string'],
-      type: 'nvme',
+      type: 'abs',
       vm_id: 'vm_id',
     });
   });

@@ -56,7 +56,7 @@ const INSTRUCTIONS_FETCH_TIMEOUT_MS = 5000;
 
 function fallbackMcpServer(): McpServer {
   return new McpServer(
-    { name: 'nirvana_labs_nirvana_api', version: '3.3.5' },
+    { name: 'nirvana_labs_nirvana_api', version: '3.3.6' },
     { capabilities: { tools: {}, logging: {} } },
   );
 }

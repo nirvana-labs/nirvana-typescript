@@ -122,11 +122,6 @@ export namespace Region {
     abs: boolean;
 
     /**
-     * LocalNVMe indicates if locally-attached NVMe storage is available.
-     */
-    local_nvme: boolean;
-
-    /**
      * Object storage (S3-compatible buckets) is available.
      */
     object: boolean;
@@ -183,11 +178,6 @@ export interface RegionListParams extends CursorParams {
    * Only regions where Accelerated Block Storage is available
    */
   storage_abs?: boolean;
-
-  /**
-   * Only regions where locally-attached NVMe storage is available
-   */
-  storage_local_nvme?: boolean;
 
   /**
    * Only regions where object storage (S3-compatible buckets) is available

@@ -165,6 +165,7 @@ export interface UsageListParams extends CursorParams {
     | 'nks_load_balancer'
     | 'object_storage_user'
     | 'sandbox_cluster'
+    | 'sandbox_vm'
     | 'sandbox';
 
   /**

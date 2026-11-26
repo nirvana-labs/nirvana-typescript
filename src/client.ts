@@ -32,6 +32,7 @@ import { Quotas } from './resources/quotas/quotas';
 import { Regions } from './resources/regions/regions';
 import { RPCNodes } from './resources/rpc-nodes/rpc-nodes';
 import { SandboxClusters } from './resources/sandbox-clusters/sandbox-clusters';
+import { SandboxVMs } from './resources/sandbox-vms/sandbox-vms';
 import { Storage } from './resources/storage/storage';
 import { UsageResource } from './resources/usage/usage';
 import { UserResource } from './resources/user/user';
@@ -783,6 +784,7 @@ export class NirvanaLabs {
   rpcNodes: API.RPCNodes = new API.RPCNodes(this);
   nks: API.NKS = new API.NKS(this);
   sandboxClusters: API.SandboxClusters = new API.SandboxClusters(this);
+  sandboxVMs: API.SandboxVMs = new API.SandboxVMs(this);
   storage: API.Storage = new API.Storage(this);
 }
 
@@ -801,6 +803,7 @@ NirvanaLabs.Networking = Networking;
 NirvanaLabs.RPCNodes = RPCNodes;
 NirvanaLabs.NKS = NKS;
 NirvanaLabs.SandboxClusters = SandboxClusters;
+NirvanaLabs.SandboxVMs = SandboxVMs;
 NirvanaLabs.Storage = Storage;
 
 export declare namespace NirvanaLabs {
@@ -838,6 +841,8 @@ export declare namespace NirvanaLabs {
   export { NKS as NKS };
 
   export { SandboxClusters as SandboxClusters };
+
+  export { SandboxVMs as SandboxVMs };
 
   export { Storage as Storage };
 
