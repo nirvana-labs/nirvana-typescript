@@ -34,7 +34,7 @@ describe('resource volumes', () => {
           sort: 'sort',
           status: 'ready',
           tags: ['string'],
-          type: 'nvme',
+          type: 'abs',
         },
         { path: '/_stainless_unknown_path' },
       ),

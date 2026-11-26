@@ -171,6 +171,7 @@ export interface OperationListParams extends CursorParams {
     | 'nks_load_balancer'
     | 'nks_node'
     | 'sandbox_cluster'
+    | 'sandbox_vm'
     | 'bucket';
 
   /**
@@ -192,7 +193,7 @@ export interface OperationListParams extends CursorParams {
   /**
    * Filter by operation type
    */
-  type?: 'create' | 'update' | 'delete' | 'restart';
+  type?: 'create' | 'update' | 'delete' | 'restart' | 'pause' | 'resume';
 }
 
 export declare namespace Operations {

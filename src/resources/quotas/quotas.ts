@@ -203,11 +203,6 @@ export interface QuotaStorage {
   /**
    * Quota dimension detail.
    */
-  local_nvme: QuotaDimensionDetail;
-
-  /**
-   * Quota dimension detail.
-   */
   object_storage: QuotaDimensionDetail;
 }
 

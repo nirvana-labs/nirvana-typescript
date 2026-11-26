@@ -47,7 +47,6 @@ describe('resource regions', () => {
           nks_clusters: true,
           sort: 'sort',
           storage_abs: true,
-          storage_local_nvme: true,
           storage_object: true,
         },
         { path: '/_stainless_unknown_path' },
