@@ -135,12 +135,19 @@ export interface FirewallRule {
   id: string;
 
   /**
+   * What the Firewall Rule does with the traffic it matches. Rules you create allow
+   * traffic.
+   */
+  action: 'allow' | 'deny';
+
+  /**
    * When the Firewall Rule was created.
    */
   created_at: string;
 
   /**
-   * Destination address of the Firewall Rule. Either VPC CIDR or VM in VPC.
+   * Destination address of the Firewall Rule. For an ingress rule, either VPC CIDR
+   * or VM in VPC.
    */
   destination_address: string;
 
@@ -148,6 +155,12 @@ export interface FirewallRule {
    * Destination ports of the Firewall Rule.
    */
   destination_ports: Array<string>;
+
+  /**
+   * Direction of the traffic the Firewall Rule matches. Rules you create are ingress
+   * rules.
+   */
+  direction: 'ingress' | 'egress';
 
   /**
    * What manages the resource, or null when nothing does. A managed resource can be
@@ -167,7 +180,7 @@ export interface FirewallRule {
 
   /**
    * Source address of the Firewall Rule. Address of 0.0.0.0 requires a CIDR mask
-   * of 0.
+   * of 0. For an egress rule, the VPC CIDR.
    */
   source_address: string;
 
@@ -199,14 +212,16 @@ export namespace FirewallRule {
    */
   export interface ManagedBy {
     /**
-     * ID of the thing managing the resource.
+     * ID of the thing managing the resource. For a vpc_egress_policy, the ID of the
+     * VPC.
      */
     id: string;
 
     /**
-     * Kind of thing managing the resource.
+     * Kind of thing managing the resource. A vpc_egress_policy manages the Firewall
+     * Rules that block outbound traffic to ports commonly used for abuse.
      */
-    type: 'sandbox_cluster';
+    type: 'sandbox_cluster' | 'vpc_egress_policy';
   }
 }
 

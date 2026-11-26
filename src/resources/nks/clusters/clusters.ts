@@ -241,14 +241,16 @@ export namespace NKSCluster {
    */
   export interface ManagedBy {
     /**
-     * ID of the thing managing the resource.
+     * ID of the thing managing the resource. For a vpc_egress_policy, the ID of the
+     * VPC.
      */
     id: string;
 
     /**
-     * Kind of thing managing the resource.
+     * Kind of thing managing the resource. A vpc_egress_policy manages the Firewall
+     * Rules that block outbound traffic to ports commonly used for abuse.
      */
-    type: 'sandbox_cluster';
+    type: 'sandbox_cluster' | 'vpc_egress_policy';
   }
 }
 
