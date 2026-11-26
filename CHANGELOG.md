@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.4.0](https://github.com/nirvana-labs/nirvana-typescript/compare/v3.3.6...v3.4.0) (2026-11-26)
+
+
+### Features
+
+* **stlc:** map sandbox_vms and add the missing list-filter enums ([1a7e9e6](https://github.com/nirvana-labs/nirvana-typescript/commit/1a7e9e62fa39d8351aabe177587ab28aeeb64235))
+
+
+### Chores
+
+* **nirvana-api:** update OpenAPI spec ([1a7e9e6](https://github.com/nirvana-labs/nirvana-typescript/commit/1a7e9e62fa39d8351aabe177587ab28aeeb64235))
+
 ## [3.3.6](https://github.com/nirvana-labs/nirvana-typescript/compare/v3.3.5...v3.3.6) (2026-11-26)
 
 
